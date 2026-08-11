@@ -1,0 +1,33 @@
+{
+  "aesthetic_rating": 4.5,
+  "code_path": null,
+  "created_at": "2026-08-11T10:16:00Z",
+  "data_density": "medium",
+  "figure_type": "GroupedViolin",
+  "id": "4d2c99dd4a107724",
+  "image_path": "assets/visual-references/references/4d2c99dd4a107724/image.png",
+  "journal_style": "Nature",
+  "layout": "1x1",
+  "license": "synthetic-redraw",
+  "n_groups": 4,
+  "notes": "Raincloud visual grammar for GroupedViolin: half-violin + boxplot + jitter. Borrow layout, not figure type.",
+  "palette": "watercolor_bloom",
+  "palette_policy": "adaptable",
+  "production_ready": false,
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "4d2c99dd4a107724bd2aa4d2c316dce38b5ebc5ef52f92a1c22fe5af14d79c6f",
+  "source": "Allen et al., Wellcome Open Res (synthetic redraw)",
+  "source_url": "https://doi.org/10.12688/wellcomeopenres.15191.2",
+  "subtype": "raincloud",
+  "tags": [
+    "raincloud",
+    "violin",
+    "boxplot",
+    "jitter",
+    "half-violin",
+    "minimal",
+    "Nature"
+  ],
+  "usage_scope": "redistributable"
+}

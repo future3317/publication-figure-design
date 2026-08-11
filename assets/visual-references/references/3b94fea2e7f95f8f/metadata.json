@@ -1,0 +1,32 @@
+{
+  "aesthetic_rating": 4.5,
+  "code_path": null,
+  "created_at": "2026-08-11T10:16:00Z",
+  "data_density": "high",
+  "figure_type": "heatmap",
+  "id": "3b94fea2e7f95f8f",
+  "image_path": "assets/visual-references/references/3b94fea2e7f95f8f/image.png",
+  "journal_style": "Nature",
+  "layout": "1x1 with sidebars",
+  "license": "synthetic-redraw",
+  "n_groups": 3,
+  "notes": "ComplexHeatmap visual grammar for heatmap: clustered rows/columns + row/column annotation bars. Borrow layout and annotation, not figure type.",
+  "palette": "fresh_holiday",
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "3b94fea2e7f95f8fd871d90bf5af1022ced25ef2b427ef61aebe1cb7deaf8e31",
+  "source": "Gu et al., Bioinformatics (synthetic redraw)",
+  "source_url": "https://doi.org/10.1093/bioinformatics/btw313",
+  "subtype": "complexheatmap",
+  "tags": [
+    "complexheatmap",
+    "clustering",
+    "annotation",
+    "dendrogram",
+    "RdBu",
+    "dense"
+  ],
+  "usage_scope": "redistributable"
+}
