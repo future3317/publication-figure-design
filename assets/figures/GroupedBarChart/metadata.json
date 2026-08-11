@@ -1,0 +1,14 @@
+{
+  "id": "groupedbarchart_default",
+  "figure_type": "GroupedBarChart",
+  "variant": "default",
+  "asset_kind": "template",
+  "runtime": "python",
+  "dependencies": ["numpy", "pandas", "matplotlib"],
+  "data_shape": "long",
+  "grouping": "facet + category columns",
+  "preview": "BarWithSwarm.png",
+  "palette_policy": "adaptable",
+  "production_ready": true,
+  "notes": "Faceted bar chart with individual point swarm overlay. Expects CSV columns marker,value,facet. Good for COPY-FIRST after replacing the data."
+}
