@@ -1,0 +1,32 @@
+{
+  "aesthetic_rating": 4,
+  "code_path": "assets/visual-references/generated-archive/5c8ff3b28ea11b6e/code.py",
+  "created_at": "2026-08-11T13:56:42Z",
+  "data_density": "medium",
+  "figure_type": "GroupedViolin",
+  "id": "5c8ff3b28ea11b6e",
+  "image_path": "assets/visual-references/generated-archive/5c8ff3b28ea11b6e/image.png",
+  "journal_style": "Nature",
+  "layout": "1x1",
+  "license": "unknown",
+  "n_groups": 5,
+  "notes": "Synthetic reproduction of the WeChat grouped violin reference using matplotlib only. Generated with make_demo_data().",
+  "palette": "summer_beach",
+  "palette_policy": "adaptable",
+  "production_ready": true,
+  "review_status": "pending",
+  "scope": "generated-archive",
+  "sha256": "5c8ff3b28ea11b6e3a103b07795b101a42d51d949ca581761b249743a13e304f",
+  "source": "self-generated reproduction of WeChat reference",
+  "source_url": null,
+  "subtype": "synthetic_reproduction",
+  "tags": [
+    "synthetic",
+    "grouped-violin",
+    "raincloud",
+    "boxplot",
+    "significance-brackets",
+    "reproduction"
+  ],
+  "usage_scope": "internal_reference"
+}
