@@ -1,0 +1,14 @@
+{
+  "id": "heatmap_default",
+  "figure_type": "heatmap",
+  "variant": "default",
+  "asset_kind": "reusable",
+  "runtime": "python",
+  "dependencies": ["numpy", "matplotlib", "seaborn"],
+  "data_shape": "matrix",
+  "grouping": "row/column categories",
+  "preview": "composition_heatmap.png",
+  "palette_policy": "adaptable",
+  "production_ready": true,
+  "notes": "Two scripts: plot_composition.py uses a hard-coded nested DATA dict; plot_comparison.py loads from ./results. Both produce matrix heatmaps with seaborn and are good for VISUAL ADAPT after replacing the data matrix."
+}

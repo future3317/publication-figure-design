@@ -1,0 +1,14 @@
+{
+  "id": "pca_default",
+  "figure_type": "PCA",
+  "variant": "default",
+  "asset_kind": "example",
+  "runtime": "r",
+  "dependencies": ["ggplot2", "dplyr", "tidyr", "FactoMineR", "factoextra", "patchwork", "stringr"],
+  "data_shape": "long metabolite-by-sample",
+  "grouping": "category and size columns",
+  "preview": "plot_PCA_1.png",
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "notes": "R script tightly coupled to metabolite co-occurrence data and three specific TSV files. Use for PARAM INHERIT of PCA biplot style, ellipses, and contribution panels; do not naive-run without the expected input files."
+}

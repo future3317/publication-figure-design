@@ -214,12 +214,30 @@ Also read `references/journal-specs.md` for target dimensions (89mm single / 183
 
 1. **First, read `references/directory-map.md`.** This table maps user language (Chinese + English) to exact `assets/figures/<dir>/` paths. Find the user's description in the "Keywords" column → use the exact directory path. This prevents the #2 recurring bug: "柱状图" matching the wrong bar sub-directory.
 2. Verify with `ls assets/figures/<matched-dir>/` that the directory exists and has scripts.
-3. Check the matching directory for production scripts (`.py`, `.R`, `.r`).
-4. For each match, check if the script's language runtime is available (from Step 2).
-5. **Verify script can work with user data.** Read the script. Identify the script's "data entry points" — which variables receive external data (column names, data frames, file paths). Map them to the user's data columns. If the mapping exists but columns differ (e.g. script expects `length`/`number_of_cds` but user has `Pheno1`/`Pheno2`), mark as "visual adapt" — the script's visual system is preserved, only data mapping changes. Only mark as "incompatible" when the data STRUCTURE fundamentally differs (e.g. script expects paired X/Y CSV files but user has a single wide table).
-6. **Fallback:** Only if `directory-map.md` has no matching entry, fall back to scanning `ls assets/figures/` and matching directory names.
+3. **Read `assets/figures/<matched-dir>/metadata.json` if it exists.** This sidecar tells you whether the asset is a `template`, `reusable`, or `example`, and whether it is `production_ready`. Use it to decide reuse strategy BEFORE reading the full script. See `references/production-asset-metadata.md` for the schema.
+4. Check the matching directory for production scripts (`.py`, `.R`, `.r`).
+5. For each match, check if the script's language runtime is available (from Step 2).
+6. **Verify script can work with user data.** Read the script. Identify the script's "data entry points" — which variables receive external data (column names, data frames, file paths). Map them to the user's data columns. If the mapping exists but columns differ (e.g. script expects `length`/`number_of_cds` but user has `Pheno1`/`Pheno2`), mark as "visual adapt" — the script's visual system is preserved, only data mapping changes. Only mark as "incompatible" when the data STRUCTURE fundamentally differs (e.g. script expects paired X/Y CSV files but user has a single wide table).
+7. **Fallback:** Only if `directory-map.md` has no matching entry, fall back to scanning `ls assets/figures/` and matching directory names.
 
 Decision per panel:
+
+**Metadata shortcut (read `metadata.json` first if present):**
+
+```
+asset_kind = template AND production_ready = true
+    → strong COPY-FIRST candidate; still inspect data entry points.
+
+asset_kind = reusable
+    → inspect data entry points; COPY-FIRST only if structure clearly matches.
+
+asset_kind = example OR production_ready = false
+    → do NOT native-run on unrelated data.
+      Use VISUAL ADAPT / PARAM INHERIT / cross-type inheritance instead.
+
+metadata.json missing
+    → fall back to full-script inspection (existing behavior).
+```
 
 ```
 Panel type matched in assets/figures/<type>/
@@ -632,6 +650,7 @@ Generated adapters are in `install/`:
 | `references/revision-cases.md` | Figure type matches known case / "will this pass review" |
 | `references/multipanel-layout.md` | Multi-panel figures — anti-redundancy, hero panel, narrative |
 | `references/directory-map.md` | Step 4 — maps user language to exact figure directory paths |
+| `references/production-asset-metadata.md` | Step 4 — decide COPY-FIRST vs. visual adapt from metadata sidecar |
 | `references/figure-deconstruction.md` | Compositional inspiration |
 | `references/visual-reference-library.md` | Step 4.5 — visual reference retrieval rules and API |
 | `references/matplotlib.md` | Python/matplotlib/seaborn |

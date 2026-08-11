@@ -1,0 +1,14 @@
+{
+  "id": "stackedbarscatter_default",
+  "figure_type": "StackedBarScatter",
+  "variant": "default",
+  "asset_kind": "example",
+  "runtime": "python",
+  "dependencies": ["pandas", "matplotlib", "numpy", "scipy"],
+  "data_shape": "hard-coded",
+  "grouping": "three fixed groups",
+  "preview": "plot_StackedBarScatter_1.png",
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "notes": "Demo script with hard-coded three-group DataFrame. Useful for PARAM INHERIT of layout, jitter style, and significance bar logic, but do not naive-run on unrelated data."
+}

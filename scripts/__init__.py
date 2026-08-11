@@ -12,6 +12,11 @@ from .palette_manager import (
     set_default_palette,
     validate_palettes,
 )
+from .production_asset_manager import (
+    PRODUCTION_METADATA_FIELDS,
+    ProductionAsset,
+    ProductionAssetLibrary,
+)
 from .reference_library import (
     REFERENCE_METADATA_FIELDS,
     ReferenceLibrary,
@@ -31,6 +36,9 @@ __all__ = [
     "resolve_palette",
     "set_default_palette",
     "validate_palettes",
+    "PRODUCTION_METADATA_FIELDS",
+    "ProductionAsset",
+    "ProductionAssetLibrary",
     "REFERENCE_METADATA_FIELDS",
     "ReferenceLibrary",
     "VisualReference",
