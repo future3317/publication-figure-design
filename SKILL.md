@@ -7,6 +7,23 @@ description: "Academic-grade scientific figure creation for Nature/Cell/Science 
 
 Academic Figure Skill generates publication-grade scientific figures for Nature/Cell/Science family journals. Every figure starts from the scientific question, not from a template.
 
+## Task Dispatch
+
+Classify the user request into one of five modes. Do not force a simple task through the full create pipeline.
+
+| Mode | Trigger | Workflow |
+|---|---|---|
+| **create** | "画一个..." / "make a ... figure" / new figure from data | Full pipeline: Step -1 → Step 7 |
+| **revise** | "改这个图" / "把这条线变粗" / "换颜色" / "调整字号" | Jump to affected steps only. Read existing code/figure, apply change, run QA, re-export. |
+| **review** | "审稿人会怎么评价" / "will this pass review" | Reviewer Simulation Mode only. |
+| **export** | "导出 300 dpi PNG" / "转成 PDF" / "换尺寸" | Load existing figure/code, change export parameters, render, QA. |
+| **reference** | "存起来" / "收进参考库" / "找几个好看的 grouped violin" / "有没有 pastel 风格的 PCA 参考" | Use `scripts/reference_library.py` directly: `ingest`, `archive_generated_figure`, or `query`. |
+
+For **reference** mode, do not start a figure. Map the natural language to the existing API:
+- "把这张图存起来" / "这张我喜欢，收进参考库" → `ReferenceLibrary().ingest(...)` for external images; `archive_generated_figure(...)` for skill-generated images.
+- "找几个好看的 grouped violin" → `query(figure_type="GroupedViolin", ...)`.
+- "有没有 pastel 风格的 PCA 参考" → `query(figure_type="PCA", tags=["pastel"], ...)`.
+
 ## Design Principles
 
 **1. One figure, one core message.**
@@ -52,7 +69,12 @@ User request received
   Step 4: Production Asset Scan ←── ls assets/figures/. For EVERY panel in
        │                            the plan, check matching scripts.
        ▼
+  Step 4.5: Visual Reference Retrieval ←── Query assets/visual-references/
+       │                                  for palette, layout, annotation style.
+       │                                  Optional. If no match, continue.
+       ▼
   Step 5: Generate ←── COPY-FIRST for matching scripts → native run.
+       │              Combine production asset + visual reference visual plan.
        │              No match → cross-type inherit.
        ▼
   Step 5.5: Validate Data ←── Data sanity checks BEFORE rendering.
@@ -314,6 +336,66 @@ Correlation Scatter Scatter (basic)     point size, alpha, regression line style
 
 ---
 
+### Step 4.5: Visual Reference Retrieval (create mode only)
+
+After production assets are identified, optionally query `assets/visual-references/` for visual language inspiration.
+
+**When to skip:** revise, review, export, or reference mode. If the user gave no visual preference. If the library is empty. If no match is found.
+
+**When to query:**
+- User mentions a style: "pastel", "minimal", "Nature style", "bold"
+- User asks for a specific palette
+- User wants a layout hint for the chosen figure type
+- User wants to see how others have handled similar data density or group count
+
+**How to query (Python):**
+
+```python
+from scripts.reference_library import ReferenceLibrary
+
+refs = ReferenceLibrary().query(
+    figure_type="GroupedViolin",
+    tags=["pastel", "minimal"],
+    journal_style="Nature",
+    min_aesthetic_rating=3,
+    limit=3,
+)
+```
+
+**Query parameters to extract from the user request:**
+- `figure_type`: from Step 1 plan
+- `tags`: style keywords (pastel, minimal, bold, clean, dense, ...)
+- `journal_style`: if specified
+- `palette`: if specified
+- `layout`: if specified
+- `n_groups`: if the user mentions group count
+- `data_density`: low / medium / high, if inferable
+
+**Default limit:** 3 references. Do not load more.
+
+**How to apply a reference:**
+- Use it only for visual language: palette, layout, annotation, legend, spacing, highlight.
+- Do NOT override scientific semantics or data structure.
+- Do NOT force an incompatible figure type.
+- Respect `palette_policy`: `preserve` → keep reference palette logic unless user overrides; `adaptable` → may adjust via `palette_manager` or user preference.
+
+**Priority order:**
+1. User explicit requirements
+2. Scientific semantics and user data structure
+3. Production asset implementation
+4. Matching visual reference
+5. Skill default visual baseline
+
+Palette priority:
+1. User explicit colors
+2. User explicit palette
+3. Production / reference original palette
+4. Skill default palette
+
+If no reference matches, continue with the existing workflow.
+
+---
+
 ### Step 5: Generate Code
 
 **Asset Confirmation Table — MUST be the first lines of the generated script.**
@@ -405,7 +487,12 @@ Output:
 1. Complete code block
 2. QA self-check report
 3. Vector PDF master + 300dpi PNG preview
-4. **Statistics & Reproducibility Report** — for every quantitative panel:
+4. **Visual Source Report** — for every panel:
+   - Production asset: `[figure type]/[script file]` or `cross-type inherit`
+   - Visual reference: `vr_[id]` or `None`
+   - Palette: `[palette id]` or `None`
+   - Palette policy: `preserve` / `adaptable` / `N/A`
+5. **Statistics & Reproducibility Report** — for every quantitative panel:
    - n definition (what does each replicate represent?)
    - center statistic (mean? median?)
    - spread / interval (SD? SEM? 95% CI? — define which one was used)
@@ -513,6 +600,7 @@ Generated adapters are in `install/`:
 | `references/multipanel-layout.md` | Multi-panel figures — anti-redundancy, hero panel, narrative |
 | `references/directory-map.md` | Step 4 — maps user language to exact figure directory paths |
 | `references/figure-deconstruction.md` | Compositional inspiration |
+| `references/visual-reference-library.md` | Step 4.5 — visual reference retrieval rules and API |
 | `references/matplotlib.md` | Python/matplotlib/seaborn |
 | `references/complexheatmap.md` | R heatmaps |
 | `references/r-rendering.md` | R PNG output — cairo device, showtext off, spec-correct dimensions |
