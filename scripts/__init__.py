@@ -12,6 +12,13 @@ from .palette_manager import (
     set_default_palette,
     validate_palettes,
 )
+from .reference_library import (
+    REFERENCE_METADATA_FIELDS,
+    ReferenceLibrary,
+    VisualReference,
+    archive_generated_figure,
+    ingest_image,
+)
 
 __all__ = [
     "extend_palette",
@@ -23,4 +30,9 @@ __all__ = [
     "resolve_palette",
     "set_default_palette",
     "validate_palettes",
+    "REFERENCE_METADATA_FIELDS",
+    "ReferenceLibrary",
+    "VisualReference",
+    "archive_generated_figure",
+    "ingest_image",
 ]
