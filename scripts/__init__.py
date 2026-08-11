@@ -18,6 +18,7 @@ from .reference_library import (
     VisualReference,
     archive_generated_figure,
     ingest_image,
+    resolve_visual_style,
 )
 
 __all__ = [
@@ -35,4 +36,5 @@ __all__ = [
     "VisualReference",
     "archive_generated_figure",
     "ingest_image",
+    "resolve_visual_style",
 ]

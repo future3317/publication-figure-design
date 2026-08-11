@@ -377,20 +377,33 @@ refs = ReferenceLibrary().query(
 - Use it only for visual language: palette, layout, annotation, legend, spacing, highlight.
 - Do NOT override scientific semantics or data structure.
 - Do NOT force an incompatible figure type.
-- Respect `palette_policy`: `preserve` → keep reference palette logic unless user overrides; `adaptable` → may adjust via `palette_manager` or user preference.
+- Respect `palette_policy`:
+  - `preserve` → keep the reference palette as-is for this panel.
+  - `adaptable` → resolve through `palette_manager` so the palette can be adjusted or extended.
 
-**Priority order:**
-1. User explicit requirements
-2. Scientific semantics and user data structure
-3. Production asset implementation
-4. Matching visual reference
-5. Skill default visual baseline
-
-Palette priority:
+**Palette priority for new generated / adapted panels:**
 1. User explicit colors
 2. User explicit palette
-3. Production / reference original palette
+3. Visual reference original palette (when a matching reference is used)
 4. Skill default palette
+
+**Resolve colors in one call:**
+
+```python
+from scripts.reference_library import ReferenceLibrary
+
+style = ReferenceLibrary().resolve_visual_style(
+    figure_type="GroupedViolin",
+    reference_id=refs[0].id if refs else None,
+    user_colors=None,        # set if user gave explicit colors
+    user_palette=None,       # set if user asked for a specific palette
+    n=3,                     # number of categories
+)
+colors = style["colors"]     # final color list
+# style["palette"]          # palette id or None
+# style["palette_policy"]   # "preserve" | "adaptable" | None
+# style["source"]           # "user_colors" | "user_palette" | "reference" | "default"
+```
 
 If no reference matches, continue with the existing workflow.
 
@@ -431,6 +444,26 @@ For EVERY panel marked "native run" in the Asset Confirmation Table:
 - A drawing function whose name matches a panel marked "native run" in the table.
 - A drawing function that is a "simplified version" of a production script.
 - Importing functions from a production script instead of executing the whole script.
+
+**Palette integration for "param inherit" / "cross-type inherit" / new drawing functions**
+
+For panels where you write new drawing code (not "native run"):
+
+1. Determine the number of categories `n` from the data.
+2. Call `ReferenceLibrary().resolve_visual_style(...)` with:
+   - `figure_type`
+   - `reference_id` from the best matching visual reference (if any)
+   - `user_colors` if the user explicitly gave colors
+   - `user_palette` if the user explicitly asked for a palette
+   - `n`
+3. Use `style["colors"]` in the drawing function.
+4. Record `style["palette"]`, `style["palette_policy"]`, and `style["source"]` in the Visual Source Report.
+
+For **VISUAL ADAPT** (copy production script with column mapping):
+- Preserve the production asset's layout, dimensions, annotations, and export parameters.
+- If a matching reference has `palette_policy = preserve`, keep the production asset's original colors.
+- If a matching reference has `palette_policy = adaptable`, you may replace the color list with `resolve_visual_style(...)["colors"]` while keeping everything else unchanged.
+- Never let a reference change the figure type, statistical logic, or data structure.
 
 Script structure:
 ```

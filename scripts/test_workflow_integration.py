@@ -51,24 +51,22 @@ class TestSkillMdWorkflowHooks(unittest.TestCase):
         self.assertIn("Default limit:** 3 references", self.skill_md)
 
     def test_production_semantics_priority_over_visual_style(self):
-        # Priority order should mention scientific semantics before visual reference.
-        idx_science = self.skill_md.find("Scientific semantics")
-        idx_reference = self.skill_md.find("Matching visual reference")
-        self.assertGreater(idx_science, 0)
-        self.assertGreater(idx_reference, 0)
-        self.assertLess(idx_science, idx_reference)
+        # The instruction must state that scientific semantics cannot be overridden
+        # by a visual reference.
+        self.assertIn("Do NOT override scientific semantics or data structure", self.skill_md)
+        self.assertIn("Use it only for visual language", self.skill_md)
 
     def test_palette_priority_order(self):
         text = self.skill_md
-        # User explicit colors > user explicit palette > production/reference > default
+        # User explicit colors > user explicit palette > visual reference > default
         idx_user_colors = text.find("User explicit colors")
         idx_user_palette = text.find("User explicit palette")
-        idx_prod_ref = text.find("Production / reference original palette")
+        idx_ref = text.find("Visual reference original palette")
         idx_default = text.find("Skill default palette")
         self.assertGreater(idx_user_colors, 0)
         self.assertGreater(idx_user_palette, idx_user_colors)
-        self.assertGreater(idx_prod_ref, idx_user_palette)
-        self.assertGreater(idx_default, idx_prod_ref)
+        self.assertGreater(idx_ref, idx_user_palette)
+        self.assertGreater(idx_default, idx_ref)
 
     def test_palette_policy_preserve_and_adaptable_mentioned(self):
         self.assertIn("palette_policy", self.skill_md)
@@ -198,6 +196,100 @@ class TestWorkflowReferenceQueries(unittest.TestCase):
 
         refs = self.lib.query(figure_type="GroupedViolin", n_groups=3)
         self.assertEqual(len(refs), 0)
+
+    def test_resolve_visual_style_user_colors_win(self):
+        src = self._make_image("ref_colors.png", b"\x89PNG\r\n\x1a\nREFCLR")
+        ref = self.lib.ingest(
+            src,
+            "GroupedViolin",
+            metadata_override={"palette": "summer_beach", "palette_policy": "preserve"},
+        )
+        style = self.lib.resolve_visual_style(
+            "GroupedViolin",
+            reference_id=ref.id,
+            user_colors=["#111111", "#222222", "#333333"],
+            n=3,
+        )
+        self.assertEqual(style["source"], "user_colors")
+        self.assertEqual(style["colors"], ["#111111", "#222222", "#333333"])
+
+    def test_resolve_visual_style_user_palette_wins_over_reference(self):
+        src = self._make_image("ref_palette.png", b"\x89PNG\r\n\x1a\nREFPAL")
+        ref = self.lib.ingest(
+            src,
+            "GroupedViolin",
+            metadata_override={"palette": "summer_beach", "palette_policy": "preserve"},
+        )
+        style = self.lib.resolve_visual_style(
+            "GroupedViolin",
+            reference_id=ref.id,
+            user_palette="sweet_macaron",
+            n=3,
+        )
+        self.assertEqual(style["source"], "user_palette")
+        self.assertEqual(style["palette"], "sweet_macaron")
+        self.assertEqual(len(style["colors"]), 3)
+        # sweet_macaron first three colors
+        self.assertEqual(style["colors"][0], "#F7A6AC")
+
+    def test_resolve_visual_style_preserve_uses_reference_palette(self):
+        src = self._make_image("preserve_ref.png", b"\x89PNG\r\n\x1a\nPRESERVE")
+        ref = self.lib.ingest(
+            src,
+            "GroupedViolin",
+            metadata_override={"palette": "summer_beach", "palette_policy": "preserve"},
+        )
+        style = self.lib.resolve_visual_style("GroupedViolin", reference_id=ref.id, n=3)
+        self.assertEqual(style["source"], "reference")
+        self.assertEqual(style["palette_policy"], "preserve")
+        self.assertEqual(style["colors"], ["#FC757B", "#F97F5F", "#FAA26F"])
+
+    def test_resolve_visual_style_adaptable_uses_reference_palette(self):
+        src = self._make_image("adaptable_ref.png", b"\x89PNG\r\n\x1a\nADAPTABLE")
+        ref = self.lib.ingest(
+            src,
+            "GroupedViolin",
+            metadata_override={"palette": "summer_beach", "palette_policy": "adaptable"},
+        )
+        style = self.lib.resolve_visual_style("GroupedViolin", reference_id=ref.id, n=3)
+        self.assertEqual(style["source"], "reference")
+        self.assertEqual(style["palette_policy"], "adaptable")
+        self.assertEqual(style["colors"], ["#FC757B", "#F97F5F", "#FAA26F"])
+
+    def test_resolve_visual_style_no_reference_falls_back_to_default(self):
+        style = self.lib.resolve_visual_style("GroupedViolin", n=3)
+        self.assertEqual(style["source"], "default")
+        self.assertEqual(len(style["colors"]), 3)
+
+    def test_resolve_visual_style_deterministic(self):
+        src = self._make_image("det.png", b"\x89PNG\r\n\x1a\nDET")
+        ref = self.lib.ingest(
+            src,
+            "GroupedViolin",
+            metadata_override={"palette": "summer_beach", "palette_policy": "preserve"},
+        )
+        s1 = self.lib.resolve_visual_style("GroupedViolin", reference_id=ref.id, n=3)
+        s2 = self.lib.resolve_visual_style("GroupedViolin", reference_id=ref.id, n=3)
+        self.assertEqual(s1["colors"], s2["colors"])
+
+
+class TestComposePaletteIntegration(unittest.TestCase):
+    """Verify compose.py can safely consume palette_manager palettes."""
+
+    def test_compose_get_palette_uses_journal_default_without_palette_arg(self):
+        from compose import get_palette
+        colors = get_palette(3, role="categorical")
+        self.assertEqual(colors, ["#2166AC", "#B2182B", "#1B7837"])
+
+    def test_compose_get_palette_can_use_palette_manager(self):
+        from compose import get_palette
+        colors = get_palette(3, role="categorical", palette="summer_beach")
+        self.assertEqual(colors, ["#FC757B", "#F97F5F", "#FAA26F"])
+
+    def test_compose_sequential_unaffected_by_palette_arg(self):
+        from compose import get_palette, SEQUENTIAL
+        colors = get_palette(3, role="sequential", palette="summer_beach")
+        self.assertEqual(colors, SEQUENTIAL)
 
 
 if __name__ == "__main__":

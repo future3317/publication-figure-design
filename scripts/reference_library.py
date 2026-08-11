@@ -36,7 +36,7 @@ import shutil
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Tuple
+from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
 try:
     from .palette_manager import list_palettes, _normalize_name as _resolve_palette_name
@@ -652,6 +652,89 @@ class ReferenceLibrary:
                 refs.append(ref)
         return refs
 
+    def resolve_visual_style(
+        self,
+        figure_type: str,
+        reference_id: Optional[str] = None,
+        user_colors: Optional[Sequence[str]] = None,
+        user_palette: Optional[str] = None,
+        n: Optional[int] = None,
+    ) -> Dict[str, Any]:
+        """Resolve colors and palette provenance for a new generated panel.
+
+        Priority (highest first):
+        1. ``user_colors`` — explicit user-supplied colors are returned as-is.
+        2. ``user_palette`` — explicit user palette id / Chinese alias.
+        3. Visual reference original palette (``reference_id``):
+           - ``palette_policy = preserve`` → use the reference palette as-is.
+           - ``palette_policy = adaptable`` → resolve through ``palette_manager``
+             so the palette can be adjusted or extended.
+        4. Skill default palette.
+
+        Native-run production assets are NOT passed through this function; their
+        hard-coded colors are preserved as visual snapshots.
+
+        Returns
+        -------
+        dict
+            {
+                "colors": [...],
+                "palette": palette_id or None,
+                "palette_policy": "preserve" | "adaptable" | None,
+                "source": "user_colors" | "user_palette" | "reference" | "default",
+            }
+        """
+        try:
+            from .palette_manager import resolve_colors, resolve_palette
+        except ImportError:  # pragma: no cover - allow standalone import during dev
+            from palette_manager import resolve_colors, resolve_palette
+
+        # 1. User explicit colors win.
+        if user_colors is not None and len(user_colors) > 0:
+            return {
+                "colors": list(user_colors),
+                "palette": None,
+                "palette_policy": None,
+                "source": "user_colors",
+            }
+
+        # 2. User explicit palette.
+        if user_palette is not None:
+            return {
+                "colors": resolve_colors(palette=user_palette, n=n),
+                "palette": user_palette,
+                "palette_policy": "adaptable",  # user palette is adjustable
+                "source": "user_palette",
+            }
+
+        # 3. Visual reference palette (only for new generated / adapted panels).
+        ref = self.get(reference_id) if reference_id else None
+        if ref is not None and ref.metadata.get("palette") is not None:
+            ref_palette = ref.metadata["palette"]
+            policy = ref.metadata.get("palette_policy", "preserve")
+            if policy == "preserve":
+                return {
+                    "colors": resolve_colors(palette=ref_palette, n=n),
+                    "palette": ref_palette,
+                    "palette_policy": "preserve",
+                    "source": "reference",
+                }
+            # adaptable: resolve through palette manager so it can extend/adjust.
+            return {
+                "colors": resolve_colors(palette=ref_palette, n=n),
+                "palette": ref_palette,
+                "palette_policy": "adaptable",
+                "source": "reference",
+            }
+
+        # 4. Skill default palette.
+        return {
+            "colors": resolve_palette(n=n),
+            "palette": None,
+            "palette_policy": None,
+            "source": "default",
+        }
+
     def validate(self) -> Tuple[bool, List[Tuple[str, List[str]]]]:
         """Validate every side-car metadata file."""
         problems: List[Tuple[str, List[str]]] = []
@@ -725,6 +808,23 @@ def archive_generated_figure(
         code_path=code_path,
         metadata_override=metadata_override,
         copy=copy,
+    )
+
+
+def resolve_visual_style(
+    figure_type: str,
+    reference_id: Optional[str] = None,
+    user_colors: Optional[Sequence[str]] = None,
+    user_palette: Optional[str] = None,
+    n: Optional[int] = None,
+) -> Dict[str, Any]:
+    """Module-level helper to resolve colors for a new generated panel."""
+    return ReferenceLibrary().resolve_visual_style(
+        figure_type=figure_type,
+        reference_id=reference_id,
+        user_colors=user_colors,
+        user_palette=user_palette,
+        n=n,
     )
 
 

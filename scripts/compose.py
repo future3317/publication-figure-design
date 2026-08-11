@@ -193,11 +193,18 @@ UNIFIED_RCPARAMS = _unified_rcparams(4)  # default for 4 panels
 _active_journal_palette: dict | None = None
 
 
-def get_palette(n: int, role: str = "categorical") -> list[str]:
-    """Return journal-safe colors for Nature/Cell/Science-style figures.
+def get_palette(n: int, role: str = "categorical", palette: str | None = None) -> list[str]:
+    """Return colors for Nature/Cell/Science-style figures.
 
-    When compose_figure(journal="Nature") is used, colors come from the
-    journal-specific palette. Otherwise the Academic Figure Skill default palette is used.
+    When ``palette`` is provided (e.g. a ``palette_manager`` id or Chinese
+    alias), it takes precedence for categorical roles.  This lets new generated
+    code and VISUAL ADAPT panels use the skill's categorical palette manager
+    without touching the journal-safe defaults used by native-run production
+    scripts.
+
+    When ``compose_figure(journal="Nature")`` is used, colors come from the
+    journal-specific palette. Otherwise the Academic Figure Skill default
+    palette is used.
     """
     if role == "sequential":
         return (_active_journal_palette or {}).get("SEQUENTIAL", SEQUENTIAL)[:]
@@ -205,6 +212,18 @@ def get_palette(n: int, role: str = "categorical") -> list[str]:
         return (_active_journal_palette or {}).get("DIVERGING", DIVERGING)[:]
     if role not in ("categorical",):
         raise ValueError(f"Unknown palette role: {role!r}. Use 'categorical', 'sequential', or 'diverging'.")
+
+    # Optional integration with the categorical palette manager.
+    if palette is not None:
+        try:
+            from .palette_manager import get_palette as pm_get_palette
+        except ImportError:  # pragma: no cover - standalone import during dev
+            from palette_manager import get_palette as pm_get_palette
+        try:
+            return pm_get_palette(palette, n=n)
+        except Exception:  # pragma: no cover - keep journal-safe fallback if PM unavailable
+            pass
+
     cat = (_active_journal_palette or {}).get("CATEGORICAL", CATEGORICAL)
     cat_ext = (_active_journal_palette or {}).get("CATEGORICAL_EXTENDED", CATEGORICAL_EXTENDED)
     base = cat_ext if n > len(cat) else cat
