@@ -32,6 +32,7 @@ One user request can match multiple directories — the engine picks the closest
 | **RidgePlot** | 山脊图, ridge plot, ridgeline, 密度山脊, 分布山脊 | Ridgeline density plots (ggridges style) |
 | **KernelDensity** | 核密度, kernel density, KDE, 密度估计, 2D密度 | 2D kernel density estimation with contour |
 | **MarginalDensity** | 边际密度, marginal density, 边际散点密度, scatter+marginal | Scatter plot with marginal density distributions |
+| **ScatterRegressionRaincloud** | 分组散点回归, scatter regression, 回归+云雨, regression + raincloud, 散点回归小提琴, scatter violin combo | Grouped scatter with linear regression (left) + half-violin/box/jitter raincloud (right) |
 | **PairedBoxScatter** | 配对箱线, paired box, 配对箱散点, before-after box | Paired box-scatter with connecting lines |
 | **MantelCorrelation** | Mantel相关, Mantel test, 环境因子相关, microbial correlation | Mantel correlation with linkET — heatmap + connection curves |
 | **Manifold** | 流形, manifold, 流形可视化, Swiss roll, diffusion | Manifold visualization / Swiss roll / diffusion plots |
