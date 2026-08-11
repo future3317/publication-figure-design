@@ -1,0 +1,31 @@
+{
+  "aesthetic_rating": 4,
+  "code_path": null,
+  "created_at": "2026-08-11T13:17:24Z",
+  "data_density": "medium",
+  "figure_type": "LineTrend",
+  "id": "a6f2e75e7d836175",
+  "image_path": "assets/visual-references/references/a6f2e75e7d836175/image.png",
+  "journal_style": "Nature",
+  "layout": "1x1",
+  "license": "unknown",
+  "n_groups": 3,
+  "notes": "Publication figure from figures4papers/figure_VIGIL/figures/comparison_posttraining.png. Used as visual reference for LineTrend style; do not redistribute without permission.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "review_status": "pending",
+  "scope": "references",
+  "sha256": "a6f2e75e7d8361754445d86ce04386b5764a46bf2cbc94e8df0c75ecf1bab142",
+  "source": "Chen Liu, figures4papers repository",
+  "source_url": "https://github.com/ChenLiu-1996/figures4papers/tree/main/figure_VIGIL/figures/comparison_posttraining.png",
+  "subtype": "figures4papers_posttraining_trend",
+  "tags": [
+    "figures4papers",
+    "publication-figure",
+    "line-trend",
+    "post-training",
+    "multi-curve"
+  ],
+  "usage_scope": "private_reference"
+}

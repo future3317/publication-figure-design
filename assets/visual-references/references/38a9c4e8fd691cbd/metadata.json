@@ -1,0 +1,31 @@
+{
+  "aesthetic_rating": 4,
+  "code_path": null,
+  "created_at": "2026-08-11T13:17:24Z",
+  "data_density": "medium",
+  "figure_type": "heatmap",
+  "id": "38a9c4e8fd691cbd",
+  "image_path": "assets/visual-references/references/38a9c4e8fd691cbd/image.png",
+  "journal_style": "Nature",
+  "layout": "1x1",
+  "license": "unknown",
+  "n_groups": 5,
+  "notes": "Publication figure from figures4papers/figure_ophthal_review/figures/composition_heatmap.png. Used as visual reference for heatmap style; do not redistribute without permission.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "review_status": "pending",
+  "scope": "references",
+  "sha256": "38a9c4e8fd691cbd7dcb4f5b5abb69398b4974d32cad19a4a33819db1cb34f3a",
+  "source": "Chen Liu, figures4papers repository",
+  "source_url": "https://github.com/ChenLiu-1996/figures4papers/tree/main/figure_ophthal_review/figures/composition_heatmap.png",
+  "subtype": "figures4papers_composition_heatmap",
+  "tags": [
+    "figures4papers",
+    "publication-figure",
+    "heatmap",
+    "composition",
+    "annotation"
+  ],
+  "usage_scope": "private_reference"
+}

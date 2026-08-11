@@ -1,0 +1,31 @@
+{
+  "aesthetic_rating": 4,
+  "code_path": null,
+  "created_at": "2026-08-11T13:17:24Z",
+  "data_density": "medium",
+  "figure_type": "BarComparison",
+  "id": "131654637e894c12",
+  "image_path": "assets/visual-references/references/131654637e894c12/image.png",
+  "journal_style": "Nature",
+  "layout": "1x1",
+  "license": "unknown",
+  "n_groups": 3,
+  "notes": "Publication figure from figures4papers/figure_CellSpliceNet/figures/comparison_human.png. Used as visual reference for BarComparison style; do not redistribute without permission.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "review_status": "pending",
+  "scope": "references",
+  "sha256": "131654637e894c12f441ad4a9cf5533999939971e3f051f81e46ba802f75d854",
+  "source": "Chen Liu, figures4papers repository",
+  "source_url": "https://github.com/ChenLiu-1996/figures4papers/tree/main/figure_CellSpliceNet/figures/comparison_human.png",
+  "subtype": "figures4papers_human_comparison_bars",
+  "tags": [
+    "figures4papers",
+    "publication-figure",
+    "bar-comparison",
+    "grouped-bar",
+    "human"
+  ],
+  "usage_scope": "private_reference"
+}

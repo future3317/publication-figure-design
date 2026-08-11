@@ -1,0 +1,31 @@
+{
+  "aesthetic_rating": 4,
+  "code_path": null,
+  "created_at": "2026-08-11T13:17:24Z",
+  "data_density": "medium",
+  "figure_type": "BarComposition",
+  "id": "abb63055b0d49edb",
+  "image_path": "assets/visual-references/references/abb63055b0d49edb/image.png",
+  "journal_style": "Nature",
+  "layout": "1x1",
+  "license": "unknown",
+  "n_groups": 5,
+  "notes": "Publication figure from figures4papers/figure_Brainteaser/figures/brute_force.png. Used as visual reference for BarComposition style; do not redistribute without permission.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "review_status": "pending",
+  "scope": "references",
+  "sha256": "abb63055b0d49edbe9002e820294a622db1429d31b1d2446340036cf1db92607",
+  "source": "Chen Liu, figures4papers repository",
+  "source_url": "https://github.com/ChenLiu-1996/figures4papers/tree/main/figure_Brainteaser/figures/brute_force.png",
+  "subtype": "figures4papers_composition_bars",
+  "tags": [
+    "figures4papers",
+    "publication-figure",
+    "bar-composition",
+    "stacked-bar",
+    "brute-force"
+  ],
+  "usage_scope": "private_reference"
+}

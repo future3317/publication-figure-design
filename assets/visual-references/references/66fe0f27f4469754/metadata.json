@@ -1,0 +1,31 @@
+{
+  "aesthetic_rating": 3.5,
+  "code_path": null,
+  "created_at": "2026-08-11T13:17:24Z",
+  "data_density": "medium",
+  "figure_type": "LineTrend",
+  "id": "66fe0f27f4469754",
+  "image_path": "assets/visual-references/references/66fe0f27f4469754/image.png",
+  "journal_style": "Nature",
+  "layout": "1x1",
+  "license": "unknown",
+  "n_groups": 2,
+  "notes": "Publication figure from figures4papers/figure_ophthal_review/figures/trend_by_month.png. Used as visual reference for LineTrend style; do not redistribute without permission.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "review_status": "pending",
+  "scope": "references",
+  "sha256": "66fe0f27f44697547b6cb219ff90696f54a6fef48984c9578ace258e0ebce4d4",
+  "source": "Chen Liu, figures4papers repository",
+  "source_url": "https://github.com/ChenLiu-1996/figures4papers/tree/main/figure_ophthal_review/figures/trend_by_month.png",
+  "subtype": "figures4papers_monthly_trend",
+  "tags": [
+    "figures4papers",
+    "publication-figure",
+    "line-trend",
+    "time-series",
+    "monthly"
+  ],
+  "usage_scope": "private_reference"
+}
