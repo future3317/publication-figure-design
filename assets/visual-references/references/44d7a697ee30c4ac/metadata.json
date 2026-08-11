@@ -1,0 +1,32 @@
+{
+  "aesthetic_rating": 4.5,
+  "code_path": null,
+  "created_at": "2026-08-11T13:21:16Z",
+  "data_density": "medium",
+  "figure_type": "GroupedBarChart",
+  "id": "44d7a697ee30c4ac",
+  "image_path": "assets/visual-references/references/44d7a697ee30c4ac/image.jpg",
+  "journal_style": "Nature",
+  "layout": "1x2",
+  "license": "unknown",
+  "n_groups": 9,
+  "notes": "WeChat screenshot: marker composition (%) bars with individual cell overlays, split by dorsal/ventral. Borrow bar+point encoding, soft pastel palette, and grouped layout.",
+  "palette": "pastel_girl",
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "review_status": "pending",
+  "scope": "references",
+  "sha256": "44d7a697ee30c4acf3f18983e2ef60be2e01a4cad99b970fc880942d8b5efa88",
+  "source": "WeChat screenshot (user-provided)",
+  "source_url": null,
+  "subtype": "wechat_marker_composition_bars",
+  "tags": [
+    "wechat",
+    "grouped-bar",
+    "bar-with-points",
+    "beeswarm",
+    "composition",
+    "pastel"
+  ],
+  "usage_scope": "private_reference"
+}
