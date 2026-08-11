@@ -57,7 +57,7 @@ No text element below 5 pt at final print dimensions. Axis ticks: 5-6 pt. Labels
 ```r
 library(ggplot2)
 
-theme_cns <- theme_bw(base_size = 7, base_family = "Arial") +
+theme_cns <- theme_bw(base_size = 8, base_family = "Arial") +
   theme(
     axis.title = element_text(size = 8),
     axis.text = element_text(size = 6),

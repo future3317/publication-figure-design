@@ -67,8 +67,10 @@ _SCOPES = {"references", "generated-archive"}
 # Allowed review statuses.
 _REVIEW_STATUSES = {"pending", "reviewed", "rejected", "promoted"}
 
-# Allowed usage scopes.
-_USAGE_SCOPES = {"private_reference", "internal_reference", "shareable", "template_candidate"}
+# Allowed usage scopes.  This field expresses copyright / redistribution scope
+# only.  Template maturity is expressed by ``review_status`` and
+# ``production_ready``, not by ``usage_scope``.
+_USAGE_SCOPES = {"private_reference", "internal_reference", "redistributable"}
 
 # Allowed palette policies.
 _PALETTE_POLICIES = {"preserve", "adaptable"}
@@ -389,7 +391,6 @@ class ReferenceLibrary:
         scope: str = "references",
         metadata_override: Optional[Dict[str, Any]] = None,
         copy: bool = True,
-        allow_duplicates: bool = False,
     ) -> VisualReference:
         """Add an external image to the reference library.
 
@@ -405,12 +406,16 @@ class ReferenceLibrary:
             Extra metadata fields merged on top of defaults.
         copy : bool, default True
             If True, copy the image into the library; otherwise move it.
-        allow_duplicates : bool, default False
-            If True, re-ingest an already-known image under a new id.
 
         Returns
         -------
         VisualReference
+
+        Raises
+        ------
+        ValueError
+            If the same image (by SHA-256) is already in the library.
+            IDs are deterministic, so duplicate images always map to the same id.
         """
         image_path = Path(image_path)
         if not image_path.exists():
@@ -423,13 +428,13 @@ class ReferenceLibrary:
         if scope not in _SCOPES:
             raise ValueError(f"Invalid scope {scope!r}; must be one of {_SCOPES}")
 
-        # Duplicate detection.
+        # Duplicate detection.  Deterministic IDs mean the same image always
+        # maps to the same reference; we keep a single asset record per image.
         existing = self.get(ref_id)
-        if existing is not None and not allow_duplicates:
+        if existing is not None:
             raise ValueError(
                 f"Image already exists as reference {ref_id} "
-                f"({existing.metadata.get('image_path')}). "
-                "Use allow_duplicates=True to add again."
+                f"({existing.metadata.get('image_path')})."
             )
 
         asset_dir = self._asset_dir(ref_id, scope)
@@ -484,9 +489,11 @@ class ReferenceLibrary:
         override = {
             "scope": "generated-archive",
             "source": "self-generated",
-            "usage_scope": "template_candidate",
+            "usage_scope": "internal_reference",
             "review_status": "pending",
             "production_ready": False,
+            # Note: production_ready + review_status express template maturity;
+            # usage_scope only tracks redistribution rights.
         }
         if metadata_override:
             override.update(metadata_override)
@@ -497,7 +504,6 @@ class ReferenceLibrary:
             scope="generated-archive",
             metadata_override=override,
             copy=copy,
-            allow_duplicates=False,
         )
 
         if code_path is not None:
@@ -692,7 +698,6 @@ def ingest_image(
     figure_type: str,
     metadata_override: Optional[Dict[str, Any]] = None,
     copy: bool = True,
-    allow_duplicates: bool = False,
 ) -> VisualReference:
     """Module-level helper to ingest an external image."""
     lib = ReferenceLibrary()
@@ -702,7 +707,6 @@ def ingest_image(
         scope="references",
         metadata_override=metadata_override,
         copy=copy,
-        allow_duplicates=allow_duplicates,
     )
 
 
@@ -748,7 +752,6 @@ def cli(argv: Optional[List[str]] = None) -> int:
     ingest_p.add_argument("--move", action="store_true",
                           help="Move the image instead of copying.")
     ingest_p.add_argument("--scope", default="references", choices=sorted(_SCOPES))
-    ingest_p.add_argument("--allow-duplicates", action="store_true")
 
     # archive
     archive_p = sub.add_parser("archive", help="Archive a self-generated figure.")
@@ -799,7 +802,6 @@ def cli(argv: Optional[List[str]] = None) -> int:
             scope=args.scope,
             metadata_override=meta_override,
             copy=not args.move,
-            allow_duplicates=args.allow_duplicates,
         )
         print(f"Ingested {ref.id}: {ref.metadata['image_path']}")
         return 0

@@ -62,12 +62,13 @@ def run_all():
         "academic-figure-skill": {
             "passed": sum(s1_passes), "total": len(s1_passes),
             "pass_rate": sum(s1_passes) / len(s1_passes),
-            "checks": s1_details,
+            "checks": list(zip(s1_passes, s1_details)),
         },
         "baseline": {
             "passed": 2, "total": 6, "pass_rate": 2/6,
-            "checks": ["asset: NO", "cairo: NO (default)", "palette: NO (matplotlib default)",
-                       "arial: NO (DejaVu)", "vector: YES (savefig default)", "dpi: NO (100 default)"],
+            "checks": [(False, "asset: NO"), (False, "cairo: NO (default)"),
+                       (False, "palette: NO (matplotlib default)"), (False, "arial: NO (DejaVu)"),
+                       (True, "vector: YES (savefig default)"), (False, "dpi: NO (100 default)")],
         },
     }
 
@@ -95,12 +96,14 @@ def run_all():
         "academic-figure-skill": {
             "passed": sum(s2_passes), "total": len(s2_passes),
             "pass_rate": sum(s2_passes)/len(s2_passes),
-            "checks": s2_details,
+            "checks": list(zip(s2_passes, s2_details)),
         },
         "baseline": {
             "passed": 2, "total": 6, "pass_rate": 2/6,
-            "checks": ["assets: NO (no scan)", "asset table: NO", "compose engine: NO (hand-written gridspec)",
-                       "R PCA: NO (Python re-write)", "font consistency: NO", "panel width guard: NO (no check)"],
+            "checks": [(False, "assets: NO (no scan)"), (False, "asset table: NO"),
+                       (False, "compose engine: NO (hand-written gridspec)"),
+                       (False, "R PCA: NO (Python re-write)"), (False, "font consistency: NO"),
+                       (False, "panel width guard: NO (no check)")],
         },
     }
 
@@ -120,11 +123,12 @@ def run_all():
         "academic-figure-skill": {
             "passed": sum(s3_passes), "total": len(s3_passes),
             "pass_rate": sum(s3_passes)/len(s3_passes),
-            "checks": s3_details,
+            "checks": list(zip(s3_passes, s3_details)),
         },
         "baseline": {
             "passed": 1, "total": 3, "pass_rate": 1/3,
-            "checks": ["journal_palette: NO", "nature variant: NO (generic)", "jet guard: YES (general knowledge)"],
+            "checks": [(False, "journal_palette: NO"), (False, "nature variant: NO (generic)"),
+                       (True, "jet guard: YES (general knowledge)")],
         },
     }
 
@@ -136,19 +140,19 @@ def run_all():
     s4_passes.append("Borrow from" in skill_src or "borrow from" in skill_src.lower())
     s4_details.append("borrowing table in SKILL.md")
     # Check Hub GP handles unknown types
-    s4_passes.append("Long-Tail" in skill_src or "general practitioner" in skill_src.lower())
+    s4_passes.append("long-tail" in skill_src.lower())
     s4_details.append("Hub GP handles long-tail types")
 
     report["scenarios"]["S4_unknown_chart_type"] = {
         "academic-figure-skill": {
             "passed": sum(s4_passes), "total": len(s4_passes),
             "pass_rate": sum(s4_passes)/len(s4_passes),
-            "checks": s4_details,
+            "checks": list(zip(s4_passes, s4_details)),
         },
         "baseline": {
             "passed": 1, "total": 3, "pass_rate": 1/3,
-            "checks": ["cross-type: NO (generates from scratch)", "borrowing: NO",
-                       "long-tail: YES (Claude has general knowledge)"],
+            "checks": [(False, "cross-type: NO (generates from scratch)"), (False, "borrowing: NO"),
+                       (True, "long-tail: YES (Claude has general knowledge)")],
         },
     }
 
@@ -157,7 +161,11 @@ def run_all():
     s5_details = []
     s5_passes.append("Step -1" in skill_src)
     s5_details.append("Step -1 exists in SKILL.md")
-    s5_passes.append("do NOT auto-generate" in skill_src.lower() or "no template" in skill_src.lower())
+    s5_passes.append(
+        "do not auto-generate" in skill_src.lower()
+        or "not from a template" in skill_src.lower()
+        or "not by a template" in skill_src.lower()
+    )
     s5_details.append("anti-template rule")
     s5_passes.append("Understand the Task" in skill_src)
     s5_details.append("Task understanding step before data analysis")
@@ -166,12 +174,13 @@ def run_all():
         "academic-figure-skill": {
             "passed": sum(s5_passes), "total": len(s5_passes),
             "pass_rate": sum(s5_passes)/len(s5_passes),
-            "checks": s5_details,
+            "checks": list(zip(s5_passes, s5_details)),
         },
         "baseline": {
             "passed": 0, "total": 3, "pass_rate": 0/3,
-            "checks": ["Step -1: NO (generates directly)", "anti-template: NO (4-panel default)",
-                       "task understanding: NO (data → plot, no question)"],
+            "checks": [(False, "Step -1: NO (generates directly)"),
+                       (False, "anti-template: NO (4-panel default)"),
+                       (False, "task understanding: NO (data → plot, no question)")],
         },
     }
 
@@ -196,11 +205,11 @@ def run_all():
         arrow = "+" if delta > 0 else ("" if delta < 0 else "=")
         print(f"  {sid}")
         print(f"    Academic Figure Skill: {cn['passed']}/{cn['total']} ({cn['pass_rate']:.0%})")
-        for c in cn["checks"]:
-            print(f"      [PASS] {c}")
+        for passed, desc in cn["checks"]:
+            print(f"      [{'PASS' if passed else 'FAIL'}] {desc}")
         print(f"    Baseline: {bl['passed']}/{bl['total']} ({bl['pass_rate']:.0%})")
-        for c in bl["checks"]:
-            print(f"      [FAIL] {c}")
+        for passed, desc in bl["checks"]:
+            print(f"      [{'PASS' if passed else 'FAIL'}] {desc}")
         print(f"    Δ = {arrow}{delta:+.0%}")
         print()
 

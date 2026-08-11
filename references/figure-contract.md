@@ -38,7 +38,7 @@ Classify the figure into one of four archetypes. The archetype determines layout
 | `image plate + quant` | Microscopy/images paired with quantification | Image panels (larger) + adjacent quantification panels |
 | `asymmetric mixed-modality` | Non-uniform layout mixing schematics, images, and data | Custom gridspec, variable panel sizes |
 
-If unsure, default to `quantitative grid`. Most CNS figures fall into this archetype.
+If unsure, default to `asymmetric_mixed` — it produces the Nature-style look of one dominant panel + subordinate evidence panels. (Authoritative source: `SKILL.md` Step 0a.)
 
 ### 4. Journal / Export Contract
 

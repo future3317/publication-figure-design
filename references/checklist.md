@@ -26,7 +26,8 @@ Run these checks first. They catch the issues reviewers flag most often and take
 
 **How to check:** Verify the generated code begins with the three mandatory baseline blocks from the reference files. Search for the exact code patterns in order:
 
-1. Typography baseline —must contain ALL of: `font.family`, `font.sans-serif`, `font.size: 7`, `axes.spines.top: False`, `axes.spines.right: False`, `axes.linewidth: 0.6`, `xtick.direction: 'out'`, `legend.frameon: False`
+1. Typography baseline —must contain ALL of: `font.family`, `font.sans-serif`, `font.size: 8`, `axes.spines.top: False`, `axes.spines.right: False`, `axes.linewidth: 0.6`, `xtick.direction: 'out'`, `legend.frameon: False`
+   (Authoritative source: `references/typography.md` COPY VERBATIM block)
 2. Color palette baseline must contain: `CATEGORICAL = ["#2166AC", "#B2182B", "#1B7837", "#F1A340", "#762A83", "#666666"]` AND `DIVERGING = ["#2166AC", "#F7F7F7", "#B2182B"]`
 3. Export baseline —must contain: `pdf.fonttype: 42` AND `svg.fonttype: 'none'` AND a function named `save_cns_figure`
 
@@ -150,7 +151,8 @@ Each check includes: **what to scan for**, **the pass condition**, and **the fix
 
 **Scan for:** `axes.linewidth` in Python rcParams. `axis.line` or `panel.border` theme elements in R.
 
-**Pass condition:** Spine linewidth is 0.5-0.8pt. Data elements (lines, points) use thicker strokes.
+**Pass condition:** Spine linewidth is 0.5-0.6pt. Data elements (lines, points) use thicker strokes.
+(Authoritative source: `references/journal-specs.md` Spines and Axes)
 
 **Fix if FAIL:** Set `axes.linewidth: 0.6` in rcParams (Python) or adjust `axis.line` in theme (R). The default 1.0-1.5pt spine is too heavy for journal figures.
 

@@ -210,15 +210,15 @@ class TestReferenceLibrary(unittest.TestCase):
             self.lib.ingest(src, "PCA")
         self.assertIn("already exists", str(ctx.exception))
 
-    def test_ingest_allows_duplicates_when_requested(self):
+    def test_reingest_same_image_always_raises(self):
         src = self.skill_root / "incoming.png"
         _make_test_image(src, b"\x89PNG\r\n\x1a\nCCCC")
 
         r1 = self.lib.ingest(src, "PCA")
-        # With allow_duplicates=True the second call still produces the same id
-        # because the id is deterministic; the implementation raises by default.
-        r2 = self.lib.ingest(src, "PCA", allow_duplicates=True)
-        self.assertEqual(r1.id, r2.id)
+        with self.assertRaises(ValueError) as ctx:
+            self.lib.ingest(src, "PCA")
+        self.assertIn("already exists", str(ctx.exception))
+        self.assertIn(r1.id, str(ctx.exception))
 
     def test_archive_generated_figure(self):
         src = self.skill_root / "generated.png"
@@ -238,7 +238,7 @@ class TestReferenceLibrary(unittest.TestCase):
 
         self.assertEqual(ref.scope, "generated-archive")
         self.assertEqual(ref.metadata["source"], "self-generated")
-        self.assertEqual(ref.metadata["usage_scope"], "template_candidate")
+        self.assertEqual(ref.metadata["usage_scope"], "internal_reference")
         self.assertEqual(ref.metadata["palette"], "summer_beach")
         self.assertTrue(ref.code_path.exists())
         on_disk = json.loads(

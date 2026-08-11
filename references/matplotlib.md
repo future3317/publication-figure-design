@@ -11,7 +11,7 @@ import matplotlib as mpl
 mpl.rcParams.update({
     "font.family": "sans-serif",
     "font.sans-serif": ["Arial", "Helvetica"],
-    "font.size": 7,           # 印刷尺寸下的基础字号
+    "font.size": 8,           # 印刷尺寸下的基础字号
     "axes.linewidth": 0.6,
     "axes.spines.top": False,
     "axes.spines.right": False,
