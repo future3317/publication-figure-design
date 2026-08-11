@@ -1,0 +1,31 @@
+{
+  "aesthetic_rating": 3.5,
+  "code_path": null,
+  "created_at": "2026-08-11T10:34:06Z",
+  "data_density": "medium",
+  "figure_type": "heatmap",
+  "id": "e52120014b49abe8",
+  "image_path": "assets/visual-references/references/e52120014b49abe8/image.png",
+  "journal_style": "Nature",
+  "layout": "1x1",
+  "license": "synthetic-redraw",
+  "n_groups": 8,
+  "notes": "Synthetic redraw of figures4papers heatmap style: symmetric matrix, row/column labels, colorbar. Borrow layout and colormap treatment, not data.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "e52120014b49abe898add911e0751f80719d09a383e7faaa5a84c7e0c42bf1ac",
+  "source": "figures4papers house style (synthetic redraw)",
+  "source_url": "https://github.com/ChenLiu-1996/figures4papers",
+  "subtype": "figures4papers_heatmap",
+  "tags": [
+    "figures4papers",
+    "publication-style",
+    "heatmap",
+    "magma",
+    "correlation"
+  ],
+  "usage_scope": "redistributable"
+}

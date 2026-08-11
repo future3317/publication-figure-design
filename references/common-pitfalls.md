@@ -91,6 +91,35 @@ These are mistakes that signal "not designed" to reviewers, regardless of the sp
 ✅ Test with a colorblind simulator
 ```
 
+## Axis Range Traps
+
+```
+❌ Fixed 0-100 axis when all values sit in 85-95
+❌ Symmetric y-limits that waste half the panel
+❌ Auto-scaled axes that hide meaningful differences
+
+✅ Tighten y-limits to the relevant data range plus a small margin
+✅ Use 80-100 when all values are in that band
+✅ Make differences visible; do not let the axis swallow the signal
+```
+
+See `references/publication-style-patterns.md` for the dynamic y-axis scaling
+pattern.
+
+## Print-Safe Bar Encoding
+
+```
+❌ Bars that differ only by fill color (blur in grayscale)
+❌ No edges on grouped bars
+❌ Subgroups relying on hue alone
+
+✅ Black edges on bars: edgecolor="black", linewidth=1.5-3
+✅ Hatch patterns for subgroups: "/", "\\", "."
+✅ Redundant encoding so the figure remains readable in black-and-white print
+```
+
+See `references/publication-style-patterns.md` for bar edge and hatch patterns.
+
 ## Statistical Display Traps
 
 ```

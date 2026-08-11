@@ -69,6 +69,33 @@ After laying out panels, ask: "If a reviewer reads only the panel labels (a, b, 
 
 ---
 
+## 4. Practical Layout Patterns
+
+### Dedicated legend panel
+
+When a legend would otherwise float over data or grow too large, reserve one
+subplot for the legend only.
+
+```python
+axes[-1].set_axis_off()
+handles, labels = axes[0].get_legend_handles_labels()
+axes[-1].legend(handles, labels, loc="center", frameon=False)
+```
+
+This keeps data panels clean and works well for multi-panel trend figures.
+See `references/publication-style-patterns.md` for the full pattern.
+
+### Ultra-wide single-row layouts
+
+For 3-4 metrics or many categories compared horizontally, use a wide canvas so
+bars and labels do not crowd vertically.
+
+- Typical sizes: `figsize=(45, 12)` for large comparison panels, `(28, 6)` for
+  moderate rows.
+- Width is often 3-4× height for comparison bars.
+
+See `references/publication-style-patterns.md` for details.
+
 ## When to Load
 
 Load this file when composing multi-panel figures (2+ panels). Apply anti-redundancy audit before generating the adaptive layout. Apply hero panel and narrative ordering during layout design.
