@@ -9,7 +9,7 @@ Academic Figure Skill generates publication-grade scientific figures for Nature/
 
 ## Task Dispatch
 
-Classify the user request into one of five modes. Do not force a simple task through the full create pipeline.
+Classify the user request into one of five top-level modes. Then check the mandatory `reference-driven` submode before any create/revise implementation. Do not force a simple task through the full create pipeline.
 
 | Mode | Trigger | Workflow |
 |---|---|---|
@@ -18,6 +18,22 @@ Classify the user request into one of five modes. Do not force a simple task thr
 | **review** | "审稿人会怎么评价" / "will this pass review" | Reviewer Simulation Mode only. |
 | **export** | "导出 300 dpi PNG" / "转成 PDF" / "换尺寸" | Load existing figure/code, change export parameters, render, QA. |
 | **reference** | "存起来" / "收进参考库" / "找几个好看的 grouped violin" / "有没有 pastel 风格的 PCA 参考" | Use `scripts/reference_library.py` directly: `ingest`, `archive_generated_figure`, or `query`. |
+
+### Mandatory submode: reference-driven
+
+Enter `reference-driven` mode when the user supplies, points to, selects, or explicitly asks to match a concrete reference image. A named palette or a broad phrase such as "Nature style" alone does not activate it.
+
+**HARD GATE:** Before selecting a production script, copying old plotting code, or editing drawing functions, open the reference and execute `references/reference-driven-reconstruction.md`. Write the Reference Reconstruction Contract and classify the implementation as `reuse`, `restructure`, or `rewrite`.
+
+Reference-driven precedence:
+
+1. Scientific meaning, data integrity, and non-misleading encoding
+2. Explicit user requirements
+3. Concrete reference structure and visual language
+4. Reusable production code
+5. Skill defaults
+
+`COPY-FIRST` does not apply until the contract proves `reuse` compatibility. Existing code is implementation material, not a reason to retain an incompatible visual skeleton. Cosmetic-only changes to color, font, alpha, line width, or marker size never satisfy `restructure` or `rewrite`.
 
 For **reference** mode, do not start a figure. Map the natural language to the existing API:
 - "把这张图存起来" / "这张我喜欢，收进参考库" → `ReferenceLibrary().ingest(...)` for external images; `archive_generated_figure(...)` for skill-generated images.
@@ -65,6 +81,9 @@ User request received
        ▼
   Step 3: Style Baseline Injection ←── typography + color + export blocks.
        │                               Copied VERBATIM into every script.
+       ▼
+  Reference gate (when concrete image supplied) ←── inspect + contract +
+       │                                         reuse/restructure/rewrite.
        ▼
   Step 4: Production Asset Scan ←── ls assets/figures/. For EVERY panel in
        │                            the plan, check matching scripts.
@@ -210,6 +229,8 @@ Also read `references/journal-specs.md` for target dimensions (89mm single / 183
 
 ### Step 4: Production Asset Scan (EVERY panel)
 
+**Reference-driven precondition:** Do not begin this scan until the Reference Reconstruction Contract is complete. In reference-driven mode, use production assets only after the decision contract in `references/reference-driven-reconstruction.md`; `COPY-FIRST` is allowed only for `reuse`.
+
 **Run AFTER plan confirmation, BEFORE code generation. For EVERY panel in the confirmed plan:**
 
 1. **First, read `references/directory-map.md`.** This table maps user language (Chinese + English) to exact `assets/figures/<dir>/` paths. Find the user's description in the "Keywords" column → use the exact directory path. This prevents the #2 recurring bug: "柱状图" matching the wrong bar sub-directory.
@@ -354,11 +375,13 @@ Correlation Scatter Scatter (basic)     point size, alpha, regression line style
 
 ---
 
-### Step 4.5: Visual Reference Retrieval (create mode only)
+### Step 4.5: Visual Reference Retrieval (create mode, no concrete reference)
 
-After production assets are identified, optionally query `assets/visual-references/` for visual language inspiration.
+After production assets are identified, optionally query `assets/visual-references/` for visual language inspiration only when the user has not selected a concrete reference. Concrete references use the mandatory submode above.
 
 **When to skip:** revise, review, export, or reference mode. If the user gave no visual preference. If the library is empty. If no match is found.
+
+**This optional workflow must never replace reference-driven reconstruction.**
 
 **When to query:**
 - User mentions a style: "pastel", "minimal", "Nature style", "bold"
@@ -428,6 +451,8 @@ If no reference matches, continue with the existing workflow.
 ---
 
 ### Step 5: Generate Code
+
+**Reference-driven generation overrides the production-asset rules below.** Follow `references/reference-driven-reconstruction.md`, write its six-line script header, and implement the contract decision. For `restructure` or `rewrite`, replace incompatible old layout/drawing code instead of preserving it. Render an equal-size reference/candidate comparison and run `scripts/check_reference_fidelity.py` before delivery.
 
 **Asset Confirmation Table — MUST be the first lines of the generated script.**
 
@@ -543,6 +568,8 @@ Output:
    - Visual reference: `vr_[id]` or `None`
    - Palette: `[palette id]` or `None`
    - Palette policy: `preserve` / `adaptable` / `N/A`
+   - Reference-driven decision: `reuse` / `restructure` / `rewrite` / `N/A`
+   - Reference Fidelity Report + side-by-side comparison when a concrete reference was used
 5. **Statistics & Reproducibility Report** — for every quantitative panel:
    - n definition (what does each replicate represent?)
    - center statistic (mean? median?)
@@ -653,6 +680,7 @@ Generated adapters are in `install/`:
 | `references/production-asset-metadata.md` | Step 4 — decide COPY-FIRST vs. visual adapt from metadata sidecar |
 | `references/figure-deconstruction.md` | Compositional inspiration |
 | `references/visual-reference-library.md` | Step 4.5 — visual reference retrieval rules and API |
+| `references/reference-driven-reconstruction.md` | Concrete user-selected reference — mandatory reconstruction contract and fidelity loop |
 | `references/matplotlib.md` | Python/matplotlib/seaborn |
 | `references/complexheatmap.md` | R heatmaps |
 | `references/r-rendering.md` | R PNG output — cairo device, showtext off, spec-correct dimensions |

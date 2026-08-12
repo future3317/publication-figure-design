@@ -133,6 +133,27 @@ SCENARIOS = [
                   anti_pattern=r"(?:4.panel|four.panel|template|standard.panel)"),
         ],
     ),
+    Scenario(
+        id="S6_reference_reconstruction",
+        name="Concrete reference requires structural reconstruction",
+        prompt="按这张 2x2 边际密度参考图重画；这里还有旧的单面板散点代码可用",
+        checks=[
+            Check("Reference-driven marker", pattern=r"AFS-REFERENCE-DRIVEN:\s*true"),
+            Check("Reconstruction decision", pattern=r"AFS-IMPLEMENTATION-DECISION:\s*(?:reuse|restructure|rewrite)"),
+            Check("Contract recorded", pattern=r"AFS-REFERENCE-CONTRACT:\s*\S+"),
+            Check(
+                "Structural-change evidence",
+                pattern=r"AFS-STRUCTURAL-CHANGES:.*(?:axis|facet|geometry|grid|layer|layout|mark|marginal|panel|subplot|topology|坐标|几何|图层|布局|面板)",
+            ),
+            Check("Comparison output", pattern=r"AFS-COMPARISON:\s*\S+"),
+            Check("Fidelity checker invoked", pattern=r"check_reference_fidelity(?:\.py)?"),
+            Check(
+                "Not cosmetic-only adaptation",
+                anti_pattern=r"AFS-STRUCTURAL-CHANGES:\s*(?:change|adjust|replace)?\s*(?:color|palette|font|fontsize|alpha|linewidth|marker.?size)(?:\s*[,;+]\s*(?:color|palette|font|fontsize|alpha|linewidth|marker.?size))*\s*$",
+            ),
+        ],
+        pass_threshold=1.0,
+    ),
 ]
 
 

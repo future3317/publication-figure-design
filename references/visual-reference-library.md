@@ -3,7 +3,13 @@
 > On-demand reference for agents using `assets/visual-references/` during figure creation.
 > For full API and CLI details, see `scripts/reference_library.py`.
 
-## When to use
+## Two reference workflows
+
+If the user supplies, points to, selects, or asks to match a **concrete reference image**, use `references/reference-driven-reconstruction.md`. That workflow is mandatory, and the concrete reference outranks production code after scientific integrity and explicit user requirements.
+
+The retrieval workflow below is for **optional style discovery** when no concrete reference has been selected.
+
+## When to use optional retrieval
 
 In **create** mode, after the figure type is known and before finalizing the visual plan, query the library for inspiration on:
 
@@ -44,15 +50,17 @@ Default retrieval limit is **3 references** per create task. Do not load more me
 
 If no reference matches, continue the normal workflow.
 
-## Applying a reference
+## Applying a retrieved inspiration reference
 
 Priority order (highest first):
 
-1. User explicit requirements
-2. Scientific semantics and user data structure
+1. Scientific semantics and user data structure
+2. User explicit requirements
 3. Production asset implementation
-4. Matching visual reference
+4. Retrieved inspiration reference
 5. Skill default visual baseline
+
+This order does not apply to a concrete user-selected reference. Use the reference-driven precedence in `references/reference-driven-reconstruction.md` for that case.
 
 Palette priority (highest first):
 
