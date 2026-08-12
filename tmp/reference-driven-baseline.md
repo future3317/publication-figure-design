@@ -17,4 +17,3 @@ The user supplies a concrete reference image whose layout is a 2x2 compound plot
 ## Failing behavior
 
 An agent can keep the single-axis scatter skeleton, replace its palette/font/line widths, cite the compound reference as inspiration, and pass the current automated checks. The result is a cosmetic adaptation, not a reconstruction. This is the behavior the new S6 e2e scenario and fidelity checker must reject.
-
