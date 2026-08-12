@@ -1,0 +1,47 @@
+{
+  "aesthetic_rating": 4,
+  "code_path": "assets/visual-references/generated-archive/507e8fb454b7c051/code.py",
+  "created_at": "2026-08-12T14:13:16Z",
+  "data_density": null,
+  "figure_type": "single_cell_systems",
+  "id": "507e8fb454b7c051",
+  "image_path": "assets/visual-references/generated-archive/507e8fb454b7c051/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "balanced",
+    "density": "high",
+    "panel_count": 12,
+    "panel_grid": [
+      3,
+      4
+    ],
+    "visual_family": "single_cell_systems"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_method": "independent",
+  "renderer_version": 2,
+  "review_status": "reviewed",
+  "scope": "generated-archive",
+  "sha256": "507e8fb454b7c051709eceb49cf7d488c357d56c9f195e8842e140bb23a35fa0",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "licensed_visual_source",
+  "source_fingerprint": "999edb06b942f988a51b11f947845e42e4c346b2f9e5d5a6425def9e43bb69d1",
+  "source_license_class": "Apache-2.0",
+  "source_relative_path": "assets/gallery/fig4-single-cell-systems-rich.png",
+  "source_repository": "nature-figure",
+  "source_url": null,
+  "subtype": "single_cell_systems",
+  "tags": [
+    "source-reconstruction",
+    "nature-figure",
+    "single_cell_systems"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "single_cell_systems"
+}

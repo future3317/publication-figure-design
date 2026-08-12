@@ -1,0 +1,47 @@
+{
+  "aesthetic_rating": 4,
+  "code_path": "assets/visual-references/generated-archive/600b7451bc8f9b1e/code.py",
+  "created_at": "2026-08-12T14:13:00Z",
+  "data_density": null,
+  "figure_type": "comparison_composite",
+  "id": "600b7451bc8f9b1e",
+  "image_path": "assets/visual-references/generated-archive/600b7451bc8f9b1e/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "wide",
+    "density": "high",
+    "panel_count": 12,
+    "panel_grid": [
+      3,
+      4
+    ],
+    "visual_family": "comparison_composite"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_method": "independent",
+  "renderer_version": 2,
+  "review_status": "reviewed",
+  "scope": "generated-archive",
+  "sha256": "600b7451bc8f9b1ed1c2c060d6f8997d16e6916593e5f852666b8537d2000fd4",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "59846b700abcf89c2779abce27b5d667637f6429cf4a52ca1892c687359f2aa7",
+  "source_license_class": "unknown",
+  "source_relative_path": "assets/Dispersion_observation.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "comparison_composite",
+  "tags": [
+    "source-reconstruction",
+    "figures4papers",
+    "comparison_composite"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "comparison_composite"
+}

@@ -73,8 +73,11 @@ def validate_skill(root: Path | str) -> dict[str, object]:
     routed_text = skill.lower()
     if manifest_path.is_file():
         routed_text += "\n" + manifest_path.read_text(encoding="utf-8", errors="replace").lower()
-    if "figures4papers" in routed_text:
-        errors.append("Restricted third-party figures4papers material must not be referenced or imported.")
+    for phrase in ("import figures4papers", "copy figures4papers", "assets/figures4papers"):
+        if phrase in routed_text:
+            errors.append(
+                f"Third-party source may be audited but must not become a runtime or copy dependency: {phrase}"
+            )
 
     return {
         "ok": not errors,

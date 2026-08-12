@@ -18,6 +18,7 @@ Choose one mode, then apply the concrete-reference gate independently.
 | **review** | Assess reviewer readiness or diagnose visual weaknesses | `references/checklist.md` and `references/revision-cases.md` |
 | **export** | Change dimensions, format, resolution, or journal target | `references/delivery-contract.md` and `references/export-specs.md` |
 | **reference** | Store, query, or archive visual references | `references/visual-reference-library.md`; use `scripts/reference_library.py` |
+| **library maintenance** | Audit or rebuild source-by-source visual-grammar reconstructions | `references/source-reconstruction-library.md`; run `scripts/check_source_reconstruction_library.py` |
 
 Do not force revise, review, export, or reference work through the full create route.
 
@@ -142,5 +143,6 @@ Keep exact asset paths, private filenames, template IDs, and working provenance 
 | Export/delivery | `references/export-specs.md`, `references/delivery-contract.md`, `references/figure-legend-contract.md` |
 | QA/review | `references/checklist.md`, `references/common-pitfalls.md`; add `references/revision-cases.md` for reviewer simulation |
 | Optional reference library | `references/visual-reference-library.md`; use at most 3 candidates |
+| Source reconstruction maintenance | `references/source-reconstruction-library.md`; run `scripts/check_source_reconstruction_library.py` |
 
-Do not use or import any unlicensed third-party example collection. Production assets under `assets/` remain implementation candidates and never override the adaptation gate.
+Do not import, execute, or copy an unlicensed third-party example collection. An audit may name such a collection and independently reconstruct its observable visual grammar with synthetic data and original code. Production assets under `assets/` remain implementation candidates and never override the adaptation gate.

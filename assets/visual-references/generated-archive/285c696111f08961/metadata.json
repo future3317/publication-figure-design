@@ -1,0 +1,47 @@
+{
+  "aesthetic_rating": 4,
+  "code_path": "assets/visual-references/generated-archive/285c696111f08961/code.py",
+  "created_at": "2026-08-12T14:13:13Z",
+  "data_density": null,
+  "figure_type": "spatial_image_plate",
+  "id": "285c696111f08961",
+  "image_path": "assets/visual-references/generated-archive/285c696111f08961/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "balanced",
+    "density": "high",
+    "panel_count": 16,
+    "panel_grid": [
+      4,
+      4
+    ],
+    "visual_family": "spatial_image_plate"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_method": "independent",
+  "renderer_version": 2,
+  "review_status": "reviewed",
+  "scope": "generated-archive",
+  "sha256": "285c696111f08961c1d9f75dd5eb59e6518685316b00df3f21c0e1cc64a509cf",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "licensed_visual_source",
+  "source_fingerprint": "bbc8c0b8708d42465e57cb7c56b4d2ecfbaa63340a5a6dfefbcb51189cd1a995",
+  "source_license_class": "Apache-2.0",
+  "source_relative_path": "assets/chart-atlas/atlas-09-image-plates.png",
+  "source_repository": "nature-figure",
+  "source_url": null,
+  "subtype": "spatial_image_plate",
+  "tags": [
+    "source-reconstruction",
+    "nature-figure",
+    "spatial_image_plate"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "spatial_image_plate"
+}

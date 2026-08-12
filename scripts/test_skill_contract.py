@@ -57,9 +57,13 @@ class SkillArchitectureTests(unittest.TestCase):
             self.assertTrue((ROOT / relative).is_file(), relative)
         self.assertTrue((ROOT / "agents" / "openai.yaml").is_file())
 
-    def test_no_restricted_third_party_dependency(self):
-        self.assertNotIn("figures4papers", self.skill.lower())
-        self.assertNotIn("figures4papers", (ROOT / "manifest.yaml").read_text(encoding="utf-8").lower())
+    def test_source_reconstruction_route_is_audited_not_imported(self):
+        routed = self.skill.lower() + (ROOT / "manifest.yaml").read_text(encoding="utf-8").lower()
+        self.assertIn("source-reconstruction-library.md", routed)
+        self.assertIn("check_source_reconstruction_library.py", routed)
+        self.assertNotIn("import figures4papers", routed)
+        self.assertNotIn("copy figures4papers", routed)
+        self.assertNotIn("assets/figures4papers", routed)
 
 
 class SelfCheckTests(unittest.TestCase):

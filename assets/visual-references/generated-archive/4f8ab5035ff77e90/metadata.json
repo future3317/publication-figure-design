@@ -1,0 +1,47 @@
+{
+  "aesthetic_rating": 4,
+  "code_path": "assets/visual-references/generated-archive/4f8ab5035ff77e90/code.py",
+  "created_at": "2026-08-12T13:59:36Z",
+  "data_density": null,
+  "figure_type": "grouped_bar",
+  "id": "4f8ab5035ff77e90",
+  "image_path": "assets/visual-references/generated-archive/4f8ab5035ff77e90/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "wide",
+    "density": "focused",
+    "panel_count": 2,
+    "panel_grid": [
+      1,
+      2
+    ],
+    "visual_family": "grouped_bar"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_method": "independent",
+  "renderer_version": 2,
+  "review_status": "reviewed",
+  "scope": "generated-archive",
+  "sha256": "4f8ab5035ff77e90a6312922a82dc1db1e521d8f7bd35db8d37f44f35c1f8930",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "0460f09210bc23c272602ecb8b3fcf3984f42fc055df3b0e4982eab50303607f",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_Brainteaser/figures/rewriting.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "grouped_bar",
+  "tags": [
+    "source-reconstruction",
+    "figures4papers",
+    "grouped_bar"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "grouped_bar"
+}

@@ -43,6 +43,13 @@ routes:
     when: "the skill itself changes"
     run:
       - "scripts/check_skill_contract.py"
+      - "scripts/check_source_reconstruction_library.py"
+  source_reconstruction:
+    when: "source-by-source visual grammar examples are audited, rebuilt, or validated"
+    load:
+      - "references/source-reconstruction-library.md"
+    run:
+      - "scripts/check_source_reconstruction_library.py"
 
 backend_policy:
   precedence:
@@ -55,4 +62,5 @@ backend_policy:
 
 validation:
   skill_contract: "python scripts/check_skill_contract.py"
+  source_reconstruction_library: "python scripts/check_source_reconstruction_library.py"
   tests: "python -m unittest discover -s scripts -p test_*.py -v"

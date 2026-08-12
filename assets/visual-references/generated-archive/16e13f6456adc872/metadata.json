@@ -1,0 +1,47 @@
+{
+  "aesthetic_rating": 4,
+  "code_path": "assets/visual-references/generated-archive/16e13f6456adc872/code.py",
+  "created_at": "2026-08-12T13:59:40Z",
+  "data_density": null,
+  "figure_type": "line_grid",
+  "id": "16e13f6456adc872",
+  "image_path": "assets/visual-references/generated-archive/16e13f6456adc872/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "wide",
+    "density": "focused",
+    "panel_count": 2,
+    "panel_grid": [
+      1,
+      2
+    ],
+    "visual_family": "line_grid"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_method": "independent",
+  "renderer_version": 2,
+  "review_status": "reviewed",
+  "scope": "generated-archive",
+  "sha256": "16e13f6456adc8725209e34795c5f6b05f85f4a2941164ee72c006c46dd12869",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "4db30b32b65e6b7160ebe025993c2ffdaf6e240d836c253419e91649d3da8deb",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_RNAGenScape/figures/results_sweep.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "line_grid",
+  "tags": [
+    "source-reconstruction",
+    "figures4papers",
+    "line_grid"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "line_grid"
+}
