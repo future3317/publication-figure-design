@@ -140,6 +140,7 @@ SCENARIOS = [
         checks=[
             Check("Reference-driven marker", pattern=r"AFS-REFERENCE-DRIVEN:\s*true"),
             Check("Reconstruction decision", pattern=r"AFS-IMPLEMENTATION-DECISION:\s*(?:reuse|restructure|rewrite)"),
+            Check("Unified adaptation level", pattern=r"AFS-ADAPTATION-LEVEL:\s*(?:exact_reuse|structural_adaptation|style_only|build_new)"),
             Check("Contract recorded", pattern=r"AFS-REFERENCE-CONTRACT:\s*\S+"),
             Check(
                 "Structural-change evidence",

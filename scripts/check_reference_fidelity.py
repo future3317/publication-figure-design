@@ -24,12 +24,19 @@ REQUIRED_FIELDS = (
     "must_match",
     "may_adapt",
     "implementation_decision",
+    "adaptation_level",
     "decision_evidence",
     "structural_changes",
     "fidelity_review",
 )
 
 DECISIONS = {"reuse", "restructure", "rewrite"}
+ADAPTATION_LEVELS = {"exact_reuse", "structural_adaptation", "style_only", "build_new"}
+ALLOWED_ADAPTATIONS = {
+    "reuse": {"exact_reuse"},
+    "restructure": {"structural_adaptation"},
+    "rewrite": {"style_only", "build_new"},
+}
 
 
 def _nonempty(value: Any) -> bool:
@@ -78,6 +85,25 @@ def validate_reference_fidelity(
     checks["decision_valid"] = decision in DECISIONS
     if not checks["decision_valid"]:
         errors.append("implementation_decision must be reuse, restructure, or rewrite.")
+
+    adaptation_level = str(contract.get("adaptation_level", "")).strip().lower()
+    checks["adaptation_level_valid"] = adaptation_level in ADAPTATION_LEVELS
+    if not checks["adaptation_level_valid"]:
+        errors.append(
+            "adaptation_level must be exact_reuse, structural_adaptation, style_only, or build_new."
+        )
+    elif checks["decision_valid"] and adaptation_level not in ALLOWED_ADAPTATIONS[decision]:
+        errors.append(
+            f"Reference decision '{decision}' is incompatible with adaptation_level "
+            f"'{adaptation_level}'."
+        )
+
+    marker = re.search(
+        r"^#\s*AFS-ADAPTATION-LEVEL:\s*(\S+)\s*$", script_text, re.MULTILINE | re.IGNORECASE
+    )
+    checks["adaptation_marker"] = bool(marker) and marker.group(1).lower() == adaptation_level
+    if not checks["adaptation_marker"]:
+        errors.append("Missing or inconsistent AFS-ADAPTATION-LEVEL script marker.")
 
     if decision == "reuse":
         evidence = contract.get("structural_compatibility")

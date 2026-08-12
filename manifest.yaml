@@ -1,0 +1,58 @@
+name: academic-figure-skill
+version: "2.0.0"
+entrypoint: "SKILL.md"
+
+always_load:
+  - "references/figure-contract.md"
+
+routes:
+  create:
+    when: "new manuscript figure or major revision"
+    load:
+      - "references/workflow-create.md"
+  concrete_reference:
+    when: "a concrete reference image is supplied or selected"
+    load:
+      - "references/reference-driven-reconstruction.md"
+      - "references/asset-adaptation.md"
+    run:
+      - "scripts/check_reference_fidelity.py"
+  asset_adaptation:
+    when: "production assets, examples, or prior plotting code are considered"
+    load:
+      - "references/asset-adaptation.md"
+      - "references/directory-map.md"
+      - "references/production-asset-metadata.md"
+  backend:
+    when: "a plotting backend must be selected or mixed panels are required"
+    load:
+      - "references/backend-selection.md"
+    use:
+      - "scripts/backend_preference.py"
+  qa:
+    when: "a figure is reviewed or prepared for delivery"
+    load:
+      - "references/checklist.md"
+      - "references/delivery-contract.md"
+      - "references/figure-legend-contract.md"
+      - "references/privacy-provenance.md"
+    run:
+      - "scripts/qa_validator.py"
+      - "scripts/audit_pdf_text.py"
+  maintain_skill:
+    when: "the skill itself changes"
+    run:
+      - "scripts/check_skill_contract.py"
+
+backend_policy:
+  precedence:
+    - "explicit_request"
+    - "workflow_requirement"
+    - "saved_preference"
+    - "python_default"
+  mixed_mode: "explicit_or_required_with_one_final_assembler"
+  silent_substitution: false
+
+validation:
+  skill_contract: "python scripts/check_skill_contract.py"
+  tests: "python -m unittest discover -s scripts -p test_*.py -v"

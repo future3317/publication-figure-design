@@ -1,0 +1,4 @@
+interface:
+  display_name: "Academic Figure"
+  short_description: "Build and audit publication-grade scientific figures"
+  default_prompt: "Use $academic-figure-skill to create or refine a manuscript-ready scientific figure."

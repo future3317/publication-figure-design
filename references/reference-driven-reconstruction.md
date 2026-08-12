@@ -12,7 +12,7 @@ Existing plotting code is implementation material, not a design constraint. If i
 
 1. Open every selected reference image. Do not rely on tags, filenames, metadata, or memory.
 2. Write the Reference Reconstruction Contract before selecting a production asset or editing plotting code.
-3. Classify the implementation as `reuse`, `restructure`, or `rewrite`.
+3. Classify the implementation as `reuse`, `restructure`, or `rewrite`, and record the corresponding unified `adaptation_level`.
 4. Implement and render at target publication dimensions.
 5. Produce a side-by-side comparison at equal displayed size.
 6. Inspect every `must_match` feature and record `pass` or `justified_deviation`.
@@ -48,6 +48,7 @@ Create a JSON contract with these fields:
   "must_match": ["observable features required for faithful reconstruction"],
   "may_adapt": [{"feature": "item", "reason": "scientific/data reason"}],
   "implementation_decision": "reuse | restructure | rewrite",
+  "adaptation_level": "exact_reuse | structural_adaptation | style_only | build_new",
   "decision_evidence": "comparison between candidate code and reference grammar",
   "structural_compatibility": ["five required dimensions when decision is reuse"],
   "structural_changes": ["non-cosmetic implementation changes"],
@@ -67,6 +68,14 @@ Create a JSON contract with these fields:
 | `restructure` | Chart family and scientific encoding match, but one or more structural dimensions differ | Replace incompatible layout/drawing functions |
 | `rewrite` | Chart family, dimensionality, mark grammar, or layer topology differs | Rebuild drawing implementation; retain only compatible data/statistics helpers |
 
+Map the reference decision to the shared asset-adaptation vocabulary:
+
+- `reuse` -> `exact_reuse` only;
+- `restructure` -> `structural_adaptation` only;
+- `rewrite` -> `style_only` when compatible visual tokens remain, otherwise `build_new`.
+
+Do not use `style_only` to claim structural fidelity. Read `asset-adaptation.md` before selecting old code.
+
 For `reuse`, list all five compatibility dimensions in `structural_compatibility`.
 
 For `restructure` or `rewrite`, list concrete non-cosmetic changes in `structural_changes`. Changing only palette, colors, font, alpha, line width, or marker size is not reconstruction.
@@ -80,6 +89,7 @@ Put these comments before imports:
 # AFS-REFERENCE-SOURCE: <path or reference id>
 # AFS-REFERENCE-CONTRACT: <contract.json>
 # AFS-IMPLEMENTATION-DECISION: <reuse | restructure | rewrite>
+# AFS-ADAPTATION-LEVEL: <exact_reuse | structural_adaptation | style_only | build_new>
 # AFS-STRUCTURAL-CHANGES: <semicolon-separated structural changes, or compatibility evidence for reuse>
 # AFS-COMPARISON: <reference-vs-candidate.png>
 ```

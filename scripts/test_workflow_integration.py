@@ -25,43 +25,57 @@ class TestSkillMdWorkflowHooks(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         root = _resolve_skill_root()
+        cls.root = root
         cls.skill_md = (root / "SKILL.md").read_text(encoding="utf-8")
+        cls.visual_refs = (root / "references" / "visual-reference-library.md").read_text(
+            encoding="utf-8"
+        )
+        cls.asset_adaptation = (root / "references" / "asset-adaptation.md").read_text(
+            encoding="utf-8"
+        )
+        cls.delivery = (root / "references" / "delivery-contract.md").read_text(
+            encoding="utf-8"
+        )
+        cls.privacy = (root / "references" / "privacy-provenance.md").read_text(
+            encoding="utf-8"
+        )
 
     def test_task_dispatch_section_exists(self):
-        self.assertIn("## Task Dispatch", self.skill_md)
+        self.assertIn("## Dispatch", self.skill_md)
 
     def test_five_modes_defined(self):
         for mode in ("create", "revise", "review", "export", "reference"):
             self.assertIn(f"**{mode}**", self.skill_md)
 
     def test_reference_mode_shortcuts(self):
-        self.assertIn("ReferenceLibrary().ingest", self.skill_md)
-        self.assertIn("archive_generated_figure", self.skill_md)
-        self.assertIn("query(figure_type=\"GroupedViolin\"", self.skill_md)
+        self.assertIn("ReferenceLibrary().ingest", self.visual_refs)
+        self.assertIn("archive_generated_figure", self.visual_refs)
+        self.assertIn("query(figure_type=\"GroupedViolin\"", self.visual_refs)
 
     def test_revise_export_do_not_use_full_pipeline(self):
-        self.assertIn("Jump to affected steps only", self.skill_md)
-        self.assertIn("Load existing figure/code, change export parameters", self.skill_md)
+        self.assertIn("run only affected creation stages", self.skill_md)
+        self.assertIn("Do not force revise, review, export, or reference work", self.skill_md)
 
     def test_step_4_5_section_exists(self):
-        self.assertIn("### Step 4.5: Visual Reference Retrieval", self.skill_md)
+        self.assertIn("Optional reference library", self.skill_md)
+        self.assertIn("optional style discovery", self.visual_refs)
 
     def test_default_reference_limit_is_three(self):
-        self.assertIn("limit=3", self.skill_md)
-        self.assertIn("Default limit:** 3 references", self.skill_md)
+        self.assertIn("at most 3 candidates", self.skill_md)
+        self.assertIn("limit=3", self.visual_refs)
 
     def test_production_semantics_priority_over_visual_style(self):
         # The instruction must state that scientific semantics cannot be overridden
         # by a visual reference.
-        self.assertIn("Do NOT override scientific semantics or data structure", self.skill_md)
-        self.assertIn("Use it only for visual language", self.skill_md)
+        self.assertIn("scientific meaning, complete data", self.skill_md)
+        self.assertIn("A visual reference never changes scientific semantics", self.skill_md)
 
     def test_palette_priority_order(self):
-        text = self.skill_md
+        text = self.visual_refs
         # User explicit colors > user explicit palette > visual reference > default
         idx_user_colors = text.find("User explicit colors")
         idx_user_palette = text.find("User explicit palette")
-        idx_ref = text.find("Visual reference original palette")
+        idx_ref = text.find("Production / reference original palette")
         idx_default = text.find("Skill default palette")
         self.assertGreater(idx_user_colors, 0)
         self.assertGreater(idx_user_palette, idx_user_colors)
@@ -69,24 +83,25 @@ class TestSkillMdWorkflowHooks(unittest.TestCase):
         self.assertGreater(idx_default, idx_ref)
 
     def test_palette_policy_preserve_and_adaptable_mentioned(self):
-        self.assertIn("palette_policy", self.skill_md)
-        self.assertIn("preserve", self.skill_md)
-        self.assertIn("adaptable", self.skill_md)
+        self.assertIn("palette_policy", self.visual_refs)
+        self.assertIn("preserve", self.visual_refs)
+        self.assertIn("adaptable", self.visual_refs)
 
     def test_visual_source_report_in_delivery(self):
-        self.assertIn("Visual Source Report", self.skill_md)
-        self.assertIn("Production asset:", self.skill_md)
-        self.assertIn("Visual reference:", self.skill_md)
+        self.assertIn("Internal audit record", self.privacy)
+        self.assertIn("asset filenames", self.privacy)
+        self.assertIn("reference IDs", self.privacy)
+        self.assertIn("QA result", self.delivery)
 
     def test_visual_reference_library_in_references_table(self):
         self.assertIn("references/visual-reference-library.md", self.skill_md)
 
     def test_concrete_reference_gate_precedes_production_scan(self):
-        gate = self.skill_md.find("### Mandatory submode: reference-driven")
-        scan = self.skill_md.find("### Step 4: Production Asset Scan")
+        gate = self.skill_md.find("## Concrete-reference gate")
+        scan = self.skill_md.find("Select implementation material")
         self.assertGreaterEqual(gate, 0)
         self.assertGreater(scan, gate)
-        self.assertIn("`COPY-FIRST` does not apply until", self.skill_md)
+        self.assertIn("all five dimensions", self.skill_md)
 
     def test_reference_reconstruction_resources_are_linked(self):
         self.assertIn("references/reference-driven-reconstruction.md", self.skill_md)

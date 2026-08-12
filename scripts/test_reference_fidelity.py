@@ -10,7 +10,8 @@ from pathlib import Path
 from check_reference_fidelity import validate_reference_fidelity
 
 
-SCRIPT_MARKER = "# AFS-REFERENCE-DRIVEN: true\nprint('render')\n"
+def script_marker(level="build_new"):
+    return f"# AFS-REFERENCE-DRIVEN: true\n# AFS-ADAPTATION-LEVEL: {level}\nprint('render')\n"
 
 
 def make_contract(decision="rewrite", **overrides):
@@ -29,6 +30,11 @@ def make_contract(decision="rewrite", **overrides):
         "must_match": must_match,
         "may_adapt": [{"feature": "point positions", "reason": "user data differ"}],
         "implementation_decision": decision,
+        "adaptation_level": {
+            "reuse": "exact_reuse",
+            "restructure": "structural_adaptation",
+            "rewrite": "build_new",
+        }[decision],
         "decision_evidence": "legacy plot has one panel and no marginal layers",
         "structural_compatibility": [],
         "structural_changes": ["replace one-axis layout with a 2x2 GridSpec", "add marginal density axes"],
@@ -51,12 +57,12 @@ class TestReferenceFidelity(unittest.TestCase):
         self.tmp.cleanup()
 
     def test_valid_rewrite_is_ready(self):
-        report = validate_reference_fidelity(SCRIPT_MARKER, make_contract(), self.comparison)
+        report = validate_reference_fidelity(script_marker(), make_contract(), self.comparison)
         self.assertTrue(report["ready"], report["errors"])
 
     def test_rewrite_rejects_cosmetic_only_changes(self):
         report = validate_reference_fidelity(
-            SCRIPT_MARKER,
+            script_marker(),
             make_contract(structural_changes=["change color", "increase font size", "set alpha"]),
             self.comparison,
         )
@@ -65,7 +71,7 @@ class TestReferenceFidelity(unittest.TestCase):
 
     def test_rewrite_rejects_vague_nonstructural_changes(self):
         report = validate_reference_fidelity(
-            SCRIPT_MARKER,
+            script_marker(),
             make_contract(structural_changes=["refactor plotting code", "make it resemble the example"]),
             self.comparison,
         )
@@ -74,7 +80,7 @@ class TestReferenceFidelity(unittest.TestCase):
 
     def test_reuse_requires_structural_compatibility_evidence(self):
         report = validate_reference_fidelity(
-            SCRIPT_MARKER,
+            script_marker("exact_reuse"),
             make_contract(decision="reuse", structural_changes=[], structural_compatibility=[]),
             self.comparison,
         )
@@ -87,7 +93,7 @@ class TestReferenceFidelity(unittest.TestCase):
             {"feature": "marginal density layers", "status": "fail", "reason": ""},
         ]
         report = validate_reference_fidelity(
-            SCRIPT_MARKER, make_contract(fidelity_review=review), self.comparison
+            script_marker(), make_contract(fidelity_review=review), self.comparison
         )
         self.assertFalse(report["ready"])
         self.assertIn("unresolved", " ".join(report["errors"]).lower())
@@ -98,17 +104,46 @@ class TestReferenceFidelity(unittest.TestCase):
             {"feature": "marginal density layers", "status": "justified_deviation", "reason": ""},
         ]
         report = validate_reference_fidelity(
-            SCRIPT_MARKER, make_contract(fidelity_review=review), self.comparison
+            script_marker(), make_contract(fidelity_review=review), self.comparison
         )
         self.assertFalse(report["ready"])
         self.assertIn("reason", " ".join(report["errors"]).lower())
 
     def test_missing_comparison_is_not_ready(self):
         report = validate_reference_fidelity(
-            SCRIPT_MARKER, make_contract(), Path(self.tmp.name) / "missing.png"
+            script_marker(), make_contract(), Path(self.tmp.name) / "missing.png"
         )
         self.assertFalse(report["ready"])
         self.assertIn("comparison", " ".join(report["errors"]).lower())
+
+    def test_reuse_requires_exact_reuse_level(self):
+        report = validate_reference_fidelity(
+            script_marker("style_only"),
+            make_contract(
+                decision="reuse",
+                adaptation_level="style_only",
+                structural_changes=[],
+                structural_compatibility=["topology", "marks", "layers", "encoding", "legend"],
+            ),
+            self.comparison,
+        )
+        self.assertFalse(report["ready"])
+        self.assertIn("adaptation", " ".join(report["errors"]).lower())
+
+    def test_rewrite_accepts_style_only_when_compatible_tokens_remain(self):
+        report = validate_reference_fidelity(
+            script_marker("style_only"),
+            make_contract(adaptation_level="style_only"),
+            self.comparison,
+        )
+        self.assertTrue(report["ready"], report["errors"])
+
+    def test_adaptation_marker_must_match_contract(self):
+        report = validate_reference_fidelity(
+            script_marker("style_only"), make_contract(), self.comparison
+        )
+        self.assertFalse(report["ready"])
+        self.assertIn("marker", " ".join(report["errors"]).lower())
 
 
 if __name__ == "__main__":

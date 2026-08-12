@@ -40,7 +40,18 @@ Classify the figure into one of four archetypes. The archetype determines layout
 
 If unsure, default to `asymmetric_mixed` — it produces the Nature-style look of one dominant panel + subordinate evidence panels. (Authoritative source: `SKILL.md` Step 0a.)
 
-### 4. Journal / Export Contract
+### 4. Backend / Assembler Contract
+
+Declare the plotting backend for every panel and exactly one final assembler. Resolve the choice through `backend-selection.md`. A normal figure uses one backend; mixed Python/R mode requires an explicit request or a real capability need.
+
+- **Panel backend(s):** [Python / R]
+- **Final assembler:** [Python / R]
+- **Required runtime/package:** [name]
+- **Mixed-mode reason:** [explicit/required reason or N/A]
+
+Do not silently substitute another backend if the selected runtime is missing.
+
+### 5. Journal / Export Contract
 
 Set the target before styling:
 - **Target journal:** [journal name or "Nature-family standard"]
@@ -49,7 +60,7 @@ Set the target before styling:
 - **Color mode:** RGB
 - **Font:** Arial/Helvetica, ≥5pt at print size
 
-### 5. Review Risk Assessment
+## Review Risk Assessment
 
 Identify what a reviewer might challenge before they see it:
 
