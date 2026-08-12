@@ -413,6 +413,54 @@ Pass 3 —Visual Verification:
 
 ---
 
+## Reference Fidelity Pass (Concrete Reference Only)
+
+Run this pass after Pass 3 whenever the request uses a concrete reference image. Load `references/reference-driven-reconstruction.md`, inspect the equal-size comparison, and run `scripts/check_reference_fidelity.py`.
+
+### RF-1: Reference inspected
+
+**Pass condition:** The actual reference image was opened and inspected. Metadata, tags, filenames, or memory alone do not pass.
+
+### RF-2: Reconstruction contract complete
+
+**Pass condition:** Every required Reference Reconstruction Contract field is non-empty, and `must_match` contains observable features.
+
+### RF-3: Implementation decision justified
+
+**Pass condition:** `reuse`, `restructure`, or `rewrite` follows the five-dimension decision contract. `reuse` includes compatibility evidence for panel topology, mark geometry, layer topology, data encoding, and annotation/legend model.
+
+### RF-4: Layout and geometry correspond
+
+**Pass condition:** Canvas ratio, panel topology, relative panel sizes, and primary mark geometry match every applicable `must_match` item.
+
+### RF-5: Layers and encodings correspond
+
+**Pass condition:** Layer order, overlays, marginal/inset relationships, axes, scales, and visual-variable mappings reproduce the reference grammar without changing scientific meaning.
+
+### RF-6: Palette roles correspond
+
+**Pass condition:** Background, neutral, group, and accent colors serve the same semantic roles and similar visual proportions. Copying hex values while changing their roles fails.
+
+### RF-7: Typography and finishing correspond
+
+**Pass condition:** Font hierarchy, legend model, direct labels, annotations, whitespace, density, and focal hierarchy correspond at the final publication width.
+
+### RF-8: No irrelevant old skeleton remains
+
+**Pass condition:** The candidate contains no panels, layers, legend model, annotations, or layout retained solely because they existed in old code. Cosmetic-only adaptation fails.
+
+### RF-9: Equal-size comparison inspected
+
+**Pass condition:** A non-empty side-by-side comparison exists, preserves both aspect ratios, and was inspected at the target display width.
+
+### RF-10: Deviations justified
+
+**Pass condition:** Every `must_match` item is `pass` or `justified_deviation`. Each deviation names a scientific, data, accessibility, or journal reason. Convenience and time pressure are invalid reasons.
+
+**Reference gate:** Any failed RF check or any unresolved `must_match` item sets the verdict to FIX. Revise, rerender, recreate the comparison, and rerun the checker. Do not deliver a claim that the output matches the reference until the checker returns READY.
+
+---
+
 ## QA Report Format
 
 After executing all four passes, output a structured report:
@@ -448,6 +496,11 @@ Pass 3 —Visual Verification (render required):
   [FAIL] VV-3: Gene labels at 4pt italic are illegible —increase to 5pt
   ...
 
+Reference Fidelity (when a concrete reference is used):
+  [PASS] RF-1 through RF-3: reference inspected, contract complete, decision justified
+  [FAIL] RF-4: candidate retains a single-axis layout instead of the reference 2x2 topology
+  [PASS] RF-5 through RF-10
+
 Summary:
   Pass: X/Y   Fail: X/Y   Warn: X/Y
 
@@ -461,7 +514,7 @@ Verdict:
 
 ## After QA
 
-- **READY —* All passes (0-3) clear. Proceed to Hub Step 6 (Deliver). Include the full QA report with delivery.
+- **READY —* All passes (0-3) clear, plus RF-1 through RF-10 when a concrete reference is used. Proceed to Hub Step 6 (Deliver). Include the full QA report with delivery.
 - **FIX —* Fix failed items, re-run only the failed pass, then re-render for Pass 3 if visual changes were made. Maximum 3 render-fix cycles.
 - **WARN —* Deliver with warnings noted. Flag to the user.
 - **SKIP Pass 3 —* If Python/R runtime is not available locally, skip Pass 3 (Visual Verification) and warn the user: "Pass 3 (visual verification) was skipped —no local Python/R runtime. Please visually inspect the output before submission."
@@ -469,4 +522,3 @@ Verdict:
 If >2 failures remain after one round of fixes, or Pass 3 issues persist after 3 render-fix cycles, escalate to **Reviewer Simulation Mode** (Hub SKILL.md, Reviewer Simulation section) for a wider diagnosis.
 
 If >2 failures remain after one round of fixes, the figure likely has structural issues. Escalate to **Reviewer Simulation Mode** (Hub SKILL.md, Reviewer Simulation section) for a wider diagnosis before attempting more fixes.
-

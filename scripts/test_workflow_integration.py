@@ -81,6 +81,23 @@ class TestSkillMdWorkflowHooks(unittest.TestCase):
     def test_visual_reference_library_in_references_table(self):
         self.assertIn("references/visual-reference-library.md", self.skill_md)
 
+    def test_concrete_reference_gate_precedes_production_scan(self):
+        gate = self.skill_md.find("### Mandatory submode: reference-driven")
+        scan = self.skill_md.find("### Step 4: Production Asset Scan")
+        self.assertGreaterEqual(gate, 0)
+        self.assertGreater(scan, gate)
+        self.assertIn("`COPY-FIRST` does not apply until", self.skill_md)
+
+    def test_reference_reconstruction_resources_are_linked(self):
+        self.assertIn("references/reference-driven-reconstruction.md", self.skill_md)
+        self.assertIn("scripts/check_reference_fidelity.py", self.skill_md)
+
+    def test_reference_fidelity_qa_is_complete(self):
+        root = _resolve_skill_root()
+        checklist = (root / "references" / "checklist.md").read_text(encoding="utf-8")
+        for number in range(1, 11):
+            self.assertIn(f"RF-{number}", checklist)
+
 
 class TestWorkflowReferenceQueries(unittest.TestCase):
     """Verify ReferenceLibrary supports the workflow queries."""

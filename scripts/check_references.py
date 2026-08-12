@@ -200,7 +200,8 @@ def check_reference_md_health() -> list[dict]:
         "complexheatmap.md", "directory-map.md", "export-specs.md",
         "figure-contract.md", "figure-deconstruction.md", "journal-intel.md",
         "journal-specs.md", "matplotlib.md", "multipanel-layout.md",
-        "r-rendering.md", "revision-cases.md", "typography.md",
+        "r-rendering.md", "reference-driven-reconstruction.md",
+        "revision-cases.md", "typography.md", "visual-reference-library.md",
         "compose.R",
     ]
     for fname in expected:
