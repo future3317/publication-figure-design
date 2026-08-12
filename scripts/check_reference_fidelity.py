@@ -30,10 +30,6 @@ REQUIRED_FIELDS = (
 )
 
 DECISIONS = {"reuse", "restructure", "rewrite"}
-COSMETIC_TERMS = {
-    "alpha", "color", "colour", "font", "fontsize", "line width", "linewidth",
-    "marker size", "markersize", "palette", "size", "透明度", "字号", "线宽", "配色",
-}
 
 
 def _nonempty(value: Any) -> bool:
@@ -46,17 +42,15 @@ def _nonempty(value: Any) -> bool:
     return True
 
 
-def _is_cosmetic_only(changes: Any) -> bool:
+def _has_structural_evidence(changes: Any) -> bool:
     if not isinstance(changes, list) or not changes:
-        return True
+        return False
     structural_terms = {
         "axis", "facet", "geometry", "grid", "gridspec", "layer", "layout", "legend model",
         "mark", "marginal", "panel", "subplot", "topology", "坐标", "几何", "图层", "布局", "面板",
     }
     text = " ".join(str(item).lower() for item in changes)
-    if any(term in text for term in structural_terms):
-        return False
-    return any(term in text for term in COSMETIC_TERMS)
+    return any(term in text for term in structural_terms)
 
 
 def validate_reference_fidelity(
@@ -95,10 +89,11 @@ def validate_reference_fidelity(
             )
     elif decision in {"restructure", "rewrite"}:
         changes = contract.get("structural_changes")
-        checks["structural_change"] = not _is_cosmetic_only(changes)
+        checks["structural_change"] = _has_structural_evidence(changes)
         if not checks["structural_change"]:
             errors.append(
-                f"{decision} requires structural changes; cosmetic-only color/font/alpha/linewidth edits do not qualify."
+                f"{decision} requires explicit structural changes to layout/panels/geometry/layers/encodings; "
+                "vague or cosmetic-only color/font/alpha/linewidth edits do not qualify."
             )
 
     must_match = contract.get("must_match") if isinstance(contract.get("must_match"), list) else []

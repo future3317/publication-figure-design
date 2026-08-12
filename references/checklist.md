@@ -1,6 +1,6 @@
 # QA Protocol
 
-This is an **LLM-executable** quality assurance protocol. After generating figure code, the LLM executes this protocol automatically as Step 5 of the Hub workflow. Each check specifies what to look for in the generated code and how to verify it —no external scripts required.
+This is an **LLM-executable** quality assurance protocol. After generating figure code, the LLM executes this protocol automatically as Step 6 of the Hub workflow. Each check specifies what to look for in the generated code and how to verify it; the reference-driven pass also invokes its lightweight checker.
 
 ## Automated Validation
 
@@ -514,10 +514,10 @@ Verdict:
 
 ## After QA
 
-- **READY —* All passes (0-3) clear, plus RF-1 through RF-10 when a concrete reference is used. Proceed to Hub Step 6 (Deliver). Include the full QA report with delivery.
-- **FIX —* Fix failed items, re-run only the failed pass, then re-render for Pass 3 if visual changes were made. Maximum 3 render-fix cycles.
-- **WARN —* Deliver with warnings noted. Flag to the user.
-- **SKIP Pass 3 —* If Python/R runtime is not available locally, skip Pass 3 (Visual Verification) and warn the user: "Pass 3 (visual verification) was skipped —no local Python/R runtime. Please visually inspect the output before submission."
+- **READY —** All passes (0-3) clear, plus RF-1 through RF-10 when a concrete reference is used. Proceed to Hub Step 7 (Deliver). Include the full QA report with delivery.
+- **FIX —** Fix failed items, re-run only the failed pass, then re-render for Pass 3 if visual changes were made. Maximum 3 render-fix cycles.
+- **WARN —** Deliver with warnings noted. Flag to the user.
+- **SKIP Pass 3 —** If Python/R runtime is not available locally, skip Pass 3 (Visual Verification) and warn the user: "Pass 3 (visual verification) was skipped —no local Python/R runtime. Please visually inspect the output before submission."
 
 If >2 failures remain after one round of fixes, or Pass 3 issues persist after 3 render-fix cycles, escalate to **Reviewer Simulation Mode** (Hub SKILL.md, Reviewer Simulation section) for a wider diagnosis.
 

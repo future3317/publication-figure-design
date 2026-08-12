@@ -63,6 +63,15 @@ class TestReferenceFidelity(unittest.TestCase):
         self.assertFalse(report["ready"])
         self.assertIn("cosmetic", " ".join(report["errors"]).lower())
 
+    def test_rewrite_rejects_vague_nonstructural_changes(self):
+        report = validate_reference_fidelity(
+            SCRIPT_MARKER,
+            make_contract(structural_changes=["refactor plotting code", "make it resemble the example"]),
+            self.comparison,
+        )
+        self.assertFalse(report["ready"])
+        self.assertIn("structural", " ".join(report["errors"]).lower())
+
     def test_reuse_requires_structural_compatibility_evidence(self):
         report = validate_reference_fidelity(
             SCRIPT_MARKER,

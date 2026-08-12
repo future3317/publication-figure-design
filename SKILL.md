@@ -202,7 +202,7 @@ Rscript --version 2>/dev/null || ls "/c/Program Files/R/"*/bin/Rscript.exe 2>/de
 Store as `PYTHON_AVAILABLE`, `R_AVAILABLE`, `R_PATH`.
 
 2. **Match runtimes to the plan:** For each panel in the confirmed plan:
-   - If a production script exists (will be checked in Step 3) → the script's language must have a runtime
+   - If a production script exists (checked in Step 4) → the script's language must have a runtime
    - If no production script exists → generate in Python (default) or R (user preference)
 
 3. **Handle missing runtimes:**
@@ -578,7 +578,7 @@ Output:
    - multiple-comparison correction (if applicable)
    - source-data traceability (which file/column produced each data point)
    - For ML/model figures: train/validation/test split, number of seeds/folds, metric definition, baseline definition
-5. Suggested next step
+6. Suggested next step
 
 **The statistics report is not optional.** A figure without statistical documentation is not a publication-grade figure. Reviewers expect this information and will request it if missing.
 
