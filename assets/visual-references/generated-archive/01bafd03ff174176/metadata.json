@@ -1,0 +1,82 @@
+{
+  "aesthetic_rating": null,
+  "code_path": "assets/visual-references/generated-archive/01bafd03ff174176/code.py",
+  "created_at": "2026-08-12T16:57:22Z",
+  "data_density": null,
+  "figure_type": "line_grid",
+  "id": "01bafd03ff174176",
+  "image_path": "assets/visual-references/generated-archive/01bafd03ff174176/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "wide",
+    "density": "medium",
+    "panel_count": 3,
+    "panel_grid": [
+      1,
+      3
+    ],
+    "visual_family": "line_grid"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "vigil_ablation_curves",
+    "mosaic": [
+      "ABC"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "line:ablation"
+      },
+      {
+        "id": "B",
+        "kind": "line:ablation"
+      },
+      {
+        "id": "C",
+        "kind": "line:ablation"
+      }
+    ],
+    "source_observation": "three ablation learning curves with uncertainty bands"
+  },
+  "reconstruction_method": "independent",
+  "renderer_version": 3,
+  "review_status": "pending",
+  "scope": "generated-archive",
+  "sha256": "01bafd03ff174176a8424fcbc9efd9d06a2958066497254241946e51b9fbbfa4",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "302b8f53795653bf7ebe74ca508319c073325bdda1f106ca9eb3cd7c690da7c7",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_VIGIL/figures/ablation_curves.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "line_grid",
+  "tags": [
+    "source-reconstruction",
+    "figures4papers",
+    "line_grid"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "line_grid",
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/01bafd03ff174176/36-01bafd03ff174176.png",
+    "final_size_inspected": true,
+    "hierarchy": "fail",
+    "legend_footprint": "fail",
+    "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+    "panel_balance": "fail",
+    "reviewed_at": "2026-08-12T17:46:28Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "fail",
+    "verdict": "fail",
+    "whitespace": "fail"
+  }
+}

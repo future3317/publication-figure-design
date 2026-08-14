@@ -1,0 +1,43 @@
+{
+  "aesthetic_rating": 4.5,
+  "code_path": null,
+  "created_at": "2026-08-14T08:06:39Z",
+  "data_density": "high",
+  "figure_type": "scatter_marginal",
+  "id": "227c2b8a31a21253",
+  "image_path": "assets/visual-references/references/227c2b8a31a21253/image.png",
+  "journal_style": null,
+  "layout": "joint-plot",
+  "license": "user-supplied; redistribution not established",
+  "n_groups": null,
+  "notes": "Predicted-versus-reference scatter with identity line, three semantic groups, top/side marginal densities, threshold guides, and a compact legend. Visual inspiration only; no source code or source-paper data is bundled.",
+  "palette": null,
+  "palette_policy": "adaptable",
+  "production_ready": false,
+  "reference_kind": "user_supplied",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "227c2b8a31a21253fd48d103a3f472cfeb1511fd37aa8ad6a39495e7d4e01072",
+  "source": "user-supplied reference image",
+  "source_url": null,
+  "subtype": null,
+  "tags": [
+    "scatter",
+    "marginal-density",
+    "identity-line",
+    "grouped",
+    "energy-gap",
+    "joint-plot",
+    "three-color"
+  ],
+  "usage_scope": "private_reference",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "panel_balance": "pass",
+    "reviewer": "agent visual intake review 2026-08-14",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

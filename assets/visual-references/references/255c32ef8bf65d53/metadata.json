@@ -1,0 +1,32 @@
+{
+  "aesthetic_rating": 4,
+  "code_path": "assets/figures/heatmap/plot_CorrelationMatrixCombo.py",
+  "created_at": "2026-08-11T13:21:16Z",
+  "data_density": "medium",
+  "figure_type": "heatmap",
+  "id": "255c32ef8bf65d53",
+  "image_path": "assets/visual-references/references/255c32ef8bf65d53/image.jpg",
+  "journal_style": "Nature",
+  "layout": "4x1",
+  "license": "unknown",
+  "n_groups": 6,
+  "notes": "WeChat screenshot: 4 correlation matrix heatmaps showing different color scheme variants (teal-coral-violet, indigo-amber-rose, peacock blue-gold orange-wine red, lake blue-green-purple red). Reproduction script provided (plot_CorrelationMatrixCombo.py).",
+  "palette": null,
+  "palette_policy": "adaptable",
+  "production_ready": true,
+  "review_status": "pending",
+  "scope": "references",
+  "sha256": "255c32ef8bf65d53aa490015dd1ef14319bc4785367212c96d77131d7f991fef",
+  "source": "WeChat screenshot (user-provided)",
+  "source_url": null,
+  "subtype": "wechat_correlation_palette_comparison",
+  "tags": [
+    "wechat",
+    "correlation-matrix",
+    "heatmap",
+    "palette-comparison",
+    "circle-heatmap",
+    "chinese"
+  ],
+  "usage_scope": "private_reference"
+}

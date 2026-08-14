@@ -1,0 +1,43 @@
+{
+  "aesthetic_rating": 4.5,
+  "code_path": null,
+  "created_at": "2026-08-14T08:06:39Z",
+  "data_density": "moderate",
+  "figure_type": "scaling_analysis",
+  "id": "f5ca182539d043e4",
+  "image_path": "assets/visual-references/references/f5ca182539d043e4/image.png",
+  "journal_style": null,
+  "layout": "1x2",
+  "license": "user-supplied; redistribution not established",
+  "n_groups": null,
+  "notes": "Two-panel theory-versus-data scaling figure with log axes, colored parameter sweeps, dashed theoretical curves, error bars, and inline formulas. Visual inspiration only; no source code or source-paper data is bundled.",
+  "palette": null,
+  "palette_policy": "adaptable",
+  "production_ready": false,
+  "reference_kind": "user_supplied",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "f5ca182539d043e4ee717150157e539c2d923af6d1ed653defb7e2a8b6778fb8",
+  "source": "user-supplied reference image",
+  "source_url": null,
+  "subtype": null,
+  "tags": [
+    "log-log",
+    "theory-vs-data",
+    "errorbar",
+    "scaling-law",
+    "color-encoding",
+    "2-panel",
+    "model-exponent"
+  ],
+  "usage_scope": "private_reference",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "panel_balance": "pass",
+    "reviewer": "agent visual intake review 2026-08-14",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

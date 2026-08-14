@@ -74,5 +74,18 @@
     "in_vivo_efficacy"
   ],
   "usage_scope": "internal_reference",
-  "visual_family": "in_vivo_efficacy"
+  "visual_family": "in_vivo_efficacy",
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/668bc98b544d54d5/52-668bc98b544d54d5.png",
+    "final_size_inspected": true,
+    "hierarchy": "fail",
+    "legend_footprint": "fail",
+    "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+    "panel_balance": "fail",
+    "reviewed_at": "2026-08-12T17:46:29Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "fail",
+    "verdict": "fail",
+    "whitespace": "fail"
+  }
 }

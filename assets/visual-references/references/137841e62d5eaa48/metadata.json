@@ -1,0 +1,70 @@
+{
+  "aesthetic_rating": 4.5,
+  "code_path": null,
+  "created_at": "2026-08-12T17:30:09Z",
+  "data_density": null,
+  "figure_type": "comparison_composite",
+  "id": "137841e62d5eaa48",
+  "image_path": "assets/visual-references/references/137841e62d5eaa48/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "unknown",
+  "n_groups": null,
+  "notes": "Exact source visual sample cataloged for private reference; distinct from independent reconstruction.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "cellsplicenet_comparison_worm",
+    "mosaic": [
+      "ABC"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "bar:comparison"
+      },
+      {
+        "id": "B",
+        "kind": "heatmap:matrix"
+      },
+      {
+        "id": "C",
+        "kind": "line:calibration"
+      }
+    ],
+    "source_observation": "three-panel worm benchmark: methods, matrix evidence, and calibration"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "137841e62d5eaa48998a97246849b8ede08d2d165c8bb4ad3fd6a18d6b6c65e2",
+  "source": "figures4papers visual source",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "137841e62d5eaa48998a97246849b8ede08d2d165c8bb4ad3fd6a18d6b6c65e2",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_CellSpliceNet/figures/comparison_worm.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "cellsplicenet_comparison_worm",
+  "tags": [
+    "source-catalog",
+    "figures4papers",
+    "comparison_composite"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "comparison_composite",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'cellsplicenet_comparison_worm' is a focused comparison_composite reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

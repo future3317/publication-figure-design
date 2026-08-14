@@ -1,0 +1,72 @@
+{
+  "aesthetic_rating": 4.5,
+  "code_path": null,
+  "created_at": "2026-08-11T13:17:24Z",
+  "data_density": "medium",
+  "figure_type": "BarComparison",
+  "id": "131654637e894c12",
+  "image_path": "assets/visual-references/references/131654637e894c12/image.png",
+  "journal_style": "Nature",
+  "layout": "1x1",
+  "license": "unknown",
+  "n_groups": 3,
+  "notes": "Publication figure from figures4papers/figure_CellSpliceNet/figures/comparison_human.png. Used as visual reference for BarComparison style; do not redistribute without permission.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "cellsplicenet_comparison_human",
+    "mosaic": [
+      "ABC"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "bar:comparison"
+      },
+      {
+        "id": "B",
+        "kind": "heatmap:matrix"
+      },
+      {
+        "id": "C",
+        "kind": "line:calibration"
+      }
+    ],
+    "source_observation": "three-panel human benchmark: methods, matrix evidence, and calibration"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "131654637e894c12f441ad4a9cf5533999939971e3f051f81e46ba802f75d854",
+  "source": "Chen Liu, figures4papers repository",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "131654637e894c12f441ad4a9cf5533999939971e3f051f81e46ba802f75d854",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_CellSpliceNet/figures/comparison_human.png",
+  "source_repository": "figures4papers",
+  "source_url": "https://github.com/ChenLiu-1996/figures4papers/tree/main/figure_CellSpliceNet/figures/comparison_human.png",
+  "subtype": "cellsplicenet_comparison_human",
+  "tags": [
+    "figures4papers",
+    "publication-figure",
+    "bar-comparison",
+    "grouped-bar",
+    "human"
+  ],
+  "usage_scope": "private_reference",
+  "visual_family": "comparison_composite",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'cellsplicenet_comparison_human' is a focused comparison_composite reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

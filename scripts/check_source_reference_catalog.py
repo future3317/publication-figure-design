@@ -10,7 +10,7 @@ from pathlib import Path
 from reference_library import ReferenceLibrary
 
 
-def validate_source_catalog(skill_root: Path | str, expected_count: int | None = 15) -> dict:
+def validate_source_catalog(skill_root: Path | str, expected_count: int | None = 54) -> dict:
     skill_root = Path(skill_root)
     errors: list[str] = []
     catalog_path = skill_root / "assets/visual-references/source-reference-catalog.json"
@@ -24,7 +24,7 @@ def validate_source_catalog(skill_root: Path | str, expected_count: int | None =
     records = catalog.get("records", [])
     decisions = audit.get("decisions", {})
     if expected_count is not None and len(records) != expected_count:
-        errors.append(f"Expected {expected_count} licensed exact visual sources; found {len(records)}.")
+        errors.append(f"Expected {expected_count} exact visual sources; found {len(records)}.")
     blueprint_ids = {record.get("blueprint_id") for record in records}
     if set(decisions) != blueprint_ids:
         errors.append("Source-reference manual decisions do not cover each source exactly once.")

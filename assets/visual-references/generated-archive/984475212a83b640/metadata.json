@@ -120,5 +120,18 @@
     "scatter_bubble"
   ],
   "usage_scope": "internal_reference",
-  "visual_family": "scatter_bubble"
+  "visual_family": "scatter_bubble",
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/984475212a83b640/43-984475212a83b640.png",
+    "final_size_inspected": true,
+    "hierarchy": "fail",
+    "legend_footprint": "fail",
+    "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+    "panel_balance": "fail",
+    "reviewed_at": "2026-08-12T17:46:28Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "fail",
+    "verdict": "fail",
+    "whitespace": "fail"
+  }
 }

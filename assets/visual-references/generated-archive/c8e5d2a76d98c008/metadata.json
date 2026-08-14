@@ -1,0 +1,78 @@
+{
+  "aesthetic_rating": null,
+  "code_path": "assets/visual-references/generated-archive/c8e5d2a76d98c008/code.py",
+  "created_at": "2026-08-12T16:57:21Z",
+  "data_density": null,
+  "figure_type": "comparison_composite",
+  "id": "c8e5d2a76d98c008",
+  "image_path": "assets/visual-references/generated-archive/c8e5d2a76d98c008/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "wide",
+    "density": "focused",
+    "panel_count": 2,
+    "panel_grid": [
+      1,
+      2
+    ],
+    "visual_family": "comparison_composite"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "rnagenscape_speed",
+    "mosaic": [
+      "AB"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "bar:comparison"
+      },
+      {
+        "id": "B",
+        "kind": "forest:effects"
+      }
+    ],
+    "source_observation": "speed comparison with effect-size intervals"
+  },
+  "reconstruction_method": "independent",
+  "renderer_version": 3,
+  "review_status": "pending",
+  "scope": "generated-archive",
+  "sha256": "c8e5d2a76d98c0086ef1c2a80e841d4f9a5a1f700b0caa2d9e454748148b84d5",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "cd1fec84f615a43dbe91cc94bfbb94fe07e086fdd5d8191fbff2ec990e38d4f5",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_RNAGenScape/figures/results_comparison_speed.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "comparison_composite",
+  "tags": [
+    "source-reconstruction",
+    "figures4papers",
+    "comparison_composite"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "comparison_composite",
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/c8e5d2a76d98c008/34-c8e5d2a76d98c008.png",
+    "final_size_inspected": true,
+    "hierarchy": "fail",
+    "legend_footprint": "fail",
+    "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+    "panel_balance": "fail",
+    "reviewed_at": "2026-08-12T17:46:28Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "fail",
+    "verdict": "fail",
+    "whitespace": "fail"
+  }
+}

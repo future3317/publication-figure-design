@@ -1,0 +1,32 @@
+{
+  "aesthetic_rating": 4,
+  "code_path": "assets/visual-references/references/8fbf151c1f63de42/code.py",
+  "created_at": "2026-08-11T13:21:16Z",
+  "data_density": "medium",
+  "figure_type": "BarCategorical",
+  "id": "8fbf151c1f63de42",
+  "image_path": "assets/visual-references/references/8fbf151c1f63de42/image.jpg",
+  "journal_style": "Nature",
+  "layout": "1x1",
+  "license": "unknown",
+  "n_groups": 12,
+  "notes": "WeChat screenshot: categorical bar chart with blue-to-red gradient fill, direct value annotations, error bars, and dashed trend line. Reproduction script (code.py) provided.",
+  "palette": null,
+  "palette_policy": "adaptable",
+  "production_ready": true,
+  "review_status": "pending",
+  "scope": "references",
+  "sha256": "8fbf151c1f63de4206b49c4e541bb8d24ad5fa6f41ddb6e8d7f6eac965fb79b2",
+  "source": "WeChat screenshot (user-provided)",
+  "source_url": null,
+  "subtype": "wechat_gradient_bar_trend",
+  "tags": [
+    "wechat",
+    "bar-chart",
+    "gradient-fill",
+    "annotation",
+    "trend-line",
+    "blue-red"
+  ],
+  "usage_scope": "private_reference"
+}

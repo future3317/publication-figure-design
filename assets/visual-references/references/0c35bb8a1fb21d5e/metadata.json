@@ -1,0 +1,70 @@
+{
+  "aesthetic_rating": 4.1,
+  "code_path": null,
+  "created_at": "2026-08-12T17:30:09Z",
+  "data_density": null,
+  "figure_type": "grouped_bar",
+  "id": "0c35bb8a1fb21d5e",
+  "image_path": "assets/visual-references/references/0c35bb8a1fb21d5e/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "unknown",
+  "n_groups": null,
+  "notes": "Exact source visual sample cataloged for private reference; distinct from independent reconstruction.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "immunostruct_comparison_cancer",
+    "mosaic": [
+      "ABC"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "bar:comparison"
+      },
+      {
+        "id": "B",
+        "kind": "bar:comparison"
+      },
+      {
+        "id": "C",
+        "kind": "forest:effects"
+      }
+    ],
+    "source_observation": "cancer method comparison with interval panel"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "0c35bb8a1fb21d5e30e16be152fc92959af580d9e24f04ccc61444adba8c7aa2",
+  "source": "figures4papers visual source",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "0c35bb8a1fb21d5e30e16be152fc92959af580d9e24f04ccc61444adba8c7aa2",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_ImmunoStruct/figures/bars_comparison_Cancer.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "immunostruct_comparison_cancer",
+  "tags": [
+    "source-catalog",
+    "figures4papers",
+    "grouped_bar"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "grouped_bar",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'immunostruct_comparison_cancer' is a focused grouped_bar reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

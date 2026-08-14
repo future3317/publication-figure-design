@@ -1,0 +1,75 @@
+{
+  "aesthetic_rating": 4.1,
+  "code_path": null,
+  "created_at": "2026-08-12T17:30:09Z",
+  "data_density": null,
+  "figure_type": "grouped_bar",
+  "id": "bc2cc547f15430bc",
+  "image_path": "assets/visual-references/references/bc2cc547f15430bc/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "unknown",
+  "n_groups": null,
+  "notes": "Exact source visual sample cataloged for private reference; distinct from independent reconstruction.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "brainteaser_correctness_category",
+    "mosaic": [
+      "AB",
+      "CD"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "bar:category"
+      },
+      {
+        "id": "B",
+        "kind": "bar:category"
+      },
+      {
+        "id": "C",
+        "kind": "distribution:points"
+      },
+      {
+        "id": "D",
+        "kind": "forest:effects"
+      }
+    ],
+    "source_observation": "category-level correctness panels with raw and interval evidence"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "bc2cc547f15430bc9af2ebdfba0b8cf1c73702e8fbea35d8b2953cc960da117b",
+  "source": "figures4papers visual source",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "bc2cc547f15430bc9af2ebdfba0b8cf1c73702e8fbea35d8b2953cc960da117b",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_Brainteaser/figures/correctness_by_category.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "brainteaser_correctness_category",
+  "tags": [
+    "source-catalog",
+    "figures4papers",
+    "grouped_bar"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "grouped_bar",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'brainteaser_correctness_category' is a focused grouped_bar reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

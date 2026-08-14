@@ -30,7 +30,7 @@ except ImportError:  # pragma: no cover - standalone CLI
 
 IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg", ".webp", ".tif", ".tiff"}
 MANIFEST_RELATIVE_PATH = Path("assets/visual-references/source-reconstruction-manifest.json")
-EXPECTED_COUNTS = {"nature-figure": 15, "figures4papers": 0, "total": 15}
+EXPECTED_COUNTS = {"nature-figure": 15, "figures4papers": 39, "total": 54}
 RENDERER_VERSION = 3
 PALETTES = (
     ("#35618f", "#79a8a9", "#e5a84b", "#c96558", "#7868a6"),

@@ -120,5 +120,18 @@
     "network_matrix"
   ],
   "usage_scope": "internal_reference",
-  "visual_family": "network_matrix"
+  "visual_family": "network_matrix",
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/c3c538a466aef22e/49-c3c538a466aef22e.png",
+    "final_size_inspected": true,
+    "hierarchy": "fail",
+    "legend_footprint": "fail",
+    "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+    "panel_balance": "fail",
+    "reviewed_at": "2026-08-12T17:46:28Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "fail",
+    "verdict": "fail",
+    "whitespace": "fail"
+  }
 }

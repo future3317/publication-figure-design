@@ -1,0 +1,77 @@
+{
+  "aesthetic_rating": 4.5,
+  "code_path": null,
+  "created_at": "2026-08-11T13:17:24Z",
+  "data_density": "medium",
+  "figure_type": "heatmap",
+  "id": "4cf8539d0521b726",
+  "image_path": "assets/visual-references/references/4cf8539d0521b726/image.png",
+  "journal_style": "Nature",
+  "layout": "1x1",
+  "license": "unknown",
+  "n_groups": 4,
+  "notes": "Publication figure from figures4papers/figure_RNAGenScape/figures/results_comparison_optimization.png. Used as visual reference for heatmap style; do not redistribute without permission.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "rnagenscape_optimization",
+    "mosaic": [
+      "AABB",
+      "CCDD"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "heatmap:optimization"
+      },
+      {
+        "id": "B",
+        "kind": "line:optimization"
+      },
+      {
+        "id": "C",
+        "kind": "bar:comparison"
+      },
+      {
+        "id": "D",
+        "kind": "scatter:embedding"
+      }
+    ],
+    "source_observation": "optimization landscape hero with trajectory, method comparison, and embedding"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "4cf8539d0521b7268f0227b56cecddf2f70c1bb4bbcf9b5e3be886e95a54927a",
+  "source": "Chen Liu, figures4papers repository",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "4cf8539d0521b7268f0227b56cecddf2f70c1bb4bbcf9b5e3be886e95a54927a",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_RNAGenScape/figures/results_comparison_optimization.png",
+  "source_repository": "figures4papers",
+  "source_url": "https://github.com/ChenLiu-1996/figures4papers/tree/main/figure_RNAGenScape/figures/results_comparison_optimization.png",
+  "subtype": "rnagenscape_optimization",
+  "tags": [
+    "figures4papers",
+    "publication-figure",
+    "heatmap",
+    "optimization",
+    "comparison"
+  ],
+  "usage_scope": "private_reference",
+  "visual_family": "comparison_composite",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'rnagenscape_optimization' is a focused comparison_composite reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

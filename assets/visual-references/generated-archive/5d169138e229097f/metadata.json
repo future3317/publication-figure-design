@@ -1,0 +1,87 @@
+{
+  "aesthetic_rating": null,
+  "code_path": "assets/visual-references/generated-archive/5d169138e229097f/code.py",
+  "created_at": "2026-08-12T16:57:21Z",
+  "data_density": null,
+  "figure_type": "line_grid",
+  "id": "5d169138e229097f",
+  "image_path": "assets/visual-references/generated-archive/5d169138e229097f/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "wide",
+    "density": "focused",
+    "panel_count": 2,
+    "panel_grid": [
+      1,
+      2
+    ],
+    "visual_family": "line_grid"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "ophthal_monthly_trend",
+    "mosaic": [
+      "AB",
+      "CD"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "line:monthly"
+      },
+      {
+        "id": "B",
+        "kind": "line:monthly"
+      },
+      {
+        "id": "C",
+        "kind": "area:composition"
+      },
+      {
+        "id": "D",
+        "kind": "bar:summary"
+      }
+    ],
+    "source_observation": "monthly trends, composition over time, and summary comparison"
+  },
+  "reconstruction_method": "independent",
+  "renderer_version": 3,
+  "review_status": "pending",
+  "scope": "generated-archive",
+  "sha256": "5d169138e229097f75c26643c8edf88ec7ed6c153d8fd40cd9997616cfa256ec",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "66fe0f27f44697547b6cb219ff90696f54a6fef48984c9578ace258e0ebce4d4",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_ophthal_review/figures/trend_by_month.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "line_grid",
+  "tags": [
+    "source-reconstruction",
+    "figures4papers",
+    "line_grid"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "line_grid",
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/5d169138e229097f/30-5d169138e229097f.png",
+    "final_size_inspected": true,
+    "hierarchy": "fail",
+    "legend_footprint": "fail",
+    "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+    "panel_balance": "fail",
+    "reviewed_at": "2026-08-12T17:46:28Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "fail",
+    "verdict": "fail",
+    "whitespace": "fail"
+  }
+}

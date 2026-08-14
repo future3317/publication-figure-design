@@ -1,0 +1,43 @@
+{
+  "aesthetic_rating": 4.4,
+  "code_path": null,
+  "created_at": "2026-08-14T08:06:39Z",
+  "data_density": "moderate",
+  "figure_type": "mixed_multi_panel",
+  "id": "a7a3dfa02b650b2e",
+  "image_path": "assets/visual-references/references/a7a3dfa02b650b2e/image.png",
+  "journal_style": null,
+  "layout": "asymmetric-mixed",
+  "license": "user-supplied; redistribution not established",
+  "n_groups": null,
+  "notes": "Asymmetric three-panel figure: horizontal enrichment bars, train-versus-permuted ROC density, and a radial category display. Visual inspiration only; no source code or source-paper data is bundled.",
+  "palette": null,
+  "palette_policy": "adaptable",
+  "production_ready": false,
+  "reference_kind": "user_supplied",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "a7a3dfa02b650b2e621aca98027ca5b2c62f47ea791e43d342849fce9e546b8e",
+  "source": "user-supplied reference image",
+  "source_url": null,
+  "subtype": null,
+  "tags": [
+    "enrichment-bar",
+    "roc-density",
+    "circular-bar",
+    "radial",
+    "3-panel",
+    "mixed-encoding",
+    "asymmetric-mixed"
+  ],
+  "usage_scope": "private_reference",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "panel_balance": "justified_deviation",
+    "reviewer": "agent visual intake review 2026-08-14",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

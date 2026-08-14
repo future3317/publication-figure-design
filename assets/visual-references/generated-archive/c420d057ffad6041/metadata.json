@@ -74,5 +74,18 @@
     "material_mechanism"
   ],
   "usage_scope": "internal_reference",
-  "visual_family": "material_mechanism"
+  "visual_family": "material_mechanism",
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/c420d057ffad6041/50-c420d057ffad6041.png",
+    "final_size_inspected": true,
+    "hierarchy": "fail",
+    "legend_footprint": "fail",
+    "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+    "panel_balance": "fail",
+    "reviewed_at": "2026-08-12T17:46:29Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "fail",
+    "verdict": "fail",
+    "whitespace": "fail"
+  }
 }

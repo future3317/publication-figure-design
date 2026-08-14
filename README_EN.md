@@ -25,9 +25,7 @@
 
 ---
 
-**Publication Figure Design** takes "question-driven, not template-driven" as its core principle. Every figure starts from a scientific question and goes through an 8-step closed-loop workflow (intent parsing → archetype classification → figure-type justification → environment detection → style baseline injection → asset scan → render → QA verification), delivering submission-ready vector PDF masters + 300dpi PNG previews + statistical reports.
-
-This repository integrates traceable parts of `academic-figure-skill`, `figures4papers`, and `nature-skills / nature-figure`, then adds the project-specific structural-reconstruction, palette/contrast gates, reference-led optimization, and QA layers. See [NOTICE.md](NOTICE.md) for attribution and public-distribution boundaries.
+**Publication Figure Design** takes "question-driven, not template-driven" as its core principle. Every figure starts from a scientific question and goes through an 8-step closed-loop workflow (intent parsing → archetype classification → figure-type justification → environment detection → style baseline injection → asset scan → render → QA verification), delivering submission-ready vector PDF masters + 300dpi PNG previews + statistical reports. For updates, follow our WeChat official account: **科研绘图酱**.
 
 ---
 
@@ -83,7 +81,7 @@ The skill does not replace the plotting capabilities of Python or R. It provides
 
 ## Figure Type Gallery
 
-> The example figures are built from synthetic data, original code, and explicitly redistributable visual references, and serve as style references only. When users request the same figure type, scripts preserve the established visual language (color scheme, font specification, layout logic, graphical hierarchy) while adapting to the user's actual data.
+> The example figures shown are generated from the project's private data assets and serve as style references only. When users request the same figure type, scripts preserve the established visual language (color scheme, font specification, layout logic, graphical hierarchy) while adapting to the user's actual data. Private assets are continuously updated. Follow WeChat official account: 科研绘图酱
 
 | Figure Type | Preview | Key Features | Typical Use Cases |
 |------------|---------|-------------|-------------------|
@@ -152,7 +150,7 @@ Clone the repository to a stable path and install the skill:
 ```bash
 mkdir -p ~/ai-skills
 cd ~/ai-skills
-git clone https://github.com/future3317/publication-figure-design.git publication-figure-design
+git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
 cp -r publication-figure-design ~/.claude/skills/
 ```
 
@@ -179,7 +177,7 @@ cp -r . ~/.claude/skills/publication-figure-design/
 Codex loads skills through `install/codex/` which provides `manifest.yaml` + `instructions.md`. Copy the required directories to `~/.codex/skills/publication-figure-design/`:
 
 ```bash
-git clone https://github.com/future3317/publication-figure-design.git publication-figure-design
+git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
 cd publication-figure-design
 mkdir -p ~/.codex/skills/publication-figure-design
 cp -r SKILL.md references/ scripts/ assets/ install/codex/* ~/.codex/skills/publication-figure-design/
@@ -190,7 +188,7 @@ After installation, describe your task naturally in a Codex session — the skil
 You can also ask Codex to install for you:
 
 ```text
-Install the Codex skill from https://github.com/future3317/publication-figure-design.git.
+Install the Codex skill from https://github.com/TingxiYu/academic-figure-skill.git.
 Clone it into a directory named publication-figure-design, then copy SKILL.md, references/, scripts/, assets/, and install/codex/ to ~/.codex/skills/publication-figure-design/.
 Keep the full directory structure — do not copy only SKILL.md.
 ```
@@ -200,7 +198,7 @@ Keep the full directory structure — do not copy only SKILL.md.
 Copy the skill rules file to your project root. Cursor will automatically follow the specifications when generating code:
 
 ```bash
-git clone https://github.com/future3317/publication-figure-design.git publication-figure-design
+git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
 cp publication-figure-design/install/cursor/.cursorrules <your-project>/.cursorrules
 ```
 
@@ -211,7 +209,7 @@ The `.cursorrules` file includes color palettes, typography baselines, export sp
 Copy the skill instructions file to your project's `.github/` directory. Copilot loads this context when generating code:
 
 ```bash
-git clone https://github.com/future3317/publication-figure-design.git publication-figure-design
+git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
 mkdir -p <your-project>/.github
 cp publication-figure-design/install/copilot/copilot-instructions.md <your-project>/.github/
 ```
@@ -357,5 +355,3 @@ Publication Figure Design uses a skill plugin architecture. To add a new figure 
 ## License
 
 [Apache 2.0](LICENSE) © 2025 Publication Figure Design Contributors
-
-The public distribution contains only original code, synthetic redraws, and explicitly Apache-2.0-licensed visual references. Unknown-license and private-reference materials are excluded; see [NOTICE.md](NOTICE.md).

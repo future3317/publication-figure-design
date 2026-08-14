@@ -1,0 +1,32 @@
+{
+  "aesthetic_rating": 4,
+  "code_path": "assets/visual-references/generated-archive/76866da267962098/code.py",
+  "created_at": "2026-08-11T14:17:01Z",
+  "data_density": "medium",
+  "figure_type": "BarCategorical",
+  "id": "76866da267962098",
+  "image_path": "assets/visual-references/generated-archive/76866da267962098/image.png",
+  "journal_style": "Nature",
+  "layout": "1x1",
+  "license": "unknown",
+  "n_groups": 12,
+  "notes": "Synthetic reproduction of the WeChat BarCategorical reference.",
+  "palette": null,
+  "palette_policy": "adaptable",
+  "production_ready": true,
+  "review_status": "pending",
+  "scope": "generated-archive",
+  "sha256": "76866da26796209877ba257991f15cf9f3d46a75452088d634ed90437dc889be",
+  "source": "self-generated reproduction of WeChat reference",
+  "source_url": null,
+  "subtype": "synthetic_reproduction",
+  "tags": [
+    "synthetic",
+    "bar-chart",
+    "gradient-fill",
+    "annotation",
+    "trend-line",
+    "reproduction"
+  ],
+  "usage_scope": "internal_reference"
+}

@@ -6,6 +6,2195 @@
   },
   "records": [
     {
+      "archive_id": "0929cd38b228b2df",
+      "code_path": "assets/visual-references/generated-archive/0929cd38b228b2df/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1503,
+      "image_path": "assets/visual-references/generated-archive/0929cd38b228b2df/image.png",
+      "license_class": "unknown",
+      "output_sha256": "0929cd38b228b2df8183ed23a103be599f5cb498596fd6b6cb1597f8063f7388",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "dispersion_motivation",
+        "mosaic": [
+          "AABB",
+          "CCDD"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:inputs"
+          },
+          {
+            "id": "B",
+            "kind": "diagram:latent"
+          },
+          {
+            "id": "C",
+            "kind": "scatter:embedding"
+          },
+          {
+            "id": "D",
+            "kind": "line:dispersion"
+          }
+        ],
+        "source_observation": "four-stage motivation: inputs, latent-space idea, embedding, and response curve"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/Dispersion_motivation.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "04c2f6ab2bedf8e6a19449f0260ef36f8ab736a93dccf19458cdc80d4b593547",
+      "visual_family": "mechanism_schematic",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/0929cd38b228b2df/01-0929cd38b228b2df.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:26Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 4400
+    },
+    {
+      "archive_id": "0c768f24b9178014",
+      "code_path": "assets/visual-references/generated-archive/0c768f24b9178014/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1012,
+      "image_path": "assets/visual-references/generated-archive/0c768f24b9178014/image.png",
+      "license_class": "unknown",
+      "output_sha256": "0c768f24b917801495e6bf112562bad43c1a7125cc8aeaee40e2d38a28e69744",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "dispersion_observation",
+        "mosaic": [
+          "AABB",
+          "CCDD",
+          "EEFF"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:observation"
+          },
+          {
+            "id": "B",
+            "kind": "scatter:groups"
+          },
+          {
+            "id": "C",
+            "kind": "heatmap:correlation"
+          },
+          {
+            "id": "D",
+            "kind": "line:comparison"
+          },
+          {
+            "id": "E",
+            "kind": "distribution:ridge"
+          },
+          {
+            "id": "F",
+            "kind": "forest:effects"
+          }
+        ],
+        "source_observation": "asymmetric observation figure with one explanatory panel and five evidence panels"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/Dispersion_observation.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "59846b700abcf89c2779abce27b5d667637f6429cf4a52ca1892c687359f2aa7",
+      "visual_family": "comparison_composite",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/0c768f24b9178014/02-0c768f24b9178014.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 2928
+    },
+    {
+      "archive_id": "8f50b79d3ba025af",
+      "code_path": "assets/visual-references/generated-archive/8f50b79d3ba025af/code.py",
+      "existing_exact_copy_id": null,
+      "height": 880,
+      "image_path": "assets/visual-references/generated-archive/8f50b79d3ba025af/image.png",
+      "license_class": "unknown",
+      "output_sha256": "8f50b79d3ba025af7d4c90dad26713df5963375e7d64097b473c2135088758d9",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "dispersion_observation_distillation",
+        "mosaic": [
+          "ABC",
+          "DEF"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "distribution:hist"
+          },
+          {
+            "id": "B",
+            "kind": "distribution:violin"
+          },
+          {
+            "id": "C",
+            "kind": "distribution:ridge"
+          },
+          {
+            "id": "D",
+            "kind": "scatter:groups"
+          },
+          {
+            "id": "E",
+            "kind": "line:distillation"
+          },
+          {
+            "id": "F",
+            "kind": "bar:summary"
+          }
+        ],
+        "source_observation": "six compact distribution and comparison panels"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/Dispersion_observation_distillation.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "134b0fcb07dbab1baa769854100fc9791b846f6f6c50591485564fc8492b6660",
+      "visual_family": "distribution_grid",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/8f50b79d3ba025af/03-8f50b79d3ba025af.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 2864
+    },
+    {
+      "archive_id": "ac5e1cef8d16e9ce",
+      "code_path": "assets/visual-references/generated-archive/ac5e1cef8d16e9ce/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1096,
+      "image_path": "assets/visual-references/generated-archive/ac5e1cef8d16e9ce/image.png",
+      "license_class": "unknown",
+      "output_sha256": "ac5e1cef8d16e9ce3233418b9a4bee718d5134069a0995b6e02e8d3db7af3d67",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "immunostruct_contrastive",
+        "mosaic": [
+          "AABB",
+          "CCDD"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:contrastive"
+          },
+          {
+            "id": "B",
+            "kind": "diagram:pairing"
+          },
+          {
+            "id": "C",
+            "kind": "scatter:embedding"
+          },
+          {
+            "id": "D",
+            "kind": "bar:contrast"
+          }
+        ],
+        "source_observation": "paired contrastive workflow followed by embedding and quantitative comparison"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/ImmunoStruct_contrastive.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "c2590ba1ecac5e1d0976df3be6e9fa4056dcdd78670201c6db461e3e4f18b0d0",
+      "visual_family": "comparison_composite",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/ac5e1cef8d16e9ce/04-ac5e1cef8d16e9ce.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 2088
+    },
+    {
+      "archive_id": "4c23827efb6772dd",
+      "code_path": "assets/visual-references/generated-archive/4c23827efb6772dd/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1588,
+      "image_path": "assets/visual-references/generated-archive/4c23827efb6772dd/image.png",
+      "license_class": "unknown",
+      "output_sha256": "4c23827efb6772dd346991e75674d60a59b147baa05cc859bee455c51761494b",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "immunostruct_results_cedar",
+        "mosaic": [
+          "ABCD",
+          "EFGH"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "B",
+            "kind": "bar:ablation"
+          },
+          {
+            "id": "C",
+            "kind": "line:calibration"
+          },
+          {
+            "id": "D",
+            "kind": "heatmap:matrix"
+          },
+          {
+            "id": "E",
+            "kind": "distribution:violin"
+          },
+          {
+            "id": "F",
+            "kind": "scatter:groups"
+          },
+          {
+            "id": "G",
+            "kind": "forest:effects"
+          },
+          {
+            "id": "H",
+            "kind": "table:metrics"
+          }
+        ],
+        "source_observation": "eight-panel benchmark result grid with mixed evidence types"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/ImmunoStruct_results_CEDAR.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "f1f564e0c7221f24f4bffe14cce5b5df6786c75f7dfcf1b6d2be7566820050ec",
+      "visual_family": "comparison_composite",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/4c23827efb6772dd/05-4c23827efb6772dd.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 2124
+    },
+    {
+      "archive_id": "2728b083dfaa29b9",
+      "code_path": "assets/visual-references/generated-archive/2728b083dfaa29b9/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1582,
+      "image_path": "assets/visual-references/generated-archive/2728b083dfaa29b9/image.png",
+      "license_class": "unknown",
+      "output_sha256": "2728b083dfaa29b9b71c338a5831cc9264f983ffe217d3dcf190793bf0231e0c",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "immunostruct_results_iedb",
+        "mosaic": [
+          "ABCD",
+          "EFGH"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "B",
+            "kind": "bar:ablation"
+          },
+          {
+            "id": "C",
+            "kind": "line:calibration"
+          },
+          {
+            "id": "D",
+            "kind": "heatmap:matrix"
+          },
+          {
+            "id": "E",
+            "kind": "distribution:violin"
+          },
+          {
+            "id": "F",
+            "kind": "scatter:groups"
+          },
+          {
+            "id": "G",
+            "kind": "forest:effects"
+          },
+          {
+            "id": "H",
+            "kind": "table:metrics"
+          }
+        ],
+        "source_observation": "eight-panel benchmark result grid, distinct IEDB rendering"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/ImmunoStruct_results_IEDB.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "2768b1a5ef0c501dc03c53c594a28e028df2cd57b51c4fd80c9a57906f6195c5",
+      "visual_family": "comparison_composite",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/2728b083dfaa29b9/06-2728b083dfaa29b9.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 1950
+    },
+    {
+      "archive_id": "45aa6ecccf398b71",
+      "code_path": "assets/visual-references/generated-archive/45aa6ecccf398b71/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1450,
+      "image_path": "assets/visual-references/generated-archive/45aa6ecccf398b71/image.png",
+      "license_class": "unknown",
+      "output_sha256": "45aa6ecccf398b715477e8a0eb2413fd204b9408d531dc8d95a1caa83eb1973e",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "immunostruct_schematic",
+        "mosaic": [
+          "AAAB",
+          "CCCB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:architecture"
+          },
+          {
+            "id": "B",
+            "kind": "diagram:attention"
+          },
+          {
+            "id": "C",
+            "kind": "diagram:training"
+          }
+        ],
+        "source_observation": "wide architecture panel with two subordinate explanatory branches"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/ImmunoStruct_schematic.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "2d3ddf56ae63b34ead168cb95b484881f934e61204a8740c67d6dc1678bbaf7d",
+      "visual_family": "mechanism_schematic",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/45aa6ecccf398b71/07-45aa6ecccf398b71.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 2568
+    },
+    {
+      "archive_id": "da81ff330b16403c",
+      "code_path": "assets/visual-references/generated-archive/da81ff330b16403c/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1300,
+      "image_path": "assets/visual-references/generated-archive/da81ff330b16403c/image.png",
+      "license_class": "unknown",
+      "output_sha256": "da81ff330b16403cc204e440c502b72ccf7d802111476c8cbc59bee35f4921fa",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "rnagenscape_schematic",
+        "mosaic": [
+          "AABB",
+          "CCDD"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:generator"
+          },
+          {
+            "id": "B",
+            "kind": "diagram:conditioning"
+          },
+          {
+            "id": "C",
+            "kind": "manifold:latent"
+          },
+          {
+            "id": "D",
+            "kind": "spatial:expression"
+          }
+        ],
+        "source_observation": "generative pipeline with latent-space and spatial readouts"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/RNAGenScape_schematic.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "5da6979582203956d3f54535ea8286acaaaaba5d588066891ee037de056ed545",
+      "visual_family": "mechanism_schematic",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/da81ff330b16403c/08-da81ff330b16403c.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 3130
+    },
+    {
+      "archive_id": "2932af23fa869f4e",
+      "code_path": "assets/visual-references/generated-archive/2932af23fa869f4e/code.py",
+      "existing_exact_copy_id": null,
+      "height": 788,
+      "image_path": "assets/visual-references/generated-archive/2932af23fa869f4e/image.png",
+      "license_class": "unknown",
+      "output_sha256": "2932af23fa869f4eafdd755aac0ab3c35b330120cc92cbbb0c7f05828dc4f5b4",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "rnagenscape_teaser",
+        "mosaic": [
+          "AABB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "diagram:cells"
+          },
+          {
+            "id": "B",
+            "kind": "spatial:expression"
+          }
+        ],
+        "source_observation": "two-part teaser: cell representation to spatial expression"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/RNAGenScape_teaser.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "51a173abeafd0125204b604424ec869262c94f99ab1b004e6aed4d9b889a66e2",
+      "visual_family": "mechanism_schematic",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/2932af23fa869f4e/09-2932af23fa869f4e.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 2902
+    },
+    {
+      "archive_id": "d01fd400ce53d20e",
+      "code_path": "assets/visual-references/generated-archive/d01fd400ce53d20e/code.py",
+      "existing_exact_copy_id": null,
+      "height": 4844,
+      "image_path": "assets/visual-references/generated-archive/d01fd400ce53d20e/image.png",
+      "license_class": "unknown",
+      "output_sha256": "d01fd400ce53d20e629b71fd4ef3b93cd3b01d9141432b7608735815ad60e695",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "vigil_teaser",
+        "mosaic": [
+          "AABB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:temporal"
+          },
+          {
+            "id": "B",
+            "kind": "line:forecast"
+          }
+        ],
+        "source_observation": "temporal method teaser paired with a predicted trajectory"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/VIGIL_teaser.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "61493276c48d90f05a8d0f48ed398a9ad2b95a80bf8c028f1d68bb9495d06ee8",
+      "visual_family": "mechanism_schematic",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/d01fd400ce53d20e/10-d01fd400ce53d20e.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 10628
+    },
+    {
+      "archive_id": "14c360a8f274c9e0",
+      "code_path": "assets/visual-references/generated-archive/14c360a8f274c9e0/code.py",
+      "existing_exact_copy_id": "abb63055b0d49edb",
+      "height": 3600,
+      "image_path": "assets/visual-references/generated-archive/14c360a8f274c9e0/image.png",
+      "license_class": "unknown",
+      "output_sha256": "14c360a8f274c9e0e0fe3d5c8ff4dfb68d019ca3eb4f4a3d17ac47f603817eee",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "brainteaser_brute_force",
+        "mosaic": [
+          "AABB",
+          "CCDD"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:composition"
+          },
+          {
+            "id": "B",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "C",
+            "kind": "distribution:points"
+          },
+          {
+            "id": "D",
+            "kind": "table:metrics"
+          }
+        ],
+        "source_observation": "composition bars, comparison bars, raw observations, and summary table"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_Brainteaser/figures/brute_force.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "abb63055b0d49edbe9002e820294a622db1429d31b1d2446340036cf1db92607",
+      "visual_family": "grouped_bar",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/14c360a8f274c9e0/11-14c360a8f274c9e0.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 15600
+    },
+    {
+      "archive_id": "f70aada5f671778b",
+      "code_path": "assets/visual-references/generated-archive/f70aada5f671778b/code.py",
+      "existing_exact_copy_id": null,
+      "height": 3600,
+      "image_path": "assets/visual-references/generated-archive/f70aada5f671778b/image.png",
+      "license_class": "unknown",
+      "output_sha256": "f70aada5f671778bc4fe8765312923e106ac4fa4b33df657042a8ab28c88f751",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "brainteaser_correctness_category",
+        "mosaic": [
+          "AB",
+          "CD"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:category"
+          },
+          {
+            "id": "B",
+            "kind": "bar:category"
+          },
+          {
+            "id": "C",
+            "kind": "distribution:points"
+          },
+          {
+            "id": "D",
+            "kind": "forest:effects"
+          }
+        ],
+        "source_observation": "category-level correctness panels with raw and interval evidence"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_Brainteaser/figures/correctness_by_category.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "bc2cc547f15430bc9af2ebdfba0b8cf1c73702e8fbea35d8b2953cc960da117b",
+      "visual_family": "grouped_bar",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/f70aada5f671778b/12-f70aada5f671778b.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 10800
+    },
+    {
+      "archive_id": "1951a04d41fbdc82",
+      "code_path": "assets/visual-references/generated-archive/1951a04d41fbdc82/code.py",
+      "existing_exact_copy_id": null,
+      "height": 3600,
+      "image_path": "assets/visual-references/generated-archive/1951a04d41fbdc82/image.png",
+      "license_class": "unknown",
+      "output_sha256": "1951a04d41fbdc8222a486a1aa5bd5ccc8d467e1ae80d1243a835f2ff7fc3177",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "brainteaser_correctness_subcategory",
+        "mosaic": [
+          "ABC",
+          "DEF",
+          "GHI"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:category"
+          },
+          {
+            "id": "B",
+            "kind": "bar:category"
+          },
+          {
+            "id": "C",
+            "kind": "bar:category"
+          },
+          {
+            "id": "D",
+            "kind": "bar:category"
+          },
+          {
+            "id": "E",
+            "kind": "bar:category"
+          },
+          {
+            "id": "F",
+            "kind": "bar:category"
+          },
+          {
+            "id": "G",
+            "kind": "distribution:points"
+          },
+          {
+            "id": "H",
+            "kind": "forest:effects"
+          },
+          {
+            "id": "I",
+            "kind": "table:metrics"
+          }
+        ],
+        "source_observation": "dense subcategory comparison grid with six categorical panels"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_Brainteaser/figures/correctness_by_subcategory.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "b6639239da2fa9f2bec3eb096ec0db3942965ed38e57446de4b8a240a77c02c6",
+      "visual_family": "grouped_bar",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/1951a04d41fbdc82/13-1951a04d41fbdc82.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 28800
+    },
+    {
+      "archive_id": "ed3e9f652126a1d1",
+      "code_path": "assets/visual-references/generated-archive/ed3e9f652126a1d1/code.py",
+      "existing_exact_copy_id": null,
+      "height": 3600,
+      "image_path": "assets/visual-references/generated-archive/ed3e9f652126a1d1/image.png",
+      "license_class": "unknown",
+      "output_sha256": "ed3e9f652126a1d1ea1ecb380f1f7ec0e54086a7fd1dab277e98f9d10152e485",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "brainteaser_rewriting",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:beforeafter"
+          },
+          {
+            "id": "B",
+            "kind": "scatter:paired"
+          },
+          {
+            "id": "C",
+            "kind": "distribution:violin"
+          }
+        ],
+        "source_observation": "before/after rewriting comparison with paired observation panel"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_Brainteaser/figures/rewriting.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "0460f09210bc23c272602ecb8b3fcf3984f42fc055df3b0e4982eab50303607f",
+      "visual_family": "grouped_bar",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/ed3e9f652126a1d1/14-ed3e9f652126a1d1.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 7200
+    },
+    {
+      "archive_id": "55cb7dd1690cd0e8",
+      "code_path": "assets/visual-references/generated-archive/55cb7dd1690cd0e8/code.py",
+      "existing_exact_copy_id": null,
+      "height": 3600,
+      "image_path": "assets/visual-references/generated-archive/55cb7dd1690cd0e8/image.png",
+      "license_class": "unknown",
+      "output_sha256": "55cb7dd1690cd0e8a6ec9bc1141712863a69a1e58f4a88700bac8f3ab585145c",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "brainteaser_selfcorrection_math",
+        "mosaic": [
+          "ABCD",
+          "EFGH"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:category"
+          },
+          {
+            "id": "B",
+            "kind": "bar:category"
+          },
+          {
+            "id": "C",
+            "kind": "bar:category"
+          },
+          {
+            "id": "D",
+            "kind": "bar:category"
+          },
+          {
+            "id": "E",
+            "kind": "line:iterations"
+          },
+          {
+            "id": "F",
+            "kind": "scatter:paired"
+          },
+          {
+            "id": "G",
+            "kind": "distribution:points"
+          },
+          {
+            "id": "H",
+            "kind": "table:metrics"
+          }
+        ],
+        "source_observation": "dense self-correction grid: categorical gains, iterations, paired observations, and metrics"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_Brainteaser/figures/selfcorrection_math.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "71133ed59cc16f8c36a4e8b2325575d185f36a8534c29579d2eff177544e9e53",
+      "visual_family": "grouped_bar",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/55cb7dd1690cd0e8/15-55cb7dd1690cd0e8.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 10800
+    },
+    {
+      "archive_id": "b1a15c9fca75c316",
+      "code_path": "assets/visual-references/generated-archive/b1a15c9fca75c316/code.py",
+      "existing_exact_copy_id": "3373085ababf0748",
+      "height": 3900,
+      "image_path": "assets/visual-references/generated-archive/b1a15c9fca75c316/image.png",
+      "license_class": "unknown",
+      "output_sha256": "b1a15c9fca75c316de7d0ce6001e22a24a3eb9533c5c19582cf4d259e2c82685",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "cellsplicenet_ablation",
+        "mosaic": [
+          "AAB",
+          "CCD"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:ablation"
+          },
+          {
+            "id": "B",
+            "kind": "line:training"
+          },
+          {
+            "id": "C",
+            "kind": "distribution:violin"
+          },
+          {
+            "id": "D",
+            "kind": "table:metrics"
+          }
+        ],
+        "source_observation": "ablation hero panel supported by training, distribution, and metric panels"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_CellSpliceNet/figures/ablation.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "3373085ababf07481a352fe542fd79a58701e0e052c5593ca56984008ddad027",
+      "visual_family": "grouped_bar",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/b1a15c9fca75c316/16-b1a15c9fca75c316.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 3900
+    },
+    {
+      "archive_id": "d7147990bd79a4d1",
+      "code_path": "assets/visual-references/generated-archive/d7147990bd79a4d1/code.py",
+      "existing_exact_copy_id": "131654637e894c12",
+      "height": 3600,
+      "image_path": "assets/visual-references/generated-archive/d7147990bd79a4d1/image.png",
+      "license_class": "unknown",
+      "output_sha256": "d7147990bd79a4d13ead0ae8c26cf71c229459c745f38298be1ae6c697eccf77",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "cellsplicenet_comparison_human",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "B",
+            "kind": "heatmap:matrix"
+          },
+          {
+            "id": "C",
+            "kind": "line:calibration"
+          }
+        ],
+        "source_observation": "three-panel human benchmark: methods, matrix evidence, and calibration"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_CellSpliceNet/figures/comparison_human.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "131654637e894c12f441ad4a9cf5533999939971e3f051f81e46ba802f75d854",
+      "visual_family": "comparison_composite",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/d7147990bd79a4d1/17-d7147990bd79a4d1.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 13500
+    },
+    {
+      "archive_id": "f2017fa1dc5bc795",
+      "code_path": "assets/visual-references/generated-archive/f2017fa1dc5bc795/code.py",
+      "existing_exact_copy_id": null,
+      "height": 3600,
+      "image_path": "assets/visual-references/generated-archive/f2017fa1dc5bc795/image.png",
+      "license_class": "unknown",
+      "output_sha256": "f2017fa1dc5bc795ea051adc17c88d84db8086a1fed27fc295c000e7b0fa65e0",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "cellsplicenet_comparison_worm",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "B",
+            "kind": "heatmap:matrix"
+          },
+          {
+            "id": "C",
+            "kind": "line:calibration"
+          }
+        ],
+        "source_observation": "three-panel worm benchmark: methods, matrix evidence, and calibration"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_CellSpliceNet/figures/comparison_worm.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "137841e62d5eaa48998a97246849b8ede08d2d165c8bb4ad3fd6a18d6b6c65e2",
+      "visual_family": "comparison_composite",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/f2017fa1dc5bc795/18-f2017fa1dc5bc795.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 13500
+    },
+    {
+      "archive_id": "0087399b5105ff42",
+      "code_path": "assets/visual-references/generated-archive/0087399b5105ff42/code.py",
+      "existing_exact_copy_id": null,
+      "height": 3000,
+      "image_path": "assets/visual-references/generated-archive/0087399b5105ff42/image.png",
+      "license_class": "unknown",
+      "output_sha256": "0087399b5105ff42482d9010d0b17172284ca22982eb244b72fefb4da617b13c",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "cflows_diffusion_swiss_roll",
+        "mosaic": [
+          "AABB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "manifold:source"
+          },
+          {
+            "id": "B",
+            "kind": "manifold:flow"
+          }
+        ],
+        "source_observation": "paired manifold views showing source geometry and transformed geometry"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_Cflows/figures/diffusion_swiss_roll.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "9f02fa4603dae748e3745b95b0ed252f2ba386da6101dc1be6c4a2a886c78eb0",
+      "visual_family": "manifold_3d",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/0087399b5105ff42/19-0087399b5105ff42.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 5313
+    },
+    {
+      "archive_id": "baa6064b1812ccc7",
+      "code_path": "assets/visual-references/generated-archive/baa6064b1812ccc7/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1800,
+      "image_path": "assets/visual-references/generated-archive/baa6064b1812ccc7/image.png",
+      "license_class": "unknown",
+      "output_sha256": "baa6064b1812ccc76c465ffa3b770c560090d0629b8a0a91b74318c4bf009334",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "cflows_gene_regulatory",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "network:regulatory"
+          },
+          {
+            "id": "B",
+            "kind": "scatter:trajectory"
+          },
+          {
+            "id": "C",
+            "kind": "line:dynamics"
+          }
+        ],
+        "source_observation": "network topology, state-space trajectory, and temporal dynamics"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_Cflows/figures/fig2_comparison_GeneRegulatory.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "96075eb70285f4f72869b99398c9a923336fbc3a5188883d9e8415e1cc027a46",
+      "visual_family": "comparison_composite",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/baa6064b1812ccc7/20-baa6064b1812ccc7.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 10800
+    },
+    {
+      "archive_id": "d369f5654b6d5ae0",
+      "code_path": "assets/visual-references/generated-archive/d369f5654b6d5ae0/code.py",
+      "existing_exact_copy_id": "91b214f745a99f1f",
+      "height": 1800,
+      "image_path": "assets/visual-references/generated-archive/d369f5654b6d5ae0/image.png",
+      "license_class": "unknown",
+      "output_sha256": "d369f5654b6d5ae0af606261f7c5f1921075b6ca6ec381293604f99ce943e7e3",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "cflows_trajectory",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "scatter:trajectory"
+          },
+          {
+            "id": "B",
+            "kind": "line:dynamics"
+          },
+          {
+            "id": "C",
+            "kind": "forest:effects"
+          }
+        ],
+        "source_observation": "trajectory panel followed by dynamics and effect comparison"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_Cflows/figures/fig2_comparison_Trajectory.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "91b214f745a99f1f2b472ddae7661dfa2d9241791768767180219315b89047ec",
+      "visual_family": "comparison_composite",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/d369f5654b6d5ae0/21-d369f5654b6d5ae0.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 10800
+    },
+    {
+      "archive_id": "55d8c952b3e9d4c0",
+      "code_path": "assets/visual-references/generated-archive/55d8c952b3e9d4c0/code.py",
+      "existing_exact_copy_id": null,
+      "height": 2100,
+      "image_path": "assets/visual-references/generated-archive/55d8c952b3e9d4c0/image.png",
+      "license_class": "unknown",
+      "output_sha256": "55d8c952b3e9d4c000e21962c40621a7e4dce5ea9a7861f7eaea0c02c74fc86d",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "cflows_ablation",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:ablation"
+          },
+          {
+            "id": "B",
+            "kind": "line:training"
+          },
+          {
+            "id": "C",
+            "kind": "table:metrics"
+          }
+        ],
+        "source_observation": "ablation bars with learning curve and metric table"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_Cflows/figures/figX_comparison_Ablation.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "4f7b7b4b01a1b498540850ddabc217fd964eb37142e99a6ee6b5c26cf12aba7f",
+      "visual_family": "grouped_bar",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/55d8c952b3e9d4c0/22-55d8c952b3e9d4c0.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 10500
+    },
+    {
+      "archive_id": "d79527fec611432d",
+      "code_path": "assets/visual-references/generated-archive/d79527fec611432d/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1800,
+      "image_path": "assets/visual-references/generated-archive/d79527fec611432d/image.png",
+      "license_class": "unknown",
+      "output_sha256": "d79527fec611432d9e13d57e2632fcb014f1a78c69e752e155f4a5f3afac97e7",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "dispersion_idea",
+        "mosaic": [
+          "AABB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:idea"
+          },
+          {
+            "id": "B",
+            "kind": "diagram:geometry"
+          }
+        ],
+        "source_observation": "conceptual idea paired with geometric explanation"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_Dispersion/figures/idea.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "e805fb0f7ccdf8aa3ae764e8156cf6b61b6d56ef7dded0fc7556566e316649a3",
+      "visual_family": "mechanism_schematic",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/d79527fec611432d/23-d79527fec611432d.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 5400
+    },
+    {
+      "archive_id": "0c9a72a5118651b4",
+      "code_path": "assets/visual-references/generated-archive/0c9a72a5118651b4/code.py",
+      "existing_exact_copy_id": null,
+      "height": 2400,
+      "image_path": "assets/visual-references/generated-archive/0c9a72a5118651b4/image.png",
+      "license_class": "unknown",
+      "output_sha256": "0c9a72a5118651b4d38b694291848190292269ae2d5e935fe9e7636e28162ab0",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "dispersion_illustration",
+        "mosaic": [
+          "AABB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "diagram:geometry"
+          },
+          {
+            "id": "B",
+            "kind": "schematic:process"
+          }
+        ],
+        "source_observation": "geometric illustration and process schematic"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_Dispersion/figures/illustration.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "2528309a41ba6edab9c377a2304c144813c0e99565239a849c427ab00a14643b",
+      "visual_family": "mechanism_schematic",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/0c9a72a5118651b4/24-0c9a72a5118651b4.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:27Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 7200
+    },
+    {
+      "archive_id": "f406d7202f0bb30c",
+      "code_path": "assets/visual-references/generated-archive/f406d7202f0bb30c/code.py",
+      "existing_exact_copy_id": null,
+      "height": 3600,
+      "image_path": "assets/visual-references/generated-archive/f406d7202f0bb30c/image.png",
+      "license_class": "unknown",
+      "output_sha256": "f406d7202f0bb30c664247cb25651cd946e3a55ead9655b925d85691ce11758e",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "immunostruct_ablation_cancer",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:ablation"
+          },
+          {
+            "id": "B",
+            "kind": "bar:ablation"
+          },
+          {
+            "id": "C",
+            "kind": "distribution:points"
+          }
+        ],
+        "source_observation": "three cancer ablation panels with replicate observations"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_ImmunoStruct/figures/bars_ablation_Cancer.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "46c9e05df9d7c941628791ac447c5d84a29d942896ce3a13d00432e9f5c720ef",
+      "visual_family": "grouped_bar",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/f406d7202f0bb30c/25-f406d7202f0bb30c.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 16800
+    },
+    {
+      "archive_id": "c4e05bb68a08caf3",
+      "code_path": "assets/visual-references/generated-archive/c4e05bb68a08caf3/code.py",
+      "existing_exact_copy_id": null,
+      "height": 4800,
+      "image_path": "assets/visual-references/generated-archive/c4e05bb68a08caf3/image.png",
+      "license_class": "unknown",
+      "output_sha256": "c4e05bb68a08caf32d8143a473d1f5ab485ba41ca463450704b6a708b93a483a",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "immunostruct_ablation_iedb",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:ablation"
+          },
+          {
+            "id": "B",
+            "kind": "bar:ablation"
+          },
+          {
+            "id": "C",
+            "kind": "distribution:points"
+          }
+        ],
+        "source_observation": "three IEDB ablation panels with replicate observations"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_ImmunoStruct/figures/bars_ablation_IEDB.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "854fe931bde6ca6c50eda6b147907f00d8f10d74c3b40bad1714b903bf945f00",
+      "visual_family": "grouped_bar",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/c4e05bb68a08caf3/26-c4e05bb68a08caf3.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 14400
+    },
+    {
+      "archive_id": "050e4b8075e0b6c8",
+      "code_path": "assets/visual-references/generated-archive/050e4b8075e0b6c8/code.py",
+      "existing_exact_copy_id": null,
+      "height": 3600,
+      "image_path": "assets/visual-references/generated-archive/050e4b8075e0b6c8/image.png",
+      "license_class": "unknown",
+      "output_sha256": "050e4b8075e0b6c8e3286f4129b3b5b256877248a672beb476887f9754a9937b",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "immunostruct_comparison_cancer",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "B",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "C",
+            "kind": "forest:effects"
+          }
+        ],
+        "source_observation": "cancer method comparison with interval panel"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_ImmunoStruct/figures/bars_comparison_Cancer.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "0c35bb8a1fb21d5e30e16be152fc92959af580d9e24f04ccc61444adba8c7aa2",
+      "visual_family": "grouped_bar",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/050e4b8075e0b6c8/27-050e4b8075e0b6c8.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 16800
+    },
+    {
+      "archive_id": "f32ad9b16aaba213",
+      "code_path": "assets/visual-references/generated-archive/f32ad9b16aaba213/code.py",
+      "existing_exact_copy_id": "18a52f7a910fe9c9",
+      "height": 3600,
+      "image_path": "assets/visual-references/generated-archive/f32ad9b16aaba213/image.png",
+      "license_class": "unknown",
+      "output_sha256": "f32ad9b16aaba2135eec6cc30c5690acf60155eddc725d78d0b14d69672cbabf",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "immunostruct_comparison_iedb",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "B",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "C",
+            "kind": "forest:effects"
+          }
+        ],
+        "source_observation": "IEDB method comparison with interval panel"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_ImmunoStruct/figures/bars_comparison_IEDB.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "18a52f7a910fe9c9ff06015f5a1e63527458a86c847f573eb96ba254d4645ac1",
+      "visual_family": "grouped_bar",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/f32ad9b16aaba213/28-f32ad9b16aaba213.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 16800
+    },
+    {
+      "archive_id": "7ddf31ce2228813a",
+      "code_path": "assets/visual-references/generated-archive/7ddf31ce2228813a/code.py",
+      "existing_exact_copy_id": "38a9c4e8fd691cbd",
+      "height": 3000,
+      "image_path": "assets/visual-references/generated-archive/7ddf31ce2228813a/image.png",
+      "license_class": "unknown",
+      "output_sha256": "7ddf31ce2228813a45183404f29514a399eb4c086fac04055e70d16a1d4581b1",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "ophthal_composition_heatmap",
+        "mosaic": [
+          "AABB",
+          "CCDD"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "heatmap:composition"
+          },
+          {
+            "id": "B",
+            "kind": "heatmap:matrix"
+          },
+          {
+            "id": "C",
+            "kind": "bar:composition"
+          },
+          {
+            "id": "D",
+            "kind": "forest:effects"
+          }
+        ],
+        "source_observation": "heatmap hero with matrix, composition, and interval support"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_ophthal_review/figures/composition_heatmap.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "38a9c4e8fd691cbd7dcb4f5b5abb69398b4974d32cad19a4a33819db1cb34f3a",
+      "visual_family": "heatmap_grid",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/7ddf31ce2228813a/29-7ddf31ce2228813a.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 4200
+    },
+    {
+      "archive_id": "5d169138e229097f",
+      "code_path": "assets/visual-references/generated-archive/5d169138e229097f/code.py",
+      "existing_exact_copy_id": "66fe0f27f4469754",
+      "height": 2400,
+      "image_path": "assets/visual-references/generated-archive/5d169138e229097f/image.png",
+      "license_class": "unknown",
+      "output_sha256": "5d169138e229097f75c26643c8edf88ec7ed6c153d8fd40cd9997616cfa256ec",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "ophthal_monthly_trend",
+        "mosaic": [
+          "AB",
+          "CD"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "line:monthly"
+          },
+          {
+            "id": "B",
+            "kind": "line:monthly"
+          },
+          {
+            "id": "C",
+            "kind": "area:composition"
+          },
+          {
+            "id": "D",
+            "kind": "bar:summary"
+          }
+        ],
+        "source_observation": "monthly trends, composition over time, and summary comparison"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_ophthal_review/figures/trend_by_month.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "66fe0f27f44697547b6cb219ff90696f54a6fef48984c9578ace258e0ebce4d4",
+      "visual_family": "line_grid",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/5d169138e229097f/30-5d169138e229097f.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 4200
+    },
+    {
+      "archive_id": "14487fd036228090",
+      "code_path": "assets/visual-references/generated-archive/14487fd036228090/code.py",
+      "existing_exact_copy_id": null,
+      "height": 700,
+      "image_path": "assets/visual-references/generated-archive/14487fd036228090/image.png",
+      "license_class": "unknown",
+      "output_sha256": "14487fd036228090895926550d5be27af6688eef76a20164567b763ef7db0036",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "rnagenscape_manifold",
+        "mosaic": [
+          "AB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "manifold:source"
+          },
+          {
+            "id": "B",
+            "kind": "manifold:generated"
+          }
+        ],
+        "source_observation": "paired manifold rendering of source and generated distributions"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_RNAGenScape/figures/manifold.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "83e55ca23d8aa2fa591a46d3fe4f9d6ac11e17cbc9657e2615d883ea6deb937c",
+      "visual_family": "manifold_3d",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/14487fd036228090/31-14487fd036228090.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 1000
+    },
+    {
+      "archive_id": "33db3d53a233846b",
+      "code_path": "assets/visual-references/generated-archive/33db3d53a233846b/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1800,
+      "image_path": "assets/visual-references/generated-archive/33db3d53a233846b/image.png",
+      "license_class": "unknown",
+      "output_sha256": "33db3d53a233846b7f6b408ac01adb8585cb14b2ff96461195d35b995e6f464a",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "rnagenscape_manifold_holes",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "manifold:source"
+          },
+          {
+            "id": "B",
+            "kind": "manifold:holes"
+          },
+          {
+            "id": "C",
+            "kind": "manifold:generated"
+          }
+        ],
+        "source_observation": "three manifold states emphasizing holes and generated coverage"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_RNAGenScape/figures/manifold_holes.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "2ad2be6fa9c9165e800dba4d997850c9a426cbe9b441c78b76518335bcc3f948",
+      "visual_family": "manifold_3d",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/33db3d53a233846b/32-33db3d53a233846b.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 4200
+    },
+    {
+      "archive_id": "c5792016a54e2baa",
+      "code_path": "assets/visual-references/generated-archive/c5792016a54e2baa/code.py",
+      "existing_exact_copy_id": "4cf8539d0521b726",
+      "height": 2700,
+      "image_path": "assets/visual-references/generated-archive/c5792016a54e2baa/image.png",
+      "license_class": "unknown",
+      "output_sha256": "c5792016a54e2baa65e35cb76f7b5ddfe3627f381a877434ed54712ffb8e8836",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "rnagenscape_optimization",
+        "mosaic": [
+          "AABB",
+          "CCDD"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "heatmap:optimization"
+          },
+          {
+            "id": "B",
+            "kind": "line:optimization"
+          },
+          {
+            "id": "C",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "D",
+            "kind": "scatter:embedding"
+          }
+        ],
+        "source_observation": "optimization landscape hero with trajectory, method comparison, and embedding"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_RNAGenScape/figures/results_comparison_optimization.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "4cf8539d0521b7268f0227b56cecddf2f70c1bb4bbcf9b5e3be886e95a54927a",
+      "visual_family": "comparison_composite",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/c5792016a54e2baa/33-c5792016a54e2baa.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 6000
+    },
+    {
+      "archive_id": "c8e5d2a76d98c008",
+      "code_path": "assets/visual-references/generated-archive/c8e5d2a76d98c008/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1500,
+      "image_path": "assets/visual-references/generated-archive/c8e5d2a76d98c008/image.png",
+      "license_class": "unknown",
+      "output_sha256": "c8e5d2a76d98c0086ef1c2a80e841d4f9a5a1f700b0caa2d9e454748148b84d5",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "rnagenscape_speed",
+        "mosaic": [
+          "AB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "B",
+            "kind": "forest:effects"
+          }
+        ],
+        "source_observation": "speed comparison with effect-size intervals"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_RNAGenScape/figures/results_comparison_speed.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "cd1fec84f615a43dbe91cc94bfbb94fe07e086fdd5d8191fbff2ec990e38d4f5",
+      "visual_family": "comparison_composite",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/c8e5d2a76d98c008/34-c8e5d2a76d98c008.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 2700
+    },
+    {
+      "archive_id": "7e2a22eeb372a7a0",
+      "code_path": "assets/visual-references/generated-archive/7e2a22eeb372a7a0/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1200,
+      "image_path": "assets/visual-references/generated-archive/7e2a22eeb372a7a0/image.png",
+      "license_class": "unknown",
+      "output_sha256": "7e2a22eeb372a7a04501e3fd2ceac2f3fb0244b2f8b2bdc7ff4aa28b5022912c",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "rnagenscape_sweep",
+        "mosaic": [
+          "AB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "line:sweep"
+          },
+          {
+            "id": "B",
+            "kind": "line:sweep"
+          }
+        ],
+        "source_observation": "paired parameter-sweep curves"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_RNAGenScape/figures/results_sweep.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "4db30b32b65e6b7160ebe025993c2ffdaf6e240d836c253419e91649d3da8deb",
+      "visual_family": "line_grid",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/7e2a22eeb372a7a0/35-7e2a22eeb372a7a0.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 2700
+    },
+    {
+      "archive_id": "01bafd03ff174176",
+      "code_path": "assets/visual-references/generated-archive/01bafd03ff174176/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1800,
+      "image_path": "assets/visual-references/generated-archive/01bafd03ff174176/image.png",
+      "license_class": "unknown",
+      "output_sha256": "01bafd03ff174176a8424fcbc9efd9d06a2958066497254241946e51b9fbbfa4",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "vigil_ablation_curves",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "line:ablation"
+          },
+          {
+            "id": "B",
+            "kind": "line:ablation"
+          },
+          {
+            "id": "C",
+            "kind": "line:ablation"
+          }
+        ],
+        "source_observation": "three ablation learning curves with uncertainty bands"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_VIGIL/figures/ablation_curves.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "302b8f53795653bf7ebe74ca508319c073325bdda1f106ca9eb3cd7c690da7c7",
+      "visual_family": "line_grid",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/01bafd03ff174176/36-01bafd03ff174176.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 8100
+    },
+    {
+      "archive_id": "a6d35e1b68a1bfe8",
+      "code_path": "assets/visual-references/generated-archive/a6d35e1b68a1bfe8/code.py",
+      "existing_exact_copy_id": "a6f2e75e7d836175",
+      "height": 2400,
+      "image_path": "assets/visual-references/generated-archive/a6d35e1b68a1bfe8/image.png",
+      "license_class": "unknown",
+      "output_sha256": "a6d35e1b68a1bfe85e767b07ba7754ad05da4a357eb5824016064a7e9d8b6006",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "vigil_posttraining",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "line:posttraining"
+          },
+          {
+            "id": "B",
+            "kind": "line:posttraining"
+          },
+          {
+            "id": "C",
+            "kind": "line:posttraining"
+          }
+        ],
+        "source_observation": "three post-training comparison curves"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_VIGIL/figures/comparison_posttraining.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "a6f2e75e7d8361754445d86ce04386b5764a46bf2cbc94e8df0c75ecf1bab142",
+      "visual_family": "line_grid",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/a6d35e1b68a1bfe8/37-a6d35e1b68a1bfe8.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 2700
+    },
+    {
+      "archive_id": "017beb996ea9fd8c",
+      "code_path": "assets/visual-references/generated-archive/017beb996ea9fd8c/code.py",
+      "existing_exact_copy_id": "d6613715d9d4564f",
+      "height": 2550,
+      "image_path": "assets/visual-references/generated-archive/017beb996ea9fd8c/image.png",
+      "license_class": "unknown",
+      "output_sha256": "017beb996ea9fd8c152a2ca963fdcafaabe7932ececba899b25b65d30dbd3a1e",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "vigil_radar_comparison",
+        "mosaic": [
+          "AB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "radar:methods"
+          },
+          {
+            "id": "B",
+            "kind": "radar:methods"
+          }
+        ],
+        "source_observation": "paired polar method comparisons"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_VIGIL/figures/comparison_radar.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "d6613715d9d4564fb0c7354430b227d43c9df04032e32b346601971381e5ba2d",
+      "visual_family": "radar_grid",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/017beb996ea9fd8c/38-017beb996ea9fd8c.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 3560
+    },
+    {
+      "archive_id": "60c6e271c65d00b5",
+      "code_path": "assets/visual-references/generated-archive/60c6e271c65d00b5/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1800,
+      "image_path": "assets/visual-references/generated-archive/60c6e271c65d00b5/image.png",
+      "license_class": "unknown",
+      "output_sha256": "60c6e271c65d00b5c807ce046f92a700d360ed8964e51ace1f94cf69da7b93eb",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "vigil_concept",
+        "mosaic": [
+          "AABB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:temporal"
+          },
+          {
+            "id": "B",
+            "kind": "diagram:forecast"
+          }
+        ],
+        "source_observation": "temporal concept sketch with forecast explanation"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "figure_VIGIL/figures/concept.png",
+      "renderer_version": 3,
+      "repository": "figures4papers",
+      "scope": "generated-archive",
+      "source_action": "independent_reconstruction",
+      "source_fingerprint": "3554b9af671886dfbbe985016440c5ba1633b4e8b08d50539d992982c5cc2bf5",
+      "visual_family": "mechanism_schematic",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/60c6e271c65d00b5/39-60c6e271c65d00b5.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
+      "width": 7200
+    },
+    {
       "archive_id": "68e244fb949f46ad",
       "code_path": "assets/visual-references/generated-archive/68e244fb949f46ad/code.py",
       "existing_exact_copy_id": null,
@@ -98,6 +2287,19 @@
       "source_action": "licensed_visual_source",
       "source_fingerprint": "4a0e3040bbdbfe5ec48b66515f719f83ad7304fadb2e56432cd3e8f7ccbabd65",
       "visual_family": "grouped_bar",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/68e244fb949f46ad/40-68e244fb949f46ad.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
       "width": 1500
     },
     {
@@ -193,6 +2395,19 @@
       "source_action": "licensed_visual_source",
       "source_fingerprint": "9a8189149180a68679738bc4be152ee40b17d71261d71b3759d315a7169da0d9",
       "visual_family": "line_grid",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/4f49efc5caa16375/41-4f49efc5caa16375.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
       "width": 1500
     },
     {
@@ -288,6 +2503,19 @@
       "source_action": "licensed_visual_source",
       "source_fingerprint": "40dd7c7c14c45b45cc22ee23e19f2dc1901f38b26a1fb4b0f26a30dbd10c0423",
       "visual_family": "heatmap_grid",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/b0947af37e8c5ffc/42-b0947af37e8c5ffc.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
       "width": 1500
     },
     {
@@ -383,6 +2611,19 @@
       "source_action": "licensed_visual_source",
       "source_fingerprint": "1bbfbc38a3f246e4fd7c59b9ed1003ddbc7280ee160b7c38abf8d410b27fe6f8",
       "visual_family": "scatter_bubble",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/984475212a83b640/43-984475212a83b640.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
       "width": 1500
     },
     {
@@ -478,6 +2719,19 @@
       "source_action": "licensed_visual_source",
       "source_fingerprint": "e7fa7d98cd4f5263f5550d7ac8824e60071c20b2927aef52ac6d18d62fd29ffa",
       "visual_family": "radar_grid",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/650b40786cbcf05f/44-650b40786cbcf05f.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
       "width": 1500
     },
     {
@@ -573,6 +2827,19 @@
       "source_action": "licensed_visual_source",
       "source_fingerprint": "a1fe533d07dae36d11c997577ded61adb16bf5d4dd5c0dee2ff92ae570f0f01e",
       "visual_family": "distribution_grid",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/b3c62bc6c4258378/45-b3c62bc6c4258378.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
       "width": 1500
     },
     {
@@ -668,6 +2935,19 @@
       "source_action": "licensed_visual_source",
       "source_fingerprint": "dc61a5257eae4748348c72c51f2e70e59979c6892f52dadf7bb4ba6f8b98b00b",
       "visual_family": "forest_interval",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/f68c31da6f34836c/46-f68c31da6f34836c.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
       "width": 1500
     },
     {
@@ -763,6 +3043,19 @@
       "source_action": "licensed_visual_source",
       "source_fingerprint": "350c25e427d945dee5fd98316eb6ebe307304b9d187d954a88c05852d664a60b",
       "visual_family": "area_stacked",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/039470ddb18c09ae/47-039470ddb18c09ae.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
       "width": 1500
     },
     {
@@ -858,6 +3151,19 @@
       "source_action": "licensed_visual_source",
       "source_fingerprint": "bbc8c0b8708d42465e57cb7c56b4d2ecfbaa63340a5a6dfefbcb51189cd1a995",
       "visual_family": "spatial_image_plate",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/6a3e2a00f9c820f6/48-6a3e2a00f9c820f6.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
       "width": 1500
     },
     {
@@ -953,6 +3259,19 @@
       "source_action": "licensed_visual_source",
       "source_fingerprint": "cd384abe10aa86bd310c1288a42f33735cb555c267bddae1ecd262905a7a1de5",
       "visual_family": "network_matrix",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/c3c538a466aef22e/49-c3c538a466aef22e.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:28Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
       "width": 1500
     },
     {
@@ -1002,6 +3321,19 @@
       "source_action": "licensed_visual_source",
       "source_fingerprint": "2e0706fae3256e1de2388f8605f35b9b6ac23cfc397161a952f34cc5fa2f2192",
       "visual_family": "material_mechanism",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/c420d057ffad6041/50-c420d057ffad6041.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:29Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
       "width": 1600
     },
     {
@@ -1080,6 +3412,19 @@
       "source_action": "licensed_visual_source",
       "source_fingerprint": "90081b3f778b9ede2dba41c60b6abf0c28a239060c69428344539529cd7f3257",
       "visual_family": "spatial_image_plate",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/90d44d1709c8bcad/51-90d44d1709c8bcad.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:29Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
       "width": 1600
     },
     {
@@ -1129,6 +3474,19 @@
       "source_action": "licensed_visual_source",
       "source_fingerprint": "25d6fc50f5808104a7cb19f4795cea4229fbc6159fa7509f716a94f7c160a033",
       "visual_family": "in_vivo_efficacy",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/668bc98b544d54d5/52-668bc98b544d54d5.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:29Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
       "width": 1600
     },
     {
@@ -1178,6 +3536,19 @@
       "source_action": "licensed_visual_source",
       "source_fingerprint": "999edb06b942f988a51b11f947845e42e4c346b2f9e5d5a6425def9e43bb69d1",
       "visual_family": "single_cell_systems",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/cd60f96af964c870/53-cd60f96af964c870.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:29Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
       "width": 1600
     },
     {
@@ -1227,6 +3598,19 @@
       "source_action": "licensed_visual_source",
       "source_fingerprint": "245ad31f97b2054628987444e44d6a007f352f65ae6254189f5ed8ba9b0301c6",
       "visual_family": "validation_perturbation",
+      "visual_review": {
+        "comparison_path": "assets/visual-references/review-evidence/006c1b3915544c07/54-006c1b3915544c07.png",
+        "final_size_inspected": true,
+        "hierarchy": "fail",
+        "legend_footprint": "fail",
+        "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+        "panel_balance": "fail",
+        "reviewed_at": "2026-08-12T17:46:29Z",
+        "reviewer": "Codex visual audit",
+        "text_legibility": "fail",
+        "verdict": "fail",
+        "whitespace": "fail"
+      },
       "width": 1600
     }
   ],
@@ -1234,8 +3618,8 @@
   "summary": {
     "created_count": 0,
     "existing_exact_copy_count": 10,
-    "figures4papers_count": 0,
+    "figures4papers_count": 39,
     "nature_figure_count": 15,
-    "source_count": 15
+    "source_count": 54
   }
 }

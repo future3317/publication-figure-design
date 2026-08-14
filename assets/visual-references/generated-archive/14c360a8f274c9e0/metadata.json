@@ -1,0 +1,87 @@
+{
+  "aesthetic_rating": null,
+  "code_path": "assets/visual-references/generated-archive/14c360a8f274c9e0/code.py",
+  "created_at": "2026-08-12T16:57:18Z",
+  "data_density": null,
+  "figure_type": "grouped_bar",
+  "id": "14c360a8f274c9e0",
+  "image_path": "assets/visual-references/generated-archive/14c360a8f274c9e0/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "wide",
+    "density": "high",
+    "panel_count": 8,
+    "panel_grid": [
+      2,
+      4
+    ],
+    "visual_family": "grouped_bar"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "brainteaser_brute_force",
+    "mosaic": [
+      "AABB",
+      "CCDD"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "bar:composition"
+      },
+      {
+        "id": "B",
+        "kind": "bar:comparison"
+      },
+      {
+        "id": "C",
+        "kind": "distribution:points"
+      },
+      {
+        "id": "D",
+        "kind": "table:metrics"
+      }
+    ],
+    "source_observation": "composition bars, comparison bars, raw observations, and summary table"
+  },
+  "reconstruction_method": "independent",
+  "renderer_version": 3,
+  "review_status": "pending",
+  "scope": "generated-archive",
+  "sha256": "14c360a8f274c9e0e0fe3d5c8ff4dfb68d019ca3eb4f4a3d17ac47f603817eee",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "abb63055b0d49edbe9002e820294a622db1429d31b1d2446340036cf1db92607",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_Brainteaser/figures/brute_force.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "grouped_bar",
+  "tags": [
+    "source-reconstruction",
+    "figures4papers",
+    "grouped_bar"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "grouped_bar",
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/14c360a8f274c9e0/11-14c360a8f274c9e0.png",
+    "final_size_inspected": true,
+    "hierarchy": "fail",
+    "legend_footprint": "fail",
+    "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+    "panel_balance": "fail",
+    "reviewed_at": "2026-08-12T17:46:27Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "fail",
+    "verdict": "fail",
+    "whitespace": "fail"
+  }
+}

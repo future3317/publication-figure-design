@@ -1,0 +1,70 @@
+{
+  "aesthetic_rating": 4.1,
+  "code_path": null,
+  "created_at": "2026-08-12T17:30:09Z",
+  "data_density": null,
+  "figure_type": "grouped_bar",
+  "id": "0460f09210bc23c2",
+  "image_path": "assets/visual-references/references/0460f09210bc23c2/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "unknown",
+  "n_groups": null,
+  "notes": "Exact source visual sample cataloged for private reference; distinct from independent reconstruction.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "brainteaser_rewriting",
+    "mosaic": [
+      "ABC"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "bar:beforeafter"
+      },
+      {
+        "id": "B",
+        "kind": "scatter:paired"
+      },
+      {
+        "id": "C",
+        "kind": "distribution:violin"
+      }
+    ],
+    "source_observation": "before/after rewriting comparison with paired observation panel"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "0460f09210bc23c272602ecb8b3fcf3984f42fc055df3b0e4982eab50303607f",
+  "source": "figures4papers visual source",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "0460f09210bc23c272602ecb8b3fcf3984f42fc055df3b0e4982eab50303607f",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_Brainteaser/figures/rewriting.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "brainteaser_rewriting",
+  "tags": [
+    "source-catalog",
+    "figures4papers",
+    "grouped_bar"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "grouped_bar",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'brainteaser_rewriting' is a focused grouped_bar reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

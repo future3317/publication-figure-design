@@ -1,0 +1,77 @@
+{
+  "aesthetic_rating": 4.1,
+  "code_path": null,
+  "created_at": "2026-08-11T13:17:24Z",
+  "data_density": "medium",
+  "figure_type": "BarComposition",
+  "id": "abb63055b0d49edb",
+  "image_path": "assets/visual-references/references/abb63055b0d49edb/image.png",
+  "journal_style": "Nature",
+  "layout": "1x1",
+  "license": "unknown",
+  "n_groups": 5,
+  "notes": "Publication figure from figures4papers/figure_Brainteaser/figures/brute_force.png. Used as visual reference for BarComposition style; do not redistribute without permission.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "brainteaser_brute_force",
+    "mosaic": [
+      "AABB",
+      "CCDD"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "bar:composition"
+      },
+      {
+        "id": "B",
+        "kind": "bar:comparison"
+      },
+      {
+        "id": "C",
+        "kind": "distribution:points"
+      },
+      {
+        "id": "D",
+        "kind": "table:metrics"
+      }
+    ],
+    "source_observation": "composition bars, comparison bars, raw observations, and summary table"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "abb63055b0d49edbe9002e820294a622db1429d31b1d2446340036cf1db92607",
+  "source": "Chen Liu, figures4papers repository",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "abb63055b0d49edbe9002e820294a622db1429d31b1d2446340036cf1db92607",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_Brainteaser/figures/brute_force.png",
+  "source_repository": "figures4papers",
+  "source_url": "https://github.com/ChenLiu-1996/figures4papers/tree/main/figure_Brainteaser/figures/brute_force.png",
+  "subtype": "brainteaser_brute_force",
+  "tags": [
+    "figures4papers",
+    "publication-figure",
+    "bar-composition",
+    "stacked-bar",
+    "brute-force"
+  ],
+  "usage_scope": "private_reference",
+  "visual_family": "grouped_bar",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'brainteaser_brute_force' is a focused grouped_bar reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

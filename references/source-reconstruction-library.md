@@ -10,7 +10,7 @@ The builder is an archive generator, not a curator. Every generated record begin
 
 ## Exact visual sources
 
-The public bundle catalogs only Apache-2.0 exact visual sources from `nature-figure` with `scripts/source_reference_catalog.py`. These entries have `reference_kind=exact_visual_source` and are visually reviewed in their own right; they can guide selection after review, but never serve as runnable implementation assets. Unknown-license and private-reference material is intentionally excluded from this distribution.
+For this private library, catalog original visual samples separately with `scripts/source_reference_catalog.py`. These entries have `reference_kind=exact_visual_source` and are visually reviewed in their own right; they can guide selection after review, but never serve as runnable implementation assets. They remain distinct from independent reconstructions so an agent cannot mistake a rough redraw for the original sample.
 
 The manifest at `assets/visual-references/source-reconstruction-manifest.json` is the audit index. It records repository-relative source paths, dimensions, license class, source action, generated archive ID, and any pre-existing exact-copy reference found during the audit. Sidecar metadata remains the archive truth.
 
@@ -23,12 +23,12 @@ python scripts/check_source_reconstruction_library.py
 python scripts/check_source_reference_catalog.py
 ```
 
-Rebuild after an explicitly requested source audit (using a licensed source checkout):
+Rebuild after an explicitly requested source audit:
 
 ```bash
 python scripts/source_reconstruction_library.py build \
   --nature-root <nature-figure-root> \
-  --figures-root <optional-figures-root>
+  --figures-root <figures4papers-root>
 ```
 
 Run the builder twice. The second run must report `created_count: 0`. Then rebuild the reference registry, run the lightweight checker, and inspect a contact sheet spanning every visual family. Do not promote an entry to a production asset solely because reconstruction validation passes.
@@ -37,9 +37,9 @@ For a complete source audit, then run:
 
 ```bash
 python scripts/review_source_reconstructions.py --nature-root <nature-figure-root> \
-  --figures-root <optional-figures-root> --output-dir <review-dir>
+  --figures-root <figures4papers-root> --output-dir <review-dir>
 python scripts/audit_source_reconstruction_batch.py --review-dir <review-dir>
 python scripts/source_reference_catalog.py --nature-root <nature-figure-root> \
-  --figures-root <optional-figures-root>
+  --figures-root <figures4papers-root>
 python scripts/audit_source_catalog_batch.py
 ```

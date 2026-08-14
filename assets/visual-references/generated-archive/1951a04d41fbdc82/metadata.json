@@ -1,0 +1,108 @@
+{
+  "aesthetic_rating": null,
+  "code_path": "assets/visual-references/generated-archive/1951a04d41fbdc82/code.py",
+  "created_at": "2026-08-12T16:57:18Z",
+  "data_density": null,
+  "figure_type": "grouped_bar",
+  "id": "1951a04d41fbdc82",
+  "image_path": "assets/visual-references/generated-archive/1951a04d41fbdc82/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "wide",
+    "density": "high",
+    "panel_count": 12,
+    "panel_grid": [
+      3,
+      4
+    ],
+    "visual_family": "grouped_bar"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "brainteaser_correctness_subcategory",
+    "mosaic": [
+      "ABC",
+      "DEF",
+      "GHI"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "bar:category"
+      },
+      {
+        "id": "B",
+        "kind": "bar:category"
+      },
+      {
+        "id": "C",
+        "kind": "bar:category"
+      },
+      {
+        "id": "D",
+        "kind": "bar:category"
+      },
+      {
+        "id": "E",
+        "kind": "bar:category"
+      },
+      {
+        "id": "F",
+        "kind": "bar:category"
+      },
+      {
+        "id": "G",
+        "kind": "distribution:points"
+      },
+      {
+        "id": "H",
+        "kind": "forest:effects"
+      },
+      {
+        "id": "I",
+        "kind": "table:metrics"
+      }
+    ],
+    "source_observation": "dense subcategory comparison grid with six categorical panels"
+  },
+  "reconstruction_method": "independent",
+  "renderer_version": 3,
+  "review_status": "pending",
+  "scope": "generated-archive",
+  "sha256": "1951a04d41fbdc8222a486a1aa5bd5ccc8d467e1ae80d1243a835f2ff7fc3177",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "b6639239da2fa9f2bec3eb096ec0db3942965ed38e57446de4b8a240a77c02c6",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_Brainteaser/figures/correctness_by_subcategory.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "grouped_bar",
+  "tags": [
+    "source-reconstruction",
+    "figures4papers",
+    "grouped_bar"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "grouped_bar",
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/1951a04d41fbdc82/13-1951a04d41fbdc82.png",
+    "final_size_inspected": true,
+    "hierarchy": "fail",
+    "legend_footprint": "fail",
+    "notes": "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+    "panel_balance": "fail",
+    "reviewed_at": "2026-08-12T17:46:27Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "fail",
+    "verdict": "fail",
+    "whitespace": "fail"
+  }
+}
