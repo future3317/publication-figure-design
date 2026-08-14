@@ -3,6 +3,39 @@
 > On-demand reference for agents using `assets/visual-references/` during figure creation.
 > For full API and CLI details, see `scripts/reference_library.py`.
 
+## Direct image intake (the normal user-facing entry point)
+
+When a user supplies a single image to save, the agent can complete the intake without
+source code or raw data. Follow this exact contract:
+
+| Field | Required decision |
+|---|---|
+| Pixels | Open and inspect the image itself; never classify from a filename or thumbnail |
+| Figure type | Normalize the dominant family (`learning_curves`, `scatter_marginal`, `architecture_schematic`, etc.); use `mixed_multi_panel` when no dominant family is honest |
+| Visual grammar | Record topology, hero/support hierarchy, mark/encoding channels, layout, density, annotation/legend model, background, and palette roles |
+| Provenance | Default to `license="user-supplied; redistribution not established"` and `usage_scope="private_reference"` |
+| State | Ingest as `review_status=pending`, then review only after final-size inspection |
+| Output | Sidecar metadata + copied image + rebuilt `assets/registry.jsonl`; never hand-edit the registry |
+
+The minimal command is:
+
+```bash
+python scripts/reference_library.py ingest \
+  path/to/reference.png learning_curves \
+  --metadata '{"source":"user-supplied reference image","license":"user-supplied; redistribution not established","usage_scope":"private_reference","reference_kind":"user_supplied","tags":["multi-panel","uncertainty-ribbon","training-dynamics"],"layout":"2x2","data_density":"moderate","notes":"Inspect stored pixels before applying; visual inspiration only."}'
+python scripts/reference_library.py validate
+python scripts/reference_library.py rebuild
+```
+
+The agent must return the assigned reference ID and relative image path. If the user
+later supplies a clear redistribution license, update the provenance metadata through
+the normal review/maintenance path; do not silently promote an unlicensed image into a
+public bundle or a runnable production asset.
+
+For a batch, run the same intake independently for every image. Each record must have
+its own type, tags, and visual-grammar notes; a batch is not permission to assign the
+same three candidates to every future task.
+
 ## Two reference workflows
 
 If the user supplies, points to, selects, or asks to match a **concrete reference image**, use `references/reference-driven-reconstruction.md`. That workflow is mandatory, and the concrete reference outranks production code after scientific integrity and explicit user requirements.

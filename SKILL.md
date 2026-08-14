@@ -20,6 +20,40 @@ Choose one mode, then apply the concrete-reference gate independently.
 | **reference** | Store, query, or archive visual references | `references/visual-reference-library.md`; use `scripts/reference_library.py` |
 | **library maintenance** | Audit or rebuild source-by-source visual-grammar reconstructions | `references/source-reconstruction-library.md`; run `scripts/check_source_reconstruction_library.py` and `scripts/check_source_reference_catalog.py` |
 
+### Single-image reference intake
+
+When the user gives one image and says to save it to the reference library, treat that
+image as a complete reference-intake task. The user does **not** need to provide code,
+raw data, or a pre-existing figure-type label.
+
+1. Open the actual pixels with the image viewer. Do not classify from the filename,
+   surrounding prose, or a thumbnail alone.
+2. Classify the visual family and normalized `figure_type`; for a heterogeneous plate,
+   use the dominant assembly family and record the panel families in `notes` and tags.
+   If the family is genuinely ambiguous, use `mixed_multi_panel` and explain the
+   ambiguity instead of guessing a familiar chart.
+3. Record the visual grammar: panel count/topology, hero-panel hierarchy, mark and
+   encoding channels, layout, density, annotation/legend model, background, palette
+   roles, and useful retrieval tags. Record the intended use as visual inspiration,
+   not as a production implementation.
+4. Record provenance. A user-supplied image defaults to `usage_scope=private_reference`
+   and `license="user-supplied; redistribution not established"`. Use
+   `usage_scope=redistributable` only when the user supplies a clear license or
+   permission. Never infer public redistribution rights from the fact that an image
+   was pasted into the conversation.
+5. Run `python scripts/reference_library.py ingest <image> <figure_type> --metadata
+   '<json>'`. Preserve the original source, use copy mode, and let the library assign
+   the deterministic ID and sidecar path. Never hand-edit `assets/registry.jsonl`.
+6. Run `python scripts/reference_library.py validate` and rebuild the registry. The
+   new record starts `pending`; only after inspecting the stored image at final size
+   may the agent call `ReferenceLibrary.review(...)` with the required evidence.
+7. Report the reference ID, normalized type, tags, scope, review status, and exact
+   relative image path. A stored reference is not automatically a production asset.
+
+This route is intentionally one-image-at-a-time: each image receives its own visual
+grammar and retrieval identity. Do not collapse a batch into one generic “nice figure”
+record or reuse a previous palette/type merely because the files arrived together.
+
 ### Mandatory visual-optimization route
 
 Requests to **optimize, polish, beautify, improve, redesign, or make an existing figure publication-quality** are major `revise` work unless the user explicitly limits the request to cosmetic edits. They always activate reference-led mode even when the user supplied no image:

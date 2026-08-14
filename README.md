@@ -107,6 +107,10 @@ Publication Figure Design 是一个面向 AI 编程助手（Claude Code、Codex 
 
 ---
 
+## 单张参考图入库
+
+你只需要把图片交给 agent，并说明“存进参考图库”。Skill 会打开原图、判断主图型和视觉语法、记录标签与来源边界、复制图片生成 sidecar 元数据、重建索引并返回 reference ID。没有代码或原始数据也可以入库；默认按 `private_reference` 处理，只有明确给出可再分发许可时才进入公开素材范围。详见 `SKILL.md` 的 **Single-image reference intake** 和 [visual-reference-library.md](references/visual-reference-library.md)。
+
 ## 系统工作流
 
 ```text

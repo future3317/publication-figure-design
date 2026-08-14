@@ -107,6 +107,10 @@ The skill does not replace the plotting capabilities of Python or R. It provides
 
 ---
 
+## Single-image reference intake
+
+Give an agent the image and say that it should be saved to the reference library. The skill opens the actual pixels, classifies the dominant figure family and visual grammar, records tags and provenance, copies the image with sidecar metadata, rebuilds the index, and returns the reference ID. Code or raw data are not required. Intake defaults to `private_reference`; public redistribution requires explicit licensing. See **Single-image reference intake** in `SKILL.md` and [visual-reference-library.md](references/visual-reference-library.md).
+
 ## Workflow
 
 ```text

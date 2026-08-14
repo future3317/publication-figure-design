@@ -70,6 +70,15 @@ routes:
       - "scripts/review_source_reconstructions.py"
       - "scripts/source_reference_catalog.py"
       - "scripts/check_source_reference_catalog.py"
+  reference_intake:
+    when: "a user supplies one or more images to store in the visual reference library"
+    load:
+      - "references/visual-reference-library.md"
+      - "references/privacy-provenance.md"
+    run:
+      - "scripts/reference_library.py ingest"
+      - "scripts/reference_library.py validate"
+      - "scripts/reference_library.py rebuild"
 
 backend_policy:
   precedence:
