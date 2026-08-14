@@ -25,7 +25,9 @@
 
 ---
 
-**Publication Figure Design** 以"问题驱动而非模板驱动"为核心原则——每一张图从科学问题出发，通过 8 步闭环工作流（用户意图解析 → 原型分类 → 图型论证 → 环境探测 → 风格注入 → 资产检索 → 渲染生成 → 质量验证），输出可直接投稿的矢量 PDF 主文件 + 300dpi PNG 预览 + 统计报告。更多详情，请关注微信公众号：**科研绘图酱**。
+**Publication Figure Design** 以"问题驱动而非模板驱动"为核心原则——每一张图从科学问题出发，通过 8 步闭环工作流（用户意图解析 → 原型分类 → 图型论证 → 环境探测 → 风格注入 → 资产检索 → 渲染生成 → 质量验证），输出可直接投稿的矢量 PDF 主文件 + 300dpi PNG 预览 + 统计报告。
+
+本仓库整合 `academic-figure-skill`、`figures4papers` 与 `nature-skills / nature-figure` 的可追溯部分，并加入本项目的结构重构、配色/对比度门禁、参考图重建和 QA 优化。完整归属与公开发行边界见 [NOTICE.md](NOTICE.md)。
 
 ---
 
@@ -79,9 +81,9 @@ Publication Figure Design 是一个面向 AI 编程助手（Claude Code、Codex 
 
 ---
 
-## 私有资产图表类型全览
+## 图表类型全览
 
-> 图鉴中展示的示例图表基于项目私有数据资产生成，仅作为风格参考。用户请求生成同类型图表时，脚本在保留示例所确立的视觉语言（配色、字体、布局逻辑、图元层级）的前提下，依据实际数据完成适配性重构。私有资产持续更新中。更多详情，请关注微信公众号：科研绘图酱
+> 图鉴中展示的示例图表由合成数据、原创代码和明确可再分发的视觉参考构成，仅作为风格参考。用户请求生成同类型图表时，脚本在保留示例所确立的视觉语言（配色、字体、布局逻辑、图元层级）的前提下，依据实际数据完成适配性重构。
 
 | 图表名称 | 预览 | 图形特征 | 典型应用场景 |
 |---------|------|---------|-------------|
@@ -146,7 +148,7 @@ claude
 ```bash
 mkdir -p ~/ai-skills
 cd ~/ai-skills
-git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
+git clone https://github.com/future3317/publication-figure-design.git publication-figure-design
 cp -r publication-figure-design ~/.claude/skills/
 ```
 
@@ -173,7 +175,7 @@ cp -r . ~/.claude/skills/publication-figure-design/
 Codex 支持通过 `install/codex/` 中的 `manifest.yaml` + `instructions.md` 加载 Skill。将以下目录复制到 `~/.codex/skills/publication-figure-design/`：
 
 ```bash
-git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
+git clone https://github.com/future3317/publication-figure-design.git publication-figure-design
 cd publication-figure-design
 mkdir -p ~/.codex/skills/publication-figure-design
 cp -r SKILL.md references/ scripts/ assets/ install/codex/* ~/.codex/skills/publication-figure-design/
@@ -184,7 +186,7 @@ cp -r SKILL.md references/ scripts/ assets/ install/codex/* ~/.codex/skills/publ
 也可以让 Codex 代为安装：
 
 ```text
-从 https://github.com/TingxiYu/academic-figure-skill.git 安装 Codex skill。
+从 https://github.com/future3317/publication-figure-design.git 安装 Codex skill。
 克隆后将目录命名为 publication-figure-design，再将 SKILL.md、references/、scripts/、assets/ 和 install/codex/ 复制到 ~/.codex/skills/publication-figure-design/。
 保持完整目录结构，不要只复制 SKILL.md。
 ```
@@ -194,7 +196,7 @@ cp -r SKILL.md references/ scripts/ assets/ install/codex/* ~/.codex/skills/publ
 将 Skill 规则文件复制到项目根目录，Cursor 在生成代码时会自动遵循其中的规范：
 
 ```bash
-git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
+git clone https://github.com/future3317/publication-figure-design.git publication-figure-design
 cp publication-figure-design/install/cursor/.cursorrules <your-project>/.cursorrules
 ```
 
@@ -205,7 +207,7 @@ cp publication-figure-design/install/cursor/.cursorrules <your-project>/.cursorr
 将 Skill 指令文件复制到项目的 `.github/` 目录，Copilot 在生成代码时会加载这些上下文：
 
 ```bash
-git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
+git clone https://github.com/future3317/publication-figure-design.git publication-figure-design
 mkdir -p <your-project>/.github
 cp publication-figure-design/install/copilot/copilot-instructions.md <your-project>/.github/
 ```
