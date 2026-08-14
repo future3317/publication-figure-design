@@ -1,0 +1,125 @@
+{
+  "aesthetic_rating": 4.3,
+  "code_path": null,
+  "created_at": "2026-08-12T17:30:09Z",
+  "data_density": null,
+  "figure_type": "radar_grid",
+  "id": "e7fa7d98cd4f5263",
+  "image_path": "assets/visual-references/references/e7fa7d98cd4f5263/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "Apache-2.0",
+  "n_groups": null,
+  "notes": "Exact source visual sample cataloged for private reference; distinct from independent reconstruction.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "atlas_radar_polar",
+    "mosaic": [
+      "ABCD",
+      "EFGH",
+      "IJKL",
+      "MNOP"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "radar:atlas"
+      },
+      {
+        "id": "B",
+        "kind": "radar:atlas"
+      },
+      {
+        "id": "C",
+        "kind": "radar:atlas"
+      },
+      {
+        "id": "D",
+        "kind": "radar:atlas"
+      },
+      {
+        "id": "E",
+        "kind": "radar:atlas"
+      },
+      {
+        "id": "F",
+        "kind": "radar:atlas"
+      },
+      {
+        "id": "G",
+        "kind": "radar:atlas"
+      },
+      {
+        "id": "H",
+        "kind": "radar:atlas"
+      },
+      {
+        "id": "I",
+        "kind": "radar:atlas"
+      },
+      {
+        "id": "J",
+        "kind": "radar:atlas"
+      },
+      {
+        "id": "K",
+        "kind": "radar:atlas"
+      },
+      {
+        "id": "L",
+        "kind": "radar:atlas"
+      },
+      {
+        "id": "M",
+        "kind": "radar:atlas"
+      },
+      {
+        "id": "N",
+        "kind": "radar:atlas"
+      },
+      {
+        "id": "O",
+        "kind": "radar:atlas"
+      },
+      {
+        "id": "P",
+        "kind": "radar:atlas"
+      }
+    ],
+    "source_observation": "16 polar-chart variants arranged as an atlas"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "e7fa7d98cd4f5263f5550d7ac8824e60071c20b2927aef52ac6d18d62fd29ffa",
+  "source": "nature-figure visual source",
+  "source_action": "licensed_visual_source",
+  "source_fingerprint": "e7fa7d98cd4f5263f5550d7ac8824e60071c20b2927aef52ac6d18d62fd29ffa",
+  "source_license_class": "Apache-2.0",
+  "source_relative_path": "assets/chart-atlas/atlas-05-radar-polar.png",
+  "source_repository": "nature-figure",
+  "source_url": null,
+  "subtype": "atlas_radar_polar",
+  "tags": [
+    "source-catalog",
+    "nature-figure",
+    "radar_grid"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "radar_grid",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'atlas_radar_polar' is a dense multi-panel radar_grid reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

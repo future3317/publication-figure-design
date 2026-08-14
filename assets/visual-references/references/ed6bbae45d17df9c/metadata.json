@@ -1,0 +1,31 @@
+{
+  "aesthetic_rating": 4,
+  "code_path": null,
+  "created_at": "2026-08-11T10:34:05Z",
+  "data_density": "low",
+  "figure_type": "BarComparison",
+  "id": "ed6bbae45d17df9c",
+  "image_path": "assets/visual-references/references/ed6bbae45d17df9c/image.png",
+  "journal_style": "Nature",
+  "layout": "1x1",
+  "license": "synthetic-redraw",
+  "n_groups": 3,
+  "notes": "Synthetic redraw of figures4papers grouped-bar style: large fonts, black edges, direct value annotations, semantic colors. Borrow layout and encoding, not data.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "ed6bbae45d17df9c6633abc2dd92dde44d33316c45f0ea688b725bd6c247bfde",
+  "source": "figures4papers house style (synthetic redraw)",
+  "source_url": "https://github.com/ChenLiu-1996/figures4papers",
+  "subtype": "figures4papers_grouped_bar",
+  "tags": [
+    "figures4papers",
+    "publication-style",
+    "grouped-bar",
+    "annotation",
+    "semantic-colors"
+  ],
+  "usage_scope": "redistributable"
+}

@@ -1,0 +1,66 @@
+{
+  "decisions": {
+    "atlas_area_stacked": {
+      "rating": 4.3,
+      "notes": "Exact source image inspected at equal display size. 'atlas_area_stacked' is a dense multi-panel area_stacked reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+    },
+    "gallery_material_mechanism": {
+      "rating": 4.5,
+      "notes": "Exact source image inspected at equal display size. 'gallery_material_mechanism' is a focused material_mechanism reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+    },
+    "gallery_validation_perturbation": {
+      "rating": 4.5,
+      "notes": "Exact source image inspected at equal display size. 'gallery_validation_perturbation' is a focused validation_perturbation reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+    },
+    "gallery_spatial_imaging": {
+      "rating": 4.3,
+      "notes": "Exact source image inspected at equal display size. 'gallery_spatial_imaging' is a dense multi-panel spatial_image_plate reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+    },
+    "atlas_distributions": {
+      "rating": 4.3,
+      "notes": "Exact source image inspected at equal display size. 'atlas_distributions' is a dense multi-panel distribution_grid reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+    },
+    "atlas_scatter_bubble": {
+      "rating": 4.3,
+      "notes": "Exact source image inspected at equal display size. 'atlas_scatter_bubble' is a dense multi-panel scatter_bubble reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+    },
+    "atlas_heatmaps": {
+      "rating": 4.3,
+      "notes": "Exact source image inspected at equal display size. 'atlas_heatmaps' is a dense multi-panel heatmap_grid reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+    },
+    "atlas_bar_charts": {
+      "rating": 4.3,
+      "notes": "Exact source image inspected at equal display size. 'atlas_bar_charts' is a dense multi-panel grouped_bar reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+    },
+    "atlas_network_matrix": {
+      "rating": 4.3,
+      "notes": "Exact source image inspected at equal display size. 'atlas_network_matrix' is a dense multi-panel network_matrix reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+    },
+    "gallery_single_cell_systems": {
+      "rating": 4.5,
+      "notes": "Exact source image inspected at equal display size. 'gallery_single_cell_systems' is a focused single_cell_systems reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+    },
+    "atlas_forest_interval": {
+      "rating": 4.3,
+      "notes": "Exact source image inspected at equal display size. 'atlas_forest_interval' is a dense multi-panel forest_interval reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+    },
+    "atlas_image_plates": {
+      "rating": 4.3,
+      "notes": "Exact source image inspected at equal display size. 'atlas_image_plates' is a dense multi-panel spatial_image_plate reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+    },
+    "gallery_in_vivo_efficacy": {
+      "rating": 4.1,
+      "notes": "Exact source image inspected at equal display size. 'gallery_in_vivo_efficacy' is a focused in_vivo_efficacy reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+    },
+    "atlas_line_trends": {
+      "rating": 4.3,
+      "notes": "Exact source image inspected at equal display size. 'atlas_line_trends' is a dense multi-panel line_grid reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+    },
+    "atlas_radar_polar": {
+      "rating": 4.3,
+      "notes": "Exact source image inspected at equal display size. 'atlas_radar_polar' is a dense multi-panel radar_grid reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+    }
+  },
+  "method": "Direct pixel inspection of each cataloged exact visual source at equal display size; recorded after review sheets",
+  "reviewer": "Codex visual audit"
+}

@@ -1,0 +1,78 @@
+{
+  "aesthetic_rating": null,
+  "code_path": "assets/visual-references/generated-archive/cd60f96af964c870/code.py",
+  "created_at": "2026-08-12T16:57:29Z",
+  "data_density": null,
+  "figure_type": "single_cell_systems",
+  "id": "cd60f96af964c870",
+  "image_path": "assets/visual-references/generated-archive/cd60f96af964c870/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "balanced",
+    "density": "high",
+    "panel_count": 12,
+    "panel_grid": [
+      3,
+      4
+    ],
+    "visual_family": "single_cell_systems"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "gallery_single_cell_systems",
+    "mosaic": [
+      "AABB",
+      "CCDE"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "schematic:singlecell"
+      },
+      {
+        "id": "B",
+        "kind": "scatter:umap"
+      },
+      {
+        "id": "C",
+        "kind": "heatmap:markers"
+      },
+      {
+        "id": "D",
+        "kind": "distribution:violin"
+      },
+      {
+        "id": "E",
+        "kind": "line:trajectory"
+      }
+    ],
+    "source_observation": "single-cell system figure with workflow, embedding hero, markers, distributions, trajectory"
+  },
+  "reconstruction_method": "independent",
+  "renderer_version": 3,
+  "review_status": "pending",
+  "scope": "generated-archive",
+  "sha256": "cd60f96af964c87012d94e1974a680df8fd5d5b26b08275b1c4d7f09520d5cfc",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "licensed_visual_source",
+  "source_fingerprint": "999edb06b942f988a51b11f947845e42e4c346b2f9e5d5a6425def9e43bb69d1",
+  "source_license_class": "Apache-2.0",
+  "source_relative_path": "assets/gallery/fig4-single-cell-systems-rich.png",
+  "source_repository": "nature-figure",
+  "source_url": null,
+  "subtype": "single_cell_systems",
+  "tags": [
+    "source-reconstruction",
+    "nature-figure",
+    "single_cell_systems"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "single_cell_systems"
+}

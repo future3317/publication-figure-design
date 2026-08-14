@@ -1,0 +1,14 @@
+{
+  "id": "groupedviolin_default",
+  "figure_type": "GroupedViolin",
+  "variant": "default",
+  "asset_kind": "template",
+  "runtime": "python",
+  "dependencies": ["numpy", "pandas", "matplotlib", "scipy"],
+  "data_shape": "wide",
+  "grouping": "multi-group columns",
+  "preview": "plot_GroupedViolin.png",
+  "palette_policy": "adaptable",
+  "production_ready": true,
+  "notes": "Reusable function plot_violin_significance expects a wide DataFrame with one column per group. Colors and group order can be passed as parameters; significance pairs are configurable."
+}

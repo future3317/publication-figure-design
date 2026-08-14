@@ -1,0 +1,1241 @@
+{
+  "policy": {
+    "source_code_copied": false,
+    "source_pixels_copied": false,
+    "unknown_license_action": "independent_reconstruction"
+  },
+  "records": [
+    {
+      "archive_id": "68e244fb949f46ad",
+      "code_path": "assets/visual-references/generated-archive/68e244fb949f46ad/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1190,
+      "image_path": "assets/visual-references/generated-archive/68e244fb949f46ad/image.png",
+      "license_class": "Apache-2.0",
+      "output_sha256": "68e244fb949f46ad11481c09dc8e3184cb87f4ccc7947dffb0d7c23ad4e21059",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "atlas_bar_charts",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "bar:atlas"
+          }
+        ],
+        "source_observation": "16 bar-chart variants arranged as an atlas"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/chart-atlas/atlas-01-bar-charts.png",
+      "renderer_version": 3,
+      "repository": "nature-figure",
+      "scope": "generated-archive",
+      "source_action": "licensed_visual_source",
+      "source_fingerprint": "4a0e3040bbdbfe5ec48b66515f719f83ad7304fadb2e56432cd3e8f7ccbabd65",
+      "visual_family": "grouped_bar",
+      "width": 1500
+    },
+    {
+      "archive_id": "4f49efc5caa16375",
+      "code_path": "assets/visual-references/generated-archive/4f49efc5caa16375/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1207,
+      "image_path": "assets/visual-references/generated-archive/4f49efc5caa16375/image.png",
+      "license_class": "Apache-2.0",
+      "output_sha256": "4f49efc5caa16375d16ccccd20c956c329afa62d9bdbe0a0c1e8ab7f36a8c329",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "atlas_line_trends",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "line:atlas"
+          }
+        ],
+        "source_observation": "16 trend and uncertainty variants arranged as an atlas"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/chart-atlas/atlas-02-line-trends.png",
+      "renderer_version": 3,
+      "repository": "nature-figure",
+      "scope": "generated-archive",
+      "source_action": "licensed_visual_source",
+      "source_fingerprint": "9a8189149180a68679738bc4be152ee40b17d71261d71b3759d315a7169da0d9",
+      "visual_family": "line_grid",
+      "width": 1500
+    },
+    {
+      "archive_id": "b0947af37e8c5ffc",
+      "code_path": "assets/visual-references/generated-archive/b0947af37e8c5ffc/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1156,
+      "image_path": "assets/visual-references/generated-archive/b0947af37e8c5ffc/image.png",
+      "license_class": "Apache-2.0",
+      "output_sha256": "b0947af37e8c5ffc2724b516c98bf89552b960f5601c2c565d7421b379b09e5a",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "atlas_heatmaps",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "heatmap:atlas"
+          }
+        ],
+        "source_observation": "16 matrix and annotation variants arranged as an atlas"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/chart-atlas/atlas-03-heatmaps.png",
+      "renderer_version": 3,
+      "repository": "nature-figure",
+      "scope": "generated-archive",
+      "source_action": "licensed_visual_source",
+      "source_fingerprint": "40dd7c7c14c45b45cc22ee23e19f2dc1901f38b26a1fb4b0f26a30dbd10c0423",
+      "visual_family": "heatmap_grid",
+      "width": 1500
+    },
+    {
+      "archive_id": "984475212a83b640",
+      "code_path": "assets/visual-references/generated-archive/984475212a83b640/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1183,
+      "image_path": "assets/visual-references/generated-archive/984475212a83b640/image.png",
+      "license_class": "Apache-2.0",
+      "output_sha256": "984475212a83b64026b5c8b7dc9661369f45e274a3d211a8fbfa8a296b46e8c1",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "atlas_scatter_bubble",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "scatter:atlas"
+          }
+        ],
+        "source_observation": "16 scatter and bubble variants arranged as an atlas"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/chart-atlas/atlas-04-scatter-bubble.png",
+      "renderer_version": 3,
+      "repository": "nature-figure",
+      "scope": "generated-archive",
+      "source_action": "licensed_visual_source",
+      "source_fingerprint": "1bbfbc38a3f246e4fd7c59b9ed1003ddbc7280ee160b7c38abf8d410b27fe6f8",
+      "visual_family": "scatter_bubble",
+      "width": 1500
+    },
+    {
+      "archive_id": "650b40786cbcf05f",
+      "code_path": "assets/visual-references/generated-archive/650b40786cbcf05f/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1216,
+      "image_path": "assets/visual-references/generated-archive/650b40786cbcf05f/image.png",
+      "license_class": "Apache-2.0",
+      "output_sha256": "650b40786cbcf05f80d0c964cdcde6451982027c5e91da6f2cf4d763b124e6ac",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "atlas_radar_polar",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "radar:atlas"
+          }
+        ],
+        "source_observation": "16 polar-chart variants arranged as an atlas"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/chart-atlas/atlas-05-radar-polar.png",
+      "renderer_version": 3,
+      "repository": "nature-figure",
+      "scope": "generated-archive",
+      "source_action": "licensed_visual_source",
+      "source_fingerprint": "e7fa7d98cd4f5263f5550d7ac8824e60071c20b2927aef52ac6d18d62fd29ffa",
+      "visual_family": "radar_grid",
+      "width": 1500
+    },
+    {
+      "archive_id": "b3c62bc6c4258378",
+      "code_path": "assets/visual-references/generated-archive/b3c62bc6c4258378/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1204,
+      "image_path": "assets/visual-references/generated-archive/b3c62bc6c4258378/image.png",
+      "license_class": "Apache-2.0",
+      "output_sha256": "b3c62bc6c4258378b6d9eee87a07157922bdd07bbd35536bf87763c49494e17e",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "atlas_distributions",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "distribution:atlas"
+          }
+        ],
+        "source_observation": "16 distribution variants arranged as an atlas"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/chart-atlas/atlas-06-distributions.png",
+      "renderer_version": 3,
+      "repository": "nature-figure",
+      "scope": "generated-archive",
+      "source_action": "licensed_visual_source",
+      "source_fingerprint": "a1fe533d07dae36d11c997577ded61adb16bf5d4dd5c0dee2ff92ae570f0f01e",
+      "visual_family": "distribution_grid",
+      "width": 1500
+    },
+    {
+      "archive_id": "f68c31da6f34836c",
+      "code_path": "assets/visual-references/generated-archive/f68c31da6f34836c/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1207,
+      "image_path": "assets/visual-references/generated-archive/f68c31da6f34836c/image.png",
+      "license_class": "Apache-2.0",
+      "output_sha256": "f68c31da6f34836c4657e73b6c70ebb8ab15962261882fc3bdb74252466de105",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "atlas_forest_interval",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "forest:atlas"
+          }
+        ],
+        "source_observation": "16 interval and effect-size variants arranged as an atlas"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/chart-atlas/atlas-07-forest-interval.png",
+      "renderer_version": 3,
+      "repository": "nature-figure",
+      "scope": "generated-archive",
+      "source_action": "licensed_visual_source",
+      "source_fingerprint": "dc61a5257eae4748348c72c51f2e70e59979c6892f52dadf7bb4ba6f8b98b00b",
+      "visual_family": "forest_interval",
+      "width": 1500
+    },
+    {
+      "archive_id": "039470ddb18c09ae",
+      "code_path": "assets/visual-references/generated-archive/039470ddb18c09ae/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1183,
+      "image_path": "assets/visual-references/generated-archive/039470ddb18c09ae/image.png",
+      "license_class": "Apache-2.0",
+      "output_sha256": "039470ddb18c09ae33560aeeb8349b9b2478237166cbcc962425ad9624244829",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "atlas_area_stacked",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "area:atlas"
+          }
+        ],
+        "source_observation": "16 stacked-area and composition variants arranged as an atlas"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/chart-atlas/atlas-08-area-stacked.png",
+      "renderer_version": 3,
+      "repository": "nature-figure",
+      "scope": "generated-archive",
+      "source_action": "licensed_visual_source",
+      "source_fingerprint": "350c25e427d945dee5fd98316eb6ebe307304b9d187d954a88c05852d664a60b",
+      "visual_family": "area_stacked",
+      "width": 1500
+    },
+    {
+      "archive_id": "6a3e2a00f9c820f6",
+      "code_path": "assets/visual-references/generated-archive/6a3e2a00f9c820f6/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1218,
+      "image_path": "assets/visual-references/generated-archive/6a3e2a00f9c820f6/image.png",
+      "license_class": "Apache-2.0",
+      "output_sha256": "6a3e2a00f9c820f61c364dd4a2d38a129e7833ed655cfea7b59fb46c473f4bd4",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "atlas_image_plates",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "spatial:atlas"
+          }
+        ],
+        "source_observation": "16 spatial/image-plate variants arranged as an atlas"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/chart-atlas/atlas-09-image-plates.png",
+      "renderer_version": 3,
+      "repository": "nature-figure",
+      "scope": "generated-archive",
+      "source_action": "licensed_visual_source",
+      "source_fingerprint": "bbc8c0b8708d42465e57cb7c56b4d2ecfbaa63340a5a6dfefbcb51189cd1a995",
+      "visual_family": "spatial_image_plate",
+      "width": 1500
+    },
+    {
+      "archive_id": "c3c538a466aef22e",
+      "code_path": "assets/visual-references/generated-archive/c3c538a466aef22e/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1183,
+      "image_path": "assets/visual-references/generated-archive/c3c538a466aef22e/image.png",
+      "license_class": "Apache-2.0",
+      "output_sha256": "c3c538a466aef22e0d8895f864f95d9c95514e4bcceb328ae7872e262369eb72",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "atlas_network_matrix",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "network:atlas"
+          }
+        ],
+        "source_observation": "16 network/matrix variants arranged as an atlas"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/chart-atlas/atlas-10-network-matrix.png",
+      "renderer_version": 3,
+      "repository": "nature-figure",
+      "scope": "generated-archive",
+      "source_action": "licensed_visual_source",
+      "source_fingerprint": "cd384abe10aa86bd310c1288a42f33735cb555c267bddae1ecd262905a7a1de5",
+      "visual_family": "network_matrix",
+      "width": 1500
+    },
+    {
+      "archive_id": "c420d057ffad6041",
+      "code_path": "assets/visual-references/generated-archive/c420d057ffad6041/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1419,
+      "image_path": "assets/visual-references/generated-archive/c420d057ffad6041/image.png",
+      "license_class": "Apache-2.0",
+      "output_sha256": "c420d057ffad6041ecc0b5833dc01898c110af61b33ef00e111c54b590771cdd",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "gallery_material_mechanism",
+        "mosaic": [
+          "AABB",
+          "CDDE"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:materials"
+          },
+          {
+            "id": "B",
+            "kind": "diagram:mechanism"
+          },
+          {
+            "id": "C",
+            "kind": "spatial:micrograph"
+          },
+          {
+            "id": "D",
+            "kind": "line:response"
+          },
+          {
+            "id": "E",
+            "kind": "bar:comparison"
+          }
+        ],
+        "source_observation": "asymmetric material mechanism figure with large mechanism hero"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/gallery/fig1-material-mechanism-rich.png",
+      "renderer_version": 3,
+      "repository": "nature-figure",
+      "scope": "generated-archive",
+      "source_action": "licensed_visual_source",
+      "source_fingerprint": "2e0706fae3256e1de2388f8605f35b9b6ac23cfc397161a952f34cc5fa2f2192",
+      "visual_family": "material_mechanism",
+      "width": 1600
+    },
+    {
+      "archive_id": "90d44d1709c8bcad",
+      "code_path": "assets/visual-references/generated-archive/90d44d1709c8bcad/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1471,
+      "image_path": "assets/visual-references/generated-archive/90d44d1709c8bcad/image.png",
+      "license_class": "Apache-2.0",
+      "output_sha256": "90d44d1709c8bcadb5ec819ffd040f3c0754501fce672787a1792aa1f031704d",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "gallery_spatial_imaging",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "spatial:sample"
+          },
+          {
+            "id": "B",
+            "kind": "spatial:mask"
+          },
+          {
+            "id": "C",
+            "kind": "spatial:overlay"
+          },
+          {
+            "id": "D",
+            "kind": "spatial:zoom"
+          },
+          {
+            "id": "E",
+            "kind": "spatial:sample"
+          },
+          {
+            "id": "F",
+            "kind": "spatial:mask"
+          },
+          {
+            "id": "G",
+            "kind": "spatial:overlay"
+          },
+          {
+            "id": "H",
+            "kind": "spatial:zoom"
+          },
+          {
+            "id": "I",
+            "kind": "spatial:zoom"
+          },
+          {
+            "id": "J",
+            "kind": "scatter:spots"
+          },
+          {
+            "id": "K",
+            "kind": "heatmap:matrix"
+          },
+          {
+            "id": "L",
+            "kind": "bar:summary"
+          }
+        ],
+        "source_observation": "image-plate workflow with sample, mask, overlay, zoom, and quantitative support"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/gallery/fig2-spatial-imaging-rich.png",
+      "renderer_version": 3,
+      "repository": "nature-figure",
+      "scope": "generated-archive",
+      "source_action": "licensed_visual_source",
+      "source_fingerprint": "90081b3f778b9ede2dba41c60b6abf0c28a239060c69428344539529cd7f3257",
+      "visual_family": "spatial_image_plate",
+      "width": 1600
+    },
+    {
+      "archive_id": "668bc98b544d54d5",
+      "code_path": "assets/visual-references/generated-archive/668bc98b544d54d5/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1457,
+      "image_path": "assets/visual-references/generated-archive/668bc98b544d54d5/image.png",
+      "license_class": "Apache-2.0",
+      "output_sha256": "668bc98b544d54d59317fcf8b99a3189c3a4b597b29730b9e54807caaca8eb46",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "gallery_in_vivo_efficacy",
+        "mosaic": [
+          "AABB",
+          "CCDE"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:treatment"
+          },
+          {
+            "id": "B",
+            "kind": "line:efficacy"
+          },
+          {
+            "id": "C",
+            "kind": "spatial:imaging"
+          },
+          {
+            "id": "D",
+            "kind": "bar:response"
+          },
+          {
+            "id": "E",
+            "kind": "survival:curve"
+          }
+        ],
+        "source_observation": "in-vivo study: treatment schematic, longitudinal efficacy, imaging, response, survival"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/gallery/fig3-in-vivo-efficacy-rich.png",
+      "renderer_version": 3,
+      "repository": "nature-figure",
+      "scope": "generated-archive",
+      "source_action": "licensed_visual_source",
+      "source_fingerprint": "25d6fc50f5808104a7cb19f4795cea4229fbc6159fa7509f716a94f7c160a033",
+      "visual_family": "in_vivo_efficacy",
+      "width": 1600
+    },
+    {
+      "archive_id": "cd60f96af964c870",
+      "code_path": "assets/visual-references/generated-archive/cd60f96af964c870/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1367,
+      "image_path": "assets/visual-references/generated-archive/cd60f96af964c870/image.png",
+      "license_class": "Apache-2.0",
+      "output_sha256": "cd60f96af964c87012d94e1974a680df8fd5d5b26b08275b1c4d7f09520d5cfc",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "gallery_single_cell_systems",
+        "mosaic": [
+          "AABB",
+          "CCDE"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:singlecell"
+          },
+          {
+            "id": "B",
+            "kind": "scatter:umap"
+          },
+          {
+            "id": "C",
+            "kind": "heatmap:markers"
+          },
+          {
+            "id": "D",
+            "kind": "distribution:violin"
+          },
+          {
+            "id": "E",
+            "kind": "line:trajectory"
+          }
+        ],
+        "source_observation": "single-cell system figure with workflow, embedding hero, markers, distributions, trajectory"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/gallery/fig4-single-cell-systems-rich.png",
+      "renderer_version": 3,
+      "repository": "nature-figure",
+      "scope": "generated-archive",
+      "source_action": "licensed_visual_source",
+      "source_fingerprint": "999edb06b942f988a51b11f947845e42e4c346b2f9e5d5a6425def9e43bb69d1",
+      "visual_family": "single_cell_systems",
+      "width": 1600
+    },
+    {
+      "archive_id": "006c1b3915544c07",
+      "code_path": "assets/visual-references/generated-archive/006c1b3915544c07/code.py",
+      "existing_exact_copy_id": null,
+      "height": 1424,
+      "image_path": "assets/visual-references/generated-archive/006c1b3915544c07/image.png",
+      "license_class": "Apache-2.0",
+      "output_sha256": "006c1b3915544c07d695498955811e931ae03908f676a4d2212412b563f7a02d",
+      "reconstruction_blueprint": {
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "blueprint_id": "gallery_validation_perturbation",
+        "mosaic": [
+          "AABB",
+          "CCDE"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:perturbation"
+          },
+          {
+            "id": "B",
+            "kind": "scatter:validation"
+          },
+          {
+            "id": "C",
+            "kind": "bar:ablation"
+          },
+          {
+            "id": "D",
+            "kind": "heatmap:response"
+          },
+          {
+            "id": "E",
+            "kind": "forest:effects"
+          }
+        ],
+        "source_observation": "perturbation workflow and validation evidence across scatter, ablation, matrix, interval panels"
+      },
+      "reconstruction_method": "independent",
+      "relative_path": "assets/gallery/fig5-validation-perturbation-rich.png",
+      "renderer_version": 3,
+      "repository": "nature-figure",
+      "scope": "generated-archive",
+      "source_action": "licensed_visual_source",
+      "source_fingerprint": "245ad31f97b2054628987444e44d6a007f352f65ae6254189f5ed8ba9b0301c6",
+      "visual_family": "validation_perturbation",
+      "width": 1600
+    }
+  ],
+  "schema_version": 1,
+  "summary": {
+    "created_count": 0,
+    "existing_exact_copy_count": 10,
+    "figures4papers_count": 0,
+    "nature_figure_count": 15,
+    "source_count": 15
+  }
+}

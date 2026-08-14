@@ -1,0 +1,1079 @@
+{
+  "cataloged_count": 15,
+  "records": [
+    {
+      "reference_id": "4a0e3040bbdbfe5e",
+      "source_fingerprint": "4a0e3040bbdbfe5ec48b66515f719f83ad7304fadb2e56432cd3e8f7ccbabd65",
+      "repository": "nature-figure",
+      "relative_path": "assets/chart-atlas/atlas-01-bar-charts.png",
+      "visual_family": "grouped_bar",
+      "blueprint_id": "atlas_bar_charts",
+      "reconstruction_blueprint": {
+        "blueprint_id": "atlas_bar_charts",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "bar:atlas"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "16 bar-chart variants arranged as an atlas"
+      }
+    },
+    {
+      "reference_id": "9a8189149180a686",
+      "source_fingerprint": "9a8189149180a68679738bc4be152ee40b17d71261d71b3759d315a7169da0d9",
+      "repository": "nature-figure",
+      "relative_path": "assets/chart-atlas/atlas-02-line-trends.png",
+      "visual_family": "line_grid",
+      "blueprint_id": "atlas_line_trends",
+      "reconstruction_blueprint": {
+        "blueprint_id": "atlas_line_trends",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "line:atlas"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "16 trend and uncertainty variants arranged as an atlas"
+      }
+    },
+    {
+      "reference_id": "40dd7c7c14c45b45",
+      "source_fingerprint": "40dd7c7c14c45b45cc22ee23e19f2dc1901f38b26a1fb4b0f26a30dbd10c0423",
+      "repository": "nature-figure",
+      "relative_path": "assets/chart-atlas/atlas-03-heatmaps.png",
+      "visual_family": "heatmap_grid",
+      "blueprint_id": "atlas_heatmaps",
+      "reconstruction_blueprint": {
+        "blueprint_id": "atlas_heatmaps",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "heatmap:atlas"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "16 matrix and annotation variants arranged as an atlas"
+      }
+    },
+    {
+      "reference_id": "1bbfbc38a3f246e4",
+      "source_fingerprint": "1bbfbc38a3f246e4fd7c59b9ed1003ddbc7280ee160b7c38abf8d410b27fe6f8",
+      "repository": "nature-figure",
+      "relative_path": "assets/chart-atlas/atlas-04-scatter-bubble.png",
+      "visual_family": "scatter_bubble",
+      "blueprint_id": "atlas_scatter_bubble",
+      "reconstruction_blueprint": {
+        "blueprint_id": "atlas_scatter_bubble",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "scatter:atlas"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "16 scatter and bubble variants arranged as an atlas"
+      }
+    },
+    {
+      "reference_id": "e7fa7d98cd4f5263",
+      "source_fingerprint": "e7fa7d98cd4f5263f5550d7ac8824e60071c20b2927aef52ac6d18d62fd29ffa",
+      "repository": "nature-figure",
+      "relative_path": "assets/chart-atlas/atlas-05-radar-polar.png",
+      "visual_family": "radar_grid",
+      "blueprint_id": "atlas_radar_polar",
+      "reconstruction_blueprint": {
+        "blueprint_id": "atlas_radar_polar",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "radar:atlas"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "16 polar-chart variants arranged as an atlas"
+      }
+    },
+    {
+      "reference_id": "a1fe533d07dae36d",
+      "source_fingerprint": "a1fe533d07dae36d11c997577ded61adb16bf5d4dd5c0dee2ff92ae570f0f01e",
+      "repository": "nature-figure",
+      "relative_path": "assets/chart-atlas/atlas-06-distributions.png",
+      "visual_family": "distribution_grid",
+      "blueprint_id": "atlas_distributions",
+      "reconstruction_blueprint": {
+        "blueprint_id": "atlas_distributions",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "distribution:atlas"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "16 distribution variants arranged as an atlas"
+      }
+    },
+    {
+      "reference_id": "dc61a5257eae4748",
+      "source_fingerprint": "dc61a5257eae4748348c72c51f2e70e59979c6892f52dadf7bb4ba6f8b98b00b",
+      "repository": "nature-figure",
+      "relative_path": "assets/chart-atlas/atlas-07-forest-interval.png",
+      "visual_family": "forest_interval",
+      "blueprint_id": "atlas_forest_interval",
+      "reconstruction_blueprint": {
+        "blueprint_id": "atlas_forest_interval",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "forest:atlas"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "16 interval and effect-size variants arranged as an atlas"
+      }
+    },
+    {
+      "reference_id": "350c25e427d945de",
+      "source_fingerprint": "350c25e427d945dee5fd98316eb6ebe307304b9d187d954a88c05852d664a60b",
+      "repository": "nature-figure",
+      "relative_path": "assets/chart-atlas/atlas-08-area-stacked.png",
+      "visual_family": "area_stacked",
+      "blueprint_id": "atlas_area_stacked",
+      "reconstruction_blueprint": {
+        "blueprint_id": "atlas_area_stacked",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "area:atlas"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "16 stacked-area and composition variants arranged as an atlas"
+      }
+    },
+    {
+      "reference_id": "bbc8c0b8708d4246",
+      "source_fingerprint": "bbc8c0b8708d42465e57cb7c56b4d2ecfbaa63340a5a6dfefbcb51189cd1a995",
+      "repository": "nature-figure",
+      "relative_path": "assets/chart-atlas/atlas-09-image-plates.png",
+      "visual_family": "spatial_image_plate",
+      "blueprint_id": "atlas_image_plates",
+      "reconstruction_blueprint": {
+        "blueprint_id": "atlas_image_plates",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "spatial:atlas"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "16 spatial/image-plate variants arranged as an atlas"
+      }
+    },
+    {
+      "reference_id": "cd384abe10aa86bd",
+      "source_fingerprint": "cd384abe10aa86bd310c1288a42f33735cb555c267bddae1ecd262905a7a1de5",
+      "repository": "nature-figure",
+      "relative_path": "assets/chart-atlas/atlas-10-network-matrix.png",
+      "visual_family": "network_matrix",
+      "blueprint_id": "atlas_network_matrix",
+      "reconstruction_blueprint": {
+        "blueprint_id": "atlas_network_matrix",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "network:atlas"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "16 network/matrix variants arranged as an atlas"
+      }
+    },
+    {
+      "reference_id": "2e0706fae3256e1d",
+      "source_fingerprint": "2e0706fae3256e1de2388f8605f35b9b6ac23cfc397161a952f34cc5fa2f2192",
+      "repository": "nature-figure",
+      "relative_path": "assets/gallery/fig1-material-mechanism-rich.png",
+      "visual_family": "material_mechanism",
+      "blueprint_id": "gallery_material_mechanism",
+      "reconstruction_blueprint": {
+        "blueprint_id": "gallery_material_mechanism",
+        "mosaic": [
+          "AABB",
+          "CDDE"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:materials"
+          },
+          {
+            "id": "B",
+            "kind": "diagram:mechanism"
+          },
+          {
+            "id": "C",
+            "kind": "spatial:micrograph"
+          },
+          {
+            "id": "D",
+            "kind": "line:response"
+          },
+          {
+            "id": "E",
+            "kind": "bar:comparison"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "asymmetric material mechanism figure with large mechanism hero"
+      }
+    },
+    {
+      "reference_id": "90081b3f778b9ede",
+      "source_fingerprint": "90081b3f778b9ede2dba41c60b6abf0c28a239060c69428344539529cd7f3257",
+      "repository": "nature-figure",
+      "relative_path": "assets/gallery/fig2-spatial-imaging-rich.png",
+      "visual_family": "spatial_image_plate",
+      "blueprint_id": "gallery_spatial_imaging",
+      "reconstruction_blueprint": {
+        "blueprint_id": "gallery_spatial_imaging",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "spatial:sample"
+          },
+          {
+            "id": "B",
+            "kind": "spatial:mask"
+          },
+          {
+            "id": "C",
+            "kind": "spatial:overlay"
+          },
+          {
+            "id": "D",
+            "kind": "spatial:zoom"
+          },
+          {
+            "id": "E",
+            "kind": "spatial:sample"
+          },
+          {
+            "id": "F",
+            "kind": "spatial:mask"
+          },
+          {
+            "id": "G",
+            "kind": "spatial:overlay"
+          },
+          {
+            "id": "H",
+            "kind": "spatial:zoom"
+          },
+          {
+            "id": "I",
+            "kind": "spatial:zoom"
+          },
+          {
+            "id": "J",
+            "kind": "scatter:spots"
+          },
+          {
+            "id": "K",
+            "kind": "heatmap:matrix"
+          },
+          {
+            "id": "L",
+            "kind": "bar:summary"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "image-plate workflow with sample, mask, overlay, zoom, and quantitative support"
+      }
+    },
+    {
+      "reference_id": "25d6fc50f5808104",
+      "source_fingerprint": "25d6fc50f5808104a7cb19f4795cea4229fbc6159fa7509f716a94f7c160a033",
+      "repository": "nature-figure",
+      "relative_path": "assets/gallery/fig3-in-vivo-efficacy-rich.png",
+      "visual_family": "in_vivo_efficacy",
+      "blueprint_id": "gallery_in_vivo_efficacy",
+      "reconstruction_blueprint": {
+        "blueprint_id": "gallery_in_vivo_efficacy",
+        "mosaic": [
+          "AABB",
+          "CCDE"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:treatment"
+          },
+          {
+            "id": "B",
+            "kind": "line:efficacy"
+          },
+          {
+            "id": "C",
+            "kind": "spatial:imaging"
+          },
+          {
+            "id": "D",
+            "kind": "bar:response"
+          },
+          {
+            "id": "E",
+            "kind": "survival:curve"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "in-vivo study: treatment schematic, longitudinal efficacy, imaging, response, survival"
+      }
+    },
+    {
+      "reference_id": "999edb06b942f988",
+      "source_fingerprint": "999edb06b942f988a51b11f947845e42e4c346b2f9e5d5a6425def9e43bb69d1",
+      "repository": "nature-figure",
+      "relative_path": "assets/gallery/fig4-single-cell-systems-rich.png",
+      "visual_family": "single_cell_systems",
+      "blueprint_id": "gallery_single_cell_systems",
+      "reconstruction_blueprint": {
+        "blueprint_id": "gallery_single_cell_systems",
+        "mosaic": [
+          "AABB",
+          "CCDE"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:singlecell"
+          },
+          {
+            "id": "B",
+            "kind": "scatter:umap"
+          },
+          {
+            "id": "C",
+            "kind": "heatmap:markers"
+          },
+          {
+            "id": "D",
+            "kind": "distribution:violin"
+          },
+          {
+            "id": "E",
+            "kind": "line:trajectory"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "single-cell system figure with workflow, embedding hero, markers, distributions, trajectory"
+      }
+    },
+    {
+      "reference_id": "245ad31f97b20546",
+      "source_fingerprint": "245ad31f97b2054628987444e44d6a007f352f65ae6254189f5ed8ba9b0301c6",
+      "repository": "nature-figure",
+      "relative_path": "assets/gallery/fig5-validation-perturbation-rich.png",
+      "visual_family": "validation_perturbation",
+      "blueprint_id": "gallery_validation_perturbation",
+      "reconstruction_blueprint": {
+        "blueprint_id": "gallery_validation_perturbation",
+        "mosaic": [
+          "AABB",
+          "CCDE"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:perturbation"
+          },
+          {
+            "id": "B",
+            "kind": "scatter:validation"
+          },
+          {
+            "id": "C",
+            "kind": "bar:ablation"
+          },
+          {
+            "id": "D",
+            "kind": "heatmap:response"
+          },
+          {
+            "id": "E",
+            "kind": "forest:effects"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "perturbation workflow and validation evidence across scatter, ablation, matrix, interval panels"
+      }
+    }
+  ]
+}

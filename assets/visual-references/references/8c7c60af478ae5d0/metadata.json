@@ -1,0 +1,31 @@
+{
+  "aesthetic_rating": 4,
+  "code_path": null,
+  "created_at": "2026-08-11T10:34:05Z",
+  "data_density": "medium",
+  "figure_type": "LineTrend",
+  "id": "8c7c60af478ae5d0",
+  "image_path": "assets/visual-references/references/8c7c60af478ae5d0/image.png",
+  "journal_style": "Nature",
+  "layout": "1x3",
+  "license": "synthetic-redraw",
+  "n_groups": 2,
+  "notes": "Synthetic redraw of figures4papers multi-panel trend style: two data panels + one dedicated legend-only panel. Borrow layout and legend strategy, not data.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "8c7c60af478ae5d089e554499365730b35e9666ffb436a8eae1d372b6c19b58b",
+  "source": "figures4papers house style (synthetic redraw)",
+  "source_url": "https://github.com/ChenLiu-1996/figures4papers",
+  "subtype": "figures4papers_trend_legend_panel",
+  "tags": [
+    "figures4papers",
+    "publication-style",
+    "line-trend",
+    "multi-panel",
+    "dedicated-legend"
+  ],
+  "usage_scope": "redistributable"
+}

@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Tool / benchmark caches
+scripts/.eval_results.json
+scripts/.ab_baseline.json
+scripts/.ab_publication-figure-design.json
+
+# Staging area for visual-reference ingest
+assets/visual-references/.staging/
+
+# OS
+.DS_Store
+Thumbs.db

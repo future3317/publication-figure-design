@@ -1,0 +1,79 @@
+{
+  "aesthetic_rating": 4.1,
+  "code_path": null,
+  "created_at": "2026-08-12T17:30:09Z",
+  "data_density": null,
+  "figure_type": "in_vivo_efficacy",
+  "id": "25d6fc50f5808104",
+  "image_path": "assets/visual-references/references/25d6fc50f5808104/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "Apache-2.0",
+  "n_groups": null,
+  "notes": "Exact source visual sample cataloged for private reference; distinct from independent reconstruction.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "gallery_in_vivo_efficacy",
+    "mosaic": [
+      "AABB",
+      "CCDE"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "schematic:treatment"
+      },
+      {
+        "id": "B",
+        "kind": "line:efficacy"
+      },
+      {
+        "id": "C",
+        "kind": "spatial:imaging"
+      },
+      {
+        "id": "D",
+        "kind": "bar:response"
+      },
+      {
+        "id": "E",
+        "kind": "survival:curve"
+      }
+    ],
+    "source_observation": "in-vivo study: treatment schematic, longitudinal efficacy, imaging, response, survival"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "25d6fc50f5808104a7cb19f4795cea4229fbc6159fa7509f716a94f7c160a033",
+  "source": "nature-figure visual source",
+  "source_action": "licensed_visual_source",
+  "source_fingerprint": "25d6fc50f5808104a7cb19f4795cea4229fbc6159fa7509f716a94f7c160a033",
+  "source_license_class": "Apache-2.0",
+  "source_relative_path": "assets/gallery/fig3-in-vivo-efficacy-rich.png",
+  "source_repository": "nature-figure",
+  "source_url": null,
+  "subtype": "gallery_in_vivo_efficacy",
+  "tags": [
+    "source-catalog",
+    "nature-figure",
+    "in_vivo_efficacy"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "in_vivo_efficacy",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'gallery_in_vivo_efficacy' is a focused in_vivo_efficacy reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

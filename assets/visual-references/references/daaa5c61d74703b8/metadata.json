@@ -1,0 +1,33 @@
+{
+  "aesthetic_rating": 4.0,
+  "code_path": null,
+  "created_at": "2026-08-11T10:16:00Z",
+  "data_density": "medium",
+  "figure_type": "StackedBarScatter",
+  "id": "daaa5c61d74703b8",
+  "image_path": "assets/visual-references/references/daaa5c61d74703b8/image.png",
+  "journal_style": "Nature",
+  "layout": "1x1",
+  "license": "synthetic-redraw",
+  "n_groups": 3,
+  "notes": "SuperPlots visual grammar for StackedBarScatter: individual replicates + mean/SEM overlay. Borrow annotation and spacing, not figure type.",
+  "palette": "summer_beach",
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "daaa5c61d74703b8c9a10b4136be222161fc0360ab95de023d9821477acd6352",
+  "source": "Lord et al., J Cell Biol (synthetic redraw)",
+  "source_url": "https://doi.org/10.1083/jcb.202001064",
+  "subtype": "superplot",
+  "tags": [
+    "superplot",
+    "scatter",
+    "mean",
+    "individual-points",
+    "replicates",
+    "minimal",
+    "Nature"
+  ],
+  "usage_scope": "redistributable"
+}

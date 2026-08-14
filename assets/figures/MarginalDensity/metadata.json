@@ -1,0 +1,14 @@
+{
+  "id": "marginaldensity_default",
+  "figure_type": "MarginalDensity",
+  "variant": "default",
+  "asset_kind": "template",
+  "runtime": "python",
+  "dependencies": ["numpy", "pandas", "matplotlib", "seaborn", "scipy", "statannotations"],
+  "data_shape": "xy",
+  "grouping": "single categorical column",
+  "preview": "plot_VariableCorrelation_1.png",
+  "palette_policy": "preserve",
+  "production_ready": true,
+  "notes": "Reusable function plot_cds_vs_genome_size configured through a CONFIG dict. Expects columns x, y, type, is_drep95, and quality flags. Adjust CONFIG for user data rather than editing raw column references."
+}

@@ -1,0 +1,125 @@
+{
+  "aesthetic_rating": 4.3,
+  "code_path": null,
+  "created_at": "2026-08-12T17:30:09Z",
+  "data_density": null,
+  "figure_type": "network_matrix",
+  "id": "cd384abe10aa86bd",
+  "image_path": "assets/visual-references/references/cd384abe10aa86bd/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "Apache-2.0",
+  "n_groups": null,
+  "notes": "Exact source visual sample cataloged for private reference; distinct from independent reconstruction.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "atlas_network_matrix",
+    "mosaic": [
+      "ABCD",
+      "EFGH",
+      "IJKL",
+      "MNOP"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "network:atlas"
+      },
+      {
+        "id": "B",
+        "kind": "network:atlas"
+      },
+      {
+        "id": "C",
+        "kind": "network:atlas"
+      },
+      {
+        "id": "D",
+        "kind": "network:atlas"
+      },
+      {
+        "id": "E",
+        "kind": "network:atlas"
+      },
+      {
+        "id": "F",
+        "kind": "network:atlas"
+      },
+      {
+        "id": "G",
+        "kind": "network:atlas"
+      },
+      {
+        "id": "H",
+        "kind": "network:atlas"
+      },
+      {
+        "id": "I",
+        "kind": "network:atlas"
+      },
+      {
+        "id": "J",
+        "kind": "network:atlas"
+      },
+      {
+        "id": "K",
+        "kind": "network:atlas"
+      },
+      {
+        "id": "L",
+        "kind": "network:atlas"
+      },
+      {
+        "id": "M",
+        "kind": "network:atlas"
+      },
+      {
+        "id": "N",
+        "kind": "network:atlas"
+      },
+      {
+        "id": "O",
+        "kind": "network:atlas"
+      },
+      {
+        "id": "P",
+        "kind": "network:atlas"
+      }
+    ],
+    "source_observation": "16 network/matrix variants arranged as an atlas"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "cd384abe10aa86bd310c1288a42f33735cb555c267bddae1ecd262905a7a1de5",
+  "source": "nature-figure visual source",
+  "source_action": "licensed_visual_source",
+  "source_fingerprint": "cd384abe10aa86bd310c1288a42f33735cb555c267bddae1ecd262905a7a1de5",
+  "source_license_class": "Apache-2.0",
+  "source_relative_path": "assets/chart-atlas/atlas-10-network-matrix.png",
+  "source_repository": "nature-figure",
+  "source_url": null,
+  "subtype": "atlas_network_matrix",
+  "tags": [
+    "source-catalog",
+    "nature-figure",
+    "network_matrix"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "network_matrix",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'atlas_network_matrix' is a dense multi-panel network_matrix reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

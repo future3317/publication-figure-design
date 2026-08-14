@@ -1,0 +1,124 @@
+{
+  "aesthetic_rating": null,
+  "code_path": "assets/visual-references/generated-archive/6a3e2a00f9c820f6/code.py",
+  "created_at": "2026-08-12T16:57:27Z",
+  "data_density": null,
+  "figure_type": "spatial_image_plate",
+  "id": "6a3e2a00f9c820f6",
+  "image_path": "assets/visual-references/generated-archive/6a3e2a00f9c820f6/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "balanced",
+    "density": "high",
+    "panel_count": 16,
+    "panel_grid": [
+      4,
+      4
+    ],
+    "visual_family": "spatial_image_plate"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "atlas_image_plates",
+    "mosaic": [
+      "ABCD",
+      "EFGH",
+      "IJKL",
+      "MNOP"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "spatial:atlas"
+      },
+      {
+        "id": "B",
+        "kind": "spatial:atlas"
+      },
+      {
+        "id": "C",
+        "kind": "spatial:atlas"
+      },
+      {
+        "id": "D",
+        "kind": "spatial:atlas"
+      },
+      {
+        "id": "E",
+        "kind": "spatial:atlas"
+      },
+      {
+        "id": "F",
+        "kind": "spatial:atlas"
+      },
+      {
+        "id": "G",
+        "kind": "spatial:atlas"
+      },
+      {
+        "id": "H",
+        "kind": "spatial:atlas"
+      },
+      {
+        "id": "I",
+        "kind": "spatial:atlas"
+      },
+      {
+        "id": "J",
+        "kind": "spatial:atlas"
+      },
+      {
+        "id": "K",
+        "kind": "spatial:atlas"
+      },
+      {
+        "id": "L",
+        "kind": "spatial:atlas"
+      },
+      {
+        "id": "M",
+        "kind": "spatial:atlas"
+      },
+      {
+        "id": "N",
+        "kind": "spatial:atlas"
+      },
+      {
+        "id": "O",
+        "kind": "spatial:atlas"
+      },
+      {
+        "id": "P",
+        "kind": "spatial:atlas"
+      }
+    ],
+    "source_observation": "16 spatial/image-plate variants arranged as an atlas"
+  },
+  "reconstruction_method": "independent",
+  "renderer_version": 3,
+  "review_status": "pending",
+  "scope": "generated-archive",
+  "sha256": "6a3e2a00f9c820f61c364dd4a2d38a129e7833ed655cfea7b59fb46c473f4bd4",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "licensed_visual_source",
+  "source_fingerprint": "bbc8c0b8708d42465e57cb7c56b4d2ecfbaa63340a5a6dfefbcb51189cd1a995",
+  "source_license_class": "Apache-2.0",
+  "source_relative_path": "assets/chart-atlas/atlas-09-image-plates.png",
+  "source_repository": "nature-figure",
+  "source_url": null,
+  "subtype": "spatial_image_plate",
+  "tags": [
+    "source-reconstruction",
+    "nature-figure",
+    "spatial_image_plate"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "spatial_image_plate"
+}

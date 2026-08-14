@@ -1,0 +1,4 @@
+interface:
+  display_name: "Publication Figure Design"
+  short_description: "Design, reconstruct, and audit publication-grade scientific figures"
+  default_prompt: "Use $publication-figure-design to create or structurally refine a manuscript-ready scientific figure using rendered reference evidence."

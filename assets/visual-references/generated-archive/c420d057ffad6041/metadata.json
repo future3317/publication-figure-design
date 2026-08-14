@@ -1,0 +1,78 @@
+{
+  "aesthetic_rating": null,
+  "code_path": "assets/visual-references/generated-archive/c420d057ffad6041/code.py",
+  "created_at": "2026-08-12T16:57:28Z",
+  "data_density": null,
+  "figure_type": "material_mechanism",
+  "id": "c420d057ffad6041",
+  "image_path": "assets/visual-references/generated-archive/c420d057ffad6041/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "balanced",
+    "density": "high",
+    "panel_count": 12,
+    "panel_grid": [
+      3,
+      4
+    ],
+    "visual_family": "material_mechanism"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "gallery_material_mechanism",
+    "mosaic": [
+      "AABB",
+      "CDDE"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "schematic:materials"
+      },
+      {
+        "id": "B",
+        "kind": "diagram:mechanism"
+      },
+      {
+        "id": "C",
+        "kind": "spatial:micrograph"
+      },
+      {
+        "id": "D",
+        "kind": "line:response"
+      },
+      {
+        "id": "E",
+        "kind": "bar:comparison"
+      }
+    ],
+    "source_observation": "asymmetric material mechanism figure with large mechanism hero"
+  },
+  "reconstruction_method": "independent",
+  "renderer_version": 3,
+  "review_status": "pending",
+  "scope": "generated-archive",
+  "sha256": "c420d057ffad6041ecc0b5833dc01898c110af61b33ef00e111c54b590771cdd",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "licensed_visual_source",
+  "source_fingerprint": "2e0706fae3256e1de2388f8605f35b9b6ac23cfc397161a952f34cc5fa2f2192",
+  "source_license_class": "Apache-2.0",
+  "source_relative_path": "assets/gallery/fig1-material-mechanism-rich.png",
+  "source_repository": "nature-figure",
+  "source_url": null,
+  "subtype": "material_mechanism",
+  "tags": [
+    "source-reconstruction",
+    "nature-figure",
+    "material_mechanism"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "material_mechanism"
+}

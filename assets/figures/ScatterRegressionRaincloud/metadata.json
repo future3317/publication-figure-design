@@ -1,0 +1,14 @@
+{
+  "id": "scatterregressionraincloud_default",
+  "figure_type": "ScatterRegressionRaincloud",
+  "variant": "default",
+  "asset_kind": "template",
+  "runtime": "python",
+  "dependencies": ["numpy", "pandas", "matplotlib", "scipy"],
+  "data_shape": "long",
+  "grouping": "single grouping column",
+  "preview": "ScatterRegressionRaincloud.png",
+  "palette_policy": "adaptable",
+  "production_ready": true,
+  "notes": "Grouped scatter with linear regression (left) + half-violin/box/jitter raincloud (right). Expects CSV columns y,x,group. Good for COPY-FIRST after replacing the data."
+}

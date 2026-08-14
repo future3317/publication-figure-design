@@ -1,0 +1,125 @@
+{
+  "aesthetic_rating": 4.3,
+  "code_path": null,
+  "created_at": "2026-08-12T17:30:09Z",
+  "data_density": null,
+  "figure_type": "heatmap_grid",
+  "id": "40dd7c7c14c45b45",
+  "image_path": "assets/visual-references/references/40dd7c7c14c45b45/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "Apache-2.0",
+  "n_groups": null,
+  "notes": "Exact source visual sample cataloged for private reference; distinct from independent reconstruction.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "atlas_heatmaps",
+    "mosaic": [
+      "ABCD",
+      "EFGH",
+      "IJKL",
+      "MNOP"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "heatmap:atlas"
+      },
+      {
+        "id": "B",
+        "kind": "heatmap:atlas"
+      },
+      {
+        "id": "C",
+        "kind": "heatmap:atlas"
+      },
+      {
+        "id": "D",
+        "kind": "heatmap:atlas"
+      },
+      {
+        "id": "E",
+        "kind": "heatmap:atlas"
+      },
+      {
+        "id": "F",
+        "kind": "heatmap:atlas"
+      },
+      {
+        "id": "G",
+        "kind": "heatmap:atlas"
+      },
+      {
+        "id": "H",
+        "kind": "heatmap:atlas"
+      },
+      {
+        "id": "I",
+        "kind": "heatmap:atlas"
+      },
+      {
+        "id": "J",
+        "kind": "heatmap:atlas"
+      },
+      {
+        "id": "K",
+        "kind": "heatmap:atlas"
+      },
+      {
+        "id": "L",
+        "kind": "heatmap:atlas"
+      },
+      {
+        "id": "M",
+        "kind": "heatmap:atlas"
+      },
+      {
+        "id": "N",
+        "kind": "heatmap:atlas"
+      },
+      {
+        "id": "O",
+        "kind": "heatmap:atlas"
+      },
+      {
+        "id": "P",
+        "kind": "heatmap:atlas"
+      }
+    ],
+    "source_observation": "16 matrix and annotation variants arranged as an atlas"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "40dd7c7c14c45b45cc22ee23e19f2dc1901f38b26a1fb4b0f26a30dbd10c0423",
+  "source": "nature-figure visual source",
+  "source_action": "licensed_visual_source",
+  "source_fingerprint": "40dd7c7c14c45b45cc22ee23e19f2dc1901f38b26a1fb4b0f26a30dbd10c0423",
+  "source_license_class": "Apache-2.0",
+  "source_relative_path": "assets/chart-atlas/atlas-03-heatmaps.png",
+  "source_repository": "nature-figure",
+  "source_url": null,
+  "subtype": "atlas_heatmaps",
+  "tags": [
+    "source-catalog",
+    "nature-figure",
+    "heatmap_grid"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "heatmap_grid",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'atlas_heatmaps' is a dense multi-panel heatmap_grid reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}
