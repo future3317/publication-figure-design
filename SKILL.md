@@ -50,6 +50,10 @@ write a synthetic-data reconstruction after intake.
    preview. Original source data/code is not required; the reconstruction must be
    runnable and should reproduce topology, marks, hierarchy, palette roles, and
    annotation treatment closely enough to guide production work.
+   Generate a companion `figure_card.json` with
+   `scripts/reference_image_analysis.py analyze`; it records objective pixel evidence
+   while leaving panels, axes, typography, and annotations explicitly
+   `manual_required`.
 7. Run the code, inspect the reconstruction preview and stored source image at final
    size, then record `code_path` and `reproduction_preview_path` in metadata. Only
    after this evidence exists may the agent call `ReferenceLibrary.review(...)`.
@@ -62,6 +66,9 @@ write a synthetic-data reconstruction after intake.
    `assets/visual-references/review-evidence/reproduction-audit.json` and run
    `scripts/check_reference_reproduction_fidelity.py`. Do not call a reconstruction
    faithful merely because its script runs; a mismatched skeleton is a FIX.
+   Optionally record equal-size SSIM/MAE evidence with
+   `scripts/reference_image_analysis.py compare`; similarity supports but never
+   replaces the six required structural judgments.
 9. Report the reference ID, normalized type, tags, scope, review status, and exact
    relative image path. A stored reference is not automatically a production asset.
 

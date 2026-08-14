@@ -36,6 +36,26 @@ later supplies a clear redistribution license, update the provenance metadata th
 the normal review/maintenance path; do not silently promote an unlicensed image into a
 public bundle or a runnable production asset.
 
+### Objective figure cards and benchmark evidence
+
+Generate a companion `figure_card.json` for each maintained reference:
+
+```bash
+python scripts/reference_image_analysis.py analyze <image> \
+  --figure-type <normalized_type> --output <reference_dir>/figure_card.json
+```
+
+The analyzer records measurable pixel evidence (canvas dimensions/aspect ratio,
+corner-derived background, ink coverage, and dominant colors with roles). Panels,
+axes, typography, and annotations remain `manual_required`; fill those from actual
+pixel inspection rather than trusting a classifier. After rendering a reconstruction,
+use `compare` to record equal-size SSIM/MAE evidence. A score supports the review but
+never overrides topology or encoding judgments.
+
+For chart-family breadth, `assets/reference-benchmarks/chartmimic/catalog.json`
+indexes the external ChartMimic benchmark. Treat it as retrieval/evaluation evidence
+only: open selected pixels, and do not copy its code or images into production assets.
+
 For a batch, run the same intake independently for every image. Each record must have
 its own type, tags, and visual-grammar notes; a batch is not permission to assign the
 same three candidates to every future task.

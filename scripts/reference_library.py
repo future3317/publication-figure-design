@@ -98,6 +98,7 @@ REFERENCE_METADATA_FIELDS = [
     "image_path",
     "code_path",
     "reproduction_preview_path",
+    "figure_card_path",
     "review_status",
     "aesthetic_rating",
     "production_ready",
@@ -124,6 +125,7 @@ _DEFAULT_METADATA = {
     "usage_scope": "private_reference",
     "code_path": None,
     "reproduction_preview_path": None,
+    "figure_card_path": None,
     "review_status": "pending",
     "aesthetic_rating": None,
     "production_ready": False,
@@ -336,6 +338,13 @@ def validate_metadata(metadata: Dict[str, Any], root: Path = SKILL_ROOT) -> Tupl
         except ValueError as exc:
             errors.append(f"Invalid reproduction_preview_path: {exc}")
 
+    figure_card_path = meta.get("figure_card_path")
+    if figure_card_path is not None:
+        try:
+            _as_relative(figure_card_path)
+        except ValueError as exc:
+            errors.append(f"Invalid figure_card_path: {exc}")
+
     # Validate palette if provided.
     palette = meta.get("palette")
     if palette is not None:
@@ -380,6 +389,8 @@ def _normalise_metadata(metadata: Dict[str, Any], root: Path = SKILL_ROOT) -> Di
         out["code_path"] = _as_relative(out["code_path"], root)
     if out.get("reproduction_preview_path") is not None:
         out["reproduction_preview_path"] = _as_relative(out["reproduction_preview_path"], root)
+    if out.get("figure_card_path") is not None:
+        out["figure_card_path"] = _as_relative(out["figure_card_path"], root)
 
     # Drop unknown top-level fields?  Keep them but warn during validate.
     return out

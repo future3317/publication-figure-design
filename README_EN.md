@@ -136,6 +136,21 @@ Give an agent the image and say that it should be saved to the reference library
 
 `publication-figure-design` is a skill package built around `SKILL.md`. A complete installation must preserve `references/`, `scripts/`, `assets/`, `install/`, and other directories — the skill depends on these files for style baseline injection, asset scanning, and cross-platform adaptation.
 
+### Reference-analysis dependencies
+
+The core plotting runtime is listed in `requirements.txt`. For reference intake
+and rendered comparison, install the small optional profile as well:
+
+```bash
+python -m pip install -r requirements.txt
+python -m pip install -r requirements-reference.txt
+```
+
+The optional profile provides SSIM (`scikit-image`) and palette extraction
+(`extcolors`, `colorthief`). ChartMimic is indexed as a compact catalog under
+`assets/reference-benchmarks/chartmimic/`; its external checkout is not copied
+into the Skill.
+
 ### Claude Code
 
 If Claude Code is not yet installed:

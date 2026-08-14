@@ -1,0 +1,120 @@
+{
+  "schema": "publication-figure-design/figure-card-v1",
+  "source": "user-supplied reference image",
+  "figure_type": "grouped_bar_inset",
+  "canvas": {
+    "width_px": 2671,
+    "height_px": 835,
+    "aspect_ratio": 3.198802,
+    "mode": "RGB"
+  },
+  "background": {
+    "rgb": [
+      255.0,
+      255.0,
+      255.0
+    ],
+    "hex": "#ffffff",
+    "near_white": true
+  },
+  "ink_coverage": 0.18341,
+  "palette": {
+    "dominant": [
+      {
+        "hex": "#fefefe",
+        "rgb": [
+          254,
+          254,
+          254
+        ],
+        "fraction": 0.833226,
+        "role": "background"
+      },
+      {
+        "hex": "#367db7",
+        "rgb": [
+          54,
+          125,
+          183
+        ],
+        "fraction": 0.056706,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#90b7d7",
+        "rgb": [
+          144,
+          183,
+          215
+        ],
+        "fraction": 0.056069,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#000000",
+        "rgb": [
+          0,
+          0,
+          0
+        ],
+        "fraction": 0.025109,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#4cae49",
+        "rgb": [
+          76,
+          174,
+          73
+        ],
+        "fraction": 0.009104,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#9cd29b",
+        "rgb": [
+          156,
+          210,
+          155
+        ],
+        "fraction": 0.007554,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#7f7f7f",
+        "rgb": [
+          127,
+          127,
+          127
+        ],
+        "fraction": 0.006231,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#bebebe",
+        "rgb": [
+          190,
+          190,
+          190
+        ],
+        "fraction": 0.006,
+        "role": "data_or_annotation"
+      }
+    ],
+    "extraction": "extcolors-or-pillow-quantize"
+  },
+  "panels": {
+    "status": "manual_required",
+    "count": null,
+    "layout": null
+  },
+  "axes": {
+    "status": "manual_required"
+  },
+  "typography": {
+    "status": "manual_required"
+  },
+  "annotations": {
+    "status": "manual_required"
+  }
+}

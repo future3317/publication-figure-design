@@ -26,7 +26,7 @@ def run(root: Path | None = None) -> dict:
         if record.get("review_status") not in {"reviewed", "promoted"}:
             continue
         checked += 1
-        for field in ("code_path", "reproduction_preview_path"):
+        for field in ("code_path", "reproduction_preview_path", "figure_card_path"):
             value = record.get(field)
             if not value:
                 findings.append({"line": line_no, "id": record.get("id"), "field": field, "detail": "missing metadata path"})

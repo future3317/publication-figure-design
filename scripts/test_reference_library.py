@@ -210,6 +210,7 @@ class TestReferenceLibrary(unittest.TestCase):
         self.assertFalse(ref.metadata["production_ready"])
         self.assertEqual(ref.metadata["usage_scope"], "private_reference")
         self.assertEqual(ref.metadata["palette_policy"], "preserve")
+        self.assertIsNone(ref.metadata["figure_card_path"])
 
         # Side-car file exists and paths are relative.
         meta_path = self.refs_dir / "references" / ref.id / "metadata.json"
