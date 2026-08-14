@@ -15,6 +15,7 @@ source code or raw data. Follow this exact contract:
 | Visual grammar | Record topology, hero/support hierarchy, mark/encoding channels, layout, density, annotation/legend model, background, and palette roles |
 | Provenance | Default to `license="user-supplied; redistribution not established"` and `usage_scope="private_reference"` |
 | Reproduction | Add runnable reference-local code using synthetic/example data and render a `reconstruction.png` preview; original data/code is not required |
+| Fidelity review | Build an equal-size `reference-vs-reconstruction.png` pair, inspect the six visual-grammar dimensions, and record explicit deviations in the reproduction audit |
 | State | Ingest as `review_status=pending`, then review only after final-size inspection |
 | Output | Sidecar metadata (`code_path`, `reproduction_preview_path`) + copied image + reconstruction preview + rebuilt `assets/registry.jsonl`; never hand-edit the registry |
 
@@ -27,6 +28,7 @@ python scripts/reference_library.py ingest \
 python scripts/reference_library.py validate
 python scripts/reference_library.py rebuild
 python scripts/check_reference_reproductions.py
+python scripts/check_reference_reproduction_fidelity.py
 ```
 
 The agent must return the assigned reference ID and relative image path. If the user
@@ -93,7 +95,7 @@ Style resolution is type-safe: a supplied `reference_id` must resolve to an exis
 
 ## Review-state integrity
 
-Automated ingest and reconstruction always produce `review_status=pending`, `aesthetic_rating=null`, and `production_ready=false`. For `reference_kind=user_supplied`, review additionally requires runnable `code_path` and an existing `reproduction_preview_path`; a pasted image alone is not a complete reviewed reference. Only an explicit rendered visual review may set an aesthetic rating and change status to `reviewed`. Only an explicit implementation audit may use `promoted`. Never use generation success, source-code checks, registry integrity, or the creator's self-report as aesthetic approval.
+Automated ingest and reconstruction always produce `review_status=pending`, `aesthetic_rating=null`, and `production_ready=false`. For `reference_kind=user_supplied`, review additionally requires runnable `code_path`, an existing `reproduction_preview_path`, and an inspected equal-size reference/reconstruction comparison with explicit deviations; a pasted image or runnable script alone is not a complete reviewed reference. Only an explicit rendered visual review may set an aesthetic rating and change status to `reviewed`. Only an explicit implementation audit may use `promoted`. Never use generation success, source-code checks, registry integrity, or the creator's self-report as aesthetic approval.
 
 Record a completed review through `ReferenceLibrary.review(reference_id, rating, visual_review)`. The evidence object must set `final_size_inspected=true`, provide `pass` or `justified_deviation` for hierarchy, panel balance, whitespace, legend footprint, and text legibility, and name the reviewer/review pass. `ingest()` and `archive_generated_figure()` deliberately ignore self-approval fields in metadata overrides.
 

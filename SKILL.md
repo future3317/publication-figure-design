@@ -23,8 +23,9 @@ Choose one mode, then apply the concrete-reference gate independently.
 ### Single-image reference intake
 
 When the user gives one image and says to save it to the reference library, treat that
-image as a complete reference-intake task. The user does **not** need to provide code,
-raw data, or a pre-existing figure-type label.
+image as a complete reference-intake task. The user does **not** need to provide
+original source code, raw data, or a pre-existing figure-type label; the agent must
+write a synthetic-data reconstruction after intake.
 
 1. Open the actual pixels with the image viewer. Do not classify from the filename,
    surrounding prose, or a thumbnail alone.
@@ -55,7 +56,13 @@ raw data, or a pre-existing figure-type label.
    Run `scripts/check_reference_reproductions.py`, `validate`, and rebuild the
    registry. A user-supplied reference without reproduction code remains `pending`
    and must not enter the reviewed recommendation pool.
-7. Report the reference ID, normalized type, tags, scope, review status, and exact
+8. Build an equal-size `reference-vs-reconstruction.png` comparison and inspect it
+   in the order topology → marks/layers → data encoding → hierarchy/spacing →
+   palette roles → annotations. Record every deviation in
+   `assets/visual-references/review-evidence/reproduction-audit.json` and run
+   `scripts/check_reference_reproduction_fidelity.py`. Do not call a reconstruction
+   faithful merely because its script runs; a mismatched skeleton is a FIX.
+9. Report the reference ID, normalized type, tags, scope, review status, and exact
    relative image path. A stored reference is not automatically a production asset.
 
 This route is intentionally one-image-at-a-time: each image receives its own visual

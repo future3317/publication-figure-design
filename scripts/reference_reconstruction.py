@@ -102,25 +102,32 @@ def mixed_statistics_grid(output: Path) -> None:
     ax = axes[0, 0]; y = np.arange(4); effect = np.array([0.28, -0.12, 0.41, 0.08]); err = np.array([0.10, 0.08, 0.13, 0.07]); ax.errorbar(effect, y, xerr=err, fmt="o", color=PALETTE[0], capsize=3); ax.axvline(0, color="#555", lw=0.8, ls="--"); ax.set_yticks(y, ["A", "B", "C", "D"]); ax.set_title("Effect estimates", loc="left", weight="bold", fontsize=9); _style(ax)
     ax = axes[0, 1]; vals = [rng.normal(0.35, .08, 30), rng.normal(0.55, .1, 30), rng.normal(0.68, .07, 30)]; ax.boxplot(vals, patch_artist=True, boxprops={"facecolor": "#cbd5e1", "alpha": .8}); ax.set_xticks([1, 2, 3], ["A", "B", "C"]); ax.set_title("Distribution comparison", loc="left", weight="bold", fontsize=9); _style(ax)
     ax = axes[1, 0]; bars = ax.bar(["A", "B", "C"], [0.42, 0.68, 0.57], color=PALETTE[:3], alpha=.85); ax.bar_label(bars, fmt="%.2f", fontsize=7, padding=2); ax.set_ylim(0, .85); ax.set_title("Annotated groups", loc="left", weight="bold", fontsize=9); _style(ax)
-    ax = axes[1, 1]; xx = np.arange(3); ax.errorbar(xx, [0.25, 0.45, 0.62], yerr=[.04, .06, .05], fmt="o-", color=PALETTE[3], lw=1.8, capsize=3); ax.set_xticks(xx, ["A", "B", "C"]); ax.set_title("Summary", loc="left", weight="bold", fontsize=9); _style(ax)
+    ax = axes[1, 1]; vals = [rng.normal(.28, .04, 25), rng.normal(.46, .06, 25), rng.normal(.62, .05, 25)]; ax.boxplot(vals, patch_artist=True, widths=.55, boxprops={"facecolor": "#dbeafe", "alpha": .85}, medianprops={"color": PALETTE[3], "lw": 1.8}); ax.scatter([1, 2, 3], [.28, .46, .62], color=PALETTE[3], s=24, zorder=3); ax.set_xticks([1, 2, 3], ["A", "B", "C"]); ax.set_title("Grouped summary", loc="left", weight="bold", fontsize=9); _style(ax)
     fig.tight_layout()
     _finish(fig, output)
 
 
 def mixed_multi_panel(output: Path) -> None:
-    fig = plt.figure(figsize=(9.0, 3.4)); gs = fig.add_gridspec(1, 3, width_ratios=[1.15, 1.1, .9])
-    ax = fig.add_subplot(gs[0]); names = ["Signal 1", "Signal 2", "Signal 3", "Signal 4"]; ax.barh(names, [0.72, .46, .85, .58], color=PALETTE[:4]); ax.set_title("Enrichment", loc="left", weight="bold", fontsize=9); _style(ax)
-    ax = fig.add_subplot(gs[1]); x = np.linspace(0, 1, 100); ax.plot(x, 1 - (1 - x) ** 2, color=PALETTE[0], lw=2, label="Train"); ax.plot(x, x ** 1.5, color=PALETTE[1], lw=2, label="Permuted"); ax.fill_between(x, x ** 1.5, 1 - (1 - x) ** 2, color=PALETTE[2], alpha=.12); ax.plot([0, 1], [0, 1], ls="--", color="#555"); ax.set(xlabel="FPR", ylabel="TPR", title="ROC density"); ax.legend(frameon=False, fontsize=7); _style(ax)
-    ax = fig.add_subplot(gs[2], projection="polar"); theta = np.linspace(0, 2 * np.pi, 8, endpoint=False); radii = np.array([.4, .65, .5, .78, .55, .72, .35, .62]); ax.bar(theta, radii, width=.45, color=PALETTE[0], alpha=.78); ax.set_title("Categories", fontsize=9, pad=14, weight="bold"); ax.set_yticklabels([])
+    fig = plt.figure(figsize=(9.0, 5.8)); gs = fig.add_gridspec(2, 2, width_ratios=[1.15, 1], height_ratios=[1, 1.25], hspace=.35, wspace=.3)
+    ax = fig.add_subplot(gs[0, 0]); names = ["Signal 1", "Signal 2", "Signal 3", "Signal 4"]; ax.barh(names, [0.72, .46, .85, .58], color=[PALETTE[0], PALETTE[1], PALETTE[2], PALETTE[3]]); ax.set_title("Enrichment", loc="left", weight="bold", fontsize=9); _style(ax)
+    ax = fig.add_subplot(gs[0, 1]); y0 = np.linspace(.72, .99, 120); y1 = np.linspace(.58, .82, 120); ax.fill_between(y0, np.arange(120) * 0 + 0.55, np.arange(120) * 0 + 0.78, color="#f2b84b", alpha=.85); ax.fill_between(y1, np.arange(120) * 0 + 0.05, np.arange(120) * 0 + 0.28, color="#e9784f", alpha=.88); ax.set_yticks([.16, .66], ["Permuted", "Original"]); ax.set_xlabel("Train ROC-AUC"); ax.set_title("ROC density", loc="left", weight="bold", fontsize=9); _style(ax)
+    ax = fig.add_subplot(gs[1, 0], projection="polar"); theta = np.linspace(0, 2 * np.pi, 24, endpoint=False); radii = np.array([.4, .65, .5, .78, .55, .72, .35, .62] * 3); ax.bar(theta, radii, width=.22, color=[PALETTE[0]] * 8 + [PALETTE[1]] * 8 + [PALETTE[3]] * 8, alpha=.78); ax.set_title("Category composition", fontsize=9, pad=14, weight="bold"); ax.set_yticklabels([])
+    axes = fig.add_subplot(gs[1, 1]); axes.axis("off"); axes.text(.05, .9, "Three-panel assembly", weight="bold", fontsize=10); axes.text(.05, .72, "bar enrichment\ntrain-vs-permuted density\nradial category summary", fontsize=9, va="top", linespacing=1.6)
     fig.tight_layout()
     _finish(fig, output)
 
 
 def grouped_bar_inset(output: Path) -> None:
-    fig, ax = plt.subplots(figsize=(7.8, 3.8)); x = np.arange(5); width=.13
-    for i, c in enumerate(PALETTE[:4]): ax.bar(x + (i - 1.5) * width, .45 + .08 * i + np.array([0.08, .01, .12, .06, .15]) * (1 - i * .08), width, color=c, label=f"Model {i + 1}")
-    ax.set_xticks(x, ["Data A", "Data B", "Data C", "Data D", "Data E"]); ax.set_ylabel("Score"); ax.legend(frameon=False, fontsize=7, ncol=4, loc="upper left"); ax.set_title("Benchmark comparison with precision insets", loc="left", weight="bold", fontsize=10); _style(ax)
-    inset = ax.inset_axes([.63, .48, .32, .42]); inset.plot([1, 2, 3], [.51, .62, .71], "o-", color=PALETTE[0], lw=1.4); inset.set_title("Precision", fontsize=7); inset.tick_params(labelsize=6); inset.grid(alpha=.25)
+    fig, ax = plt.subplots(figsize=(8.8, 4.4)); x = np.arange(5); width=.07
+    series = [("BF16", PALETTE[0]), ("FP16", PALETTE[2]), ("FP32", "#e85d5d")]
+    for group, (precision, c) in enumerate(series):
+        for model in range(4):
+            vals = .38 + .07 * model + .045 * group + np.array([.08, .01, .12, .06, .15]) * (1 - model * .08)
+            offset = (group * 4 + model - 5.5) * width
+            ax.bar(x + offset, vals, width, color=c, alpha=.75 - model * .08, label=f"{precision} model {model + 1}")
+    ax.set_xticks(x, ["Data A", "Data B", "Data C", "Data D", "Data E"]); ax.set_ylabel("Score"); ax.legend(frameon=False, fontsize=6, ncol=4, loc="upper left"); ax.set_title("Benchmark comparison with precision-specific insets", loc="left", weight="bold", fontsize=10); _style(ax)
+    for i, x0 in enumerate(np.linspace(.10, .86, 5)):
+        inset = ax.inset_axes([x0, .45, .10, .28]); inset.plot([1, 2, 3], [.51 + i * .01, .62 + i * .01, .71 + i * .01], "o-", color=PALETTE[0], lw=1.0, ms=2.5); inset.set_title("FP32", fontsize=5); inset.tick_params(labelsize=4); inset.grid(alpha=.25)
     fig.tight_layout(); _finish(fig, output)
 
 
@@ -133,12 +140,15 @@ def histogram_overlay(output: Path) -> None:
 
 
 def architecture_schematic(output: Path) -> None:
-    fig, ax = plt.subplots(figsize=(10.0, 3.2)); ax.set_xlim(0, 10); ax.set_ylim(0, 3); ax.axis("off")
-    boxes = [("Input", .3, 1.05, 1.35, .75, "#dbeafe"), ("Encoder", 2.25, 1.05, 1.55, .75, "#dcfce7"), ("Latent\nstate", 4.45, 1.05, 1.45, .75, "#fef3c7"), ("Precision\ncast", 6.55, 1.05, 1.55, .75, "#fee2e2"), ("Output", 8.75, 1.05, 1.0, .75, "#ede9fe")]
-    for label, x, y, w, h, c in boxes: ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=.04,rounding_size=.08", facecolor=c, edgecolor="#334155", lw=1.2)); ax.text(x + w / 2, y + h / 2, label, ha="center", va="center", fontsize=9, weight="bold")
-    for (_, x1, y1, w1, h1, _), (_, x2, y2, _, h2, _) in zip(boxes[:-1], boxes[1:]): ax.add_patch(FancyArrowPatch((x1 + w1, y1 + h1 / 2), (x2, y2 + h2 / 2), arrowstyle="-|>", mutation_scale=13, lw=1.5, color="#475569"))
-    ax.add_patch(FancyArrowPatch((5.15, 1.05), (3.02, .45), connectionstyle="arc3,rad=-.35", arrowstyle="-|>", mutation_scale=12, lw=1.2, color=PALETTE[3])); ax.text(4.05, .27, "skip path", fontsize=8, color=PALETTE[3])
-    ax.text(.4, 2.55, "Tensor/dataflow reconstruction", fontsize=12, weight="bold"); ax.text(7.2, 2.55, "FP32 → mixed precision", fontsize=8, color="#475569")
+    fig, ax = plt.subplots(figsize=(10.0, 4.0)); ax.set_xlim(0, 10); ax.set_ylim(0, 4); ax.axis("off")
+    ax.add_patch(FancyBboxPatch((2.2, 3.15), 5.6, .55, boxstyle="round,pad=.03", facecolor="white", edgecolor="#334155")); ax.text(2.45, 3.43, "FP32 tensor", fontsize=8); ax.text(4.0, 3.43, "BF16 stored", fontsize=8, bbox={"facecolor": "#dbeafe", "edgecolor": "#6b8fc5", "linestyle": "--"}); ax.text(6.0, 3.43, "⇢ precision upcast", fontsize=8)
+    boxes = [("$X_{in}$", .3, 1.6, 1.0, .7, "#fee2e2"), ("$QK^T$", 2.0, 2.1, 1.2, .65, "#dbeafe"), ("$A$", 4.0, 2.1, .8, .65, "#fee2e2"), ("$W_{up}$", 5.65, 2.1, 1.0, .65, "#dbeafe"), ("$W_{down}$", 7.25, 2.1, 1.2, .65, "#dbeafe"), ("$X_{out}$", 9.0, 1.6, .8, .7, "#fee2e2")]
+    for label, x, y, w, h, c in boxes: ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=.04", facecolor=c, edgecolor="#334155", lw=1.1)); ax.text(x + w / 2, y + h / 2, label, ha="center", va="center", fontsize=9, weight="bold")
+    for (_, x1, y1, w1, h1, _), (_, x2, y2, _, h2, _) in zip(boxes[:-1], boxes[1:]): ax.add_patch(FancyArrowPatch((x1 + w1, y1 + h1 / 2), (x2, y2 + h2 / 2), arrowstyle="-|>", mutation_scale=12, lw=1.2, color="#475569"))
+    for x, label in [(1.1, "$W_Q$"), (1.1, "$W_K$"), (1.1, "$W_V$"), (6.15, "$W_{gate}$")]:
+        y = 2.95 if label != "$W_V$" else 1.05; ax.add_patch(FancyBboxPatch((x, y), 1.0, .42, boxstyle="round,pad=.02", facecolor="#dbeafe", edgecolor="#6b8fc5", linestyle="--")); ax.text(x + .5, y + .21, label, ha="center", va="center", fontsize=7)
+    ax.add_patch(FancyArrowPatch((1.2, 2.95), (2.4, 2.75), arrowstyle="-|>", mutation_scale=10, color="#6b8fc5")); ax.add_patch(FancyArrowPatch((1.2, 2.95), (2.4, 2.35), arrowstyle="-|>", mutation_scale=10, color="#6b8fc5")); ax.add_patch(FancyArrowPatch((1.2, 1.25), (2.4, 2.2), arrowstyle="-|>", mutation_scale=10, color="#6b8fc5")); ax.add_patch(FancyArrowPatch((3.0, 1.75), (7.7, 1.75), connectionstyle="arc3,rad=-.2", arrowstyle="-|>", mutation_scale=10, color=PALETTE[3])); ax.text(4.4, 1.22, "skip / residual path", fontsize=8, color=PALETTE[3])
+    ax.text(.35, .35, "LayerCast-style tensor flow", fontsize=11, weight="bold"); ax.text(7.2, .35, "mixed precision state transitions", fontsize=8, color="#475569")
     _finish(fig, output)
 
 
@@ -159,13 +169,15 @@ def scaling_two_panel(output: Path) -> None:
 
 
 def scaling_five_panel(output: Path) -> None:
-    rng = np.random.default_rng(35); fig, axes = plt.subplots(1, 5, figsize=(12.5, 2.7))
+    rng = np.random.default_rng(35); fig = plt.figure(figsize=(11.0, 5.2)); gs = fig.add_gridspec(2, 6, hspace=.5, wspace=.6)
+    axes = [fig.add_subplot(gs[0, 0:2]), fig.add_subplot(gs[0, 2:4]), fig.add_subplot(gs[0, 4:6]), fig.add_subplot(gs[1, 0:3]), fig.add_subplot(gs[1, 3:6])]
     x = np.arange(1, 9)
     axes[0].hist(rng.normal(0, 1, 500), bins=20, color=PALETTE[0], alpha=.75); axes[0].set_title("Distribution", fontsize=8, weight="bold")
     axes[1].loglog(x, 1 / x ** .7, "o-", color=PALETTE[1]); axes[1].set_title("Rank-frequency", fontsize=8, weight="bold")
-    axes[2].plot(x, .3 * x ** .65, "o-", color=PALETTE[2]); axes[2].set_title("Dimension", fontsize=8, weight="bold")
+    for i, c in enumerate(PALETTE[:3]): axes[2].plot(x, .3 + .07 * i + .05 * np.log(x), "o--", color=c, ms=3)
+    axes[2].set_title("Variance / dimension", fontsize=8, weight="bold")
     axes[3].plot(x, .8 / x ** .55, "o-", color=PALETTE[3]); axes[3].plot(x, .8 / x ** .5, "--", color="#475569"); axes[3].set_title("Inverse scaling", fontsize=8, weight="bold")
-    axes[4].errorbar(x, .25 + .08 * np.log(x), yerr=.03, fmt="o", color=PALETTE[4], capsize=2); axes[4].set_title("Exponent phase", fontsize=8, weight="bold")
+    axes[4].errorbar(x, .25 + .08 * np.log(x), yerr=.03, fmt="o", color=PALETTE[4], capsize=2); axes[4].plot(x, .25 + .08 * np.log(x), ls="--", color=PALETTE[4], alpha=.5); axes[4].set_title("Exponent phase", fontsize=8, weight="bold")
     for ax in axes: _style(ax); ax.tick_params(labelsize=6)
     fig.tight_layout(w_pad=.9); _finish(fig, output)
 
@@ -191,4 +203,3 @@ def render_reference(reference_id: str, output: Path) -> None:
     except KeyError as exc:
         raise ValueError(f"No synthetic renderer registered for {reference_id}") from exc
     renderer(Path(output))
-
