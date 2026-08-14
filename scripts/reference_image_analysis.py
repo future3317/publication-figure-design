@@ -10,6 +10,7 @@ classifier and never replaces opening the reference at final size.
 from __future__ import annotations
 
 import argparse
+import io
 import json
 from pathlib import Path
 from typing import Any
@@ -34,15 +35,29 @@ def _dominant(image: Image.Image, limit: int = 8) -> list[dict[str, Any]]:
         colors, total = extcolors.extract_from_image(image, tolerance=12, limit=limit)
         values = [(tuple(int(v) for v in rgb), int(count)) for rgb, count in colors]
     except Exception:
-        # Pillow's quantizer is deterministic and keeps the analyzer usable in
-        # the minimal skill runtime when optional palette packages are absent.
-        quantized = image.convert("RGB").quantize(colors=max(limit, 2), method=Image.Quantize.MEDIANCUT)
-        palette = quantized.getpalette() or []
-        counts = quantized.getcolors(maxcolors=image.width * image.height) or []
-        values = []
-        for count, index in sorted(counts, reverse=True)[:limit]:
-            start = int(index) * 3
-            values.append((tuple(int(v) for v in palette[start : start + 3]), int(count)))
+        try:
+            from colorthief import ColorThief  # type: ignore
+
+            buffer = io.BytesIO()
+            image.save(buffer, format="PNG")
+            buffer.seek(0)
+            colors = ColorThief(buffer).get_palette(color_count=limit, quality=1)
+            pixels = np.asarray(image, dtype=np.float32).reshape(-1, 3)
+            values = []
+            for color in colors:
+                rgb = np.asarray(color, dtype=np.float32)
+                count = int(np.sum(np.linalg.norm(pixels - rgb, axis=1) < 24.0))
+                values.append((tuple(int(v) for v in color), max(count, 1)))
+        except Exception:
+            # Pillow's quantizer is deterministic and keeps the analyzer usable in
+            # the minimal skill runtime when optional palette packages are absent.
+            quantized = image.convert("RGB").quantize(colors=max(limit, 2), method=Image.Quantize.MEDIANCUT)
+            palette = quantized.getpalette() or []
+            counts = quantized.getcolors(maxcolors=image.width * image.height) or []
+            values = []
+            for count, index in sorted(counts, reverse=True)[:limit]:
+                start = int(index) * 3
+                values.append((tuple(int(v) for v in palette[start : start + 3]), int(count)))
 
     total = max(1, sum(count for _, count in values))
     result: list[dict[str, Any]] = []
