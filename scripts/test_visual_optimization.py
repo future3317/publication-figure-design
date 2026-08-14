@@ -36,6 +36,21 @@ def contract(**overrides):
             "semantic_mapping": {"matched": "#2166AC", "mismatched": "#999999"},
             "reason": "Blue is reserved for matched learners and grey for mismatched context.",
         },
+        "series_encoding_contract": {
+            "method_style_map": {
+                "Delta-Hull": {"color": "#2166AC", "linestyle": "-", "marker": "o"},
+                "reference": {"color": "#999999", "linestyle": "--", "marker": "^"},
+            },
+            "panel_series": {"a": ["Delta-Hull", "reference"], "b": ["Delta-Hull"]},
+            "legend_scope": "global",
+            "same_series_style_invariant": True,
+            "unresolved_orphan_series": [],
+        },
+        "uncertainty_contract": {
+            "interval_definition": "not_applicable",
+            "overlap_strategy": "not_applicable",
+            "alpha": None,
+        },
         "text_contrast": {"applicable": False},
         "before_diagnosis": ["equal panels obscure the hero result", "legend dominates data"],
         "structural_changes": ["replace equal grid with a 2:1 hero/support GridSpec", "direct-label key curves and remove legend"],
@@ -51,6 +66,10 @@ def contract(**overrides):
             "whitespace": "pass",
             "legend_footprint": "pass",
             "text_legibility": "pass",
+            "cross_panel_semantics": "pass",
+            "legend_data_separation": "pass",
+            "uncertainty_legibility": "pass",
+            "axis_label_compactness": "pass",
         },
         "final_render": {
             "width_mm": 4.23,
@@ -257,6 +276,36 @@ class VisualOptimizationTests(unittest.TestCase):
         )
         self.assertFalse(report["ready"])
         self.assertIn("every recommended candidate", " ".join(report["errors"]).lower())
+
+    def test_cross_panel_semantics_and_uncertainty_contract_are_required(self):
+        value = self.valid_contract()
+        value.pop("series_encoding_contract", None)
+        value.pop("uncertainty_contract", None)
+        report = validate_visual_optimization(
+            value, self.before, self.after, self.reference, self.comparison
+        )
+        self.assertFalse(report["ready"])
+        errors = " ".join(report["errors"]).lower()
+        self.assertIn("cross-panel", errors)
+        self.assertIn("uncertainty", errors)
+
+    def test_unresolved_orphan_series_fails(self):
+        value = self.valid_contract()
+        value["series_encoding_contract"]["unresolved_orphan_series"] = ["panel d purple line"]
+        report = validate_visual_optimization(
+            value, self.before, self.after, self.reference, self.comparison
+        )
+        self.assertFalse(report["ready"])
+        self.assertIn("orphan", " ".join(report["errors"]).lower())
+
+    def test_overlapping_uncertainty_alpha_is_bounded(self):
+        value = self.valid_contract()
+        value["uncertainty_contract"]["alpha"] = 0.8
+        report = validate_visual_optimization(
+            value, self.before, self.after, self.reference, self.comparison
+        )
+        self.assertFalse(report["ready"])
+        self.assertIn("uncertainty", " ".join(report["errors"]).lower())
 
 
 if __name__ == "__main__":

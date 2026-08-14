@@ -143,6 +143,18 @@ For optimize/polish/beautify/improve/redesign requests, create a second JSON rec
     "semantic_mapping": {"role": "final color for that role"},
     "reason": "why this mapping serves the evidence and remains distinguishable at final size"
   },
+  "series_encoding_contract": {
+    "method_style_map": {"method": {"color": "#hex", "linestyle": "-", "marker": "o"}},
+    "panel_series": {"a": ["method"], "b": ["method"]},
+    "legend_scope": "global | panel_local | direct_labels | mixed_declared",
+    "same_series_style_invariant": true,
+    "unresolved_orphan_series": []
+  },
+  "uncertainty_contract": {
+    "interval_definition": "95% CI | SD | quantile band | not_applicable",
+    "overlap_strategy": "light alpha, draw order, or not_applicable",
+    "alpha": 0.12
+  },
   "text_contrast": {
     "applicable": true,
     "report": {"ready": true, "minimum_ratio": 4.5, "regions": [{"contrast_ratio": 4.5, "pass": true}]}
@@ -155,7 +167,11 @@ For optimize/polish/beautify/improve/redesign requests, create a second JSON rec
     "panel_balance": "pass | justified_deviation",
     "whitespace": "pass | justified_deviation",
     "legend_footprint": "pass | justified_deviation",
-    "text_legibility": "pass | justified_deviation"
+    "text_legibility": "pass | justified_deviation",
+    "cross_panel_semantics": "pass | justified_deviation",
+    "legend_data_separation": "pass | justified_deviation",
+    "uncertainty_legibility": "pass | justified_deviation",
+    "axis_label_compactness": "pass | justified_deviation"
   }
 }
 ```
@@ -180,7 +196,7 @@ python scripts/rendered_contrast.py after.png \
 
 Copy the resulting JSON payload into `text_contrast.report`. Any region below 4.5:1 blocks delivery. If the figure has no text on colored fills, set `text_contrast` to `{"applicable": false}`. `palette_decision` is mandatory for every optimization, including a justified decision to retain old colors; an omitted decision is not a default-to-old-colors path.
 
-The checker verifies readable image evidence, authentic equal-cell composition, strict recommendation provenance, per-candidate pixel observations, selected-reference reasoning, an explicit palette decision, structural changes, final-size review, recomputed after-raster contrast, and declared physical dimensions/DPI. Candidate IDs must exactly match the recommendation report order. Static QA and self-reported fidelity items cannot replace this gate.
+The checker verifies readable image evidence, authentic equal-cell composition, strict recommendation provenance, per-candidate pixel observations, selected-reference reasoning, an explicit palette decision, stable cross-panel series semantics, uncertainty-band treatment, structural changes, final-size review, recomputed after-raster contrast, and declared physical dimensions/DPI. Candidate IDs must exactly match the recommendation report order. Static QA and self-reported fidelity items cannot replace this gate.
 
 ## Side-by-side comparison
 

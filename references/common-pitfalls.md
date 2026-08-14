@@ -41,6 +41,28 @@ These are mistakes that signal "not designed" to reviewers, regardless of the sp
 ✅ Merge redundant legend items; use direct annotation for key features
 ```
 
+## Cross-Panel Semantic Drift
+
+```text
+鉂?Global legend lists methods that do not appear in every panel
+鉂?The same method changes marker/linestyle between panels
+鉂?A panel introduces a new color (for example, an unlabeled purple series)
+鉂?A local legend is placed over the data instead of reserving a legend slot
+鉂?Long method names and repeated formula y-labels consume the gutter and hide hierarchy
+鉂?Wide uncertainty ribbons overlap until lines and markers become the visual background
+
+鉁?Declare one method -> color/linestyle/marker map and reuse it everywhere
+鉁?Declare per-panel series membership; use panel-local/direct labels for different baselines
+鉁?Keep `unresolved_orphan_series` empty; every visible encoding has a role and label
+鉁?Reserve legend space outside the axes and inspect its separation from data
+鉁?Use shared/abbreviated axis labels with definitions in the caption or a compact note
+鉁?Declare CI/SD/quantile meaning and keep interval alpha low enough to preserve marks
+```
+
+This failure pattern is easy to mistake for a palette problem. It is a semantic and layout
+problem first: a clean-looking global legend cannot repair a panel that changes the identity
+of a method, and a technically valid ribbon can still erase the evidence it is meant to show.
+
 ## Font & Typography Issues
 
 ```

@@ -86,6 +86,18 @@ Requests to **optimize, polish, beautify, improve, redesign, or make an existing
 4. Make at least one evidenced structural or encoding change. Palette/font/alpha/line-width/marker-size/spacing-only changes are cosmetic and cannot satisfy an optimization request.
 5. Render at final physical size, create an equal-cell `Before | Reference | After` comparison, inspect it, run `scripts/rendered_contrast.py` for every cell/tile annotation, and run `scripts/check_visual_optimization.py`. A FIX verdict blocks delivery. Passing source checks while retaining the old equal-weight subplot skeleton is a FIX, not a successful optimization.
 
+Before calling the optimization complete, write a semantic encoding audit in the contract:
+each method/condition has one stable color, linestyle, and marker across every panel;
+`panel_series` states which series actually appear in each panel; legend scope is global,
+local, or direct-label and is not left ambiguous; and `unresolved_orphan_series` is empty.
+Never introduce a panel-only color or silently change a method's marker/linestyle. If panels
+use different baselines, use concise panel-local labels or direct labels instead of a global
+legend that claims to describe all panels. Declare uncertainty interval meaning, ribbon alpha,
+and an overlap strategy; wide translucent bands must not wash out lines, markers, or gridlines.
+Use shared or abbreviated axis labels when repeated formulas create a dominant rotated gutter
+label. Reserve legend space outside the data region and inspect `legend_data_separation`,
+`cross_panel_semantics`, `uncertainty_legibility`, and `axis_label_compactness` explicitly.
+
 The optimization checker is evidence-producing, not declaration-trusting: it recomputes contrast from the supplied after raster, verifies the after raster against declared physical dimensions/DPI, and rejects a comparison or contract whose evidence is stale. A helper merely defined in source is not compliance; it must be used and fixed light annotation colors are rejected.
 
 When the selected reference comes from the bundled source archive, inspect its `reference_kind`: use a reviewed `exact_visual_source` as the visual sample, never an unreviewed `generated-archive` reconstruction. A source-specific reconstruction blueprint records what must be rebuilt; it does not certify that the redraw is visually faithful.

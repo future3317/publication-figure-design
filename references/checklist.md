@@ -81,6 +81,16 @@ Run these checks first. They catch the issues reviewers flag most often and take
 
 **Pass condition:** Legend outside plot area, or justified internal placement with no data occlusion, or direct labeling used instead.
 
+**Multi-panel semantic check:** A global legend is valid only when every listed method/condition
+appears with the same color, linestyle, and marker wherever it is plotted. If panels use different
+baselines or subsets, declare `panel_series` and use panel-local/direct labels; a panel-only color,
+marker, or renamed series is an unresolved orphan and receives FIX. Inspect the legend against the
+actual data region, not just its bounding box.
+
+**Uncertainty check:** Every ribbon declares CI/SD/quantile meaning and alpha. Overlapping ribbons
+must remain subordinate to lines and markers; if they wash out the data, reduce alpha, separate
+draw order, or use error bars/small multiples.
+
 ### AP-5: Low-Resolution Export Only
 
 **How to check:** Does the code include a vector export (`savefig(..., '*.pdf')`, `savefig(..., '*.svg')`, `ggsave('*.pdf')`, `ggsave('*.svg')`, `cairo_pdf()`, `pdf()`)? If only PNG/JPG export is present, FAIL.
@@ -479,7 +489,7 @@ Run this pass after Pass 3 whenever the request uses a concrete reference image.
 
 ## Visual Optimization Pass (Existing Figure Optimization Only)
 
-For optimize/polish/beautify/improve/redesign requests, first run `scripts/reference_library.py recommend` and save the report, then run `scripts/check_visual_optimization.py` with readable before, selected-reference, after, and equal-cell comparison images. READY requires candidate IDs to match the strict recommendation report, a pixel observation for every returned candidate, a structural selection reason, an explicit palette decision (including justified retention), an observable diagnosis of the old render, at least one structural/encoding/legend-model change, and a completed final-size review for hierarchy, panel balance, whitespace, legend footprint, and text legibility. Run `scripts/rendered_contrast.py` for every annotation on a colored fill; contrast below 4.5:1 receives FIX. Cosmetic-only edits receive FIX even if Passes 0-3 pass.
+For optimize/polish/beautify/improve/redesign requests, first run `scripts/reference_library.py recommend` and save the report, then run `scripts/check_visual_optimization.py` with readable before, selected-reference, after, and equal-cell comparison images. READY requires candidate IDs to match the strict recommendation report, a pixel observation for every returned candidate, a structural selection reason, an explicit palette decision (including justified retention), a stable cross-panel series-encoding contract with no unresolved orphan series, an uncertainty/overlap contract, an observable diagnosis of the old render, at least one structural/encoding/legend-model change, and a completed final-size review for hierarchy, panel balance, whitespace, legend footprint, text legibility, cross-panel semantics, legend/data separation, uncertainty legibility, and axis-label compactness. Run `scripts/rendered_contrast.py` for every annotation on a colored fill; contrast below 4.5:1 receives FIX. Cosmetic-only edits receive FIX even if Passes 0-3 pass.
 
 ---
 

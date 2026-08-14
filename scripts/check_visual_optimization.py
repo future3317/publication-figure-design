@@ -28,7 +28,11 @@ STRUCTURAL_ACTIONS = {
     "add", "direct-label", "merge", "move", "remove", "reorder", "replace", "resize",
     "restructure", "split", "添加", "合并", "移动", "删除", "重排", "替换", "重构", "拆分",
 }
-REVIEW_FIELDS = {"hierarchy", "panel_balance", "whitespace", "legend_footprint", "text_legibility"}
+REVIEW_FIELDS = {
+    "hierarchy", "panel_balance", "whitespace", "legend_footprint", "text_legibility",
+    "cross_panel_semantics", "legend_data_separation", "uncertainty_legibility",
+    "axis_label_compactness",
+}
 
 
 def _nonempty(value: Any) -> bool:
@@ -128,6 +132,42 @@ def validate_visual_optimization(
     if missing_palette_fields:
         errors.append(
             "Record an explicit palette decision for this optimization (prior colors, selected library palette or retained colors, semantic mapping, and reason)."
+        )
+    # A polished multi-panel figure must keep the same method identity across
+    # panels.  This catches the common failure where a global legend says one
+    # thing, a local legend silently renames it, or a new color/marker appears
+    # in a panel without a declared role.
+    series_contract = contract.get("series_encoding_contract")
+    series_contract = series_contract if isinstance(series_contract, dict) else {}
+    method_style_map = series_contract.get("method_style_map")
+    panel_series = series_contract.get("panel_series")
+    legend_scope = series_contract.get("legend_scope")
+    unresolved_orphans = series_contract.get("unresolved_orphan_series")
+    checks["cross_panel_semantics"] = (
+        isinstance(method_style_map, dict) and bool(method_style_map)
+        and isinstance(panel_series, dict) and bool(panel_series)
+        and legend_scope in {"global", "panel_local", "direct_labels", "mixed_declared"}
+        and series_contract.get("same_series_style_invariant") is True
+        and isinstance(unresolved_orphans, list) and not unresolved_orphans
+    )
+    if not checks["cross_panel_semantics"]:
+        errors.append(
+            "Declare a cross-panel series encoding contract: stable method color/linestyle/marker, per-panel series membership, legend scope, and no unresolved orphan series."
+        )
+    uncertainty_contract = contract.get("uncertainty_contract")
+    uncertainty_contract = uncertainty_contract if isinstance(uncertainty_contract, dict) else {}
+    interval_definition = uncertainty_contract.get("interval_definition")
+    overlap_strategy = uncertainty_contract.get("overlap_strategy")
+    alpha = uncertainty_contract.get("alpha")
+    alpha_ok = alpha is None or (isinstance(alpha, (int, float)) and 0 < float(alpha) <= 0.35)
+    checks["uncertainty_contract"] = (
+        isinstance(interval_definition, str) and bool(interval_definition.strip())
+        and isinstance(overlap_strategy, str) and bool(overlap_strategy.strip())
+        and alpha_ok
+    )
+    if not checks["uncertainty_contract"]:
+        errors.append(
+            "Declare uncertainty interval meaning, overlap/occlusion strategy, and ribbon alpha (or explicitly mark uncertainty as not applicable)."
         )
     text_contrast = contract.get("text_contrast")
     text_contrast = text_contrast if isinstance(text_contrast, dict) else {}
