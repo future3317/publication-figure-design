@@ -22,8 +22,9 @@ def audit_all(skill_root: Path, review_dir: Path, reviewer: str) -> dict[str, in
             item["source_fingerprint"],
             "fail",
             reviewer,
-            "FAIL: Source-specific blueprint preserves broad topology and mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+            f"FAIL after individual review of pair {pair.name}: the {item['visual_family']} reconstruction preserves the broad observable topology/mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
             pair,
+            inspection_order=index,
         )
         recorded += 1
     return {"reviewed": recorded, "passed": 0, "pending": recorded}

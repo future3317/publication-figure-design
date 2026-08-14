@@ -1,0 +1,120 @@
+{
+  "schema": "publication-figure-design/figure-card-v1",
+  "source": "independent visual-grammar reconstruction",
+  "figure_type": "line_grid",
+  "canvas": {
+    "width_px": 1090,
+    "height_px": 971,
+    "aspect_ratio": 1.122554,
+    "mode": "RGB"
+  },
+  "background": {
+    "rgb": [
+      255.0,
+      255.0,
+      255.0
+    ],
+    "hex": "#ffffff",
+    "near_white": true
+  },
+  "ink_coverage": 0.127857,
+  "palette": {
+    "dominant": [
+      {
+        "hex": "#ffffff",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "fraction": 0.973483,
+        "role": "background"
+      },
+      {
+        "hex": "#d3dee7",
+        "rgb": [
+          211,
+          222,
+          231
+        ],
+        "fraction": 0.010971,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#6096ba",
+        "rgb": [
+          96,
+          150,
+          186
+        ],
+        "fraction": 0.003652,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#000000",
+        "rgb": [
+          0,
+          0,
+          0
+        ],
+        "fraction": 0.00352,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#a3cef1",
+        "rgb": [
+          163,
+          206,
+          241
+        ],
+        "fraction": 0.003395,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#274c77",
+        "rgb": [
+          39,
+          76,
+          119
+        ],
+        "fraction": 0.003028,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#8ca0b7",
+        "rgb": [
+          140,
+          160,
+          183
+        ],
+        "fraction": 0.001212,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#3d4650",
+        "rgb": [
+          61,
+          70,
+          80
+        ],
+        "fraction": 0.000739,
+        "role": "data_or_annotation"
+      }
+    ],
+    "extraction": "extcolors-or-pillow-quantize"
+  },
+  "panels": {
+    "status": "manual_required",
+    "count": null,
+    "layout": null
+  },
+  "axes": {
+    "status": "manual_required"
+  },
+  "typography": {
+    "status": "manual_required"
+  },
+  "annotations": {
+    "status": "manual_required"
+  }
+}

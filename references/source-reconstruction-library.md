@@ -33,6 +33,21 @@ python scripts/source_reconstruction_library.py build \
 
 Run the builder twice. The second run must report `created_count: 0`. Then rebuild the reference registry, run the lightweight checker, and inspect a contact sheet spanning every visual family. Do not promote an entry to a production asset solely because reconstruction validation passes.
 
+For the installed generated archive itself, run the lifecycle audit after renderer or
+dependency changes:
+
+```bash
+python scripts/audit_generated_reproductions.py --sync-previews --visual-inspected
+python scripts/make_generated_reproduction_contact_sheet.py \
+  assets/visual-references/review-evidence/generated-reproduction-contact-sheet.png
+```
+
+This executes every reference-local renderer, writes objective figure cards, creates
+stored-vs-fresh render evidence, and keeps source-fidelity review separate from
+code/preview determinism. With `--sync-previews`, it also refreshes generated
+`output_sha256` values in `source-reconstruction-manifest.json` and rebuilds
+`assets/registry.jsonl`; no separate hidden sync step is required.
+
 For a complete source audit, then run:
 
 ```bash

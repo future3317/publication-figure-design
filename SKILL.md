@@ -17,8 +17,8 @@ Choose one mode, then apply the concrete-reference gate independently.
 | **revise** | Change an existing figure or plotting source | Read the existing artifact; run only affected creation stages, then QA |
 | **review** | Assess reviewer readiness or diagnose visual weaknesses | `references/checklist.md` and `references/revision-cases.md` |
 | **export** | Change dimensions, format, resolution, or journal target | `references/delivery-contract.md` and `references/export-specs.md` |
-| **reference** | Store, query, or archive visual references | `references/visual-reference-library.md`; use `scripts/reference_library.py` |
-| **library maintenance** | Audit or rebuild source-by-source visual-grammar reconstructions | `references/source-reconstruction-library.md`; run `scripts/check_source_reconstruction_library.py` and `scripts/check_source_reference_catalog.py` |
+| **reference** | Store, query, or archive visual references | `references/visual-reference-library.md`; use `scripts/reference_library.py`, `scripts/reference_reconstruction.py` for reference-local synthetic renderers, and `scripts/visual_evidence.py` through the fidelity gates |
+| **library maintenance** | Audit or rebuild source-by-source visual-grammar reconstructions | `references/source-reconstruction-library.md`; run `scripts/audit_generated_reproductions.py`, `scripts/make_generated_reproduction_contact_sheet.py`, `scripts/check_source_reconstruction_library.py`, and `scripts/check_source_reference_catalog.py` |
 
 ### Single-image reference intake
 
@@ -91,6 +91,18 @@ The optimization checker is evidence-producing, not declaration-trusting: it rec
 When the selected reference comes from the bundled source archive, inspect its `reference_kind`: use a reviewed `exact_visual_source` as the visual sample, never an unreviewed `generated-archive` reconstruction. A source-specific reconstruction blueprint records what must be rebuilt; it does not certify that the redraw is visually faithful.
 
 Do not force revise, review, export, or reference work through the full create route.
+
+### Generated-archive lifecycle
+
+The bundled generated archive is also a maintained reference corpus, not a pile of
+unverified PNGs. After changing its renderer or dependencies, run
+`scripts/audit_generated_reproductions.py --sync-previews` to execute every stored
+`code.py`, refresh its `figure_card.json`, and require the fresh render to match the
+stored preview. Then run
+`scripts/make_generated_reproduction_contact_sheet.py` and inspect the actual pixels.
+The audit records render success and stored-vs-fresh SSIM separately from source
+fidelity: a deterministic redraw proves the code/preview contract, not that a
+synthetic reconstruction is pixel-faithful to an unavailable source image.
 
 ## Immutable precedence
 
@@ -215,6 +227,6 @@ Keep exact asset paths, private filenames, template IDs, and working provenance 
 | QA/review | `references/checklist.md`, `references/common-pitfalls.md`; run `scripts/rendered_contrast.py` for in-cell text; add `references/revision-cases.md` for reviewer simulation |
 | Optional reference library | `references/visual-reference-library.md`; use at most 3 reviewed/promoted candidates |
 | Visual optimization | `references/reference-driven-reconstruction.md`, `references/visual-reference-library.md`; record a `palette_decision`, run `scripts/rendered_contrast.py`, then `scripts/check_visual_optimization.py` |
-| Source reconstruction maintenance | `references/source-reconstruction-library.md`; run `scripts/check_source_reconstruction_library.py` and `scripts/check_source_reference_catalog.py` |
+| Source reconstruction maintenance | `references/source-reconstruction-library.md`; run `scripts/audit_generated_reproductions.py --sync-previews --visual-inspected`, `scripts/make_generated_reproduction_contact_sheet.py`, `scripts/review_source_reconstructions.py`, `scripts/audit_source_reconstruction_batch.py`, `scripts/audit_source_catalog_batch.py`, `scripts/check_source_reconstruction_library.py`, and `scripts/check_source_reference_catalog.py` |
 
 Do not import, execute, or copy an unlicensed third-party example collection. An audit may name such a collection and independently reconstruct its observable visual grammar with synthetic data and original code. Production assets under `assets/` remain implementation candidates and never override the adaptation gate.

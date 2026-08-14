@@ -16,7 +16,7 @@
   "production_ready": true,
   "review_status": "pending",
   "scope": "generated-archive",
-  "sha256": "38f95dbf30eb6731f682ed14c8e9f24173b08e1f5e48880db0ab163fef99e865",
+  "sha256": "0616c8a37deaf3e3af3cd01e0be51223b8900397bc590ce5f61548e4331f1696",
   "source": "self-generated reproduction of WeChat reference",
   "source_url": null,
   "subtype": "synthetic_reproduction",
@@ -27,5 +27,7 @@
     "circle-heatmap",
     "reproduction"
   ],
-  "usage_scope": "internal_reference"
+  "usage_scope": "internal_reference",
+  "figure_card_path": "assets/visual-references/generated-archive/38f95dbf30eb6731/figure_card.json",
+  "reproduction_preview_path": "assets/visual-references/generated-archive/38f95dbf30eb6731/image.png"
 }

@@ -1153,6 +1153,7 @@ def write_visual_review(
     notes: str,
     comparison_path: Path | str,
     rating: float | None = None,
+    inspection_order: int | None = None,
 ) -> dict[str, Any]:
     """Record a manual equal-size source-to-render review without auto-promotion."""
     if verdict not in {"pass", "fail"}:
@@ -1189,7 +1190,11 @@ def write_visual_review(
         "legend_footprint": "pass" if verdict == "pass" else "fail",
         "text_legibility": "pass" if verdict == "pass" else "fail",
         "notes": notes,
+        "inspection_method": "individual equal-size source|reconstruction pair opened",
+        "individual_pair_opened": True,
     }
+    if inspection_order is not None:
+        review["inspection_order"] = inspection_order
     item["visual_review"] = review
     metadata_path = skill_root / "assets/visual-references/generated-archive" / item["archive_id"] / "metadata.json"
     metadata = json.loads(metadata_path.read_text(encoding="utf-8"))

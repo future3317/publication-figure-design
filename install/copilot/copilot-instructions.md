@@ -1,9 +1,9 @@
 # Publication Figure Design — Scientific Figure Instructions for GitHub Copilot
 # Place this file at: <your-repo>/.github/copilot-instructions.md
-# Generated: 2026-08-14 10:50 UTC
+# Generated: 2026-08-14 11:31 UTC
 
 # Publication Figure Design Portable Core Rules
-# Auto-generated from publication-figure-design/SKILL.md — 2026-08-14 10:50 UTC
+# Auto-generated from publication-figure-design/SKILL.md — 2026-08-14 11:31 UTC
 # These rules work across Claude Code, Codex, Cursor, and Copilot.
 
 ## Design Principles

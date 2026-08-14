@@ -1,8 +1,8 @@
 # Publication Figure Design Instructions for Codex
-# Auto-generated from publication-figure-design/SKILL.md — 2026-08-14 10:50 UTC
+# Auto-generated from publication-figure-design/SKILL.md — 2026-08-14 11:31 UTC
 
 # Publication Figure Design Portable Core Rules
-# Auto-generated from publication-figure-design/SKILL.md — 2026-08-14 10:50 UTC
+# Auto-generated from publication-figure-design/SKILL.md — 2026-08-14 11:31 UTC
 # These rules work across Claude Code, Codex, Cursor, and Copilot.
 
 ## Design Principles

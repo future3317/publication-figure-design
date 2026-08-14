@@ -68,6 +68,8 @@ routes:
     run:
       - "scripts/check_source_reconstruction_library.py"
       - "scripts/review_source_reconstructions.py"
+      - "scripts/audit_generated_reproductions.py"
+      - "scripts/make_generated_reproduction_contact_sheet.py"
       - "scripts/source_reference_catalog.py"
       - "scripts/check_source_reference_catalog.py"
   reference_intake:
@@ -84,6 +86,21 @@ routes:
       - "scripts/check_reference_reproduction_fidelity.py"
       - "scripts/reference_library.py validate"
       - "scripts/reference_library.py rebuild"
+      - "scripts/reference_reconstruction.py (reference-local renderer helper)"
+      - "scripts/visual_evidence.py (comparison helper used by fidelity gates)"
+  reference_benchmark:
+    when: "the optional ChartMimic benchmark catalog is refreshed or queried"
+    load:
+      - "assets/reference-benchmarks/chartmimic/README.md"
+    run:
+      - "scripts/chartmimic_catalog.py"
+  source_review_batch:
+    when: "a maintained source reconstruction or source catalog needs batch review"
+    load:
+      - "references/source-reconstruction-library.md"
+    run:
+      - "scripts/audit_source_reconstruction_batch.py"
+      - "scripts/audit_source_catalog_batch.py"
 
 backend_policy:
   precedence:

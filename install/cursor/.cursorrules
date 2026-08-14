@@ -1,12 +1,12 @@
 # Publication Figure Design — Scientific Figure Making Rules
 # Place this file at: <your-project>/.cursorrules
-# Cursor auto-loads it. Generated: 2026-08-14 10:50 UTC
+# Cursor auto-loads it. Generated: 2026-08-14 11:31 UTC
 
 You are helping create scientific figures for Nature/Cell/Science journals.
 Follow these rules when writing matplotlib/ggplot2/ComplexHeatmap code.
 
 # Publication Figure Design Portable Core Rules
-# Auto-generated from publication-figure-design/SKILL.md — 2026-08-14 10:50 UTC
+# Auto-generated from publication-figure-design/SKILL.md — 2026-08-14 11:31 UTC
 # These rules work across Claude Code, Codex, Cursor, and Copilot.
 
 ## Design Principles

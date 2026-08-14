@@ -1,0 +1,2298 @@
+{
+  "schema": "publication-figure-design/generated-reproduction-audit-v1",
+  "policy": {
+    "generated_archive_is_reconstruction": true,
+    "pixel_consistency_does_not_certify_source_fidelity": true,
+    "source_fidelity_remains_separate": true
+  },
+  "summary": {
+    "checked": 60,
+    "path_failures": 0,
+    "render_pass": 60,
+    "pixel_consistency_pass": 60,
+    "visual_inspection_pending": 0,
+    "source_manifest_hashes_synced": 54
+  },
+  "records": [
+    {
+      "id": "006c1b3915544c07",
+      "figure_type": "validation_perturbation",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/006c1b3915544c07/image.png",
+      "code_path": "assets/visual-references/generated-archive/006c1b3915544c07/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/006c1b3915544c07/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/006c1b3915544c07/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          972
+        ],
+        "candidate_size": [
+          1090,
+          972
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          972
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/006c1b3915544c07-stored-vs-fresh.png"
+    },
+    {
+      "id": "0087399b5105ff42",
+      "figure_type": "manifold_3d",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/0087399b5105ff42/image.png",
+      "code_path": "assets/visual-references/generated-archive/0087399b5105ff42/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/0087399b5105ff42/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/0087399b5105ff42/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/0087399b5105ff42-stored-vs-fresh.png"
+    },
+    {
+      "id": "017beb996ea9fd8c",
+      "figure_type": "radar_grid",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/017beb996ea9fd8c/image.png",
+      "code_path": "assets/visual-references/generated-archive/017beb996ea9fd8c/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/017beb996ea9fd8c/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/017beb996ea9fd8c/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1089,
+          676
+        ],
+        "candidate_size": [
+          1089,
+          676
+        ],
+        "size_match": true,
+        "size": [
+          1089,
+          676
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/017beb996ea9fd8c-stored-vs-fresh.png"
+    },
+    {
+      "id": "01bafd03ff174176",
+      "figure_type": "line_grid",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/01bafd03ff174176/image.png",
+      "code_path": "assets/visual-references/generated-archive/01bafd03ff174176/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/01bafd03ff174176/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/01bafd03ff174176/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/01bafd03ff174176-stored-vs-fresh.png"
+    },
+    {
+      "id": "039470ddb18c09ae",
+      "figure_type": "area_stacked",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/039470ddb18c09ae/image.png",
+      "code_path": "assets/visual-references/generated-archive/039470ddb18c09ae/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/039470ddb18c09ae/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/039470ddb18c09ae/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1285,
+          941
+        ],
+        "candidate_size": [
+          1285,
+          941
+        ],
+        "size_match": true,
+        "size": [
+          1285,
+          941
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/039470ddb18c09ae-stored-vs-fresh.png"
+    },
+    {
+      "id": "050e4b8075e0b6c8",
+      "figure_type": "grouped_bar",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/050e4b8075e0b6c8/image.png",
+      "code_path": "assets/visual-references/generated-archive/050e4b8075e0b6c8/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/050e4b8075e0b6c8/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/050e4b8075e0b6c8/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/050e4b8075e0b6c8-stored-vs-fresh.png"
+    },
+    {
+      "id": "0929cd38b228b2df",
+      "figure_type": "mechanism_schematic",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/0929cd38b228b2df/image.png",
+      "code_path": "assets/visual-references/generated-archive/0929cd38b228b2df/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/0929cd38b228b2df/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/0929cd38b228b2df/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/0929cd38b228b2df-stored-vs-fresh.png"
+    },
+    {
+      "id": "0c768f24b9178014",
+      "figure_type": "comparison_composite",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/0c768f24b9178014/image.png",
+      "code_path": "assets/visual-references/generated-archive/0c768f24b9178014/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/0c768f24b9178014/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/0c768f24b9178014/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/0c768f24b9178014-stored-vs-fresh.png"
+    },
+    {
+      "id": "0c9a72a5118651b4",
+      "figure_type": "mechanism_schematic",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/0c9a72a5118651b4/image.png",
+      "code_path": "assets/visual-references/generated-archive/0c9a72a5118651b4/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/0c9a72a5118651b4/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/0c9a72a5118651b4/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/0c9a72a5118651b4-stored-vs-fresh.png"
+    },
+    {
+      "id": "14487fd036228090",
+      "figure_type": "manifold_3d",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/14487fd036228090/image.png",
+      "code_path": "assets/visual-references/generated-archive/14487fd036228090/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/14487fd036228090/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/14487fd036228090/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1089,
+          768
+        ],
+        "candidate_size": [
+          1089,
+          768
+        ],
+        "size_match": true,
+        "size": [
+          1089,
+          768
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/14487fd036228090-stored-vs-fresh.png"
+    },
+    {
+      "id": "14c360a8f274c9e0",
+      "figure_type": "grouped_bar",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/14c360a8f274c9e0/image.png",
+      "code_path": "assets/visual-references/generated-archive/14c360a8f274c9e0/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/14c360a8f274c9e0/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/14c360a8f274c9e0/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/14c360a8f274c9e0-stored-vs-fresh.png"
+    },
+    {
+      "id": "1951a04d41fbdc82",
+      "figure_type": "grouped_bar",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/1951a04d41fbdc82/image.png",
+      "code_path": "assets/visual-references/generated-archive/1951a04d41fbdc82/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/1951a04d41fbdc82/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/1951a04d41fbdc82/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1285,
+          941
+        ],
+        "candidate_size": [
+          1285,
+          941
+        ],
+        "size_match": true,
+        "size": [
+          1285,
+          941
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/1951a04d41fbdc82-stored-vs-fresh.png"
+    },
+    {
+      "id": "2728b083dfaa29b9",
+      "figure_type": "comparison_composite",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/2728b083dfaa29b9/image.png",
+      "code_path": "assets/visual-references/generated-archive/2728b083dfaa29b9/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/2728b083dfaa29b9/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/2728b083dfaa29b9/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1286,
+          941
+        ],
+        "candidate_size": [
+          1286,
+          941
+        ],
+        "size_match": true,
+        "size": [
+          1286,
+          941
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/2728b083dfaa29b9-stored-vs-fresh.png"
+    },
+    {
+      "id": "2932af23fa869f4e",
+      "figure_type": "mechanism_schematic",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/2932af23fa869f4e/image.png",
+      "code_path": "assets/visual-references/generated-archive/2932af23fa869f4e/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/2932af23fa869f4e/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/2932af23fa869f4e/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/2932af23fa869f4e-stored-vs-fresh.png"
+    },
+    {
+      "id": "33db3d53a233846b",
+      "figure_type": "manifold_3d",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/33db3d53a233846b/image.png",
+      "code_path": "assets/visual-references/generated-archive/33db3d53a233846b/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/33db3d53a233846b/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/33db3d53a233846b/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/33db3d53a233846b-stored-vs-fresh.png"
+    },
+    {
+      "id": "387e55d62c99c422",
+      "figure_type": "MarginalDensity",
+      "source": "self-generated reproduction of WeChat reference",
+      "image_path": "assets/visual-references/generated-archive/387e55d62c99c422/image.png",
+      "code_path": "assets/visual-references/generated-archive/387e55d62c99c422/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/387e55d62c99c422/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/387e55d62c99c422/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          2516,
+          2563
+        ],
+        "candidate_size": [
+          2516,
+          2563
+        ],
+        "size_match": true,
+        "size": [
+          2516,
+          2563
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/387e55d62c99c422-stored-vs-fresh.png"
+    },
+    {
+      "id": "38f95dbf30eb6731",
+      "figure_type": "heatmap",
+      "source": "self-generated reproduction of WeChat reference",
+      "image_path": "assets/visual-references/generated-archive/38f95dbf30eb6731/image.png",
+      "code_path": "assets/visual-references/generated-archive/38f95dbf30eb6731/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/38f95dbf30eb6731/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/38f95dbf30eb6731/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": "C:\\Users\\LRH\\.agents\\skills\\publication-figure-design\\assets\\visual-references\\generated-archive\\38f95dbf30eb6731\\code.py:172: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.\n  plt.tight_layout(rect=[0, 0, 0.87, 0.95])\n"
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          2736,
+          985
+        ],
+        "candidate_size": [
+          2736,
+          985
+        ],
+        "size_match": true,
+        "size": [
+          2736,
+          985
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/38f95dbf30eb6731-stored-vs-fresh.png"
+    },
+    {
+      "id": "45aa6ecccf398b71",
+      "figure_type": "mechanism_schematic",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/45aa6ecccf398b71/image.png",
+      "code_path": "assets/visual-references/generated-archive/45aa6ecccf398b71/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/45aa6ecccf398b71/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/45aa6ecccf398b71/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1089,
+          643
+        ],
+        "candidate_size": [
+          1089,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1089,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/45aa6ecccf398b71-stored-vs-fresh.png"
+    },
+    {
+      "id": "4909e3dcba5b633c",
+      "figure_type": "GroupedBarChart",
+      "source": "self-generated reproduction of WeChat reference",
+      "image_path": "assets/visual-references/generated-archive/4909e3dcba5b633c/image.png",
+      "code_path": "assets/visual-references/generated-archive/4909e3dcba5b633c/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/4909e3dcba5b633c/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/4909e3dcba5b633c/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          2520,
+          1622
+        ],
+        "candidate_size": [
+          2520,
+          1622
+        ],
+        "size_match": true,
+        "size": [
+          2520,
+          1622
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/4909e3dcba5b633c-stored-vs-fresh.png"
+    },
+    {
+      "id": "4c23827efb6772dd",
+      "figure_type": "comparison_composite",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/4c23827efb6772dd/image.png",
+      "code_path": "assets/visual-references/generated-archive/4c23827efb6772dd/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/4c23827efb6772dd/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/4c23827efb6772dd/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1286,
+          941
+        ],
+        "candidate_size": [
+          1286,
+          941
+        ],
+        "size_match": true,
+        "size": [
+          1286,
+          941
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/4c23827efb6772dd-stored-vs-fresh.png"
+    },
+    {
+      "id": "4f49efc5caa16375",
+      "figure_type": "line_grid",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/4f49efc5caa16375/image.png",
+      "code_path": "assets/visual-references/generated-archive/4f49efc5caa16375/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/4f49efc5caa16375/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/4f49efc5caa16375/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1286,
+          941
+        ],
+        "candidate_size": [
+          1286,
+          941
+        ],
+        "size_match": true,
+        "size": [
+          1286,
+          941
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/4f49efc5caa16375-stored-vs-fresh.png"
+    },
+    {
+      "id": "55cb7dd1690cd0e8",
+      "figure_type": "grouped_bar",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/55cb7dd1690cd0e8/image.png",
+      "code_path": "assets/visual-references/generated-archive/55cb7dd1690cd0e8/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/55cb7dd1690cd0e8/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/55cb7dd1690cd0e8/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1286,
+          941
+        ],
+        "candidate_size": [
+          1286,
+          941
+        ],
+        "size_match": true,
+        "size": [
+          1286,
+          941
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/55cb7dd1690cd0e8-stored-vs-fresh.png"
+    },
+    {
+      "id": "55d8c952b3e9d4c0",
+      "figure_type": "grouped_bar",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/55d8c952b3e9d4c0/image.png",
+      "code_path": "assets/visual-references/generated-archive/55d8c952b3e9d4c0/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/55d8c952b3e9d4c0/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/55d8c952b3e9d4c0/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/55d8c952b3e9d4c0-stored-vs-fresh.png"
+    },
+    {
+      "id": "5c8ff3b28ea11b6e",
+      "figure_type": "GroupedViolin",
+      "source": "self-generated reproduction of WeChat reference",
+      "image_path": "assets/visual-references/generated-archive/5c8ff3b28ea11b6e/image.png",
+      "code_path": "assets/visual-references/generated-archive/5c8ff3b28ea11b6e/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/5c8ff3b28ea11b6e/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/5c8ff3b28ea11b6e/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1922,
+          1469
+        ],
+        "candidate_size": [
+          1922,
+          1469
+        ],
+        "size_match": true,
+        "size": [
+          1922,
+          1469
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/5c8ff3b28ea11b6e-stored-vs-fresh.png"
+    },
+    {
+      "id": "5d169138e229097f",
+      "figure_type": "line_grid",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/5d169138e229097f/image.png",
+      "code_path": "assets/visual-references/generated-archive/5d169138e229097f/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/5d169138e229097f/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/5d169138e229097f/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1089,
+          643
+        ],
+        "candidate_size": [
+          1089,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1089,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/5d169138e229097f-stored-vs-fresh.png"
+    },
+    {
+      "id": "60c6e271c65d00b5",
+      "figure_type": "mechanism_schematic",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/60c6e271c65d00b5/image.png",
+      "code_path": "assets/visual-references/generated-archive/60c6e271c65d00b5/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/60c6e271c65d00b5/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/60c6e271c65d00b5/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/60c6e271c65d00b5-stored-vs-fresh.png"
+    },
+    {
+      "id": "650b40786cbcf05f",
+      "figure_type": "radar_grid",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/650b40786cbcf05f/image.png",
+      "code_path": "assets/visual-references/generated-archive/650b40786cbcf05f/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/650b40786cbcf05f/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/650b40786cbcf05f/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1255,
+          941
+        ],
+        "candidate_size": [
+          1255,
+          941
+        ],
+        "size_match": true,
+        "size": [
+          1255,
+          941
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/650b40786cbcf05f-stored-vs-fresh.png"
+    },
+    {
+      "id": "668bc98b544d54d5",
+      "figure_type": "in_vivo_efficacy",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/668bc98b544d54d5/image.png",
+      "code_path": "assets/visual-references/generated-archive/668bc98b544d54d5/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/668bc98b544d54d5/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/668bc98b544d54d5/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          994
+        ],
+        "candidate_size": [
+          1090,
+          994
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          994
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/668bc98b544d54d5-stored-vs-fresh.png"
+    },
+    {
+      "id": "68e244fb949f46ad",
+      "figure_type": "grouped_bar",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/68e244fb949f46ad/image.png",
+      "code_path": "assets/visual-references/generated-archive/68e244fb949f46ad/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/68e244fb949f46ad/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/68e244fb949f46ad/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1285,
+          941
+        ],
+        "candidate_size": [
+          1285,
+          941
+        ],
+        "size_match": true,
+        "size": [
+          1285,
+          941
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/68e244fb949f46ad-stored-vs-fresh.png"
+    },
+    {
+      "id": "6a3e2a00f9c820f6",
+      "figure_type": "spatial_image_plate",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/6a3e2a00f9c820f6/image.png",
+      "code_path": "assets/visual-references/generated-archive/6a3e2a00f9c820f6/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/6a3e2a00f9c820f6/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/6a3e2a00f9c820f6/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1255,
+          941
+        ],
+        "candidate_size": [
+          1255,
+          941
+        ],
+        "size_match": true,
+        "size": [
+          1255,
+          941
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/6a3e2a00f9c820f6-stored-vs-fresh.png"
+    },
+    {
+      "id": "76866da267962098",
+      "figure_type": "BarCategorical",
+      "source": "self-generated reproduction of WeChat reference",
+      "image_path": "assets/visual-references/generated-archive/76866da267962098/image.png",
+      "code_path": "assets/visual-references/generated-archive/76866da267962098/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/76866da267962098/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/76866da267962098/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          2372,
+          1618
+        ],
+        "candidate_size": [
+          2372,
+          1618
+        ],
+        "size_match": true,
+        "size": [
+          2372,
+          1618
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/76866da267962098-stored-vs-fresh.png"
+    },
+    {
+      "id": "7ddf31ce2228813a",
+      "figure_type": "heatmap_grid",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/7ddf31ce2228813a/image.png",
+      "code_path": "assets/visual-references/generated-archive/7ddf31ce2228813a/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/7ddf31ce2228813a/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/7ddf31ce2228813a/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          784
+        ],
+        "candidate_size": [
+          1090,
+          784
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          784
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/7ddf31ce2228813a-stored-vs-fresh.png"
+    },
+    {
+      "id": "7e2a22eeb372a7a0",
+      "figure_type": "line_grid",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/7e2a22eeb372a7a0/image.png",
+      "code_path": "assets/visual-references/generated-archive/7e2a22eeb372a7a0/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/7e2a22eeb372a7a0/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/7e2a22eeb372a7a0/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1089,
+          643
+        ],
+        "candidate_size": [
+          1089,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1089,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/7e2a22eeb372a7a0-stored-vs-fresh.png"
+    },
+    {
+      "id": "8f50b79d3ba025af",
+      "figure_type": "distribution_grid",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/8f50b79d3ba025af/image.png",
+      "code_path": "assets/visual-references/generated-archive/8f50b79d3ba025af/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/8f50b79d3ba025af/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/8f50b79d3ba025af/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1091,
+          643
+        ],
+        "candidate_size": [
+          1091,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1091,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/8f50b79d3ba025af-stored-vs-fresh.png"
+    },
+    {
+      "id": "90d44d1709c8bcad",
+      "figure_type": "spatial_image_plate",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/90d44d1709c8bcad/image.png",
+      "code_path": "assets/visual-references/generated-archive/90d44d1709c8bcad/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/90d44d1709c8bcad/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/90d44d1709c8bcad/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1285,
+          1002
+        ],
+        "candidate_size": [
+          1285,
+          1002
+        ],
+        "size_match": true,
+        "size": [
+          1285,
+          1002
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/90d44d1709c8bcad-stored-vs-fresh.png"
+    },
+    {
+      "id": "984475212a83b640",
+      "figure_type": "scatter_bubble",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/984475212a83b640/image.png",
+      "code_path": "assets/visual-references/generated-archive/984475212a83b640/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/984475212a83b640/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/984475212a83b640/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1286,
+          941
+        ],
+        "candidate_size": [
+          1286,
+          941
+        ],
+        "size_match": true,
+        "size": [
+          1286,
+          941
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/984475212a83b640-stored-vs-fresh.png"
+    },
+    {
+      "id": "a2d89d3b3e97ec59",
+      "figure_type": "ScatterRegressionRaincloud",
+      "source": "self-generated reproduction of WeChat reference",
+      "image_path": "assets/visual-references/generated-archive/a2d89d3b3e97ec59/image.png",
+      "code_path": "assets/visual-references/generated-archive/a2d89d3b3e97ec59/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/a2d89d3b3e97ec59/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/a2d89d3b3e97ec59/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          2673,
+          1230
+        ],
+        "candidate_size": [
+          2673,
+          1230
+        ],
+        "size_match": true,
+        "size": [
+          2673,
+          1230
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/a2d89d3b3e97ec59-stored-vs-fresh.png"
+    },
+    {
+      "id": "a6d35e1b68a1bfe8",
+      "figure_type": "line_grid",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/a6d35e1b68a1bfe8/image.png",
+      "code_path": "assets/visual-references/generated-archive/a6d35e1b68a1bfe8/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/a6d35e1b68a1bfe8/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/a6d35e1b68a1bfe8/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          971
+        ],
+        "candidate_size": [
+          1090,
+          971
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          971
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/a6d35e1b68a1bfe8-stored-vs-fresh.png"
+    },
+    {
+      "id": "ac5e1cef8d16e9ce",
+      "figure_type": "comparison_composite",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/ac5e1cef8d16e9ce/image.png",
+      "code_path": "assets/visual-references/generated-archive/ac5e1cef8d16e9ce/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/ac5e1cef8d16e9ce/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/ac5e1cef8d16e9ce/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/ac5e1cef8d16e9ce-stored-vs-fresh.png"
+    },
+    {
+      "id": "b0947af37e8c5ffc",
+      "figure_type": "heatmap_grid",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/b0947af37e8c5ffc/image.png",
+      "code_path": "assets/visual-references/generated-archive/b0947af37e8c5ffc/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/b0947af37e8c5ffc/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/b0947af37e8c5ffc/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1285,
+          941
+        ],
+        "candidate_size": [
+          1285,
+          941
+        ],
+        "size_match": true,
+        "size": [
+          1285,
+          941
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/b0947af37e8c5ffc-stored-vs-fresh.png"
+    },
+    {
+      "id": "b1a15c9fca75c316",
+      "figure_type": "grouped_bar",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/b1a15c9fca75c316/image.png",
+      "code_path": "assets/visual-references/generated-archive/b1a15c9fca75c316/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/b1a15c9fca75c316/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/b1a15c9fca75c316/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1089,
+          1060
+        ],
+        "candidate_size": [
+          1089,
+          1060
+        ],
+        "size_match": true,
+        "size": [
+          1089,
+          1060
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/b1a15c9fca75c316-stored-vs-fresh.png"
+    },
+    {
+      "id": "b3c62bc6c4258378",
+      "figure_type": "distribution_grid",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/b3c62bc6c4258378/image.png",
+      "code_path": "assets/visual-references/generated-archive/b3c62bc6c4258378/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/b3c62bc6c4258378/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/b3c62bc6c4258378/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1285,
+          941
+        ],
+        "candidate_size": [
+          1285,
+          941
+        ],
+        "size_match": true,
+        "size": [
+          1285,
+          941
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/b3c62bc6c4258378-stored-vs-fresh.png"
+    },
+    {
+      "id": "baa6064b1812ccc7",
+      "figure_type": "comparison_composite",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/baa6064b1812ccc7/image.png",
+      "code_path": "assets/visual-references/generated-archive/baa6064b1812ccc7/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/baa6064b1812ccc7/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/baa6064b1812ccc7/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/baa6064b1812ccc7-stored-vs-fresh.png"
+    },
+    {
+      "id": "c3c538a466aef22e",
+      "figure_type": "network_matrix",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/c3c538a466aef22e/image.png",
+      "code_path": "assets/visual-references/generated-archive/c3c538a466aef22e/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/c3c538a466aef22e/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/c3c538a466aef22e/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1261,
+          941
+        ],
+        "candidate_size": [
+          1261,
+          941
+        ],
+        "size_match": true,
+        "size": [
+          1261,
+          941
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/c3c538a466aef22e-stored-vs-fresh.png"
+    },
+    {
+      "id": "c420d057ffad6041",
+      "figure_type": "material_mechanism",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/c420d057ffad6041/image.png",
+      "code_path": "assets/visual-references/generated-archive/c420d057ffad6041/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/c420d057ffad6041/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/c420d057ffad6041/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          969
+        ],
+        "candidate_size": [
+          1090,
+          969
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          969
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/c420d057ffad6041-stored-vs-fresh.png"
+    },
+    {
+      "id": "c4e05bb68a08caf3",
+      "figure_type": "grouped_bar",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/c4e05bb68a08caf3/image.png",
+      "code_path": "assets/visual-references/generated-archive/c4e05bb68a08caf3/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/c4e05bb68a08caf3/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/c4e05bb68a08caf3/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/c4e05bb68a08caf3-stored-vs-fresh.png"
+    },
+    {
+      "id": "c5792016a54e2baa",
+      "figure_type": "comparison_composite",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/c5792016a54e2baa/image.png",
+      "code_path": "assets/visual-references/generated-archive/c5792016a54e2baa/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/c5792016a54e2baa/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/c5792016a54e2baa/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/c5792016a54e2baa-stored-vs-fresh.png"
+    },
+    {
+      "id": "c8e5d2a76d98c008",
+      "figure_type": "comparison_composite",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/c8e5d2a76d98c008/image.png",
+      "code_path": "assets/visual-references/generated-archive/c8e5d2a76d98c008/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/c8e5d2a76d98c008/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/c8e5d2a76d98c008/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/c8e5d2a76d98c008-stored-vs-fresh.png"
+    },
+    {
+      "id": "cd60f96af964c870",
+      "figure_type": "single_cell_systems",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/cd60f96af964c870/image.png",
+      "code_path": "assets/visual-references/generated-archive/cd60f96af964c870/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/cd60f96af964c870/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/cd60f96af964c870/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          934
+        ],
+        "candidate_size": [
+          1090,
+          934
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          934
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/cd60f96af964c870-stored-vs-fresh.png"
+    },
+    {
+      "id": "d01fd400ce53d20e",
+      "figure_type": "mechanism_schematic",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/d01fd400ce53d20e/image.png",
+      "code_path": "assets/visual-references/generated-archive/d01fd400ce53d20e/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/d01fd400ce53d20e/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/d01fd400ce53d20e/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/d01fd400ce53d20e-stored-vs-fresh.png"
+    },
+    {
+      "id": "d369f5654b6d5ae0",
+      "figure_type": "comparison_composite",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/d369f5654b6d5ae0/image.png",
+      "code_path": "assets/visual-references/generated-archive/d369f5654b6d5ae0/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/d369f5654b6d5ae0/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/d369f5654b6d5ae0/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1091,
+          643
+        ],
+        "candidate_size": [
+          1091,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1091,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/d369f5654b6d5ae0-stored-vs-fresh.png"
+    },
+    {
+      "id": "d7147990bd79a4d1",
+      "figure_type": "comparison_composite",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/d7147990bd79a4d1/image.png",
+      "code_path": "assets/visual-references/generated-archive/d7147990bd79a4d1/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/d7147990bd79a4d1/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/d7147990bd79a4d1/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/d7147990bd79a4d1-stored-vs-fresh.png"
+    },
+    {
+      "id": "d79527fec611432d",
+      "figure_type": "mechanism_schematic",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/d79527fec611432d/image.png",
+      "code_path": "assets/visual-references/generated-archive/d79527fec611432d/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/d79527fec611432d/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/d79527fec611432d/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/d79527fec611432d-stored-vs-fresh.png"
+    },
+    {
+      "id": "da81ff330b16403c",
+      "figure_type": "mechanism_schematic",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/da81ff330b16403c/image.png",
+      "code_path": "assets/visual-references/generated-archive/da81ff330b16403c/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/da81ff330b16403c/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/da81ff330b16403c/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/da81ff330b16403c-stored-vs-fresh.png"
+    },
+    {
+      "id": "ed3e9f652126a1d1",
+      "figure_type": "grouped_bar",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/ed3e9f652126a1d1/image.png",
+      "code_path": "assets/visual-references/generated-archive/ed3e9f652126a1d1/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/ed3e9f652126a1d1/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/ed3e9f652126a1d1/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1091,
+          643
+        ],
+        "candidate_size": [
+          1091,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1091,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/ed3e9f652126a1d1-stored-vs-fresh.png"
+    },
+    {
+      "id": "f2017fa1dc5bc795",
+      "figure_type": "comparison_composite",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/f2017fa1dc5bc795/image.png",
+      "code_path": "assets/visual-references/generated-archive/f2017fa1dc5bc795/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/f2017fa1dc5bc795/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/f2017fa1dc5bc795/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/f2017fa1dc5bc795-stored-vs-fresh.png"
+    },
+    {
+      "id": "f32ad9b16aaba213",
+      "figure_type": "grouped_bar",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/f32ad9b16aaba213/image.png",
+      "code_path": "assets/visual-references/generated-archive/f32ad9b16aaba213/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/f32ad9b16aaba213/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/f32ad9b16aaba213/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/f32ad9b16aaba213-stored-vs-fresh.png"
+    },
+    {
+      "id": "f406d7202f0bb30c",
+      "figure_type": "grouped_bar",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/f406d7202f0bb30c/image.png",
+      "code_path": "assets/visual-references/generated-archive/f406d7202f0bb30c/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/f406d7202f0bb30c/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/f406d7202f0bb30c/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1090,
+          643
+        ],
+        "candidate_size": [
+          1090,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1090,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/f406d7202f0bb30c-stored-vs-fresh.png"
+    },
+    {
+      "id": "f68c31da6f34836c",
+      "figure_type": "forest_interval",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/f68c31da6f34836c/image.png",
+      "code_path": "assets/visual-references/generated-archive/f68c31da6f34836c/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/f68c31da6f34836c/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/f68c31da6f34836c/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1285,
+          941
+        ],
+        "candidate_size": [
+          1285,
+          941
+        ],
+        "size_match": true,
+        "size": [
+          1285,
+          941
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/f68c31da6f34836c-stored-vs-fresh.png"
+    },
+    {
+      "id": "f70aada5f671778b",
+      "figure_type": "grouped_bar",
+      "source": "independent visual-grammar reconstruction",
+      "image_path": "assets/visual-references/generated-archive/f70aada5f671778b/image.png",
+      "code_path": "assets/visual-references/generated-archive/f70aada5f671778b/code.py",
+      "figure_card_path": "assets/visual-references/generated-archive/f70aada5f671778b/figure_card.json",
+      "reproduction_preview_path": "assets/visual-references/generated-archive/f70aada5f671778b/image.png",
+      "path_findings": [],
+      "render": {
+        "status": "pass",
+        "returncode": 0,
+        "stderr_tail": ""
+      },
+      "pixel_consistency": {
+        "reference_size": [
+          1089,
+          643
+        ],
+        "candidate_size": [
+          1089,
+          643
+        ],
+        "size_match": true,
+        "size": [
+          1089,
+          643
+        ],
+        "ssim": 1.0,
+        "mean_absolute_error": 0.0,
+        "status": "pass"
+      },
+      "visual_inspection": {
+        "status": "inspected_contact_sheet",
+        "method": "stored-vs-fresh-render contact sheet"
+      },
+      "stored_vs_fresh_path": "assets/visual-references/review-evidence/generated-reproduction-audit/f70aada5f671778b-stored-vs-fresh.png"
+    }
+  ]
+}

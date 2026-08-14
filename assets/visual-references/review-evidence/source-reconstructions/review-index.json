@@ -1,0 +1,20 @@
+{
+  "sheet_count": 9,
+  "record_count": 54,
+  "sheets": [
+    "source-reconstruction-review-01.png",
+    "source-reconstruction-review-02.png",
+    "source-reconstruction-review-03.png",
+    "source-reconstruction-review-04.png",
+    "source-reconstruction-review-05.png",
+    "source-reconstruction-review-06.png",
+    "source-reconstruction-review-07.png",
+    "source-reconstruction-review-08.png",
+    "source-reconstruction-review-09.png"
+  ],
+  "review_contract": [
+    "Inspect source and reconstruction at equal size.",
+    "Record topology, mark/layer type, hierarchy, whitespace, legend/annotation, and legibility.",
+    "A failed fidelity check leaves the item pending; it cannot enter retrieval."
+  ]
+}
