@@ -44,9 +44,17 @@ raw data, or a pre-existing figure-type label.
 5. Run `python scripts/reference_library.py ingest <image> <figure_type> --metadata
    '<json>'`. Preserve the original source, use copy mode, and let the library assign
    the deterministic ID and sidecar path. Never hand-edit `assets/registry.jsonl`.
-6. Run `python scripts/reference_library.py validate` and rebuild the registry. The
-   new record starts `pending`; only after inspecting the stored image at final size
-   may the agent call `ReferenceLibrary.review(...)` with the required evidence.
+6. Add a reference-local `code.py` (or equivalent) that renders a synthetic-data
+   reconstruction of the recorded visual grammar, plus its `reconstruction.png`
+   preview. Original source data/code is not required; the reconstruction must be
+   runnable and should reproduce topology, marks, hierarchy, palette roles, and
+   annotation treatment closely enough to guide production work.
+7. Run the code, inspect the reconstruction preview and stored source image at final
+   size, then record `code_path` and `reproduction_preview_path` in metadata. Only
+   after this evidence exists may the agent call `ReferenceLibrary.review(...)`.
+   Run `scripts/check_reference_reproductions.py`, `validate`, and rebuild the
+   registry. A user-supplied reference without reproduction code remains `pending`
+   and must not enter the reviewed recommendation pool.
 7. Report the reference ID, normalized type, tags, scope, review status, and exact
    relative image path. A stored reference is not automatically a production asset.
 

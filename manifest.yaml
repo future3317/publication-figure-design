@@ -77,6 +77,8 @@ routes:
       - "references/privacy-provenance.md"
     run:
       - "scripts/reference_library.py ingest"
+      - "reference-local code.py + reconstruction.png"
+      - "scripts/check_reference_reproductions.py"
       - "scripts/reference_library.py validate"
       - "scripts/reference_library.py rebuild"
 

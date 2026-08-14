@@ -97,6 +97,7 @@ REFERENCE_METADATA_FIELDS = [
     "usage_scope",
     "image_path",
     "code_path",
+    "reproduction_preview_path",
     "review_status",
     "aesthetic_rating",
     "production_ready",
@@ -122,6 +123,7 @@ _DEFAULT_METADATA = {
     "license": "unknown",
     "usage_scope": "private_reference",
     "code_path": None,
+    "reproduction_preview_path": None,
     "review_status": "pending",
     "aesthetic_rating": None,
     "production_ready": False,
@@ -327,6 +329,13 @@ def validate_metadata(metadata: Dict[str, Any], root: Path = SKILL_ROOT) -> Tupl
         except ValueError as exc:
             errors.append(f"Invalid code_path: {exc}")
 
+    preview_path = meta.get("reproduction_preview_path")
+    if preview_path is not None:
+        try:
+            _as_relative(preview_path)
+        except ValueError as exc:
+            errors.append(f"Invalid reproduction_preview_path: {exc}")
+
     # Validate palette if provided.
     palette = meta.get("palette")
     if palette is not None:
@@ -369,6 +378,8 @@ def _normalise_metadata(metadata: Dict[str, Any], root: Path = SKILL_ROOT) -> Di
     out["image_path"] = _as_relative(out.get("image_path"), root)
     if out.get("code_path") is not None:
         out["code_path"] = _as_relative(out["code_path"], root)
+    if out.get("reproduction_preview_path") is not None:
+        out["reproduction_preview_path"] = _as_relative(out["reproduction_preview_path"], root)
 
     # Drop unknown top-level fields?  Keep them but warn during validate.
     return out
@@ -603,6 +614,13 @@ class ReferenceLibrary:
         ref = self.get(ref_id)
         if ref is None:
             raise KeyError(f"Unknown visual reference: {ref_id}")
+        if ref.metadata.get("reference_kind") == "user_supplied":
+            code_path = ref.metadata.get("code_path")
+            preview_path = ref.metadata.get("reproduction_preview_path")
+            if not code_path or not (self.root / code_path).is_file():
+                raise ValueError("User-supplied references require runnable reproduction code before review.")
+            if not preview_path or not (self.root / preview_path).is_file():
+                raise ValueError("User-supplied references require a rendered reproduction preview before review.")
         ref.metadata.update({
             "review_status": "reviewed",
             "aesthetic_rating": aesthetic_rating,

@@ -286,6 +286,19 @@ class TestReferenceLibrary(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.lib.review(ref.id, 4, {"final_size_inspected": True})
 
+    def test_user_supplied_review_requires_reproduction_artifacts(self):
+        src = self.skill_root / "user-reference.png"
+        _make_test_image(src, b"\x89PNG\r\n\x1a\nUSER")
+        ref = self.lib.ingest(src, "PCA", metadata_override={"reference_kind": "user_supplied"})
+        evidence = {
+            "final_size_inspected": True,
+            "hierarchy": "pass", "panel_balance": "pass", "whitespace": "pass",
+            "legend_footprint": "pass", "text_legibility": "pass",
+            "reviewer": "independent visual review",
+        }
+        with self.assertRaises(ValueError):
+            self.lib.review(ref.id, 4, evidence)
+
     def test_review_promotes_pending_reference_to_retrievable(self):
         src = self.skill_root / "review.png"
         _make_test_image(src, b"\x89PNG\r\n\x1a\nRVW2")
