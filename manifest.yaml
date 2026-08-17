@@ -26,6 +26,7 @@ routes:
       - "references/checklist.md"
       - "references/encoding-and-uncertainty.md"
     run:
+      - "scripts/prepare_visual_optimization.py"
       - "scripts/reference_library.py recommend"
       - "scripts/palette_manager.py"
       - "scripts/rendered_contrast.py"

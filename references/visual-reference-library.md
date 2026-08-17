@@ -171,7 +171,12 @@ Do not build a second reference system; reuse `ReferenceLibrary`.
 
 ## Strict recommendation for visual optimization
 
-Do not use `query()` to choose optimization candidates. Run:
+Do not use `query()` to choose optimization candidates. The normal entry point is
+`scripts/prepare_visual_optimization.py`: it writes a task-local shortlist report,
+draft contract, and runbook before any production-code edit. Use raw `recommend`
+only as that packet's internal retrieval primitive or when maintaining the library.
+
+Its shortlist is equivalent to:
 
 ```bash
 python scripts/reference_library.py recommend \

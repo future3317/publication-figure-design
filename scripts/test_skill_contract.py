@@ -86,6 +86,14 @@ class SkillArchitectureTests(unittest.TestCase):
         self.assertIn("scripts/rendered_contrast.py", manifest)
         self.assertIn("scripts/palette_manager.py", manifest)
 
+    def test_visual_optimization_has_a_low_freedom_task_packet_entrypoint(self):
+        manifest = (ROOT / "manifest.yaml").read_text(encoding="utf-8")
+        script = ROOT / "scripts" / "prepare_visual_optimization.py"
+        self.assertTrue(script.is_file())
+        self.assertIn("prepare_visual_optimization.py", self.skill)
+        self.assertIn("prepare_visual_optimization.py", manifest)
+        self.assertIn("Do not edit plotting source", self.skill)
+
     def test_encoding_and_uncertainty_decision_rules_are_routed(self):
         manifest = (ROOT / "manifest.yaml").read_text(encoding="utf-8")
         resource = "references/encoding-and-uncertainty.md"
