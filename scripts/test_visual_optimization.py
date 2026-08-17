@@ -36,6 +36,10 @@ def contract(**overrides):
             "semantic_mapping": {"matched": "#2166AC", "mismatched": "#999999"},
             "reason": "Blue is reserved for matched learners and grey for mismatched context.",
         },
+        "art_direction": {
+            "id": "hero_illustration",
+            "reason": "A single geometric hero and progressive explanation best serve the mechanism claim.",
+        },
         "series_encoding_contract": {
             "method_style_map": {
                 "Delta-Hull": {"color": "#2166AC", "linestyle": "-", "marker": "o"},
@@ -123,6 +127,22 @@ class VisualOptimizationTests(unittest.TestCase):
         )
         self.assertFalse(report["ready"])
         self.assertIn("palette", " ".join(report["errors"]).lower())
+
+    def test_art_direction_must_be_selected_and_justified(self):
+        value = self.valid_contract()
+        value.pop("art_direction")
+        report = validate_visual_optimization(
+            value, self.before, self.after, self.reference, self.comparison
+        )
+        self.assertFalse(report["ready"])
+        self.assertIn("art direction", " ".join(report["errors"]).lower())
+
+        value = self.valid_contract(art_direction={"id": "unselected", "reason": ""})
+        report = validate_visual_optimization(
+            value, self.before, self.after, self.reference, self.comparison
+        )
+        self.assertFalse(report["ready"])
+        self.assertIn("art direction", " ".join(report["errors"]).lower())
 
     def test_text_on_fill_requires_a_passing_rendered_contrast_report(self):
         value = self.valid_contract(text_contrast={"applicable": True})

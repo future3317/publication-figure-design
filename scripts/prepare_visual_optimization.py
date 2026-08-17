@@ -14,6 +14,16 @@ except ImportError:  # pragma: no cover - direct script execution
     from reference_library import ReferenceLibrary
 
 
+ART_DIRECTION_IDS = (
+    "hero_illustration",
+    "editorial_evidence_chain",
+    "modular_blueprint",
+    "specimen_evidence_atlas",
+    "analytic_minimalism",
+    "comparative_storyboard",
+)
+
+
 def _split(value: str) -> list[str]:
     return [part.strip() for part in value.split(",") if part.strip()]
 
@@ -42,11 +52,12 @@ def _runbook(
         f"   `{before}`",
         "2. Open every shortlisted reference image and write one pixel-level observation per candidate:",
         *candidate_lines,
-        f"3. Fill `{contract}` with the selected reference, old-skeleton rejection, fresh palette decision, and intended structural changes.",
-        "4. Only then edit the plotting source; make at least one structural or encoding change, not cosmetic restyling.",
-        "5. Render the after figure at final physical size, build an equal-cell Before | Reference | After comparison, then run:",
+        f"3. Read `{skill_root / 'references' / 'art-direction.md'}` and select one art direction in `{contract}`; do not blend directions without declared panel roles.",
+        f"4. Fill `{contract}` with the selected reference, old-skeleton rejection, fresh palette decision, and intended structural changes.",
+        "5. Only then edit the plotting source; make at least one structural or encoding change, not cosmetic restyling.",
+        "6. Render the after figure at final physical size, build an equal-cell Before | Reference | After comparison, then run:",
         "   `python scripts/check_visual_optimization.py --contract <contract> --before <before.png> --reference <reference.png> --after <after.png> --comparison <comparison.png> --build-comparison`",
-        "6. Resolve every FIX before delivery.",
+        "7. Resolve every FIX before delivery.",
         "",
         f"Shortlist evidence: `{recommendation}`",
     )) + "\n"
@@ -65,6 +76,7 @@ def prepare_packet(
     n_groups: int | None = None,
     journal_style: str | None = None,
     limit: int = 3,
+    art_direction: str = "unselected",
 ) -> dict[str, Path]:
     """Create the reviewable shortlist, draft contract, and exact next actions."""
     before = before.resolve()
@@ -80,6 +92,8 @@ def prepare_packet(
         raise FileExistsError(
             "Optimization packet already exists: " + ", ".join(str(path) for path in existing)
         )
+    if art_direction != "unselected" and art_direction not in ART_DIRECTION_IDS:
+        raise ValueError("Unknown art direction: " + art_direction)
 
     library = ReferenceLibrary(root=skill_root) if skill_root else ReferenceLibrary()
     recommendation = library.recommend_candidates(
@@ -103,6 +117,7 @@ def prepare_packet(
         "candidate_pixel_observations": {},
         "selected_reference": None,
         "selection_reason": None,
+        "art_direction": {"id": art_direction, "reason": None},
         "before_diagnosis": [],
         "composition_decision": {
             "old_skeleton_removed": False,
@@ -153,6 +168,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--n-groups", type=int)
     parser.add_argument("--journal-style")
     parser.add_argument("--limit", type=int, default=3)
+    parser.add_argument("--art-direction", choices=ART_DIRECTION_IDS)
     return parser.parse_args()
 
 
@@ -170,6 +186,7 @@ def main() -> int:
         n_groups=args.n_groups,
         journal_style=args.journal_style,
         limit=args.limit,
+        art_direction=args.art_direction or "unselected",
     )
     print(json.dumps({key: str(value) for key, value in packet.items()}, ensure_ascii=False, indent=2))
     return 0

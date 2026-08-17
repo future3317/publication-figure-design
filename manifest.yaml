@@ -14,6 +14,7 @@ routes:
   concrete_reference:
     when: "a concrete reference image is supplied or selected"
     load:
+      - "references/art-direction.md"
       - "references/reference-driven-reconstruction.md"
       - "references/asset-adaptation.md"
     run:
@@ -21,6 +22,7 @@ routes:
   visual_optimization:
     when: "an existing figure is optimized, polished, beautified, improved, or redesigned"
     load:
+      - "references/art-direction.md"
       - "references/reference-driven-reconstruction.md"
       - "references/visual-reference-library.md"
       - "references/checklist.md"

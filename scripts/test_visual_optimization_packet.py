@@ -57,6 +57,7 @@ class VisualOptimizationPacketTests(unittest.TestCase):
         self.assertEqual(contract["reference_candidates"], [self.ref.id])
         self.assertEqual(contract["opened_reference_candidates"], [])
         self.assertEqual(contract["selected_reference"], None)
+        self.assertEqual(contract["art_direction"]["id"], "unselected")
         self.assertIn("Do not edit plotting source", runbook)
         self.assertIn(str(self.before), runbook)
         self.assertIn(str(self.ref.image_path), runbook)

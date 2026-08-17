@@ -143,6 +143,10 @@ For optimize/polish/beautify/improve/redesign requests, create a second JSON rec
     "semantic_mapping": {"role": "final color for that role"},
     "reason": "why this mapping serves the evidence and remains distinguishable at final size"
   },
+  "art_direction": {
+    "id": "hero_illustration | editorial_evidence_chain | modular_blueprint | specimen_evidence_atlas | analytic_minimalism | comparative_storyboard",
+    "reason": "why this direction gives the stated evidence the clearest hierarchy without changing its scientific meaning"
+  },
   "series_encoding_contract": {
     "method_style_map": {"method": {"color": "#hex", "linestyle": "-", "marker": "o"}},
     "panel_series": {"a": ["method"], "b": ["method"]},
@@ -194,7 +198,7 @@ python scripts/rendered_contrast.py after.png \
   --json rendered-contrast-report.json
 ```
 
-Copy the resulting JSON payload into `text_contrast.report`. Any region below 4.5:1 blocks delivery. If the figure has no text on colored fills, set `text_contrast` to `{"applicable": false}`. `palette_decision` is mandatory for every optimization, including a justified decision to retain old colors; an omitted decision is not a default-to-old-colors path.
+Copy the resulting JSON payload into `text_contrast.report`. Any region below 4.5:1 blocks delivery. If the figure has no text on colored fills, set `text_contrast` to `{"applicable": false}`. `palette_decision` and `art_direction` are mandatory for every optimization, including a justified decision to retain old colors or use `analytic_minimalism`; omitted fields are not defaults.
 
 The checker verifies readable image evidence, authentic equal-cell composition, strict recommendation provenance, per-candidate pixel observations, selected-reference reasoning, an explicit palette decision, stable cross-panel series semantics, uncertainty-band treatment, structural changes, final-size review, recomputed after-raster contrast, and declared physical dimensions/DPI. Candidate IDs must exactly match the recommendation report order. Static QA and self-reported fidelity items cannot replace this gate.
 

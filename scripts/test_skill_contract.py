@@ -94,6 +94,21 @@ class SkillArchitectureTests(unittest.TestCase):
         self.assertIn("prepare_visual_optimization.py", manifest)
         self.assertIn("Do not edit plotting source", self.skill)
 
+    def test_art_direction_catalog_is_routed_for_conceptual_and_multi_panel_figures(self):
+        catalog = ROOT / "references" / "art-direction.md"
+        self.assertTrue(catalog.is_file())
+        self.assertIn("references/art-direction.md", self.skill)
+        text = catalog.read_text(encoding="utf-8")
+        for direction in (
+            "hero_illustration",
+            "editorial_evidence_chain",
+            "modular_blueprint",
+            "specimen_evidence_atlas",
+            "analytic_minimalism",
+            "comparative_storyboard",
+        ):
+            self.assertIn(direction, text)
+
     def test_encoding_and_uncertainty_decision_rules_are_routed(self):
         manifest = (ROOT / "manifest.yaml").read_text(encoding="utf-8")
         resource = "references/encoding-and-uncertainty.md"

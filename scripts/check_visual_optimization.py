@@ -33,6 +33,14 @@ REVIEW_FIELDS = {
     "cross_panel_semantics", "legend_data_separation", "uncertainty_legibility",
     "axis_label_compactness",
 }
+ART_DIRECTION_IDS = {
+    "hero_illustration",
+    "editorial_evidence_chain",
+    "modular_blueprint",
+    "specimen_evidence_atlas",
+    "analytic_minimalism",
+    "comparative_storyboard",
+}
 
 
 def _nonempty(value: Any) -> bool:
@@ -132,6 +140,16 @@ def validate_visual_optimization(
     if missing_palette_fields:
         errors.append(
             "Record an explicit palette decision for this optimization (prior colors, selected library palette or retained colors, semantic mapping, and reason)."
+        )
+    art_direction = contract.get("art_direction")
+    art_direction = art_direction if isinstance(art_direction, dict) else {}
+    checks["art_direction"] = (
+        art_direction.get("id") in ART_DIRECTION_IDS
+        and bool(str(art_direction.get("reason", "")).strip())
+    )
+    if not checks["art_direction"]:
+        errors.append(
+            "Select one declared art direction and explain how it serves the evidence; 'unselected' is not a delivery state."
         )
     # A polished multi-panel figure must keep the same method identity across
     # panels.  This catches the common failure where a global legend says one
