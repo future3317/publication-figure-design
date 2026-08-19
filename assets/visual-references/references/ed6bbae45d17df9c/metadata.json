@@ -9,11 +9,22 @@
   "journal_style": "Nature",
   "layout": "1x1",
   "license": "synthetic-redraw",
+  "lifecycle_state": "benchmarked",
   "n_groups": 3,
   "notes": "Synthetic redraw of figures4papers grouped-bar style: large fonts, black edges, direct value annotations, semantic colors. Borrow layout and encoding, not data.",
   "palette": null,
   "palette_policy": "preserve",
   "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "evidence": "existing reconstruction/fidelity review artifacts",
+        "reason": "legacy_reviewed_corpus_migration",
+        "state": "benchmarked"
+      }
+    ],
+    "state": "benchmarked"
+  },
   "review_status": "reviewed",
   "scope": "references",
   "sha256": "ed6bbae45d17df9c6633abc2dd92dde44d33316c45f0ea688b725bd6c247bfde",

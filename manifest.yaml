@@ -1,6 +1,6 @@
 name: publication-figure-design
 # Compatibility identifier for packaged adapters; this repository has one current implementation.
-version: "2.1.0"
+version: "3.0.0"
 entrypoint: "SKILL.md"
 
 # The root manifest is the only release/version source. Adapters are generated
@@ -13,6 +13,7 @@ runtime:
   - "scripts/"
   - "src/"
   - "assets/visual-references/"
+  - "assets/reference-benchmarks/"
   - "assets/registry.jsonl"
   - "schemas/"
   - "indexes/"
@@ -115,8 +116,10 @@ routes:
       - "scripts/check_reference_reproduction_fidelity.py"
       - "scripts/reference_library.py validate"
       - "scripts/reference_library.py rebuild"
-      - "scripts/reference_reconstruction.py (reference-local renderer helper)"
       - "scripts/visual_evidence.py (comparison helper used by fidelity gates)"
+      - "scripts/reference_code_sandbox.py (explicit audit-only sandbox for legacy code.py)"
+      - "scripts/check_reference_quarantine.py"
+      - "scripts/migrate_reference_quarantine.py"
   reference_benchmark:
     when: "the optional ChartMimic benchmark catalog is refreshed or queried"
     load:
@@ -136,6 +139,9 @@ routes:
       - "scripts/evaluate_benchmark.py"
       - "scripts/trigger_benchmark.py"
       - "scripts/regression_benchmark.py"
+      - "scripts/adversarial_retrieval.py"
+      - "scripts/evaluate_generation_regression.py"
+      - "scripts/check_champion_floors.py"
   figure_family_coverage:
     when: "the figure family or reference-library coverage needs to be selected or audited"
     load:
@@ -160,6 +166,7 @@ backend_policy:
   silent_substitution: false
 
 validation:
+  ci_gate: "python scripts/ci_gate.py"
   skill_contract: "python scripts/check_skill_contract.py"
   source_reconstruction_library: "python scripts/check_source_reconstruction_library.py"
   source_reference_catalog: "python scripts/check_source_reference_catalog.py"

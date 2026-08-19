@@ -9,11 +9,22 @@
   "journal_style": "Nature",
   "layout": "1x1",
   "license": "synthetic-redraw",
+  "lifecycle_state": "benchmarked",
   "n_groups": 8,
   "notes": "Synthetic redraw of figures4papers heatmap style: symmetric matrix, row/column labels, colorbar. Borrow layout and colormap treatment, not data.",
   "palette": null,
   "palette_policy": "preserve",
   "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "evidence": "existing reconstruction/fidelity review artifacts",
+        "reason": "legacy_reviewed_corpus_migration",
+        "state": "benchmarked"
+      }
+    ],
+    "state": "benchmarked"
+  },
   "review_status": "reviewed",
   "scope": "references",
   "sha256": "e52120014b49abe898add911e0751f80719d09a383e7faaa5a84c7e0c42bf1ac",

@@ -64,6 +64,18 @@ def _reference_command(args: argparse.Namespace) -> int:
         library.rebuild_registry()
         print(f"reviewed {args.reference_id}")
         return 0
+    if args.reference_action == "benchmark":
+        canary = _load_json(Path(args.canary_json))
+        library.benchmark_reference(args.reference_id, canary)
+        library.rebuild_registry()
+        print(f"benchmarked {args.reference_id}")
+        return 0
+    if args.reference_action == "promote":
+        evidence = _load_json(Path(args.evidence_json))
+        library.promote_reference(args.reference_id, evidence)
+        library.rebuild_registry()
+        print(f"promoted {args.reference_id}")
+        return 0
     raise SystemExit(f"Unknown reference action: {args.reference_action}")
 
 
@@ -113,6 +125,14 @@ def build_parser() -> argparse.ArgumentParser:
     review.add_argument("reference_id")
     review.add_argument("review_json")
     review.set_defaults(handler=_reference_command)
+    benchmark = ref_sub.add_parser("benchmark")
+    benchmark.add_argument("reference_id")
+    benchmark.add_argument("canary_json")
+    benchmark.set_defaults(handler=_reference_command)
+    promote = ref_sub.add_parser("promote")
+    promote.add_argument("reference_id")
+    promote.add_argument("evidence_json")
+    promote.set_defaults(handler=_reference_command)
 
     index = sub.add_parser("index", help="build retrieval indexes")
     index_sub = index.add_subparsers(dest="index_action", required=True)

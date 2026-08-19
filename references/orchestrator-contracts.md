@@ -17,6 +17,11 @@ stage. A failed gate sets the run to `blocked`; `retry` reruns the failed stage 
 `rollback` removes downstream artifacts, `resume` reloads the JSON session, and
 `best_so_far` preserves the highest scored candidate across repair iterations.
 
+Session telemetry is part of the persisted contract: `input_hash`, `reference_index_version`,
+`selected_reference_ids`, `renderer_version`, `iterations`, `QA`, and `output_hash`. Resume
+must reuse `selected_reference_ids` and the recorded index version; a changed corpus starts
+a new session instead of silently changing the reference choice.
+
 ## Contract responsibilities
 
 | Contract | Required content |
@@ -34,3 +39,8 @@ stage. A failed gate sets the run to `blocked`; `retry` reruns the failed stage 
 
 Do not promote a prose note, an agent declaration, or a reference-local script into a
 stage artifact. A stage is complete only when its machine-readable output passes its gate.
+
+In reference-led mode, `RenderPlan` must also contain `consumed_specs` with all four tokens:
+`TypographySpec`, `PaletteSpec`, `LayoutSpec`, and `ComponentSpec`, plus
+`style_spec_version` and `default_overrides_spec=false`. The renderer contract rejects a
+plan that falls back to backend defaults.

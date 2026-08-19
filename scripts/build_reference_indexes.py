@@ -4,7 +4,9 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -66,7 +68,7 @@ def build_indexes(root: Path | None = None) -> dict[str, Any]:
         canvas = canvas if isinstance(canvas, dict) else {}
         geometry = geometry if isinstance(geometry, dict) else {}
         semantic[ref_id] = {
-            "model_version": "deterministic-proxy-current",
+            "model_version": "__SEMANTIC_VERSION__",
             "vector": [
                 float(canvas.get("aspect_ratio", 0.0) or 0.0),
                 float(card.get("ink_coverage", 0.0) or 0.0),
@@ -77,7 +79,31 @@ def build_indexes(root: Path | None = None) -> dict[str, Any]:
 
     out_dir = root / "indexes"
     out_dir.mkdir(parents=True, exist_ok=True)
-    common = {"schema_version": "1.0", "model_version": "metadata-current", "record_count": len(records)}
+    registry_path = root / "assets" / "registry.jsonl"
+    corpus_bytes = registry_path.read_bytes() if registry_path.is_file() else b""
+    corpus_sha256 = hashlib.sha256(corpus_bytes).hexdigest()
+    index_version = f"metadata-proxy-{corpus_sha256[:12]}"
+    semantic_version = f"deterministic-proxy-{corpus_sha256[:12]}"
+    provenance = {
+        "index_version": index_version,
+        "semantic_model_version": semantic_version,
+        "schema_version": "1.0",
+        "embedding_model": "deterministic-metadata-proxy",
+        "built_at": datetime.now(timezone.utc).isoformat(),
+        "corpus_sha256": corpus_sha256,
+        "record_count": len(records),
+    }
+    common = {
+        "schema_version": "1.0",
+        "model_version": index_version,
+        "aliases": {"current": index_version},
+        "provenance": provenance,
+        "record_count": len(records),
+    }
+    # Replace the local placeholder after the version is derived from the
+    # corpus, keeping every semantic record tied to the same build identity.
+    for value in semantic.values():
+        value["model_version"] = semantic_version
     outputs = {
         "metadata_inverted.json": {**common, "index_type": "metadata_inverted", "terms": {k: sorted(v) for k, v in sorted(inverted.items())}},
         "layout.json": {**common, "index_type": "layout", "records": layout},

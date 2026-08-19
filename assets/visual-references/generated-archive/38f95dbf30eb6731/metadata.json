@@ -3,17 +3,29 @@
   "code_path": "assets/visual-references/generated-archive/38f95dbf30eb6731/code.py",
   "created_at": "2026-08-11T13:56:42Z",
   "data_density": "medium",
+  "figure_card_path": "assets/visual-references/generated-archive/38f95dbf30eb6731/figure_card.json",
   "figure_type": "heatmap",
   "id": "38f95dbf30eb6731",
   "image_path": "assets/visual-references/generated-archive/38f95dbf30eb6731/image.png",
   "journal_style": "Nature",
   "layout": "1x3",
   "license": "unknown",
+  "lifecycle_state": "raw",
   "n_groups": 6,
   "notes": "Synthetic reproduction of the WeChat correlation matrix reference using matplotlib only. Generated with make_demo_corr().",
   "palette": null,
   "palette_policy": "adaptable",
   "production_ready": true,
+  "quarantine": {
+    "history": [
+      {
+        "reason": "legacy_intake_migration",
+        "state": "raw"
+      }
+    ],
+    "state": "raw"
+  },
+  "reproduction_preview_path": "assets/visual-references/generated-archive/38f95dbf30eb6731/image.png",
   "review_status": "pending",
   "scope": "generated-archive",
   "sha256": "0616c8a37deaf3e3af3cd01e0be51223b8900397bc590ce5f61548e4331f1696",
@@ -27,7 +39,5 @@
     "circle-heatmap",
     "reproduction"
   ],
-  "usage_scope": "internal_reference",
-  "figure_card_path": "assets/visual-references/generated-archive/38f95dbf30eb6731/figure_card.json",
-  "reproduction_preview_path": "assets/visual-references/generated-archive/38f95dbf30eb6731/image.png"
+  "usage_scope": "internal_reference"
 }

@@ -9,11 +9,22 @@
   "journal_style": "Nature",
   "layout": "1x1",
   "license": "unknown",
+  "lifecycle_state": "benchmarked",
   "n_groups": 5,
   "notes": "Publication figure from figures4papers/figure_ophthal_review/figures/composition_heatmap.png. Used as visual reference for heatmap style; do not redistribute without permission.",
   "palette": null,
   "palette_policy": "preserve",
   "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "evidence": "existing reconstruction/fidelity review artifacts",
+        "reason": "legacy_reviewed_corpus_migration",
+        "state": "benchmarked"
+      }
+    ],
+    "state": "benchmarked"
+  },
   "reconstruction_blueprint": {
     "annotation_model": "panel_letters + local_legends + direct_callouts",
     "blueprint_id": "ophthal_composition_heatmap",

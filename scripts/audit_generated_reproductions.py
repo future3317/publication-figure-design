@@ -14,6 +14,11 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
+try:
+    from .reference_code_sandbox import run_reference_code
+except ImportError:
+    from reference_code_sandbox import run_reference_code
+
 from PIL import Image, ImageDraw, ImageFont
 
 from reference_image_analysis import analyze_image, compare_images
@@ -110,16 +115,7 @@ def _render(code_path: Path, archive_dir: Path, workdir: Path) -> tuple[subproce
     command = [sys.executable, str(code_path)]
     if "--output" in code_text:
         command.extend(["--output", str(output)])
-    env = os.environ.copy()
-    env.setdefault("MPLBACKEND", "Agg")
-    completed = subprocess.run(
-        command,
-        cwd=archive_dir,
-        env=env,
-        capture_output=True,
-        text=True,
-        timeout=120,
-    )
+    completed = run_reference_code(code_path, cwd=archive_dir, output=output, timeout=120)
     if not output.is_file() and stale.is_file():
         shutil.copy2(stale, output)
         stale.unlink()

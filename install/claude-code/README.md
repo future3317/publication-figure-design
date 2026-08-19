@@ -1,6 +1,6 @@
 # Publication Figure Design adapter — Claude Code
 
-This is a thin loader for `publication-figure-design` manifest version `2.1.0`.
+This is a thin loader for `publication-figure-design` manifest version `3.0.0`.
 The canonical instructions and route contracts live in the bundled skill; this
 file is not a replacement or a second source of design rules.
 
@@ -11,11 +11,12 @@ Runtime bundle:
 - `scripts/`
 - `src/`
 - `assets/visual-references/`
+- `assets/reference-benchmarks/`
 - `assets/registry.jsonl`
 - `schemas/`
 - `indexes/`
 
-Generated: 2026-08-18 17:50 UTC
+Generated: 2026-08-19 03:07 UTC
 
 Install this directory at `~/.claude/skills/publication-figure-design/`.
 Load `SKILL.md` and resolve all relative scripts/resources from that directory.

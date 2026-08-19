@@ -1,12 +1,17 @@
 {
-  "schema": "publication-figure-design/figure-card-v1",
+  "schema": "publication-figure-design/figure-card",
+  "schema_version": "2.0",
   "source": "independent visual-grammar reconstruction",
   "figure_type": "comparison_composite",
+  "source_sha256": "9584bcd3ae748bcfc5af6fde750f4d7fdd79e6bee66c32a0b1396c70140f4f13",
+  "perceptual_hash": "d2ade4cee5073ad4",
   "canvas": {
     "width_px": 1286,
     "height_px": 941,
     "aspect_ratio": 1.366631,
-    "mode": "RGB"
+    "mode": "RGBA",
+    "colorspace": "sRGB_assumed",
+    "has_alpha": true
   },
   "background": {
     "rgb": [
@@ -18,6 +23,30 @@
     "near_white": true
   },
   "ink_coverage": 0.300373,
+  "geometry": {
+    "content_bbox_px": [
+      13,
+      11,
+      1276,
+      927
+    ],
+    "whitespace_fraction": 0.699627,
+    "row_density_peaks": [
+      439,
+      438,
+      440,
+      904,
+      903
+    ],
+    "column_density_peaks": [
+      1227,
+      1256,
+      1226,
+      1230,
+      1199
+    ],
+    "ink_density": 0.300373
+  },
   "palette": {
     "dominant": [
       {
@@ -27,94 +56,211 @@
           255,
           255
         ],
-        "fraction": 0.81746,
+        "fraction": 0.69586,
         "role": "background"
       },
       {
-        "hex": "#9ac7e0",
+        "hex": "#77aec1",
         "rgb": [
-          154,
-          199,
+          119,
+          174,
+          193
+        ],
+        "fraction": 0.071521,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#2473b4",
+        "rgb": [
+          36,
+          115,
+          180
+        ],
+        "fraction": 0.053154,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#efefed",
+        "rgb": [
+          239,
+          239,
+          237
+        ],
+        "fraction": 0.049973,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#d4b88a",
+        "rgb": [
+          212,
+          184,
+          138
+        ],
+        "fraction": 0.046568,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#d8dde0",
+        "rgb": [
+          216,
+          221,
           224
         ],
-        "fraction": 0.033527,
+        "fraction": 0.043642,
         "role": "data_or_annotation"
       },
       {
-        "hex": "#083d7e",
+        "hex": "#223a6a",
         "rgb": [
-          8,
-          61,
-          126
+          34,
+          58,
+          106
         ],
-        "fraction": 0.029322,
+        "fraction": 0.033434,
         "role": "data_or_annotation"
       },
       {
-        "hex": "#4c99ca",
+        "hex": "#6b7d99",
         "rgb": [
-          76,
-          153,
-          202
+          107,
+          125,
+          153
         ],
-        "fraction": 0.027562,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#1e6db2",
-        "rgb": [
-          30,
-          109,
-          178
-        ],
-        "fraction": 0.024515,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#79a8a9",
-        "rgb": [
-          121,
-          168,
-          169
-        ],
-        "fraction": 0.024344,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#35618f",
-        "rgb": [
-          53,
-          97,
-          143
-        ],
-        "fraction": 0.022461,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#e5a84b",
-        "rgb": [
-          229,
-          168,
-          75
-        ],
-        "fraction": 0.020809,
+        "fraction": 0.005848,
         "role": "data_or_annotation"
       }
     ],
     "extraction": "extcolors-or-pillow-quantize"
   },
   "panels": {
-    "status": "manual_required",
-    "count": null,
-    "layout": null
+    "status": "heuristic_single_canvas",
+    "count": 1,
+    "layout": "single_canvas",
+    "bboxes_px": [
+      [
+        13,
+        11,
+        1276,
+        927
+      ]
+    ],
+    "adjacency": [],
+    "reading_order": [
+      0
+    ]
+  },
+  "plot_bbox": [
+    13,
+    11,
+    1276,
+    927
+  ],
+  "whitespace_map": {
+    "status": "pixel_density",
+    "fraction": 0.699627
+  },
+  "visual_density": 0.300373,
+  "saliency": {
+    "status": "ink_density_proxy",
+    "bbox_px": [
+      13,
+      11,
+      1276,
+      927
+    ]
   },
   "axes": {
-    "status": "manual_required"
+    "status": "heuristic_pixel_measurement",
+    "spines": {
+      "top": 0.0,
+      "bottom": 0.0,
+      "left": 0.0,
+      "right": 0.0
+    },
+    "tick_proxy": {
+      "row_peaks": [
+        424,
+        437,
+        425,
+        438,
+        43,
+        508,
+        904,
+        439
+      ],
+      "column_peaks": [
+        1083,
+        1076,
+        589,
+        692,
+        1007,
+        1274,
+        377,
+        54
+      ]
+    },
+    "grid_proxy": {
+      "horizontal_density": 0.108865,
+      "vertical_density": 0.29118
+    }
   },
   "typography": {
-    "status": "manual_required"
+    "status": "heuristic_ink_hierarchy",
+    "font_family": "manual_review_required",
+    "hierarchy": [
+      {
+        "role": "headline_or_axis",
+        "ink_density_peak": 0.152411
+      },
+      {
+        "role": "body_or_tick",
+        "ink_density_peak": 0.108865
+      }
+    ],
+    "size_proxy": {
+      "largest_dark_run_px": 18
+    }
   },
   "annotations": {
-    "status": "manual_required"
-  }
+    "status": "heuristic_density_regions",
+    "content_bbox_px": [
+      13,
+      11,
+      1276,
+      927
+    ],
+    "high_density_rows": [
+      439,
+      904,
+      508,
+      43,
+      438
+    ],
+    "high_density_columns": [
+      54,
+      377,
+      1274,
+      1007,
+      692
+    ]
+  },
+  "marker_family": {
+    "status": "heuristic",
+    "dark_pixel_fraction": 0.067764
+  },
+  "stroke_width_px": {
+    "status": "heuristic_short_run_proxy",
+    "median": 1.0
+  },
+  "component_crops": [
+    {
+      "name": "content",
+      "bbox_px": [
+        13,
+        11,
+        1276,
+        927
+      ]
+    }
+  ]
 }

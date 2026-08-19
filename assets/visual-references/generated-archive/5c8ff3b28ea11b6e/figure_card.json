@@ -1,12 +1,17 @@
 {
-  "schema": "publication-figure-design/figure-card-v1",
+  "schema": "publication-figure-design/figure-card",
+  "schema_version": "2.0",
   "source": "self-generated reproduction of WeChat reference",
   "figure_type": "GroupedViolin",
+  "source_sha256": "6b4fc7908d1ff4764cc1ee1dc29070161c9e0289e18361086b9014ceccc3c601",
+  "perceptual_hash": "b9b1864e6199def3",
   "canvas": {
     "width_px": 1922,
     "height_px": 1469,
     "aspect_ratio": 1.308373,
-    "mode": "RGB"
+    "mode": "RGBA",
+    "colorspace": "sRGB_assumed",
+    "has_alpha": true
   },
   "background": {
     "rgb": [
@@ -18,6 +23,30 @@
     "near_white": true
   },
   "ink_coverage": 0.119445,
+  "geometry": {
+    "content_bbox_px": [
+      30,
+      27,
+      1895,
+      1439
+    ],
+    "whitespace_fraction": 0.880555,
+    "row_density_peaks": [
+      1300,
+      1301,
+      1302,
+      1299,
+      1298
+    ],
+    "column_density_peaks": [
+      174,
+      175,
+      176,
+      173,
+      177
+    ],
+    "ink_density": 0.119445
+  },
   "palette": {
     "dominant": [
       {
@@ -27,94 +56,211 @@
           255,
           255
         ],
-        "fraction": 0.912091,
+        "fraction": 0.882621,
         "role": "background"
       },
       {
-        "hex": "#f4a3a4",
+        "hex": "#dba3a0",
         "rgb": [
-          244,
+          219,
           163,
-          164
+          160
         ],
-        "fraction": 0.018695,
+        "fraction": 0.028317,
         "role": "data_or_annotation"
       },
       {
-        "hex": "#d5b8da",
+        "hex": "#d7b9d7",
         "rgb": [
-          213,
-          184,
-          218
+          215,
+          185,
+          215
         ],
-        "fraction": 0.015659,
+        "fraction": 0.022849,
         "role": "data_or_annotation"
       },
       {
-        "hex": "#afcbe2",
+        "hex": "#73424f",
         "rgb": [
-          175,
-          203,
-          226
-        ],
-        "fraction": 0.014183,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#ffcb99",
-        "rgb": [
-          255,
-          203,
-          153
-        ],
-        "fraction": 0.013975,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#b7dfb6",
-        "rgb": [
-          183,
-          223,
-          182
-        ],
-        "fraction": 0.011524,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#000000",
-        "rgb": [
-          0,
-          0,
-          0
-        ],
-        "fraction": 0.0095,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#ad73b6",
-        "rgb": [
-          173,
           115,
-          182
+          66,
+          79
         ],
-        "fraction": 0.004374,
+        "fraction": 0.016091,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#f6d6b8",
+        "rgb": [
+          246,
+          214,
+          184
+        ],
+        "fraction": 0.014785,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#b0cbe0",
+        "rgb": [
+          176,
+          203,
+          224
+        ],
+        "fraction": 0.014761,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#bdddbd",
+        "rgb": [
+          189,
+          221,
+          189
+        ],
+        "fraction": 0.012014,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#88c58f",
+        "rgb": [
+          136,
+          197,
+          143
+        ],
+        "fraction": 0.008562,
         "role": "data_or_annotation"
       }
     ],
     "extraction": "extcolors-or-pillow-quantize"
   },
   "panels": {
-    "status": "manual_required",
-    "count": null,
-    "layout": null
+    "status": "heuristic_single_canvas",
+    "count": 1,
+    "layout": "single_canvas",
+    "bboxes_px": [
+      [
+        30,
+        27,
+        1895,
+        1439
+      ]
+    ],
+    "adjacency": [],
+    "reading_order": [
+      0
+    ]
+  },
+  "plot_bbox": [
+    30,
+    27,
+    1895,
+    1439
+  ],
+  "whitespace_map": {
+    "status": "pixel_density",
+    "fraction": 0.880555
+  },
+  "visual_density": 0.119445,
+  "saliency": {
+    "status": "ink_density_proxy",
+    "bbox_px": [
+      30,
+      27,
+      1895,
+      1439
+    ]
   },
   "axes": {
-    "status": "manual_required"
+    "status": "heuristic_pixel_measurement",
+    "spines": {
+      "top": 0.0,
+      "bottom": 0.0,
+      "left": 0.0,
+      "right": 0.0
+    },
+    "tick_proxy": {
+      "row_peaks": [
+        142,
+        141,
+        191,
+        192,
+        190,
+        1299,
+        1301,
+        1300
+      ],
+      "column_peaks": [
+        1032,
+        1365,
+        704,
+        703,
+        702,
+        176,
+        175,
+        174
+      ]
+    },
+    "grid_proxy": {
+      "horizontal_density": 0.020291,
+      "vertical_density": 0.020422
+    }
   },
   "typography": {
-    "status": "manual_required"
+    "status": "heuristic_ink_hierarchy",
+    "font_family": "manual_review_required",
+    "hierarchy": [
+      {
+        "role": "headline_or_axis",
+        "ink_density_peak": 0.174984
+      },
+      {
+        "role": "body_or_tick",
+        "ink_density_peak": 0.020291
+      }
+    ],
+    "size_proxy": {
+      "largest_dark_run_px": 31
+    }
   },
   "annotations": {
-    "status": "manual_required"
-  }
+    "status": "heuristic_density_regions",
+    "content_bbox_px": [
+      30,
+      27,
+      1895,
+      1439
+    ],
+    "high_density_rows": [
+      1300,
+      1301,
+      1299,
+      190,
+      192
+    ],
+    "high_density_columns": [
+      174,
+      175,
+      176,
+      702,
+      703
+    ]
+  },
+  "marker_family": {
+    "status": "heuristic",
+    "dark_pixel_fraction": 0.011389
+  },
+  "stroke_width_px": {
+    "status": "heuristic_short_run_proxy",
+    "median": 3.0
+  },
+  "component_crops": [
+    {
+      "name": "content",
+      "bbox_px": [
+        30,
+        27,
+        1895,
+        1439
+      ]
+    }
+  ]
 }

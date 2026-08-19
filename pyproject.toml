@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "publication-figure-design"
 # Package compatibility identifier; the repository keeps one current implementation.
-version = "2.1.0"
+version = "3.0.0"
 description = "Reference-first orchestration and QA for publication-grade scientific figures"
 requires-python = ">=3.10"
 dependencies = [

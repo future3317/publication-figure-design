@@ -1,6 +1,18 @@
 {
+  "aliases": {
+    "current": "metadata-proxy-02685f13b42f"
+  },
   "index_type": "metadata_inverted",
-  "model_version": "metadata-current",
+  "model_version": "metadata-proxy-02685f13b42f",
+  "provenance": {
+    "built_at": "2026-08-19T02:52:38.112834+00:00",
+    "corpus_sha256": "02685f13b42ffb375ae0c66246ddbb76c2e2a4955d557ec6542a4a9a3184788a",
+    "embedding_model": "deterministic-metadata-proxy",
+    "index_version": "metadata-proxy-02685f13b42f",
+    "record_count": 141,
+    "schema_version": "1.0",
+    "semantic_model_version": "deterministic-proxy-02685f13b42f"
+  },
   "record_count": 141,
   "schema_version": "1.0",
   "terms": {

@@ -9,11 +9,22 @@
   "journal_style": "Nature",
   "layout": "1x1",
   "license": "synthetic-redraw",
+  "lifecycle_state": "benchmarked",
   "n_groups": 3,
   "notes": "SuperPlots visual grammar for StackedBarScatter: individual replicates + mean/SEM overlay. Borrow annotation and spacing, not figure type.",
   "palette": "summer_beach",
   "palette_policy": "preserve",
   "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "evidence": "existing reconstruction/fidelity review artifacts",
+        "reason": "legacy_reviewed_corpus_migration",
+        "state": "benchmarked"
+      }
+    ],
+    "state": "benchmarked"
+  },
   "review_status": "reviewed",
   "scope": "references",
   "sha256": "daaa5c61d74703b8c9a10b4136be222161fc0360ab95de023d9821477acd6352",

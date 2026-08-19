@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "required_task_count": 20,
+  "evaluation": "blind_pairwise_against_baseline",
+  "tasks": [
+    {"id": "grouped_bar", "figure_family": "grouped_bar", "champion_floor": 0.75},
+    {"id": "bar_ablation", "figure_family": "grouped_bar", "champion_floor": 0.75},
+    {"id": "bar_distribution", "figure_family": "bar_distribution", "champion_floor": 0.75},
+    {"id": "heatmap_grid", "figure_family": "heatmap_grid", "champion_floor": 0.75},
+    {"id": "correlation_matrix", "figure_family": "correlation_matrix", "champion_floor": 0.75},
+    {"id": "density_heatmap", "figure_family": "density_heatmap", "champion_floor": 0.75},
+    {"id": "line_trend", "figure_family": "line_trend", "champion_floor": 0.75},
+    {"id": "line_grid", "figure_family": "line_grid", "champion_floor": 0.75},
+    {"id": "scatter_bubble", "figure_family": "scatter_bubble", "champion_floor": 0.75},
+    {"id": "scatter_regression", "figure_family": "scatter_bubble", "champion_floor": 0.75},
+    {"id": "paired_box_scatter", "figure_family": "paired_box_scatter", "champion_floor": 0.75},
+    {"id": "violin", "figure_family": "violin", "champion_floor": 0.75},
+    {"id": "ridge_plot", "figure_family": "ridge_plot", "champion_floor": 0.75},
+    {"id": "marginal_density", "figure_family": "marginal_density", "champion_floor": 0.75},
+    {"id": "auroc", "figure_family": "auroc", "champion_floor": 0.75},
+    {"id": "radar", "figure_family": "radar", "champion_floor": 0.75},
+    {"id": "sankey", "figure_family": "sankey", "champion_floor": 0.75},
+    {"id": "manifold", "figure_family": "manifold", "champion_floor": 0.75},
+    {"id": "mechanism_schematic", "figure_family": "mechanism_schematic", "champion_floor": 0.75},
+    {"id": "multi_panel_composite", "figure_family": "comparison_composite", "champion_floor": 0.75}
+  ]
+}

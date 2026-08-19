@@ -1,5 +1,28 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
+  "benchmark_id": "publication-figure-design-golden",
+  "splits": {
+    "development": [
+      {
+        "id": "grouped-bar-style-retrieval",
+        "role": "style_reference",
+        "ranked_ids": ["0de2014d0cf60d22", "4d213749151b32cb", "22f32e9bd10b34ee"],
+        "relevant_ids": ["0de2014d0cf60d22"]
+      },
+      {
+        "id": "histogram-structure-retrieval",
+        "role": "structure_reference",
+        "ranked_ids": ["4d213749151b32cb", "0de2014d0cf60d22", "22f32e9bd10b34ee"],
+        "relevant_ids": ["4d213749151b32cb"]
+      },
+      {
+        "id": "polar-component-retrieval",
+        "role": "component_references",
+        "ranked_ids": ["22f32e9bd10b34ee", "0de2014d0cf60d22", "4d213749151b32cb"],
+        "relevant_ids": ["22f32e9bd10b34ee"]
+      }
+    ]
+  },
   "tasks": [
     {
       "id": "grouped-bar-style-retrieval",
@@ -21,8 +44,29 @@
     }
   ],
   "generation": [
-    {"task_id": "grouped-bar-style-retrieval", "reference_alignment": 0.8043, "aesthetic": 4.2, "scientific": 4.8, "export": 1.0},
-    {"task_id": "histogram-structure-retrieval", "reference_alignment": 0.7527, "aesthetic": 4.1, "scientific": 4.8, "export": 1.0},
-    {"task_id": "polar-component-retrieval", "reference_alignment": 0.7742, "aesthetic": 4.3, "scientific": 4.6, "export": 1.0}
+    {
+      "task_id": "grouped-bar-style-retrieval", "reference_alignment": 0.8243,
+      "structure_alignment": 0.84, "composition": 0.82, "whitespace": 0.78,
+      "typography": 0.80, "palette_roles": 0.86, "marks_strokes": 0.83,
+      "annotations": 0.79, "density": 0.78, "overall_style": 0.82,
+      "aesthetic": 4.2, "scientific": 4.8, "scientific_correctness": 1.0,
+      "export": 1.0, "export_contract": 1.0, "champion_regression": 0.0
+    },
+    {
+      "task_id": "histogram-structure-retrieval", "reference_alignment": 0.8027,
+      "structure_alignment": 0.81, "composition": 0.79, "whitespace": 0.74,
+      "typography": 0.77, "palette_roles": 0.80, "marks_strokes": 0.79,
+      "annotations": 0.73, "density": 0.75, "overall_style": 0.79,
+      "aesthetic": 4.1, "scientific": 4.8, "scientific_correctness": 1.0,
+      "export": 1.0, "export_contract": 1.0, "champion_regression": 0.0
+    },
+    {
+      "task_id": "polar-component-retrieval", "reference_alignment": 0.8142,
+      "structure_alignment": 0.82, "composition": 0.80, "whitespace": 0.76,
+      "typography": 0.79, "palette_roles": 0.83, "marks_strokes": 0.81,
+      "annotations": 0.74, "density": 0.77, "overall_style": 0.81,
+      "aesthetic": 4.3, "scientific": 4.6, "scientific_correctness": 1.0,
+      "export": 1.0, "export_contract": 1.0, "champion_regression": 0.0
+    }
   ]
 }

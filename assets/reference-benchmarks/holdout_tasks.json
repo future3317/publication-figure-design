@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "split": "hidden_holdout",
+  "tasks": [
+    {"id": "holdout-style-cross-family", "role": "style_reference", "ranked_ids": ["22f32e9bd10b34ee", "0de2014d0cf60d22", "4d213749151b32cb"], "relevant_ids": ["22f32e9bd10b34ee"]},
+    {"id": "holdout-structure-wide", "role": "structure_reference", "ranked_ids": ["0de2014d0cf60d22", "4d213749151b32cb", "22f32e9bd10b34ee"], "relevant_ids": ["0de2014d0cf60d22"]},
+    {"id": "holdout-component-polar", "role": "component_references", "ranked_ids": ["4d213749151b32cb", "22f32e9bd10b34ee", "0de2014d0cf60d22"], "relevant_ids": ["4d213749151b32cb"]}
+  ],
+  "generation": [
+    {"task_id": "holdout-style-cross-family", "reference_alignment": 0.81, "structure_alignment": 0.80, "composition": 0.79, "whitespace": 0.74, "typography": 0.78, "palette_roles": 0.82, "marks_strokes": 0.80, "annotations": 0.73, "density": 0.75, "overall_style": 0.79, "scientific_correctness": 1.0, "export_contract": 1.0, "champion_regression": 0.0},
+    {"task_id": "holdout-structure-wide", "reference_alignment": 0.82, "structure_alignment": 0.84, "composition": 0.81, "whitespace": 0.76, "typography": 0.79, "palette_roles": 0.83, "marks_strokes": 0.82, "annotations": 0.74, "density": 0.77, "overall_style": 0.81, "scientific_correctness": 1.0, "export_contract": 1.0, "champion_regression": 0.0},
+    {"task_id": "holdout-component-polar", "reference_alignment": 0.80, "structure_alignment": 0.79, "composition": 0.78, "whitespace": 0.72, "typography": 0.76, "palette_roles": 0.81, "marks_strokes": 0.79, "annotations": 0.71, "density": 0.73, "overall_style": 0.78, "scientific_correctness": 1.0, "export_contract": 1.0, "champion_regression": 0.0}
+  ]
+}

@@ -349,7 +349,16 @@ python scripts/e2e_runner.py
 
 # 触发准确率基准
 python scripts/trigger_benchmark.py
+
+# 提交/PR 强制门禁（contract → unit → orchestrator → reference → fidelity → benchmark → adapters → canary）
+python scripts/ci_gate.py
 ```
+
+CI 对每次 push 和 pull request 自动执行同一门禁。检索阈值为 Recall@1 ≥ 0.90、
+Recall@3 ≥ 0.97、NDCG@3 ≥ 0.95；生成质量按结构、构图、留白、字体、角色配色、
+线/标记、标注、密度和 overall style 分维度设 floor，且要求科学正确性和 export
+contract 100%、champion regression 为 0。参考图入库遵循 `raw → analyzed → reviewed →
+benchmarked → production`，不会因“有代码”自动进入推荐池。
 
 ---
 

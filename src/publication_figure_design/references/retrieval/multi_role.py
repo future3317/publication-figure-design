@@ -67,8 +67,14 @@ def _score(meta: Mapping[str, Any], figure_type: str, tags: set[str], role: str,
     scientific = float(meta.get("scientific_correctness", meta.get("scientific_clarity") or (1.0 if ftype == target else 0.65)) or 0)
     if scientific > 1:
         scientific /= 5.0
-    # Ineligible/unreviewed samples are not production references.
-    if meta.get("review_status") not in {"reviewed", "promoted"}:
+    # Ineligible/unreviewed samples are not production references.  New intake
+    # records use the explicit quarantine lifecycle; legacy reviewed records
+    # remain readable until their sidecar is migrated.
+    lifecycle = meta.get("lifecycle_state")
+    if lifecycle and lifecycle not in {"benchmarked", "production"}:
+        alignment *= 0.1
+        reasons.append(f"lifecycle={lifecycle}: quarantined")
+    elif meta.get("review_status") not in {"reviewed", "promoted"}:
         alignment *= 0.25
         reasons.append("unreviewed: quarantined")
     return round(min(1.0, alignment), 4), round(min(1.0, aesthetic), 4), round(min(1.0, scientific), 4), reasons
@@ -114,7 +120,12 @@ class MultiRoleReferenceRetriever:
             if role not in self.ROLES:
                 raise ValueError(f"Unknown reference role: {role}")
             scored = []
+            seen_content: set[str] = set()
             for meta in self.references:
+                content_key = str(meta.get("sha256") or meta.get("image_path") or meta.get("id") or "")
+                if content_key in seen_content:
+                    continue
+                seen_content.add(content_key)
                 # Palette is a style-only role; annotation and component may
                 # cross families but still require visual grammar evidence.
                 if role != "style_reference" and role != "palette_reference" and not meta.get("visual_grammar") and not meta.get("layout"):

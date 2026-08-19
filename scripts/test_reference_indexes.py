@@ -18,9 +18,12 @@ class ReferenceIndexTests(unittest.TestCase):
             payload = json.loads((root / "indexes" / "style.json").read_text(encoding="utf-8"))
             self.assertEqual(payload["schema_version"], "1.0")
             self.assertIn("abc", payload["records"])
+            self.assertEqual(payload["aliases"]["current"], payload["model_version"])
+            self.assertEqual(len(payload["provenance"]["corpus_sha256"]), 64)
             semantic = json.loads((root / "indexes" / "semantic.json").read_text(encoding="utf-8"))
             self.assertEqual(semantic["index_type"], "semantic_proxy")
             self.assertEqual(len(semantic["records"]["abc"]["vector"]), 4)
+            self.assertTrue(semantic["records"]["abc"]["model_version"].startswith("deterministic-proxy-"))
 
 
 if __name__ == "__main__":

@@ -9,11 +9,22 @@
   "journal_style": null,
   "layout": "multi-panel",
   "license": "Apache-2.0",
+  "lifecycle_state": "benchmarked",
   "n_groups": null,
   "notes": "Exact source visual sample cataloged for private reference; distinct from independent reconstruction.",
   "palette": null,
   "palette_policy": "preserve",
   "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "evidence": "existing reconstruction/fidelity review artifacts",
+        "reason": "legacy_reviewed_corpus_migration",
+        "state": "benchmarked"
+      }
+    ],
+    "state": "benchmarked"
+  },
   "reconstruction_blueprint": {
     "annotation_model": "panel_letters + local_legends + direct_callouts",
     "blueprint_id": "atlas_bar_charts",

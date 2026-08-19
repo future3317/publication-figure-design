@@ -38,9 +38,15 @@ pfd run <task-spec>
 pfd reference ingest <image>
 pfd reference analyze <reference-id>
 pfd reference review <reference-id>
+pfd reference benchmark <reference-id> <canary.json>
+pfd reference promote <reference-id> <champion-evidence.json>
 pfd index build
 pfd eval
 ```
+
+Every persisted session records `input_hash`, the concrete reference-index version,
+selected reference ids, renderer version, iteration history, QA result, and final output
+hash. Resume must reuse the recorded selection; it must not rerun an unseeded recommendation.
 
 ## Dispatch
 
@@ -83,6 +89,21 @@ substitute a backend.
 The reference-fidelity route also runs `scripts/check_reference_fidelity.py` and records
 all five dimensions before production asset selection.
 
+### Reference quarantine and production eligibility
+
+Every newly ingested image starts at `raw` and advances only through
+`analyzed → reviewed → benchmarked → production`. `query` may show reviewed items for
+diagnostics, but formal recommendation must use `--require-benchmark` or an equivalent
+production route. A reference enters the recommendation pool only after a passing
+retrieval/generation canary; promotion additionally requires champion-floor evidence.
+Legacy sidecars without `lifecycle_state` remain readable but are reported by
+`scripts/check_reference_quarantine.py` for migration.
+
+Reference-local `code.py` is never executed during intake. If an explicitly requested
+private audit must run one, use `scripts/reference_code_sandbox.py`; it rejects network,
+process, and unknown imports, runs in a temporary working directory with a timeout, and
+records the exception in the audit artifact.
+
 ## Reference-first rules
 
 When a concrete image is supplied or selected:
@@ -114,6 +135,19 @@ validation artifact, never the canonical style source.
 - vector/raster dimensions, DPI, font substitution, and export manifest;
 - provenance and allowed reuse scope for every reference/template/source asset.
 
+Benchmark delivery is a hard gate, not an informational score. CI enforces Recall@1 ≥ 0.90,
+Recall@3 ≥ 0.97, NDCG@3 ≥ 0.95, mean alignment ≥ 0.7771, per-dimension structure,
+composition, whitespace, typography, palette roles, marks/strokes, annotations, density,
+and overall-style floors, scientific correctness = 100%, export contract = 100%, and zero
+champion regression. Development/validation/holdout splits, adversarial retrieval cases,
+the 20-task generation-regression corpus, scale checks (100/500/1,000/5,000 references),
+and adapter canaries are separate gates.
+
+Reference-led renderers must explicitly consume `TypographySpec`, `PaletteSpec`,
+`LayoutSpec`, and `ComponentSpec` through `scripts/render_contract.py`. A renderer may not
+silently replace those tokens with backend defaults or report production-ready output
+without the final QA/export artifacts.
+
 Run the relevant checks from `manifest.yaml`; for skill maintenance also run
 `scripts/check_skill_contract.py`, `scripts/check_source_reference_catalog.py`, the
 package tests, and the reference/index checks.
@@ -134,6 +168,8 @@ package tests, and the reference/index checks.
 | QA/export | `references/checklist.md`, `references/delivery-contract.md`, `references/export-specs.md`, `scripts/rendered_contrast.py`, `scripts/audit_pdf_text.py` |
 | Source reconstruction maintenance | `references/source-reconstruction-library.md`, `scripts/check_source_reconstruction_library.py`, `scripts/check_source_reference_catalog.py` |
 | Optimization packet | `scripts/prepare_visual_optimization.py`, `scripts/check_visual_optimization.py` |
+| Benchmark and release gates | `scripts/ci_gate.py`, `scripts/evaluate_benchmark.py`, `scripts/evaluate_holdout.py`, `scripts/evaluate_generation_regression.py`, `scripts/check_champion_floors.py`, `scripts/adversarial_retrieval.py`, `scripts/scale_benchmark.py` |
+| Quarantine and sandbox | `scripts/check_reference_quarantine.py`, `scripts/migrate_reference_quarantine.py`, `scripts/reference_code_sandbox.py`, `scripts/render_contract.py` |
 
 Do not execute untrusted reference-local code as part of intake. Prefer the constrained
 renderer/spec compiler path; if a legacy reproduction script is needed for a private,

@@ -9,11 +9,22 @@
   "journal_style": "Nature",
   "layout": "1x1",
   "license": "unknown",
+  "lifecycle_state": "benchmarked",
   "n_groups": 4,
   "notes": "Publication figure from figures4papers/figure_ImmunoStruct/figures/bars_comparison_IEDB.png. Used as visual reference for BarComparison style; do not redistribute without permission.",
   "palette": null,
   "palette_policy": "preserve",
   "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "evidence": "existing reconstruction/fidelity review artifacts",
+        "reason": "legacy_reviewed_corpus_migration",
+        "state": "benchmarked"
+      }
+    ],
+    "state": "benchmarked"
+  },
   "reconstruction_blueprint": {
     "annotation_model": "panel_letters + local_legends + direct_callouts",
     "blueprint_id": "immunostruct_comparison_iedb",

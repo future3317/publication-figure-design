@@ -1,12 +1,17 @@
 {
-  "schema": "publication-figure-design/figure-card-v1",
+  "schema": "publication-figure-design/figure-card",
+  "schema_version": "2.0",
   "source": "self-generated reproduction of WeChat reference",
   "figure_type": "ScatterRegressionRaincloud",
+  "source_sha256": "ca001930a94c98a4b1fb32735f2bffefbdd5fdce4e52436b8dadc158db223541",
+  "perceptual_hash": "bb228f8d70e2bf3c",
   "canvas": {
     "width_px": 2673,
     "height_px": 1230,
     "aspect_ratio": 2.173171,
-    "mode": "RGB"
+    "mode": "RGBA",
+    "colorspace": "sRGB_assumed",
+    "has_alpha": true
   },
   "background": {
     "rgb": [
@@ -18,6 +23,30 @@
     "near_white": true
   },
   "ink_coverage": 0.132604,
+  "geometry": {
+    "content_bbox_px": [
+      31,
+      28,
+      2646,
+      1197
+    ],
+    "whitespace_fraction": 0.867396,
+    "row_density_peaks": [
+      1066,
+      1064,
+      1065,
+      1067,
+      1063
+    ],
+    "column_density_peaks": [
+      198,
+      197,
+      199,
+      1670,
+      1671
+    ],
+    "ink_density": 0.132604
+  },
   "palette": {
     "dominant": [
       {
@@ -27,94 +56,211 @@
           255,
           255
         ],
-        "fraction": 0.920412,
+        "fraction": 0.867709,
         "role": "background"
       },
       {
-        "hex": "#def0de",
+        "hex": "#e6f2e6",
         "rgb": [
-          222,
-          240,
-          222
+          230,
+          242,
+          230
         ],
-        "fraction": 0.020883,
+        "fraction": 0.030826,
         "role": "data_or_annotation"
       },
       {
-        "hex": "#fad5d6",
+        "hex": "#f0d9d9",
         "rgb": [
-          250,
-          213,
+          240,
+          217,
+          217
+        ],
+        "fraction": 0.022403,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#70b196",
+        "rgb": [
+          112,
+          177,
+          150
+        ],
+        "fraction": 0.01954,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#c6c5c8",
+        "rgb": [
+          198,
+          197,
+          200
+        ],
+        "fraction": 0.018531,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#b57683",
+        "rgb": [
+          181,
+          118,
+          131
+        ],
+        "fraction": 0.017069,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#c7e0d6",
+        "rgb": [
+          199,
+          224,
           214
         ],
-        "fraction": 0.01608,
+        "fraction": 0.012696,
         "role": "data_or_annotation"
       },
       {
-        "hex": "#000000",
+        "hex": "#491112",
         "rgb": [
-          0,
-          0,
-          0
+          73,
+          17,
+          18
         ],
-        "fraction": 0.010443,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#a5d6a4",
-        "rgb": [
-          165,
-          214,
-          164
-        ],
-        "fraction": 0.009558,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#9abedb",
-        "rgb": [
-          154,
-          190,
-          219
-        ],
-        "fraction": 0.007863,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#d4d4d4",
-        "rgb": [
-          212,
-          212,
-          212
-        ],
-        "fraction": 0.007619,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#ec5e60",
-        "rgb": [
-          236,
-          94,
-          96
-        ],
-        "fraction": 0.007142,
+        "fraction": 0.011226,
         "role": "data_or_annotation"
       }
     ],
     "extraction": "extcolors-or-pillow-quantize"
   },
   "panels": {
-    "status": "manual_required",
-    "count": null,
-    "layout": null
+    "status": "heuristic_single_canvas",
+    "count": 1,
+    "layout": "single_canvas",
+    "bboxes_px": [
+      [
+        31,
+        28,
+        2646,
+        1197
+      ]
+    ],
+    "adjacency": [],
+    "reading_order": [
+      0
+    ]
+  },
+  "plot_bbox": [
+    31,
+    28,
+    2646,
+    1197
+  ],
+  "whitespace_map": {
+    "status": "pixel_density",
+    "fraction": 0.867396
+  },
+  "visual_density": 0.132604,
+  "saliency": {
+    "status": "ink_density_proxy",
+    "bbox_px": [
+      31,
+      28,
+      2646,
+      1197
+    ]
   },
   "axes": {
-    "status": "manual_required"
+    "status": "heuristic_pixel_measurement",
+    "spines": {
+      "top": 0.0,
+      "bottom": 0.0,
+      "left": 0.0,
+      "right": 0.0
+    },
+    "tick_proxy": {
+      "row_peaks": [
+        145,
+        194,
+        191,
+        193,
+        192,
+        1064,
+        1066,
+        1065
+      ],
+      "column_peaks": [
+        2460,
+        2462,
+        1669,
+        1670,
+        197,
+        199,
+        198,
+        1671
+      ]
+    },
+    "grid_proxy": {
+      "horizontal_density": 0.024317,
+      "vertical_density": 0.023577
+    }
   },
   "typography": {
-    "status": "manual_required"
+    "status": "heuristic_ink_hierarchy",
+    "font_family": "manual_review_required",
+    "hierarchy": [
+      {
+        "role": "headline_or_axis",
+        "ink_density_peak": 0.075185
+      },
+      {
+        "role": "body_or_tick",
+        "ink_density_peak": 0.024317
+      }
+    ],
+    "size_proxy": {
+      "largest_dark_run_px": 34
+    }
   },
   "annotations": {
-    "status": "manual_required"
-  }
+    "status": "heuristic_density_regions",
+    "content_bbox_px": [
+      31,
+      28,
+      2646,
+      1197
+    ],
+    "high_density_rows": [
+      1065,
+      1066,
+      1064,
+      192,
+      193
+    ],
+    "high_density_columns": [
+      1671,
+      198,
+      199,
+      197,
+      1670
+    ]
+  },
+  "marker_family": {
+    "status": "heuristic",
+    "dark_pixel_fraction": 0.01421
+  },
+  "stroke_width_px": {
+    "status": "heuristic_short_run_proxy",
+    "median": 3.0
+  },
+  "component_crops": [
+    {
+      "name": "content",
+      "bbox_px": [
+        31,
+        28,
+        2646,
+        1197
+      ]
+    }
+  ]
 }

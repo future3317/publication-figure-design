@@ -9,11 +9,22 @@
   "journal_style": "Nature",
   "layout": "1x3",
   "license": "synthetic-redraw",
+  "lifecycle_state": "benchmarked",
   "n_groups": 2,
   "notes": "Synthetic redraw of figures4papers multi-panel trend style: two data panels + one dedicated legend-only panel. Borrow layout and legend strategy, not data.",
   "palette": null,
   "palette_policy": "preserve",
   "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "evidence": "existing reconstruction/fidelity review artifacts",
+        "reason": "legacy_reviewed_corpus_migration",
+        "state": "benchmarked"
+      }
+    ],
+    "state": "benchmarked"
+  },
   "review_status": "reviewed",
   "scope": "references",
   "sha256": "8c7c60af478ae5d089e554499365730b35e9666ffb436a8eae1d372b6c19b58b",

@@ -10,8 +10,7 @@ opening a concrete reference image.
 Refresh the catalog after updating the checkout:
 
 ```powershell
-$py = "C:\Users\LRH\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe"
-& $py scripts/chartmimic_catalog.py E:\DATA\ChartMimic\dimentions_info_edit.jsonl `
+python scripts/chartmimic_catalog.py <chartmimic-checkout>/dimentions_info_edit.jsonl `
   --output assets/reference-benchmarks/chartmimic/catalog.json
 ```
 

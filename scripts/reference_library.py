@@ -78,6 +78,7 @@ _SCOPES = {"references", "generated-archive"}
 
 # Allowed review statuses.
 _REVIEW_STATUSES = {"pending", "reviewed", "rejected", "promoted"}
+_LIFECYCLE_STATES = {"raw", "analyzed", "reviewed", "benchmarked", "production", "rejected"}
 
 # Allowed usage scopes.  This field expresses copyright / redistribution scope
 # only.  Template maturity is expressed by ``review_status`` and
@@ -121,6 +122,8 @@ REFERENCE_METADATA_FIELDS = [
     "reproduction_preview_path",
     "figure_card_path",
     "review_status",
+    "lifecycle_state",
+    "quarantine",
     "aesthetic_rating",
     "production_ready",
     "n_groups",
@@ -160,6 +163,8 @@ _DEFAULT_METADATA = {
     "reproduction_preview_path": None,
     "figure_card_path": None,
     "review_status": "pending",
+    "lifecycle_state": "raw",
+    "quarantine": {},
     "aesthetic_rating": None,
     "production_ready": False,
     "n_groups": None,
@@ -424,6 +429,14 @@ def validate_metadata(metadata: Dict[str, Any], root: Path = SKILL_ROOT) -> Tupl
             f"Invalid review_status {meta.get('review_status')!r}; "
             f"must be one of {_REVIEW_STATUSES}"
         )
+
+    lifecycle_state = meta.get("lifecycle_state")
+    if lifecycle_state not in _LIFECYCLE_STATES:
+        errors.append(
+            f"Invalid lifecycle_state {lifecycle_state!r}; must be one of {_LIFECYCLE_STATES}"
+        )
+    if not isinstance(meta.get("quarantine"), dict):
+        errors.append("quarantine must be an object")
 
     if meta.get("usage_scope") not in _USAGE_SCOPES:
         errors.append(
@@ -708,6 +721,8 @@ class ReferenceLibrary:
             "review_status": "pending",
             "aesthetic_rating": None,
             "production_ready": False,
+            "lifecycle_state": "raw",
+            "quarantine": {"state": "raw", "history": []},
         })
 
         meta = _normalise_metadata(meta, self.root)
@@ -843,6 +858,7 @@ class ReferenceLibrary:
             "review_status": "reviewed",
             "aesthetic_rating": aesthetic_rating,
             "production_ready": False,
+            "lifecycle_state": "reviewed",
             "visual_review": copy.deepcopy(visual_review),
             "original_quality": "reviewed",
             "analysis_quality": "reviewed" if ref.metadata.get("figure_card_path") else "unassessed",
@@ -856,6 +872,10 @@ class ReferenceLibrary:
             # enabled only by an explicit fidelity verdict in visual_review.
             "eligible_for_code_reuse": visual_review.get("reconstruction_fidelity") == "pass",
         })
+        quarantine = ref.metadata.get("quarantine") if isinstance(ref.metadata.get("quarantine"), dict) else {"history": []}
+        history = list(quarantine.get("history") or [])
+        history.append({"state": "reviewed", "reviewer": visual_review.get("reviewer")})
+        ref.metadata["quarantine"] = {"state": "reviewed", "history": history}
         meta_path = self._metadata_path(ref.id, ref.scope)
         meta_path.write_text(
             json.dumps(ref.metadata, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
@@ -863,6 +883,50 @@ class ReferenceLibrary:
         )
         self._refs[ref.id] = ref
         return ref
+
+    def benchmark_reference(self, ref_id: str, canary_report: Dict[str, Any]) -> VisualReference:
+        """Move a reviewed reference into the formal retrieval pool.
+
+        A successful retrieval and generation canary is required; merely having
+        a runnable renderer or a human review cannot bypass this gate.
+        """
+        ref = self.get(ref_id)
+        if ref is None:
+            raise KeyError(f"Unknown visual reference: {ref_id}")
+        if ref.metadata.get("review_status") not in {"reviewed", "promoted"}:
+            raise ValueError("Reference must be reviewed before benchmarking.")
+        if not isinstance(canary_report, dict) or canary_report.get("canary_pass") is not True:
+            raise ValueError("A passing retrieval and generation canary is required.")
+        history = list((ref.metadata.get("quarantine") or {}).get("history") or [])
+        history.append({"state": "benchmarked", "report": copy.deepcopy(canary_report)})
+        ref.metadata["lifecycle_state"] = "benchmarked"
+        ref.metadata["quarantine"] = {"state": "benchmarked", "history": history}
+        self._write_metadata(ref)
+        return ref
+
+    def promote_reference(self, ref_id: str, evidence: Dict[str, Any]) -> VisualReference:
+        """Promote a benchmarked reference to the production recommendation pool."""
+        ref = self.get(ref_id)
+        if ref is None:
+            raise KeyError(f"Unknown visual reference: {ref_id}")
+        if ref.metadata.get("lifecycle_state") != "benchmarked":
+            raise ValueError("Reference must be benchmarked before production promotion.")
+        if not isinstance(evidence, dict) or evidence.get("champion_floor_pass") is not True:
+            raise ValueError("Champion-floor evidence is required for promotion.")
+        ref.metadata["lifecycle_state"] = "production"
+        ref.metadata["production_ready"] = True
+        history = list((ref.metadata.get("quarantine") or {}).get("history") or [])
+        history.append({"state": "production", "evidence": copy.deepcopy(evidence)})
+        ref.metadata["quarantine"] = {"state": "production", "history": history}
+        self._write_metadata(ref)
+        return ref
+
+    def _write_metadata(self, ref: VisualReference) -> None:
+        meta_path = self._metadata_path(ref.id, ref.scope)
+        meta_path.write_text(
+            json.dumps(ref.metadata, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
 
     def list(
         self,
@@ -919,6 +983,11 @@ class ReferenceLibrary:
                 continue
             if review_status is None and not include_unreviewed and m.get("review_status") not in {"reviewed", "promoted"}:
                 continue
+            # ``query`` is also the diagnostic/audit API, so reviewed records
+            # remain visible here.  Formal recommendation uses the stricter
+            # benchmarked/production filter below.
+            if not include_unreviewed and m.get("lifecycle_state") and m.get("lifecycle_state") in {"raw", "analyzed", "rejected"} and m.get("review_status") not in {"reviewed", "promoted"}:
+                continue
             if m.get("reference_kind") == "exact_visual_source" and m.get("review_status") != "reviewed":
                 continue
             if palette is not None and m.get("palette") != palette:
@@ -974,6 +1043,7 @@ class ReferenceLibrary:
         journal_style: Optional[str] = None,
         exclude_ids: Optional[Iterable[str]] = None,
         limit: int = 3,
+        require_benchmark: bool = False,
     ) -> Dict[str, Any]:
         """Recommend an explainable, task-compatible, diverse visual shortlist."""
         canonical_type = normalize_figure_type(figure_type)
@@ -989,6 +1059,11 @@ class ReferenceLibrary:
             ref for ref in self.all()
             if ref.id not in excluded
             and ref.metadata.get("review_status") in {"reviewed", "promoted"}
+            and (
+                ref.metadata.get("lifecycle_state", "benchmarked") in {"benchmarked", "production"}
+                if require_benchmark
+                else ref.metadata.get("review_status") in {"reviewed", "promoted"}
+            )
             and ref.image_path is not None
             and ref.image_path.is_file()
             and not (
@@ -1437,6 +1512,7 @@ def cli(argv: Optional[List[str]] = None) -> int:
     recommend_p.add_argument("--journal-style")
     recommend_p.add_argument("--exclude-ids", default="")
     recommend_p.add_argument("--limit", type=int, default=3)
+    recommend_p.add_argument("--require-benchmark", action="store_true")
     recommend_p.add_argument("--json", dest="json_path", type=Path)
     recommend_p.add_argument("--root", type=Path, help=argparse.SUPPRESS)
 
@@ -1523,6 +1599,7 @@ def cli(argv: Optional[List[str]] = None) -> int:
             journal_style=args.journal_style,
             exclude_ids=split(args.exclude_ids),
             limit=args.limit,
+            require_benchmark=args.require_benchmark,
         )
         print(json.dumps(report, indent=2, ensure_ascii=False))
         if args.json_path:

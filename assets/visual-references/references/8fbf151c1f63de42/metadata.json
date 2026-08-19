@@ -9,11 +9,21 @@
   "journal_style": "Nature",
   "layout": "1x1",
   "license": "unknown",
+  "lifecycle_state": "raw",
   "n_groups": 12,
   "notes": "WeChat screenshot: categorical bar chart with blue-to-red gradient fill, direct value annotations, error bars, and dashed trend line. Reproduction script (code.py) provided.",
   "palette": null,
   "palette_policy": "adaptable",
   "production_ready": true,
+  "quarantine": {
+    "history": [
+      {
+        "reason": "legacy_intake_migration",
+        "state": "raw"
+      }
+    ],
+    "state": "raw"
+  },
   "review_status": "pending",
   "scope": "references",
   "sha256": "8fbf151c1f63de4206b49c4e541bb8d24ad5fa6f41ddb6e8d7f6eac965fb79b2",

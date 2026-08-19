@@ -9,11 +9,21 @@
   "journal_style": "Nature",
   "layout": "3x2",
   "license": "unknown",
+  "lifecycle_state": "raw",
   "n_groups": 5,
   "notes": "WeChat screenshot: 6-panel grouped violin/box plots with individual points and significance brackets across 5 groups, in multiple color schemes. Reproduction script provided (plot_GroupedViolinRaincloud.py).",
   "palette": "summer_beach",
   "palette_policy": "adaptable",
   "production_ready": true,
+  "quarantine": {
+    "history": [
+      {
+        "reason": "legacy_intake_migration",
+        "state": "raw"
+      }
+    ],
+    "state": "raw"
+  },
   "review_status": "pending",
   "scope": "references",
   "sha256": "7fee7c75142949e595ab0067d26335abfdc7c6cd268c8338d673458b4fe9690f",

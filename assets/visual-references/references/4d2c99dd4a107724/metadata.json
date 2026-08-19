@@ -9,11 +9,22 @@
   "journal_style": "Nature",
   "layout": "1x1",
   "license": "synthetic-redraw",
+  "lifecycle_state": "benchmarked",
   "n_groups": 4,
   "notes": "Raincloud visual grammar for GroupedViolin: half-violin + boxplot + jitter. Borrow layout, not figure type.",
   "palette": "watercolor_bloom",
   "palette_policy": "adaptable",
   "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "evidence": "existing reconstruction/fidelity review artifacts",
+        "reason": "legacy_reviewed_corpus_migration",
+        "state": "benchmarked"
+      }
+    ],
+    "state": "benchmarked"
+  },
   "review_status": "reviewed",
   "scope": "references",
   "sha256": "4d2c99dd4a107724bd2aa4d2c316dce38b5ebc5ef52f92a1c22fe5af14d79c6f",

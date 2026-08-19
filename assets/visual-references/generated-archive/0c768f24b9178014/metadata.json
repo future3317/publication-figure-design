@@ -10,6 +10,7 @@
   "journal_style": null,
   "layout": "multi-panel",
   "license": "generated independently; source license recorded in audit manifest",
+  "lifecycle_state": "raw",
   "n_groups": null,
   "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
   "observable_visual_grammar": {
@@ -25,6 +26,15 @@
   "palette": null,
   "palette_policy": "preserve",
   "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "reason": "legacy_intake_migration",
+        "state": "raw"
+      }
+    ],
+    "state": "raw"
+  },
   "reconstruction_blueprint": {
     "annotation_model": "panel_letters + local_legends + direct_callouts",
     "blueprint_id": "dispersion_observation",

@@ -9,11 +9,22 @@
   "journal_style": "Nature",
   "layout": "1x1 with sidebars",
   "license": "synthetic-redraw",
+  "lifecycle_state": "benchmarked",
   "n_groups": 3,
   "notes": "ComplexHeatmap visual grammar for heatmap: clustered rows/columns + row/column annotation bars. Borrow layout and annotation, not figure type.",
   "palette": "fresh_holiday",
   "palette_policy": "preserve",
   "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "evidence": "existing reconstruction/fidelity review artifacts",
+        "reason": "legacy_reviewed_corpus_migration",
+        "state": "benchmarked"
+      }
+    ],
+    "state": "benchmarked"
+  },
   "review_status": "reviewed",
   "scope": "references",
   "sha256": "3b94fea2e7f95f8fd871d90bf5af1022ced25ef2b427ef61aebe1cb7deaf8e31",

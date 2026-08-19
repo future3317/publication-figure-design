@@ -3,17 +3,29 @@
   "code_path": "assets/visual-references/generated-archive/76866da267962098/code.py",
   "created_at": "2026-08-11T14:17:01Z",
   "data_density": "medium",
+  "figure_card_path": "assets/visual-references/generated-archive/76866da267962098/figure_card.json",
   "figure_type": "BarCategorical",
   "id": "76866da267962098",
   "image_path": "assets/visual-references/generated-archive/76866da267962098/image.png",
   "journal_style": "Nature",
   "layout": "1x1",
   "license": "unknown",
+  "lifecycle_state": "raw",
   "n_groups": 12,
   "notes": "Synthetic reproduction of the WeChat BarCategorical reference.",
   "palette": null,
   "palette_policy": "adaptable",
   "production_ready": true,
+  "quarantine": {
+    "history": [
+      {
+        "reason": "legacy_intake_migration",
+        "state": "raw"
+      }
+    ],
+    "state": "raw"
+  },
+  "reproduction_preview_path": "assets/visual-references/generated-archive/76866da267962098/image.png",
   "review_status": "pending",
   "scope": "generated-archive",
   "sha256": "0bc3955fe41706c0a13d38e190a9f2aeeeaeda08054aeee9afd03ef1ba8ca423",
@@ -28,7 +40,5 @@
     "trend-line",
     "reproduction"
   ],
-  "usage_scope": "internal_reference",
-  "figure_card_path": "assets/visual-references/generated-archive/76866da267962098/figure_card.json",
-  "reproduction_preview_path": "assets/visual-references/generated-archive/76866da267962098/image.png"
+  "usage_scope": "internal_reference"
 }

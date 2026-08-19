@@ -10,11 +10,22 @@
   "journal_style": null,
   "layout": "single-polar-panel",
   "license": "user-supplied; redistribution not established",
+  "lifecycle_state": "benchmarked",
   "n_groups": 3,
   "notes": "Dense polar radar with filled yearly polygons, center donut, and an outer ring of planting-area bubbles. Visual inspiration only; synthetic reconstruction uses generated values.",
   "palette": null,
   "palette_policy": "adaptable",
   "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "evidence": "existing reconstruction/fidelity review artifacts",
+        "reason": "legacy_reviewed_corpus_migration",
+        "state": "benchmarked"
+      }
+    ],
+    "state": "benchmarked"
+  },
   "reference_kind": "user_supplied",
   "reproduction_preview_path": "assets/visual-references/references/22f32e9bd10b34ee/reconstruction.png",
   "review_status": "reviewed",

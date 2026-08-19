@@ -8,6 +8,7 @@ scripts while making every transition inspectable and resumable.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import uuid
 from dataclasses import asdict, dataclass, field
@@ -21,6 +22,20 @@ from ..contracts.models import Contract, TaskSpec
 
 def _now() -> str:
     return datetime.now(timezone.utc).isoformat()
+
+
+def _canonical_hash(value: Any) -> str:
+    encoded = json.dumps(_jsonable(value), sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
+
+
+def _current_index_version() -> str:
+    root = Path(__file__).resolve().parents[3]
+    try:
+        payload = json.loads((root / "indexes" / "semantic.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return "unknown"
+    return str(payload.get("provenance", {}).get("index_version") or payload.get("model_version") or "unknown")
 
 
 def _jsonable(value: Any) -> Any:
@@ -114,6 +129,7 @@ class StageContext:
     contracts: Dict[str, Any]
     artifacts: Dict[str, Dict[str, Any]]
     previous_artifact: Optional[Dict[str, Any]] = None
+    telemetry: Dict[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         return _jsonable(asdict(self))
@@ -149,16 +165,23 @@ class WorkflowSession:
 
     @classmethod
     def from_dict(cls, data: Mapping[str, Any]) -> "WorkflowSession":
+        task = dict(data.get("task", {}))
+        telemetry = dict(data.get("telemetry", {}))
+        telemetry.setdefault("selected_reference_ids", list(telemetry.get("reference_ids", [])))
+        telemetry.setdefault("reference_index_version", str(task.get("metadata", {}).get("reference_index_version", "unknown")))
+        telemetry.setdefault("input_hash", _canonical_hash(task))
+        telemetry.setdefault("renderer_version", str(task.get("metadata", {}).get("renderer_version", "")))
+        telemetry.setdefault("output_hash", "")
         return cls(
             session_id=str(data["session_id"]),
-            task=dict(data.get("task", {})),
+            task=task,
             contracts=dict(data.get("contracts", {})),
             current_stage=data.get("current_stage"),
             status=str(data.get("status", "ready")),
             artifacts=dict(data.get("artifacts", {})),
             history=list(data.get("history", [])),
             best_so_far=data.get("best_so_far"),
-            telemetry=dict(data.get("telemetry", {})),
+            telemetry=telemetry,
         )
 
     @classmethod
@@ -204,6 +227,19 @@ class Orchestrator:
             session_id=task.task_id or uuid.uuid4().hex,
             task=task.to_dict(),
             contracts=contract_map,
+            telemetry={
+                "route": "",
+                "reference_ids": [],
+                "selected_reference_ids": [],
+                "reference_index_version": str(task.metadata.get("reference_index_version") or _current_index_version()),
+                "input_hash": _canonical_hash(task.to_dict()),
+                "renderer_version": str(task.metadata.get("renderer_version", "")),
+                "style_spec_version": str(task.metadata.get("style_spec_version", "")),
+                "iterations": 0,
+                "failed_gates": [],
+                "final_scores": {},
+                "output_hash": "",
+            },
         )
 
     def resume(self, session: Union[WorkflowSession, Mapping[str, Any], str, Path]) -> WorkflowSession:
@@ -238,6 +274,7 @@ class Orchestrator:
             contracts=session.contracts,
             artifacts=session.artifacts,
             previous_artifact=previous,
+            telemetry=session.telemetry,
         )
         attempt = 1 + sum(
             1 for record in session.history
@@ -283,6 +320,24 @@ class Orchestrator:
         session.status = "complete" if key == WorkflowStage.EXPORT.value else "ready"
         self._update_best(session, artifact)
         if isinstance(payload, Mapping):
+            if key == WorkflowStage.REFERENCE_RETRIEVAL.value:
+                reference_set = payload.get("reference_set")
+                if isinstance(reference_set, Mapping):
+                    selected: list[str] = []
+                    for field in ("structure_reference", "style_reference", "annotation_reference", "palette_reference"):
+                        value = reference_set.get(field)
+                        if value:
+                            selected.append(str(value))
+                    selected.extend(str(value) for value in reference_set.get("component_references", []) if value)
+                    session.telemetry["selected_reference_ids"] = sorted(set(selected))
+            if key == WorkflowStage.EXPORT.value:
+                output_path = payload.get("figure_path") or payload.get("output_path")
+                if output_path:
+                    path = Path(str(output_path))
+                    if not path.is_absolute():
+                        path = Path.cwd() / path
+                    if path.is_file():
+                        session.telemetry["output_hash"] = hashlib.sha256(path.read_bytes()).hexdigest()
             metrics = payload.get("metrics")
             if isinstance(metrics, Mapping):
                 session.telemetry["final_scores"] = _jsonable(dict(metrics))

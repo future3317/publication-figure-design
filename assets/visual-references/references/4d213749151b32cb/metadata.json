@@ -10,11 +10,22 @@
   "journal_style": null,
   "layout": "single-panel-wide",
   "license": "user-supplied; redistribution not established",
+  "lifecycle_state": "benchmarked",
   "n_groups": 3,
   "notes": "Three overlaid frequency histograms share residual bins and are paired with dashed normal-fit curves. Visual inspiration only; synthetic reconstruction uses generated samples.",
   "palette": null,
   "palette_policy": "adaptable",
   "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "evidence": "existing reconstruction/fidelity review artifacts",
+        "reason": "legacy_reviewed_corpus_migration",
+        "state": "benchmarked"
+      }
+    ],
+    "state": "benchmarked"
+  },
   "reference_kind": "user_supplied",
   "reproduction_preview_path": "assets/visual-references/references/4d213749151b32cb/reconstruction.png",
   "review_status": "reviewed",

@@ -3,19 +3,31 @@
   "code_path": "assets/visual-references/references/653ce9637e303a41/code.py",
   "created_at": "2026-08-14T08:06:39Z",
   "data_density": "high",
+  "figure_card_path": "assets/visual-references/references/653ce9637e303a41/figure_card.json",
   "figure_type": "scaling_analysis",
   "id": "653ce9637e303a41",
   "image_path": "assets/visual-references/references/653ce9637e303a41/image.png",
   "journal_style": null,
   "layout": "mixed",
   "license": "user-supplied; redistribution not established",
+  "lifecycle_state": "benchmarked",
   "n_groups": null,
   "notes": "Five-panel scaling analysis combining distributions, rank-frequency, model-dimension trends, inverse-scaling reference, and exponent phase behavior. Visual inspiration only; no source code or source-paper data is bundled.",
   "palette": null,
   "palette_policy": "adaptable",
   "production_ready": false,
-  "reproduction_preview_path": "assets/visual-references/references/653ce9637e303a41/reconstruction.png",
+  "quarantine": {
+    "history": [
+      {
+        "evidence": "existing reconstruction/fidelity review artifacts",
+        "reason": "legacy_reviewed_corpus_migration",
+        "state": "benchmarked"
+      }
+    ],
+    "state": "benchmarked"
+  },
   "reference_kind": "user_supplied",
+  "reproduction_preview_path": "assets/visual-references/references/653ce9637e303a41/reconstruction.png",
   "review_status": "reviewed",
   "scope": "references",
   "sha256": "653ce9637e303a41d077892970318b7ead1df431a9d482bdb313e4a7c8d5a416",
@@ -41,6 +53,5 @@
     "reviewer": "agent visual intake review 2026-08-14",
     "text_legibility": "pass",
     "whitespace": "pass"
-  },
-  "figure_card_path": "assets/visual-references/references/653ce9637e303a41/figure_card.json"
+  }
 }

@@ -3,19 +3,31 @@
   "code_path": "assets/visual-references/references/7b7b02d82ccc7207/code.py",
   "created_at": "2026-08-14T08:06:39Z",
   "data_density": "high",
+  "figure_card_path": "assets/visual-references/references/7b7b02d82ccc7207/figure_card.json",
   "figure_type": "histogram_overlay",
   "id": "7b7b02d82ccc7207",
   "image_path": "assets/visual-references/references/7b7b02d82ccc7207/image.png",
   "journal_style": null,
   "layout": "single",
   "license": "user-supplied; redistribution not established",
+  "lifecycle_state": "benchmarked",
   "n_groups": null,
   "notes": "Overlaid distributions on a logarithmic x-axis with translucent fills, strong grid, and a large summary legend/callout. Visual inspiration only; no source code or source-paper data is bundled.",
   "palette": null,
   "palette_policy": "adaptable",
   "production_ready": false,
-  "reproduction_preview_path": "assets/visual-references/references/7b7b02d82ccc7207/reconstruction.png",
+  "quarantine": {
+    "history": [
+      {
+        "evidence": "existing reconstruction/fidelity review artifacts",
+        "reason": "legacy_reviewed_corpus_migration",
+        "state": "benchmarked"
+      }
+    ],
+    "state": "benchmarked"
+  },
   "reference_kind": "user_supplied",
+  "reproduction_preview_path": "assets/visual-references/references/7b7b02d82ccc7207/reconstruction.png",
   "review_status": "reviewed",
   "scope": "references",
   "sha256": "7b7b02d82ccc7207aa774d684e7f557e99d08eac2f5a3ea88a5d843069162cc2",
@@ -39,6 +51,5 @@
     "reviewer": "agent visual intake review 2026-08-14",
     "text_legibility": "pass",
     "whitespace": "pass"
-  },
-  "figure_card_path": "assets/visual-references/references/7b7b02d82ccc7207/figure_card.json"
+  }
 }

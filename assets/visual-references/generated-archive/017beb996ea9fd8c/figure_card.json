@@ -1,12 +1,17 @@
 {
-  "schema": "publication-figure-design/figure-card-v1",
+  "schema": "publication-figure-design/figure-card",
+  "schema_version": "2.0",
   "source": "independent visual-grammar reconstruction",
   "figure_type": "radar_grid",
+  "source_sha256": "bf095308dc4ff0f3c51b6f2f34f7c9cc95280388a035a46e1f16d91abc430f02",
+  "perceptual_hash": "f878a7875a38706a",
   "canvas": {
     "width_px": 1089,
     "height_px": 676,
     "aspect_ratio": 1.610947,
-    "mode": "RGB"
+    "mode": "RGBA",
+    "colorspace": "sRGB_assumed",
+    "has_alpha": true
   },
   "background": {
     "rgb": [
@@ -18,6 +23,30 @@
     "near_white": true
   },
   "ink_coverage": 0.151106,
+  "geometry": {
+    "content_bbox_px": [
+      12,
+      12,
+      1073,
+      664
+    ],
+    "whitespace_fraction": 0.848894,
+    "row_density_peaks": [
+      281,
+      282,
+      283,
+      284,
+      287
+    ],
+    "column_density_peaks": [
+      815,
+      813,
+      814,
+      816,
+      812
+    ],
+    "ink_density": 0.151106
+  },
   "palette": {
     "dominant": [
       {
@@ -27,94 +56,211 @@
           255,
           255
         ],
-        "fraction": 0.983282,
+        "fraction": 0.847595,
         "role": "background"
       },
       {
-        "hex": "#98c1d9",
+        "hex": "#e8e3e5",
         "rgb": [
-          152,
-          193,
-          217
+          232,
+          227,
+          229
         ],
-        "fraction": 0.004053,
+        "fraction": 0.057513,
         "role": "data_or_annotation"
       },
       {
-        "hex": "#d8dee2",
+        "hex": "#f5eeee",
         "rgb": [
-          216,
-          222,
+          245,
+          238,
+          238
+        ],
+        "fraction": 0.04626,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#fbf4f3",
+        "rgb": [
+          251,
+          244,
+          243
+        ],
+        "fraction": 0.024444,
+        "role": "background"
+      },
+      {
+        "hex": "#bbaaae",
+        "rgb": [
+          187,
+          170,
+          174
+        ],
+        "fraction": 0.01307,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#dfe4e7",
+        "rgb": [
+          223,
+          228,
+          231
+        ],
+        "fraction": 0.007603,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#eae9eb",
+        "rgb": [
+          234,
+          233,
+          235
+        ],
+        "fraction": 0.002235,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#f1e4e2",
+        "rgb": [
+          241,
+          228,
           226
         ],
-        "fraction": 0.003656,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#ee6c4d",
-        "rgb": [
-          238,
-          108,
-          77
-        ],
-        "fraction": 0.003306,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#3d5a80",
-        "rgb": [
-          61,
-          90,
-          128
-        ],
-        "fraction": 0.002343,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#f6bfb2",
-        "rgb": [
-          246,
-          191,
-          178
-        ],
-        "fraction": 0.001372,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#939da4",
-        "rgb": [
-          147,
-          157,
-          164
-        ],
-        "fraction": 0.001178,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#f0846a",
-        "rgb": [
-          240,
-          132,
-          106
-        ],
-        "fraction": 0.00081,
+        "fraction": 0.00128,
         "role": "data_or_annotation"
       }
     ],
     "extraction": "extcolors-or-pillow-quantize"
   },
   "panels": {
-    "status": "manual_required",
-    "count": null,
-    "layout": null
+    "status": "heuristic_single_canvas",
+    "count": 1,
+    "layout": "single_canvas",
+    "bboxes_px": [
+      [
+        12,
+        12,
+        1073,
+        664
+      ]
+    ],
+    "adjacency": [],
+    "reading_order": [
+      0
+    ]
+  },
+  "plot_bbox": [
+    12,
+    12,
+    1073,
+    664
+  ],
+  "whitespace_map": {
+    "status": "pixel_density",
+    "fraction": 0.848894
+  },
+  "visual_density": 0.151106,
+  "saliency": {
+    "status": "ink_density_proxy",
+    "bbox_px": [
+      12,
+      12,
+      1073,
+      664
+    ]
   },
   "axes": {
-    "status": "manual_required"
+    "status": "heuristic_pixel_measurement",
+    "spines": {
+      "top": 0.0,
+      "bottom": 0.0,
+      "left": 0.0,
+      "right": 0.0
+    },
+    "tick_proxy": {
+      "row_peaks": [
+        338,
+        201,
+        339,
+        198,
+        197,
+        340,
+        200,
+        199
+      ],
+      "column_peaks": [
+        751,
+        17,
+        224,
+        220,
+        562,
+        555,
+        556,
+        554
+      ]
+    },
+    "grid_proxy": {
+      "horizontal_density": 0.006428,
+      "vertical_density": 0.005917
+    }
   },
   "typography": {
-    "status": "manual_required"
+    "status": "heuristic_ink_hierarchy",
+    "font_family": "manual_review_required",
+    "hierarchy": [
+      {
+        "role": "headline_or_axis",
+        "ink_density_peak": 0.02135
+      },
+      {
+        "role": "body_or_tick",
+        "ink_density_peak": 0.006428
+      }
+    ],
+    "size_proxy": {
+      "largest_dark_run_px": 292
+    }
   },
   "annotations": {
-    "status": "manual_required"
-  }
+    "status": "heuristic_density_regions",
+    "content_bbox_px": [
+      12,
+      12,
+      1073,
+      664
+    ],
+    "high_density_rows": [
+      199,
+      200,
+      340,
+      197,
+      198
+    ],
+    "high_density_columns": [
+      554,
+      556,
+      555,
+      562,
+      220
+    ]
+  },
+  "marker_family": {
+    "status": "heuristic",
+    "dark_pixel_fraction": 0.002062
+  },
+  "stroke_width_px": {
+    "status": "heuristic_short_run_proxy",
+    "median": 2.0
+  },
+  "component_crops": [
+    {
+      "name": "content",
+      "bbox_px": [
+        12,
+        12,
+        1073,
+        664
+      ]
+    }
+  ]
 }

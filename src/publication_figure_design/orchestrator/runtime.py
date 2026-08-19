@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Any, Mapping
 
 from ..contracts import ReferenceSet, SourceSpec, TaskSpec
-from .machine import Orchestrator, StageContext
+from .machine import GateResult, Orchestrator, StageContext
 
 
 def _metadata(context: StageContext) -> dict[str, Any]:
@@ -38,12 +38,19 @@ def _retrieve(context: StageContext) -> dict[str, Any]:
     if isinstance(data, Mapping):
         references = ReferenceSet.from_dict(data)
     else:
-        ids = metadata.get("reference_ids") or metadata.get("references") or []
+        # Resume is deterministic: once a session has selected references, the
+        # retrieval stage reuses those ids instead of sampling the pool again.
+        ids = context.telemetry.get("selected_reference_ids") or metadata.get("reference_ids") or metadata.get("references") or []
         if isinstance(ids, str):
             ids = [ids]
         ids = [str(value) for value in ids]
         references = ReferenceSet(candidates=[{"id": value} for value in ids])
-    return {"status": "ready" if references.candidates or references.structure_reference else "not_provided", "reference_set": references.to_dict()}
+    return {
+        "status": "ready" if references.candidates or references.structure_reference else "not_provided",
+        "reference_set": references.to_dict(),
+        "reference_index_version": context.telemetry.get("reference_index_version", "unknown"),
+        "deterministic_resume": bool(context.telemetry.get("selected_reference_ids")),
+    }
 
 
 def _inspect(context: StageContext) -> dict[str, Any]:
@@ -84,6 +91,29 @@ def _compare(context: StageContext) -> dict[str, Any]:
     return {"status": "ready", "comparison": compare_output_to_reference(reference, candidate)}
 
 
+def _render(context: StageContext) -> dict[str, Any]:
+    metadata = _metadata(context)
+    supplied = metadata.get("render_plan") or metadata.get("render")
+    if supplied is None:
+        return {"status": "not_provided", "render_plan": None}
+    if not isinstance(supplied, Mapping):
+        return {"status": "blocked", "errors": ["render_plan must be an object"]}
+    try:
+        from ..render_contract import validate_render_contract
+    except ImportError:  # direct script execution keeps the adapter path usable
+        from render_contract import validate_render_contract
+
+    reference_led = bool(metadata.get("reference_led") or metadata.get("reference_image") or metadata.get("reference_ids"))
+    passed, failures = validate_render_contract(supplied, reference_led=reference_led)
+    return {
+        "status": "ready" if passed else "blocked",
+        "render_plan": dict(supplied),
+        "reference_led": reference_led,
+        "consumed_specs": supplied.get("consumed_specs", []),
+        "errors": failures,
+    }
+
+
 def build_runtime_orchestrator() -> Orchestrator:
     """Build the production CLI orchestrator with script-backed handlers."""
     from .machine import WorkflowStage
@@ -95,11 +125,16 @@ def build_runtime_orchestrator() -> Orchestrator:
         WorkflowStage.REFERENCE_INSPECTION: _inspect,
         WorkflowStage.DESIGN_SPEC: _carry("design_spec"),
         WorkflowStage.BINDING: _carry("binding_map"),
-        WorkflowStage.RENDER: _carry("render_plan"),
+        WorkflowStage.RENDER: _render,
         WorkflowStage.COMPARE: _compare,
         WorkflowStage.CRITIQUE: _carry("critique"),
         WorkflowStage.REPAIR: _carry("repair"),
         WorkflowStage.QA: _carry("qa_report"),
         WorkflowStage.EXPORT: _carry("export_manifest"),
     }
-    return Orchestrator(handlers=handlers)
+    def status_gate(payload: Any) -> GateResult:
+        if isinstance(payload, Mapping) and payload.get("status") == "blocked":
+            return GateResult(False, "handler reported blocked", {"errors": payload.get("errors", [])})
+        return GateResult(True, "handler status accepted")
+
+    return Orchestrator(handlers=handlers, gates={WorkflowStage.RENDER: status_gate})

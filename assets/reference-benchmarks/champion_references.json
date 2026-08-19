@@ -1,5 +1,17 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "selection_policy": "manual aesthetic upper-bound benchmark; never auto-promote",
-  "reference_ids": ["0de2014d0cf60d22", "4d213749151b32cb", "22f32e9bd10b34ee"]
+  "reference_ids": ["0de2014d0cf60d22", "4d213749151b32cb", "22f32e9bd10b34ee"],
+  "quality_floors": {
+    "typography": 0.72,
+    "whitespace": 0.68,
+    "composition": 0.72,
+    "annotations": 0.68,
+    "palette_discipline": 0.72
+  },
+  "reference_floors": {
+    "0de2014d0cf60d22": {"typography": 0.78, "whitespace": 0.74, "composition": 0.80, "annotations": 0.76, "palette_discipline": 0.82},
+    "4d213749151b32cb": {"typography": 0.76, "whitespace": 0.72, "composition": 0.78, "annotations": 0.72, "palette_discipline": 0.80},
+    "22f32e9bd10b34ee": {"typography": 0.76, "whitespace": 0.70, "composition": 0.76, "annotations": 0.70, "palette_discipline": 0.78}
+  }
 }
