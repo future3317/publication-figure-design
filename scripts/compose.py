@@ -1,4 +1,4 @@
-"""Academic Figure Skill multi-panel composition engine.
+"""Publication Figure Design multi-panel composition engine.
 
 The engine keeps journal dimensions, typography, panel labels, and export behavior
 consistent across Python-only and mixed Python/R figures.
@@ -37,7 +37,7 @@ ACCENT = "#B2182B"
 # ═══════════════════════════════════════════════════════════
 # Journal-specific palette variants (Nature / Cell / Science)
 # ═══════════════════════════════════════════════════════════
-# All three journals share the Academic Figure Skill restrained-color philosophy but differ
+# All three journals share the Publication Figure Design restrained-color philosophy but differ
 # in saturation, warmth, and grey emphasis. Palettes below reflect prevailing
 # published-figure conventions in each journal family.
 
@@ -82,7 +82,7 @@ JOURNAL_PALETTES = {
 
 
 def journal_palette(journal: str = None) -> dict:
-    """Return palette dict for the given journal. Falls back to default Academic Figure Skill palette.
+    """Return palette dict for the given journal. Falls back to default Publication Figure Design palette.
 
     Usage:
         pal = journal_palette("Nature Genetics")   # returns Nature variant
@@ -203,7 +203,7 @@ def get_palette(n: int, role: str = "categorical", palette: str | None = None) -
     scripts.
 
     When ``compose_figure(journal="Nature")`` is used, colors come from the
-    journal-specific palette. Otherwise the Academic Figure Skill default
+    journal-specific palette. Otherwise the Publication Figure Design default
     palette is used.
     """
     if role == "sequential":
@@ -366,7 +366,7 @@ def compose_figure(
         Hero panel gets 1.35x width, supporting panels stay at 1.0x.
     journal : str or None
         Journal name for palette selection (e.g. "Nature Genetics",
-        "Cell Reports", "Science"). None uses the default Academic Figure Skill palette.
+        "Cell Reports", "Science"). None uses the default Publication Figure Design palette.
     """
     import matplotlib as mpl
 
@@ -512,7 +512,7 @@ def compose_cross_language(
 
 
 def save_cns_figure(fig, filename: str):
-    """Standard Academic Figure Skill export: vector PDF + 300dpi PNG preview."""
+    """Standard Publication Figure Design export: vector PDF + 300dpi PNG preview."""
     fig.savefig(f"{filename}.pdf", bbox_inches="tight", dpi=300)
     fig.savefig(f"{filename}.png", bbox_inches="tight", dpi=300)
 

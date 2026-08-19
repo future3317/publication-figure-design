@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Light-weight Visual Reference Library for academic-figure-skill.
+"""Light-weight Visual Reference Library for publication-figure-design.
 
 This module manages visual references independently from production assets
 (``assets/figures/``).  A visual reference is a single example image plus a
@@ -34,14 +34,25 @@ import json as _json
 import os
 import shutil
 import sys
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
 try:
+    from PIL import Image
+except ImportError:  # pragma: no cover - minimal runtimes may omit Pillow
+    Image = None  # type: ignore[assignment,misc]
+
+try:
     from .palette_manager import list_palettes, _normalize_name as _resolve_palette_name
 except ImportError:  # pragma: no cover - allow standalone import during dev
     from palette_manager import list_palettes, _normalize_name as _resolve_palette_name
+
+try:
+    from .visual_grammar import validate_visual_grammar
+except ImportError:  # pragma: no cover - allow standalone import during dev
+    from visual_grammar import validate_visual_grammar
 
 
 __all__ = [
@@ -51,6 +62,7 @@ __all__ = [
     "ingest_image",
     "archive_generated_figure",
     "cli",
+    "normalize_figure_type",
 ]
 
 
@@ -91,16 +103,32 @@ REFERENCE_METADATA_FIELDS = [
     "journal_style",
     "source",
     "source_url",
+    "author",
+    "venue",
+    "year",
     "license",
     "usage_scope",
+    "allowed_usage",
     "image_path",
+    "preview_path",
+    "thumbnail_path",
+    "dimensions",
+    "colorspace",
+    "has_alpha",
+    "perceptual_hash",
+    "aliases",
     "code_path",
+    "reproduction_preview_path",
+    "figure_card_path",
     "review_status",
     "aesthetic_rating",
     "production_ready",
     "n_groups",
     "data_density",
     "notes",
+    "visual_grammar",
+    "visual_review",
+    "reference_kind",
     "created_at",
 ]
 
@@ -115,16 +143,56 @@ _DEFAULT_METADATA = {
     "journal_style": None,
     "source": "unknown",
     "source_url": None,
+    "author": None,
+    "venue": None,
+    "year": None,
     "license": "unknown",
     "usage_scope": "private_reference",
+    "allowed_usage": ["private_reference"],
+    "preview_path": None,
+    "thumbnail_path": None,
+    "dimensions": None,
+    "colorspace": None,
+    "has_alpha": None,
+    "perceptual_hash": None,
+    "aliases": [],
     "code_path": None,
+    "reproduction_preview_path": None,
+    "figure_card_path": None,
     "review_status": "pending",
     "aesthetic_rating": None,
     "production_ready": False,
     "n_groups": None,
     "data_density": None,
     "notes": None,
+    "visual_grammar": None,
+    "reference_kind": "derived_reference",
+    # Intake state is deliberately separate from review_status.  The
+    # latter remains for compatibility and retrieval ranking.
+    "original_quality": "unassessed",
+    "analysis_quality": "unassessed",
+    "reconstruction_fidelity": "unassessed",
+    "eligible_for_structure": False,
+    "eligible_for_style": False,
+    "eligible_for_code_reuse": False,
+    "eligible_for_reconstruction": False,
 }
+
+_FIGURE_TYPE_ALIASES = {
+    "bar": "grouped_bar", "bar_chart": "grouped_bar", "bar_grouped": "grouped_bar",
+    "groupedbar": "grouped_bar", "grouped_bar": "grouped_bar",
+    "barcomparison": "grouped_bar", "bar_comparison": "grouped_bar",
+    "heatmap": "heatmap_grid", "heat_map": "heatmap_grid", "heatmap_grid": "heatmap_grid",
+    "scatter": "scatter_bubble", "scatterplot": "scatter_bubble",
+    "scatter_plot": "scatter_bubble", "scatter_bubble": "scatter_bubble",
+}
+
+
+def normalize_figure_type(value: str) -> str:
+    """Return a stable snake-case figure taxonomy key with common aliases."""
+    text = re.sub(r"(?<=[a-z0-9])(?=[A-Z])", "_", str(value).strip())
+    text = re.sub(r"[^A-Za-z0-9]+", "_", text).strip("_").lower()
+    return _FIGURE_TYPE_ALIASES.get(text, text)
 
 
 # ---------------------------------------------------------------------------
@@ -177,7 +245,7 @@ class VisualReference:
 
     @property
     def figure_type(self) -> str:
-        return self.metadata.get("figure_type", "")
+        return normalize_figure_type(self.metadata.get("figure_type", ""))
 
     @property
     def image_path(self) -> Optional[Path]:
@@ -187,6 +255,16 @@ class VisualReference:
     @property
     def code_path(self) -> Optional[Path]:
         p = self.metadata.get("code_path")
+        return self.root / p if p else None
+
+    @property
+    def preview_path(self) -> Optional[Path]:
+        p = self.metadata.get("preview_path")
+        return self.root / p if p else None
+
+    @property
+    def thumbnail_path(self) -> Optional[Path]:
+        p = self.metadata.get("thumbnail_path")
         return self.root / p if p else None
 
     def to_dict(self) -> Dict[str, Any]:
@@ -206,6 +284,86 @@ def _sha256_of_bytes(data: bytes) -> str:
 
 def _short_id(sha256_hex: str, length: int = 16) -> str:
     return sha256_hex[:length]
+
+
+def _perceptual_hash(image: Any) -> Optional[str]:
+    """Return a small deterministic DCT perceptual hash for a PIL image.
+
+    This intentionally has no external dependency.  It is used only for
+    near-duplicate intake detection; SHA-256 remains the canonical identity.
+    """
+    if Image is None:
+        return None
+    try:
+        gray = image.convert("L").resize((32, 32), Image.Resampling.LANCZOS)
+        pixels = __import__("numpy").asarray(gray, dtype=float)
+        n = pixels.shape[0]
+        basis = __import__("numpy").cos(
+            __import__("numpy").pi * (2 * __import__("numpy").arange(n)[:, None] + 1)
+            * __import__("numpy").arange(8)[None, :] / (2 * n)
+        )
+        coeff = basis.T @ pixels @ basis
+        low = coeff[:8, :8]
+        threshold = float(__import__("numpy").median(low[1:, 1:]))
+        bits = (low >= threshold).astype(int).flatten()
+        return "".join(f"{int(bits[i:i + 4].dot([8, 4, 2, 1])):x}" for i in range(0, 64, 4))
+    except Exception:
+        return None
+
+
+def _phash_distance(first: Optional[str], second: Optional[str]) -> Optional[int]:
+    if not first or not second or len(first) != len(second):
+        return None
+    try:
+        return sum((int(a, 16) ^ int(b, 16)).bit_count() for a, b in zip(first, second))
+    except ValueError:
+        return None
+
+
+def _image_intake_facts(path: Path) -> Dict[str, Any]:
+    """Read objective pixel facts and emit sRGB derivatives when possible."""
+    facts: Dict[str, Any] = {
+        "dimensions": None,
+        "colorspace": None,
+        "has_alpha": None,
+        "perceptual_hash": None,
+    }
+    if Image is None:
+        return facts
+    try:
+        with Image.open(path) as opened:
+            facts["dimensions"] = [int(opened.width), int(opened.height)]
+            facts["has_alpha"] = "A" in opened.getbands() or "transparency" in opened.info
+            facts["colorspace"] = "embedded_icc" if opened.info.get("icc_profile") else "sRGB_assumed"
+            facts["perceptual_hash"] = _perceptual_hash(opened)
+    except Exception:
+        # Reference intake must remain compatible with legacy placeholder files
+        # and formats unsupported by Pillow; validation still protects bytes.
+        return facts
+    return facts
+
+
+def _write_derivatives(source: Path, asset_dir: Path, root: Optional[Path] = None) -> Dict[str, Optional[str]]:
+    """Create canonical sRGB preview and thumbnail sidecars if decodable."""
+    result: Dict[str, Optional[str]] = {"preview_path": None, "thumbnail_path": None}
+    if Image is None:
+        return result
+    try:
+        with Image.open(source) as opened:
+            image = opened.convert("RGBA") if "A" in opened.getbands() else opened.convert("RGB")
+            preview = image.copy()
+            preview.thumbnail((1600, 1600), Image.Resampling.LANCZOS)
+            preview_path = asset_dir / "preview.png"
+            preview.save(preview_path, format="PNG", optimize=True)
+            thumb = image.copy()
+            thumb.thumbnail((320, 320), Image.Resampling.LANCZOS)
+            thumb_path = asset_dir / "thumbnail.png"
+            thumb.save(thumb_path, format="PNG", optimize=True)
+            result["preview_path"] = _as_relative(preview_path, root or _resolve_skill_root())
+            result["thumbnail_path"] = _as_relative(thumb_path, root or _resolve_skill_root())
+    except Exception:
+        return result
+    return result
 
 
 def _now_utc() -> str:
@@ -273,6 +431,25 @@ def validate_metadata(metadata: Dict[str, Any], root: Path = SKILL_ROOT) -> Tupl
             f"must be one of {_USAGE_SCOPES}"
         )
 
+    allowed_usage = meta.get("allowed_usage")
+    if not isinstance(allowed_usage, list) or not all(isinstance(item, str) for item in allowed_usage):
+        errors.append("allowed_usage must be a list of strings")
+
+    dimensions = meta.get("dimensions")
+    if dimensions is not None and (
+        not isinstance(dimensions, list) or len(dimensions) != 2
+        or not all(isinstance(value, int) and value > 0 for value in dimensions)
+    ):
+        errors.append("dimensions must be [positive width, positive height]")
+
+    for key in ("preview_path", "thumbnail_path"):
+        value = meta.get(key)
+        if value is not None:
+            try:
+                _as_relative(value, root)
+            except ValueError as exc:
+                errors.append(f"Invalid {key}: {exc}")
+
     palette_policy = meta.get("palette_policy")
     if palette_policy is not None and palette_policy not in _PALETTE_POLICIES:
         errors.append(
@@ -306,6 +483,20 @@ def validate_metadata(metadata: Dict[str, Any], root: Path = SKILL_ROOT) -> Tupl
         except ValueError as exc:
             errors.append(f"Invalid code_path: {exc}")
 
+    preview_path = meta.get("reproduction_preview_path")
+    if preview_path is not None:
+        try:
+            _as_relative(preview_path)
+        except ValueError as exc:
+            errors.append(f"Invalid reproduction_preview_path: {exc}")
+
+    figure_card_path = meta.get("figure_card_path")
+    if figure_card_path is not None:
+        try:
+            _as_relative(figure_card_path)
+        except ValueError as exc:
+            errors.append(f"Invalid figure_card_path: {exc}")
+
     # Validate palette if provided.
     palette = meta.get("palette")
     if palette is not None:
@@ -314,6 +505,9 @@ def validate_metadata(metadata: Dict[str, Any], root: Path = SKILL_ROOT) -> Tupl
         except ValueError as exc:
             errors.append(f"Invalid palette: {exc}")
 
+    if meta.get("visual_grammar") is not None:
+        errors.extend(validate_visual_grammar(meta["visual_grammar"]))
+
     return len(errors) == 0, errors
 
 
@@ -321,6 +515,9 @@ def _normalise_metadata(metadata: Dict[str, Any], root: Path = SKILL_ROOT) -> Di
     """Apply defaults, coerce types, and make paths relative."""
     out = copy.deepcopy(_DEFAULT_METADATA)
     out.update(metadata)
+
+    if out.get("figure_type"):
+        out["figure_type"] = normalize_figure_type(out["figure_type"])
 
     # Ensure created_at exists.
     if not out.get("created_at"):
@@ -345,6 +542,19 @@ def _normalise_metadata(metadata: Dict[str, Any], root: Path = SKILL_ROOT) -> Di
     out["image_path"] = _as_relative(out.get("image_path"), root)
     if out.get("code_path") is not None:
         out["code_path"] = _as_relative(out["code_path"], root)
+    if out.get("reproduction_preview_path") is not None:
+        out["reproduction_preview_path"] = _as_relative(out["reproduction_preview_path"], root)
+    if out.get("figure_card_path") is not None:
+        out["figure_card_path"] = _as_relative(out["figure_card_path"], root)
+    for key in ("preview_path", "thumbnail_path"):
+        if out.get(key) is not None:
+            out[key] = _as_relative(out[key], root)
+
+    aliases = out.get("aliases")
+    if aliases is None:
+        out["aliases"] = []
+    elif not isinstance(aliases, list):
+        out["aliases"] = [aliases]
 
     # Drop unknown top-level fields?  Keep them but warn during validate.
     return out
@@ -424,6 +634,7 @@ class ReferenceLibrary:
         image_bytes = image_path.read_bytes()
         sha256_hex = _sha256_of_bytes(image_bytes)
         ref_id = _short_id(sha256_hex)
+        intake_facts = _image_intake_facts(image_path)
 
         if scope not in _SCOPES:
             raise ValueError(f"Invalid scope {scope!r}; must be one of {_SCOPES}")
@@ -437,6 +648,31 @@ class ReferenceLibrary:
                 f"({existing.metadata.get('image_path')})."
             )
 
+        # Near duplicates share one canonical source.  Preserve the incoming
+        # provenance as an alias instead of creating another retrieval item.
+        if intake_facts.get("perceptual_hash"):
+            for candidate in self.all():
+                distance = _phash_distance(
+                    intake_facts.get("perceptual_hash"),
+                    candidate.metadata.get("perceptual_hash"),
+                )
+                if distance is not None and distance <= 4:
+                    aliases = list(candidate.metadata.get("aliases") or [])
+                    aliases.append({
+                        "sha256": sha256_hex,
+                        "perceptual_hash": intake_facts["perceptual_hash"],
+                        "source_name": image_path.name,
+                    })
+                    candidate.metadata["aliases"] = aliases
+                    candidate.metadata["alias_reason"] = "near_duplicate_phash"
+                    meta_path = self._metadata_path(candidate.id, candidate.scope)
+                    meta_path.write_text(
+                        json.dumps(candidate.metadata, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
+                        encoding="utf-8",
+                    )
+                    self._refs[candidate.id] = candidate
+                    return candidate
+
         asset_dir = self._asset_dir(ref_id, scope)
         asset_dir.mkdir(parents=True, exist_ok=True)
         dest_image = asset_dir / self._image_name_from_source(image_path)
@@ -446,6 +682,8 @@ class ReferenceLibrary:
         else:
             shutil.move(str(image_path), str(dest_image))
 
+        derivative_paths = _write_derivatives(dest_image, asset_dir, self.root)
+
         meta = {
             "id": ref_id,
             "scope": scope,
@@ -453,8 +691,24 @@ class ReferenceLibrary:
             "image_path": _as_relative(dest_image, self.root),
             "sha256": sha256_hex,
         }
+        meta.update(intake_facts)
+        meta.update(derivative_paths)
         if metadata_override:
             meta.update(metadata_override)
+
+        # Canonical pixel identity and generated derivative paths are measured
+        # by intake, not user-editable sidecar overrides.
+        meta["image_path"] = _as_relative(dest_image, self.root)
+        meta["sha256"] = sha256_hex
+        meta.update(intake_facts)
+        meta.update(derivative_paths)
+
+        # Ingest records provenance; it cannot grant its own aesthetic approval.
+        meta.update({
+            "review_status": "pending",
+            "aesthetic_rating": None,
+            "production_ready": False,
+        })
 
         meta = _normalise_metadata(meta, self.root)
         valid, errors = validate_metadata(meta)
@@ -541,6 +795,75 @@ class ReferenceLibrary:
                 return ref
         return None
 
+    def review(
+        self,
+        ref_id: str,
+        aesthetic_rating: float,
+        visual_review: Dict[str, Any],
+    ) -> VisualReference:
+        """Record a completed rendered visual review for one pending reference."""
+        required = {
+            "final_size_inspected", "hierarchy", "panel_balance", "whitespace",
+            "legend_footprint", "text_legibility", "reviewer",
+        }
+        missing = sorted(field for field in required if not visual_review.get(field))
+        if visual_review.get("final_size_inspected") is not True:
+            missing = sorted(set(missing) | {"final_size_inspected"})
+        verdict_fields = required - {"final_size_inspected", "reviewer"}
+        invalid = sorted(
+            field for field in verdict_fields
+            if visual_review.get(field) not in {"pass", "justified_deviation"}
+        )
+        if missing or invalid:
+            details = []
+            if missing:
+                details.append("missing: " + ", ".join(missing))
+            if invalid:
+                details.append("invalid verdict: " + ", ".join(invalid))
+            raise ValueError("Incomplete rendered visual review (" + "; ".join(details) + ").")
+        if not isinstance(aesthetic_rating, (int, float)) or not 0 <= aesthetic_rating <= 5:
+            raise ValueError("aesthetic_rating must be a number between 0 and 5")
+        ref = self.get(ref_id)
+        if ref is None:
+            raise KeyError(f"Unknown visual reference: {ref_id}")
+        if ref.metadata.get("reference_kind") == "user_supplied":
+            code_path = ref.metadata.get("code_path")
+            preview_path = ref.metadata.get("reproduction_preview_path")
+            if not code_path or not (self.root / code_path).is_file():
+                raise ValueError("User-supplied references require runnable reproduction code before review.")
+            if not preview_path or not (self.root / preview_path).is_file():
+                raise ValueError("User-supplied references require a rendered reproduction preview before review.")
+            grammar_errors = validate_visual_grammar(ref.metadata.get("visual_grammar"))
+            if grammar_errors:
+                raise ValueError(
+                    "User-supplied references require a complete visual grammar card before review: "
+                    + "; ".join(grammar_errors)
+                )
+        ref.metadata.update({
+            "review_status": "reviewed",
+            "aesthetic_rating": aesthetic_rating,
+            "production_ready": False,
+            "visual_review": copy.deepcopy(visual_review),
+            "original_quality": "reviewed",
+            "analysis_quality": "reviewed" if ref.metadata.get("figure_card_path") else "unassessed",
+            "reconstruction_fidelity": (
+                "reviewed" if ref.metadata.get("reproduction_preview_path") else "not_applicable"
+            ),
+            "eligible_for_style": aesthetic_rating >= 3,
+            "eligible_for_structure": aesthetic_rating >= 3 and bool(ref.metadata.get("figure_card_path")),
+            "eligible_for_reconstruction": bool(ref.metadata.get("code_path")),
+            # Code reuse is a stronger claim than having runnable code.  It is
+            # enabled only by an explicit fidelity verdict in visual_review.
+            "eligible_for_code_reuse": visual_review.get("reconstruction_fidelity") == "pass",
+        })
+        meta_path = self._metadata_path(ref.id, ref.scope)
+        meta_path.write_text(
+            json.dumps(ref.metadata, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+        self._refs[ref.id] = ref
+        return ref
+
     def list(
         self,
         scope: Optional[str] = None,
@@ -553,7 +876,7 @@ class ReferenceLibrary:
         for ref in self.all():
             if scope is not None and ref.scope != scope:
                 continue
-            if figure_type is not None and ref.figure_type != figure_type:
+            if figure_type is not None and ref.figure_type != normalize_figure_type(figure_type):
                 continue
             if review_status is not None and ref.metadata.get("review_status") != review_status:
                 continue
@@ -575,13 +898,14 @@ class ReferenceLibrary:
         usage_scope: Optional[str] = None,
         production_ready: Optional[bool] = None,
         min_aesthetic_rating: Optional[float] = None,
-        sort_by: Tuple[str, ...] = ("reviewed_first", "aesthetic_desc", "tag_match", "created_desc"),
+        include_unreviewed: bool = False,
+        sort_by: Tuple[str, ...] = ("review_state", "aesthetic_desc", "tag_match", "created_desc"),
         limit: Optional[int] = None,
     ) -> List[VisualReference]:
         """Query references using metadata filters.
 
-        Result ranking (default):
-        1. reviewed entries before pending
+        Result eligibility and ranking (default):
+        1. exclude pending/rejected; promoted entries before reviewed
         2. higher aesthetic_rating first
         3. more tag matches first
         4. newer entries first
@@ -591,7 +915,11 @@ class ReferenceLibrary:
         scored = []
         for ref in self.all():
             m = ref.metadata
-            if figure_type is not None and m.get("figure_type") != figure_type:
+            if figure_type is not None and normalize_figure_type(m.get("figure_type", "")) != normalize_figure_type(figure_type):
+                continue
+            if review_status is None and not include_unreviewed and m.get("review_status") not in {"reviewed", "promoted"}:
+                continue
+            if m.get("reference_kind") == "exact_visual_source" and m.get("review_status") != "reviewed":
                 continue
             if palette is not None and m.get("palette") != palette:
                 continue
@@ -618,7 +946,8 @@ class ReferenceLibrary:
             tag_hits = len(tags & ref_tags) if tags else 0
 
             score = {
-                "reviewed_first": 0 if m.get("review_status") == "reviewed" else 1,
+                "review_state": {"promoted": 0, "reviewed": 1}.get(m.get("review_status"), 2),
+                "reviewed_first": 0 if m.get("review_status") in {"reviewed", "promoted"} else 1,
                 "aesthetic_desc": -(m.get("aesthetic_rating") or 0),
                 "tag_match": -tag_hits,
                 "created_desc": -(datetime.strptime(m["created_at"], _UTC_FMT).timestamp() if m.get("created_at") else 0),
@@ -632,6 +961,180 @@ class ReferenceLibrary:
         if limit is not None:
             refs = refs[:limit]
         return refs
+
+    def recommend_candidates(
+        self,
+        figure_type: str,
+        *,
+        required_tags: Optional[Iterable[str]] = None,
+        preferred_tags: Optional[Iterable[str]] = None,
+        layout: Optional[str] = None,
+        data_density: Optional[str] = None,
+        n_groups: Optional[int] = None,
+        journal_style: Optional[str] = None,
+        exclude_ids: Optional[Iterable[str]] = None,
+        limit: int = 3,
+    ) -> Dict[str, Any]:
+        """Recommend an explainable, task-compatible, diverse visual shortlist."""
+        canonical_type = normalize_figure_type(figure_type)
+        if not canonical_type:
+            raise ValueError("figure_type is required for candidate recommendation.")
+        if limit < 1 or limit > 3:
+            raise ValueError("limit must be between 1 and 3.")
+        required = {str(tag).strip().lower() for tag in (required_tags or []) if str(tag).strip()}
+        preferred = {str(tag).strip().lower() for tag in (preferred_tags or []) if str(tag).strip()}
+        excluded = {str(ref_id).strip() for ref_id in (exclude_ids or []) if str(ref_id).strip()}
+
+        type_pool = [
+            ref for ref in self.all()
+            if ref.id not in excluded
+            and ref.metadata.get("review_status") in {"reviewed", "promoted"}
+            and ref.image_path is not None
+            and ref.image_path.is_file()
+            and not (
+                ref.metadata.get("reference_kind") == "exact_visual_source"
+                and ref.metadata.get("review_status") != "reviewed"
+            )
+            and normalize_figure_type(ref.figure_type) == canonical_type
+        ]
+        eligible = []
+        for ref in type_pool:
+            metadata = ref.metadata
+            ref_tags = {str(tag).strip().lower() for tag in metadata.get("tags", [])}
+            if not required.issubset(ref_tags):
+                continue
+            matches = ["Exact figure type"]
+            cautions = []
+            task_score = 0
+            preferred_hits = sorted(preferred & ref_tags)
+            if preferred:
+                if preferred_hits:
+                    task_score += 2 * len(preferred_hits)
+                    matches.append("Preferred tags: " + ", ".join(preferred_hits))
+                else:
+                    cautions.append("No preferred tag match")
+            for field, requested, weight, label in (
+                ("layout", layout, 4, "Layout"),
+                ("data_density", data_density, 3, "Data density"),
+                ("n_groups", n_groups, 2, "Group count"),
+                ("journal_style", journal_style, 2, "Journal style"),
+            ):
+                if requested is None:
+                    continue
+                actual = metadata.get(field)
+                if str(actual).lower() == str(requested).lower():
+                    task_score += weight
+                    matches.append(f"{label}: {requested}")
+                else:
+                    cautions.append(f"{label} mismatch: requested {requested}, candidate {actual}")
+            source_family = (
+                metadata.get("source_repository")
+                or metadata.get("source")
+                or metadata.get("scope")
+                or "unknown"
+            )
+            eligible.append({
+                "ref": ref,
+                "task_score": task_score,
+                "rating": float(metadata.get("aesthetic_rating") or 0),
+                "matches": matches,
+                "cautions": cautions,
+                "subtype": metadata.get("subtype") or canonical_type,
+                "layout": metadata.get("layout") or "unknown",
+                "source_family": str(source_family),
+                "content_sha256": _sha256_of_bytes(ref.image_path.read_bytes()),
+            })
+
+        # Metadata can be copied or hand-edited while pointing at the same
+        # pixels. Keep the strongest eligible record only; otherwise a
+        # three-item shortlist can silently return the same image three times.
+        eligible.sort(key=lambda item: (-item["task_score"], -item["rating"], item["ref"].id))
+        unique_eligible = []
+        seen_content = set()
+        for item in eligible:
+            if item["content_sha256"] in seen_content:
+                continue
+            seen_content.add(item["content_sha256"])
+            unique_eligible.append(item)
+        eligible = unique_eligible
+
+        selected = []
+        remaining = list(eligible)
+        while remaining and len(selected) < limit:
+            used_subtypes = {item["subtype"] for item in selected}
+            used_layouts = {item["layout"] for item in selected}
+            used_sources = {item["source_family"] for item in selected}
+            for item in remaining:
+                diversity_score = 0
+                diversity_reasons = []
+                if selected and item["subtype"] not in used_subtypes:
+                    diversity_score += 2
+                    diversity_reasons.append("different subtype")
+                if selected and item["layout"] not in used_layouts:
+                    diversity_score += 1
+                    diversity_reasons.append("different layout")
+                if selected and item["source_family"] not in used_sources:
+                    diversity_score += 1
+                    diversity_reasons.append("different source family")
+                item["diversity_score"] = diversity_score
+                item["diversity_reasons"] = diversity_reasons
+                item["selection_score"] = item["task_score"] * 10 + diversity_score * 2 + item["rating"]
+            remaining.sort(
+                key=lambda item: (
+                    -item["selection_score"],
+                    0 if item["ref"].metadata.get("review_status") == "promoted" else 1,
+                    item["ref"].id,
+                )
+            )
+            chosen = remaining.pop(0)
+            selected.append(chosen)
+
+        candidates = []
+        for rank, item in enumerate(selected, start=1):
+            ref = item["ref"]
+            candidates.append({
+                "rank": rank,
+                "id": ref.id,
+                "image_path": ref.metadata.get("image_path"),
+                # Recompute from the candidate pixels rather than trusting a
+                # hand-edited sidecar field; downstream reference provenance
+                # compares this digest with the opened image bytes.
+                "image_sha256": item["content_sha256"],
+                "figure_type": ref.figure_type,
+                "subtype": ref.metadata.get("subtype"),
+                "layout": ref.metadata.get("layout"),
+                "source_family": item["source_family"],
+                "review_status": ref.metadata.get("review_status"),
+                "aesthetic_rating": ref.metadata.get("aesthetic_rating"),
+                "task_score": item["task_score"],
+                "diversity_score": item["diversity_score"],
+                "selection_score": round(item["selection_score"], 3),
+                "matches": item["matches"],
+                "cautions": item["cautions"],
+                "diversity_reasons": item["diversity_reasons"],
+            })
+        insufficient = len(candidates) < limit
+        return {
+            "status": "insufficient_pool" if insufficient else "ready",
+            "insufficient_pool": insufficient,
+            "requested_limit": limit,
+            "request": {
+                "figure_type": canonical_type,
+                "required_tags": sorted(required),
+                "preferred_tags": sorted(preferred),
+                "layout": layout,
+                "data_density": data_density,
+                "n_groups": n_groups,
+                "journal_style": journal_style,
+                "exclude_ids": sorted(excluded),
+            },
+            "pool": {
+                "exact_type_reviewed": len(type_pool),
+                "after_required_tags": len(eligible),
+                "returned": len(candidates),
+            },
+            "candidates": candidates,
+        }
 
     def all(self) -> List[VisualReference]:
         """Load and return every reference found on disk."""
@@ -689,6 +1192,22 @@ class ReferenceLibrary:
         except ImportError:  # pragma: no cover - allow standalone import during dev
             from palette_manager import resolve_colors, resolve_palette
 
+        # Validate an explicitly supplied reference even when an explicit
+        # palette/color list wins precedence.  Otherwise a typo or a
+        # cross-type reference would be silently ignored and the caller could
+        # believe the requested visual source was used.
+        ref = None
+        if reference_id:
+            ref = self.get(reference_id)
+            if ref is None:
+                raise ValueError(f"Unknown visual reference: {reference_id}")
+            requested_type = normalize_figure_type(figure_type)
+            if ref.figure_type != requested_type:
+                raise ValueError(
+                    f"Reference {reference_id} has figure type {ref.figure_type}, "
+                    f"not compatible with requested {requested_type}."
+                )
+
         # 1. User explicit colors win.
         if user_colors is not None and len(user_colors) > 0:
             return {
@@ -708,7 +1227,6 @@ class ReferenceLibrary:
             }
 
         # 3. Visual reference palette (only for new generated / adapted panels).
-        ref = self.get(reference_id) if reference_id else None
         if ref is not None and ref.metadata.get("palette") is not None:
             ref_palette = ref.metadata["palette"]
             policy = ref.metadata.get("palette_policy", "preserve")
@@ -740,7 +1258,30 @@ class ReferenceLibrary:
         problems: List[Tuple[str, List[str]]] = []
         all_ok = True
         for ref in self.all():
-            ok, errors = validate_metadata(ref.metadata)
+            ok, errors = validate_metadata(ref.metadata, root=self.root)
+            image_path = ref.image_path
+            if image_path is None or not image_path.is_file():
+                ok = False
+                errors.append("image file is missing")
+            else:
+                try:
+                    actual_sha256 = _sha256_of_bytes(image_path.read_bytes())
+                except OSError as exc:
+                    ok = False
+                    errors.append(f"image file is unreadable: {exc}")
+                else:
+                    expected_sha256 = ref.metadata.get("sha256")
+                    if not expected_sha256:
+                        ok = False
+                        errors.append("sha256 is missing")
+                    elif actual_sha256 != expected_sha256:
+                        ok = False
+                        errors.append("sha256 does not match image pixels")
+                for derivative_key in ("preview_path", "thumbnail_path"):
+                    derivative = ref.metadata.get(derivative_key)
+                    if derivative and not (self.root / derivative).is_file():
+                        ok = False
+                        errors.append(f"{derivative_key} file is missing")
             if not ok:
                 all_ok = False
                 problems.append((ref.id, errors))
@@ -839,7 +1380,7 @@ def _pretty_print(ref: VisualReference) -> None:
 
 def cli(argv: Optional[List[str]] = None) -> int:
     parser = argparse.ArgumentParser(
-        description="Visual Reference Library manager for academic-figure-skill."
+        description="Visual Reference Library manager for publication-figure-design."
     )
     sub = parser.add_subparsers(dest="command", required=True)
 
@@ -885,6 +1426,20 @@ def cli(argv: Optional[List[str]] = None) -> int:
     query_p.add_argument("--min-aesthetic-rating", type=float)
     query_p.add_argument("--limit", type=int)
 
+    # recommend (strict task-specific shortlist)
+    recommend_p = sub.add_parser("recommend", help="Recommend task-compatible diverse candidates.")
+    recommend_p.add_argument("--figure-type", required=True)
+    recommend_p.add_argument("--required-tags", default="")
+    recommend_p.add_argument("--preferred-tags", default="")
+    recommend_p.add_argument("--layout")
+    recommend_p.add_argument("--data-density")
+    recommend_p.add_argument("--n-groups", type=int)
+    recommend_p.add_argument("--journal-style")
+    recommend_p.add_argument("--exclude-ids", default="")
+    recommend_p.add_argument("--limit", type=int, default=3)
+    recommend_p.add_argument("--json", dest="json_path", type=Path)
+    recommend_p.add_argument("--root", type=Path, help=argparse.SUPPRESS)
+
     # validate
     sub.add_parser("validate", help="Validate all side-car metadata files.")
 
@@ -892,7 +1447,7 @@ def cli(argv: Optional[List[str]] = None) -> int:
     sub.add_parser("rebuild", help="Rebuild registry.jsonl from side-car metadata.")
 
     args = parser.parse_args(argv)
-    lib = ReferenceLibrary()
+    lib = ReferenceLibrary(root=args.root) if args.command == "recommend" and args.root else ReferenceLibrary()
 
     if args.command == "ingest":
         meta_override = json.loads(args.metadata)
@@ -954,6 +1509,26 @@ def cli(argv: Optional[List[str]] = None) -> int:
         print(f"Found {len(refs)} reference(s)")
         for ref in refs:
             _pretty_print(ref)
+        return 0
+
+    if args.command == "recommend":
+        split = lambda value: [part.strip() for part in value.split(",") if part.strip()]
+        report = lib.recommend_candidates(
+            figure_type=args.figure_type,
+            required_tags=split(args.required_tags),
+            preferred_tags=split(args.preferred_tags),
+            layout=args.layout,
+            data_density=args.data_density,
+            n_groups=args.n_groups,
+            journal_style=args.journal_style,
+            exclude_ids=split(args.exclude_ids),
+            limit=args.limit,
+        )
+        print(json.dumps(report, indent=2, ensure_ascii=False))
+        if args.json_path:
+            args.json_path.write_text(
+                json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+            )
         return 0
 
     if args.command == "validate":

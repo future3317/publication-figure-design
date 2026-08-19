@@ -1,0 +1,142 @@
+{
+  "aesthetic_rating": null,
+  "code_path": "assets/visual-references/generated-archive/b3c62bc6c4258378/code.py",
+  "created_at": "2026-08-12T16:57:25Z",
+  "data_density": null,
+  "figure_card_path": "assets/visual-references/generated-archive/b3c62bc6c4258378/figure_card.json",
+  "figure_type": "distribution_grid",
+  "id": "b3c62bc6c4258378",
+  "image_path": "assets/visual-references/generated-archive/b3c62bc6c4258378/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "balanced",
+    "density": "high",
+    "panel_count": 16,
+    "panel_grid": [
+      4,
+      4
+    ],
+    "visual_family": "distribution_grid"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "atlas_distributions",
+    "mosaic": [
+      "ABCD",
+      "EFGH",
+      "IJKL",
+      "MNOP"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "distribution:atlas"
+      },
+      {
+        "id": "B",
+        "kind": "distribution:atlas"
+      },
+      {
+        "id": "C",
+        "kind": "distribution:atlas"
+      },
+      {
+        "id": "D",
+        "kind": "distribution:atlas"
+      },
+      {
+        "id": "E",
+        "kind": "distribution:atlas"
+      },
+      {
+        "id": "F",
+        "kind": "distribution:atlas"
+      },
+      {
+        "id": "G",
+        "kind": "distribution:atlas"
+      },
+      {
+        "id": "H",
+        "kind": "distribution:atlas"
+      },
+      {
+        "id": "I",
+        "kind": "distribution:atlas"
+      },
+      {
+        "id": "J",
+        "kind": "distribution:atlas"
+      },
+      {
+        "id": "K",
+        "kind": "distribution:atlas"
+      },
+      {
+        "id": "L",
+        "kind": "distribution:atlas"
+      },
+      {
+        "id": "M",
+        "kind": "distribution:atlas"
+      },
+      {
+        "id": "N",
+        "kind": "distribution:atlas"
+      },
+      {
+        "id": "O",
+        "kind": "distribution:atlas"
+      },
+      {
+        "id": "P",
+        "kind": "distribution:atlas"
+      }
+    ],
+    "source_observation": "16 distribution variants arranged as an atlas"
+  },
+  "reconstruction_method": "independent",
+  "renderer_version": 3,
+  "reproduction_preview_path": "assets/visual-references/generated-archive/b3c62bc6c4258378/image.png",
+  "review_status": "pending",
+  "scope": "generated-archive",
+  "sha256": "a658a69c0a6f0abda966bd31d848f4f6c6ba12d03d65da5692210f67a1ba7410",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "licensed_visual_source",
+  "source_fingerprint": "a1fe533d07dae36d11c997577ded61adb16bf5d4dd5c0dee2ff92ae570f0f01e",
+  "source_license_class": "Apache-2.0",
+  "source_relative_path": "assets/chart-atlas/atlas-06-distributions.png",
+  "source_repository": "nature-figure",
+  "source_url": null,
+  "subtype": "distribution_grid",
+  "tags": [
+    "source-reconstruction",
+    "nature-figure",
+    "distribution_grid"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "distribution_grid",
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/source-reconstructions/pairs/45-b3c62bc6c4258378.png",
+    "final_size_inspected": true,
+    "hierarchy": "fail",
+    "individual_pair_opened": true,
+    "inspection_method": "individual equal-size source|reconstruction pair opened",
+    "inspection_order": 45,
+    "legend_footprint": "fail",
+    "notes": "FAIL after individual review of pair 45-b3c62bc6c4258378.png: the distribution_grid reconstruction preserves the broad observable topology/mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+    "panel_balance": "fail",
+    "reviewed_at": "2026-08-14T12:08:46Z",
+    "reviewer": "Codex individual visual audit",
+    "text_legibility": "fail",
+    "verdict": "fail",
+    "whitespace": "fail"
+  }
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Academic Figure Skill QA Validator Coverage Suite.
+"""Publication Figure Design QA Validator Coverage Suite.
 
 Feeds known-good and known-bad script snippets to qa_validator and verifies
 each check fires (or doesn't fire) correctly.
@@ -384,7 +384,7 @@ if __name__ == "__main__":
         sys.exit(0)
 
     print("=" * 64)
-    print("Academic Figure Skill QA Validator Coverage Report")
+    print("Publication Figure Design QA Validator Coverage Report")
     print("=" * 64)
     print(f"Test cases        : {s['test_cases']}")
     print(f"Correct targets   : {s['all_correct']}/{s['test_cases']} ({s['accuracy']:.0%})")

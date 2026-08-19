@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Academic Figure Skill Trigger Accuracy Benchmark.
+"""Publication Figure Design trigger accuracy benchmark.
 
 Simulates Claude's skill dispatcher by scoring prompts against the SKILL.md
 description field. Reports precision / recall / F1 / false-positive and
@@ -130,6 +130,12 @@ TRIGGER_SIGNALS = [
         r"\bcompose\b.*\b(?:panel|figure|plot)\b",
         r"\bmulti.panel\b",
         r"\bvisuali[sz]e\b.*\b(?:as|with|in)\b.*\b(?:figure|plot|chart|heatmap)\b",
+        # Paired operating-point / route-state figures. Require a nearby
+        # visualization or comparison term so ordinary algorithm discussions
+        # about an "operating point" do not activate the figure skill.
+        r"\b(?:paired\s+)?operating[-\s]?points?\b.*\b(?:plot|figure|chart|comparison|error\s*bars?|uncertaint(?:y|ies)|confidence\s+intervals?|CI)\b",
+        r"\b(?:plot|figure|chart|compare|comparison|redraw|replot)\b.*\b(?:operating[-\s]?points?|route\s+states?|budget[-\s]?states?|cap\s*\d+)\b",
+        r"\b(?:route\s+state|budget[-\s]?state)\b.*\b(?:plot|figure|chart|comparison|error\s*bars?)\b",
     ]),
     # Medium (score += 2): Chinese drawing intent
     (2, [
@@ -168,7 +174,11 @@ EXCLUSION_SIGNALS = [
     # Writing tasks
     r"\b(?:write|draft)\b.*\b(?:results|abstract|manuscript|paper|section)\b",
     # Code debugging
-    r"\b(?:debug|fix|error|bug|why\s+is|how\s+do\s+I\s+fix)\b",
+    r"\b(?:debug|fix|bug|why\s+is|how\s+do\s+I\s+fix)\b",
+    # Do not treat the ordinary visualization phrase "error bars" as a
+    # programming-debugging request.  Reserve the exclusion for diagnostic
+    # error/traceback language.
+    r"\berror\b.*\b(?:message|traceback|exception|stack|line\s+\d+)\b",
     r"\bimport\s+fail",
     # Literature review / paper finding
     r"\b(?:summarize|review|find)\b.*\b(?:paper|article|literature|latest)\b",
@@ -290,7 +300,7 @@ if __name__ == "__main__":
         sys.exit(0)
 
     print("=" * 64)
-    print("Academic Figure Skill Trigger Accuracy Benchmark")
+    print("Publication Figure Design Trigger Accuracy Benchmark")
     print(f"Skill: {_load_description()[:80]}...")
     print("=" * 64)
     print(f"Threshold: score >= {result['threshold']}")

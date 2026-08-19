@@ -3,7 +3,7 @@
 > **BASELINE — COPY VERBATIM:** The code block below must be included in every generated script, placed after the typography baseline and before any plotting code.
 
 ```python
-# Academic Figure Skill Export Baseline — COPY VERBATIM
+# Publication Figure Design Export Baseline — COPY VERBATIM
 mpl.rcParams.update({
     "pdf.fonttype": 42,         # TrueType font embedding
     "svg.fonttype": "none",     # editable text in SVG
@@ -12,13 +12,13 @@ mpl.rcParams.update({
 })
 
 def save_cns_figure(fig, filename):
-    """Standard Academic Figure Skill export: vector PDF + 300dpi PNG preview."""
+    """Standard Publication Figure Design export: vector PDF + 300dpi PNG preview."""
     fig.savefig(f"{filename}.pdf", bbox_inches="tight", dpi=300)
     fig.savefig(f"{filename}.png", bbox_inches="tight", dpi=300)
 ```
 
 ```r
-# Academic Figure Skill Export Baseline — COPY VERBATIM
+# Publication Figure Design Export Baseline — COPY VERBATIM
 save_cns_figure <- function(plot, filename, width_mm = 183, height_mm = NULL) {
   ggsave(paste0(filename, ".pdf"), plot, device = cairo_pdf,
          width = width_mm, height = height_mm, units = "mm", dpi = 300)

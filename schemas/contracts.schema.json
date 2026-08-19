@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "publication-figure-design/contracts.schema.json",
+  "title": "Publication Figure Design contract envelope",
+  "type": "object",
+  "required": ["schema_version", "contract_name"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "contract_name": {
+      "enum": [
+        "TaskSpec", "SourceSpec", "TargetSpec", "ReferenceSet", "LayoutSpec",
+        "StyleSpec", "TypographySpec", "PaletteSpec", "ComponentSpec",
+        "BindingMap", "RenderPlan", "QAReport", "ExportManifest"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

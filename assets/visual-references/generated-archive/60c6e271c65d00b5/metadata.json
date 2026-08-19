@@ -1,0 +1,83 @@
+{
+  "aesthetic_rating": null,
+  "code_path": "assets/visual-references/generated-archive/60c6e271c65d00b5/code.py",
+  "created_at": "2026-08-12T16:57:22Z",
+  "data_density": null,
+  "figure_card_path": "assets/visual-references/generated-archive/60c6e271c65d00b5/figure_card.json",
+  "figure_type": "mechanism_schematic",
+  "id": "60c6e271c65d00b5",
+  "image_path": "assets/visual-references/generated-archive/60c6e271c65d00b5/image.png",
+  "journal_style": null,
+  "layout": "schematic",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "wide",
+    "density": "focused",
+    "panel_count": 2,
+    "panel_grid": [
+      1,
+      2
+    ],
+    "visual_family": "mechanism_schematic"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "vigil_concept",
+    "mosaic": [
+      "AABB"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "schematic:temporal"
+      },
+      {
+        "id": "B",
+        "kind": "diagram:forecast"
+      }
+    ],
+    "source_observation": "temporal concept sketch with forecast explanation"
+  },
+  "reconstruction_method": "independent",
+  "renderer_version": 3,
+  "reproduction_preview_path": "assets/visual-references/generated-archive/60c6e271c65d00b5/image.png",
+  "review_status": "pending",
+  "scope": "generated-archive",
+  "sha256": "a848dcbc1292bfd60ac0379766d398cda82139afa530adb299daa2495eccb92f",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "3554b9af671886dfbbe985016440c5ba1633b4e8b08d50539d992982c5cc2bf5",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_VIGIL/figures/concept.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "mechanism_schematic",
+  "tags": [
+    "source-reconstruction",
+    "figures4papers",
+    "mechanism_schematic"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "mechanism_schematic",
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/source-reconstructions/pairs/39-60c6e271c65d00b5.png",
+    "final_size_inspected": true,
+    "hierarchy": "fail",
+    "individual_pair_opened": true,
+    "inspection_method": "individual equal-size source|reconstruction pair opened",
+    "inspection_order": 39,
+    "legend_footprint": "fail",
+    "notes": "FAIL after individual review of pair 39-60c6e271c65d00b5.png: the mechanism_schematic reconstruction preserves the broad observable topology/mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+    "panel_balance": "fail",
+    "reviewed_at": "2026-08-14T12:08:46Z",
+    "reviewer": "Codex individual visual audit",
+    "text_legibility": "fail",
+    "verdict": "fail",
+    "whitespace": "fail"
+  }
+}

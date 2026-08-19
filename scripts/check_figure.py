@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Academic Figure Skill Figure QA System -- Main Entry Point.
+Publication Figure Design figure QA system -- main entry point.
 
 Orchestrates all compliance checks for scientific figures targeting CNS journals
 (Nature/Cell/Science family). Automatically detects the target type and runs all
@@ -132,7 +132,7 @@ def print_report(results, target, journal, target_type):
 
     print()
     print("=" * 68)
-    print("  Academic Figure Skill Figure QA Report")
+    print("  Publication Figure Design Figure QA Report")
     print("=" * 68)
     print(f"  Target      : {target}")
     print(f"  Target type : {target_type}")
@@ -161,7 +161,7 @@ def print_report(results, target, journal, target_type):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Academic Figure Skill Figure QA System -- Validate figures for CNS journal compliance.",
+        description="Publication Figure Design Figure QA System -- Validate figures for CNS journal compliance.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:

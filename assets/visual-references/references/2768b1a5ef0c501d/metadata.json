@@ -1,0 +1,91 @@
+{
+  "aesthetic_rating": 4.5,
+  "code_path": null,
+  "created_at": "2026-08-12T17:30:09Z",
+  "data_density": null,
+  "figure_type": "comparison_composite",
+  "id": "2768b1a5ef0c501d",
+  "image_path": "assets/visual-references/references/2768b1a5ef0c501d/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "unknown",
+  "n_groups": null,
+  "notes": "Exact source visual sample cataloged for private reference; distinct from independent reconstruction.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "immunostruct_results_iedb",
+    "mosaic": [
+      "ABCD",
+      "EFGH"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "bar:comparison"
+      },
+      {
+        "id": "B",
+        "kind": "bar:ablation"
+      },
+      {
+        "id": "C",
+        "kind": "line:calibration"
+      },
+      {
+        "id": "D",
+        "kind": "heatmap:matrix"
+      },
+      {
+        "id": "E",
+        "kind": "distribution:violin"
+      },
+      {
+        "id": "F",
+        "kind": "scatter:groups"
+      },
+      {
+        "id": "G",
+        "kind": "forest:effects"
+      },
+      {
+        "id": "H",
+        "kind": "table:metrics"
+      }
+    ],
+    "source_observation": "eight-panel benchmark result grid, distinct IEDB rendering"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "2768b1a5ef0c501dc03c53c594a28e028df2cd57b51c4fd80c9a57906f6195c5",
+  "source": "figures4papers visual source",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "2768b1a5ef0c501dc03c53c594a28e028df2cd57b51c4fd80c9a57906f6195c5",
+  "source_license_class": "unknown",
+  "source_relative_path": "assets/ImmunoStruct_results_IEDB.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "immunostruct_results_iedb",
+  "tags": [
+    "source-catalog",
+    "figures4papers",
+    "comparison_composite"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "comparison_composite",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'immunostruct_results_iedb' is a dense multi-panel comparison_composite reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

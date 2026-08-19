@@ -1,5 +1,5 @@
 {
-  "aesthetic_rating": 4,
+  "aesthetic_rating": 4.1,
   "code_path": null,
   "created_at": "2026-08-11T13:17:24Z",
   "data_density": "low",
@@ -14,12 +14,36 @@
   "palette": null,
   "palette_policy": "preserve",
   "production_ready": false,
-  "review_status": "pending",
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "vigil_radar_comparison",
+    "mosaic": [
+      "AB"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "radar:methods"
+      },
+      {
+        "id": "B",
+        "kind": "radar:methods"
+      }
+    ],
+    "source_observation": "paired polar method comparisons"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
   "scope": "references",
   "sha256": "d6613715d9d4564fb0c7354430b227d43c9df04032e32b346601971381e5ba2d",
   "source": "Chen Liu, figures4papers repository",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "d6613715d9d4564fb0c7354430b227d43c9df04032e32b346601971381e5ba2d",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_VIGIL/figures/comparison_radar.png",
+  "source_repository": "figures4papers",
   "source_url": "https://github.com/ChenLiu-1996/figures4papers/tree/main/figure_VIGIL/figures/comparison_radar.png",
-  "subtype": "figures4papers_radar",
+  "subtype": "vigil_radar_comparison",
   "tags": [
     "figures4papers",
     "publication-figure",
@@ -27,5 +51,18 @@
     "multi-axis",
     "comparison"
   ],
-  "usage_scope": "private_reference"
+  "usage_scope": "private_reference",
+  "visual_family": "radar_grid",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'vigil_radar_comparison' is a focused radar_grid reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
 }

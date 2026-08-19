@@ -22,22 +22,29 @@ import numpy as np
 from matplotlib.patches import Circle, FancyArrowPatch, FancyBboxPatch, Polygon
 from PIL import Image
 
-try:
-    from .reference_library import ReferenceLibrary
-except ImportError:  # pragma: no cover - standalone CLI
-    from reference_library import ReferenceLibrary
-
-
 IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg", ".webp", ".tif", ".tiff"}
 MANIFEST_RELATIVE_PATH = Path("assets/visual-references/source-reconstruction-manifest.json")
 EXPECTED_COUNTS = {"nature-figure": 15, "figures4papers": 39, "total": 54}
-RENDERER_VERSION = 2
+RENDERER_VERSION = 3
 PALETTES = (
     ("#35618f", "#79a8a9", "#e5a84b", "#c96558", "#7868a6"),
     ("#274c77", "#6096ba", "#a3cef1", "#e7b566", "#bc6c64"),
     ("#26547c", "#06a77d", "#f1a208", "#d95d39", "#6b5ca5"),
     ("#3d5a80", "#98c1d9", "#ee6c4d", "#7a9e7e", "#c9ada7"),
 )
+
+
+def _reference_library(skill_root: Path):
+    """Load the archive helper only for archive-maintenance operations.
+
+    Reference-local ``code.py`` files import this module solely to render a
+    stored blueprint; they must not need the library-management dependency.
+    """
+    try:
+        from .reference_library import ReferenceLibrary
+    except ImportError:  # pragma: no cover - standalone CLI
+        from reference_library import ReferenceLibrary
+    return ReferenceLibrary(root=skill_root, registry_path=skill_root / "assets/registry.jsonl")
 
 
 @dataclass(frozen=True)
@@ -149,6 +156,99 @@ def visual_profile(record: SourceFigure) -> dict[str, Any]:
         "density": "high" if panel_count >= 8 else "medium" if panel_count >= 3 else "focused",
         "visual_family": record.visual_family,
     }
+
+
+def _blueprint(
+    blueprint_id: str,
+    mosaic: tuple[str, ...],
+    recipes: dict[str, str],
+    observation: str,
+) -> dict[str, Any]:
+    """Declare the observable structure that an independent redraw must preserve."""
+    slots = []
+    for row in mosaic:
+        for slot in row:
+            if slot != "." and slot not in slots:
+                slots.append(slot)
+    missing = [slot for slot in slots if slot not in recipes]
+    if missing:
+        raise ValueError(f"{blueprint_id}: no panel recipe for {missing}")
+    return {
+        "blueprint_id": blueprint_id,
+        "mosaic": list(mosaic),
+        "panel_recipes": [{"id": slot, "kind": recipes[slot]} for slot in slots],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": observation,
+    }
+
+
+# These blueprints are intentionally source-specific.  A family label such as
+# ``grouped_bar`` is useful for retrieval, but it is not enough information to
+# reproduce the topology of a particular manuscript figure.
+SOURCE_BLUEPRINTS: dict[str, dict[str, Any]] = {
+    "assets/Dispersion_motivation.png": _blueprint("dispersion_motivation", ("AABB", "CCDD"), {"A": "schematic:inputs", "B": "diagram:latent", "C": "scatter:embedding", "D": "line:dispersion"}, "four-stage motivation: inputs, latent-space idea, embedding, and response curve"),
+    "assets/Dispersion_observation.png": _blueprint("dispersion_observation", ("AABB", "CCDD", "EEFF"), {"A": "schematic:observation", "B": "scatter:groups", "C": "heatmap:correlation", "D": "line:comparison", "E": "distribution:ridge", "F": "forest:effects"}, "asymmetric observation figure with one explanatory panel and five evidence panels"),
+    "assets/Dispersion_observation_distillation.png": _blueprint("dispersion_observation_distillation", ("ABC", "DEF"), {"A": "distribution:hist", "B": "distribution:violin", "C": "distribution:ridge", "D": "scatter:groups", "E": "line:distillation", "F": "bar:summary"}, "six compact distribution and comparison panels"),
+    "assets/ImmunoStruct_contrastive.png": _blueprint("immunostruct_contrastive", ("AABB", "CCDD"), {"A": "schematic:contrastive", "B": "diagram:pairing", "C": "scatter:embedding", "D": "bar:contrast"}, "paired contrastive workflow followed by embedding and quantitative comparison"),
+    "assets/ImmunoStruct_results_CEDAR.png": _blueprint("immunostruct_results_cedar", ("ABCD", "EFGH"), {"A": "bar:comparison", "B": "bar:ablation", "C": "line:calibration", "D": "heatmap:matrix", "E": "distribution:violin", "F": "scatter:groups", "G": "forest:effects", "H": "table:metrics"}, "eight-panel benchmark result grid with mixed evidence types"),
+    "assets/ImmunoStruct_results_IEDB.png": _blueprint("immunostruct_results_iedb", ("ABCD", "EFGH"), {"A": "bar:comparison", "B": "bar:ablation", "C": "line:calibration", "D": "heatmap:matrix", "E": "distribution:violin", "F": "scatter:groups", "G": "forest:effects", "H": "table:metrics"}, "eight-panel benchmark result grid, distinct IEDB rendering"),
+    "assets/ImmunoStruct_schematic.png": _blueprint("immunostruct_schematic", ("AAAB", "CCCB"), {"A": "schematic:architecture", "B": "diagram:attention", "C": "diagram:training"}, "wide architecture panel with two subordinate explanatory branches"),
+    "assets/RNAGenScape_schematic.png": _blueprint("rnagenscape_schematic", ("AABB", "CCDD"), {"A": "schematic:generator", "B": "diagram:conditioning", "C": "manifold:latent", "D": "spatial:expression"}, "generative pipeline with latent-space and spatial readouts"),
+    "assets/RNAGenScape_teaser.png": _blueprint("rnagenscape_teaser", ("AABB",), {"A": "diagram:cells", "B": "spatial:expression"}, "two-part teaser: cell representation to spatial expression"),
+    "assets/VIGIL_teaser.png": _blueprint("vigil_teaser", ("AABB",), {"A": "schematic:temporal", "B": "line:forecast"}, "temporal method teaser paired with a predicted trajectory"),
+    "figure_Brainteaser/figures/brute_force.png": _blueprint("brainteaser_brute_force", ("AABB", "CCDD"), {"A": "bar:composition", "B": "bar:comparison", "C": "distribution:points", "D": "table:metrics"}, "composition bars, comparison bars, raw observations, and summary table"),
+    "figure_Brainteaser/figures/correctness_by_category.png": _blueprint("brainteaser_correctness_category", ("AB", "CD"), {"A": "bar:category", "B": "bar:category", "C": "distribution:points", "D": "forest:effects"}, "category-level correctness panels with raw and interval evidence"),
+    "figure_Brainteaser/figures/correctness_by_subcategory.png": _blueprint("brainteaser_correctness_subcategory", ("ABC", "DEF", "GHI"), {"A": "bar:category", "B": "bar:category", "C": "bar:category", "D": "bar:category", "E": "bar:category", "F": "bar:category", "G": "distribution:points", "H": "forest:effects", "I": "table:metrics"}, "dense subcategory comparison grid with six categorical panels"),
+    "figure_Brainteaser/figures/rewriting.png": _blueprint("brainteaser_rewriting", ("ABC",), {"A": "bar:beforeafter", "B": "scatter:paired", "C": "distribution:violin"}, "before/after rewriting comparison with paired observation panel"),
+    "figure_Brainteaser/figures/selfcorrection_math.png": _blueprint("brainteaser_selfcorrection_math", ("ABCD", "EFGH"), {"A": "bar:category", "B": "bar:category", "C": "bar:category", "D": "bar:category", "E": "line:iterations", "F": "scatter:paired", "G": "distribution:points", "H": "table:metrics"}, "dense self-correction grid: categorical gains, iterations, paired observations, and metrics"),
+    "figure_CellSpliceNet/figures/ablation.png": _blueprint("cellsplicenet_ablation", ("AAB", "CCD"), {"A": "bar:ablation", "B": "line:training", "C": "distribution:violin", "D": "table:metrics"}, "ablation hero panel supported by training, distribution, and metric panels"),
+    "figure_CellSpliceNet/figures/comparison_human.png": _blueprint("cellsplicenet_comparison_human", ("ABC",), {"A": "bar:comparison", "B": "heatmap:matrix", "C": "line:calibration"}, "three-panel human benchmark: methods, matrix evidence, and calibration"),
+    "figure_CellSpliceNet/figures/comparison_worm.png": _blueprint("cellsplicenet_comparison_worm", ("ABC",), {"A": "bar:comparison", "B": "heatmap:matrix", "C": "line:calibration"}, "three-panel worm benchmark: methods, matrix evidence, and calibration"),
+    "figure_Cflows/figures/diffusion_swiss_roll.png": _blueprint("cflows_diffusion_swiss_roll", ("AABB",), {"A": "manifold:source", "B": "manifold:flow"}, "paired manifold views showing source geometry and transformed geometry"),
+    "figure_Cflows/figures/fig2_comparison_GeneRegulatory.png": _blueprint("cflows_gene_regulatory", ("ABC",), {"A": "network:regulatory", "B": "scatter:trajectory", "C": "line:dynamics"}, "network topology, state-space trajectory, and temporal dynamics"),
+    "figure_Cflows/figures/fig2_comparison_Trajectory.png": _blueprint("cflows_trajectory", ("ABC",), {"A": "scatter:trajectory", "B": "line:dynamics", "C": "forest:effects"}, "trajectory panel followed by dynamics and effect comparison"),
+    "figure_Cflows/figures/figX_comparison_Ablation.png": _blueprint("cflows_ablation", ("ABC",), {"A": "bar:ablation", "B": "line:training", "C": "table:metrics"}, "ablation bars with learning curve and metric table"),
+    "figure_Dispersion/figures/idea.png": _blueprint("dispersion_idea", ("AABB",), {"A": "schematic:idea", "B": "diagram:geometry"}, "conceptual idea paired with geometric explanation"),
+    "figure_Dispersion/figures/illustration.png": _blueprint("dispersion_illustration", ("AABB",), {"A": "diagram:geometry", "B": "schematic:process"}, "geometric illustration and process schematic"),
+    "figure_ImmunoStruct/figures/bars_ablation_Cancer.png": _blueprint("immunostruct_ablation_cancer", ("ABC",), {"A": "bar:ablation", "B": "bar:ablation", "C": "distribution:points"}, "three cancer ablation panels with replicate observations"),
+    "figure_ImmunoStruct/figures/bars_ablation_IEDB.png": _blueprint("immunostruct_ablation_iedb", ("ABC",), {"A": "bar:ablation", "B": "bar:ablation", "C": "distribution:points"}, "three IEDB ablation panels with replicate observations"),
+    "figure_ImmunoStruct/figures/bars_comparison_Cancer.png": _blueprint("immunostruct_comparison_cancer", ("ABC",), {"A": "bar:comparison", "B": "bar:comparison", "C": "forest:effects"}, "cancer method comparison with interval panel"),
+    "figure_ImmunoStruct/figures/bars_comparison_IEDB.png": _blueprint("immunostruct_comparison_iedb", ("ABC",), {"A": "bar:comparison", "B": "bar:comparison", "C": "forest:effects"}, "IEDB method comparison with interval panel"),
+    "figure_ophthal_review/figures/composition_heatmap.png": _blueprint("ophthal_composition_heatmap", ("AABB", "CCDD"), {"A": "heatmap:composition", "B": "heatmap:matrix", "C": "bar:composition", "D": "forest:effects"}, "heatmap hero with matrix, composition, and interval support"),
+    "figure_ophthal_review/figures/trend_by_month.png": _blueprint("ophthal_monthly_trend", ("AB", "CD"), {"A": "line:monthly", "B": "line:monthly", "C": "area:composition", "D": "bar:summary"}, "monthly trends, composition over time, and summary comparison"),
+    "figure_RNAGenScape/figures/manifold.png": _blueprint("rnagenscape_manifold", ("AB",), {"A": "manifold:source", "B": "manifold:generated"}, "paired manifold rendering of source and generated distributions"),
+    "figure_RNAGenScape/figures/manifold_holes.png": _blueprint("rnagenscape_manifold_holes", ("ABC",), {"A": "manifold:source", "B": "manifold:holes", "C": "manifold:generated"}, "three manifold states emphasizing holes and generated coverage"),
+    "figure_RNAGenScape/figures/results_comparison_optimization.png": _blueprint("rnagenscape_optimization", ("AABB", "CCDD"), {"A": "heatmap:optimization", "B": "line:optimization", "C": "bar:comparison", "D": "scatter:embedding"}, "optimization landscape hero with trajectory, method comparison, and embedding"),
+    "figure_RNAGenScape/figures/results_comparison_speed.png": _blueprint("rnagenscape_speed", ("AB",), {"A": "bar:comparison", "B": "forest:effects"}, "speed comparison with effect-size intervals"),
+    "figure_RNAGenScape/figures/results_sweep.png": _blueprint("rnagenscape_sweep", ("AB",), {"A": "line:sweep", "B": "line:sweep"}, "paired parameter-sweep curves"),
+    "figure_VIGIL/figures/ablation_curves.png": _blueprint("vigil_ablation_curves", ("ABC",), {"A": "line:ablation", "B": "line:ablation", "C": "line:ablation"}, "three ablation learning curves with uncertainty bands"),
+    "figure_VIGIL/figures/comparison_posttraining.png": _blueprint("vigil_posttraining", ("ABC",), {"A": "line:posttraining", "B": "line:posttraining", "C": "line:posttraining"}, "three post-training comparison curves"),
+    "figure_VIGIL/figures/comparison_radar.png": _blueprint("vigil_radar_comparison", ("AB",), {"A": "radar:methods", "B": "radar:methods"}, "paired polar method comparisons"),
+    "figure_VIGIL/figures/concept.png": _blueprint("vigil_concept", ("AABB",), {"A": "schematic:temporal", "B": "diagram:forecast"}, "temporal concept sketch with forecast explanation"),
+    "assets/chart-atlas/atlas-01-bar-charts.png": _blueprint("atlas_bar_charts", ("ABCD", "EFGH", "IJKL", "MNOP"), {slot: "bar:atlas" for slot in "ABCDEFGHIJKLMNOP"}, "16 bar-chart variants arranged as an atlas"),
+    "assets/chart-atlas/atlas-02-line-trends.png": _blueprint("atlas_line_trends", ("ABCD", "EFGH", "IJKL", "MNOP"), {slot: "line:atlas" for slot in "ABCDEFGHIJKLMNOP"}, "16 trend and uncertainty variants arranged as an atlas"),
+    "assets/chart-atlas/atlas-03-heatmaps.png": _blueprint("atlas_heatmaps", ("ABCD", "EFGH", "IJKL", "MNOP"), {slot: "heatmap:atlas" for slot in "ABCDEFGHIJKLMNOP"}, "16 matrix and annotation variants arranged as an atlas"),
+    "assets/chart-atlas/atlas-04-scatter-bubble.png": _blueprint("atlas_scatter_bubble", ("ABCD", "EFGH", "IJKL", "MNOP"), {slot: "scatter:atlas" for slot in "ABCDEFGHIJKLMNOP"}, "16 scatter and bubble variants arranged as an atlas"),
+    "assets/chart-atlas/atlas-05-radar-polar.png": _blueprint("atlas_radar_polar", ("ABCD", "EFGH", "IJKL", "MNOP"), {slot: "radar:atlas" for slot in "ABCDEFGHIJKLMNOP"}, "16 polar-chart variants arranged as an atlas"),
+    "assets/chart-atlas/atlas-06-distributions.png": _blueprint("atlas_distributions", ("ABCD", "EFGH", "IJKL", "MNOP"), {slot: "distribution:atlas" for slot in "ABCDEFGHIJKLMNOP"}, "16 distribution variants arranged as an atlas"),
+    "assets/chart-atlas/atlas-07-forest-interval.png": _blueprint("atlas_forest_interval", ("ABCD", "EFGH", "IJKL", "MNOP"), {slot: "forest:atlas" for slot in "ABCDEFGHIJKLMNOP"}, "16 interval and effect-size variants arranged as an atlas"),
+    "assets/chart-atlas/atlas-08-area-stacked.png": _blueprint("atlas_area_stacked", ("ABCD", "EFGH", "IJKL", "MNOP"), {slot: "area:atlas" for slot in "ABCDEFGHIJKLMNOP"}, "16 stacked-area and composition variants arranged as an atlas"),
+    "assets/chart-atlas/atlas-09-image-plates.png": _blueprint("atlas_image_plates", ("ABCD", "EFGH", "IJKL", "MNOP"), {slot: "spatial:atlas" for slot in "ABCDEFGHIJKLMNOP"}, "16 spatial/image-plate variants arranged as an atlas"),
+    "assets/chart-atlas/atlas-10-network-matrix.png": _blueprint("atlas_network_matrix", ("ABCD", "EFGH", "IJKL", "MNOP"), {slot: "network:atlas" for slot in "ABCDEFGHIJKLMNOP"}, "16 network/matrix variants arranged as an atlas"),
+    "assets/gallery/fig1-material-mechanism-rich.png": _blueprint("gallery_material_mechanism", ("AABB", "CDDE"), {"A": "schematic:materials", "B": "diagram:mechanism", "C": "spatial:micrograph", "D": "line:response", "E": "bar:comparison"}, "asymmetric material mechanism figure with large mechanism hero"),
+    "assets/gallery/fig2-spatial-imaging-rich.png": _blueprint("gallery_spatial_imaging", ("ABCD", "EFGH", "IJKL"), {"A": "spatial:sample", "B": "spatial:mask", "C": "spatial:overlay", "D": "spatial:zoom", "E": "spatial:sample", "F": "spatial:mask", "G": "spatial:overlay", "H": "spatial:zoom", "I": "spatial:zoom", "J": "scatter:spots", "K": "heatmap:matrix", "L": "bar:summary"}, "image-plate workflow with sample, mask, overlay, zoom, and quantitative support"),
+    "assets/gallery/fig3-in-vivo-efficacy-rich.png": _blueprint("gallery_in_vivo_efficacy", ("AABB", "CCDE"), {"A": "schematic:treatment", "B": "line:efficacy", "C": "spatial:imaging", "D": "bar:response", "E": "survival:curve"}, "in-vivo study: treatment schematic, longitudinal efficacy, imaging, response, survival"),
+    "assets/gallery/fig4-single-cell-systems-rich.png": _blueprint("gallery_single_cell_systems", ("AABB", "CCDE"), {"A": "schematic:singlecell", "B": "scatter:umap", "C": "heatmap:markers", "D": "distribution:violin", "E": "line:trajectory"}, "single-cell system figure with workflow, embedding hero, markers, distributions, trajectory"),
+    "assets/gallery/fig5-validation-perturbation-rich.png": _blueprint("gallery_validation_perturbation", ("AABB", "CCDE"), {"A": "schematic:perturbation", "B": "scatter:validation", "C": "bar:ablation", "D": "heatmap:response", "E": "forest:effects"}, "perturbation workflow and validation evidence across scatter, ablation, matrix, interval panels"),
+}
+
+
+def reconstruction_blueprint(record: SourceFigure) -> dict[str, Any]:
+    """Return the source-specific visual grammar, never a family-wide template."""
+    blueprint = SOURCE_BLUEPRINTS.get(record.relative_path)
+    if blueprint is None:
+        raise KeyError(f"No source-specific reconstruction blueprint for {record.relative_path}")
+    return json.loads(json.dumps(blueprint))
 
 
 def discover_sources(nature_root: Path | str, figures_root: Path | str) -> list[SourceFigure]:
@@ -479,6 +579,188 @@ def _topology_grid(fig: plt.Figure, rng: np.random.Generator, colors: tuple[str,
         _mini_panel(ax, family, rng, colors, index)
 
 
+def _draw_panel_kind(
+    ax: plt.Axes,
+    kind: str,
+    rng: np.random.Generator,
+    colors: tuple[str, ...],
+    index: int,
+) -> None:
+    """Draw one semantic panel recipe using synthetic data and original code."""
+    family, _, variant = kind.partition(":")
+    variant_seed = sum(ord(char) for char in variant) + index * 17
+    local = np.random.default_rng(rng.integers(0, 2**32 - 1) ^ variant_seed)
+
+    if family == "bar":
+        count = 6 if variant in {"category", "atlas"} else 4
+        groups = 3 if variant not in {"composition", "beforeafter"} else 2
+        x = np.arange(count)
+        values = np.clip(local.normal(0.58, 0.18, (groups, count)), 0.12, 0.96)
+        if variant == "composition":
+            values = values / values.sum(axis=0)
+            ax.bar(x, values[0], color=colors[0], width=0.72)
+            ax.bar(x, values[1], bottom=values[0], color=colors[2], width=0.72)
+            ax.set_ylim(0, 1)
+        else:
+            width = 0.72 / groups
+            for group in range(groups):
+                ax.bar(x + (group - (groups - 1) / 2) * width, values[group], width * 0.92, color=colors[group], edgecolor="white", lw=0.3)
+                if variant in {"ablation", "beforeafter"}:
+                    raw = values[group] + local.normal(0, 0.035, (5, count))
+                    ax.scatter(np.repeat(x + (group - (groups - 1) / 2) * width, 5) + local.normal(0, width * 0.12, count * 5), raw.T.ravel(), s=3.5, color="#34414b", alpha=0.45, zorder=4, linewidth=0)
+            ax.set_ylim(0, 1.06)
+        ax.set_xticks(x, [f"{i + 1}" for i in x], fontsize=5)
+        _clean_axis(ax)
+    elif family == "line":
+        x = np.linspace(0, 1, 12)
+        groups = 2 if variant in {"calibration", "monthly"} else 3
+        for group in range(groups):
+            slope = (0.33 if group % 2 == 0 else -0.16) + local.normal(0, 0.08)
+            y = 0.28 + group * 0.12 + slope * x + np.cumsum(local.normal(0, 0.018, len(x)))
+            err = 0.025 + local.random(len(x)) * 0.02
+            ax.plot(x, y, color=colors[group], lw=1.15, marker=("o", "s", "^")[group], ms=2.0)
+            if variant not in {"sweep", "forecast"}:
+                ax.fill_between(x, y - err, y + err, color=colors[group], alpha=0.12, linewidth=0)
+        if variant == "calibration":
+            ax.plot([0, 1], [0, 1], color="#606d77", ls="--", lw=0.7)
+        _clean_axis(ax)
+    elif family == "heatmap":
+        rows, columns = (10, 10) if variant in {"matrix", "atlas"} else (8, 11)
+        matrix = local.normal(0, 0.75, (rows, columns))
+        matrix += np.linspace(-0.7, 0.7, rows)[:, None]
+        cmap = "RdBu_r" if variant not in {"response", "optimization"} else "magma"
+        ax.imshow(matrix, cmap=cmap, aspect="auto", vmin=-2.2 if cmap == "RdBu_r" else None, vmax=2.2 if cmap == "RdBu_r" else None)
+        ax.set_xticks([]); ax.set_yticks([])
+        if variant in {"markers", "composition"}:
+            for edge in np.linspace(0.5, columns - 0.5, 4):
+                ax.axvline(edge, color="white", lw=0.45, alpha=0.7)
+    elif family == "scatter":
+        clusters = 4 if variant in {"embedding", "umap", "trajectory"} else 3
+        for group in range(clusters):
+            center = np.array([np.cos(group * 1.9), np.sin(group * 1.9)]) * (1.1 if variant != "paired" else 0.65)
+            points = local.normal(center, [0.28, 0.22], (45 if variant != "spots" else 80, 2))
+            if variant == "paired":
+                before = points[:18]
+                after = before + local.normal([0.4, 0.15], [0.12, 0.10], before.shape)
+                ax.plot(np.c_[before[:, 0], after[:, 0]].T, np.c_[before[:, 1], after[:, 1]].T, color="#aeb7bd", lw=0.35, zorder=0)
+                ax.scatter(before[:, 0], before[:, 1], s=7, color=colors[0], alpha=0.65)
+                ax.scatter(after[:, 0], after[:, 1], s=7, color=colors[2], alpha=0.65)
+                break
+            sizes = local.uniform(6, 30, len(points)) if variant in {"groups", "spots", "atlas"} else 8
+            ax.scatter(points[:, 0], points[:, 1], s=sizes, color=colors[group % len(colors)], alpha=0.64, linewidth=0.2, edgecolor="white")
+        if variant == "trajectory":
+            path = np.cumsum(local.normal(0, 0.18, (12, 2)), axis=0)
+            ax.plot(path[:, 0], path[:, 1], color="#3e4a53", lw=1.0, marker="o", ms=2)
+        _clean_axis(ax, grid=False)
+    elif family == "distribution":
+        if variant in {"hist", "atlas"}:
+            for group in range(3):
+                data = local.normal(group * 0.45, 0.55, 180)
+                ax.hist(data, bins=15, density=True, histtype="stepfilled", alpha=0.26, color=colors[group])
+        elif variant == "ridge":
+            for row in range(5):
+                data = local.normal(0.2 * row, 0.5, 130)
+                counts, edges = np.histogram(data, bins=25, density=True)
+                centers = (edges[:-1] + edges[1:]) / 2
+                ax.fill_between(centers, row, row + counts * 0.34, color=colors[row % len(colors)], alpha=0.72)
+        else:
+            samples = [local.normal(group * 0.22, 0.45, 55) for group in range(4)]
+            violin = ax.violinplot(samples, showmedians=True, widths=0.78)
+            for body, color in zip(violin["bodies"], colors):
+                body.set_facecolor(color); body.set_edgecolor("white"); body.set_alpha(0.65)
+            if variant == "points":
+                for x, data in enumerate(samples, start=1):
+                    ax.scatter(local.normal(x, 0.055, len(data)), data, s=3, color="#3e4a53", alpha=0.35, linewidth=0)
+        _clean_axis(ax, grid=False)
+    elif family == "forest":
+        y = np.arange(7)
+        effect = local.normal(0.1, 0.28, len(y))
+        errors = local.uniform(0.1, 0.28, len(y))
+        ax.errorbar(effect, y, xerr=errors, fmt="o", ms=3, color=colors[index % len(colors)], ecolor="#74808a", capsize=1.5)
+        ax.axvline(0, color="#4f5b64", lw=0.65, ls="--")
+        ax.set_yticks(y, [f"{i + 1}" for i in y], fontsize=5)
+        _clean_axis(ax, grid=False)
+    elif family == "area":
+        x = np.arange(15)
+        raw = local.gamma(2, 1, (4, len(x)))
+        values = raw / raw.sum(axis=0)
+        ax.stackplot(x, values, colors=colors[:4], alpha=0.85, linewidth=0.25, edgecolor="white")
+        ax.set_ylim(0, 1); _clean_axis(ax, grid=False)
+    elif family == "spatial":
+        field = _synthetic_field(local, 100)
+        cmap = {"sample": "magma", "mask": "gray", "overlay": "viridis", "zoom": "cividis"}.get(variant, "magma")
+        ax.imshow(field, cmap=cmap)
+        if variant in {"overlay", "spots", "atlas"}:
+            spots = local.uniform(4, 96, (35, 2))
+            ax.scatter(spots[:, 0], spots[:, 1], s=5, facecolors="none", edgecolors="white", lw=0.35)
+        ax.plot([6, 28], [93, 93], color="white", lw=1.5)
+        ax.set_axis_off()
+    elif family == "network":
+        nodes = np.c_[np.cos(np.linspace(0, 2 * np.pi, 10, endpoint=False)), np.sin(np.linspace(0, 2 * np.pi, 10, endpoint=False))]
+        for _ in range(16):
+            source, target = local.choice(len(nodes), 2, replace=False)
+            ax.plot(nodes[[source, target], 0], nodes[[source, target], 1], color="#adb8bf", lw=0.4, zorder=0)
+        ax.scatter(nodes[:, 0], nodes[:, 1], s=31, c=[colors[i % 4] for i in range(len(nodes))], edgecolor="white", lw=0.45)
+        ax.set_aspect("equal"); ax.set_axis_off()
+    elif family == "manifold":
+        t = 1.5 * np.pi * (1 + 2 * local.random(260))
+        x, y = t * np.cos(t), t * np.sin(t)
+        noise = 0.3 if variant != "holes" else 0.55
+        ax.scatter(x + local.normal(0, noise, len(t)), y + local.normal(0, noise, len(t)), c=t, cmap="viridis", s=3.5, alpha=0.72, linewidth=0)
+        ax.set_xticks([]); ax.set_yticks([]); ax.spines[:].set_visible(False)
+    elif family == "radar":
+        angles = np.linspace(0, 2 * np.pi, 7, endpoint=False)
+        for group in range(3):
+            values = np.clip(0.45 + 0.12 * group + local.normal(0, 0.08, len(angles)), 0.12, 0.94)
+            coords = np.c_[values * np.cos(angles), values * np.sin(angles)]
+            coords = np.vstack([coords, coords[0]])
+            ax.plot(coords[:, 0], coords[:, 1], color=colors[group], lw=1.0)
+            ax.fill(coords[:, 0], coords[:, 1], color=colors[group], alpha=0.08)
+        for radius in (0.3, 0.6, 0.9):
+            ax.add_patch(plt.Circle((0, 0), radius, fill=False, lw=0.35, ec="#ccd4d9"))
+        ax.set_aspect("equal"); ax.set_xlim(-1.1, 1.1); ax.set_ylim(-1.1, 1.1); ax.set_axis_off()
+    elif family in {"schematic", "diagram"}:
+        ax.set_xlim(0, 10); ax.set_ylim(0, 6); ax.set_axis_off()
+        count = 4 if family == "schematic" else 3
+        positions = np.linspace(1.2, 8.8, count)
+        for node, x in enumerate(positions):
+            if family == "schematic":
+                box = FancyBboxPatch((x - 0.82, 2.65), 1.64, 1.0, boxstyle="round,pad=0.08", fc=colors[node % len(colors)], ec="white", lw=0.7, alpha=0.92)
+                ax.add_patch(box)
+                ax.text(x, 3.15, ("Input", "Encode", "Model", "Readout")[node], ha="center", va="center", color="white", fontsize=5.5, fontweight="bold")
+            else:
+                ax.add_patch(Circle((x, 3.1), 0.55, fc=colors[node % len(colors)], ec="white", lw=0.7, alpha=0.85))
+            if node < count - 1:
+                ax.add_patch(FancyArrowPatch((x + 0.84, 3.15), (positions[node + 1] - 0.84, 3.15), arrowstyle="-|>", mutation_scale=8, lw=0.8, color="#59656e"))
+        for _ in range(8):
+            ax.add_patch(Circle((local.uniform(0.7, 9.3), local.uniform(0.8, 1.9)), local.uniform(0.07, 0.16), fc=colors[local.integers(0, len(colors))], ec="white", lw=0.25, alpha=0.66))
+    elif family == "table":
+        rows, columns = 5, 4
+        matrix = local.uniform(0.25, 0.95, (rows, columns))
+        ax.imshow(matrix, cmap="Blues", aspect="auto", vmin=0, vmax=1)
+        for y in np.arange(-0.5, rows, 1): ax.axhline(y, color="white", lw=0.55)
+        for x in np.arange(-0.5, columns, 1): ax.axvline(x, color="white", lw=0.55)
+        ax.set_xticks([]); ax.set_yticks([])
+    elif family == "survival":
+        x = np.linspace(0, 1, 12)
+        for group in range(3):
+            y = np.maximum(0, 1 - (0.35 + group * 0.15) * x - np.cumsum(local.uniform(0, 0.03, len(x))))
+            ax.step(x, y, where="post", color=colors[group], lw=1.15)
+        ax.set_ylim(0, 1.05); _clean_axis(ax, grid=False)
+    else:
+        raise ValueError(f"Unsupported source-specific panel kind: {kind}")
+
+
+def _render_blueprint(fig: plt.Figure, rng: np.random.Generator, colors: tuple[str, ...], blueprint: dict[str, Any]) -> None:
+    mosaic = [list(row) for row in blueprint["mosaic"]]
+    axes = fig.subplot_mosaic(mosaic, empty_sentinel=".")
+    recipes = {item["id"]: item["kind"] for item in blueprint["panel_recipes"]}
+    for index, (slot, ax) in enumerate(axes.items()):
+        _draw_panel_kind(ax, recipes[slot], rng, colors, index)
+        _panel_label(ax, slot)
+    fig.text(0.99, 0.006, blueprint["blueprint_id"].replace("_", " "), ha="right", va="bottom", fontsize=4.5, color="#7b8790")
+
+
 RENDERERS: dict[str, Callable[[plt.Figure, np.random.Generator, tuple[str, ...]], None]] = {
     "grouped_bar": _grouped_bar,
     "line_grid": _line_grid,
@@ -504,8 +786,10 @@ def render_from_spec(spec: dict[str, Any], output_path: Path | str) -> Path:
     aspect = max(0.7, min(2.2, float(spec["width"]) / float(spec["height"])))
     width = 7.2 if aspect >= 1 else 6.2
     height = max(4.2, min(7.0, width / aspect))
-    grammar = spec.get("observable_visual_grammar", {"panel_grid": [1, 2], "panel_count": 2})
-    panel_count = int(grammar.get("panel_count", 2))
+    blueprint = spec.get("reconstruction_blueprint")
+    if not blueprint:
+        raise ValueError("A source reconstruction requires a source-specific reconstruction_blueprint.")
+    panel_count = len(blueprint.get("panel_recipes", []))
     if panel_count >= 8:
         width = max(width, 8.5)
         height = max(height, 6.2)
@@ -520,14 +804,8 @@ def render_from_spec(spec: dict[str, Any], output_path: Path | str) -> Path:
         }
     ):
         fig = plt.figure(figsize=(width, height), dpi=150, constrained_layout=True)
-        family = spec["visual_family"]
-        if panel_count >= 8:
-            _topology_grid(fig, rng, colors, spec)
-        elif family in {"material_mechanism", "in_vivo_efficacy", "single_cell_systems", "validation_perturbation"}:
-            _rich_composite(fig, rng, colors, family)
-        else:
-            RENDERERS.get(family, _comparison_composite)(fig, rng, colors)
-        fig.savefig(output_path, dpi=150, bbox_inches="tight", pad_inches=0.08, metadata={"Software": "academic-figure-skill"})
+        _render_blueprint(fig, rng, colors, blueprint)
+        fig.savefig(output_path, dpi=150, bbox_inches="tight", pad_inches=0.08, metadata={"Software": "publication-figure-design"})
         plt.close(fig)
     return output_path
 
@@ -539,6 +817,7 @@ def render_reconstruction(record: SourceFigure, output_path: Path | str) -> Path
         "height": record.height,
         "visual_family": record.visual_family,
         "observable_visual_grammar": visual_profile(record),
+        "reconstruction_blueprint": reconstruction_blueprint(record),
         "renderer_version": RENDERER_VERSION,
     }
     return render_from_spec(spec, output_path)
@@ -595,7 +874,7 @@ def build_reconstruction_library(
         current = json.loads(manifest_path.read_text(encoding="utf-8"))
         existing_records = {item["source_fingerprint"]: item for item in current.get("records", [])}
 
-    lib = ReferenceLibrary(root=skill_root, registry_path=skill_root / "assets/registry.jsonl")
+    lib = _reference_library(skill_root)
     existing_copies = _existing_source_copies(skill_root, records)
     output_records: list[dict[str, Any]] = []
     created = 0
@@ -614,12 +893,16 @@ def build_reconstruction_library(
                         "height": record.height,
                         "visual_family": record.visual_family,
                         "observable_visual_grammar": visual_profile(record),
+                        "reconstruction_blueprint": reconstruction_blueprint(record),
                         "renderer_version": RENDERER_VERSION,
                     }
                     code = skill_root / previous.get("code_path", "")
                     if code.parent == metadata.parent:
                         code.write_text(_reproducer_text(current_spec), encoding="utf-8")
-                    output_records.append(previous)
+                    refreshed = dict(previous)
+                    refreshed["renderer_version"] = RENDERER_VERSION
+                    refreshed["reconstruction_blueprint"] = reconstruction_blueprint(record)
+                    output_records.append(refreshed)
                     continue
 
             image_path = tmp / f"reconstruction-{index:02d}.png"
@@ -631,6 +914,7 @@ def build_reconstruction_library(
                 "height": record.height,
                 "visual_family": record.visual_family,
                 "observable_visual_grammar": visual_profile(record),
+                "reconstruction_blueprint": reconstruction_blueprint(record),
                 "renderer_version": RENDERER_VERSION,
             }
             code_path.write_text(_reproducer_text(spec), encoding="utf-8")
@@ -642,8 +926,8 @@ def build_reconstruction_library(
                 "source_url": None,
                 "license": "generated independently; source license recorded in audit manifest",
                 "usage_scope": "internal_reference",
-                "review_status": "reviewed",
-                "aesthetic_rating": 4,
+                "review_status": "pending",
+                "aesthetic_rating": None,
                 "production_ready": False,
                 "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
                 "source_fingerprint": record.source_sha256,
@@ -654,6 +938,7 @@ def build_reconstruction_library(
                 "visual_family": record.visual_family,
                 "reconstruction_method": "independent",
                 "observable_visual_grammar": visual_profile(record),
+                "reconstruction_blueprint": reconstruction_blueprint(record),
                 "renderer_version": RENDERER_VERSION,
             }
             generated_sha = _sha256(image_path)
@@ -691,6 +976,7 @@ def build_reconstruction_library(
                 "output_sha256": ref.metadata["sha256"],
                 "reconstruction_method": "independent",
                 "renderer_version": RENDERER_VERSION,
+                "reconstruction_blueprint": reconstruction_blueprint(record),
                 "existing_exact_copy_id": existing_copies.get(record.source_sha256),
             }
             item.pop("source_sha256", None)
@@ -761,6 +1047,11 @@ def validate_installed_library(
             errors.append(f"{label}: reconstruction method is not independent.")
         if item.get("source_fingerprint") == item.get("output_sha256"):
             errors.append(f"{label}: output is byte-identical to source.")
+        blueprint = item.get("reconstruction_blueprint")
+        if not isinstance(blueprint, dict) or not blueprint.get("blueprint_id"):
+            errors.append(f"{label}: missing source-specific reconstruction blueprint.")
+        elif not isinstance(blueprint.get("panel_recipes"), list) or not blueprint["panel_recipes"]:
+            errors.append(f"{label}: blueprint has no panel recipes.")
         for field in ("relative_path", "image_path", "code_path"):
             value = item.get(field)
             if not value or Path(value).is_absolute():
@@ -783,7 +1074,36 @@ def validate_installed_library(
             code = code_path.read_text(encoding="utf-8", errors="replace").lower()
             if "figures4papers" in code or "nature-skills" in code:
                 errors.append(f"{label}: archived code names a source repository.")
-    lib = ReferenceLibrary(root=skill_root, registry_path=skill_root / "assets/registry.jsonl")
+        if metadata_path.is_file():
+            metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+            review = metadata.get("visual_review")
+            if review is None:
+                if metadata.get("review_status") != "pending":
+                    errors.append(f"{label}: unreviewed reconstruction is not pending.")
+                if metadata.get("aesthetic_rating") is not None:
+                    errors.append(f"{label}: unreviewed reconstruction has an aesthetic rating.")
+            else:
+                required_review = {
+                    "final_size_inspected", "hierarchy", "panel_balance", "whitespace",
+                    "legend_footprint", "text_legibility", "reviewer", "verdict", "comparison_path",
+                }
+                missing = sorted(field for field in required_review if not review.get(field))
+                if missing:
+                    errors.append(f"{label}: incomplete visual review: {', '.join(missing)}.")
+                comparison = skill_root / str(review.get("comparison_path", ""))
+                if not comparison.is_file():
+                    errors.append(f"{label}: missing visual review comparison evidence.")
+                if review.get("verdict") == "pass":
+                    if metadata.get("review_status") != "reviewed" or metadata.get("aesthetic_rating") is None:
+                        errors.append(f"{label}: passing review is not retrievable with a rating.")
+                elif review.get("verdict") == "fail":
+                    if metadata.get("review_status") != "pending" or metadata.get("aesthetic_rating") is not None:
+                        errors.append(f"{label}: failed review is not quarantined.")
+                else:
+                    errors.append(f"{label}: visual review verdict is invalid.")
+            if metadata.get("production_ready") is not False:
+                errors.append(f"{label}: automated reconstruction is marked production-ready.")
+    lib = _reference_library(skill_root)
     ok, problems = lib.validate()
     if not ok:
         errors.extend(f"Reference {ref_id}: {'; '.join(problem)}" for ref_id, problem in problems)
@@ -798,6 +1118,108 @@ def validate_installed_library(
     }
 
 
+def quarantine_installed_reconstructions(skill_root: Path | str) -> dict[str, Any]:
+    """Reset automated source reconstructions to an honest unreviewed state."""
+    skill_root = Path(skill_root)
+    manifest_path = skill_root / MANIFEST_RELATIVE_PATH
+    if not manifest_path.is_file():
+        raise FileNotFoundError(f"Missing {manifest_path}")
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    changed = 0
+    for item in manifest.get("records", []):
+        meta_path = (
+            skill_root / "assets/visual-references/generated-archive"
+            / str(item.get("archive_id", "")) / "metadata.json"
+        )
+        if not meta_path.is_file():
+            continue
+        metadata = json.loads(meta_path.read_text(encoding="utf-8"))
+        target = {"review_status": "pending", "aesthetic_rating": None, "production_ready": False}
+        if any(metadata.get(key) != value for key, value in target.items()):
+            metadata.update(target)
+            note = "Automated reconstruction; quarantined pending source-to-render visual review."
+            existing_note = str(metadata.get("notes") or "").strip()
+            if note not in existing_note:
+                metadata["notes"] = f"{existing_note} {note}".strip()
+            meta_path.write_text(
+                json.dumps(metadata, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
+                encoding="utf-8",
+            )
+            changed += 1
+    _reference_library(skill_root).rebuild_registry()
+    return {"changed_count": changed, "record_count": len(manifest.get("records", []))}
+
+
+def write_visual_review(
+    skill_root: Path | str,
+    source_fingerprint: str,
+    verdict: str,
+    reviewer: str,
+    notes: str,
+    comparison_path: Path | str,
+    rating: float | None = None,
+    inspection_order: int | None = None,
+) -> dict[str, Any]:
+    """Record a manual equal-size source-to-render review without auto-promotion."""
+    if verdict not in {"pass", "fail"}:
+        raise ValueError("verdict must be 'pass' or 'fail'")
+    skill_root = Path(skill_root)
+    manifest_path = skill_root / MANIFEST_RELATIVE_PATH
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    item = next(
+        (entry for entry in manifest.get("records", []) if entry.get("source_fingerprint") == source_fingerprint),
+        None,
+    )
+    if item is None:
+        raise KeyError(f"Unknown source fingerprint: {source_fingerprint}")
+    comparison = Path(comparison_path)
+    if not comparison.is_file():
+        raise FileNotFoundError(f"Missing comparison evidence: {comparison}")
+    try:
+        relative_comparison = comparison.resolve().relative_to(skill_root.resolve()).as_posix()
+    except ValueError:
+        evidence_dir = skill_root / "assets/visual-references/review-evidence" / str(item["archive_id"])
+        evidence_dir.mkdir(parents=True, exist_ok=True)
+        destination = evidence_dir / comparison.name
+        shutil.copy2(comparison, destination)
+        relative_comparison = destination.relative_to(skill_root).as_posix()
+    review = {
+        "reviewer": reviewer,
+        "verdict": verdict,
+        "reviewed_at": __import__("datetime").datetime.now(__import__("datetime").timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "comparison_path": relative_comparison,
+        "final_size_inspected": True,
+        "hierarchy": "pass" if verdict == "pass" else "fail",
+        "panel_balance": "pass" if verdict == "pass" else "fail",
+        "whitespace": "pass" if verdict == "pass" else "fail",
+        "legend_footprint": "pass" if verdict == "pass" else "fail",
+        "text_legibility": "pass" if verdict == "pass" else "fail",
+        "notes": notes,
+        "inspection_method": "individual equal-size source|reconstruction pair opened",
+        "individual_pair_opened": True,
+    }
+    if inspection_order is not None:
+        review["inspection_order"] = inspection_order
+    item["visual_review"] = review
+    metadata_path = skill_root / "assets/visual-references/generated-archive" / item["archive_id"] / "metadata.json"
+    metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+    metadata["visual_review"] = review
+    if verdict == "pass":
+        if rating is None or not 0 <= rating <= 5:
+            raise ValueError("A passing review requires a rating from 0 to 5")
+        metadata.update({"review_status": "reviewed", "aesthetic_rating": rating, "production_ready": False})
+    else:
+        metadata.update({"review_status": "pending", "aesthetic_rating": None, "production_ready": False})
+    metadata_path.write_text(
+        json.dumps(metadata, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8"
+    )
+    manifest_path.write_text(
+        json.dumps(manifest, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8"
+    )
+    _reference_library(skill_root).rebuild_registry()
+    return review
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -808,10 +1230,33 @@ def main(argv: list[str] | None = None) -> int:
     check = subparsers.add_parser("check", help="Validate the installed reconstruction library.")
     check.add_argument("--skill-root", type=Path, default=Path(__file__).resolve().parents[1])
     check.add_argument("--json", action="store_true")
+    quarantine = subparsers.add_parser(
+        "quarantine", help="Reset automated reconstructions to pending/unrated."
+    )
+    quarantine.add_argument("--skill-root", type=Path, default=Path(__file__).resolve().parents[1])
+    review = subparsers.add_parser("review", help="Record one manual source-to-render visual review.")
+    review.add_argument("--fingerprint", required=True)
+    review.add_argument("--verdict", required=True, choices=("pass", "fail"))
+    review.add_argument("--reviewer", required=True)
+    review.add_argument("--notes", required=True)
+    review.add_argument("--comparison", required=True, type=Path)
+    review.add_argument("--rating", type=float)
+    review.add_argument("--skill-root", type=Path, default=Path(__file__).resolve().parents[1])
     args = parser.parse_args(argv)
     if args.command == "build":
         report = build_reconstruction_library(args.nature_root, args.figures_root, args.skill_root)
         print(json.dumps(report["summary"], indent=2, ensure_ascii=False))
+        return 0
+    if args.command == "quarantine":
+        report = quarantine_installed_reconstructions(args.skill_root)
+        print(json.dumps(report, indent=2, ensure_ascii=False))
+        return 0
+    if args.command == "review":
+        report = write_visual_review(
+            args.skill_root, args.fingerprint, args.verdict, args.reviewer,
+            args.notes, args.comparison, args.rating,
+        )
+        print(json.dumps(report, indent=2, ensure_ascii=False))
         return 0
     report = validate_installed_library(args.skill_root)
     if args.json:

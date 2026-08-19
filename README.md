@@ -1,8 +1,8 @@
 <div align="center">
-  <h1>Academic Figure Skill</h1>
+  <h1>Publication Figure Design</h1>
   <p><strong>面向学术级科学图表生成Skill，可自动完成从数据解读到顶刊格式图表生成的全流程。</strong></p>
   <p>
-    问题驱动 · 8 步闭环工作流 · 29 种图型 · 四轮 QA 协议 · 矢量 PDF 交付 · 统计报告
+    问题驱动 · 参考优先 Orchestrator · 29 种图型 · 证据化 QA · 矢量 PDF 交付 · 统计报告
   </p>
   <p>
     <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-Apache--2.0-2ea44f"></a>
@@ -25,14 +25,27 @@
 
 ---
 
-**Academic Figure Skill** 以"问题驱动而非模板驱动"为核心原则——每一张图从科学问题出发，通过 8 步闭环工作流（用户意图解析 → 原型分类 → 图型论证 → 环境探测 → 风格注入 → 资产检索 → 渲染生成 → 质量验证），输出可直接投稿的矢量 PDF 主文件 + 300dpi PNG 预览 + 统计报告。更多详情，请关注微信公众号：**科研绘图酱**。
+**Publication Figure Design** 以"问题驱动、参考优先而非模板驱动"为核心原则——每一张图都经过可持久化的 `Route → Intake → Reference Retrieval → Reference Inspection → Design Spec → Binding → Render → Compare → Critique → Repair → QA → Export` 状态机，输出可直接投稿的矢量 PDF 主文件 + 300dpi PNG 预览 + 统计报告。更多详情，请关注微信公众号：**科研绘图酱**。
+
+### 当前运行入口
+
+```text
+pfd run <task-spec.json>
+pfd reference ingest <image> <figure-type>
+pfd reference analyze <reference-id>
+pfd reference review <reference-id> <review.json>
+pfd index build
+pfd eval                    # 单元测试 + Recall/NDCG/生成质量 canary
+```
+
+具体参考图必须先打开并测量，再选择实现材料；结构、风格、组件和注释参考独立检索，最终 raster/vector 必须重新与参考图比较。`SKILL.md` 是薄入口，机器契约、状态机和 QA 规则分别位于 `references/`、`src/` 和 `manifest.yaml`。
 
 ---
 
 ## 效果预览
 
 <p align="center">
-  <img src="assets/figure-atlas/preview.png" width="100%" alt="Academic Figure Skill 多面板效果预览">
+  <img src="assets/figure-atlas/preview.png" width="100%" alt="Publication Figure Design 多面板效果预览">
 </p>
 
 <details>
@@ -46,7 +59,7 @@
 
 ## 项目介绍
 
-Academic Figure Skill 是一个面向 AI 编程助手（Claude Code、Codex 等）的 Skill 包。其工作方式是：将 Nature / Cell / Science 系列期刊的图表制作规范（字体 Arial/Helvetica、栏宽 89mm/183mm、PDF 矢量导出、300dpi 栅格预览）和 29 种常见图型的视觉参数编码为 `SKILL.md` 及其引用的 16 份参考文档。当用户提供数据和科学问题后，Skill 引导 LLM 执行一个标准化的 8 步流程：澄清研究问题 → 分类图型原型 → 论证面板方案并获取用户确认 → 检测 Python/R 运行时 → 注入统一的排版和配色基线 → 扫描 `assets/figures/` 中的生产脚本（匹配则原生运行，无匹配则跨类型继承视觉参数）→ 数据校验 → 4 轮 QA 自检 → 输出矢量 PDF 与统计报告。
+Publication Figure Design 是一个面向 AI 编程助手（Claude Code、Codex 等）的 Skill 包。其工作方式是：将 Nature / Cell / Science 系列期刊的图表制作规范（字体 Arial/Helvetica、栏宽 89mm/183mm、PDF 矢量导出、300dpi 栅格预览）和 29 种常见图型的视觉参数编码为 `SKILL.md` 及其路由的参考/运行时集合。当用户提供数据和科学问题后，Skill 引导 LLM 执行可持久化的 Route → Intake → Reference Retrieval → Reference Inspection → Design Spec → Binding → Render → Compare → Critique → Repair → QA → Export 生命周期；每一步都有机器可读 artifact 和 gate。
 
 该 Skill 不替代 Python 或 R 的绘图能力，而是提供一套结构化的约束条件（constraints）和先验知识（priors），使 LLM 在生成绘图代码时遵循 CNS 期刊的视觉标准，减少人工调整排版、配色和导出参数的工作量。在多面板合成场景中，Skill 支持 Python 脚本和 R 脚本的混合编排——R 面板通过 Cairo 设备渲染为位图，Python 的 `compose.py` 排版引擎按物理尺寸拼合多面板。
 
@@ -105,6 +118,10 @@ Academic Figure Skill 是一个面向 AI 编程助手（Claude Code、Codex 等�
 
 ---
 
+## 单张参考图入库
+
+你只需要把图片交给 agent，并说明“存进参考图库”。Skill 会打开原图、判断主图型和视觉语法、记录标签与来源边界、复制图片生成 sidecar 元数据，并要求 agent 用合成数据写一份视觉语法复现代码和 `reconstruction.png` 预览，再制作等尺寸原图/复现图对照并记录差异，最后重建索引并返回 reference ID。原始数据或原始论文代码不需要；没有复现代码或一致性审查的记录只能保持 `pending`，不能进入 reviewed 推荐池。默认按 `private_reference` 处理，只有明确给出可再分发许可时才进入公开素材范围。详见 `SKILL.md` 的 **Single-image reference intake** 和 [visual-reference-library.md](references/visual-reference-library.md)。
+
 ## 系统工作流
 
 ```text
@@ -130,7 +147,7 @@ Academic Figure Skill 是一个面向 AI 编程助手（Claude Code、Codex 等�
 
 ## 安装与使用
 
-`academic-figure-skill` 是一个以 `SKILL.md` 为核心的 Skill 包。完整安装需保留 `references/`、`scripts/`、`assets/`、`install/` 等目录，Skill 依赖这些文件完成视觉基线注入、资产检索和跨平台适配。
+`publication-figure-design` 是一个以 `SKILL.md` 为核心的 Skill 包。完整安装需保留 `references/`、`scripts/`、`assets/`、`install/` 等目录，Skill 依赖这些文件完成视觉基线注入、资产检索和跨平台适配。
 
 ### Claude Code
 
@@ -146,37 +163,37 @@ claude
 ```bash
 mkdir -p ~/ai-skills
 cd ~/ai-skills
-git clone https://github.com/TingxiYu/academic-figure-skill.git
-cp -r academic-figure-skill ~/.claude/skills/
+git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
+cp -r publication-figure-design ~/.claude/skills/
 ```
 
 安装后在 Claude Code 会话中直接描述需求即可自动触发：
 
 ```text
-请使用 academic-figure-skill 分析项目文件中的multip-traits.csv数据，并进行可视化分析。
+请使用 publication-figure-design 分析项目文件中的multip-traits.csv数据，并进行可视化分析。
 ```
 
 ```text
-用academic-figure-skill将data.csv数据绘制为一个 Nature 风格的差异表达火山图。
+用publication-figure-design将data.csv数据绘制为一个 Nature 风格的差异表达火山图。
 ```
 
 如需更新：
 
 ```bash
-cd ~/ai-skills/academic-figure-skill
+cd ~/ai-skills/publication-figure-design
 git pull
-cp -r . ~/.claude/skills/academic-figure-skill/
+cp -r . ~/.claude/skills/publication-figure-design/
 ```
 
 ### Codex
 
-Codex 支持通过 `install/codex/` 中的 `manifest.yaml` + `instructions.md` 加载 Skill。将以下目录复制到 `~/.codex/skills/academic-figure-skill/`：
+Codex 支持通过 `install/codex/` 中的 `manifest.yaml` + `instructions.md` 加载 Skill。将以下目录复制到 `~/.codex/skills/publication-figure-design/`：
 
 ```bash
-git clone https://github.com/TingxiYu/academic-figure-skill.git
-cd academic-figure-skill
-mkdir -p ~/.codex/skills/academic-figure-skill
-cp -r SKILL.md references/ scripts/ assets/ install/codex/* ~/.codex/skills/academic-figure-skill/
+git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
+cd publication-figure-design
+mkdir -p ~/.codex/skills/publication-figure-design
+cp -r SKILL.md references/ scripts/ assets/ install/codex/* ~/.codex/skills/publication-figure-design/
 ```
 
 安装后在 Codex 会话中自然描述需求，Skill 会根据 `manifest.yaml` 中的触发规则自动激活。
@@ -185,7 +202,7 @@ cp -r SKILL.md references/ scripts/ assets/ install/codex/* ~/.codex/skills/acad
 
 ```text
 从 https://github.com/TingxiYu/academic-figure-skill.git 安装 Codex skill。
-克隆仓库后，将 SKILL.md、references/、scripts/、assets/ 和 install/codex/ 复制到 ~/.codex/skills/academic-figure-skill/。
+克隆后将目录命名为 publication-figure-design，再将 SKILL.md、references/、scripts/、assets/ 和 install/codex/ 复制到 ~/.codex/skills/publication-figure-design/。
 保持完整目录结构，不要只复制 SKILL.md。
 ```
 
@@ -194,8 +211,8 @@ cp -r SKILL.md references/ scripts/ assets/ install/codex/* ~/.codex/skills/acad
 将 Skill 规则文件复制到项目根目录，Cursor 在生成代码时会自动遵循其中的规范：
 
 ```bash
-git clone https://github.com/TingxiYu/academic-figure-skill.git
-cp academic-figure-skill/install/cursor/.cursorrules <your-project>/.cursorrules
+git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
+cp publication-figure-design/install/cursor/.cursorrules <your-project>/.cursorrules
 ```
 
 `.cursorrules` 包含了配色方案、排版基线、导出规格等核心规则。如需更新规则，重新执行上述复制命令即可。
@@ -205,9 +222,9 @@ cp academic-figure-skill/install/cursor/.cursorrules <your-project>/.cursorrules
 将 Skill 指令文件复制到项目的 `.github/` 目录，Copilot 在生成代码时会加载这些上下文：
 
 ```bash
-git clone https://github.com/TingxiYu/academic-figure-skill.git
+git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
 mkdir -p <your-project>/.github
-cp academic-figure-skill/install/copilot/copilot-instructions.md <your-project>/.github/
+cp publication-figure-design/install/copilot/copilot-instructions.md <your-project>/.github/
 ```
 
 如果已有 `.github/copilot-instructions.md`，建议将本 Skill 的内容追加到文件末尾。
@@ -226,10 +243,10 @@ cp academic-figure-skill/install/copilot/copilot-instructions.md <your-project>/
 ## 项目结构
 
 ```text
-	academic-figure-skill/                          ← 核心 Skill 包（本目录）
+	publication-figure-design/                     ← 核心 Skill 包（本目录）
     ├── README.md                      ← 项目说明文档（本文件）
     ├── LICENSE                        ← MIT 许可证
-    ├── SKILL.md                       ← 技能入口：8 步闭环工作流 + 全部规则
+    ├── SKILL.md                       ← 薄技能入口：Orchestrator、优先级与 Gate
     ├── references/                    ← 16 份共享知识文档
     │   ├── figure-contract.md         ← 图表合同：核心结论 + 证据链 + 审稿风险
     │   ├── color-palettes.md          ← 配色系统：分类/发散/连续 + 色盲友好
@@ -338,7 +355,7 @@ python scripts/trigger_benchmark.py
 
 ## 贡献指南
 
-Academic Figure Skill 采用 Skill 插件架构，添加新图型只需：
+Publication Figure Design 采用 Skill 插件架构，添加新图型只需：
 
 1. 在 `assets/figures/` 下创建新目录 `<FigureType>/`
 2. 放入生产脚本（`.py` 或 `.R`）和预览 PNG
@@ -349,4 +366,4 @@ Academic Figure Skill 采用 Skill 插件架构，添加新图型只需：
 
 ## 许可证
 
-[Apache 2.0](LICENSE) © 2025 Academic Figure Skill
+[Apache 2.0](LICENSE) © 2025 Publication Figure Design Contributors

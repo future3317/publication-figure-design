@@ -1,20 +1,21 @@
-# Academic Figure Skill — Claude Code Installation
+# Publication Figure Design adapter — Claude Code
 
-The Claude Code skill is at `academic-figure-skill/`. Install via symlink:
+This is a thin loader for `publication-figure-design` manifest version `2.1.0`.
+The canonical instructions and route contracts live in the bundled skill; this
+file is not a replacement or a second source of design rules.
 
-```bash
-ln -s $(pwd)/academic-figure-skill ~/.claude/skills/academic-figure-skill
-```
+Runtime bundle:
+- `SKILL.md`
+- `manifest.yaml`
+- `references/`
+- `scripts/`
+- `src/`
+- `assets/visual-references/`
+- `assets/registry.jsonl`
+- `schemas/`
+- `indexes/`
 
-Or copy:
-```bash
-cp -r academic-figure-skill ~/.claude/skills/academic-figure-skill
-```
+Generated: 2026-08-18 17:50 UTC
 
-After installation, Claude Code auto-triggers on: "make a volcano plot", "画个热图",
-"review this figure for Nature", etc.
-
-The skill checks `academic-figure-skill/assets/figures/<type>/` for production scripts before
-generating any code. Add your own scripts there to extend figure type coverage.
-
-Generated: 2026-08-11 04:59 UTC
+Install this directory at `~/.claude/skills/publication-figure-design/`.
+Load `SKILL.md` and resolve all relative scripts/resources from that directory.

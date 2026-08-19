@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Academic Figure Skill Color Compliance Checker.
+Publication Figure Design color compliance checker.
 
 Checks scientific figure code for default color palettes and red-green
 accessibility issues. Supports Python (matplotlib/seaborn), R (ggplot2/
@@ -211,7 +211,7 @@ def check(target, journal="nature-genetics"):
 # ---------------------------------------------------------------------------
 def main():
     parser = argparse.ArgumentParser(
-        description="Academic Figure Skill Color Compliance Checker"
+        description="Publication Figure Design Color Compliance Checker"
     )
     parser.add_argument(
         "target",

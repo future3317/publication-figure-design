@@ -6,7 +6,7 @@ __pycache__/
 # Tool / benchmark caches
 scripts/.eval_results.json
 scripts/.ab_baseline.json
-scripts/.ab_academic-figure-skill.json
+scripts/.ab_publication-figure-design.json
 
 # Staging area for visual-reference ingest
 assets/visual-references/.staging/

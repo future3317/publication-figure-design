@@ -1,0 +1,75 @@
+{
+  "aesthetic_rating": 4.5,
+  "code_path": null,
+  "created_at": "2026-08-12T17:30:09Z",
+  "data_density": null,
+  "figure_type": "mechanism_schematic",
+  "id": "5da6979582203956",
+  "image_path": "assets/visual-references/references/5da6979582203956/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "unknown",
+  "n_groups": null,
+  "notes": "Exact source visual sample cataloged for private reference; distinct from independent reconstruction.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "rnagenscape_schematic",
+    "mosaic": [
+      "AABB",
+      "CCDD"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "schematic:generator"
+      },
+      {
+        "id": "B",
+        "kind": "diagram:conditioning"
+      },
+      {
+        "id": "C",
+        "kind": "manifold:latent"
+      },
+      {
+        "id": "D",
+        "kind": "spatial:expression"
+      }
+    ],
+    "source_observation": "generative pipeline with latent-space and spatial readouts"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "5da6979582203956d3f54535ea8286acaaaaba5d588066891ee037de056ed545",
+  "source": "figures4papers visual source",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "5da6979582203956d3f54535ea8286acaaaaba5d588066891ee037de056ed545",
+  "source_license_class": "unknown",
+  "source_relative_path": "assets/RNAGenScape_schematic.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "rnagenscape_schematic",
+  "tags": [
+    "source-catalog",
+    "figures4papers",
+    "mechanism_schematic"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "mechanism_schematic",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'rnagenscape_schematic' is a focused mechanism_schematic reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

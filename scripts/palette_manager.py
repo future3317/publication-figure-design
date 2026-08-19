@@ -26,9 +26,11 @@ except ImportError:  # pragma: no cover - allow standalone import during dev
 
 
 __all__ = [
+    "contrast_ratio",
     "list_palettes",
     "get_palette_info",
     "get_palette",
+    "pick_text_color",
     "extend_palette",
     "resolve_palette",
     "resolve_colors",
@@ -86,6 +88,33 @@ def _hex_to_rgb(hex_color: str) -> Tuple[float, float, float]:
     """Convert '#RRGGBB' to normalized RGB tuple."""
     hex_color = hex_color.lstrip("#")
     return tuple(int(hex_color[i : i + 2], 16) / 255.0 for i in (0, 2, 4))
+
+
+def _linear_channel(value: float) -> float:
+    return value / 12.92 if value <= 0.04045 else ((value + 0.055) / 1.055) ** 2.4
+
+
+def _relative_luminance(hex_color: str) -> float:
+    red, green, blue = (_linear_channel(channel) for channel in _hex_to_rgb(hex_color))
+    return 0.2126 * red + 0.7152 * green + 0.0722 * blue
+
+
+def contrast_ratio(foreground: str, background: str) -> float:
+    """Return the WCAG contrast ratio of two ``#RRGGBB`` colors."""
+    light, dark = sorted((_relative_luminance(foreground), _relative_luminance(background)), reverse=True)
+    return (light + 0.05) / (dark + 0.05)
+
+
+def pick_text_color(background: str, minimum_ratio: float = 4.5) -> str:
+    """Choose dark ink or white text with the strongest readable contrast.
+
+    ``minimum_ratio`` documents the publication-size threshold; the best of
+    the two neutral inks is still returned when an unusual background cannot
+    meet it, so the rendered QA gate can report the residual failure.
+    """
+    candidates = ("#222222", "#FFFFFF")
+    ratios = {color: contrast_ratio(color, background) for color in candidates}
+    return max(candidates, key=ratios.get)
 
 
 def _rgb_to_hex(rgb: Sequence[float]) -> str:

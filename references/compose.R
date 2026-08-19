@@ -1,4 +1,4 @@
-# Academic Figure Skill Multi-Panel Composition — R engine
+# Publication Figure Design Multi-Panel Composition — R engine
 # Source: source("references/compose.R")
 # Depends: ggplot2, patchwork, showtext
 

@@ -11,10 +11,12 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from palette_manager import (
+    contrast_ratio,
     extend_palette,
     get_palette,
     get_palette_info,
     list_palettes,
+    pick_text_color,
     resolve_colors,
     resolve_palette,
     set_default_palette,
@@ -141,6 +143,17 @@ class TestResolveColorsPriority(unittest.TestCase):
         set_default_palette("pastel_girl")
         colors = resolve_colors(colors=None, palette=None, n=3)
         self.assertEqual(colors, PALETTES["pastel_girl"]["colors"][:3])
+
+
+class TestTextContrast(unittest.TestCase):
+    def test_white_text_on_light_blue_fails_publication_contrast(self):
+        self.assertLess(contrast_ratio("#8DBAD5", "#FFFFFF"), 4.5)
+
+    def test_auto_text_color_uses_dark_ink_on_light_background(self):
+        self.assertEqual(pick_text_color("#8DBAD5"), "#222222")
+
+    def test_auto_text_color_uses_white_on_dark_background(self):
+        self.assertEqual(pick_text_color("#153E75"), "#FFFFFF")
 
 
 class TestErrorHandling(unittest.TestCase):

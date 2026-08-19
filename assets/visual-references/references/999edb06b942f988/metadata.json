@@ -1,0 +1,79 @@
+{
+  "aesthetic_rating": 4.5,
+  "code_path": null,
+  "created_at": "2026-08-12T17:30:09Z",
+  "data_density": null,
+  "figure_type": "single_cell_systems",
+  "id": "999edb06b942f988",
+  "image_path": "assets/visual-references/references/999edb06b942f988/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "Apache-2.0",
+  "n_groups": null,
+  "notes": "Exact source visual sample cataloged for private reference; distinct from independent reconstruction.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "gallery_single_cell_systems",
+    "mosaic": [
+      "AABB",
+      "CCDE"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "schematic:singlecell"
+      },
+      {
+        "id": "B",
+        "kind": "scatter:umap"
+      },
+      {
+        "id": "C",
+        "kind": "heatmap:markers"
+      },
+      {
+        "id": "D",
+        "kind": "distribution:violin"
+      },
+      {
+        "id": "E",
+        "kind": "line:trajectory"
+      }
+    ],
+    "source_observation": "single-cell system figure with workflow, embedding hero, markers, distributions, trajectory"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "999edb06b942f988a51b11f947845e42e4c346b2f9e5d5a6425def9e43bb69d1",
+  "source": "nature-figure visual source",
+  "source_action": "licensed_visual_source",
+  "source_fingerprint": "999edb06b942f988a51b11f947845e42e4c346b2f9e5d5a6425def9e43bb69d1",
+  "source_license_class": "Apache-2.0",
+  "source_relative_path": "assets/gallery/fig4-single-cell-systems-rich.png",
+  "source_repository": "nature-figure",
+  "source_url": null,
+  "subtype": "gallery_single_cell_systems",
+  "tags": [
+    "source-catalog",
+    "nature-figure",
+    "single_cell_systems"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "single_cell_systems",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'gallery_single_cell_systems' is a focused single_cell_systems reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

@@ -1,6 +1,6 @@
 # R PNG Rendering Rules
 
-Three non-negotiable rules. Skipping any produces poor-quality PNG output — the #1 recurring bug in Academic Figure Skill.
+Three non-negotiable rules. Skipping any produces poor-quality PNG output — the #1 recurring bug in Publication Figure Design.
 
 ## 1. `png(type="cairo")` — NOT ggsave for PNG
 

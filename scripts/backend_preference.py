@@ -19,7 +19,7 @@ def config_path() -> Path:
     override = os.environ.get("ACADEMIC_FIGURE_CONFIG")
     if override:
         return Path(override).expanduser()
-    return Path("~/.config/academic-figure-skill/preferences.json").expanduser()
+    return Path("~/.config/publication-figure-design/preferences.json").expanduser()
 
 
 def read_config(path: Path) -> dict[str, str]:

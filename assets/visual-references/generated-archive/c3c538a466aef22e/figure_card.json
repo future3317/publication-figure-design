@@ -1,0 +1,120 @@
+{
+  "schema": "publication-figure-design/figure-card-v1",
+  "source": "independent visual-grammar reconstruction",
+  "figure_type": "network_matrix",
+  "canvas": {
+    "width_px": 1261,
+    "height_px": 941,
+    "aspect_ratio": 1.340064,
+    "mode": "RGB"
+  },
+  "background": {
+    "rgb": [
+      255.0,
+      255.0,
+      255.0
+    ],
+    "hex": "#ffffff",
+    "near_white": true
+  },
+  "ink_coverage": 0.048383,
+  "palette": {
+    "dominant": [
+      {
+        "hex": "#ffffff",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "fraction": 0.963938,
+        "role": "background"
+      },
+      {
+        "hex": "#bac3c9",
+        "rgb": [
+          186,
+          195,
+          201
+        ],
+        "fraction": 0.023546,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#6096ba",
+        "rgb": [
+          96,
+          150,
+          186
+        ],
+        "fraction": 0.003501,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#274c77",
+        "rgb": [
+          39,
+          76,
+          119
+        ],
+        "fraction": 0.003131,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#a3cef1",
+        "rgb": [
+          163,
+          206,
+          241
+        ],
+        "fraction": 0.002424,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#e7b566",
+        "rgb": [
+          231,
+          181,
+          102
+        ],
+        "fraction": 0.002154,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#000000",
+        "rgb": [
+          0,
+          0,
+          0
+        ],
+        "fraction": 0.001018,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#f0d1a0",
+        "rgb": [
+          240,
+          209,
+          160
+        ],
+        "fraction": 0.000287,
+        "role": "data_or_annotation"
+      }
+    ],
+    "extraction": "extcolors-or-pillow-quantize"
+  },
+  "panels": {
+    "status": "manual_required",
+    "count": null,
+    "layout": null
+  },
+  "axes": {
+    "status": "manual_required"
+  },
+  "typography": {
+    "status": "manual_required"
+  },
+  "annotations": {
+    "status": "manual_required"
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "schema": "publication-figure-design/figure-card-v1",
+  "source": "self-generated reproduction of WeChat reference",
+  "figure_type": "BarCategorical",
+  "canvas": {
+    "width_px": 2372,
+    "height_px": 1618,
+    "aspect_ratio": 1.466007,
+    "mode": "RGB"
+  },
+  "background": {
+    "rgb": [
+      255.0,
+      255.0,
+      255.0
+    ],
+    "hex": "#ffffff",
+    "near_white": true
+  },
+  "ink_coverage": 0.387022,
+  "palette": {
+    "dominant": [
+      {
+        "hex": "#ffffff",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "fraction": 0.625429,
+        "role": "background"
+      },
+      {
+        "hex": "#4c6aa1",
+        "rgb": [
+          76,
+          106,
+          161
+        ],
+        "fraction": 0.118387,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#904565",
+        "rgb": [
+          144,
+          69,
+          101
+        ],
+        "fraction": 0.083925,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#b23347",
+        "rgb": [
+          178,
+          51,
+          71
+        ],
+        "fraction": 0.057913,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#655d8b",
+        "rgb": [
+          101,
+          93,
+          139
+        ],
+        "fraction": 0.055993,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#7f4e74",
+        "rgb": [
+          127,
+          78,
+          116
+        ],
+        "fraction": 0.0246,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#d3d3d3",
+        "rgb": [
+          211,
+          211,
+          211
+        ],
+        "fraction": 0.019174,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#a33b54",
+        "rgb": [
+          163,
+          59,
+          84
+        ],
+        "fraction": 0.014579,
+        "role": "data_or_annotation"
+      }
+    ],
+    "extraction": "extcolors-or-pillow-quantize"
+  },
+  "panels": {
+    "status": "manual_required",
+    "count": null,
+    "layout": null
+  },
+  "axes": {
+    "status": "manual_required"
+  },
+  "typography": {
+    "status": "manual_required"
+  },
+  "annotations": {
+    "status": "manual_required"
+  }
+}

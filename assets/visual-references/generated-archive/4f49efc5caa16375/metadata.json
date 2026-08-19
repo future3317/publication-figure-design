@@ -1,0 +1,142 @@
+{
+  "aesthetic_rating": null,
+  "code_path": "assets/visual-references/generated-archive/4f49efc5caa16375/code.py",
+  "created_at": "2026-08-12T16:57:23Z",
+  "data_density": null,
+  "figure_card_path": "assets/visual-references/generated-archive/4f49efc5caa16375/figure_card.json",
+  "figure_type": "line_grid",
+  "id": "4f49efc5caa16375",
+  "image_path": "assets/visual-references/generated-archive/4f49efc5caa16375/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "balanced",
+    "density": "high",
+    "panel_count": 16,
+    "panel_grid": [
+      4,
+      4
+    ],
+    "visual_family": "line_grid"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "atlas_line_trends",
+    "mosaic": [
+      "ABCD",
+      "EFGH",
+      "IJKL",
+      "MNOP"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "line:atlas"
+      },
+      {
+        "id": "B",
+        "kind": "line:atlas"
+      },
+      {
+        "id": "C",
+        "kind": "line:atlas"
+      },
+      {
+        "id": "D",
+        "kind": "line:atlas"
+      },
+      {
+        "id": "E",
+        "kind": "line:atlas"
+      },
+      {
+        "id": "F",
+        "kind": "line:atlas"
+      },
+      {
+        "id": "G",
+        "kind": "line:atlas"
+      },
+      {
+        "id": "H",
+        "kind": "line:atlas"
+      },
+      {
+        "id": "I",
+        "kind": "line:atlas"
+      },
+      {
+        "id": "J",
+        "kind": "line:atlas"
+      },
+      {
+        "id": "K",
+        "kind": "line:atlas"
+      },
+      {
+        "id": "L",
+        "kind": "line:atlas"
+      },
+      {
+        "id": "M",
+        "kind": "line:atlas"
+      },
+      {
+        "id": "N",
+        "kind": "line:atlas"
+      },
+      {
+        "id": "O",
+        "kind": "line:atlas"
+      },
+      {
+        "id": "P",
+        "kind": "line:atlas"
+      }
+    ],
+    "source_observation": "16 trend and uncertainty variants arranged as an atlas"
+  },
+  "reconstruction_method": "independent",
+  "renderer_version": 3,
+  "reproduction_preview_path": "assets/visual-references/generated-archive/4f49efc5caa16375/image.png",
+  "review_status": "pending",
+  "scope": "generated-archive",
+  "sha256": "31a20ec5d704f6b6df94ebcd4f1e40d0c8940ba2c3bc0e5b379b38cfe8c7310c",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "licensed_visual_source",
+  "source_fingerprint": "9a8189149180a68679738bc4be152ee40b17d71261d71b3759d315a7169da0d9",
+  "source_license_class": "Apache-2.0",
+  "source_relative_path": "assets/chart-atlas/atlas-02-line-trends.png",
+  "source_repository": "nature-figure",
+  "source_url": null,
+  "subtype": "line_grid",
+  "tags": [
+    "source-reconstruction",
+    "nature-figure",
+    "line_grid"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "line_grid",
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/source-reconstructions/pairs/41-4f49efc5caa16375.png",
+    "final_size_inspected": true,
+    "hierarchy": "fail",
+    "individual_pair_opened": true,
+    "inspection_method": "individual equal-size source|reconstruction pair opened",
+    "inspection_order": 41,
+    "legend_footprint": "fail",
+    "notes": "FAIL after individual review of pair 41-4f49efc5caa16375.png: the line_grid reconstruction preserves the broad observable topology/mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+    "panel_balance": "fail",
+    "reviewed_at": "2026-08-14T12:08:46Z",
+    "reviewer": "Codex individual visual audit",
+    "text_legibility": "fail",
+    "verdict": "fail",
+    "whitespace": "fail"
+  }
+}

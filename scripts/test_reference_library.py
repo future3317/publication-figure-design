@@ -25,6 +25,7 @@ from reference_library import (
     archive_generated_figure,
     ingest_image,
     validate_metadata,
+    normalize_figure_type,
 )
 
 
@@ -45,11 +46,26 @@ def _make_temp_skill_root() -> Path:
     return tmp
 
 
+def _review(lib: ReferenceLibrary, ref: VisualReference, rating: float) -> VisualReference:
+    return lib.review(ref.id, rating, {
+        "final_size_inspected": True,
+        "hierarchy": "pass", "panel_balance": "pass", "whitespace": "pass",
+        "legend_footprint": "pass", "text_legibility": "pass",
+        "reviewer": "test visual review",
+    })
+
+
 # ---------------------------------------------------------------------------
 # Deterministic-id / path helpers
 # ---------------------------------------------------------------------------
 
 class TestHelpers(unittest.TestCase):
+    def test_figure_type_aliases_are_canonical(self):
+        self.assertEqual(normalize_figure_type("GroupedBar"), "grouped_bar")
+        self.assertEqual(normalize_figure_type("grouped-bar"), "grouped_bar")
+        self.assertEqual(normalize_figure_type("Heatmap"), "heatmap_grid")
+        self.assertEqual(normalize_figure_type("Scatter"), "scatter_bubble")
+
     def test_sha256_and_short_id(self):
         data = b"hello"
         full = hashlib.sha256(data).hexdigest()
@@ -185,15 +201,16 @@ class TestReferenceLibrary(unittest.TestCase):
         expected_id = _short_id(_sha256_of_bytes(src.read_bytes()))
         self.assertEqual(ref.id, expected_id)
         self.assertEqual(ref.scope, "references")
-        self.assertEqual(ref.figure_type, "GroupedViolin")
+        self.assertEqual(ref.figure_type, "grouped_violin")
         self.assertTrue(ref.image_path.exists())
         self.assertEqual(ref.metadata["sha256"], _sha256_of_bytes(src.read_bytes()))
         self.assertEqual(ref.metadata["tags"], ["pastel", "minimal"])
-        self.assertEqual(ref.metadata["aesthetic_rating"], 4)
-        self.assertEqual(ref.metadata["review_status"], "reviewed")
+        self.assertIsNone(ref.metadata["aesthetic_rating"])
+        self.assertEqual(ref.metadata["review_status"], "pending")
         self.assertFalse(ref.metadata["production_ready"])
         self.assertEqual(ref.metadata["usage_scope"], "private_reference")
         self.assertEqual(ref.metadata["palette_policy"], "preserve")
+        self.assertIsNone(ref.metadata["figure_card_path"])
 
         # Side-car file exists and paths are relative.
         meta_path = self.refs_dir / "references" / ref.id / "metadata.json"
@@ -247,6 +264,81 @@ class TestReferenceLibrary(unittest.TestCase):
         self.assertFalse(Path(on_disk["image_path"]).is_absolute())
         self.assertFalse(Path(on_disk["code_path"]).is_absolute())
 
+    def test_ingest_cannot_self_approve(self):
+        src = self.skill_root / "self-approved.png"
+        _make_test_image(src, b"\x89PNG\r\n\x1a\nSELF")
+        ref = self.lib.ingest(
+            src,
+            "PCA",
+            metadata_override={
+                "review_status": "reviewed",
+                "aesthetic_rating": 5,
+                "production_ready": True,
+            },
+        )
+        self.assertEqual(ref.metadata["review_status"], "pending")
+        self.assertIsNone(ref.metadata["aesthetic_rating"])
+        self.assertFalse(ref.metadata["production_ready"])
+
+    def test_review_requires_complete_rendered_evidence(self):
+        src = self.skill_root / "review.png"
+        _make_test_image(src, b"\x89PNG\r\n\x1a\nRVW1")
+        ref = self.lib.ingest(src, "PCA")
+        with self.assertRaises(ValueError):
+            self.lib.review(ref.id, 4, {"final_size_inspected": True})
+
+    def test_user_supplied_review_requires_reproduction_artifacts(self):
+        src = self.skill_root / "user-reference.png"
+        _make_test_image(src, b"\x89PNG\r\n\x1a\nUSER")
+        ref = self.lib.ingest(src, "PCA", metadata_override={"reference_kind": "user_supplied"})
+        evidence = {
+            "final_size_inspected": True,
+            "hierarchy": "pass", "panel_balance": "pass", "whitespace": "pass",
+            "legend_footprint": "pass", "text_legibility": "pass",
+            "reviewer": "independent visual review",
+        }
+        with self.assertRaises(ValueError):
+            self.lib.review(ref.id, 4, evidence)
+
+    def test_user_supplied_review_requires_a_complete_visual_grammar_card(self):
+        src = self.skill_root / "user-reference-with-render.png"
+        code = self.skill_root / "reproduce.py"
+        preview = self.skill_root / "preview.png"
+        _make_test_image(src, b"\x89PNG\r\n\x1a\nUGRM")
+        code.write_text("print('reproduce')\n", encoding="utf-8")
+        _make_test_image(preview, b"\x89PNG\r\n\x1a\nUGRP")
+        ref = self.lib.ingest(src, "PCA", metadata_override={
+            "reference_kind": "user_supplied",
+            "code_path": "reproduce.py",
+            "reproduction_preview_path": "preview.png",
+        })
+        evidence = {
+            "final_size_inspected": True,
+            "hierarchy": "pass", "panel_balance": "pass", "whitespace": "pass",
+            "legend_footprint": "pass", "text_legibility": "pass",
+            "reviewer": "independent visual review",
+        }
+        with self.assertRaisesRegex(ValueError, "visual grammar"):
+            self.lib.review(ref.id, 4, evidence)
+
+    def test_review_promotes_pending_reference_to_retrievable(self):
+        src = self.skill_root / "review.png"
+        _make_test_image(src, b"\x89PNG\r\n\x1a\nRVW2")
+        ref = self.lib.ingest(src, "PCA")
+        evidence = {
+            "final_size_inspected": True,
+            "hierarchy": "pass",
+            "panel_balance": "pass",
+            "whitespace": "pass",
+            "legend_footprint": "pass",
+            "text_legibility": "pass",
+            "reviewer": "independent visual review",
+        }
+        reviewed = self.lib.review(ref.id, 4, evidence)
+        self.assertEqual(reviewed.metadata["review_status"], "reviewed")
+        self.assertEqual(reviewed.metadata["aesthetic_rating"], 4)
+        self.assertEqual(self.lib.query(figure_type="PCA")[0].id, ref.id)
+
     def test_get_and_list(self):
         src = self.skill_root / "incoming.png"
         _make_test_image(src, b"\x89PNG\r\n\x1a\nEEEE")
@@ -269,7 +361,7 @@ class TestReferenceLibrary(unittest.TestCase):
         def ingest_with(src_bytes, figure_type, tags, rating, review_status):
             src = self.skill_root / f"img_{src_bytes[-1]}.png"
             _make_test_image(src, src_bytes)
-            return self.lib.ingest(
+            ref = self.lib.ingest(
                 src,
                 figure_type,
                 metadata_override={
@@ -278,6 +370,7 @@ class TestReferenceLibrary(unittest.TestCase):
                     "review_status": review_status,
                 },
             )
+            return _review(self.lib, ref, rating) if review_status == "reviewed" else ref
 
         r1 = ingest_with(b"\x89PNG\r\n\x1a\n1111", "GroupedViolin", ["pastel", "nature"], 5, "reviewed")
         r2 = ingest_with(b"\x89PNG\r\n\x1a\n2222", "GroupedViolin", ["pastel"], 4, "reviewed")
@@ -289,19 +382,62 @@ class TestReferenceLibrary(unittest.TestCase):
         # r1 (reviewed, rating 5, 2 tag hits) should be first.
         self.assertEqual(ids[0], r1.id)
         # r3 is pending but matches both tags and rating 5, still after reviewed.
-        self.assertIn(r3.id, ids)
+        self.assertNotIn(r3.id, ids)
+        self.assertIn(
+            r3.id,
+            [r.id for r in self.lib.query(figure_type="GroupedViolin", tags=["pastel"], include_unreviewed=True)],
+        )
 
     def test_query_min_aesthetic_rating(self):
         src_low = self.skill_root / "low.png"
         src_high = self.skill_root / "high.png"
         _make_test_image(src_low, b"\x89PNG\r\n\x1a\nLLLL")
         _make_test_image(src_high, b"\x89PNG\r\n\x1a\nHHHH")
-        self.lib.ingest(src_low, "Violin", metadata_override={"aesthetic_rating": 2})
-        self.lib.ingest(src_high, "Violin", metadata_override={"aesthetic_rating": 4})
+        _review(self.lib, self.lib.ingest(src_low, "Violin"), 2)
+        _review(self.lib, self.lib.ingest(src_high, "Violin"), 4)
 
         results = self.lib.query(figure_type="Violin", min_aesthetic_rating=3)
         self.assertEqual(len(results), 1)
         self.assertEqual(results[0].metadata["aesthetic_rating"], 4)
+
+    def test_query_matches_figure_type_aliases(self):
+        src = self.skill_root / "grouped.png"
+        _make_test_image(src, b"\x89PNG\r\n\x1a\nALIA")
+        ref = _review(self.lib, self.lib.ingest(src, "grouped_bar"), 4)
+        self.assertEqual(self.lib.query(figure_type="GroupedBar")[0].id, ref.id)
+        self.assertEqual(self.lib.query(figure_type="grouped-bar")[0].id, ref.id)
+
+    def test_default_query_excludes_pending_and_rejected(self):
+        reviewed = self.skill_root / "reviewed.png"
+        pending = self.skill_root / "pending.png"
+        rejected = self.skill_root / "rejected.png"
+        _make_test_image(reviewed, b"\x89PNG\r\n\x1a\nREVI")
+        _make_test_image(pending, b"\x89PNG\r\n\x1a\nPEND")
+        _make_test_image(rejected, b"\x89PNG\r\n\x1a\nREJE")
+        ready_ref = _review(self.lib, self.lib.ingest(reviewed, "heatmap_grid"), 3)
+        self.lib.ingest(pending, "heatmap_grid")
+        self.lib.ingest(
+            rejected,
+            "heatmap_grid",
+            metadata_override={"review_status": "rejected"},
+        )
+        self.assertEqual([ref.id for ref in self.lib.query(figure_type="Heatmap")], [ready_ref.id])
+        self.assertEqual(
+            len(self.lib.query(figure_type="Heatmap", include_unreviewed=True)),
+            3,
+        )
+
+    def test_promoted_ranks_before_reviewed(self):
+        promoted = self.skill_root / "promoted.png"
+        reviewed = self.skill_root / "reviewed.png"
+        _make_test_image(promoted, b"\x89PNG\r\n\x1a\nPROM")
+        _make_test_image(reviewed, b"\x89PNG\r\n\x1a\nREVV")
+        promoted_ref = _review(self.lib, self.lib.ingest(promoted, "PCA"), 3)
+        promoted_ref.metadata["review_status"] = "promoted"
+        promoted_path = self.refs_dir / "references" / promoted_ref.id / "metadata.json"
+        promoted_path.write_text(json.dumps(promoted_ref.metadata), encoding="utf-8")
+        _review(self.lib, self.lib.ingest(reviewed, "PCA"), 5)
+        self.assertEqual(self.lib.query(figure_type="PCA")[0].id, promoted_ref.id)
 
     def test_validate(self):
         src = self.skill_root / "incoming.png"
@@ -325,6 +461,24 @@ class TestReferenceLibrary(unittest.TestCase):
         ok, problems = self.lib.validate()
         self.assertFalse(ok)
         self.assertEqual(problems[0][0], ref.id)
+
+    def test_validate_detects_missing_or_changed_reference_pixels(self):
+        src = self.skill_root / "integrity.png"
+        _make_test_image(src, b"\x89PNG\r\n\x1a\nINTEGRITY")
+        ref = _review(self.lib, self.lib.ingest(src, "LineTrend"), 4)
+        ref.image_path.write_bytes(b"changed")
+        ok, problems = self.lib.validate()
+        self.assertFalse(ok)
+        self.assertTrue(any("sha256" in error.lower() for _, errors in problems for error in errors))
+
+    def test_validate_detects_missing_reference_pixels(self):
+        src = self.skill_root / "missing.png"
+        _make_test_image(src, b"\x89PNG\r\n\x1a\nMISSING")
+        ref = self.lib.ingest(src, "LineTrend")
+        ref.image_path.unlink()
+        ok, problems = self.lib.validate()
+        self.assertFalse(ok)
+        self.assertTrue(any("image" in error.lower() for _, errors in problems for error in errors))
 
     def test_rebuild_registry(self):
         src1 = self.skill_root / "a.png"

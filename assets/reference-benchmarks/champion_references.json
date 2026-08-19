@@ -1,0 +1,5 @@
+{
+  "schema_version": "1.0",
+  "selection_policy": "manual aesthetic upper-bound benchmark; never auto-promote",
+  "reference_ids": ["0de2014d0cf60d22", "4d213749151b32cb", "22f32e9bd10b34ee"]
+}

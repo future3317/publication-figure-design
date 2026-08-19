@@ -1,0 +1,133 @@
+"""Unified ``pfd`` command line entrypoint."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from pathlib import Path
+from typing import Any
+
+from .contracts import TaskSpec
+from .orchestrator import Orchestrator, WorkflowSession, build_runtime_orchestrator
+
+
+ROOT = Path(__file__).resolve().parents[2]
+SCRIPTS = ROOT / "scripts"
+if str(SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS))
+
+
+def _load_json(path: Path) -> dict[str, Any]:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _run_task(args: argparse.Namespace) -> int:
+    if args.resume:
+        session = WorkflowSession.load(args.task_spec)
+        orchestrator = build_runtime_orchestrator()
+    else:
+        task = TaskSpec.from_dict(_load_json(args.task_spec))
+        orchestrator = build_runtime_orchestrator()
+        session = orchestrator.start(task)
+    orchestrator.run(session)
+    output = Path(args.output or args.task_spec)
+    session.save(output)
+    print(json.dumps(session.to_dict(), indent=2, ensure_ascii=False))
+    return 0 if session.status == "complete" else 2
+
+
+def _reference_command(args: argparse.Namespace) -> int:
+    from reference_library import ReferenceLibrary
+
+    library = ReferenceLibrary(ROOT)
+    if args.reference_action == "ingest":
+        metadata = json.loads(args.metadata) if args.metadata else {}
+        reference = library.ingest(Path(args.image), args.figure_type, metadata_override=metadata)
+        print(json.dumps(reference.metadata, indent=2, ensure_ascii=False))
+        return 0
+    if args.reference_action == "analyze":
+        from reference_image_analysis import analyze_image
+
+        reference = library.get(args.reference_id)
+        if reference is None:
+            raise SystemExit(f"Unknown reference id: {args.reference_id}")
+        image = ROOT / reference.metadata["image_path"]
+        output = Path(args.output or (ROOT / reference.metadata["figure_card_path"]))
+        output.parent.mkdir(parents=True, exist_ok=True)
+        card = analyze_image(image, output=output, figure_type=reference.metadata.get("figure_type"))
+        print(json.dumps(card, indent=2, ensure_ascii=False))
+        return 0
+    if args.reference_action == "review":
+        review = _load_json(Path(args.review_json))
+        library.review(args.reference_id, float(review.pop("aesthetic_rating")), review)
+        library.rebuild_registry()
+        print(f"reviewed {args.reference_id}")
+        return 0
+    raise SystemExit(f"Unknown reference action: {args.reference_action}")
+
+
+def _index_command(_: argparse.Namespace) -> int:
+    from build_reference_indexes import build_indexes
+
+    print(json.dumps(build_indexes(ROOT), indent=2, ensure_ascii=False))
+    return 0
+
+
+def _eval_command(_: argparse.Namespace) -> int:
+    import subprocess
+
+    result = subprocess.run(
+        [sys.executable, "-m", "unittest", "discover", "-s", str(ROOT / "scripts"), "-p", "test_*.py"],
+        cwd=ROOT,
+    )
+    benchmark = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "evaluate_benchmark.py")],
+        cwd=ROOT,
+    )
+    return max(result.returncode, benchmark.returncode)
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(prog="pfd", description="Publication Figure Design orchestrator")
+    sub = parser.add_subparsers(dest="command", required=True)
+
+    run = sub.add_parser("run", help="run or resume a persisted task-spec/session")
+    run.add_argument("task_spec", type=Path)
+    run.add_argument("--output", type=Path)
+    run.add_argument("--resume", action="store_true")
+    run.set_defaults(handler=_run_task)
+
+    reference = sub.add_parser("reference", help="reference-library intake and review")
+    ref_sub = reference.add_subparsers(dest="reference_action", required=True)
+    ingest = ref_sub.add_parser("ingest")
+    ingest.add_argument("image")
+    ingest.add_argument("figure_type")
+    ingest.add_argument("--metadata")
+    ingest.set_defaults(handler=_reference_command)
+    analyze = ref_sub.add_parser("analyze")
+    analyze.add_argument("reference_id")
+    analyze.add_argument("--output")
+    analyze.set_defaults(handler=_reference_command)
+    review = ref_sub.add_parser("review")
+    review.add_argument("reference_id")
+    review.add_argument("review_json")
+    review.set_defaults(handler=_reference_command)
+
+    index = sub.add_parser("index", help="build retrieval indexes")
+    index_sub = index.add_subparsers(dest="index_action", required=True)
+    build = index_sub.add_parser("build")
+    build.set_defaults(handler=_index_command)
+
+    evaluation = sub.add_parser("eval", help="run the bundled test suite")
+    evaluation.set_defaults(handler=_eval_command)
+    return parser
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = build_parser().parse_args(argv)
+    return int(args.handler(args))
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,0 +1,108 @@
+{
+  "aesthetic_rating": null,
+  "code_path": "assets/visual-references/generated-archive/55cb7dd1690cd0e8/code.py",
+  "created_at": "2026-08-12T16:57:19Z",
+  "data_density": null,
+  "figure_card_path": "assets/visual-references/generated-archive/55cb7dd1690cd0e8/figure_card.json",
+  "figure_type": "grouped_bar",
+  "id": "55cb7dd1690cd0e8",
+  "image_path": "assets/visual-references/generated-archive/55cb7dd1690cd0e8/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "wide",
+    "density": "high",
+    "panel_count": 8,
+    "panel_grid": [
+      2,
+      4
+    ],
+    "visual_family": "grouped_bar"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "brainteaser_selfcorrection_math",
+    "mosaic": [
+      "ABCD",
+      "EFGH"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "bar:category"
+      },
+      {
+        "id": "B",
+        "kind": "bar:category"
+      },
+      {
+        "id": "C",
+        "kind": "bar:category"
+      },
+      {
+        "id": "D",
+        "kind": "bar:category"
+      },
+      {
+        "id": "E",
+        "kind": "line:iterations"
+      },
+      {
+        "id": "F",
+        "kind": "scatter:paired"
+      },
+      {
+        "id": "G",
+        "kind": "distribution:points"
+      },
+      {
+        "id": "H",
+        "kind": "table:metrics"
+      }
+    ],
+    "source_observation": "dense self-correction grid: categorical gains, iterations, paired observations, and metrics"
+  },
+  "reconstruction_method": "independent",
+  "renderer_version": 3,
+  "reproduction_preview_path": "assets/visual-references/generated-archive/55cb7dd1690cd0e8/image.png",
+  "review_status": "pending",
+  "scope": "generated-archive",
+  "sha256": "a3304cd73a1f38a11149dd743212b2170e1a7035dcd33a3e6445057d67875674",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "71133ed59cc16f8c36a4e8b2325575d185f36a8534c29579d2eff177544e9e53",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_Brainteaser/figures/selfcorrection_math.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "grouped_bar",
+  "tags": [
+    "source-reconstruction",
+    "figures4papers",
+    "grouped_bar"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "grouped_bar",
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/source-reconstructions/pairs/15-55cb7dd1690cd0e8.png",
+    "final_size_inspected": true,
+    "hierarchy": "fail",
+    "individual_pair_opened": true,
+    "inspection_method": "individual equal-size source|reconstruction pair opened",
+    "inspection_order": 15,
+    "legend_footprint": "fail",
+    "notes": "FAIL after individual review of pair 15-55cb7dd1690cd0e8.png: the grouped_bar reconstruction preserves the broad observable topology/mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+    "panel_balance": "fail",
+    "reviewed_at": "2026-08-14T12:08:45Z",
+    "reviewer": "Codex individual visual audit",
+    "text_legibility": "fail",
+    "verdict": "fail",
+    "whitespace": "fail"
+  }
+}

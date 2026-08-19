@@ -1,0 +1,878 @@
+{
+  "index_type": "style",
+  "model_version": "metadata-current",
+  "record_count": 141,
+  "records": {
+    "006c1b3915544c07": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "0087399b5105ff42": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "017beb996ea9fd8c": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "01bafd03ff174176": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "039470ddb18c09ae": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "0460f09210bc23c2": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "04c2f6ab2bedf8e6": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "050e4b8075e0b6c8": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "0929cd38b228b2df": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "0c35bb8a1fb21d5e": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "0c768f24b9178014": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "0c9a72a5118651b4": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "0de2014d0cf60d22": {
+      "aesthetic_quality": 4.2,
+      "annotations_typography": {
+        "callouts_and_leaders": "ANOVA/Kruskal text is direct text without leaders; significance stars sit immediately above bracket spans.",
+        "placement_and_clearance": "Statistical callouts occupy open upper/middle whitespace; bracket tiers clear bar tops and points.",
+        "text_hierarchy": "Large bold serif-like axis/category labels, bold statistical keywords, and compact star labels."
+      },
+      "palette_roles": {
+        "background": "White canvas with black axes and annotation text.",
+        "contrast_and_emphasis": "Darkest blue carries the strongest feature contrast while lightest blue remains legible against white via colored outlines.",
+        "roles_and_proportions": "G1-G4 use a light-to-dark blue sequence consistently across every group; black is reserved for axes, brackets, and statistics; open points use white fill with colored outlines."
+      },
+      "style_spec_path": null
+    },
+    "131654637e894c12": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "134b0fcb07dbab1b": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "137841e62d5eaa48": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "14487fd036228090": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "14c360a8f274c9e0": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "18a52f7a910fe9c9": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "1951a04d41fbdc82": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "1bbfbc38a3f246e4": {
+      "aesthetic_quality": 4.3,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "1c6e9e67bade247d": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "227c2b8a31a21253": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "22f32e9bd10b34ee": {
+      "aesthetic_quality": 4.3,
+      "annotations_typography": {
+        "callouts_and_leaders": "No leader callouts; radial spokes and tick labels provide the coordinate system.",
+        "placement_and_clearance": "Labels sit just outside the polar spine; center title is isolated in the donut; legends stay outside the polar data region.",
+        "text_hierarchy": "Small outer category labels, medium radial tick labels, and a centered multi-line Grain Yield title."
+      },
+      "palette_roles": {
+        "background": "White canvas with pale gray radial/grid guides and black outer spine.",
+        "contrast_and_emphasis": "High-contrast year outlines remain visible through translucent fills; dark bubbles remain legible against white outer space.",
+        "roles_and_proportions": "Navy, red, and orange encode the three years; dark blue bubbles encode planting area independently of year; black/gray text and guides provide structure."
+      },
+      "style_spec_path": null
+    },
+    "245ad31f97b20546": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "2528309a41ba6eda": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "255c32ef8bf65d53": {
+      "aesthetic_quality": 4,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "25d6fc50f5808104": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "2728b083dfaa29b9": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "2768b1a5ef0c501d": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "2932af23fa869f4e": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "2ad2be6fa9c9165e": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "2d3ddf56ae63b34e": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "2e0706fae3256e1d": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "302b8f53795653bf": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "3373085ababf0748": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "33db3d53a233846b": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "350c25e427d945de": {
+      "aesthetic_quality": 4.3,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "3554b9af671886df": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "387e55d62c99c422": {
+      "aesthetic_quality": 4,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "38a9c4e8fd691cbd": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "38f95dbf30eb6731": {
+      "aesthetic_quality": 4,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "3b94fea2e7f95f8f": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "40dd7c7c14c45b45": {
+      "aesthetic_quality": 4.3,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "43fe44adf197b97c": {
+      "aesthetic_quality": 4.2,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "44d7a697ee30c4ac": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "45aa6ecccf398b71": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "46c9e05df9d7c941": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "4909e3dcba5b633c": {
+      "aesthetic_quality": 4,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "4a0e3040bbdbfe5e": {
+      "aesthetic_quality": 4.3,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "4c23827efb6772dd": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "4cf8539d0521b726": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "4d213749151b32cb": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": {
+        "callouts_and_leaders": "No callout leaders; distribution parameters are embedded in legend labels.",
+        "placement_and_clearance": "Legend occupies the upper-left blank region; panel label sits clear of data in the upper right; rotated bin labels are evenly spaced.",
+        "text_hierarchy": "Bold axis titles, compact rotated interval labels, math-styled residual notation, and a large panel label."
+      },
+      "palette_roles": {
+        "background": "White canvas with black axes and tick marks.",
+        "contrast_and_emphasis": "Saturated dataset colors remain distinguishable under overlap; white bar edges separate adjacent bars.",
+        "roles_and_proportions": "Red, navy, and teal identify the three datasets consistently in bars and curves; gray is reserved for the normal-fit legend key."
+      },
+      "style_spec_path": null
+    },
+    "4d2c99dd4a107724": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "4db30b32b65e6b71": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "4f49efc5caa16375": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "4f7b7b4b01a1b498": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "51a173abeafd0125": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "55abd06fbf4dcbb9": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "55cb7dd1690cd0e8": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "55d8c952b3e9d4c0": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "59846b700abcf89c": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "5c8ff3b28ea11b6e": {
+      "aesthetic_quality": 4,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "5d169138e229097f": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "5da6979582203956": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "60358c36e16732bf": {
+      "aesthetic_quality": 4.7,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "60c6e271c65d00b5": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "61493276c48d90f0": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "650b40786cbcf05f": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "653ce9637e303a41": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "668bc98b544d54d5": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "66fe0f27f4469754": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "68e244fb949f46ad": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "6a3e2a00f9c820f6": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "6e0b081c34e20430": {
+      "aesthetic_quality": 4.3,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "71133ed59cc16f8c": {
+      "aesthetic_quality": 4.3,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "76866da267962098": {
+      "aesthetic_quality": 4,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "789156ffca30bef6": {
+      "aesthetic_quality": 4.0,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "7b7b02d82ccc7207": {
+      "aesthetic_quality": 3.9,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "7ddf31ce2228813a": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "7e2a22eeb372a7a0": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "7fee7c75142949e5": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "83e55ca23d8aa2fa": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "854fe931bde6ca6c": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "8c7c60af478ae5d0": {
+      "aesthetic_quality": 4,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "8f50b79d3ba025af": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "8fbf151c1f63de42": {
+      "aesthetic_quality": 4,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "90081b3f778b9ede": {
+      "aesthetic_quality": 4.3,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "90d44d1709c8bcad": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "91b214f745a99f1f": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "96075eb70285f4f7": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "977970a3c5ff8ad9": {
+      "aesthetic_quality": 4,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "984475212a83b640": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "999edb06b942f988": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "9a8189149180a686": {
+      "aesthetic_quality": 4.3,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "9f02fa4603dae748": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "a1fe533d07dae36d": {
+      "aesthetic_quality": 4.3,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "a2d89d3b3e97ec59": {
+      "aesthetic_quality": 4,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "a6d35e1b68a1bfe8": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "a6f2e75e7d836175": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "a7a3dfa02b650b2e": {
+      "aesthetic_quality": 4.4,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "abb63055b0d49edb": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "ac5e1cef8d16e9ce": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "b0947af37e8c5ffc": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "b1a15c9fca75c316": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "b3c62bc6c4258378": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "b6639239da2fa9f2": {
+      "aesthetic_quality": 4.3,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "baa6064b1812ccc7": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "bbc8c0b8708d4246": {
+      "aesthetic_quality": 4.3,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "bc2cc547f15430bc": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "c2590ba1ecac5e1d": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "c3c538a466aef22e": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "c420d057ffad6041": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "c4e05bb68a08caf3": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "c5792016a54e2baa": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "c8e5d2a76d98c008": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "cd1fec84f615a43d": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "cd384abe10aa86bd": {
+      "aesthetic_quality": 4.3,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "cd60f96af964c870": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "d01fd400ce53d20e": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "d369f5654b6d5ae0": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "d6613715d9d4564f": {
+      "aesthetic_quality": 4.1,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "d7147990bd79a4d1": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "d79527fec611432d": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "da81ff330b16403c": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "daaa5c61d74703b8": {
+      "aesthetic_quality": 4.0,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "dc61a5257eae4748": {
+      "aesthetic_quality": 4.3,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "dcdd74bc2feb98d9": {
+      "aesthetic_quality": 4.6,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "e088eda258e1bd3a": {
+      "aesthetic_quality": 4,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "e52120014b49abe8": {
+      "aesthetic_quality": 3.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "e7fa7d98cd4f5263": {
+      "aesthetic_quality": 4.3,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "e805fb0f7ccdf8aa": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "ed3e9f652126a1d1": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "ed6bbae45d17df9c": {
+      "aesthetic_quality": 4,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "f1f564e0c7221f24": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "f2017fa1dc5bc795": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "f32ad9b16aaba213": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "f406d7202f0bb30c": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "f5ca182539d043e4": {
+      "aesthetic_quality": 4.5,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "f68c31da6f34836c": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "f70aada5f671778b": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    }
+  },
+  "schema_version": "1.0"
+}

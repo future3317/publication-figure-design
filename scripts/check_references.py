@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Academic Figure Skill Reference Integrity Checker.
+"""Publication Figure Design reference integrity checker.
 
 Validates:
   1. directory-map.md ↔ assets/figures/ bidirectional coverage
@@ -104,7 +104,7 @@ def parse_skill_md_refs() -> list[str]:
     """Extract all references/<file> and scripts/<file> mentions from SKILL.md."""
     text = SKILL_MD.read_text(encoding="utf-8")
     refs = re.findall(r'`(references/[^`]+\.(?:md|R))`', text)
-    scripts = re.findall(r'`(?:academic-figure-skill/)?scripts/([^`]+\.py)`', text)
+    scripts = re.findall(r'`(?:publication-figure-design/)?scripts/([^`]+\.py)`', text)
     assets = re.findall(r'`assets/figures/([^`/]+)/', text)
     all_refs = refs + [f"scripts/{s}" for s in scripts] + [f"assets/figures/{a}" for a in assets]
     # Filter out placeholder patterns like <type>, <dir>, <ext>, <panel_label>
@@ -260,7 +260,7 @@ if __name__ == "__main__":
     else:
         s = report["summary"]
         print("=" * 60)
-        print("Academic Figure Skill Reference Integrity Report")
+        print("Publication Figure Design Reference Integrity Report")
         print(f"  Directory-map entries : {s['map_entries']}")
         print(f"  Asset directories     : {s['asset_dirs']}")
         print(f"  PANEL_ASPECT keys     : {s['aspect_keys']}")

@@ -1,0 +1,83 @@
+{
+  "aesthetic_rating": null,
+  "code_path": "assets/visual-references/generated-archive/0087399b5105ff42/code.py",
+  "created_at": "2026-08-12T16:57:19Z",
+  "data_density": null,
+  "figure_card_path": "assets/visual-references/generated-archive/0087399b5105ff42/figure_card.json",
+  "figure_type": "manifold_3d",
+  "id": "0087399b5105ff42",
+  "image_path": "assets/visual-references/generated-archive/0087399b5105ff42/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "wide",
+    "density": "focused",
+    "panel_count": 2,
+    "panel_grid": [
+      1,
+      2
+    ],
+    "visual_family": "manifold_3d"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "cflows_diffusion_swiss_roll",
+    "mosaic": [
+      "AABB"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "manifold:source"
+      },
+      {
+        "id": "B",
+        "kind": "manifold:flow"
+      }
+    ],
+    "source_observation": "paired manifold views showing source geometry and transformed geometry"
+  },
+  "reconstruction_method": "independent",
+  "renderer_version": 3,
+  "reproduction_preview_path": "assets/visual-references/generated-archive/0087399b5105ff42/image.png",
+  "review_status": "pending",
+  "scope": "generated-archive",
+  "sha256": "a7428a506227b3da2217efb471c4db16ebe064a7c4036562c0a8d7c6bed688d0",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "9f02fa4603dae748e3745b95b0ed252f2ba386da6101dc1be6c4a2a886c78eb0",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_Cflows/figures/diffusion_swiss_roll.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "manifold_3d",
+  "tags": [
+    "source-reconstruction",
+    "figures4papers",
+    "manifold_3d"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "manifold_3d",
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/source-reconstructions/pairs/19-0087399b5105ff42.png",
+    "final_size_inspected": true,
+    "hierarchy": "fail",
+    "individual_pair_opened": true,
+    "inspection_method": "individual equal-size source|reconstruction pair opened",
+    "inspection_order": 19,
+    "legend_footprint": "fail",
+    "notes": "FAIL after individual review of pair 19-0087399b5105ff42.png: the manifold_3d reconstruction preserves the broad observable topology/mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+    "panel_balance": "fail",
+    "reviewed_at": "2026-08-14T12:08:45Z",
+    "reviewer": "Codex individual visual audit",
+    "text_legibility": "fail",
+    "verdict": "fail",
+    "whitespace": "fail"
+  }
+}

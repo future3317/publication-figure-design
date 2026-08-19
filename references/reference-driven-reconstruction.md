@@ -2,6 +2,8 @@
 
 Use this protocol when the user supplies, points to, selects, or explicitly asks to match a concrete reference image. It applies to both creating and revising figures.
 
+It also applies to every visual-optimization request. When no reference was supplied, select one from reviewed/promoted library entries using `visual-reference-library.md`; open the actual pixels before editing.
+
 ## Iron rule
 
 Scientific meaning and data integrity come first. After those, the selected reference's structure and visual language outrank production assets and skill defaults.
@@ -11,7 +13,7 @@ Existing plotting code is implementation material, not a design constraint. If i
 ## Required sequence
 
 1. Open every selected reference image. Do not rely on tags, filenames, metadata, or memory.
-2. Write the Reference Reconstruction Contract before selecting a production asset or editing plotting code.
+2. Read `visual-grammar.md` and write the Reference Reconstruction Contract before selecting a production asset or editing plotting code.
 3. Classify the implementation as `reuse`, `restructure`, or `rewrite`, and record the corresponding unified `adaptation_level`.
 4. Implement and render at target publication dimensions.
 5. Produce a side-by-side comparison at equal displayed size.
@@ -29,6 +31,8 @@ Existing plotting code is implementation material, not a design constraint. If i
 
 A reference may control canvas ratio, panel topology, mark geometry, layers, annotations, legend, spacing, typography, palette roles, and visual hierarchy. It may not change the scientific question, fabricate observations, hide inconvenient data, or force an invalid statistical encoding.
 
+For paired comparisons, operating points, and uncertainty-bearing marks, the reference cannot override the data relationship. Classify the production figure as paired, continuous, independent, or operating-point before borrowing a visual grammar. Do not copy a continuous-axis errorbar layout when the data are only a few method-specific states; preserve the truthful relationship and adapt the composition (for example, categorical alignment, dumbbells, or small multiples).
+
 ## Reference Reconstruction Contract
 
 Create a JSON contract with these fields:
@@ -45,6 +49,17 @@ Create a JSON contract with these fields:
   "typography": "font hierarchy, weight, size relationships",
   "legend_annotation": "legend model, direct labels, callouts, statistics",
   "spacing_hierarchy": "whitespace, density, focal element",
+  "reference_visual_grammar": {
+    "canvas_composition": {"aspect_and_panel_layout": "...", "visual_hierarchy": "...", "alignment_and_spacing": "..."},
+    "connectors": "not_present or detailed connector observations",
+    "objects_material": "not_present or detailed object/material observations",
+    "repetition_structures": "not_present or detailed repetition observations",
+    "palette_roles": {"background": "...", "roles_and_proportions": "...", "contrast_and_emphasis": "..."},
+    "annotations_typography": {"text_hierarchy": "...", "callouts_and_leaders": "...", "placement_and_clearance": "..."},
+    "legend_key": "not_present or detailed key observations",
+    "chart_marks_axes": "not_present or detailed chart observations",
+    "must_match": ["observable visual features"]
+  },
   "must_match": ["observable features required for faithful reconstruction"],
   "may_adapt": [{"feature": "item", "reason": "scientific/data reason"}],
   "implementation_decision": "reuse | restructure | rewrite",
@@ -59,6 +74,12 @@ Create a JSON contract with these fields:
 ```
 
 `must_match` must cover the reference's distinctive structure, not vague adjectives such as "beautiful" or "professional". Use observable statements such as "2x2 topology with narrow marginal axes" or "direct labels replace an internal legend."
+
+The visual-grammar card is the detailed observation layer: it makes connector
+path/arrowhead/stroke/anchoring, object material/depth, repetition rhythm, color
+roles, labels, and legend treatment executable where those families occur. Set an
+absent family to `not_present`; never omit it or invent it. The checker requires
+all card families to be either filled or explicitly absent.
 
 ## Decision contract
 
@@ -80,6 +101,20 @@ For `reuse`, list all five compatibility dimensions in `structural_compatibility
 
 For `restructure` or `rewrite`, list concrete non-cosmetic changes in `structural_changes`. Changing only palette, colors, font, alpha, line width, or marker size is not reconstruction.
 
+### Old-skeleton rejection (mandatory for optimization)
+
+Optimization records must also include `composition_decision` with:
+
+```json
+{
+  "old_skeleton_removed": true,
+  "hero_panel": "which evidence owns visual priority",
+  "support_panels": "how secondary evidence is grouped and de-emphasized"
+}
+```
+
+This is a hard gate, not a prose preference. A sentence such as “replaced bars with points” does not prove redesign when the same equal-weight subplot grid, repeated axes, and detached global legend remain. If the old skeleton is retained, classify the work as a cosmetic revision and do not report it as reference-led optimization.
+
 ## Generated-script header
 
 Put these comments before imports:
@@ -100,12 +135,93 @@ After rendering, run:
 python scripts/check_reference_fidelity.py generated.py \
   --contract contract.json \
   --comparison reference-vs-candidate.png \
+  --reference reference.png \
+  --candidate candidate.png \
   --json reference-fidelity-report.json
 ```
 
+## Visual Optimization Contract
+
+For optimize/polish/beautify/improve/redesign requests, create a second JSON record:
+
+```json
+{
+  "task": "visual_optimization",
+  "reference_candidates": ["one to three reviewed reference ids"],
+  "opened_reference_candidates": ["ids whose pixels were opened"],
+  "selected_reference": "selected id",
+  "candidate_recommendation": {"request": {}, "pool": {}, "candidates": []},
+  "candidate_pixel_observations": {"reference-id": "observable pixel-level grammar"},
+  "selection_reason": "why this candidate best matches the required structure and evidence chain",
+  "candidate_role_map": {"reference-id": ["assembly or panel roles controlled by this reference"]},
+  "palette_decision": {
+    "previous_palette": ["hex values or named palette from the before figure"],
+    "selected_palette": "a palette-manager id, journal_baseline, or retained_explicit_colors",
+    "semantic_mapping": {"role": "final color for that role"},
+    "reason": "why this mapping serves the evidence and remains distinguishable at final size"
+  },
+  "art_direction": {
+    "id": "hero_illustration | editorial_evidence_chain | modular_blueprint | specimen_evidence_atlas | analytic_minimalism | comparative_storyboard",
+    "reason": "why this direction gives the stated evidence the clearest hierarchy without changing its scientific meaning"
+  },
+  "series_encoding_contract": {
+    "method_style_map": {"method": {"color": "#hex", "linestyle": "-", "marker": "o"}},
+    "panel_series": {"a": ["method"], "b": ["method"]},
+    "legend_scope": "global | panel_local | direct_labels | mixed_declared",
+    "same_series_style_invariant": true,
+    "unresolved_orphan_series": []
+  },
+  "uncertainty_contract": {
+    "interval_definition": "95% CI | SD | quantile band | not_applicable",
+    "overlap_strategy": "light alpha, draw order, or not_applicable",
+    "alpha": 0.12
+  },
+  "text_contrast": {
+    "applicable": true,
+    "report": {"ready": true, "minimum_ratio": 4.5, "regions": [{"contrast_ratio": 4.5, "pass": true}]}
+  },
+  "before_diagnosis": ["observable hierarchy/layout/density/legend/legibility failures"],
+  "structural_changes": ["layout, panel, geometry, layer, encoding, legend-model changes"],
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass | justified_deviation",
+    "panel_balance": "pass | justified_deviation",
+    "whitespace": "pass | justified_deviation",
+    "legend_footprint": "pass | justified_deviation",
+    "text_legibility": "pass | justified_deviation",
+    "cross_panel_semantics": "pass | justified_deviation",
+    "legend_data_separation": "pass | justified_deviation",
+    "uncertainty_legibility": "pass | justified_deviation",
+    "axis_label_compactness": "pass | justified_deviation"
+  }
+}
+```
+
+Build and validate the comparison:
+
+```bash
+python scripts/check_visual_optimization.py \
+  --contract visual-optimization.json \
+  --before before.png --reference reference.png --after after.png \
+  --comparison before-reference-after.png --build-comparison \
+  --json visual-optimization-report.json
+```
+
+For every heatmap, matrix, colored tile, or other filled mark carrying text, annotations must call `pick_text_color(cell_color)` from `scripts/palette_manager.py`; never hard-code white or another light annotation color. After export, declare each annotation bounding box in a regions JSON file, then run:
+
+```bash
+python scripts/rendered_contrast.py after.png \
+  --regions text-contrast-regions.json --minimum-ratio 4.5 \
+  --json rendered-contrast-report.json
+```
+
+Copy the resulting JSON payload into `text_contrast.report`. Any region below 4.5:1 blocks delivery. If the figure has no text on colored fills, set `text_contrast` to `{"applicable": false}`. `palette_decision` and `art_direction` are mandatory for every optimization, including a justified decision to retain old colors or use `analytic_minimalism`; omitted fields are not defaults.
+
+The checker verifies readable image evidence, authentic equal-cell composition, strict recommendation provenance, per-candidate pixel observations, selected-reference reasoning, an explicit palette decision, stable cross-panel series semantics, uncertainty-band treatment, structural changes, final-size review, recomputed after-raster contrast, and declared physical dimensions/DPI. Candidate IDs must exactly match the recommendation report order. Static QA and self-reported fidelity items cannot replace this gate.
+
 ## Side-by-side comparison
 
-Show the reference and candidate at equal displayed size. Preserve aspect ratios; do not stretch either image. Label them `Reference` and `Candidate`. Inspect at the final journal width, because typography and spacing defects often disappear in enlarged previews.
+Show the reference and candidate in equal cells. Preserve aspect ratios; do not stretch either image. Keep their order and labels in the accompanying QA record rather than overlaying labels on the evidence pixels. Inspect at the final journal width, because typography and spacing defects often disappear in enlarged previews.
 
 Compare in this order:
 

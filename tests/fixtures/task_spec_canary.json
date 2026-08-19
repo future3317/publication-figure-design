@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "contract_name": "TaskSpec",
+  "task_id": "canary-run",
+  "mode": "review",
+  "objective": "exercise the persisted publication figure workflow",
+  "requested_outputs": ["qa_report"],
+  "metadata": {
+    "reference_ids": ["0de2014d0cf60d22"],
+    "style_spec_version": "1.0"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "aesthetic_rating": 4.1,
+  "code_path": "assets/visual-references/references/4d213749151b32cb/code.py",
+  "created_at": "2026-08-17T12:48:22Z",
+  "data_density": "moderate",
+  "figure_card_path": "assets/visual-references/references/4d213749151b32cb/figure_card.json",
+  "figure_type": "histogram_overlay",
+  "id": "4d213749151b32cb",
+  "image_path": "assets/visual-references/references/4d213749151b32cb/image.jpg",
+  "journal_style": null,
+  "layout": "single-panel-wide",
+  "license": "user-supplied; redistribution not established",
+  "n_groups": 3,
+  "notes": "Three overlaid frequency histograms share residual bins and are paired with dashed normal-fit curves. Visual inspiration only; synthetic reconstruction uses generated samples.",
+  "palette": null,
+  "palette_policy": "adaptable",
+  "production_ready": false,
+  "reference_kind": "user_supplied",
+  "reproduction_preview_path": "assets/visual-references/references/4d213749151b32cb/reconstruction.png",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "4d213749151b32cb72280cd8533715eb61de425e0343b7ac417367de33cb1076",
+  "source": "user-supplied reference image",
+  "source_action": "independent_synthetic_reconstruction",
+  "source_url": null,
+  "subtype": "overlaid_histograms_normal_fits",
+  "tags": [
+    "user-supplied",
+    "histogram",
+    "frequency",
+    "normal-fit",
+    "overlay",
+    "residuals",
+    "boxed-legend"
+  ],
+  "usage_scope": "private_reference",
+  "visual_grammar": {
+    "annotations_typography": {
+      "callouts_and_leaders": "No callout leaders; distribution parameters are embedded in legend labels.",
+      "placement_and_clearance": "Legend occupies the upper-left blank region; panel label sits clear of data in the upper right; rotated bin labels are evenly spaced.",
+      "text_hierarchy": "Bold axis titles, compact rotated interval labels, math-styled residual notation, and a large panel label."
+    },
+    "canvas_composition": {
+      "alignment_and_spacing": "Shared bins align all three groups; bars are narrowly offset within each bin; generous horizontal margins preserve tails.",
+      "aspect_and_panel_layout": "Single wide panel with a dense central histogram field, rotated interval labels along the bottom, upper-left legend, and upper-right panel label.",
+      "visual_hierarchy": "Overlaid bars and dashed fit curves are primary; legend and panel label are secondary; axes and interval labels provide quantitative reading."
+    },
+    "chart_marks_axes": {
+      "axes_and_scales": "Linear residual x-axis with shared frequency y-axis; x tick labels are interval bins.",
+      "guides_and_grid": "No interior grid; full black frame with inward ticks on all sides.",
+      "marks_and_encoding": "Overlaid frequency bars encode bin counts; dashed normal curves encode fitted distribution shape."
+    },
+    "connectors": {
+      "anchors_and_routing": "Curves follow the shared residual x-scale and pass through the bar field.",
+      "direction_and_arrowhead": "No direction and no arrowheads; curves show distribution summaries.",
+      "geometry": "Smooth dashed normal-fit curves overlaid across the histogram bars.",
+      "layering": "Curves sit above translucent/solid bars for direct comparison.",
+      "stroke": "Thick dashed strokes matching each dataset's bar color."
+    },
+    "legend_key": {
+      "entries_and_encoding": "Three filled bar swatches include mu/sigma parameters; one dashed-line key denotes normal fits.",
+      "frame_treatment": "Visible light boxed frame with modest padding.",
+      "placement": "Upper left inside the plotting frame.",
+      "scope": "Global legend for all datasets and the fit-curve convention."
+    },
+    "must_match": [
+      "Three overlaid histogram series with shared residual bins",
+      "Frequency/count y-axis rather than density values",
+      "Dashed normal-fit curves aligned to each dataset color",
+      "Rotated interval labels on the x-axis",
+      "Boxed upper-left legend plus upper-right panel label"
+    ],
+    "objects_material": "not_present",
+    "palette_roles": {
+      "background": "White canvas with black axes and tick marks.",
+      "contrast_and_emphasis": "Saturated dataset colors remain distinguishable under overlap; white bar edges separate adjacent bars.",
+      "roles_and_proportions": "Red, navy, and teal identify the three datasets consistently in bars and curves; gray is reserved for the normal-fit legend key."
+    },
+    "repetition_structures": {
+      "count_spacing_rhythm": "Uniform bins across the residual range; within-bin bars are offset with small gaps.",
+      "grouping_and_alignment": "Each dataset's bars and fit curve share one semantic color and the same bin centers.",
+      "topology": "Three repeated histogram series use the same bins and x-domain.",
+      "variation_and_emphasis": "Color distinguishes datasets; dashed line style distinguishes fitted curves from observed bars."
+    }
+  },
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Equal-cell comparison inspected: overlay topology, frequency encoding, dashed fits, rotated bins, boxed legend, and panel label are legible. Synthetic distributions are documented deviations.",
+    "panel_balance": "pass",
+    "reviewer": "Codex visual audit 2026-08-17",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

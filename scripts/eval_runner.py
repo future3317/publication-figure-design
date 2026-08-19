@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Academic Figure Skill Auto-Eval Generator.
+"""Publication Figure Design auto-eval generator.
 
 Scans assets/figures/ and automatically generates one eval per figure type.
 Runs: asset-found check → script-runnable check → baseline compliance check.
@@ -281,7 +281,7 @@ def print_report(report: dict[str, Any]):
     run_ok = sum(1 for v in figures.values() if v["overall_pass"])
 
     print("=" * 60)
-    print("Academic Figure Skill Auto-Eval Report")
+    print("Publication Figure Design Auto-Eval Report")
     print(f"Timestamp: {report['timestamp']}")
     print(f"Python: {report['python'] or 'NOT FOUND'}")
     print(f"R: {report['r'] or 'NOT FOUND'}")

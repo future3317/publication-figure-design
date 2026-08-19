@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Generate synthetic visual references based on the figures4papers / Scientific
-Figure Making house style, then ingest them into the academic-figure-skill
+Figure Making house style, then ingest them into the publication-figure-design
 Visual Reference Library.
 
 The original Scientific Figure Making skill has no local example images; its

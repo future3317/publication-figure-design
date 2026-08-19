@@ -1,0 +1,87 @@
+{
+  "aesthetic_rating": null,
+  "code_path": "assets/visual-references/generated-archive/f2017fa1dc5bc795/code.py",
+  "created_at": "2026-08-12T16:57:19Z",
+  "data_density": null,
+  "figure_card_path": "assets/visual-references/generated-archive/f2017fa1dc5bc795/figure_card.json",
+  "figure_type": "comparison_composite",
+  "id": "f2017fa1dc5bc795",
+  "image_path": "assets/visual-references/generated-archive/f2017fa1dc5bc795/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "wide",
+    "density": "medium",
+    "panel_count": 3,
+    "panel_grid": [
+      1,
+      3
+    ],
+    "visual_family": "comparison_composite"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "cellsplicenet_comparison_worm",
+    "mosaic": [
+      "ABC"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "bar:comparison"
+      },
+      {
+        "id": "B",
+        "kind": "heatmap:matrix"
+      },
+      {
+        "id": "C",
+        "kind": "line:calibration"
+      }
+    ],
+    "source_observation": "three-panel worm benchmark: methods, matrix evidence, and calibration"
+  },
+  "reconstruction_method": "independent",
+  "renderer_version": 3,
+  "reproduction_preview_path": "assets/visual-references/generated-archive/f2017fa1dc5bc795/image.png",
+  "review_status": "pending",
+  "scope": "generated-archive",
+  "sha256": "ae2fdc99d0beff668a92dd14e2fdbf28863310cc50ad5c8841bc178622ca38d2",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "137841e62d5eaa48998a97246849b8ede08d2d165c8bb4ad3fd6a18d6b6c65e2",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_CellSpliceNet/figures/comparison_worm.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "comparison_composite",
+  "tags": [
+    "source-reconstruction",
+    "figures4papers",
+    "comparison_composite"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "comparison_composite",
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/source-reconstructions/pairs/18-f2017fa1dc5bc795.png",
+    "final_size_inspected": true,
+    "hierarchy": "fail",
+    "individual_pair_opened": true,
+    "inspection_method": "individual equal-size source|reconstruction pair opened",
+    "inspection_order": 18,
+    "legend_footprint": "fail",
+    "notes": "FAIL after individual review of pair 18-f2017fa1dc5bc795.png: the comparison_composite reconstruction preserves the broad observable topology/mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+    "panel_balance": "fail",
+    "reviewed_at": "2026-08-14T12:08:45Z",
+    "reviewer": "Codex individual visual audit",
+    "text_legibility": "fail",
+    "verdict": "fail",
+    "whitespace": "fail"
+  }
+}

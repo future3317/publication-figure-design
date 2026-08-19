@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Academic Figure Skill Export Format & Resolution Checker.
+Publication Figure Design export format & resolution checker.
 
 Checks scientific figure export settings for CNS journal compliance:
   - Vector export (PDF/SVG/EPS) for line art
@@ -383,7 +383,7 @@ def check(target, journal="nature-genetics"):
 # ---------------------------------------------------------------------------
 def main():
     parser = argparse.ArgumentParser(
-        description="Academic Figure Skill Export Format & Resolution Checker"
+        description="Publication Figure Design Export Format & Resolution Checker"
     )
     parser.add_argument(
         "target",

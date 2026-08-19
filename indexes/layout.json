@@ -1,0 +1,866 @@
+{
+  "index_type": "layout",
+  "model_version": "metadata-current",
+  "record_count": 141,
+  "records": {
+    "006c1b3915544c07": {
+      "canvas_composition": null,
+      "figure_type": "validation_perturbation",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "0087399b5105ff42": {
+      "canvas_composition": null,
+      "figure_type": "manifold_3d",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "017beb996ea9fd8c": {
+      "canvas_composition": null,
+      "figure_type": "radar_grid",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "01bafd03ff174176": {
+      "canvas_composition": null,
+      "figure_type": "line_grid",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "039470ddb18c09ae": {
+      "canvas_composition": null,
+      "figure_type": "area_stacked",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "0460f09210bc23c2": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "04c2f6ab2bedf8e6": {
+      "canvas_composition": null,
+      "figure_type": "mechanism_schematic",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "050e4b8075e0b6c8": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "0929cd38b228b2df": {
+      "canvas_composition": null,
+      "figure_type": "mechanism_schematic",
+      "layout": "schematic",
+      "panel_topology": null
+    },
+    "0c35bb8a1fb21d5e": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "0c768f24b9178014": {
+      "canvas_composition": null,
+      "figure_type": "comparison_composite",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "0c9a72a5118651b4": {
+      "canvas_composition": null,
+      "figure_type": "mechanism_schematic",
+      "layout": "schematic",
+      "panel_topology": null
+    },
+    "0de2014d0cf60d22": {
+      "canvas_composition": {
+        "alignment_and_spacing": "Four tightly aligned bars per group, equal group spacing, shared zero baseline, and open whitespace above annotations.",
+        "aspect_and_panel_layout": "Single wide panel with three horizontal category groups; high annotation band above bars and generous right-side legend margin.",
+        "visual_hierarchy": "Category bars and raw points are primary; significance brackets and statistical callouts are secondary; feature key is tertiary."
+      },
+      "figure_type": "grouped_bar",
+      "layout": "single-panel-wide",
+      "panel_topology": "Three repeated category groups, each containing four feature bars and matching raw observations."
+    },
+    "131654637e894c12": {
+      "canvas_composition": null,
+      "figure_type": "BarComparison",
+      "layout": "1x1",
+      "panel_topology": null
+    },
+    "134b0fcb07dbab1b": {
+      "canvas_composition": null,
+      "figure_type": "distribution_grid",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "137841e62d5eaa48": {
+      "canvas_composition": null,
+      "figure_type": "comparison_composite",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "14487fd036228090": {
+      "canvas_composition": null,
+      "figure_type": "manifold_3d",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "14c360a8f274c9e0": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "18a52f7a910fe9c9": {
+      "canvas_composition": null,
+      "figure_type": "BarComparison",
+      "layout": "1x1",
+      "panel_topology": null
+    },
+    "1951a04d41fbdc82": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "1bbfbc38a3f246e4": {
+      "canvas_composition": null,
+      "figure_type": "scatter_bubble",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "1c6e9e67bade247d": {
+      "canvas_composition": null,
+      "figure_type": "mixed_statistics_grid",
+      "layout": "2x2",
+      "panel_topology": null
+    },
+    "227c2b8a31a21253": {
+      "canvas_composition": null,
+      "figure_type": "scatter_marginal",
+      "layout": "joint-plot",
+      "panel_topology": null
+    },
+    "22f32e9bd10b34ee": {
+      "canvas_composition": {
+        "alignment_and_spacing": "Thirty radial categories evenly spaced around the circle; center donut clears the innermost data; right legends align vertically outside the polar axes.",
+        "aspect_and_panel_layout": "Large circular polar panel occupying the left/center of a square canvas, with two legends in the right margin and a small explanatory note below.",
+        "visual_hierarchy": "Filled yearly radar polygons and the white center donut are primary; outer bubble ring is a secondary quantitative layer; radial labels and legends support decoding."
+      },
+      "figure_type": "radar_grid",
+      "layout": "single-polar-panel",
+      "panel_topology": "Many evenly spaced radial categories repeat the same three yearly values plus one outer bubble."
+    },
+    "245ad31f97b20546": {
+      "canvas_composition": null,
+      "figure_type": "validation_perturbation",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "2528309a41ba6eda": {
+      "canvas_composition": null,
+      "figure_type": "mechanism_schematic",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "255c32ef8bf65d53": {
+      "canvas_composition": null,
+      "figure_type": "heatmap",
+      "layout": "4x1",
+      "panel_topology": null
+    },
+    "25d6fc50f5808104": {
+      "canvas_composition": null,
+      "figure_type": "in_vivo_efficacy",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "2728b083dfaa29b9": {
+      "canvas_composition": null,
+      "figure_type": "comparison_composite",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "2768b1a5ef0c501d": {
+      "canvas_composition": null,
+      "figure_type": "comparison_composite",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "2932af23fa869f4e": {
+      "canvas_composition": null,
+      "figure_type": "mechanism_schematic",
+      "layout": "schematic",
+      "panel_topology": null
+    },
+    "2ad2be6fa9c9165e": {
+      "canvas_composition": null,
+      "figure_type": "manifold_3d",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "2d3ddf56ae63b34e": {
+      "canvas_composition": null,
+      "figure_type": "mechanism_schematic",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "2e0706fae3256e1d": {
+      "canvas_composition": null,
+      "figure_type": "material_mechanism",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "302b8f53795653bf": {
+      "canvas_composition": null,
+      "figure_type": "line_grid",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "3373085ababf0748": {
+      "canvas_composition": null,
+      "figure_type": "BarAblation",
+      "layout": "1x1",
+      "panel_topology": null
+    },
+    "33db3d53a233846b": {
+      "canvas_composition": null,
+      "figure_type": "manifold_3d",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "350c25e427d945de": {
+      "canvas_composition": null,
+      "figure_type": "area_stacked",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "3554b9af671886df": {
+      "canvas_composition": null,
+      "figure_type": "mechanism_schematic",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "387e55d62c99c422": {
+      "canvas_composition": null,
+      "figure_type": "MarginalDensity",
+      "layout": "2x2",
+      "panel_topology": null
+    },
+    "38a9c4e8fd691cbd": {
+      "canvas_composition": null,
+      "figure_type": "heatmap",
+      "layout": "1x1",
+      "panel_topology": null
+    },
+    "38f95dbf30eb6731": {
+      "canvas_composition": null,
+      "figure_type": "heatmap",
+      "layout": "1x3",
+      "panel_topology": null
+    },
+    "3b94fea2e7f95f8f": {
+      "canvas_composition": null,
+      "figure_type": "heatmap",
+      "layout": "1x1 with sidebars",
+      "panel_topology": null
+    },
+    "40dd7c7c14c45b45": {
+      "canvas_composition": null,
+      "figure_type": "heatmap_grid",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "43fe44adf197b97c": {
+      "canvas_composition": null,
+      "figure_type": "multi_panel_line_comparison",
+      "layout": "1x3",
+      "panel_topology": null
+    },
+    "44d7a697ee30c4ac": {
+      "canvas_composition": null,
+      "figure_type": "GroupedBarChart",
+      "layout": "1x2",
+      "panel_topology": null
+    },
+    "45aa6ecccf398b71": {
+      "canvas_composition": null,
+      "figure_type": "mechanism_schematic",
+      "layout": "schematic",
+      "panel_topology": null
+    },
+    "46c9e05df9d7c941": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "4909e3dcba5b633c": {
+      "canvas_composition": null,
+      "figure_type": "GroupedBarChart",
+      "layout": "1x1",
+      "panel_topology": null
+    },
+    "4a0e3040bbdbfe5e": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "4c23827efb6772dd": {
+      "canvas_composition": null,
+      "figure_type": "comparison_composite",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "4cf8539d0521b726": {
+      "canvas_composition": null,
+      "figure_type": "heatmap",
+      "layout": "1x1",
+      "panel_topology": null
+    },
+    "4d213749151b32cb": {
+      "canvas_composition": {
+        "alignment_and_spacing": "Shared bins align all three groups; bars are narrowly offset within each bin; generous horizontal margins preserve tails.",
+        "aspect_and_panel_layout": "Single wide panel with a dense central histogram field, rotated interval labels along the bottom, upper-left legend, and upper-right panel label.",
+        "visual_hierarchy": "Overlaid bars and dashed fit curves are primary; legend and panel label are secondary; axes and interval labels provide quantitative reading."
+      },
+      "figure_type": "histogram_overlay",
+      "layout": "single-panel-wide",
+      "panel_topology": "Three repeated histogram series use the same bins and x-domain."
+    },
+    "4d2c99dd4a107724": {
+      "canvas_composition": null,
+      "figure_type": "GroupedViolin",
+      "layout": "1x1",
+      "panel_topology": null
+    },
+    "4db30b32b65e6b71": {
+      "canvas_composition": null,
+      "figure_type": "line_grid",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "4f49efc5caa16375": {
+      "canvas_composition": null,
+      "figure_type": "line_grid",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "4f7b7b4b01a1b498": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "51a173abeafd0125": {
+      "canvas_composition": null,
+      "figure_type": "mechanism_schematic",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "55abd06fbf4dcbb9": {
+      "canvas_composition": null,
+      "figure_type": "ScatterRegressionRaincloud",
+      "layout": "2x3",
+      "panel_topology": null
+    },
+    "55cb7dd1690cd0e8": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "55d8c952b3e9d4c0": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "59846b700abcf89c": {
+      "canvas_composition": null,
+      "figure_type": "comparison_composite",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "5c8ff3b28ea11b6e": {
+      "canvas_composition": null,
+      "figure_type": "GroupedViolin",
+      "layout": "1x1",
+      "panel_topology": null
+    },
+    "5d169138e229097f": {
+      "canvas_composition": null,
+      "figure_type": "line_grid",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "5da6979582203956": {
+      "canvas_composition": null,
+      "figure_type": "mechanism_schematic",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "60358c36e16732bf": {
+      "canvas_composition": null,
+      "figure_type": "architecture_schematic",
+      "layout": "single",
+      "panel_topology": null
+    },
+    "60c6e271c65d00b5": {
+      "canvas_composition": null,
+      "figure_type": "mechanism_schematic",
+      "layout": "schematic",
+      "panel_topology": null
+    },
+    "61493276c48d90f0": {
+      "canvas_composition": null,
+      "figure_type": "mechanism_schematic",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "650b40786cbcf05f": {
+      "canvas_composition": null,
+      "figure_type": "radar_grid",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "653ce9637e303a41": {
+      "canvas_composition": null,
+      "figure_type": "scaling_analysis",
+      "layout": "mixed",
+      "panel_topology": null
+    },
+    "668bc98b544d54d5": {
+      "canvas_composition": null,
+      "figure_type": "in_vivo_efficacy",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "66fe0f27f4469754": {
+      "canvas_composition": null,
+      "figure_type": "LineTrend",
+      "layout": "1x1",
+      "panel_topology": null
+    },
+    "68e244fb949f46ad": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "6a3e2a00f9c820f6": {
+      "canvas_composition": null,
+      "figure_type": "spatial_image_plate",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "6e0b081c34e20430": {
+      "canvas_composition": null,
+      "figure_type": "learning_curves",
+      "layout": "2x2",
+      "panel_topology": null
+    },
+    "71133ed59cc16f8c": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "76866da267962098": {
+      "canvas_composition": null,
+      "figure_type": "BarCategorical",
+      "layout": "1x1",
+      "panel_topology": null
+    },
+    "789156ffca30bef6": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar_inset",
+      "layout": "single-with-insets",
+      "panel_topology": null
+    },
+    "7b7b02d82ccc7207": {
+      "canvas_composition": null,
+      "figure_type": "histogram_overlay",
+      "layout": "single",
+      "panel_topology": null
+    },
+    "7ddf31ce2228813a": {
+      "canvas_composition": null,
+      "figure_type": "heatmap_grid",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "7e2a22eeb372a7a0": {
+      "canvas_composition": null,
+      "figure_type": "line_grid",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "7fee7c75142949e5": {
+      "canvas_composition": null,
+      "figure_type": "GroupedViolin",
+      "layout": "3x2",
+      "panel_topology": null
+    },
+    "83e55ca23d8aa2fa": {
+      "canvas_composition": null,
+      "figure_type": "manifold_3d",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "854fe931bde6ca6c": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "8c7c60af478ae5d0": {
+      "canvas_composition": null,
+      "figure_type": "LineTrend",
+      "layout": "1x3",
+      "panel_topology": null
+    },
+    "8f50b79d3ba025af": {
+      "canvas_composition": null,
+      "figure_type": "distribution_grid",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "8fbf151c1f63de42": {
+      "canvas_composition": null,
+      "figure_type": "BarCategorical",
+      "layout": "1x1",
+      "panel_topology": null
+    },
+    "90081b3f778b9ede": {
+      "canvas_composition": null,
+      "figure_type": "spatial_image_plate",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "90d44d1709c8bcad": {
+      "canvas_composition": null,
+      "figure_type": "spatial_image_plate",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "91b214f745a99f1f": {
+      "canvas_composition": null,
+      "figure_type": "LineTrend",
+      "layout": "1x1",
+      "panel_topology": null
+    },
+    "96075eb70285f4f7": {
+      "canvas_composition": null,
+      "figure_type": "comparison_composite",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "977970a3c5ff8ad9": {
+      "canvas_composition": null,
+      "figure_type": "LineTrend",
+      "layout": "2x2",
+      "panel_topology": null
+    },
+    "984475212a83b640": {
+      "canvas_composition": null,
+      "figure_type": "scatter_bubble",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "999edb06b942f988": {
+      "canvas_composition": null,
+      "figure_type": "single_cell_systems",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "9a8189149180a686": {
+      "canvas_composition": null,
+      "figure_type": "line_grid",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "9f02fa4603dae748": {
+      "canvas_composition": null,
+      "figure_type": "manifold_3d",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "a1fe533d07dae36d": {
+      "canvas_composition": null,
+      "figure_type": "distribution_grid",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "a2d89d3b3e97ec59": {
+      "canvas_composition": null,
+      "figure_type": "ScatterRegressionRaincloud",
+      "layout": "1x2",
+      "panel_topology": null
+    },
+    "a6d35e1b68a1bfe8": {
+      "canvas_composition": null,
+      "figure_type": "line_grid",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "a6f2e75e7d836175": {
+      "canvas_composition": null,
+      "figure_type": "LineTrend",
+      "layout": "1x1",
+      "panel_topology": null
+    },
+    "a7a3dfa02b650b2e": {
+      "canvas_composition": null,
+      "figure_type": "mixed_multi_panel",
+      "layout": "asymmetric-mixed",
+      "panel_topology": null
+    },
+    "abb63055b0d49edb": {
+      "canvas_composition": null,
+      "figure_type": "BarComposition",
+      "layout": "1x1",
+      "panel_topology": null
+    },
+    "ac5e1cef8d16e9ce": {
+      "canvas_composition": null,
+      "figure_type": "comparison_composite",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "b0947af37e8c5ffc": {
+      "canvas_composition": null,
+      "figure_type": "heatmap_grid",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "b1a15c9fca75c316": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "b3c62bc6c4258378": {
+      "canvas_composition": null,
+      "figure_type": "distribution_grid",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "b6639239da2fa9f2": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "baa6064b1812ccc7": {
+      "canvas_composition": null,
+      "figure_type": "comparison_composite",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "bbc8c0b8708d4246": {
+      "canvas_composition": null,
+      "figure_type": "spatial_image_plate",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "bc2cc547f15430bc": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "c2590ba1ecac5e1d": {
+      "canvas_composition": null,
+      "figure_type": "comparison_composite",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "c3c538a466aef22e": {
+      "canvas_composition": null,
+      "figure_type": "network_matrix",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "c420d057ffad6041": {
+      "canvas_composition": null,
+      "figure_type": "material_mechanism",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "c4e05bb68a08caf3": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "c5792016a54e2baa": {
+      "canvas_composition": null,
+      "figure_type": "comparison_composite",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "c8e5d2a76d98c008": {
+      "canvas_composition": null,
+      "figure_type": "comparison_composite",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "cd1fec84f615a43d": {
+      "canvas_composition": null,
+      "figure_type": "comparison_composite",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "cd384abe10aa86bd": {
+      "canvas_composition": null,
+      "figure_type": "network_matrix",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "cd60f96af964c870": {
+      "canvas_composition": null,
+      "figure_type": "single_cell_systems",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "d01fd400ce53d20e": {
+      "canvas_composition": null,
+      "figure_type": "mechanism_schematic",
+      "layout": "schematic",
+      "panel_topology": null
+    },
+    "d369f5654b6d5ae0": {
+      "canvas_composition": null,
+      "figure_type": "comparison_composite",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "d6613715d9d4564f": {
+      "canvas_composition": null,
+      "figure_type": "Radar",
+      "layout": "1x1",
+      "panel_topology": null
+    },
+    "d7147990bd79a4d1": {
+      "canvas_composition": null,
+      "figure_type": "comparison_composite",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "d79527fec611432d": {
+      "canvas_composition": null,
+      "figure_type": "mechanism_schematic",
+      "layout": "schematic",
+      "panel_topology": null
+    },
+    "da81ff330b16403c": {
+      "canvas_composition": null,
+      "figure_type": "mechanism_schematic",
+      "layout": "schematic",
+      "panel_topology": null
+    },
+    "daaa5c61d74703b8": {
+      "canvas_composition": null,
+      "figure_type": "StackedBarScatter",
+      "layout": "1x1",
+      "panel_topology": null
+    },
+    "dc61a5257eae4748": {
+      "canvas_composition": null,
+      "figure_type": "forest_interval",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "dcdd74bc2feb98d9": {
+      "canvas_composition": null,
+      "figure_type": "conceptual_multi_panel",
+      "layout": "2x2",
+      "panel_topology": null
+    },
+    "e088eda258e1bd3a": {
+      "canvas_composition": null,
+      "figure_type": "MarginalDensity",
+      "layout": "2x2",
+      "panel_topology": null
+    },
+    "e52120014b49abe8": {
+      "canvas_composition": null,
+      "figure_type": "heatmap",
+      "layout": "1x1",
+      "panel_topology": null
+    },
+    "e7fa7d98cd4f5263": {
+      "canvas_composition": null,
+      "figure_type": "radar_grid",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "e805fb0f7ccdf8aa": {
+      "canvas_composition": null,
+      "figure_type": "mechanism_schematic",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "ed3e9f652126a1d1": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "ed6bbae45d17df9c": {
+      "canvas_composition": null,
+      "figure_type": "BarComparison",
+      "layout": "1x1",
+      "panel_topology": null
+    },
+    "f1f564e0c7221f24": {
+      "canvas_composition": null,
+      "figure_type": "comparison_composite",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "f2017fa1dc5bc795": {
+      "canvas_composition": null,
+      "figure_type": "comparison_composite",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "f32ad9b16aaba213": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "f406d7202f0bb30c": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "f5ca182539d043e4": {
+      "canvas_composition": null,
+      "figure_type": "scaling_analysis",
+      "layout": "1x2",
+      "panel_topology": null
+    },
+    "f68c31da6f34836c": {
+      "canvas_composition": null,
+      "figure_type": "forest_interval",
+      "layout": "multi-panel",
+      "panel_topology": null
+    },
+    "f70aada5f671778b": {
+      "canvas_composition": null,
+      "figure_type": "grouped_bar",
+      "layout": "multi-panel",
+      "panel_topology": null
+    }
+  },
+  "schema_version": "1.0"
+}

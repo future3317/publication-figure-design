@@ -1,0 +1,96 @@
+{
+  "aesthetic_rating": 4.3,
+  "code_path": "assets/visual-references/references/22f32e9bd10b34ee/code.py",
+  "created_at": "2026-08-17T12:48:30Z",
+  "data_density": "high",
+  "figure_card_path": "assets/visual-references/references/22f32e9bd10b34ee/figure_card.json",
+  "figure_type": "radar_grid",
+  "id": "22f32e9bd10b34ee",
+  "image_path": "assets/visual-references/references/22f32e9bd10b34ee/image.jpg",
+  "journal_style": null,
+  "layout": "single-polar-panel",
+  "license": "user-supplied; redistribution not established",
+  "n_groups": 3,
+  "notes": "Dense polar radar with filled yearly polygons, center donut, and an outer ring of planting-area bubbles. Visual inspiration only; synthetic reconstruction uses generated values.",
+  "palette": null,
+  "palette_policy": "adaptable",
+  "production_ready": false,
+  "reference_kind": "user_supplied",
+  "reproduction_preview_path": "assets/visual-references/references/22f32e9bd10b34ee/reconstruction.png",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "22f32e9bd10b34ee91d9c86d8244f0c84fe2dfcb0f09d57fa4e61ad443e41d49",
+  "source": "user-supplied reference image",
+  "source_action": "independent_synthetic_reconstruction",
+  "source_url": null,
+  "subtype": "polar_bubble_radar_yearly_polygons",
+  "tags": [
+    "user-supplied",
+    "radar",
+    "polar",
+    "bubble-encoding",
+    "filled-polygons",
+    "donut-center",
+    "dual-legend"
+  ],
+  "usage_scope": "private_reference",
+  "visual_grammar": {
+    "annotations_typography": {
+      "callouts_and_leaders": "No leader callouts; radial spokes and tick labels provide the coordinate system.",
+      "placement_and_clearance": "Labels sit just outside the polar spine; center title is isolated in the donut; legends stay outside the polar data region.",
+      "text_hierarchy": "Small outer category labels, medium radial tick labels, and a centered multi-line Grain Yield title."
+    },
+    "canvas_composition": {
+      "alignment_and_spacing": "Thirty radial categories evenly spaced around the circle; center donut clears the innermost data; right legends align vertically outside the polar axes.",
+      "aspect_and_panel_layout": "Large circular polar panel occupying the left/center of a square canvas, with two legends in the right margin and a small explanatory note below.",
+      "visual_hierarchy": "Filled yearly radar polygons and the white center donut are primary; outer bubble ring is a secondary quantitative layer; radial labels and legends support decoding."
+    },
+    "chart_marks_axes": {
+      "axes_and_scales": "Polar angular categorical axis with radial linear ticks at 2000, 4000, and 6000.",
+      "guides_and_grid": "Circular radial grid and faint spokes support reading; dark circular spine frames the plot.",
+      "marks_and_encoding": "Polar filled polygons and vertices encode yearly grain yield; bubble area encodes planting area; radial position encodes magnitude."
+    },
+    "connectors": "not_present",
+    "legend_key": {
+      "entries_and_encoding": "Year legend uses colored swatches; planting-area legend uses three differently sized bubbles.",
+      "frame_treatment": "No visible frames; clean text-and-key layout.",
+      "placement": "Right of the polar panel, vertically separated by semantic role.",
+      "scope": "Two global legends: one for year colors and one for planting-area bubble size."
+    },
+    "must_match": [
+      "Filled overlapping polar polygons for three years",
+      "Outer ring of bubble marks encoding a second variable",
+      "White central donut with centered Grain Yield label",
+      "Dense radial category labels and circular grid",
+      "Separate year and bubble-size legends outside the polar panel"
+    ],
+    "objects_material": {
+      "depth_cues": "Transparency and overlap create layered depth without gradients; bubble size supplies a second quantitative channel.",
+      "fill_and_material": "Year polygons use translucent fills to reveal overlap; bubbles use opaque/semi-transparent dark blue fills; center is white.",
+      "outline_and_edges": "Colored polygon outlines and a dark polar spine define the outer boundary; bubble edges are light for separation.",
+      "placement_and_scale": "Year polygons occupy the inner radial field; planting-area bubbles sit near the outer radius; donut is centered at the origin.",
+      "shape_and_projection": "Filled semi-transparent closed polygons on a polar coordinate system, with circular bubble marks around the outer ring and a central circular donut."
+    },
+    "palette_roles": {
+      "background": "White canvas with pale gray radial/grid guides and black outer spine.",
+      "contrast_and_emphasis": "High-contrast year outlines remain visible through translucent fills; dark bubbles remain legible against white outer space.",
+      "roles_and_proportions": "Navy, red, and orange encode the three years; dark blue bubbles encode planting area independently of year; black/gray text and guides provide structure."
+    },
+    "repetition_structures": {
+      "count_spacing_rhythm": "Dense, regular angular rhythm across all province/category labels.",
+      "grouping_and_alignment": "Each angle aligns year vertices, radial guides, labels, and one bubble mark.",
+      "topology": "Many evenly spaced radial categories repeat the same three yearly values plus one outer bubble.",
+      "variation_and_emphasis": "Year colors distinguish temporal series; bubble area varies by planting area; the central donut interrupts the dense center."
+    }
+  },
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "justified_deviation",
+    "notes": "Equal-cell comparison inspected: polar polygons, outer bubbles, center donut, dense labels, and dual legends are legible. Synthetic angular polygons and expanded bubble/legend spacing are documented deviations.",
+    "panel_balance": "justified_deviation",
+    "reviewer": "Codex visual audit 2026-08-17",
+    "text_legibility": "pass",
+    "whitespace": "justified_deviation"
+  }
+}

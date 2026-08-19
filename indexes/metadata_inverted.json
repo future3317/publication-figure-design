@@ -1,0 +1,1358 @@
+{
+  "index_type": "metadata_inverted",
+  "model_version": "metadata-current",
+  "record_count": 141,
+  "schema_version": "1.0",
+  "terms": {
+    "2-panel": [
+      "f5ca182539d043e4"
+    ],
+    "2x2": [
+      "1c6e9e67bade247d",
+      "6e0b081c34e20430"
+    ],
+    "3-panel": [
+      "a7a3dfa02b650b2e"
+    ],
+    "3d-vector": [
+      "dcdd74bc2feb98d9"
+    ],
+    "5-panel": [
+      "653ce9637e303a41"
+    ],
+    "ablation": [
+      "3373085ababf0748"
+    ],
+    "accuracy": [
+      "6e0b081c34e20430"
+    ],
+    "annotation": [
+      "38a9c4e8fd691cbd",
+      "3b94fea2e7f95f8f",
+      "76866da267962098",
+      "8fbf151c1f63de42",
+      "ed6bbae45d17df9c"
+    ],
+    "architecture": [
+      "60358c36e16732bf"
+    ],
+    "architecture_schematic": [
+      "60358c36e16732bf"
+    ],
+    "area_stacked": [
+      "039470ddb18c09ae",
+      "039470ddb18c09ae",
+      "039470ddb18c09ae",
+      "350c25e427d945de",
+      "350c25e427d945de"
+    ],
+    "asymmetric-mixed": [
+      "a7a3dfa02b650b2e"
+    ],
+    "atlas_area_stacked": [
+      "350c25e427d945de"
+    ],
+    "atlas_bar_charts": [
+      "4a0e3040bbdbfe5e"
+    ],
+    "atlas_distributions": [
+      "a1fe533d07dae36d"
+    ],
+    "atlas_forest_interval": [
+      "dc61a5257eae4748"
+    ],
+    "atlas_heatmaps": [
+      "40dd7c7c14c45b45"
+    ],
+    "atlas_image_plates": [
+      "bbc8c0b8708d4246"
+    ],
+    "atlas_line_trends": [
+      "9a8189149180a686"
+    ],
+    "atlas_network_matrix": [
+      "cd384abe10aa86bd"
+    ],
+    "atlas_radar_polar": [
+      "e7fa7d98cd4f5263"
+    ],
+    "atlas_scatter_bubble": [
+      "1bbfbc38a3f246e4"
+    ],
+    "bar-chart": [
+      "1c6e9e67bade247d",
+      "76866da267962098",
+      "8fbf151c1f63de42"
+    ],
+    "bar-comparison": [
+      "131654637e894c12",
+      "18a52f7a910fe9c9"
+    ],
+    "bar-composition": [
+      "abb63055b0d49edb"
+    ],
+    "bar-with-points": [
+      "44d7a697ee30c4ac",
+      "4909e3dcba5b633c"
+    ],
+    "barablation": [
+      "3373085ababf0748"
+    ],
+    "barcategorical": [
+      "76866da267962098",
+      "8fbf151c1f63de42"
+    ],
+    "barcomparison": [
+      "131654637e894c12",
+      "18a52f7a910fe9c9",
+      "ed6bbae45d17df9c"
+    ],
+    "barcomposition": [
+      "abb63055b0d49edb"
+    ],
+    "beeswarm": [
+      "44d7a697ee30c4ac",
+      "4909e3dcba5b633c"
+    ],
+    "benchmark": [
+      "789156ffca30bef6"
+    ],
+    "benchmark-comparison": [
+      "43fe44adf197b97c"
+    ],
+    "blue-red": [
+      "8fbf151c1f63de42"
+    ],
+    "boxed-legend": [
+      "4d213749151b32cb"
+    ],
+    "boxplot": [
+      "1c6e9e67bade247d",
+      "387e55d62c99c422",
+      "4d2c99dd4a107724",
+      "55abd06fbf4dcbb9",
+      "5c8ff3b28ea11b6e",
+      "7fee7c75142949e5",
+      "a2d89d3b3e97ec59",
+      "e088eda258e1bd3a"
+    ],
+    "brainteaser_brute_force": [
+      "abb63055b0d49edb"
+    ],
+    "brainteaser_correctness_category": [
+      "bc2cc547f15430bc"
+    ],
+    "brainteaser_correctness_subcategory": [
+      "b6639239da2fa9f2"
+    ],
+    "brainteaser_rewriting": [
+      "0460f09210bc23c2"
+    ],
+    "brainteaser_selfcorrection_math": [
+      "71133ed59cc16f8c"
+    ],
+    "brute-force": [
+      "abb63055b0d49edb"
+    ],
+    "bubble-encoding": [
+      "22f32e9bd10b34ee"
+    ],
+    "cellsplicenet": [
+      "3373085ababf0748"
+    ],
+    "cellsplicenet_ablation": [
+      "3373085ababf0748"
+    ],
+    "cellsplicenet_comparison_human": [
+      "131654637e894c12"
+    ],
+    "cellsplicenet_comparison_worm": [
+      "137841e62d5eaa48"
+    ],
+    "cflows_ablation": [
+      "4f7b7b4b01a1b498"
+    ],
+    "cflows_diffusion_swiss_roll": [
+      "9f02fa4603dae748"
+    ],
+    "cflows_gene_regulatory": [
+      "96075eb70285f4f7"
+    ],
+    "cflows_trajectory": [
+      "91b214f745a99f1f"
+    ],
+    "chinese": [
+      "255c32ef8bf65d53",
+      "55abd06fbf4dcbb9"
+    ],
+    "circle-heatmap": [
+      "255c32ef8bf65d53",
+      "38f95dbf30eb6731"
+    ],
+    "circular-bar": [
+      "a7a3dfa02b650b2e"
+    ],
+    "clinical": [
+      "977970a3c5ff8ad9"
+    ],
+    "clustering": [
+      "3b94fea2e7f95f8f"
+    ],
+    "color-encoding": [
+      "653ce9637e303a41",
+      "f5ca182539d043e4"
+    ],
+    "color-scheme": [
+      "7fee7c75142949e5",
+      "977970a3c5ff8ad9"
+    ],
+    "comparison": [
+      "4cf8539d0521b726",
+      "91b214f745a99f1f",
+      "d6613715d9d4564f"
+    ],
+    "comparison_composite": [
+      "0c768f24b9178014",
+      "0c768f24b9178014",
+      "0c768f24b9178014",
+      "137841e62d5eaa48",
+      "137841e62d5eaa48",
+      "2728b083dfaa29b9",
+      "2728b083dfaa29b9",
+      "2728b083dfaa29b9",
+      "2768b1a5ef0c501d",
+      "2768b1a5ef0c501d",
+      "4c23827efb6772dd",
+      "4c23827efb6772dd",
+      "4c23827efb6772dd",
+      "59846b700abcf89c",
+      "59846b700abcf89c",
+      "96075eb70285f4f7",
+      "96075eb70285f4f7",
+      "ac5e1cef8d16e9ce",
+      "ac5e1cef8d16e9ce",
+      "ac5e1cef8d16e9ce",
+      "baa6064b1812ccc7",
+      "baa6064b1812ccc7",
+      "baa6064b1812ccc7",
+      "c2590ba1ecac5e1d",
+      "c2590ba1ecac5e1d",
+      "c5792016a54e2baa",
+      "c5792016a54e2baa",
+      "c5792016a54e2baa",
+      "c8e5d2a76d98c008",
+      "c8e5d2a76d98c008",
+      "c8e5d2a76d98c008",
+      "cd1fec84f615a43d",
+      "cd1fec84f615a43d",
+      "d369f5654b6d5ae0",
+      "d369f5654b6d5ae0",
+      "d369f5654b6d5ae0",
+      "d7147990bd79a4d1",
+      "d7147990bd79a4d1",
+      "d7147990bd79a4d1",
+      "f1f564e0c7221f24",
+      "f1f564e0c7221f24",
+      "f2017fa1dc5bc795",
+      "f2017fa1dc5bc795",
+      "f2017fa1dc5bc795"
+    ],
+    "complexheatmap": [
+      "3b94fea2e7f95f8f",
+      "3b94fea2e7f95f8f"
+    ],
+    "composition": [
+      "38a9c4e8fd691cbd",
+      "44d7a697ee30c4ac",
+      "4909e3dcba5b633c"
+    ],
+    "composition-sweep": [
+      "43fe44adf197b97c"
+    ],
+    "conceptual": [
+      "dcdd74bc2feb98d9"
+    ],
+    "conceptual_multi_panel": [
+      "dcdd74bc2feb98d9"
+    ],
+    "correlation": [
+      "e52120014b49abe8"
+    ],
+    "correlation-matrix": [
+      "255c32ef8bf65d53",
+      "38f95dbf30eb6731"
+    ],
+    "cross-validation": [
+      "6e0b081c34e20430"
+    ],
+    "dataflow": [
+      "60358c36e16732bf"
+    ],
+    "dedicated-legend": [
+      "8c7c60af478ae5d0"
+    ],
+    "dendrogram": [
+      "3b94fea2e7f95f8f"
+    ],
+    "dense": [
+      "3b94fea2e7f95f8f"
+    ],
+    "dispersion_idea": [
+      "e805fb0f7ccdf8aa"
+    ],
+    "dispersion_illustration": [
+      "2528309a41ba6eda"
+    ],
+    "dispersion_motivation": [
+      "04c2f6ab2bedf8e6"
+    ],
+    "dispersion_observation": [
+      "59846b700abcf89c"
+    ],
+    "dispersion_observation_distillation": [
+      "134b0fcb07dbab1b"
+    ],
+    "distribution": [
+      "653ce9637e303a41"
+    ],
+    "distribution-comparison": [
+      "7b7b02d82ccc7207"
+    ],
+    "distribution_grid": [
+      "134b0fcb07dbab1b",
+      "134b0fcb07dbab1b",
+      "8f50b79d3ba025af",
+      "8f50b79d3ba025af",
+      "8f50b79d3ba025af",
+      "a1fe533d07dae36d",
+      "a1fe533d07dae36d",
+      "b3c62bc6c4258378",
+      "b3c62bc6c4258378",
+      "b3c62bc6c4258378"
+    ],
+    "donut-center": [
+      "22f32e9bd10b34ee"
+    ],
+    "dual-legend": [
+      "22f32e9bd10b34ee"
+    ],
+    "energy-gap": [
+      "227c2b8a31a21253"
+    ],
+    "enrichment-bar": [
+      "a7a3dfa02b650b2e"
+    ],
+    "errorbar": [
+      "653ce9637e303a41",
+      "f5ca182539d043e4"
+    ],
+    "fdr": [
+      "1c6e9e67bade247d"
+    ],
+    "figures4papers": [
+      "0087399b5105ff42",
+      "017beb996ea9fd8c",
+      "01bafd03ff174176",
+      "0460f09210bc23c2",
+      "04c2f6ab2bedf8e6",
+      "050e4b8075e0b6c8",
+      "0929cd38b228b2df",
+      "0c35bb8a1fb21d5e",
+      "0c768f24b9178014",
+      "0c9a72a5118651b4",
+      "131654637e894c12",
+      "134b0fcb07dbab1b",
+      "137841e62d5eaa48",
+      "14487fd036228090",
+      "14c360a8f274c9e0",
+      "18a52f7a910fe9c9",
+      "1951a04d41fbdc82",
+      "2528309a41ba6eda",
+      "2728b083dfaa29b9",
+      "2768b1a5ef0c501d",
+      "2932af23fa869f4e",
+      "2ad2be6fa9c9165e",
+      "2d3ddf56ae63b34e",
+      "302b8f53795653bf",
+      "3373085ababf0748",
+      "33db3d53a233846b",
+      "3554b9af671886df",
+      "38a9c4e8fd691cbd",
+      "45aa6ecccf398b71",
+      "46c9e05df9d7c941",
+      "4c23827efb6772dd",
+      "4cf8539d0521b726",
+      "4db30b32b65e6b71",
+      "4f7b7b4b01a1b498",
+      "51a173abeafd0125",
+      "55cb7dd1690cd0e8",
+      "55d8c952b3e9d4c0",
+      "59846b700abcf89c",
+      "5d169138e229097f",
+      "5da6979582203956",
+      "60c6e271c65d00b5",
+      "61493276c48d90f0",
+      "66fe0f27f4469754",
+      "71133ed59cc16f8c",
+      "7ddf31ce2228813a",
+      "7e2a22eeb372a7a0",
+      "83e55ca23d8aa2fa",
+      "854fe931bde6ca6c",
+      "8c7c60af478ae5d0",
+      "8f50b79d3ba025af",
+      "91b214f745a99f1f",
+      "96075eb70285f4f7",
+      "9f02fa4603dae748",
+      "a6d35e1b68a1bfe8",
+      "a6f2e75e7d836175",
+      "abb63055b0d49edb",
+      "ac5e1cef8d16e9ce",
+      "b1a15c9fca75c316",
+      "b6639239da2fa9f2",
+      "baa6064b1812ccc7",
+      "bc2cc547f15430bc",
+      "c2590ba1ecac5e1d",
+      "c4e05bb68a08caf3",
+      "c5792016a54e2baa",
+      "c8e5d2a76d98c008",
+      "cd1fec84f615a43d",
+      "d01fd400ce53d20e",
+      "d369f5654b6d5ae0",
+      "d6613715d9d4564f",
+      "d7147990bd79a4d1",
+      "d79527fec611432d",
+      "da81ff330b16403c",
+      "e52120014b49abe8",
+      "e805fb0f7ccdf8aa",
+      "ed3e9f652126a1d1",
+      "ed6bbae45d17df9c",
+      "f1f564e0c7221f24",
+      "f2017fa1dc5bc795",
+      "f32ad9b16aaba213",
+      "f406d7202f0bb30c",
+      "f70aada5f671778b"
+    ],
+    "figures4papers_grouped_bar": [
+      "ed6bbae45d17df9c"
+    ],
+    "figures4papers_heatmap": [
+      "e52120014b49abe8"
+    ],
+    "figures4papers_trend_legend_panel": [
+      "8c7c60af478ae5d0"
+    ],
+    "filled-polygons": [
+      "22f32e9bd10b34ee"
+    ],
+    "forest-plot": [
+      "1c6e9e67bade247d"
+    ],
+    "forest_interval": [
+      "dc61a5257eae4748",
+      "dc61a5257eae4748",
+      "f68c31da6f34836c",
+      "f68c31da6f34836c",
+      "f68c31da6f34836c"
+    ],
+    "frequency": [
+      "4d213749151b32cb"
+    ],
+    "gallery_in_vivo_efficacy": [
+      "25d6fc50f5808104"
+    ],
+    "gallery_material_mechanism": [
+      "2e0706fae3256e1d"
+    ],
+    "gallery_single_cell_systems": [
+      "999edb06b942f988"
+    ],
+    "gallery_spatial_imaging": [
+      "90081b3f778b9ede"
+    ],
+    "gallery_validation_perturbation": [
+      "245ad31f97b20546"
+    ],
+    "geometry": [
+      "653ce9637e303a41"
+    ],
+    "gradient-fill": [
+      "76866da267962098",
+      "8fbf151c1f63de42"
+    ],
+    "grouped": [
+      "227c2b8a31a21253"
+    ],
+    "grouped-bar": [
+      "0de2014d0cf60d22",
+      "131654637e894c12",
+      "18a52f7a910fe9c9",
+      "3373085ababf0748",
+      "44d7a697ee30c4ac",
+      "4909e3dcba5b633c",
+      "789156ffca30bef6",
+      "ed6bbae45d17df9c"
+    ],
+    "grouped-violin": [
+      "5c8ff3b28ea11b6e",
+      "7fee7c75142949e5"
+    ],
+    "grouped_bar": [
+      "0460f09210bc23c2",
+      "0460f09210bc23c2",
+      "050e4b8075e0b6c8",
+      "050e4b8075e0b6c8",
+      "050e4b8075e0b6c8",
+      "0c35bb8a1fb21d5e",
+      "0c35bb8a1fb21d5e",
+      "0de2014d0cf60d22",
+      "14c360a8f274c9e0",
+      "14c360a8f274c9e0",
+      "14c360a8f274c9e0",
+      "1951a04d41fbdc82",
+      "1951a04d41fbdc82",
+      "1951a04d41fbdc82",
+      "46c9e05df9d7c941",
+      "46c9e05df9d7c941",
+      "4a0e3040bbdbfe5e",
+      "4a0e3040bbdbfe5e",
+      "4f7b7b4b01a1b498",
+      "4f7b7b4b01a1b498",
+      "55cb7dd1690cd0e8",
+      "55cb7dd1690cd0e8",
+      "55cb7dd1690cd0e8",
+      "55d8c952b3e9d4c0",
+      "55d8c952b3e9d4c0",
+      "55d8c952b3e9d4c0",
+      "68e244fb949f46ad",
+      "68e244fb949f46ad",
+      "68e244fb949f46ad",
+      "71133ed59cc16f8c",
+      "71133ed59cc16f8c",
+      "854fe931bde6ca6c",
+      "854fe931bde6ca6c",
+      "b1a15c9fca75c316",
+      "b1a15c9fca75c316",
+      "b1a15c9fca75c316",
+      "b6639239da2fa9f2",
+      "b6639239da2fa9f2",
+      "bc2cc547f15430bc",
+      "bc2cc547f15430bc",
+      "c4e05bb68a08caf3",
+      "c4e05bb68a08caf3",
+      "c4e05bb68a08caf3",
+      "ed3e9f652126a1d1",
+      "ed3e9f652126a1d1",
+      "ed3e9f652126a1d1",
+      "f32ad9b16aaba213",
+      "f32ad9b16aaba213",
+      "f32ad9b16aaba213",
+      "f406d7202f0bb30c",
+      "f406d7202f0bb30c",
+      "f406d7202f0bb30c",
+      "f70aada5f671778b",
+      "f70aada5f671778b",
+      "f70aada5f671778b"
+    ],
+    "grouped_bar_inset": [
+      "789156ffca30bef6"
+    ],
+    "groupedbarchart": [
+      "44d7a697ee30c4ac",
+      "4909e3dcba5b633c"
+    ],
+    "groupedviolin": [
+      "4d2c99dd4a107724",
+      "5c8ff3b28ea11b6e",
+      "7fee7c75142949e5"
+    ],
+    "half-violin": [
+      "4d2c99dd4a107724"
+    ],
+    "hardware": [
+      "789156ffca30bef6"
+    ],
+    "heatmap": [
+      "255c32ef8bf65d53",
+      "255c32ef8bf65d53",
+      "38a9c4e8fd691cbd",
+      "38a9c4e8fd691cbd",
+      "38f95dbf30eb6731",
+      "38f95dbf30eb6731",
+      "3b94fea2e7f95f8f",
+      "4cf8539d0521b726",
+      "4cf8539d0521b726",
+      "e52120014b49abe8",
+      "e52120014b49abe8"
+    ],
+    "heatmap_grid": [
+      "40dd7c7c14c45b45",
+      "40dd7c7c14c45b45",
+      "7ddf31ce2228813a",
+      "7ddf31ce2228813a",
+      "7ddf31ce2228813a",
+      "b0947af37e8c5ffc",
+      "b0947af37e8c5ffc",
+      "b0947af37e8c5ffc"
+    ],
+    "histogram": [
+      "387e55d62c99c422",
+      "4d213749151b32cb",
+      "7b7b02d82ccc7207",
+      "e088eda258e1bd3a"
+    ],
+    "histogram_overlay": [
+      "4d213749151b32cb",
+      "7b7b02d82ccc7207"
+    ],
+    "human": [
+      "131654637e894c12"
+    ],
+    "identity-line": [
+      "227c2b8a31a21253"
+    ],
+    "iedb": [
+      "18a52f7a910fe9c9"
+    ],
+    "immunostruct_ablation_cancer": [
+      "46c9e05df9d7c941"
+    ],
+    "immunostruct_ablation_iedb": [
+      "854fe931bde6ca6c"
+    ],
+    "immunostruct_comparison_cancer": [
+      "0c35bb8a1fb21d5e"
+    ],
+    "immunostruct_comparison_iedb": [
+      "18a52f7a910fe9c9"
+    ],
+    "immunostruct_contrastive": [
+      "c2590ba1ecac5e1d"
+    ],
+    "immunostruct_results_cedar": [
+      "f1f564e0c7221f24"
+    ],
+    "immunostruct_results_iedb": [
+      "2768b1a5ef0c501d"
+    ],
+    "immunostruct_schematic": [
+      "2d3ddf56ae63b34e"
+    ],
+    "in_vivo_efficacy": [
+      "25d6fc50f5808104",
+      "25d6fc50f5808104",
+      "668bc98b544d54d5",
+      "668bc98b544d54d5",
+      "668bc98b544d54d5"
+    ],
+    "individual-points": [
+      "daaa5c61d74703b8"
+    ],
+    "inset": [
+      "789156ffca30bef6"
+    ],
+    "jitter": [
+      "4d2c99dd4a107724"
+    ],
+    "joint-plot": [
+      "227c2b8a31a21253"
+    ],
+    "kde": [
+      "387e55d62c99c422",
+      "e088eda258e1bd3a"
+    ],
+    "learning-curves": [
+      "6e0b081c34e20430"
+    ],
+    "learning_curves": [
+      "6e0b081c34e20430"
+    ],
+    "line-comparison": [
+      "43fe44adf197b97c"
+    ],
+    "line-trend": [
+      "66fe0f27f4469754",
+      "8c7c60af478ae5d0",
+      "91b214f745a99f1f",
+      "977970a3c5ff8ad9",
+      "a6f2e75e7d836175"
+    ],
+    "line_grid": [
+      "01bafd03ff174176",
+      "01bafd03ff174176",
+      "01bafd03ff174176",
+      "302b8f53795653bf",
+      "302b8f53795653bf",
+      "4db30b32b65e6b71",
+      "4db30b32b65e6b71",
+      "4f49efc5caa16375",
+      "4f49efc5caa16375",
+      "4f49efc5caa16375",
+      "5d169138e229097f",
+      "5d169138e229097f",
+      "5d169138e229097f",
+      "7e2a22eeb372a7a0",
+      "7e2a22eeb372a7a0",
+      "7e2a22eeb372a7a0",
+      "9a8189149180a686",
+      "9a8189149180a686",
+      "a6d35e1b68a1bfe8",
+      "a6d35e1b68a1bfe8",
+      "a6d35e1b68a1bfe8"
+    ],
+    "linetrend": [
+      "66fe0f27f4469754",
+      "8c7c60af478ae5d0",
+      "91b214f745a99f1f",
+      "977970a3c5ff8ad9",
+      "a6f2e75e7d836175"
+    ],
+    "log-log": [
+      "f5ca182539d043e4"
+    ],
+    "log-x": [
+      "7b7b02d82ccc7207"
+    ],
+    "loss": [
+      "6e0b081c34e20430"
+    ],
+    "magma": [
+      "e52120014b49abe8"
+    ],
+    "manifold_3d": [
+      "0087399b5105ff42",
+      "0087399b5105ff42",
+      "0087399b5105ff42",
+      "14487fd036228090",
+      "14487fd036228090",
+      "14487fd036228090",
+      "2ad2be6fa9c9165e",
+      "2ad2be6fa9c9165e",
+      "33db3d53a233846b",
+      "33db3d53a233846b",
+      "33db3d53a233846b",
+      "83e55ca23d8aa2fa",
+      "83e55ca23d8aa2fa",
+      "9f02fa4603dae748",
+      "9f02fa4603dae748"
+    ],
+    "many-series": [
+      "789156ffca30bef6"
+    ],
+    "marginal-density": [
+      "227c2b8a31a21253",
+      "387e55d62c99c422",
+      "e088eda258e1bd3a"
+    ],
+    "marginaldensity": [
+      "387e55d62c99c422",
+      "e088eda258e1bd3a"
+    ],
+    "material_mechanism": [
+      "2e0706fae3256e1d",
+      "2e0706fae3256e1d",
+      "c420d057ffad6041",
+      "c420d057ffad6041",
+      "c420d057ffad6041"
+    ],
+    "matrix": [
+      "dcdd74bc2feb98d9"
+    ],
+    "mean": [
+      "daaa5c61d74703b8"
+    ],
+    "mean-ribbon": [
+      "6e0b081c34e20430"
+    ],
+    "mechanism_schematic": [
+      "04c2f6ab2bedf8e6",
+      "04c2f6ab2bedf8e6",
+      "0929cd38b228b2df",
+      "0929cd38b228b2df",
+      "0929cd38b228b2df",
+      "0c9a72a5118651b4",
+      "0c9a72a5118651b4",
+      "0c9a72a5118651b4",
+      "2528309a41ba6eda",
+      "2528309a41ba6eda",
+      "2932af23fa869f4e",
+      "2932af23fa869f4e",
+      "2932af23fa869f4e",
+      "2d3ddf56ae63b34e",
+      "2d3ddf56ae63b34e",
+      "3554b9af671886df",
+      "3554b9af671886df",
+      "45aa6ecccf398b71",
+      "45aa6ecccf398b71",
+      "45aa6ecccf398b71",
+      "51a173abeafd0125",
+      "51a173abeafd0125",
+      "5da6979582203956",
+      "5da6979582203956",
+      "60c6e271c65d00b5",
+      "60c6e271c65d00b5",
+      "60c6e271c65d00b5",
+      "61493276c48d90f0",
+      "61493276c48d90f0",
+      "d01fd400ce53d20e",
+      "d01fd400ce53d20e",
+      "d01fd400ce53d20e",
+      "d79527fec611432d",
+      "d79527fec611432d",
+      "d79527fec611432d",
+      "da81ff330b16403c",
+      "da81ff330b16403c",
+      "da81ff330b16403c",
+      "e805fb0f7ccdf8aa",
+      "e805fb0f7ccdf8aa"
+    ],
+    "minimal": [
+      "4d2c99dd4a107724",
+      "daaa5c61d74703b8"
+    ],
+    "mixed-encoding": [
+      "a7a3dfa02b650b2e"
+    ],
+    "mixed-statistics": [
+      "1c6e9e67bade247d"
+    ],
+    "mixed_multi_panel": [
+      "a7a3dfa02b650b2e"
+    ],
+    "mixed_statistics_grid": [
+      "1c6e9e67bade247d"
+    ],
+    "model-comparison": [
+      "789156ffca30bef6"
+    ],
+    "model-exponent": [
+      "f5ca182539d043e4"
+    ],
+    "monthly": [
+      "66fe0f27f4469754"
+    ],
+    "multi-axis": [
+      "d6613715d9d4564f"
+    ],
+    "multi-curve": [
+      "a6f2e75e7d836175"
+    ],
+    "multi-panel": [
+      "387e55d62c99c422",
+      "43fe44adf197b97c",
+      "55abd06fbf4dcbb9",
+      "653ce9637e303a41",
+      "6e0b081c34e20430",
+      "7fee7c75142949e5",
+      "8c7c60af478ae5d0",
+      "977970a3c5ff8ad9",
+      "dcdd74bc2feb98d9",
+      "e088eda258e1bd3a"
+    ],
+    "multi_panel_line_comparison": [
+      "43fe44adf197b97c"
+    ],
+    "nature": [
+      "4d2c99dd4a107724",
+      "977970a3c5ff8ad9",
+      "daaa5c61d74703b8"
+    ],
+    "nature-figure": [
+      "006c1b3915544c07",
+      "039470ddb18c09ae",
+      "1bbfbc38a3f246e4",
+      "245ad31f97b20546",
+      "25d6fc50f5808104",
+      "2e0706fae3256e1d",
+      "350c25e427d945de",
+      "40dd7c7c14c45b45",
+      "4a0e3040bbdbfe5e",
+      "4f49efc5caa16375",
+      "650b40786cbcf05f",
+      "668bc98b544d54d5",
+      "68e244fb949f46ad",
+      "6a3e2a00f9c820f6",
+      "90081b3f778b9ede",
+      "90d44d1709c8bcad",
+      "984475212a83b640",
+      "999edb06b942f988",
+      "9a8189149180a686",
+      "a1fe533d07dae36d",
+      "b0947af37e8c5ffc",
+      "b3c62bc6c4258378",
+      "bbc8c0b8708d4246",
+      "c3c538a466aef22e",
+      "c420d057ffad6041",
+      "cd384abe10aa86bd",
+      "cd60f96af964c870",
+      "dc61a5257eae4748",
+      "e7fa7d98cd4f5263",
+      "f68c31da6f34836c"
+    ],
+    "network_matrix": [
+      "c3c538a466aef22e",
+      "c3c538a466aef22e",
+      "c3c538a466aef22e",
+      "cd384abe10aa86bd",
+      "cd384abe10aa86bd"
+    ],
+    "normal-fit": [
+      "4d213749151b32cb"
+    ],
+    "ophthal_composition_heatmap": [
+      "38a9c4e8fd691cbd"
+    ],
+    "ophthal_monthly_trend": [
+      "66fe0f27f4469754"
+    ],
+    "optimization": [
+      "4cf8539d0521b726"
+    ],
+    "overlaid_histograms_normal_fits": [
+      "4d213749151b32cb"
+    ],
+    "overlap": [
+      "7b7b02d82ccc7207"
+    ],
+    "overlay": [
+      "4d213749151b32cb"
+    ],
+    "p-values": [
+      "1c6e9e67bade247d"
+    ],
+    "palette-comparison": [
+      "255c32ef8bf65d53",
+      "977970a3c5ff8ad9"
+    ],
+    "palette_comparison": [
+      "977970a3c5ff8ad9"
+    ],
+    "pastel": [
+      "44d7a697ee30c4ac"
+    ],
+    "polar": [
+      "22f32e9bd10b34ee"
+    ],
+    "polar_bubble_radar_yearly_polygons": [
+      "22f32e9bd10b34ee"
+    ],
+    "post-training": [
+      "a6f2e75e7d836175"
+    ],
+    "precision": [
+      "60358c36e16732bf"
+    ],
+    "precision-comparison": [
+      "789156ffca30bef6"
+    ],
+    "publication-figure": [
+      "131654637e894c12",
+      "18a52f7a910fe9c9",
+      "3373085ababf0748",
+      "38a9c4e8fd691cbd",
+      "4cf8539d0521b726",
+      "66fe0f27f4469754",
+      "91b214f745a99f1f",
+      "a6f2e75e7d836175",
+      "abb63055b0d49edb",
+      "d6613715d9d4564f"
+    ],
+    "publication-style": [
+      "8c7c60af478ae5d0",
+      "e52120014b49abe8",
+      "ed6bbae45d17df9c"
+    ],
+    "radar": [
+      "22f32e9bd10b34ee",
+      "d6613715d9d4564f",
+      "d6613715d9d4564f"
+    ],
+    "radar_grid": [
+      "017beb996ea9fd8c",
+      "017beb996ea9fd8c",
+      "017beb996ea9fd8c",
+      "22f32e9bd10b34ee",
+      "650b40786cbcf05f",
+      "650b40786cbcf05f",
+      "650b40786cbcf05f",
+      "e7fa7d98cd4f5263",
+      "e7fa7d98cd4f5263"
+    ],
+    "radial": [
+      "a7a3dfa02b650b2e"
+    ],
+    "raincloud": [
+      "4d2c99dd4a107724",
+      "4d2c99dd4a107724",
+      "55abd06fbf4dcbb9",
+      "5c8ff3b28ea11b6e",
+      "a2d89d3b3e97ec59"
+    ],
+    "rank-frequency": [
+      "653ce9637e303a41"
+    ],
+    "raw-points": [
+      "0de2014d0cf60d22"
+    ],
+    "raw_point_grouped_comparison_significance": [
+      "0de2014d0cf60d22"
+    ],
+    "rdbu": [
+      "3b94fea2e7f95f8f"
+    ],
+    "reference-line": [
+      "43fe44adf197b97c"
+    ],
+    "regression": [
+      "387e55d62c99c422",
+      "e088eda258e1bd3a"
+    ],
+    "replicates": [
+      "daaa5c61d74703b8"
+    ],
+    "reproduction": [
+      "387e55d62c99c422",
+      "38f95dbf30eb6731",
+      "4909e3dcba5b633c",
+      "5c8ff3b28ea11b6e",
+      "76866da267962098",
+      "a2d89d3b3e97ec59"
+    ],
+    "residuals": [
+      "4d213749151b32cb"
+    ],
+    "rnagenscape_manifold": [
+      "83e55ca23d8aa2fa"
+    ],
+    "rnagenscape_manifold_holes": [
+      "2ad2be6fa9c9165e"
+    ],
+    "rnagenscape_optimization": [
+      "4cf8539d0521b726"
+    ],
+    "rnagenscape_schematic": [
+      "5da6979582203956"
+    ],
+    "rnagenscape_speed": [
+      "cd1fec84f615a43d"
+    ],
+    "rnagenscape_sweep": [
+      "4db30b32b65e6b71"
+    ],
+    "rnagenscape_teaser": [
+      "51a173abeafd0125"
+    ],
+    "roc-density": [
+      "a7a3dfa02b650b2e"
+    ],
+    "scaling-law": [
+      "653ce9637e303a41",
+      "f5ca182539d043e4"
+    ],
+    "scaling_analysis": [
+      "653ce9637e303a41",
+      "f5ca182539d043e4"
+    ],
+    "scatter": [
+      "227c2b8a31a21253",
+      "387e55d62c99c422",
+      "daaa5c61d74703b8",
+      "e088eda258e1bd3a"
+    ],
+    "scatter-regression": [
+      "55abd06fbf4dcbb9",
+      "a2d89d3b3e97ec59"
+    ],
+    "scatter_bubble": [
+      "1bbfbc38a3f246e4",
+      "1bbfbc38a3f246e4",
+      "984475212a83b640",
+      "984475212a83b640",
+      "984475212a83b640"
+    ],
+    "scatter_marginal": [
+      "227c2b8a31a21253"
+    ],
+    "scatterregressionraincloud": [
+      "55abd06fbf4dcbb9",
+      "a2d89d3b3e97ec59"
+    ],
+    "schematic": [
+      "60358c36e16732bf"
+    ],
+    "semantic-colors": [
+      "ed6bbae45d17df9c"
+    ],
+    "sequential-blue": [
+      "0de2014d0cf60d22"
+    ],
+    "significance-brackets": [
+      "0de2014d0cf60d22",
+      "55abd06fbf4dcbb9",
+      "5c8ff3b28ea11b6e",
+      "7fee7c75142949e5",
+      "a2d89d3b3e97ec59"
+    ],
+    "single-panel": [
+      "0de2014d0cf60d22"
+    ],
+    "single_cell_systems": [
+      "999edb06b942f988",
+      "999edb06b942f988",
+      "cd60f96af964c870",
+      "cd60f96af964c870",
+      "cd60f96af964c870"
+    ],
+    "source-catalog": [
+      "0460f09210bc23c2",
+      "04c2f6ab2bedf8e6",
+      "0c35bb8a1fb21d5e",
+      "134b0fcb07dbab1b",
+      "137841e62d5eaa48",
+      "1bbfbc38a3f246e4",
+      "245ad31f97b20546",
+      "2528309a41ba6eda",
+      "25d6fc50f5808104",
+      "2768b1a5ef0c501d",
+      "2ad2be6fa9c9165e",
+      "2d3ddf56ae63b34e",
+      "2e0706fae3256e1d",
+      "302b8f53795653bf",
+      "350c25e427d945de",
+      "3554b9af671886df",
+      "40dd7c7c14c45b45",
+      "46c9e05df9d7c941",
+      "4a0e3040bbdbfe5e",
+      "4db30b32b65e6b71",
+      "4f7b7b4b01a1b498",
+      "51a173abeafd0125",
+      "59846b700abcf89c",
+      "5da6979582203956",
+      "61493276c48d90f0",
+      "71133ed59cc16f8c",
+      "83e55ca23d8aa2fa",
+      "854fe931bde6ca6c",
+      "90081b3f778b9ede",
+      "96075eb70285f4f7",
+      "999edb06b942f988",
+      "9a8189149180a686",
+      "9f02fa4603dae748",
+      "a1fe533d07dae36d",
+      "b6639239da2fa9f2",
+      "bbc8c0b8708d4246",
+      "bc2cc547f15430bc",
+      "c2590ba1ecac5e1d",
+      "cd1fec84f615a43d",
+      "cd384abe10aa86bd",
+      "dc61a5257eae4748",
+      "e7fa7d98cd4f5263",
+      "e805fb0f7ccdf8aa",
+      "f1f564e0c7221f24"
+    ],
+    "source-reconstruction": [
+      "006c1b3915544c07",
+      "0087399b5105ff42",
+      "017beb996ea9fd8c",
+      "01bafd03ff174176",
+      "039470ddb18c09ae",
+      "050e4b8075e0b6c8",
+      "0929cd38b228b2df",
+      "0c768f24b9178014",
+      "0c9a72a5118651b4",
+      "14487fd036228090",
+      "14c360a8f274c9e0",
+      "1951a04d41fbdc82",
+      "2728b083dfaa29b9",
+      "2932af23fa869f4e",
+      "33db3d53a233846b",
+      "45aa6ecccf398b71",
+      "4c23827efb6772dd",
+      "4f49efc5caa16375",
+      "55cb7dd1690cd0e8",
+      "55d8c952b3e9d4c0",
+      "5d169138e229097f",
+      "60c6e271c65d00b5",
+      "650b40786cbcf05f",
+      "668bc98b544d54d5",
+      "68e244fb949f46ad",
+      "6a3e2a00f9c820f6",
+      "7ddf31ce2228813a",
+      "7e2a22eeb372a7a0",
+      "8f50b79d3ba025af",
+      "90d44d1709c8bcad",
+      "984475212a83b640",
+      "a6d35e1b68a1bfe8",
+      "ac5e1cef8d16e9ce",
+      "b0947af37e8c5ffc",
+      "b1a15c9fca75c316",
+      "b3c62bc6c4258378",
+      "baa6064b1812ccc7",
+      "c3c538a466aef22e",
+      "c420d057ffad6041",
+      "c4e05bb68a08caf3",
+      "c5792016a54e2baa",
+      "c8e5d2a76d98c008",
+      "cd60f96af964c870",
+      "d01fd400ce53d20e",
+      "d369f5654b6d5ae0",
+      "d7147990bd79a4d1",
+      "d79527fec611432d",
+      "da81ff330b16403c",
+      "ed3e9f652126a1d1",
+      "f2017fa1dc5bc795",
+      "f32ad9b16aaba213",
+      "f406d7202f0bb30c",
+      "f68c31da6f34836c",
+      "f70aada5f671778b"
+    ],
+    "spatial_image_plate": [
+      "6a3e2a00f9c820f6",
+      "6a3e2a00f9c820f6",
+      "6a3e2a00f9c820f6",
+      "90081b3f778b9ede",
+      "90081b3f778b9ede",
+      "90d44d1709c8bcad",
+      "90d44d1709c8bcad",
+      "90d44d1709c8bcad",
+      "bbc8c0b8708d4246",
+      "bbc8c0b8708d4246"
+    ],
+    "stacked-bar": [
+      "abb63055b0d49edb"
+    ],
+    "stackedbarscatter": [
+      "daaa5c61d74703b8"
+    ],
+    "statistical-annotation": [
+      "1c6e9e67bade247d"
+    ],
+    "summary-callout": [
+      "7b7b02d82ccc7207"
+    ],
+    "superplot": [
+      "daaa5c61d74703b8",
+      "daaa5c61d74703b8"
+    ],
+    "superposition": [
+      "dcdd74bc2feb98d9"
+    ],
+    "synthetic": [
+      "387e55d62c99c422",
+      "38f95dbf30eb6731",
+      "4909e3dcba5b633c",
+      "5c8ff3b28ea11b6e",
+      "76866da267962098",
+      "a2d89d3b3e97ec59"
+    ],
+    "synthetic_reproduction": [
+      "387e55d62c99c422",
+      "38f95dbf30eb6731",
+      "4909e3dcba5b633c",
+      "5c8ff3b28ea11b6e",
+      "76866da267962098",
+      "a2d89d3b3e97ec59"
+    ],
+    "tensor-flow": [
+      "60358c36e16732bf"
+    ],
+    "theory-vs-data": [
+      "f5ca182539d043e4"
+    ],
+    "three-color": [
+      "227c2b8a31a21253"
+    ],
+    "three-panel": [
+      "43fe44adf197b97c"
+    ],
+    "three-series": [
+      "7b7b02d82ccc7207"
+    ],
+    "time-series": [
+      "66fe0f27f4469754",
+      "977970a3c5ff8ad9"
+    ],
+    "toy-model": [
+      "dcdd74bc2feb98d9"
+    ],
+    "training-validation": [
+      "6e0b081c34e20430"
+    ],
+    "trajectory": [
+      "91b214f745a99f1f"
+    ],
+    "transformer": [
+      "60358c36e16732bf"
+    ],
+    "trend-line": [
+      "76866da267962098",
+      "8fbf151c1f63de42"
+    ],
+    "tumor-growth": [
+      "977970a3c5ff8ad9"
+    ],
+    "uncertainty-band": [
+      "43fe44adf197b97c"
+    ],
+    "user-supplied": [
+      "0de2014d0cf60d22",
+      "22f32e9bd10b34ee",
+      "4d213749151b32cb"
+    ],
+    "validation_perturbation": [
+      "006c1b3915544c07",
+      "006c1b3915544c07",
+      "006c1b3915544c07",
+      "245ad31f97b20546",
+      "245ad31f97b20546"
+    ],
+    "vigil_ablation_curves": [
+      "302b8f53795653bf"
+    ],
+    "vigil_concept": [
+      "3554b9af671886df"
+    ],
+    "vigil_posttraining": [
+      "a6f2e75e7d836175"
+    ],
+    "vigil_radar_comparison": [
+      "d6613715d9d4564f"
+    ],
+    "vigil_teaser": [
+      "61493276c48d90f0"
+    ],
+    "violin": [
+      "4d2c99dd4a107724",
+      "55abd06fbf4dcbb9",
+      "a2d89d3b3e97ec59"
+    ],
+    "wechat": [
+      "255c32ef8bf65d53",
+      "44d7a697ee30c4ac",
+      "55abd06fbf4dcbb9",
+      "7fee7c75142949e5",
+      "8fbf151c1f63de42",
+      "e088eda258e1bd3a"
+    ],
+    "wechat_correlation_palette_comparison": [
+      "255c32ef8bf65d53"
+    ],
+    "wechat_gradient_bar_trend": [
+      "8fbf151c1f63de42"
+    ],
+    "wechat_grouped_violin_box_significance": [
+      "7fee7c75142949e5"
+    ],
+    "wechat_marker_composition_bars": [
+      "44d7a697ee30c4ac"
+    ],
+    "wechat_scatter_marginal_regression": [
+      "e088eda258e1bd3a"
+    ],
+    "wechat_scatter_regression_raincloud_combo": [
+      "55abd06fbf4dcbb9"
+    ],
+    "workflow": [
+      "60358c36e16732bf",
+      "dcdd74bc2feb98d9"
+    ]
+  }
+}

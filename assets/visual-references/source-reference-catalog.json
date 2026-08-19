@@ -1,0 +1,2371 @@
+{
+  "cataloged_count": 54,
+  "records": [
+    {
+      "reference_id": "04c2f6ab2bedf8e6",
+      "source_fingerprint": "04c2f6ab2bedf8e6a19449f0260ef36f8ab736a93dccf19458cdc80d4b593547",
+      "repository": "figures4papers",
+      "relative_path": "assets/Dispersion_motivation.png",
+      "visual_family": "mechanism_schematic",
+      "blueprint_id": "dispersion_motivation",
+      "reconstruction_blueprint": {
+        "blueprint_id": "dispersion_motivation",
+        "mosaic": [
+          "AABB",
+          "CCDD"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:inputs"
+          },
+          {
+            "id": "B",
+            "kind": "diagram:latent"
+          },
+          {
+            "id": "C",
+            "kind": "scatter:embedding"
+          },
+          {
+            "id": "D",
+            "kind": "line:dispersion"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "four-stage motivation: inputs, latent-space idea, embedding, and response curve"
+      }
+    },
+    {
+      "reference_id": "59846b700abcf89c",
+      "source_fingerprint": "59846b700abcf89c2779abce27b5d667637f6429cf4a52ca1892c687359f2aa7",
+      "repository": "figures4papers",
+      "relative_path": "assets/Dispersion_observation.png",
+      "visual_family": "comparison_composite",
+      "blueprint_id": "dispersion_observation",
+      "reconstruction_blueprint": {
+        "blueprint_id": "dispersion_observation",
+        "mosaic": [
+          "AABB",
+          "CCDD",
+          "EEFF"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:observation"
+          },
+          {
+            "id": "B",
+            "kind": "scatter:groups"
+          },
+          {
+            "id": "C",
+            "kind": "heatmap:correlation"
+          },
+          {
+            "id": "D",
+            "kind": "line:comparison"
+          },
+          {
+            "id": "E",
+            "kind": "distribution:ridge"
+          },
+          {
+            "id": "F",
+            "kind": "forest:effects"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "asymmetric observation figure with one explanatory panel and five evidence panels"
+      }
+    },
+    {
+      "reference_id": "134b0fcb07dbab1b",
+      "source_fingerprint": "134b0fcb07dbab1baa769854100fc9791b846f6f6c50591485564fc8492b6660",
+      "repository": "figures4papers",
+      "relative_path": "assets/Dispersion_observation_distillation.png",
+      "visual_family": "distribution_grid",
+      "blueprint_id": "dispersion_observation_distillation",
+      "reconstruction_blueprint": {
+        "blueprint_id": "dispersion_observation_distillation",
+        "mosaic": [
+          "ABC",
+          "DEF"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "distribution:hist"
+          },
+          {
+            "id": "B",
+            "kind": "distribution:violin"
+          },
+          {
+            "id": "C",
+            "kind": "distribution:ridge"
+          },
+          {
+            "id": "D",
+            "kind": "scatter:groups"
+          },
+          {
+            "id": "E",
+            "kind": "line:distillation"
+          },
+          {
+            "id": "F",
+            "kind": "bar:summary"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "six compact distribution and comparison panels"
+      }
+    },
+    {
+      "reference_id": "c2590ba1ecac5e1d",
+      "source_fingerprint": "c2590ba1ecac5e1d0976df3be6e9fa4056dcdd78670201c6db461e3e4f18b0d0",
+      "repository": "figures4papers",
+      "relative_path": "assets/ImmunoStruct_contrastive.png",
+      "visual_family": "comparison_composite",
+      "blueprint_id": "immunostruct_contrastive",
+      "reconstruction_blueprint": {
+        "blueprint_id": "immunostruct_contrastive",
+        "mosaic": [
+          "AABB",
+          "CCDD"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:contrastive"
+          },
+          {
+            "id": "B",
+            "kind": "diagram:pairing"
+          },
+          {
+            "id": "C",
+            "kind": "scatter:embedding"
+          },
+          {
+            "id": "D",
+            "kind": "bar:contrast"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "paired contrastive workflow followed by embedding and quantitative comparison"
+      }
+    },
+    {
+      "reference_id": "f1f564e0c7221f24",
+      "source_fingerprint": "f1f564e0c7221f24f4bffe14cce5b5df6786c75f7dfcf1b6d2be7566820050ec",
+      "repository": "figures4papers",
+      "relative_path": "assets/ImmunoStruct_results_CEDAR.png",
+      "visual_family": "comparison_composite",
+      "blueprint_id": "immunostruct_results_cedar",
+      "reconstruction_blueprint": {
+        "blueprint_id": "immunostruct_results_cedar",
+        "mosaic": [
+          "ABCD",
+          "EFGH"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "B",
+            "kind": "bar:ablation"
+          },
+          {
+            "id": "C",
+            "kind": "line:calibration"
+          },
+          {
+            "id": "D",
+            "kind": "heatmap:matrix"
+          },
+          {
+            "id": "E",
+            "kind": "distribution:violin"
+          },
+          {
+            "id": "F",
+            "kind": "scatter:groups"
+          },
+          {
+            "id": "G",
+            "kind": "forest:effects"
+          },
+          {
+            "id": "H",
+            "kind": "table:metrics"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "eight-panel benchmark result grid with mixed evidence types"
+      }
+    },
+    {
+      "reference_id": "2768b1a5ef0c501d",
+      "source_fingerprint": "2768b1a5ef0c501dc03c53c594a28e028df2cd57b51c4fd80c9a57906f6195c5",
+      "repository": "figures4papers",
+      "relative_path": "assets/ImmunoStruct_results_IEDB.png",
+      "visual_family": "comparison_composite",
+      "blueprint_id": "immunostruct_results_iedb",
+      "reconstruction_blueprint": {
+        "blueprint_id": "immunostruct_results_iedb",
+        "mosaic": [
+          "ABCD",
+          "EFGH"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "B",
+            "kind": "bar:ablation"
+          },
+          {
+            "id": "C",
+            "kind": "line:calibration"
+          },
+          {
+            "id": "D",
+            "kind": "heatmap:matrix"
+          },
+          {
+            "id": "E",
+            "kind": "distribution:violin"
+          },
+          {
+            "id": "F",
+            "kind": "scatter:groups"
+          },
+          {
+            "id": "G",
+            "kind": "forest:effects"
+          },
+          {
+            "id": "H",
+            "kind": "table:metrics"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "eight-panel benchmark result grid, distinct IEDB rendering"
+      }
+    },
+    {
+      "reference_id": "2d3ddf56ae63b34e",
+      "source_fingerprint": "2d3ddf56ae63b34ead168cb95b484881f934e61204a8740c67d6dc1678bbaf7d",
+      "repository": "figures4papers",
+      "relative_path": "assets/ImmunoStruct_schematic.png",
+      "visual_family": "mechanism_schematic",
+      "blueprint_id": "immunostruct_schematic",
+      "reconstruction_blueprint": {
+        "blueprint_id": "immunostruct_schematic",
+        "mosaic": [
+          "AAAB",
+          "CCCB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:architecture"
+          },
+          {
+            "id": "B",
+            "kind": "diagram:attention"
+          },
+          {
+            "id": "C",
+            "kind": "diagram:training"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "wide architecture panel with two subordinate explanatory branches"
+      }
+    },
+    {
+      "reference_id": "5da6979582203956",
+      "source_fingerprint": "5da6979582203956d3f54535ea8286acaaaaba5d588066891ee037de056ed545",
+      "repository": "figures4papers",
+      "relative_path": "assets/RNAGenScape_schematic.png",
+      "visual_family": "mechanism_schematic",
+      "blueprint_id": "rnagenscape_schematic",
+      "reconstruction_blueprint": {
+        "blueprint_id": "rnagenscape_schematic",
+        "mosaic": [
+          "AABB",
+          "CCDD"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:generator"
+          },
+          {
+            "id": "B",
+            "kind": "diagram:conditioning"
+          },
+          {
+            "id": "C",
+            "kind": "manifold:latent"
+          },
+          {
+            "id": "D",
+            "kind": "spatial:expression"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "generative pipeline with latent-space and spatial readouts"
+      }
+    },
+    {
+      "reference_id": "51a173abeafd0125",
+      "source_fingerprint": "51a173abeafd0125204b604424ec869262c94f99ab1b004e6aed4d9b889a66e2",
+      "repository": "figures4papers",
+      "relative_path": "assets/RNAGenScape_teaser.png",
+      "visual_family": "mechanism_schematic",
+      "blueprint_id": "rnagenscape_teaser",
+      "reconstruction_blueprint": {
+        "blueprint_id": "rnagenscape_teaser",
+        "mosaic": [
+          "AABB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "diagram:cells"
+          },
+          {
+            "id": "B",
+            "kind": "spatial:expression"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "two-part teaser: cell representation to spatial expression"
+      }
+    },
+    {
+      "reference_id": "61493276c48d90f0",
+      "source_fingerprint": "61493276c48d90f05a8d0f48ed398a9ad2b95a80bf8c028f1d68bb9495d06ee8",
+      "repository": "figures4papers",
+      "relative_path": "assets/VIGIL_teaser.png",
+      "visual_family": "mechanism_schematic",
+      "blueprint_id": "vigil_teaser",
+      "reconstruction_blueprint": {
+        "blueprint_id": "vigil_teaser",
+        "mosaic": [
+          "AABB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:temporal"
+          },
+          {
+            "id": "B",
+            "kind": "line:forecast"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "temporal method teaser paired with a predicted trajectory"
+      }
+    },
+    {
+      "reference_id": "abb63055b0d49edb",
+      "source_fingerprint": "abb63055b0d49edbe9002e820294a622db1429d31b1d2446340036cf1db92607",
+      "repository": "figures4papers",
+      "relative_path": "figure_Brainteaser/figures/brute_force.png",
+      "visual_family": "grouped_bar",
+      "blueprint_id": "brainteaser_brute_force",
+      "reconstruction_blueprint": {
+        "blueprint_id": "brainteaser_brute_force",
+        "mosaic": [
+          "AABB",
+          "CCDD"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:composition"
+          },
+          {
+            "id": "B",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "C",
+            "kind": "distribution:points"
+          },
+          {
+            "id": "D",
+            "kind": "table:metrics"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "composition bars, comparison bars, raw observations, and summary table"
+      }
+    },
+    {
+      "reference_id": "bc2cc547f15430bc",
+      "source_fingerprint": "bc2cc547f15430bc9af2ebdfba0b8cf1c73702e8fbea35d8b2953cc960da117b",
+      "repository": "figures4papers",
+      "relative_path": "figure_Brainteaser/figures/correctness_by_category.png",
+      "visual_family": "grouped_bar",
+      "blueprint_id": "brainteaser_correctness_category",
+      "reconstruction_blueprint": {
+        "blueprint_id": "brainteaser_correctness_category",
+        "mosaic": [
+          "AB",
+          "CD"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:category"
+          },
+          {
+            "id": "B",
+            "kind": "bar:category"
+          },
+          {
+            "id": "C",
+            "kind": "distribution:points"
+          },
+          {
+            "id": "D",
+            "kind": "forest:effects"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "category-level correctness panels with raw and interval evidence"
+      }
+    },
+    {
+      "reference_id": "b6639239da2fa9f2",
+      "source_fingerprint": "b6639239da2fa9f2bec3eb096ec0db3942965ed38e57446de4b8a240a77c02c6",
+      "repository": "figures4papers",
+      "relative_path": "figure_Brainteaser/figures/correctness_by_subcategory.png",
+      "visual_family": "grouped_bar",
+      "blueprint_id": "brainteaser_correctness_subcategory",
+      "reconstruction_blueprint": {
+        "blueprint_id": "brainteaser_correctness_subcategory",
+        "mosaic": [
+          "ABC",
+          "DEF",
+          "GHI"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:category"
+          },
+          {
+            "id": "B",
+            "kind": "bar:category"
+          },
+          {
+            "id": "C",
+            "kind": "bar:category"
+          },
+          {
+            "id": "D",
+            "kind": "bar:category"
+          },
+          {
+            "id": "E",
+            "kind": "bar:category"
+          },
+          {
+            "id": "F",
+            "kind": "bar:category"
+          },
+          {
+            "id": "G",
+            "kind": "distribution:points"
+          },
+          {
+            "id": "H",
+            "kind": "forest:effects"
+          },
+          {
+            "id": "I",
+            "kind": "table:metrics"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "dense subcategory comparison grid with six categorical panels"
+      }
+    },
+    {
+      "reference_id": "0460f09210bc23c2",
+      "source_fingerprint": "0460f09210bc23c272602ecb8b3fcf3984f42fc055df3b0e4982eab50303607f",
+      "repository": "figures4papers",
+      "relative_path": "figure_Brainteaser/figures/rewriting.png",
+      "visual_family": "grouped_bar",
+      "blueprint_id": "brainteaser_rewriting",
+      "reconstruction_blueprint": {
+        "blueprint_id": "brainteaser_rewriting",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:beforeafter"
+          },
+          {
+            "id": "B",
+            "kind": "scatter:paired"
+          },
+          {
+            "id": "C",
+            "kind": "distribution:violin"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "before/after rewriting comparison with paired observation panel"
+      }
+    },
+    {
+      "reference_id": "71133ed59cc16f8c",
+      "source_fingerprint": "71133ed59cc16f8c36a4e8b2325575d185f36a8534c29579d2eff177544e9e53",
+      "repository": "figures4papers",
+      "relative_path": "figure_Brainteaser/figures/selfcorrection_math.png",
+      "visual_family": "grouped_bar",
+      "blueprint_id": "brainteaser_selfcorrection_math",
+      "reconstruction_blueprint": {
+        "blueprint_id": "brainteaser_selfcorrection_math",
+        "mosaic": [
+          "ABCD",
+          "EFGH"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:category"
+          },
+          {
+            "id": "B",
+            "kind": "bar:category"
+          },
+          {
+            "id": "C",
+            "kind": "bar:category"
+          },
+          {
+            "id": "D",
+            "kind": "bar:category"
+          },
+          {
+            "id": "E",
+            "kind": "line:iterations"
+          },
+          {
+            "id": "F",
+            "kind": "scatter:paired"
+          },
+          {
+            "id": "G",
+            "kind": "distribution:points"
+          },
+          {
+            "id": "H",
+            "kind": "table:metrics"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "dense self-correction grid: categorical gains, iterations, paired observations, and metrics"
+      }
+    },
+    {
+      "reference_id": "3373085ababf0748",
+      "source_fingerprint": "3373085ababf07481a352fe542fd79a58701e0e052c5593ca56984008ddad027",
+      "repository": "figures4papers",
+      "relative_path": "figure_CellSpliceNet/figures/ablation.png",
+      "visual_family": "grouped_bar",
+      "blueprint_id": "cellsplicenet_ablation",
+      "reconstruction_blueprint": {
+        "blueprint_id": "cellsplicenet_ablation",
+        "mosaic": [
+          "AAB",
+          "CCD"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:ablation"
+          },
+          {
+            "id": "B",
+            "kind": "line:training"
+          },
+          {
+            "id": "C",
+            "kind": "distribution:violin"
+          },
+          {
+            "id": "D",
+            "kind": "table:metrics"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "ablation hero panel supported by training, distribution, and metric panels"
+      }
+    },
+    {
+      "reference_id": "131654637e894c12",
+      "source_fingerprint": "131654637e894c12f441ad4a9cf5533999939971e3f051f81e46ba802f75d854",
+      "repository": "figures4papers",
+      "relative_path": "figure_CellSpliceNet/figures/comparison_human.png",
+      "visual_family": "comparison_composite",
+      "blueprint_id": "cellsplicenet_comparison_human",
+      "reconstruction_blueprint": {
+        "blueprint_id": "cellsplicenet_comparison_human",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "B",
+            "kind": "heatmap:matrix"
+          },
+          {
+            "id": "C",
+            "kind": "line:calibration"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "three-panel human benchmark: methods, matrix evidence, and calibration"
+      }
+    },
+    {
+      "reference_id": "137841e62d5eaa48",
+      "source_fingerprint": "137841e62d5eaa48998a97246849b8ede08d2d165c8bb4ad3fd6a18d6b6c65e2",
+      "repository": "figures4papers",
+      "relative_path": "figure_CellSpliceNet/figures/comparison_worm.png",
+      "visual_family": "comparison_composite",
+      "blueprint_id": "cellsplicenet_comparison_worm",
+      "reconstruction_blueprint": {
+        "blueprint_id": "cellsplicenet_comparison_worm",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "B",
+            "kind": "heatmap:matrix"
+          },
+          {
+            "id": "C",
+            "kind": "line:calibration"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "three-panel worm benchmark: methods, matrix evidence, and calibration"
+      }
+    },
+    {
+      "reference_id": "9f02fa4603dae748",
+      "source_fingerprint": "9f02fa4603dae748e3745b95b0ed252f2ba386da6101dc1be6c4a2a886c78eb0",
+      "repository": "figures4papers",
+      "relative_path": "figure_Cflows/figures/diffusion_swiss_roll.png",
+      "visual_family": "manifold_3d",
+      "blueprint_id": "cflows_diffusion_swiss_roll",
+      "reconstruction_blueprint": {
+        "blueprint_id": "cflows_diffusion_swiss_roll",
+        "mosaic": [
+          "AABB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "manifold:source"
+          },
+          {
+            "id": "B",
+            "kind": "manifold:flow"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "paired manifold views showing source geometry and transformed geometry"
+      }
+    },
+    {
+      "reference_id": "96075eb70285f4f7",
+      "source_fingerprint": "96075eb70285f4f72869b99398c9a923336fbc3a5188883d9e8415e1cc027a46",
+      "repository": "figures4papers",
+      "relative_path": "figure_Cflows/figures/fig2_comparison_GeneRegulatory.png",
+      "visual_family": "comparison_composite",
+      "blueprint_id": "cflows_gene_regulatory",
+      "reconstruction_blueprint": {
+        "blueprint_id": "cflows_gene_regulatory",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "network:regulatory"
+          },
+          {
+            "id": "B",
+            "kind": "scatter:trajectory"
+          },
+          {
+            "id": "C",
+            "kind": "line:dynamics"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "network topology, state-space trajectory, and temporal dynamics"
+      }
+    },
+    {
+      "reference_id": "91b214f745a99f1f",
+      "source_fingerprint": "91b214f745a99f1f2b472ddae7661dfa2d9241791768767180219315b89047ec",
+      "repository": "figures4papers",
+      "relative_path": "figure_Cflows/figures/fig2_comparison_Trajectory.png",
+      "visual_family": "comparison_composite",
+      "blueprint_id": "cflows_trajectory",
+      "reconstruction_blueprint": {
+        "blueprint_id": "cflows_trajectory",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "scatter:trajectory"
+          },
+          {
+            "id": "B",
+            "kind": "line:dynamics"
+          },
+          {
+            "id": "C",
+            "kind": "forest:effects"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "trajectory panel followed by dynamics and effect comparison"
+      }
+    },
+    {
+      "reference_id": "4f7b7b4b01a1b498",
+      "source_fingerprint": "4f7b7b4b01a1b498540850ddabc217fd964eb37142e99a6ee6b5c26cf12aba7f",
+      "repository": "figures4papers",
+      "relative_path": "figure_Cflows/figures/figX_comparison_Ablation.png",
+      "visual_family": "grouped_bar",
+      "blueprint_id": "cflows_ablation",
+      "reconstruction_blueprint": {
+        "blueprint_id": "cflows_ablation",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:ablation"
+          },
+          {
+            "id": "B",
+            "kind": "line:training"
+          },
+          {
+            "id": "C",
+            "kind": "table:metrics"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "ablation bars with learning curve and metric table"
+      }
+    },
+    {
+      "reference_id": "e805fb0f7ccdf8aa",
+      "source_fingerprint": "e805fb0f7ccdf8aa3ae764e8156cf6b61b6d56ef7dded0fc7556566e316649a3",
+      "repository": "figures4papers",
+      "relative_path": "figure_Dispersion/figures/idea.png",
+      "visual_family": "mechanism_schematic",
+      "blueprint_id": "dispersion_idea",
+      "reconstruction_blueprint": {
+        "blueprint_id": "dispersion_idea",
+        "mosaic": [
+          "AABB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:idea"
+          },
+          {
+            "id": "B",
+            "kind": "diagram:geometry"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "conceptual idea paired with geometric explanation"
+      }
+    },
+    {
+      "reference_id": "2528309a41ba6eda",
+      "source_fingerprint": "2528309a41ba6edab9c377a2304c144813c0e99565239a849c427ab00a14643b",
+      "repository": "figures4papers",
+      "relative_path": "figure_Dispersion/figures/illustration.png",
+      "visual_family": "mechanism_schematic",
+      "blueprint_id": "dispersion_illustration",
+      "reconstruction_blueprint": {
+        "blueprint_id": "dispersion_illustration",
+        "mosaic": [
+          "AABB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "diagram:geometry"
+          },
+          {
+            "id": "B",
+            "kind": "schematic:process"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "geometric illustration and process schematic"
+      }
+    },
+    {
+      "reference_id": "46c9e05df9d7c941",
+      "source_fingerprint": "46c9e05df9d7c941628791ac447c5d84a29d942896ce3a13d00432e9f5c720ef",
+      "repository": "figures4papers",
+      "relative_path": "figure_ImmunoStruct/figures/bars_ablation_Cancer.png",
+      "visual_family": "grouped_bar",
+      "blueprint_id": "immunostruct_ablation_cancer",
+      "reconstruction_blueprint": {
+        "blueprint_id": "immunostruct_ablation_cancer",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:ablation"
+          },
+          {
+            "id": "B",
+            "kind": "bar:ablation"
+          },
+          {
+            "id": "C",
+            "kind": "distribution:points"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "three cancer ablation panels with replicate observations"
+      }
+    },
+    {
+      "reference_id": "854fe931bde6ca6c",
+      "source_fingerprint": "854fe931bde6ca6c50eda6b147907f00d8f10d74c3b40bad1714b903bf945f00",
+      "repository": "figures4papers",
+      "relative_path": "figure_ImmunoStruct/figures/bars_ablation_IEDB.png",
+      "visual_family": "grouped_bar",
+      "blueprint_id": "immunostruct_ablation_iedb",
+      "reconstruction_blueprint": {
+        "blueprint_id": "immunostruct_ablation_iedb",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:ablation"
+          },
+          {
+            "id": "B",
+            "kind": "bar:ablation"
+          },
+          {
+            "id": "C",
+            "kind": "distribution:points"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "three IEDB ablation panels with replicate observations"
+      }
+    },
+    {
+      "reference_id": "0c35bb8a1fb21d5e",
+      "source_fingerprint": "0c35bb8a1fb21d5e30e16be152fc92959af580d9e24f04ccc61444adba8c7aa2",
+      "repository": "figures4papers",
+      "relative_path": "figure_ImmunoStruct/figures/bars_comparison_Cancer.png",
+      "visual_family": "grouped_bar",
+      "blueprint_id": "immunostruct_comparison_cancer",
+      "reconstruction_blueprint": {
+        "blueprint_id": "immunostruct_comparison_cancer",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "B",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "C",
+            "kind": "forest:effects"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "cancer method comparison with interval panel"
+      }
+    },
+    {
+      "reference_id": "18a52f7a910fe9c9",
+      "source_fingerprint": "18a52f7a910fe9c9ff06015f5a1e63527458a86c847f573eb96ba254d4645ac1",
+      "repository": "figures4papers",
+      "relative_path": "figure_ImmunoStruct/figures/bars_comparison_IEDB.png",
+      "visual_family": "grouped_bar",
+      "blueprint_id": "immunostruct_comparison_iedb",
+      "reconstruction_blueprint": {
+        "blueprint_id": "immunostruct_comparison_iedb",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "B",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "C",
+            "kind": "forest:effects"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "IEDB method comparison with interval panel"
+      }
+    },
+    {
+      "reference_id": "38a9c4e8fd691cbd",
+      "source_fingerprint": "38a9c4e8fd691cbd7dcb4f5b5abb69398b4974d32cad19a4a33819db1cb34f3a",
+      "repository": "figures4papers",
+      "relative_path": "figure_ophthal_review/figures/composition_heatmap.png",
+      "visual_family": "heatmap_grid",
+      "blueprint_id": "ophthal_composition_heatmap",
+      "reconstruction_blueprint": {
+        "blueprint_id": "ophthal_composition_heatmap",
+        "mosaic": [
+          "AABB",
+          "CCDD"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "heatmap:composition"
+          },
+          {
+            "id": "B",
+            "kind": "heatmap:matrix"
+          },
+          {
+            "id": "C",
+            "kind": "bar:composition"
+          },
+          {
+            "id": "D",
+            "kind": "forest:effects"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "heatmap hero with matrix, composition, and interval support"
+      }
+    },
+    {
+      "reference_id": "66fe0f27f4469754",
+      "source_fingerprint": "66fe0f27f44697547b6cb219ff90696f54a6fef48984c9578ace258e0ebce4d4",
+      "repository": "figures4papers",
+      "relative_path": "figure_ophthal_review/figures/trend_by_month.png",
+      "visual_family": "line_grid",
+      "blueprint_id": "ophthal_monthly_trend",
+      "reconstruction_blueprint": {
+        "blueprint_id": "ophthal_monthly_trend",
+        "mosaic": [
+          "AB",
+          "CD"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "line:monthly"
+          },
+          {
+            "id": "B",
+            "kind": "line:monthly"
+          },
+          {
+            "id": "C",
+            "kind": "area:composition"
+          },
+          {
+            "id": "D",
+            "kind": "bar:summary"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "monthly trends, composition over time, and summary comparison"
+      }
+    },
+    {
+      "reference_id": "83e55ca23d8aa2fa",
+      "source_fingerprint": "83e55ca23d8aa2fa591a46d3fe4f9d6ac11e17cbc9657e2615d883ea6deb937c",
+      "repository": "figures4papers",
+      "relative_path": "figure_RNAGenScape/figures/manifold.png",
+      "visual_family": "manifold_3d",
+      "blueprint_id": "rnagenscape_manifold",
+      "reconstruction_blueprint": {
+        "blueprint_id": "rnagenscape_manifold",
+        "mosaic": [
+          "AB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "manifold:source"
+          },
+          {
+            "id": "B",
+            "kind": "manifold:generated"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "paired manifold rendering of source and generated distributions"
+      }
+    },
+    {
+      "reference_id": "2ad2be6fa9c9165e",
+      "source_fingerprint": "2ad2be6fa9c9165e800dba4d997850c9a426cbe9b441c78b76518335bcc3f948",
+      "repository": "figures4papers",
+      "relative_path": "figure_RNAGenScape/figures/manifold_holes.png",
+      "visual_family": "manifold_3d",
+      "blueprint_id": "rnagenscape_manifold_holes",
+      "reconstruction_blueprint": {
+        "blueprint_id": "rnagenscape_manifold_holes",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "manifold:source"
+          },
+          {
+            "id": "B",
+            "kind": "manifold:holes"
+          },
+          {
+            "id": "C",
+            "kind": "manifold:generated"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "three manifold states emphasizing holes and generated coverage"
+      }
+    },
+    {
+      "reference_id": "4cf8539d0521b726",
+      "source_fingerprint": "4cf8539d0521b7268f0227b56cecddf2f70c1bb4bbcf9b5e3be886e95a54927a",
+      "repository": "figures4papers",
+      "relative_path": "figure_RNAGenScape/figures/results_comparison_optimization.png",
+      "visual_family": "comparison_composite",
+      "blueprint_id": "rnagenscape_optimization",
+      "reconstruction_blueprint": {
+        "blueprint_id": "rnagenscape_optimization",
+        "mosaic": [
+          "AABB",
+          "CCDD"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "heatmap:optimization"
+          },
+          {
+            "id": "B",
+            "kind": "line:optimization"
+          },
+          {
+            "id": "C",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "D",
+            "kind": "scatter:embedding"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "optimization landscape hero with trajectory, method comparison, and embedding"
+      }
+    },
+    {
+      "reference_id": "cd1fec84f615a43d",
+      "source_fingerprint": "cd1fec84f615a43dbe91cc94bfbb94fe07e086fdd5d8191fbff2ec990e38d4f5",
+      "repository": "figures4papers",
+      "relative_path": "figure_RNAGenScape/figures/results_comparison_speed.png",
+      "visual_family": "comparison_composite",
+      "blueprint_id": "rnagenscape_speed",
+      "reconstruction_blueprint": {
+        "blueprint_id": "rnagenscape_speed",
+        "mosaic": [
+          "AB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:comparison"
+          },
+          {
+            "id": "B",
+            "kind": "forest:effects"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "speed comparison with effect-size intervals"
+      }
+    },
+    {
+      "reference_id": "4db30b32b65e6b71",
+      "source_fingerprint": "4db30b32b65e6b7160ebe025993c2ffdaf6e240d836c253419e91649d3da8deb",
+      "repository": "figures4papers",
+      "relative_path": "figure_RNAGenScape/figures/results_sweep.png",
+      "visual_family": "line_grid",
+      "blueprint_id": "rnagenscape_sweep",
+      "reconstruction_blueprint": {
+        "blueprint_id": "rnagenscape_sweep",
+        "mosaic": [
+          "AB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "line:sweep"
+          },
+          {
+            "id": "B",
+            "kind": "line:sweep"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "paired parameter-sweep curves"
+      }
+    },
+    {
+      "reference_id": "302b8f53795653bf",
+      "source_fingerprint": "302b8f53795653bf7ebe74ca508319c073325bdda1f106ca9eb3cd7c690da7c7",
+      "repository": "figures4papers",
+      "relative_path": "figure_VIGIL/figures/ablation_curves.png",
+      "visual_family": "line_grid",
+      "blueprint_id": "vigil_ablation_curves",
+      "reconstruction_blueprint": {
+        "blueprint_id": "vigil_ablation_curves",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "line:ablation"
+          },
+          {
+            "id": "B",
+            "kind": "line:ablation"
+          },
+          {
+            "id": "C",
+            "kind": "line:ablation"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "three ablation learning curves with uncertainty bands"
+      }
+    },
+    {
+      "reference_id": "a6f2e75e7d836175",
+      "source_fingerprint": "a6f2e75e7d8361754445d86ce04386b5764a46bf2cbc94e8df0c75ecf1bab142",
+      "repository": "figures4papers",
+      "relative_path": "figure_VIGIL/figures/comparison_posttraining.png",
+      "visual_family": "line_grid",
+      "blueprint_id": "vigil_posttraining",
+      "reconstruction_blueprint": {
+        "blueprint_id": "vigil_posttraining",
+        "mosaic": [
+          "ABC"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "line:posttraining"
+          },
+          {
+            "id": "B",
+            "kind": "line:posttraining"
+          },
+          {
+            "id": "C",
+            "kind": "line:posttraining"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "three post-training comparison curves"
+      }
+    },
+    {
+      "reference_id": "d6613715d9d4564f",
+      "source_fingerprint": "d6613715d9d4564fb0c7354430b227d43c9df04032e32b346601971381e5ba2d",
+      "repository": "figures4papers",
+      "relative_path": "figure_VIGIL/figures/comparison_radar.png",
+      "visual_family": "radar_grid",
+      "blueprint_id": "vigil_radar_comparison",
+      "reconstruction_blueprint": {
+        "blueprint_id": "vigil_radar_comparison",
+        "mosaic": [
+          "AB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "radar:methods"
+          },
+          {
+            "id": "B",
+            "kind": "radar:methods"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "paired polar method comparisons"
+      }
+    },
+    {
+      "reference_id": "3554b9af671886df",
+      "source_fingerprint": "3554b9af671886dfbbe985016440c5ba1633b4e8b08d50539d992982c5cc2bf5",
+      "repository": "figures4papers",
+      "relative_path": "figure_VIGIL/figures/concept.png",
+      "visual_family": "mechanism_schematic",
+      "blueprint_id": "vigil_concept",
+      "reconstruction_blueprint": {
+        "blueprint_id": "vigil_concept",
+        "mosaic": [
+          "AABB"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:temporal"
+          },
+          {
+            "id": "B",
+            "kind": "diagram:forecast"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "temporal concept sketch with forecast explanation"
+      }
+    },
+    {
+      "reference_id": "4a0e3040bbdbfe5e",
+      "source_fingerprint": "4a0e3040bbdbfe5ec48b66515f719f83ad7304fadb2e56432cd3e8f7ccbabd65",
+      "repository": "nature-figure",
+      "relative_path": "assets/chart-atlas/atlas-01-bar-charts.png",
+      "visual_family": "grouped_bar",
+      "blueprint_id": "atlas_bar_charts",
+      "reconstruction_blueprint": {
+        "blueprint_id": "atlas_bar_charts",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "bar:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "bar:atlas"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "16 bar-chart variants arranged as an atlas"
+      }
+    },
+    {
+      "reference_id": "9a8189149180a686",
+      "source_fingerprint": "9a8189149180a68679738bc4be152ee40b17d71261d71b3759d315a7169da0d9",
+      "repository": "nature-figure",
+      "relative_path": "assets/chart-atlas/atlas-02-line-trends.png",
+      "visual_family": "line_grid",
+      "blueprint_id": "atlas_line_trends",
+      "reconstruction_blueprint": {
+        "blueprint_id": "atlas_line_trends",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "line:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "line:atlas"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "16 trend and uncertainty variants arranged as an atlas"
+      }
+    },
+    {
+      "reference_id": "40dd7c7c14c45b45",
+      "source_fingerprint": "40dd7c7c14c45b45cc22ee23e19f2dc1901f38b26a1fb4b0f26a30dbd10c0423",
+      "repository": "nature-figure",
+      "relative_path": "assets/chart-atlas/atlas-03-heatmaps.png",
+      "visual_family": "heatmap_grid",
+      "blueprint_id": "atlas_heatmaps",
+      "reconstruction_blueprint": {
+        "blueprint_id": "atlas_heatmaps",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "heatmap:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "heatmap:atlas"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "16 matrix and annotation variants arranged as an atlas"
+      }
+    },
+    {
+      "reference_id": "1bbfbc38a3f246e4",
+      "source_fingerprint": "1bbfbc38a3f246e4fd7c59b9ed1003ddbc7280ee160b7c38abf8d410b27fe6f8",
+      "repository": "nature-figure",
+      "relative_path": "assets/chart-atlas/atlas-04-scatter-bubble.png",
+      "visual_family": "scatter_bubble",
+      "blueprint_id": "atlas_scatter_bubble",
+      "reconstruction_blueprint": {
+        "blueprint_id": "atlas_scatter_bubble",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "scatter:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "scatter:atlas"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "16 scatter and bubble variants arranged as an atlas"
+      }
+    },
+    {
+      "reference_id": "e7fa7d98cd4f5263",
+      "source_fingerprint": "e7fa7d98cd4f5263f5550d7ac8824e60071c20b2927aef52ac6d18d62fd29ffa",
+      "repository": "nature-figure",
+      "relative_path": "assets/chart-atlas/atlas-05-radar-polar.png",
+      "visual_family": "radar_grid",
+      "blueprint_id": "atlas_radar_polar",
+      "reconstruction_blueprint": {
+        "blueprint_id": "atlas_radar_polar",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "radar:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "radar:atlas"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "16 polar-chart variants arranged as an atlas"
+      }
+    },
+    {
+      "reference_id": "a1fe533d07dae36d",
+      "source_fingerprint": "a1fe533d07dae36d11c997577ded61adb16bf5d4dd5c0dee2ff92ae570f0f01e",
+      "repository": "nature-figure",
+      "relative_path": "assets/chart-atlas/atlas-06-distributions.png",
+      "visual_family": "distribution_grid",
+      "blueprint_id": "atlas_distributions",
+      "reconstruction_blueprint": {
+        "blueprint_id": "atlas_distributions",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "distribution:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "distribution:atlas"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "16 distribution variants arranged as an atlas"
+      }
+    },
+    {
+      "reference_id": "dc61a5257eae4748",
+      "source_fingerprint": "dc61a5257eae4748348c72c51f2e70e59979c6892f52dadf7bb4ba6f8b98b00b",
+      "repository": "nature-figure",
+      "relative_path": "assets/chart-atlas/atlas-07-forest-interval.png",
+      "visual_family": "forest_interval",
+      "blueprint_id": "atlas_forest_interval",
+      "reconstruction_blueprint": {
+        "blueprint_id": "atlas_forest_interval",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "forest:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "forest:atlas"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "16 interval and effect-size variants arranged as an atlas"
+      }
+    },
+    {
+      "reference_id": "350c25e427d945de",
+      "source_fingerprint": "350c25e427d945dee5fd98316eb6ebe307304b9d187d954a88c05852d664a60b",
+      "repository": "nature-figure",
+      "relative_path": "assets/chart-atlas/atlas-08-area-stacked.png",
+      "visual_family": "area_stacked",
+      "blueprint_id": "atlas_area_stacked",
+      "reconstruction_blueprint": {
+        "blueprint_id": "atlas_area_stacked",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "area:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "area:atlas"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "16 stacked-area and composition variants arranged as an atlas"
+      }
+    },
+    {
+      "reference_id": "bbc8c0b8708d4246",
+      "source_fingerprint": "bbc8c0b8708d42465e57cb7c56b4d2ecfbaa63340a5a6dfefbcb51189cd1a995",
+      "repository": "nature-figure",
+      "relative_path": "assets/chart-atlas/atlas-09-image-plates.png",
+      "visual_family": "spatial_image_plate",
+      "blueprint_id": "atlas_image_plates",
+      "reconstruction_blueprint": {
+        "blueprint_id": "atlas_image_plates",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "spatial:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "spatial:atlas"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "16 spatial/image-plate variants arranged as an atlas"
+      }
+    },
+    {
+      "reference_id": "cd384abe10aa86bd",
+      "source_fingerprint": "cd384abe10aa86bd310c1288a42f33735cb555c267bddae1ecd262905a7a1de5",
+      "repository": "nature-figure",
+      "relative_path": "assets/chart-atlas/atlas-10-network-matrix.png",
+      "visual_family": "network_matrix",
+      "blueprint_id": "atlas_network_matrix",
+      "reconstruction_blueprint": {
+        "blueprint_id": "atlas_network_matrix",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL",
+          "MNOP"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "B",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "C",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "D",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "E",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "F",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "G",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "H",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "I",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "J",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "K",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "L",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "M",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "N",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "O",
+            "kind": "network:atlas"
+          },
+          {
+            "id": "P",
+            "kind": "network:atlas"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "16 network/matrix variants arranged as an atlas"
+      }
+    },
+    {
+      "reference_id": "2e0706fae3256e1d",
+      "source_fingerprint": "2e0706fae3256e1de2388f8605f35b9b6ac23cfc397161a952f34cc5fa2f2192",
+      "repository": "nature-figure",
+      "relative_path": "assets/gallery/fig1-material-mechanism-rich.png",
+      "visual_family": "material_mechanism",
+      "blueprint_id": "gallery_material_mechanism",
+      "reconstruction_blueprint": {
+        "blueprint_id": "gallery_material_mechanism",
+        "mosaic": [
+          "AABB",
+          "CDDE"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:materials"
+          },
+          {
+            "id": "B",
+            "kind": "diagram:mechanism"
+          },
+          {
+            "id": "C",
+            "kind": "spatial:micrograph"
+          },
+          {
+            "id": "D",
+            "kind": "line:response"
+          },
+          {
+            "id": "E",
+            "kind": "bar:comparison"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "asymmetric material mechanism figure with large mechanism hero"
+      }
+    },
+    {
+      "reference_id": "90081b3f778b9ede",
+      "source_fingerprint": "90081b3f778b9ede2dba41c60b6abf0c28a239060c69428344539529cd7f3257",
+      "repository": "nature-figure",
+      "relative_path": "assets/gallery/fig2-spatial-imaging-rich.png",
+      "visual_family": "spatial_image_plate",
+      "blueprint_id": "gallery_spatial_imaging",
+      "reconstruction_blueprint": {
+        "blueprint_id": "gallery_spatial_imaging",
+        "mosaic": [
+          "ABCD",
+          "EFGH",
+          "IJKL"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "spatial:sample"
+          },
+          {
+            "id": "B",
+            "kind": "spatial:mask"
+          },
+          {
+            "id": "C",
+            "kind": "spatial:overlay"
+          },
+          {
+            "id": "D",
+            "kind": "spatial:zoom"
+          },
+          {
+            "id": "E",
+            "kind": "spatial:sample"
+          },
+          {
+            "id": "F",
+            "kind": "spatial:mask"
+          },
+          {
+            "id": "G",
+            "kind": "spatial:overlay"
+          },
+          {
+            "id": "H",
+            "kind": "spatial:zoom"
+          },
+          {
+            "id": "I",
+            "kind": "spatial:zoom"
+          },
+          {
+            "id": "J",
+            "kind": "scatter:spots"
+          },
+          {
+            "id": "K",
+            "kind": "heatmap:matrix"
+          },
+          {
+            "id": "L",
+            "kind": "bar:summary"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "image-plate workflow with sample, mask, overlay, zoom, and quantitative support"
+      }
+    },
+    {
+      "reference_id": "25d6fc50f5808104",
+      "source_fingerprint": "25d6fc50f5808104a7cb19f4795cea4229fbc6159fa7509f716a94f7c160a033",
+      "repository": "nature-figure",
+      "relative_path": "assets/gallery/fig3-in-vivo-efficacy-rich.png",
+      "visual_family": "in_vivo_efficacy",
+      "blueprint_id": "gallery_in_vivo_efficacy",
+      "reconstruction_blueprint": {
+        "blueprint_id": "gallery_in_vivo_efficacy",
+        "mosaic": [
+          "AABB",
+          "CCDE"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:treatment"
+          },
+          {
+            "id": "B",
+            "kind": "line:efficacy"
+          },
+          {
+            "id": "C",
+            "kind": "spatial:imaging"
+          },
+          {
+            "id": "D",
+            "kind": "bar:response"
+          },
+          {
+            "id": "E",
+            "kind": "survival:curve"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "in-vivo study: treatment schematic, longitudinal efficacy, imaging, response, survival"
+      }
+    },
+    {
+      "reference_id": "999edb06b942f988",
+      "source_fingerprint": "999edb06b942f988a51b11f947845e42e4c346b2f9e5d5a6425def9e43bb69d1",
+      "repository": "nature-figure",
+      "relative_path": "assets/gallery/fig4-single-cell-systems-rich.png",
+      "visual_family": "single_cell_systems",
+      "blueprint_id": "gallery_single_cell_systems",
+      "reconstruction_blueprint": {
+        "blueprint_id": "gallery_single_cell_systems",
+        "mosaic": [
+          "AABB",
+          "CCDE"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:singlecell"
+          },
+          {
+            "id": "B",
+            "kind": "scatter:umap"
+          },
+          {
+            "id": "C",
+            "kind": "heatmap:markers"
+          },
+          {
+            "id": "D",
+            "kind": "distribution:violin"
+          },
+          {
+            "id": "E",
+            "kind": "line:trajectory"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "single-cell system figure with workflow, embedding hero, markers, distributions, trajectory"
+      }
+    },
+    {
+      "reference_id": "245ad31f97b20546",
+      "source_fingerprint": "245ad31f97b2054628987444e44d6a007f352f65ae6254189f5ed8ba9b0301c6",
+      "repository": "nature-figure",
+      "relative_path": "assets/gallery/fig5-validation-perturbation-rich.png",
+      "visual_family": "validation_perturbation",
+      "blueprint_id": "gallery_validation_perturbation",
+      "reconstruction_blueprint": {
+        "blueprint_id": "gallery_validation_perturbation",
+        "mosaic": [
+          "AABB",
+          "CCDE"
+        ],
+        "panel_recipes": [
+          {
+            "id": "A",
+            "kind": "schematic:perturbation"
+          },
+          {
+            "id": "B",
+            "kind": "scatter:validation"
+          },
+          {
+            "id": "C",
+            "kind": "bar:ablation"
+          },
+          {
+            "id": "D",
+            "kind": "heatmap:response"
+          },
+          {
+            "id": "E",
+            "kind": "forest:effects"
+          }
+        ],
+        "annotation_model": "panel_letters + local_legends + direct_callouts",
+        "source_observation": "perturbation workflow and validation evidence across scatter, ablation, matrix, interval panels"
+      }
+    }
+  ]
+}

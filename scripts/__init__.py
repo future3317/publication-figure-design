@@ -2,10 +2,12 @@
 """Academic figure skill utility scripts."""
 
 from .palette_manager import (
+    contrast_ratio,
     extend_palette,
     get_palette,
     get_palette_info,
     list_palettes,
+    pick_text_color,
     preview_palettes,
     resolve_colors,
     resolve_palette,
@@ -24,13 +26,16 @@ from .reference_library import (
     archive_generated_figure,
     ingest_image,
     resolve_visual_style,
+    normalize_figure_type,
 )
 
 __all__ = [
+    "contrast_ratio",
     "extend_palette",
     "get_palette",
     "get_palette_info",
     "list_palettes",
+    "pick_text_color",
     "preview_palettes",
     "resolve_colors",
     "resolve_palette",
@@ -45,4 +50,5 @@ __all__ = [
     "archive_generated_figure",
     "ingest_image",
     "resolve_visual_style",
+    "normalize_figure_type",
 ]

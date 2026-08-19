@@ -1,296 +1,154 @@
 #!/usr/bin/env python3
-"""Academic Figure Skill Cross-Platform Adapter Generator.
-
-Reads academic-figure-skill/SKILL.md and generates platform-specific adapter files for:
-  - Claude Code    (already supported via ~/.claude/skills/)
-  - OpenAI Codex   (manifest.yaml)
-  - Cursor         (.cursorrules)
-  - GitHub Copilot (copilot-instructions.md)
-
-Usage:
-    python generate_adapters.py                    # generate all, output to install/
-    python generate_adapters.py --target cursor    # generate cursor only
-    python generate_adapters.py --target copilot   # generate copilot only
-"""
+"""Generate thin cross-platform loaders from the canonical skill manifest."""
 
 from __future__ import annotations
 
-import os
+import argparse
 import re
-import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
+
 def _resolve_skill_root() -> Path:
-    """Return the directory containing SKILL.md, robust to direct or nested install."""
     script_dir = Path(__file__).resolve().parent
-    direct = script_dir.parent
-    if (direct / "SKILL.md").exists():
-        return direct
-    nested = script_dir.parents[1]
-    if (nested / "SKILL.md").exists():
-        return nested
-    return direct
+    for candidate in (script_dir.parent, script_dir.parent.parent):
+        if (candidate / "SKILL.md").exists():
+            return candidate
+    return script_dir.parent
+
 
 SKILL_ROOT = _resolve_skill_root()
-SKILL_MD = SKILL_ROOT / "SKILL.md"
+MANIFEST = SKILL_ROOT / "manifest.yaml"
 INSTALL_DIR = SKILL_ROOT / "install"
 
-# ═══════════════════════════════════════════════════════════
-# Core rule extractor — pulls the 50-line essence from SKILL.md
-# ═══════════════════════════════════════════════════════════
 
-def extract_core_rules() -> str:
-    """Extract the portable 50-line core from SKILL.md.
-    These rules work across all agents — they don't depend on Claude Code's
-    skill system (file loading, multi-step workflow, etc.).
-    """
-    with open(SKILL_MD, "r", encoding="utf-8") as f:
-        full = f.read()
-
-    # Extract flat rules: BASELINE blocks from color-palettes.md
-    color_md = SKILL_ROOT / "references" / "color-palettes.md"
-    typo_md  = SKILL_ROOT / "references" / "typography.md"
-    export_md = SKILL_ROOT / "references" / "export-specs.md"
-
-    palette_py = _extract_code_block(color_md, "python")
-    palette_r  = _extract_code_block(color_md, "r")
-    typo_py    = _extract_code_block(typo_md, "python")
-    typo_r     = _extract_code_block(typo_md, "r")
-    export_py  = _extract_code_block(export_md, "python")
-
-    return f'''# Academic Figure Skill Portable Core Rules
-# Auto-generated from academic-figure-skill/SKILL.md — {_now()}
-# These rules work across Claude Code, Codex, Cursor, and Copilot.
-
-## Design Principles
-1. One figure, one core message. Remove gridlines, borders, and redundant legends.
-2. Restrained color > abundant color. Use 2-4 semantic colors + 1 accent. Never default palettes.
-3. Design for print, not screen. Single column 89mm, double column 183mm.
-4. Vector first, raster fallback. PDF/SVG/EPS for line art; TIFF/PNG (≥300dpi) for raster.
-
-## Color Palette — COPY VERBATIM
-
-```python
-{palette_py}
-```
-
-```r
-{palette_r}
-```
-
-Color roles: Blue (#2166AC) = control/baseline. Red (#B2182B) = emphasis/up-regulated. Green (#1B7837) = treatment/recovery. Grey (#999999/#666666) = background/non-significant. Never use jet/rainbow or default matplotlib/seaborn palettes.
-
-## Typography — COPY VERBATIM
-
-```python
-{typo_py}
-```
-
-```r
-{typo_r}
-```
-
-Font: Arial/Helvetica. No text below 5pt at final print dimensions. Panel labels: lowercase bold a,b,c... at consistent positions.
-
-## Export — COPY VERBATIM
-
-```python
-{export_py}
-```
-
-## Layout Rules
-- Single column: 89mm wide. Double column: 183mm wide. Max height: 247mm.
-- Remove top and right spines. Ticks outward. Gridlines off by default.
-- Legend: outside plot area or direct labeling. Never inside occluding data.
-- Panel width never below 35mm. Below 45mm = warn.
-- Multi-panel: rows have aspect-ratio-correct heights (heatmap=1.0, ridge=0.65).
-
-## Production Scripts
-- Check `assets/figures/<type>/` for matching production scripts first.
-- If found, copy-modify-run — change only data paths and labels.
-- If not found, cross-type inherit from similar figure type.
-- R scripts: png(type="cairo"), showtext_auto(FALSE) before export.
-
-## QA Checklist
-- [ ] Custom hex colors used (no defaults)
-- [ ] Top/right spines removed
-- [ ] Arial/Helvetica font set
-- [ ] PDF vector + 300dpi PNG preview saved
-- [ ] Dimensions match journal column width
-- [ ] Panel labels consistent (a,b,c...)
-- [ ] Legend outside plot or direct labeling
-- [ ] Colorblind-friendly (no red-green only pairs)
-'''
-
-
-def _extract_code_block(path: Path, language: str) -> str:
-    """Extract the first fenced code block for the given language from a markdown file."""
-    if not path.exists():
-        return f"# {language} block not found"
-    with open(path, "r", encoding="utf-8", errors="replace") as f:
-        content = f.read()
-
-    # Match ```language ... ```  (language can be python or r)
-    pattern = rf"```\s*{language}\s*\n(.*?)```"
-    match = re.search(pattern, content, re.DOTALL | re.IGNORECASE)
-    if match:
-        return match.group(1).strip()
-    return f"# No {language} block found in {path.name}"
+def _manifest_version() -> str:
+    text = MANIFEST.read_text(encoding="utf-8")
+    match = re.search(r"^version:\s*[\"']?([^\"'\s]+)", text, re.MULTILINE)
+    if not match:
+        raise RuntimeError("manifest.yaml must define a root version")
+    return match.group(1)
 
 
 def _now() -> str:
-    from datetime import datetime, timezone
     return datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
 
-# ═══════════════════════════════════════════════════════════
-# Platform generators
-# ═══════════════════════════════════════════════════════════
+def _runtime_files() -> list[str]:
+    # Keep the adapter bundle in lockstep with the canonical manifest.  The
+    # parser is intentionally small because the runtime section is a flat list.
+    lines = MANIFEST.read_text(encoding="utf-8").splitlines()
+    runtime: list[str] = []
+    in_runtime = False
+    for line in lines:
+        if line.strip() == "runtime:":
+            in_runtime = True
+            continue
+        if in_runtime and line and not line.startswith(" "):
+            break
+        if in_runtime:
+            item = line.strip()
+            if item.startswith("-"):
+                runtime.append(item[1:].strip().strip("\"'"))
+    if not runtime:
+        raise RuntimeError("manifest.yaml runtime bundle is empty")
+    return runtime
 
-def generate_claude_code(core: str) -> str:
-    """Claude Code: already supported via ~/.claude/skills/. This generates a README."""
-    return f'''# Academic Figure Skill — Claude Code Installation
 
-The Claude Code skill is at `academic-figure-skill/`. Install via symlink:
+def _loader_header(host: str) -> str:
+    version = _manifest_version()
+    files = "\n".join(f"- `{item}`" for item in _runtime_files())
+    return f"""# Publication Figure Design adapter — {host}
 
-```bash
-ln -s $(pwd)/academic-figure-skill ~/.claude/skills/academic-figure-skill
-```
+This is a thin loader for `publication-figure-design` manifest version `{version}`.
+The canonical instructions and route contracts live in the bundled skill; this
+file is not a replacement or a second source of design rules.
 
-Or copy:
-```bash
-cp -r academic-figure-skill ~/.claude/skills/academic-figure-skill
-```
-
-After installation, Claude Code auto-triggers on: "make a volcano plot", "画个热图",
-"review this figure for Nature", etc.
-
-The skill checks `academic-figure-skill/assets/figures/<type>/` for production scripts before
-generating any code. Add your own scripts there to extend figure type coverage.
+Runtime bundle:
+{files}
 
 Generated: {_now()}
-'''
+"""
 
 
-def generate_codex_manifest(core: str) -> str:
-    """OpenAI Codex: needs a manifest.yaml + instructions.md bundle."""
-    manifest = f'''# Academic Figure Skill — OpenAI Codex Manifest
-# Place this file at: ~/.codex/skills/academic-figure-skill/manifest.yaml
-# Generated: {_now()}
+def generate_claude_code() -> str:
+    return _loader_header("Claude Code") + """
+Install this directory at `~/.claude/skills/publication-figure-design/`.
+Load `SKILL.md` and resolve all relative scripts/resources from that directory.
+"""
 
-name: academic-figure-skill
-version: "1.0.0"
-description: >-
-  Publication-grade scientific figure creation for Nature/Cell/Science journals.
-  Handles any figure type with journal-grade typography, color science, and layout.
 
-entrypoint: skill.md
-resources:
-  - instructions.md
-  - assets/figures/
-
-triggers:
-  - keywords: [figure, plot, chart, heatmap, volcano, boxplot, scatter, bar,
-               manuscript, publication, Nature, Cell, Science, 图, 绘图, 作图]
-  - file_patterns: ["*.py", "*.R", "*.r"]
-    content_hints: ["matplotlib", "ggplot2", "seaborn", "ComplexHeatmap",
-                    "plt.plot", "plt.scatter", "ggplot(", "geom_"]
-'''
-
-    instructions = f'''# Academic Figure Skill Instructions for Codex
-# Auto-generated from academic-figure-skill/SKILL.md — {_now()}
-
-{core}
-'''
+def generate_codex_manifest() -> tuple[str, str]:
+    version = _manifest_version()
+    manifest = f"""# Generated adapter metadata; package compatibility identifier only; one current workflow.
+name: publication-figure-design
+version: \"{version}\"
+entrypoint: SKILL.md
+source_manifest: manifest.yaml
+runtime:
+  - SKILL.md
+  - manifest.yaml
+  - references/
+  - scripts/
+  - assets/visual-references/
+  - assets/registry.jsonl
+  - schemas/
+  - indexes/
+"""
+    instructions = _loader_header("OpenAI Codex") + """
+Load `SKILL.md` as the instruction entrypoint. When a route names a script,
+schema, index, or reference asset, use the bundled relative path; do not
+substitute an adapter-local copy.
+"""
     return manifest, instructions
 
 
-def generate_cursor_rules(core: str) -> str:
-    """Cursor: inject as .cursorrules in the user's project root."""
-    # Cursor uses .cursorrules for project-level AI instructions
-    return f'''# Academic Figure Skill — Scientific Figure Making Rules
-# Place this file at: <your-project>/.cursorrules
-# Cursor auto-loads it. Generated: {_now()}
-
-You are helping create scientific figures for Nature/Cell/Science journals.
-Follow these rules when writing matplotlib/ggplot2/ComplexHeatmap code.
-
-{core}
-'''
+def generate_cursor_rules() -> str:
+    return _loader_header("Cursor") + """
+For publication-figure tasks, load and follow the canonical `SKILL.md` and its
+selected manifest route. Do not invent a local mini-version or bypass gates.
+"""
 
 
-def generate_copilot_instructions(core: str) -> str:
-    """GitHub Copilot: inject as .github/copilot-instructions.md."""
-    return f'''# Academic Figure Skill — Scientific Figure Instructions for GitHub Copilot
-# Place this file at: <your-repo>/.github/copilot-instructions.md
-# Generated: {_now()}
-
-{core}
-'''
+def generate_copilot_instructions() -> str:
+    return _loader_header("GitHub Copilot") + """
+For publication-figure tasks, use the canonical `SKILL.md`, manifest route, and
+bundled runtime files. These instructions only provide loading context.
+"""
 
 
-# ═══════════════════════════════════════════════════════════
-# Main
-# ═══════════════════════════════════════════════════════════
-
-TARGETS = {
-    "claude-code": "Claude Code (README)",
-    "codex": "OpenAI Codex (manifest + instructions)",
-    "cursor": "Cursor (.cursorrules)",
-    "copilot": "GitHub Copilot (copilot-instructions.md)",
-}
+TARGETS = {"claude-code", "codex", "cursor", "copilot"}
 
 
-def generate(target: str | None = None):
-    """Generate adapters. If target is None, generate all."""
-    core = extract_core_rules()
-
-    targets_to_build = [target] if target else list(TARGETS)
-    for t in targets_to_build:
-        if t not in TARGETS:
-            print(f"Unknown target: {t}. Choose from: {', '.join(TARGETS)}")
-            sys.exit(1)
-
-    print(f"Academic Figure Skill Adapter Generator — {_now()}")
-    print(f"Source: {SKILL_MD}")
-    print()
-
-    for t in targets_to_build:
-        out_dir = INSTALL_DIR / t
+def generate(target: str | None = None) -> None:
+    targets = [target] if target else sorted(TARGETS)
+    unknown = [item for item in targets if item not in TARGETS]
+    if unknown:
+        raise SystemExit(f"Unknown target(s): {', '.join(unknown)}")
+    print(f"Publication Figure Design adapters — manifest {_manifest_version()}")
+    for item in targets:
+        out_dir = INSTALL_DIR / item
         out_dir.mkdir(parents=True, exist_ok=True)
-
-        if t == "claude-code":
-            readme = generate_claude_code(core)
-            path = out_dir / "README.md"
-            path.write_text(readme, encoding="utf-8")
-            print(f"[OK] {t} → {path}")
-
-        elif t == "codex":
-            manifest, instructions = generate_codex_manifest(core)
+        if item == "claude-code":
+            (out_dir / "README.md").write_text(generate_claude_code(), encoding="utf-8")
+        elif item == "codex":
+            manifest, instructions = generate_codex_manifest()
             (out_dir / "manifest.yaml").write_text(manifest, encoding="utf-8")
             (out_dir / "instructions.md").write_text(instructions, encoding="utf-8")
-            print(f"[OK] {t} → {out_dir}/manifest.yaml + instructions.md")
+        elif item == "cursor":
+            (out_dir / ".cursorrules").write_text(generate_cursor_rules(), encoding="utf-8")
+        else:
+            (out_dir / "copilot-instructions.md").write_text(generate_copilot_instructions(), encoding="utf-8")
+        print(f"[OK] {item}: {out_dir}")
 
-        elif t == "cursor":
-            rules = generate_cursor_rules(core)
-            path = out_dir / ".cursorrules"
-            path.write_text(rules, encoding="utf-8")
-            print(f"[OK] {t} → {path}")
 
-        elif t == "copilot":
-            instructions = generate_copilot_instructions(core)
-            path = out_dir / "copilot-instructions.md"
-            path.write_text(instructions, encoding="utf-8")
-            print(f"[OK] {t} → {path}")
-
-    print(f"\nAll generated under: {INSTALL_DIR}")
-    print("Copy the relevant file(s) to your project/agent directory.")
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--target", choices=sorted(TARGETS))
+    args = parser.parse_args()
+    generate(args.target)
+    return 0
 
 
 if __name__ == "__main__":
-    target = None
-    if "--target" in sys.argv:
-        idx = sys.argv.index("--target")
-        if idx + 1 < len(sys.argv):
-            target = sys.argv[idx + 1]
-    generate(target)
+    raise SystemExit(main())

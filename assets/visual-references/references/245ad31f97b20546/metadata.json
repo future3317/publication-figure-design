@@ -1,0 +1,79 @@
+{
+  "aesthetic_rating": 4.5,
+  "code_path": null,
+  "created_at": "2026-08-12T17:30:09Z",
+  "data_density": null,
+  "figure_type": "validation_perturbation",
+  "id": "245ad31f97b20546",
+  "image_path": "assets/visual-references/references/245ad31f97b20546/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "Apache-2.0",
+  "n_groups": null,
+  "notes": "Exact source visual sample cataloged for private reference; distinct from independent reconstruction.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "gallery_validation_perturbation",
+    "mosaic": [
+      "AABB",
+      "CCDE"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "schematic:perturbation"
+      },
+      {
+        "id": "B",
+        "kind": "scatter:validation"
+      },
+      {
+        "id": "C",
+        "kind": "bar:ablation"
+      },
+      {
+        "id": "D",
+        "kind": "heatmap:response"
+      },
+      {
+        "id": "E",
+        "kind": "forest:effects"
+      }
+    ],
+    "source_observation": "perturbation workflow and validation evidence across scatter, ablation, matrix, interval panels"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "245ad31f97b2054628987444e44d6a007f352f65ae6254189f5ed8ba9b0301c6",
+  "source": "nature-figure visual source",
+  "source_action": "licensed_visual_source",
+  "source_fingerprint": "245ad31f97b2054628987444e44d6a007f352f65ae6254189f5ed8ba9b0301c6",
+  "source_license_class": "Apache-2.0",
+  "source_relative_path": "assets/gallery/fig5-validation-perturbation-rich.png",
+  "source_repository": "nature-figure",
+  "source_url": null,
+  "subtype": "gallery_validation_perturbation",
+  "tags": [
+    "source-catalog",
+    "nature-figure",
+    "validation_perturbation"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "validation_perturbation",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'gallery_validation_perturbation' is a focused validation_perturbation reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

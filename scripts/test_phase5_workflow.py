@@ -128,6 +128,30 @@ class TestVisualStyleResolution(unittest.TestCase):
         self.assertEqual(style["colors"], ["#000000", "#FFFFFF"])
         self.assertEqual(style["source"], "user_colors")
 
+    def test_wrong_reference_type_is_rejected_by_style_resolution(self):
+        wrong_refs = ReferenceLibrary().query(
+            figure_type="StackedBarScatter", tags=["superplot"], limit=1
+        )
+        with self.assertRaises(ValueError):
+            resolve_visual_style(
+                figure_type="GroupedViolin", reference_id=wrong_refs[0].id, n=4
+            )
+
+    def test_unknown_reference_id_is_not_silently_replaced_by_default_palette(self):
+        with self.assertRaises(ValueError):
+            resolve_visual_style(
+                figure_type="GroupedViolin", reference_id="missing-reference", n=4
+            )
+
+    def test_invalid_reference_is_rejected_even_when_user_colors_override(self):
+        with self.assertRaises(ValueError):
+            resolve_visual_style(
+                figure_type="GroupedViolin",
+                reference_id="missing-reference",
+                user_colors=["#000000", "#FFFFFF"],
+                n=2,
+            )
+
 
 class TestProductionSemanticsPreserved(unittest.TestCase):
     """Verify reference cannot override figure type or data semantics."""

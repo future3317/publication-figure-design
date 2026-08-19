@@ -1,0 +1,95 @@
+{
+  "aesthetic_rating": 4.2,
+  "code_path": "assets/visual-references/references/0de2014d0cf60d22/code.py",
+  "created_at": "2026-08-17T12:48:22Z",
+  "data_density": "moderate",
+  "figure_card_path": "assets/visual-references/references/0de2014d0cf60d22/figure_card.json",
+  "figure_type": "grouped_bar",
+  "id": "0de2014d0cf60d22",
+  "image_path": "assets/visual-references/references/0de2014d0cf60d22/image.jpg",
+  "journal_style": null,
+  "layout": "single-panel-wide",
+  "license": "user-supplied; redistribution not established",
+  "n_groups": 3,
+  "notes": "Grouped bars with open raw points, sequential feature colors, and stacked significance brackets. Visual inspiration only; synthetic reconstruction uses generated observations.",
+  "palette": null,
+  "palette_policy": "adaptable",
+  "production_ready": false,
+  "reference_kind": "user_supplied",
+  "reproduction_preview_path": "assets/visual-references/references/0de2014d0cf60d22/reconstruction.png",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "0de2014d0cf60d22a8193b4be96bfa3f78c4bfbb4794538eaf6ec65ab5536a9e",
+  "source": "user-supplied reference image",
+  "source_action": "independent_synthetic_reconstruction",
+  "source_url": null,
+  "subtype": "raw_point_grouped_comparison_significance",
+  "tags": [
+    "user-supplied",
+    "grouped-bar",
+    "raw-points",
+    "significance-brackets",
+    "sequential-blue",
+    "single-panel"
+  ],
+  "usage_scope": "private_reference",
+  "visual_grammar": {
+    "annotations_typography": {
+      "callouts_and_leaders": "ANOVA/Kruskal text is direct text without leaders; significance stars sit immediately above bracket spans.",
+      "placement_and_clearance": "Statistical callouts occupy open upper/middle whitespace; bracket tiers clear bar tops and points.",
+      "text_hierarchy": "Large bold serif-like axis/category labels, bold statistical keywords, and compact star labels."
+    },
+    "canvas_composition": {
+      "alignment_and_spacing": "Four tightly aligned bars per group, equal group spacing, shared zero baseline, and open whitespace above annotations.",
+      "aspect_and_panel_layout": "Single wide panel with three horizontal category groups; high annotation band above bars and generous right-side legend margin.",
+      "visual_hierarchy": "Category bars and raw points are primary; significance brackets and statistical callouts are secondary; feature key is tertiary."
+    },
+    "chart_marks_axes": {
+      "axes_and_scales": "Linear y-axis beginning at zero with shared absolute-count scale; categorical x-axis.",
+      "guides_and_grid": "No grid; strong left/bottom spines and a clean zero baseline.",
+      "marks_and_encoding": "Grouped bars encode aggregate level; open jittered points encode replicate observations; brackets encode pairwise significance."
+    },
+    "connectors": {
+      "anchors_and_routing": "Anchored above compared bars, routed in stacked tiers to avoid overlap.",
+      "direction_and_arrowhead": "No direction and no arrowheads; brackets denote pairwise significance.",
+      "geometry": "Orthogonal bracket connectors with short vertical end caps and horizontal comparison spans.",
+      "layering": "Above data marks and below star labels.",
+      "stroke": "Thin black solid strokes with compact star labels."
+    },
+    "legend_key": {
+      "entries_and_encoding": "Four filled swatches map directly to G1-G4 bar and point colors.",
+      "frame_treatment": "No visible frame; simple title and swatches.",
+      "placement": "Upper right, outside the data-dense bar region.",
+      "scope": "Global feature legend shared by all three category groups."
+    },
+    "must_match": [
+      "Three repeated grouped-bar categories with four bars each",
+      "Open raw points overlaid on every bar",
+      "Light-to-dark blue feature role mapping",
+      "Stacked black significance brackets above selected comparisons",
+      "Global legend in the upper-right whitespace"
+    ],
+    "objects_material": "not_present",
+    "palette_roles": {
+      "background": "White canvas with black axes and annotation text.",
+      "contrast_and_emphasis": "Darkest blue carries the strongest feature contrast while lightest blue remains legible against white via colored outlines.",
+      "roles_and_proportions": "G1-G4 use a light-to-dark blue sequence consistently across every group; black is reserved for axes, brackets, and statistics; open points use white fill with colored outlines."
+    },
+    "repetition_structures": {
+      "count_spacing_rhythm": "Four equal-width bars with narrow gaps; consistent within-group rhythm and larger between-group gap.",
+      "grouping_and_alignment": "Bars share group centers and a common baseline; raw points are jittered around each bar center.",
+      "topology": "Three repeated category groups, each containing four feature bars and matching raw observations.",
+      "variation_and_emphasis": "Feature emphasis comes from a light-to-dark sequential blue palette; significance tiers add emphasis above selected comparisons."
+    }
+  },
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Equal-cell comparison inspected: grouped bars, raw points, sequential feature roles, and significance tiers are clear. Synthetic annotation wording and values are documented deviations.",
+    "panel_balance": "pass",
+    "reviewer": "Codex visual audit 2026-08-17",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

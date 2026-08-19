@@ -40,6 +40,37 @@ Classify the figure into one of four archetypes. The archetype determines layout
 
 If unsure, default to `asymmetric_mixed` — it produces the Nature-style look of one dominant panel + subordinate evidence panels. (Authoritative source: `SKILL.md` Step 0a.)
 
+Also record the evidence-family decision from `references/figure-family-coverage.md`:
+
+```json
+{
+  "figure_family": {
+    "id": "comparison_effect",
+    "subtype": "raincloud",
+    "evidence_intent": "show the full distribution and paired improvement",
+    "data_relationship": "paired",
+    "required_channels": ["x=condition", "y=metric", "line=pair identity"],
+    "non_negotiable_rules": ["retain individual observations", "define interval meaning"]
+  }
+}
+```
+
+The family is the semantic contract; the selected reference and visual-grammar
+card control compatible visual treatment. If the library has no reviewed
+reference for the chosen family, record `build_new` and keep the family choice.
+
+### Encoding decision (required for comparisons)
+
+When the figure compares methods, conditions, operating points, or before/after values, also record:
+
+- **Relationship:** `paired`, `continuous`, `independent`, or `operating-point`
+- **Primary comparison:** what the reader should compare in three seconds
+- **Visual-channel map:** variable → position, color, shape/fill, line, size, or uncertainty
+- **Uncertainty definition:** SD, SEM, CI, seed variation, or another stated interval
+- **Composition choice:** categorical alignment, connected paired points, small multiples, continuous trend, or another grammar—and why it does not imply an unsupported relationship
+
+Read `references/encoding-and-uncertainty.md`. A numeric x variable does not require a continuous x-axis when it only labels method-specific operating states.
+
 ### 4. Backend / Assembler Contract
 
 Declare the plotting backend for every panel and exactly one final assembler. Resolve the choice through `backend-selection.md`. A normal figure uses one backend; mixed Python/R mode requires an explicit request or a real capability need.

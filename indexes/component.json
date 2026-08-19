@@ -1,0 +1,1040 @@
+{
+  "index_type": "component",
+  "model_version": "metadata-current",
+  "record_count": 141,
+  "records": {
+    "006c1b3915544c07": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "validation_perturbation",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "0087399b5105ff42": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "manifold_3d",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "017beb996ea9fd8c": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "radar_grid",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "01bafd03ff174176": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "line_grid",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "039470ddb18c09ae": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "area_stacked",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "0460f09210bc23c2": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "04c2f6ab2bedf8e6": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "mechanism_schematic",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "050e4b8075e0b6c8": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "0929cd38b228b2df": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "mechanism_schematic",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "0c35bb8a1fb21d5e": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "0c768f24b9178014": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "comparison_composite",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "0c9a72a5118651b4": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "mechanism_schematic",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "0de2014d0cf60d22": {
+      "chart_marks_axes": {
+        "axes_and_scales": "Linear y-axis beginning at zero with shared absolute-count scale; categorical x-axis.",
+        "guides_and_grid": "No grid; strong left/bottom spines and a clean zero baseline.",
+        "marks_and_encoding": "Grouped bars encode aggregate level; open jittered points encode replicate observations; brackets encode pairwise significance."
+      },
+      "connectors": {
+        "anchors_and_routing": "Anchored above compared bars, routed in stacked tiers to avoid overlap.",
+        "direction_and_arrowhead": "No direction and no arrowheads; brackets denote pairwise significance.",
+        "geometry": "Orthogonal bracket connectors with short vertical end caps and horizontal comparison spans.",
+        "layering": "Above data marks and below star labels.",
+        "stroke": "Thin black solid strokes with compact star labels."
+      },
+      "figure_type": "grouped_bar",
+      "legend_key": {
+        "entries_and_encoding": "Four filled swatches map directly to G1-G4 bar and point colors.",
+        "frame_treatment": "No visible frame; simple title and swatches.",
+        "placement": "Upper right, outside the data-dense bar region.",
+        "scope": "Global feature legend shared by all three category groups."
+      },
+      "objects_material": "not_present"
+    },
+    "131654637e894c12": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "BarComparison",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "134b0fcb07dbab1b": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "distribution_grid",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "137841e62d5eaa48": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "comparison_composite",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "14487fd036228090": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "manifold_3d",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "14c360a8f274c9e0": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "18a52f7a910fe9c9": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "BarComparison",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "1951a04d41fbdc82": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "1bbfbc38a3f246e4": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "scatter_bubble",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "1c6e9e67bade247d": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "mixed_statistics_grid",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "227c2b8a31a21253": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "scatter_marginal",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "22f32e9bd10b34ee": {
+      "chart_marks_axes": {
+        "axes_and_scales": "Polar angular categorical axis with radial linear ticks at 2000, 4000, and 6000.",
+        "guides_and_grid": "Circular radial grid and faint spokes support reading; dark circular spine frames the plot.",
+        "marks_and_encoding": "Polar filled polygons and vertices encode yearly grain yield; bubble area encodes planting area; radial position encodes magnitude."
+      },
+      "connectors": "not_present",
+      "figure_type": "radar_grid",
+      "legend_key": {
+        "entries_and_encoding": "Year legend uses colored swatches; planting-area legend uses three differently sized bubbles.",
+        "frame_treatment": "No visible frames; clean text-and-key layout.",
+        "placement": "Right of the polar panel, vertically separated by semantic role.",
+        "scope": "Two global legends: one for year colors and one for planting-area bubble size."
+      },
+      "objects_material": {
+        "depth_cues": "Transparency and overlap create layered depth without gradients; bubble size supplies a second quantitative channel.",
+        "fill_and_material": "Year polygons use translucent fills to reveal overlap; bubbles use opaque/semi-transparent dark blue fills; center is white.",
+        "outline_and_edges": "Colored polygon outlines and a dark polar spine define the outer boundary; bubble edges are light for separation.",
+        "placement_and_scale": "Year polygons occupy the inner radial field; planting-area bubbles sit near the outer radius; donut is centered at the origin.",
+        "shape_and_projection": "Filled semi-transparent closed polygons on a polar coordinate system, with circular bubble marks around the outer ring and a central circular donut."
+      }
+    },
+    "245ad31f97b20546": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "validation_perturbation",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "2528309a41ba6eda": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "mechanism_schematic",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "255c32ef8bf65d53": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "heatmap",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "25d6fc50f5808104": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "in_vivo_efficacy",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "2728b083dfaa29b9": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "comparison_composite",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "2768b1a5ef0c501d": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "comparison_composite",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "2932af23fa869f4e": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "mechanism_schematic",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "2ad2be6fa9c9165e": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "manifold_3d",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "2d3ddf56ae63b34e": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "mechanism_schematic",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "2e0706fae3256e1d": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "material_mechanism",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "302b8f53795653bf": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "line_grid",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "3373085ababf0748": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "BarAblation",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "33db3d53a233846b": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "manifold_3d",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "350c25e427d945de": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "area_stacked",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "3554b9af671886df": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "mechanism_schematic",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "387e55d62c99c422": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "MarginalDensity",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "38a9c4e8fd691cbd": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "heatmap",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "38f95dbf30eb6731": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "heatmap",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "3b94fea2e7f95f8f": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "heatmap",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "40dd7c7c14c45b45": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "heatmap_grid",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "43fe44adf197b97c": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "multi_panel_line_comparison",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "44d7a697ee30c4ac": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "GroupedBarChart",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "45aa6ecccf398b71": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "mechanism_schematic",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "46c9e05df9d7c941": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "4909e3dcba5b633c": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "GroupedBarChart",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "4a0e3040bbdbfe5e": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "4c23827efb6772dd": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "comparison_composite",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "4cf8539d0521b726": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "heatmap",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "4d213749151b32cb": {
+      "chart_marks_axes": {
+        "axes_and_scales": "Linear residual x-axis with shared frequency y-axis; x tick labels are interval bins.",
+        "guides_and_grid": "No interior grid; full black frame with inward ticks on all sides.",
+        "marks_and_encoding": "Overlaid frequency bars encode bin counts; dashed normal curves encode fitted distribution shape."
+      },
+      "connectors": {
+        "anchors_and_routing": "Curves follow the shared residual x-scale and pass through the bar field.",
+        "direction_and_arrowhead": "No direction and no arrowheads; curves show distribution summaries.",
+        "geometry": "Smooth dashed normal-fit curves overlaid across the histogram bars.",
+        "layering": "Curves sit above translucent/solid bars for direct comparison.",
+        "stroke": "Thick dashed strokes matching each dataset's bar color."
+      },
+      "figure_type": "histogram_overlay",
+      "legend_key": {
+        "entries_and_encoding": "Three filled bar swatches include mu/sigma parameters; one dashed-line key denotes normal fits.",
+        "frame_treatment": "Visible light boxed frame with modest padding.",
+        "placement": "Upper left inside the plotting frame.",
+        "scope": "Global legend for all datasets and the fit-curve convention."
+      },
+      "objects_material": "not_present"
+    },
+    "4d2c99dd4a107724": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "GroupedViolin",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "4db30b32b65e6b71": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "line_grid",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "4f49efc5caa16375": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "line_grid",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "4f7b7b4b01a1b498": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "51a173abeafd0125": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "mechanism_schematic",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "55abd06fbf4dcbb9": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "ScatterRegressionRaincloud",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "55cb7dd1690cd0e8": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "55d8c952b3e9d4c0": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "59846b700abcf89c": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "comparison_composite",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "5c8ff3b28ea11b6e": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "GroupedViolin",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "5d169138e229097f": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "line_grid",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "5da6979582203956": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "mechanism_schematic",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "60358c36e16732bf": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "architecture_schematic",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "60c6e271c65d00b5": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "mechanism_schematic",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "61493276c48d90f0": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "mechanism_schematic",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "650b40786cbcf05f": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "radar_grid",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "653ce9637e303a41": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "scaling_analysis",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "668bc98b544d54d5": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "in_vivo_efficacy",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "66fe0f27f4469754": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "LineTrend",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "68e244fb949f46ad": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "6a3e2a00f9c820f6": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "spatial_image_plate",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "6e0b081c34e20430": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "learning_curves",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "71133ed59cc16f8c": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "76866da267962098": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "BarCategorical",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "789156ffca30bef6": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar_inset",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "7b7b02d82ccc7207": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "histogram_overlay",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "7ddf31ce2228813a": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "heatmap_grid",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "7e2a22eeb372a7a0": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "line_grid",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "7fee7c75142949e5": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "GroupedViolin",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "83e55ca23d8aa2fa": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "manifold_3d",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "854fe931bde6ca6c": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "8c7c60af478ae5d0": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "LineTrend",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "8f50b79d3ba025af": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "distribution_grid",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "8fbf151c1f63de42": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "BarCategorical",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "90081b3f778b9ede": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "spatial_image_plate",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "90d44d1709c8bcad": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "spatial_image_plate",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "91b214f745a99f1f": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "LineTrend",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "96075eb70285f4f7": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "comparison_composite",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "977970a3c5ff8ad9": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "LineTrend",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "984475212a83b640": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "scatter_bubble",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "999edb06b942f988": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "single_cell_systems",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "9a8189149180a686": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "line_grid",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "9f02fa4603dae748": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "manifold_3d",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "a1fe533d07dae36d": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "distribution_grid",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "a2d89d3b3e97ec59": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "ScatterRegressionRaincloud",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "a6d35e1b68a1bfe8": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "line_grid",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "a6f2e75e7d836175": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "LineTrend",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "a7a3dfa02b650b2e": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "mixed_multi_panel",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "abb63055b0d49edb": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "BarComposition",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "ac5e1cef8d16e9ce": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "comparison_composite",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "b0947af37e8c5ffc": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "heatmap_grid",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "b1a15c9fca75c316": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "b3c62bc6c4258378": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "distribution_grid",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "b6639239da2fa9f2": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "baa6064b1812ccc7": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "comparison_composite",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "bbc8c0b8708d4246": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "spatial_image_plate",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "bc2cc547f15430bc": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "c2590ba1ecac5e1d": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "comparison_composite",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "c3c538a466aef22e": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "network_matrix",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "c420d057ffad6041": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "material_mechanism",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "c4e05bb68a08caf3": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "c5792016a54e2baa": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "comparison_composite",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "c8e5d2a76d98c008": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "comparison_composite",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "cd1fec84f615a43d": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "comparison_composite",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "cd384abe10aa86bd": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "network_matrix",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "cd60f96af964c870": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "single_cell_systems",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "d01fd400ce53d20e": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "mechanism_schematic",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "d369f5654b6d5ae0": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "comparison_composite",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "d6613715d9d4564f": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "Radar",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "d7147990bd79a4d1": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "comparison_composite",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "d79527fec611432d": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "mechanism_schematic",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "da81ff330b16403c": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "mechanism_schematic",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "daaa5c61d74703b8": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "StackedBarScatter",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "dc61a5257eae4748": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "forest_interval",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "dcdd74bc2feb98d9": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "conceptual_multi_panel",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "e088eda258e1bd3a": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "MarginalDensity",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "e52120014b49abe8": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "heatmap",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "e7fa7d98cd4f5263": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "radar_grid",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "e805fb0f7ccdf8aa": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "mechanism_schematic",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "ed3e9f652126a1d1": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "ed6bbae45d17df9c": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "BarComparison",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "f1f564e0c7221f24": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "comparison_composite",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "f2017fa1dc5bc795": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "comparison_composite",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "f32ad9b16aaba213": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "f406d7202f0bb30c": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "f5ca182539d043e4": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "scaling_analysis",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "f68c31da6f34836c": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "forest_interval",
+      "legend_key": null,
+      "objects_material": null
+    },
+    "f70aada5f671778b": {
+      "chart_marks_axes": null,
+      "connectors": null,
+      "figure_type": "grouped_bar",
+      "legend_key": null,
+      "objects_material": null
+    }
+  },
+  "schema_version": "1.0"
+}

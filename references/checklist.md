@@ -6,9 +6,9 @@ This is an **LLM-executable** quality assurance protocol. After generating figur
 
 Run automated checks on any generated script:
 ```bash
-python academic-figure-skill/scripts/qa_validator.py <script.py>
+python publication-figure-design/scripts/qa_validator.py <script.py>
 ```
-This validates AP-0 through CL-7 without human review. See `academic-figure-skill/scripts/qa_validator.py` for the full check suite.
+This validates AP-0 through CL-8 without human review. See `publication-figure-design/scripts/qa_validator.py` for the full check suite.
 
 ## Protocol Structure
 
@@ -28,12 +28,12 @@ Run these checks first. They catch the issues reviewers flag most often and take
 
 1. Typography baseline —must contain ALL of: `font.family`, `font.sans-serif`, `font.size: 8`, `axes.spines.top: False`, `axes.spines.right: False`, `axes.linewidth: 0.6`, `xtick.direction: 'out'`, `legend.frameon: False`
    (Authoritative source: `references/typography.md` COPY VERBATIM block)
-2. Color palette baseline must contain: `CATEGORICAL = ["#2166AC", "#B2182B", "#1B7837", "#F1A340", "#762A83", "#666666"]` AND `DIVERGING = ["#2166AC", "#F7F7F7", "#B2182B"]`
+2. Color baseline must declare semantic roles (for example `COLOR_ROLES` or `PALETTE_ROLES`) for background, neutral/context, comparison groups, and focal accent. Exact hex values are selected from scientific meaning and the active reference; one fixed palette must not be injected into every figure.
 3. Export baseline —must contain: `pdf.fonttype: 42` AND `svg.fonttype: 'none'` AND a function named `save_cns_figure`
 
-**Pass condition:** All three baseline blocks present, with exact values. No modification, no omission, no "similar version."
+**Pass condition:** Typography and export baselines are present, and semantic color roles are explicit. Exact colors need not equal a global palette.
 
-**Fix if FAIL:** Copy the verbatim blocks from `references/typography.md`, `references/color-palettes.md`, and `references/export-specs.md`. Insert at script top before any panel code. Do not edit the values.
+**Fix if FAIL:** Add the typography/export baselines and a figure-specific semantic color-role map. Choose colors only after the scientific roles and active reference are known.
 
 ### AP-1: Default Color Palette
 
@@ -57,7 +57,7 @@ Run these checks first. They catch the issues reviewers flag most often and take
 
 **How to check:** Search for `jet`, `rainbow`, `hsv` used as colormap names.
 
-**Fix if FAIL:** Replace with a perceptually uniform sequential colormap. For diverging data, use the Academic Figure Skill standard `#2166AC - #F7F7F7 - #B2182B`. For sequential, use viridis, cividis, or a custom blue sequential.
+**Fix if FAIL:** Replace with a perceptually uniform sequential colormap. For diverging data, use the Publication Figure Design standard `#2166AC - #F7F7F7 - #B2182B`. For sequential, use viridis, cividis, or a custom blue sequential.
 
 **Pass condition:** No jet/rainbow/hsv colormap in continuous data contexts.
 
@@ -80,6 +80,16 @@ Run these checks first. They catch the issues reviewers flag most often and take
 **Fix if FAIL:** Move legend outside: `ax.legend(bbox_to_anchor=(1.02, 1), loc='upper left', frameon=False)` in Python; `theme(legend.position = 'right')` or `'bottom'` in R. Alternatively, use direct labeling (annotate data points/lines directly).
 
 **Pass condition:** Legend outside plot area, or justified internal placement with no data occlusion, or direct labeling used instead.
+
+**Multi-panel semantic check:** A global legend is valid only when every listed method/condition
+appears with the same color, linestyle, and marker wherever it is plotted. If panels use different
+baselines or subsets, declare `panel_series` and use panel-local/direct labels; a panel-only color,
+marker, or renamed series is an unresolved orphan and receives FIX. Inspect the legend against the
+actual data region, not just its bounding box.
+
+**Uncertainty check:** Every ribbon declares CI/SD/quantile meaning and alpha. Overlapping ribbons
+must remain subordinate to lines and markers; if they wash out the data, reduce alpha, separate
+draw order, or use error bars/small multiples.
 
 ### AP-5: Low-Resolution Export Only
 
@@ -237,6 +247,14 @@ These checks require reasoning about what the code produces, not just pattern ma
 
 **Fix if FAIL:** Add the missing information. Prefer exact p-values over asterisks. Define error bar type in a code comment or on the figure.
 
+### VI-8: Relationship and Encoding Grammar
+
+**Question:** Does the visual grammar match the data relationship, and does each variable have one clear primary visual channel?
+
+**Pass condition:** The contract classifies the figure as paired, continuous, independent, or operating-point; every connector represents a real pairing or observed sequence; uncertainty is identified (SD/SEM/CI/etc.) and visually subordinate to estimates; and method/condition/uncertainty are not redundantly or ambiguously encoded. When numeric x positions are merely method-specific locations, a categorical/aligned layout or explicit operating-point composition is preferred over a wide continuous-axis template.
+
+**Fix if FAIL:** Redesign the layout or encoding before adjusting palette, font, alpha, or line width. Separate connector, estimate, and uncertainty layers; merge the legend or direct-label the few conditions; and inspect the result at final physical size and thumbnail scale.
+
 ### VI-6: Panel Label Consistency (Multi-Panel Only)
 
 **Question:** Are panel labels consistent in position, font, and style?
@@ -357,6 +375,16 @@ Passes 0-2 verify the **code**. Pass 3 verifies the **output**. These are proble
 
 **Pass condition:** All color distinctions are clearly visible. Nothing blends into the background or another category.
 
+### VV-4a: Text-on-Fill Contrast
+
+**Question:** Is every in-cell annotation readable against its actual local fill, rather than merely visible in enlarged preview?
+
+**How to check:** For heatmaps, matrices, colored tiles, nodes, or callout boxes carrying text, annotations call `pick_text_color(cell_color)` and every declared text region passes `scripts/rendered_contrast.py` at `contrast_ratio >= 4.5:1`.
+
+**Fix if FAIL:** Use `pick_text_color(cell_color)` for each tile; do not globally set annotations to white. If the strongest black/white choice still fails, alter the fill lightness or remove/inset the text.
+
+**Pass condition:** No light-on-light or dark-on-dark text remains in the final raster.
+
 ### VV-5: Data Signal Integrity
 
 **Question:** Does the plotted data actually carry the signal this chart type requires? This is the most common class of silent failure —the code runs, the figure renders, but the underlying data generation is mathematically broken, producing an empty or saturated plot.
@@ -459,6 +487,10 @@ Run this pass after Pass 3 whenever the request uses a concrete reference image.
 
 **Reference gate:** Any failed RF check or any unresolved `must_match` item sets the verdict to FIX. Revise, rerender, recreate the comparison, and rerun the checker. Do not deliver a claim that the output matches the reference until the checker returns READY.
 
+## Visual Optimization Pass (Existing Figure Optimization Only)
+
+For optimize/polish/beautify/improve/redesign requests, first run `scripts/prepare_visual_optimization.py`; it owns the recommendation call and saves the packet. Then run `scripts/check_visual_optimization.py` with readable before, selected-reference, after, and equal-cell comparison images. READY requires candidate IDs to match the packet, a pixel observation for every returned candidate, a structural selection reason, an explicit palette decision (including justified retention), a stable cross-panel series-encoding contract with no unresolved orphan series, an uncertainty/overlap contract, an observable diagnosis of the old render, at least one structural/encoding/legend-model change, and a completed final-size review for hierarchy, panel balance, whitespace, legend footprint, text legibility, cross-panel semantics, legend/data separation, uncertainty legibility, and axis-label compactness. Run `scripts/rendered_contrast.py` for every annotation on a colored fill; contrast below 4.5:1 receives FIX. Cosmetic-only edits receive FIX even if Passes 0-3 pass.
+
 ---
 
 ## QA Report Format
@@ -467,7 +499,7 @@ After executing all four passes, output a structured report:
 
 ```
 ============================================================
-Academic Figure Skill QA Report
+Publication Figure Design QA Report
 ============================================================
 Figure: [brief description]
 Target: [journal], [single/double] column
@@ -501,6 +533,11 @@ Reference Fidelity (when a concrete reference is used):
   [FAIL] RF-4: candidate retains a single-axis layout instead of the reference 2x2 topology
   [PASS] RF-5 through RF-10
 
+Visual Optimization (when an existing figure is optimized):
+  [PASS] Before/reference/after images readable and comparison authentic
+  [PASS] Selected reference opened; structural changes recorded
+  [PASS] Final-size hierarchy, balance, whitespace, legend, and text review complete
+
 Summary:
   Pass: X/Y   Fail: X/Y   Warn: X/Y
 
@@ -517,7 +554,7 @@ Verdict:
 - **READY —** All passes (0-3) clear, plus RF-1 through RF-10 when a concrete reference is used. Proceed to Hub Step 7 (Deliver). Include the full QA report with delivery.
 - **FIX —** Fix failed items, re-run only the failed pass, then re-render for Pass 3 if visual changes were made. Maximum 3 render-fix cycles.
 - **WARN —** Deliver with warnings noted. Flag to the user.
-- **SKIP Pass 3 —** If Python/R runtime is not available locally, skip Pass 3 (Visual Verification) and warn the user: "Pass 3 (visual verification) was skipped —no local Python/R runtime. Please visually inspect the output before submission."
+- **SKIP Pass 3 —** For ordinary create/review work, if Python/R runtime is unavailable, warn that visual verification was skipped. For visual optimization, a missing render/runtime blocks a completion claim because the before/reference/after gate cannot run.
 
 If >2 failures remain after one round of fixes, or Pass 3 issues persist after 3 render-fix cycles, escalate to **Reviewer Simulation Mode** (Hub SKILL.md, Reviewer Simulation section) for a wider diagnosis.
 

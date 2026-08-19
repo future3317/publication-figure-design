@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Academic Figure Skill A/B Test Runner — runs all 5 scenarios and scores results."""
+"""Publication Figure Design A/B Test Runner — runs all 5 scenarios and scores results."""
 from __future__ import annotations
 import json, subprocess, os, sys, tempfile, re
 from pathlib import Path
@@ -59,7 +59,7 @@ def run_all():
     s1_details.append("300dpi rule")
 
     report["scenarios"]["S1_pca"] = {
-        "academic-figure-skill": {
+        "publication-figure-design": {
             "passed": sum(s1_passes), "total": len(s1_passes),
             "pass_rate": sum(s1_passes) / len(s1_passes),
             "checks": list(zip(s1_passes, s1_details)),
@@ -76,7 +76,7 @@ def run_all():
     s2_passes = []
     s2_details = []
     assets = ["Radar/plot_comparison_radar.py", "GroupedViolin/plot_GroupedViolin.py",
-              "GroupedBarChart/plot_GroupedBarChartv1.py", "PCA/plot_PCA.R"]
+              "GroupedBarChart/plot_grouped_bar_chart.py", "PCA/plot_PCA.R"]
     for a in assets:
         path = SKILL_ROOT / "assets" / "figures" / a
         s2_passes.append(path.exists())
@@ -93,7 +93,7 @@ def run_all():
     s2_details.append("compose_figure in compose.py")
 
     report["scenarios"]["S2_radar_violin_bar_pca"] = {
-        "academic-figure-skill": {
+        "publication-figure-design": {
             "passed": sum(s2_passes), "total": len(s2_passes),
             "pass_rate": sum(s2_passes)/len(s2_passes),
             "checks": list(zip(s2_passes, s2_details)),
@@ -120,7 +120,7 @@ def run_all():
     s3_details.append("anti-jet/rainbow guard in checklist")
 
     report["scenarios"]["S3_heatmap_nature_genetics"] = {
-        "academic-figure-skill": {
+        "publication-figure-design": {
             "passed": sum(s3_passes), "total": len(s3_passes),
             "pass_rate": sum(s3_passes)/len(s3_passes),
             "checks": list(zip(s3_passes, s3_details)),
@@ -144,7 +144,7 @@ def run_all():
     s4_details.append("Hub GP handles long-tail types")
 
     report["scenarios"]["S4_unknown_chart_type"] = {
-        "academic-figure-skill": {
+        "publication-figure-design": {
             "passed": sum(s4_passes), "total": len(s4_passes),
             "pass_rate": sum(s4_passes)/len(s4_passes),
             "checks": list(zip(s4_passes, s4_details)),
@@ -171,7 +171,7 @@ def run_all():
     s5_details.append("Task understanding step before data analysis")
 
     report["scenarios"]["S5_analyze_vague"] = {
-        "academic-figure-skill": {
+        "publication-figure-design": {
             "passed": sum(s5_passes), "total": len(s5_passes),
             "pass_rate": sum(s5_passes)/len(s5_passes),
             "checks": list(zip(s5_passes, s5_details)),
@@ -186,7 +186,7 @@ def run_all():
 
     # Print report
     print("=" * 60)
-    print("Academic Figure Skill A/B Test — Full Execution Report")
+    print("Publication Figure Design A/B Test — Full Execution Report")
     print("=" * 60)
     print()
 
@@ -194,7 +194,7 @@ def run_all():
     pass_cn = pass_bl = 0
 
     for sid, data in sorted(report["scenarios"].items()):
-        cn = data["academic-figure-skill"]
+        cn = data["publication-figure-design"]
         bl = data["baseline"]
         total_cn += cn["total"]
         pass_cn += cn["passed"]
@@ -204,7 +204,7 @@ def run_all():
         delta = cn["pass_rate"] - bl["pass_rate"]
         arrow = "+" if delta > 0 else ("" if delta < 0 else "=")
         print(f"  {sid}")
-        print(f"    Academic Figure Skill: {cn['passed']}/{cn['total']} ({cn['pass_rate']:.0%})")
+        print(f"    Publication Figure Design: {cn['passed']}/{cn['total']} ({cn['pass_rate']:.0%})")
         for passed, desc in cn["checks"]:
             print(f"      [{'PASS' if passed else 'FAIL'}] {desc}")
         print(f"    Baseline: {bl['passed']}/{bl['total']} ({bl['pass_rate']:.0%})")
@@ -213,13 +213,13 @@ def run_all():
         print(f"    Δ = {arrow}{delta:+.0%}")
         print()
 
-    print(f"  OVERALL: Academic Figure Skill={pass_cn/total_cn:.0%} ({pass_cn}/{total_cn})")
+    print(f"  OVERALL: Publication Figure Design={pass_cn/total_cn:.0%} ({pass_cn}/{total_cn})")
     print(f"           Baseline={pass_bl/total_bl:.0%} ({pass_bl}/{total_bl})")
     print(f"           Δ = +{pass_cn/total_cn - pass_bl/total_bl:.0%}")
     print("=" * 60)
 
     if pass_cn/total_cn > pass_bl/total_bl:
-        print("Verdict: Academic Figure Skill WINS — objective quality improvement of "
+        print("Verdict: Publication Figure Design WINS — objective quality improvement of "
               f"{(pass_cn/total_cn - pass_bl/total_bl):.0%}")
     print("=" * 60)
 

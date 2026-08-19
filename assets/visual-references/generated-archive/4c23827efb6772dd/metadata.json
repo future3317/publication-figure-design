@@ -1,0 +1,108 @@
+{
+  "aesthetic_rating": null,
+  "code_path": "assets/visual-references/generated-archive/4c23827efb6772dd/code.py",
+  "created_at": "2026-08-12T16:57:16Z",
+  "data_density": null,
+  "figure_card_path": "assets/visual-references/generated-archive/4c23827efb6772dd/figure_card.json",
+  "figure_type": "comparison_composite",
+  "id": "4c23827efb6772dd",
+  "image_path": "assets/visual-references/generated-archive/4c23827efb6772dd/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "balanced",
+    "density": "high",
+    "panel_count": 12,
+    "panel_grid": [
+      3,
+      4
+    ],
+    "visual_family": "comparison_composite"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "immunostruct_results_cedar",
+    "mosaic": [
+      "ABCD",
+      "EFGH"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "bar:comparison"
+      },
+      {
+        "id": "B",
+        "kind": "bar:ablation"
+      },
+      {
+        "id": "C",
+        "kind": "line:calibration"
+      },
+      {
+        "id": "D",
+        "kind": "heatmap:matrix"
+      },
+      {
+        "id": "E",
+        "kind": "distribution:violin"
+      },
+      {
+        "id": "F",
+        "kind": "scatter:groups"
+      },
+      {
+        "id": "G",
+        "kind": "forest:effects"
+      },
+      {
+        "id": "H",
+        "kind": "table:metrics"
+      }
+    ],
+    "source_observation": "eight-panel benchmark result grid with mixed evidence types"
+  },
+  "reconstruction_method": "independent",
+  "renderer_version": 3,
+  "reproduction_preview_path": "assets/visual-references/generated-archive/4c23827efb6772dd/image.png",
+  "review_status": "pending",
+  "scope": "generated-archive",
+  "sha256": "9584bcd3ae748bcfc5af6fde750f4d7fdd79e6bee66c32a0b1396c70140f4f13",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "f1f564e0c7221f24f4bffe14cce5b5df6786c75f7dfcf1b6d2be7566820050ec",
+  "source_license_class": "unknown",
+  "source_relative_path": "assets/ImmunoStruct_results_CEDAR.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "comparison_composite",
+  "tags": [
+    "source-reconstruction",
+    "figures4papers",
+    "comparison_composite"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "comparison_composite",
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/source-reconstructions/pairs/05-4c23827efb6772dd.png",
+    "final_size_inspected": true,
+    "hierarchy": "fail",
+    "individual_pair_opened": true,
+    "inspection_method": "individual equal-size source|reconstruction pair opened",
+    "inspection_order": 5,
+    "legend_footprint": "fail",
+    "notes": "FAIL after individual review of pair 05-4c23827efb6772dd.png: the comparison_composite reconstruction preserves the broad observable topology/mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+    "panel_balance": "fail",
+    "reviewed_at": "2026-08-14T12:08:45Z",
+    "reviewer": "Codex individual visual audit",
+    "text_legibility": "fail",
+    "verdict": "fail",
+    "whitespace": "fail"
+  }
+}

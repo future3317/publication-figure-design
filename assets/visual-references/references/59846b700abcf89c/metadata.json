@@ -1,0 +1,84 @@
+{
+  "aesthetic_rating": 4.5,
+  "code_path": null,
+  "created_at": "2026-08-12T17:30:09Z",
+  "data_density": null,
+  "figure_type": "comparison_composite",
+  "id": "59846b700abcf89c",
+  "image_path": "assets/visual-references/references/59846b700abcf89c/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "unknown",
+  "n_groups": null,
+  "notes": "Exact source visual sample cataloged for private reference; distinct from independent reconstruction.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "dispersion_observation",
+    "mosaic": [
+      "AABB",
+      "CCDD",
+      "EEFF"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "schematic:observation"
+      },
+      {
+        "id": "B",
+        "kind": "scatter:groups"
+      },
+      {
+        "id": "C",
+        "kind": "heatmap:correlation"
+      },
+      {
+        "id": "D",
+        "kind": "line:comparison"
+      },
+      {
+        "id": "E",
+        "kind": "distribution:ridge"
+      },
+      {
+        "id": "F",
+        "kind": "forest:effects"
+      }
+    ],
+    "source_observation": "asymmetric observation figure with one explanatory panel and five evidence panels"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "59846b700abcf89c2779abce27b5d667637f6429cf4a52ca1892c687359f2aa7",
+  "source": "figures4papers visual source",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "59846b700abcf89c2779abce27b5d667637f6429cf4a52ca1892c687359f2aa7",
+  "source_license_class": "unknown",
+  "source_relative_path": "assets/Dispersion_observation.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "dispersion_observation",
+  "tags": [
+    "source-catalog",
+    "figures4papers",
+    "comparison_composite"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "comparison_composite",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'dispersion_observation' is a focused comparison_composite reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

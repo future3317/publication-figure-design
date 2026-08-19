@@ -9,6 +9,9 @@ import re
 from pathlib import Path
 from typing import Any
 
+from visual_evidence import comparison_contains, load_image
+from visual_grammar import validate_visual_grammar
+
 
 REQUIRED_FIELDS = (
     "reference_source",
@@ -64,6 +67,8 @@ def validate_reference_fidelity(
     script_text: str,
     contract: dict[str, Any],
     comparison_path: Path | str | None = None,
+    reference_path: Path | str | None = None,
+    candidate_path: Path | str | None = None,
 ) -> dict[str, Any]:
     """Return a READY/FIX report without comparing data-dependent pixels."""
     errors: list[str] = []
@@ -80,6 +85,10 @@ def validate_reference_fidelity(
     checks["contract_complete"] = not missing
     if missing:
         errors.append("Missing or empty contract fields: " + ", ".join(missing))
+
+    grammar_errors = validate_visual_grammar(contract.get("reference_visual_grammar"))
+    checks["reference_visual_grammar"] = not grammar_errors
+    errors.extend(grammar_errors)
 
     decision = str(contract.get("implementation_decision", "")).strip().lower()
     checks["decision_valid"] = decision in DECISIONS
@@ -146,9 +155,21 @@ def validate_reference_fidelity(
 
     if comparison_path is not None:
         path = Path(comparison_path)
-        checks["comparison_exists"] = path.is_file() and path.stat().st_size > 0
-        if not checks["comparison_exists"]:
-            errors.append(f"Comparison image is missing or empty: {path}")
+        try:
+            load_image(path)
+            checks["comparison_exists"] = True
+        except ValueError as exc:
+            checks["comparison_exists"] = False
+            errors.append(f"Comparison image invalid: {exc}")
+        checks["comparison_sources_supplied"] = reference_path is not None and candidate_path is not None
+        if checks["comparison_exists"] and not checks["comparison_sources_supplied"]:
+            errors.append("Comparison validation requires both reference and candidate source images.")
+        if checks["comparison_exists"] and checks["comparison_sources_supplied"]:
+            checks["comparison_authentic"] = comparison_contains(
+                path, [reference_path, candidate_path]
+            )
+            if not checks["comparison_authentic"]:
+                errors.append("Comparison image does not contain the supplied reference and candidate in equal-size cells.")
     else:
         checks["comparison_exists"] = False
         warnings.append("No comparison image supplied; rendered delivery is not yet verifiable.")
@@ -167,12 +188,16 @@ def main() -> int:
     parser.add_argument("script", type=Path)
     parser.add_argument("--contract", type=Path, required=True)
     parser.add_argument("--comparison", type=Path)
+    parser.add_argument("--reference", type=Path, required=True)
+    parser.add_argument("--candidate", type=Path, required=True)
     parser.add_argument("--json", dest="json_path", type=Path)
     args = parser.parse_args()
 
     script_text = args.script.read_text(encoding="utf-8")
     contract = json.loads(args.contract.read_text(encoding="utf-8"))
-    report = validate_reference_fidelity(script_text, contract, args.comparison)
+    report = validate_reference_fidelity(
+        script_text, contract, args.comparison, args.reference, args.candidate
+    )
 
     print(f"Reference Fidelity: {report['status']}")
     for error in report["errors"]:

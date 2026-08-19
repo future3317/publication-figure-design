@@ -1,0 +1,70 @@
+{
+  "aesthetic_rating": 4.1,
+  "code_path": null,
+  "created_at": "2026-08-12T17:30:09Z",
+  "data_density": null,
+  "figure_type": "line_grid",
+  "id": "302b8f53795653bf",
+  "image_path": "assets/visual-references/references/302b8f53795653bf/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "unknown",
+  "n_groups": null,
+  "notes": "Exact source visual sample cataloged for private reference; distinct from independent reconstruction.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "vigil_ablation_curves",
+    "mosaic": [
+      "ABC"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "line:ablation"
+      },
+      {
+        "id": "B",
+        "kind": "line:ablation"
+      },
+      {
+        "id": "C",
+        "kind": "line:ablation"
+      }
+    ],
+    "source_observation": "three ablation learning curves with uncertainty bands"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "302b8f53795653bf7ebe74ca508319c073325bdda1f106ca9eb3cd7c690da7c7",
+  "source": "figures4papers visual source",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "302b8f53795653bf7ebe74ca508319c073325bdda1f106ca9eb3cd7c690da7c7",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_VIGIL/figures/ablation_curves.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "vigil_ablation_curves",
+  "tags": [
+    "source-catalog",
+    "figures4papers",
+    "line_grid"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "line_grid",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'vigil_ablation_curves' is a focused line_grid reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

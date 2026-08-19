@@ -1,0 +1,142 @@
+{
+  "aesthetic_rating": null,
+  "code_path": "assets/visual-references/generated-archive/68e244fb949f46ad/code.py",
+  "created_at": "2026-08-12T16:57:23Z",
+  "data_density": null,
+  "figure_card_path": "assets/visual-references/generated-archive/68e244fb949f46ad/figure_card.json",
+  "figure_type": "grouped_bar",
+  "id": "68e244fb949f46ad",
+  "image_path": "assets/visual-references/generated-archive/68e244fb949f46ad/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "balanced",
+    "density": "high",
+    "panel_count": 16,
+    "panel_grid": [
+      4,
+      4
+    ],
+    "visual_family": "grouped_bar"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "atlas_bar_charts",
+    "mosaic": [
+      "ABCD",
+      "EFGH",
+      "IJKL",
+      "MNOP"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "bar:atlas"
+      },
+      {
+        "id": "B",
+        "kind": "bar:atlas"
+      },
+      {
+        "id": "C",
+        "kind": "bar:atlas"
+      },
+      {
+        "id": "D",
+        "kind": "bar:atlas"
+      },
+      {
+        "id": "E",
+        "kind": "bar:atlas"
+      },
+      {
+        "id": "F",
+        "kind": "bar:atlas"
+      },
+      {
+        "id": "G",
+        "kind": "bar:atlas"
+      },
+      {
+        "id": "H",
+        "kind": "bar:atlas"
+      },
+      {
+        "id": "I",
+        "kind": "bar:atlas"
+      },
+      {
+        "id": "J",
+        "kind": "bar:atlas"
+      },
+      {
+        "id": "K",
+        "kind": "bar:atlas"
+      },
+      {
+        "id": "L",
+        "kind": "bar:atlas"
+      },
+      {
+        "id": "M",
+        "kind": "bar:atlas"
+      },
+      {
+        "id": "N",
+        "kind": "bar:atlas"
+      },
+      {
+        "id": "O",
+        "kind": "bar:atlas"
+      },
+      {
+        "id": "P",
+        "kind": "bar:atlas"
+      }
+    ],
+    "source_observation": "16 bar-chart variants arranged as an atlas"
+  },
+  "reconstruction_method": "independent",
+  "renderer_version": 3,
+  "reproduction_preview_path": "assets/visual-references/generated-archive/68e244fb949f46ad/image.png",
+  "review_status": "pending",
+  "scope": "generated-archive",
+  "sha256": "2559f1f9e4ec9607f79a2e55101e5ba149391cf5b7c914cbb9f67f56371af96c",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "licensed_visual_source",
+  "source_fingerprint": "4a0e3040bbdbfe5ec48b66515f719f83ad7304fadb2e56432cd3e8f7ccbabd65",
+  "source_license_class": "Apache-2.0",
+  "source_relative_path": "assets/chart-atlas/atlas-01-bar-charts.png",
+  "source_repository": "nature-figure",
+  "source_url": null,
+  "subtype": "grouped_bar",
+  "tags": [
+    "source-reconstruction",
+    "nature-figure",
+    "grouped_bar"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "grouped_bar",
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/source-reconstructions/pairs/40-68e244fb949f46ad.png",
+    "final_size_inspected": true,
+    "hierarchy": "fail",
+    "individual_pair_opened": true,
+    "inspection_method": "individual equal-size source|reconstruction pair opened",
+    "inspection_order": 40,
+    "legend_footprint": "fail",
+    "notes": "FAIL after individual review of pair 40-68e244fb949f46ad.png: the grouped_bar reconstruction preserves the broad observable topology/mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+    "panel_balance": "fail",
+    "reviewed_at": "2026-08-14T12:08:46Z",
+    "reviewer": "Codex individual visual audit",
+    "text_legibility": "fail",
+    "verdict": "fail",
+    "whitespace": "fail"
+  }
+}

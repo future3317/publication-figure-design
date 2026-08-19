@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Academic Figure Skill E2E Integration Test Runner.
+"""Publication Figure Design E2E Integration Test Runner.
 
 Validates generated figure scripts against the A/B test scenario criteria from
 ab_test.py. Post-generation structural checks — no Claude needed.

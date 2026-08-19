@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Fixed regression benchmark for academic-figure-skill.
+"""Fixed regression benchmark for publication-figure-design.
 
 Runs a deterministic set of real-task cases, verifies that:
   * figure_type resolves correctly
@@ -331,7 +331,7 @@ def _print_report(results: List[BenchmarkResult]) -> None:
         counts[r.status] = counts.get(r.status, 0) + 1
 
     print("=" * 70)
-    print("Academic Figure Skill Regression Benchmark")
+    print("Publication Figure Design Regression Benchmark")
     print("=" * 70)
     print(f"Total cases : {len(results)}")
     print(f"  PASS      : {counts['PASS']}")

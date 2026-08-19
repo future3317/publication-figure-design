@@ -3,7 +3,7 @@
 > **BASELINE -- COPY VERBATIM:** Copy this block into every generated script. Do not modify values, omit lines, or substitute default palettes.
 
 ```python
-# Academic Figure Skill Nature/Cell/Science Color Palette -- COPY VERBATIM
+# Publication Figure Design Nature/Cell/Science Color Palette -- COPY VERBATIM
 CATEGORICAL = ["#2166AC", "#B2182B", "#1B7837", "#F1A340", "#762A83", "#666666"]
 CATEGORICAL_EXTENDED = [
     "#2166AC", "#B2182B", "#1B7837", "#F1A340", "#762A83", "#666666",
@@ -17,7 +17,7 @@ BLACK       = "#222222"
 ```
 
 ```r
-# Academic Figure Skill Nature/Cell/Science Color Palette -- COPY VERBATIM
+# Publication Figure Design Nature/Cell/Science Color Palette -- COPY VERBATIM
 categorical <- c("#2166AC", "#B2182B", "#1B7837", "#F1A340", "#762A83", "#666666")
 categorical_extended <- c(
   "#2166AC", "#B2182B", "#1B7837", "#F1A340", "#762A83", "#666666",
@@ -34,7 +34,7 @@ black      <- "#222222"
 
 ## Nature / Cell / Science Color Rules
 
-Academic Figure Skill uses a restrained journal-safe palette rather than default matplotlib, ggplot2, seaborn, Excel, Scanpy, or rainbow palettes. The target look is: high contrast, print-safe, colorblind-aware, and semantically assigned.
+Publication Figure Design uses a restrained journal-safe palette rather than default matplotlib, ggplot2, seaborn, Excel, Scanpy, or rainbow palettes. The target look is: high contrast, print-safe, colorblind-aware, and semantically assigned.
 
 ### 1. Use Semantic Roles
 

@@ -1,8 +1,8 @@
 <div align="center">
-  <h1>Academic Figure Skill</h1>
+  <h1>Publication Figure Design</h1>
   <p><strong>A submission-grade scientific figure generation skill — automates the full pipeline from data interpretation to journal-formatted output.</strong></p>
   <p>
-    Question-driven · 8-step workflow · 29 figure types · 4-pass QA · Vector PDF delivery · Statistics report
+    Question-driven · reference-first orchestrator · 29 figure types · evidence-based QA · Vector PDF delivery · Statistics report
   </p>
   <p>
     <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-Apache--2.0-2ea44f"></a>
@@ -25,14 +25,27 @@
 
 ---
 
-**Academic Figure Skill** takes "question-driven, not template-driven" as its core principle. Every figure starts from a scientific question and goes through an 8-step closed-loop workflow (intent parsing → archetype classification → figure-type justification → environment detection → style baseline injection → asset scan → render → QA verification), delivering submission-ready vector PDF masters + 300dpi PNG previews + statistical reports. For updates, follow our WeChat official account: **科研绘图酱**.
+**Publication Figure Design** takes "question-driven, reference-first, not template-driven" as its core principle. Every figure runs through the persisted state machine `Route → Intake → Reference Retrieval → Reference Inspection → Design Spec → Binding → Render → Compare → Critique → Repair → QA → Export`, delivering submission-ready vector PDF masters + 300dpi PNG previews + statistical reports. For updates, follow our WeChat official account: **科研绘图酱**.
+
+### Current runtime entrypoints
+
+```text
+pfd run <task-spec.json>
+pfd reference ingest <image> <figure-type>
+pfd reference analyze <reference-id>
+pfd reference review <reference-id> <review.json>
+pfd index build
+pfd eval                    # unit tests + Recall/NDCG/generation canary
+```
+
+Concrete references are opened and measured before implementation material is selected; structure, style, component, and annotation references are retrieved independently, and the final raster/vector is compared back to the reference.
 
 ---
 
 ## Preview
 
 <p align="center">
-  <img src="assets/figure-atlas/preview.png" width="100%" alt="Academic Figure Skill multi-panel preview">
+  <img src="assets/figure-atlas/preview.png" width="100%" alt="Publication Figure Design multi-panel preview">
 </p>
 
 <details>
@@ -46,7 +59,7 @@
 
 ## About
 
-Academic Figure Skill is a skill package for AI coding assistants (Claude Code, Codex, and others). It encodes the figure preparation conventions of Nature, Cell, and Science family journals — Arial/Helvetica typography, 89 mm / 183 mm column widths, PDF vector export, and 300 dpi raster previews — along with the visual parameters of 29 common figure types into `SKILL.md` and 16 supporting reference documents. When a user provides data and a scientific question, the skill guides the LLM through a standardized 8-step workflow: clarifying the research question → classifying the figure archetype → proposing and justifying a panel plan for user confirmation → detecting Python/R runtimes → injecting a unified typography and color baseline → scanning `assets/figures/` for production scripts (native execution when matched, cross-type parameter inheritance otherwise) → pre-render data validation → 4-pass QA self-check → delivering a vector PDF master and a statistical report.
+Publication Figure Design is a skill package for AI coding assistants (Claude Code, Codex, and others). It encodes the figure preparation conventions of Nature, Cell, and Science family journals — Arial/Helvetica typography, 89 mm / 183 mm column widths, PDF vector export, and 300 dpi raster previews — along with the visual parameters of 29 common figure types into `SKILL.md` and its routed reference/runtime bundle. When a user provides data and a scientific question, the skill runs the persisted Route → Intake → Reference Retrieval → Reference Inspection → Design Spec → Binding → Render → Compare → Critique → Repair → QA → Export lifecycle, with machine-readable artifacts and gates at every transition.
 
 The skill does not replace the plotting capabilities of Python or R. It provides a set of structured constraints and priors so that LLM-generated plotting code adheres to CNS journal visual standards, reducing the manual effort of adjusting typography, color schemes, and export parameters. For multi-panel compositions, the skill supports mixed Python and R orchestration: R panels are rendered to bitmaps via the Cairo graphics device, and the Python `compose.py` layout engine tiles them at exact physical dimensions.
 
@@ -105,6 +118,10 @@ The skill does not replace the plotting capabilities of Python or R. It provides
 
 ---
 
+## Single-image reference intake
+
+Give an agent the image and say that it should be saved to the reference library. The skill opens the actual pixels, classifies the dominant figure family and visual grammar, records tags and provenance, asks the agent to add a synthetic-data visual-grammar reconstruction with a `reconstruction.png` preview, builds an equal-size source/reconstruction comparison with explicit deviations, copies the image with sidecar metadata, rebuilds the index, and returns the reference ID. Original source data or paper code are not required; without reproduction code or a fidelity review the record remains `pending` and cannot enter the reviewed recommendation pool. Intake defaults to `private_reference`; public redistribution requires explicit licensing. See **Single-image reference intake** in `SKILL.md` and [visual-reference-library.md](references/visual-reference-library.md).
+
 ## Workflow
 
 ```text
@@ -130,7 +147,22 @@ The skill does not replace the plotting capabilities of Python or R. It provides
 
 ## Installation
 
-`academic-figure-skill` is a skill package built around `SKILL.md`. A complete installation must preserve `references/`, `scripts/`, `assets/`, `install/`, and other directories — the skill depends on these files for style baseline injection, asset scanning, and cross-platform adaptation.
+`publication-figure-design` is a skill package built around `SKILL.md`. A complete installation must preserve `references/`, `scripts/`, `assets/`, `install/`, and other directories — the skill depends on these files for style baseline injection, asset scanning, and cross-platform adaptation.
+
+### Reference-analysis dependencies
+
+The core plotting runtime is listed in `requirements.txt`. For reference intake
+and rendered comparison, install the small optional profile as well:
+
+```bash
+python -m pip install -r requirements.txt
+python -m pip install -r requirements-reference.txt
+```
+
+The optional profile provides SSIM (`scikit-image`) and palette extraction
+(`extcolors`, `colorthief`). ChartMimic is indexed as a compact catalog under
+`assets/reference-benchmarks/chartmimic/`; its external checkout is not copied
+into the Skill.
 
 ### Claude Code
 
@@ -146,37 +178,37 @@ Clone the repository to a stable path and install the skill:
 ```bash
 mkdir -p ~/ai-skills
 cd ~/ai-skills
-git clone https://github.com/TingxiYu/academic-figure-skill.git academic-figure-skill
-cp -r academic-figure-skill ~/.claude/skills/
+git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
+cp -r publication-figure-design ~/.claude/skills/
 ```
 
 After installation, describe your task naturally in a Claude Code session — the skill triggers automatically:
 
 ```text
-Please use academic-figure-skill to analyze the multip-traits.csv data in the project files and perform a visualization analysis.
+Please use publication-figure-design to analyze the multip-traits.csv data in the project files and perform a visualization analysis.
 ```
 
 ```text
-Use academic-figure-skill to plot the data.csv data as a Nature-style differential expression volcano plot.
+Use publication-figure-design to plot the data.csv data as a Nature-style differential expression volcano plot.
 ```
 
 To update:
 
 ```bash
-cd ~/ai-skills/academic-figure-skill
+cd ~/ai-skills/publication-figure-design
 git pull
-cp -r . ~/.claude/skills/academic-figure-skill/
+cp -r . ~/.claude/skills/publication-figure-design/
 ```
 
 ### Codex
 
-Codex loads skills through `install/codex/` which provides `manifest.yaml` + `instructions.md`. Copy the required directories to `~/.codex/skills/academic-figure-skill/`:
+Codex loads skills through `install/codex/` which provides `manifest.yaml` + `instructions.md`. Copy the required directories to `~/.codex/skills/publication-figure-design/`:
 
 ```bash
-git clone https://github.com/TingxiYu/academic-figure-skill.git
-cd academic-figure-skill
-mkdir -p ~/.codex/skills/academic-figure-skill
-cp -r SKILL.md references/ scripts/ assets/ install/codex/* ~/.codex/skills/academic-figure-skill/
+git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
+cd publication-figure-design
+mkdir -p ~/.codex/skills/publication-figure-design
+cp -r SKILL.md references/ scripts/ assets/ install/codex/* ~/.codex/skills/publication-figure-design/
 ```
 
 After installation, describe your task naturally in a Codex session — the skill activates automatically based on trigger rules in `manifest.yaml`.
@@ -185,7 +217,7 @@ You can also ask Codex to install for you:
 
 ```text
 Install the Codex skill from https://github.com/TingxiYu/academic-figure-skill.git.
-Clone the repo, then copy SKILL.md, references/, scripts/, assets/, and install/codex/ to ~/.codex/skills/academic-figure-skill/.
+Clone it into a directory named publication-figure-design, then copy SKILL.md, references/, scripts/, assets/, and install/codex/ to ~/.codex/skills/publication-figure-design/.
 Keep the full directory structure — do not copy only SKILL.md.
 ```
 
@@ -194,8 +226,8 @@ Keep the full directory structure — do not copy only SKILL.md.
 Copy the skill rules file to your project root. Cursor will automatically follow the specifications when generating code:
 
 ```bash
-git clone https://github.com/TingxiYu/academic-figure-skill.git
-cp academic-figure-skill/install/cursor/.cursorrules <your-project>/.cursorrules
+git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
+cp publication-figure-design/install/cursor/.cursorrules <your-project>/.cursorrules
 ```
 
 The `.cursorrules` file includes color palettes, typography baselines, export specifications, and other core rules. To update, re-run the copy command.
@@ -205,9 +237,9 @@ The `.cursorrules` file includes color palettes, typography baselines, export sp
 Copy the skill instructions file to your project's `.github/` directory. Copilot loads this context when generating code:
 
 ```bash
-git clone https://github.com/TingxiYu/academic-figure-skill.git
+git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
 mkdir -p <your-project>/.github
-cp academic-figure-skill/install/copilot/copilot-instructions.md <your-project>/.github/
+cp publication-figure-design/install/copilot/copilot-instructions.md <your-project>/.github/
 ```
 
 If you already have `.github/copilot-instructions.md`, append this skill's content to the end of the file.
@@ -226,7 +258,7 @@ For other AI coding assistants:
 ## Directory Layout
 
 ```text
-	academic-figure-skill/             ← Core skill package (this directory)
+	publication-figure-design/        ← Core skill package (this directory)
     ├── README.md                      ← Documentation (Chinese)
     ├── README_EN.md                   ← Documentation (English)
     ├── LICENSE                        ← Apache 2.0 License
@@ -339,7 +371,7 @@ python scripts/trigger_benchmark.py
 
 ## Contributing
 
-Academic Figure Skill uses a skill plugin architecture. To add a new figure type:
+Publication Figure Design uses a skill plugin architecture. To add a new figure type:
 
 1. Create a new directory `<FigureType>/` under `assets/figures/`
 2. Add production scripts (`.py` or `.R`) and a preview PNG
@@ -350,4 +382,4 @@ Academic Figure Skill uses a skill plugin architecture. To add a new figure type
 
 ## License
 
-[Apache 2.0](LICENSE) © 2025 Academic Figure Skill Contributors
+[Apache 2.0](LICENSE) © 2025 Publication Figure Design Contributors

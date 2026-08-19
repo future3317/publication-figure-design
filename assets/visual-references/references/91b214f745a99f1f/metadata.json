@@ -1,5 +1,5 @@
 {
-  "aesthetic_rating": 4,
+  "aesthetic_rating": 4.5,
   "code_path": null,
   "created_at": "2026-08-11T13:17:24Z",
   "data_density": "high",
@@ -14,12 +14,40 @@
   "palette": null,
   "palette_policy": "preserve",
   "production_ready": false,
-  "review_status": "pending",
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "cflows_trajectory",
+    "mosaic": [
+      "ABC"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "scatter:trajectory"
+      },
+      {
+        "id": "B",
+        "kind": "line:dynamics"
+      },
+      {
+        "id": "C",
+        "kind": "forest:effects"
+      }
+    ],
+    "source_observation": "trajectory panel followed by dynamics and effect comparison"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
   "scope": "references",
   "sha256": "91b214f745a99f1f2b472ddae7661dfa2d9241791768767180219315b89047ec",
   "source": "Chen Liu, figures4papers repository",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "91b214f745a99f1f2b472ddae7661dfa2d9241791768767180219315b89047ec",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_Cflows/figures/fig2_comparison_Trajectory.png",
+  "source_repository": "figures4papers",
   "source_url": "https://github.com/ChenLiu-1996/figures4papers/tree/main/figure_Cflows/figures/fig2_comparison_Trajectory.png",
-  "subtype": "figures4papers_trajectory_comparison",
+  "subtype": "cflows_trajectory",
   "tags": [
     "figures4papers",
     "publication-figure",
@@ -27,5 +55,18 @@
     "trajectory",
     "comparison"
   ],
-  "usage_scope": "private_reference"
+  "usage_scope": "private_reference",
+  "visual_family": "comparison_composite",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'cflows_trajectory' is a focused comparison_composite reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
 }

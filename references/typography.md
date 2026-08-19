@@ -3,7 +3,7 @@
 > **BASELINE — COPY VERBATIM:** The code block below must be copied into every generated script BEFORE any plotting code. It is the first thing that executes. Do not modify, do not omit lines, do not "write something similar".
 
 ```python
-# Academic Figure Skill Typography Baseline — COPY VERBATIM, place at TOP of script
+# Publication Figure Design Typography Baseline — COPY VERBATIM, place at TOP of script
 import matplotlib as mpl
 mpl.rcParams.update({
     "font.family": "sans-serif",
@@ -27,7 +27,7 @@ mpl.rcParams.update({
 ```
 
 ```r
-# Academic Figure Skill Typography Baseline — COPY VERBATIM, place at TOP of script
+# Publication Figure Design Typography Baseline — COPY VERBATIM, place at TOP of script
 library(ggplot2)
 theme_cns <- theme_bw(base_size = 8, base_family = "Arial") +
   theme(

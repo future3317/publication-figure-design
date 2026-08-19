@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Light-weight Production Asset metadata manager for academic-figure-skill.
+"""Light-weight Production Asset metadata manager for publication-figure-design.
 
 This module scans ``assets/figures/<type>/metadata.json`` sidecars and helps
 agents decide whether a production asset is safe to COPY-FIRST or only useful
@@ -466,7 +466,7 @@ def _pretty_print(asset: ProductionAsset) -> None:
 
 def cli(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser(
-        description="Production Asset metadata manager for academic-figure-skill."
+        description="Production Asset metadata manager for publication-figure-design."
     )
     sub = parser.add_subparsers(dest="command", required=True)
 

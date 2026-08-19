@@ -1,0 +1,66 @@
+{
+  "aesthetic_rating": 4.5,
+  "code_path": null,
+  "created_at": "2026-08-12T17:30:09Z",
+  "data_density": null,
+  "figure_type": "mechanism_schematic",
+  "id": "3554b9af671886df",
+  "image_path": "assets/visual-references/references/3554b9af671886df/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "unknown",
+  "n_groups": null,
+  "notes": "Exact source visual sample cataloged for private reference; distinct from independent reconstruction.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "vigil_concept",
+    "mosaic": [
+      "AABB"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "schematic:temporal"
+      },
+      {
+        "id": "B",
+        "kind": "diagram:forecast"
+      }
+    ],
+    "source_observation": "temporal concept sketch with forecast explanation"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "3554b9af671886dfbbe985016440c5ba1633b4e8b08d50539d992982c5cc2bf5",
+  "source": "figures4papers visual source",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "3554b9af671886dfbbe985016440c5ba1633b4e8b08d50539d992982c5cc2bf5",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_VIGIL/figures/concept.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "vigil_concept",
+  "tags": [
+    "source-catalog",
+    "figures4papers",
+    "mechanism_schematic"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "mechanism_schematic",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'vigil_concept' is a focused mechanism_schematic reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

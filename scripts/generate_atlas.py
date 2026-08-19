@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Academic Figure Skill Chart Atlas Generator.
+Publication Figure Design Chart Atlas Generator.
 
-Generates 5 atlas grid images (4x4 subplots each) demonstrating Academic Figure Skill's
+Generates 5 atlas grid images (4x4 subplots each) demonstrating Publication Figure Design's
 visual grammar range using pure matplotlib with CNS standard styling.
 
-Output: academic-figure-skill/assets/chart-atlas/atlas-*.png
+Output: publication-figure-design/assets/chart-atlas/atlas-*.png
 """
 
 import os
@@ -30,7 +30,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_DIR = os.path.join(PROJECT_ROOT, "assets", "chart-atlas")
 
 # ---------------------------------------------------------------------------
-# Academic Figure Skill color palette
+# Publication Figure Design color palette
 # ---------------------------------------------------------------------------
 CNS_COLORS = {
     "green":   "#1B7837",
@@ -1624,7 +1624,7 @@ def build_atlas(panel_funcs, title, output_path, figsize=(11, 9)):
 def main():
     """Generate all 5 chart atlas images."""
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    print(f"\nAcademic Figure Skill Chart Atlas Generator")
+    print(f"\nPublication Figure Design Chart Atlas Generator")
     print(f"Output directory: {OUTPUT_DIR}\n")
 
     atlases = [

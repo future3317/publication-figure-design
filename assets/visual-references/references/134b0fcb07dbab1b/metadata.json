@@ -1,0 +1,83 @@
+{
+  "aesthetic_rating": 4.1,
+  "code_path": null,
+  "created_at": "2026-08-12T17:30:09Z",
+  "data_density": null,
+  "figure_type": "distribution_grid",
+  "id": "134b0fcb07dbab1b",
+  "image_path": "assets/visual-references/references/134b0fcb07dbab1b/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "unknown",
+  "n_groups": null,
+  "notes": "Exact source visual sample cataloged for private reference; distinct from independent reconstruction.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "dispersion_observation_distillation",
+    "mosaic": [
+      "ABC",
+      "DEF"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "distribution:hist"
+      },
+      {
+        "id": "B",
+        "kind": "distribution:violin"
+      },
+      {
+        "id": "C",
+        "kind": "distribution:ridge"
+      },
+      {
+        "id": "D",
+        "kind": "scatter:groups"
+      },
+      {
+        "id": "E",
+        "kind": "line:distillation"
+      },
+      {
+        "id": "F",
+        "kind": "bar:summary"
+      }
+    ],
+    "source_observation": "six compact distribution and comparison panels"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "134b0fcb07dbab1baa769854100fc9791b846f6f6c50591485564fc8492b6660",
+  "source": "figures4papers visual source",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "134b0fcb07dbab1baa769854100fc9791b846f6f6c50591485564fc8492b6660",
+  "source_license_class": "unknown",
+  "source_relative_path": "assets/Dispersion_observation_distillation.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "dispersion_observation_distillation",
+  "tags": [
+    "source-catalog",
+    "figures4papers",
+    "distribution_grid"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "distribution_grid",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'dispersion_observation_distillation' is a focused distribution_grid reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

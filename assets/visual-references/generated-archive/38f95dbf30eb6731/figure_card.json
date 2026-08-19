@@ -1,0 +1,120 @@
+{
+  "schema": "publication-figure-design/figure-card-v1",
+  "source": "self-generated reproduction of WeChat reference",
+  "figure_type": "heatmap",
+  "canvas": {
+    "width_px": 2736,
+    "height_px": 985,
+    "aspect_ratio": 2.777665,
+    "mode": "RGB"
+  },
+  "background": {
+    "rgb": [
+      255.0,
+      255.0,
+      255.0
+    ],
+    "hex": "#ffffff",
+    "near_white": true
+  },
+  "ink_coverage": 0.326857,
+  "palette": {
+    "dominant": [
+      {
+        "hex": "#ffffff",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "fraction": 0.682736,
+        "role": "background"
+      },
+      {
+        "hex": "#c84540",
+        "rgb": [
+          200,
+          69,
+          64
+        ],
+        "fraction": 0.231267,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#67001f",
+        "rgb": [
+          103,
+          0,
+          31
+        ],
+        "fraction": 0.045845,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#de745c",
+        "rgb": [
+          222,
+          116,
+          92
+        ],
+        "fraction": 0.016933,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#000000",
+        "rgb": [
+          0,
+          0,
+          0
+        ],
+        "fraction": 0.014256,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#808080",
+        "rgb": [
+          128,
+          128,
+          128
+        ],
+        "fraction": 0.004416,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#d4d4d4",
+        "rgb": [
+          212,
+          212,
+          212
+        ],
+        "fraction": 0.003209,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#535353",
+        "rgb": [
+          83,
+          83,
+          83
+        ],
+        "fraction": 0.00134,
+        "role": "data_or_annotation"
+      }
+    ],
+    "extraction": "extcolors-or-pillow-quantize"
+  },
+  "panels": {
+    "status": "manual_required",
+    "count": null,
+    "layout": null
+  },
+  "axes": {
+    "status": "manual_required"
+  },
+  "typography": {
+    "status": "manual_required"
+  },
+  "annotations": {
+    "status": "manual_required"
+  }
+}

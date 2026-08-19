@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Academic Figure Skill QA Validator — translates references/checklist.md into executable assertions.
+"""Publication Figure Design QA Validator — translates references/checklist.md into executable assertions.
 
 Input:  a generated Python plot script (or inline code string)
 Output: structured PASS/FAIL/WARN report with line-level issue locations.
@@ -15,7 +15,7 @@ No AI needed for automated checks — runs anywhere Python is installed.
 """
 
 from __future__ import annotations
-import argparse, ast, os, re, sys
+import argparse, ast, json, os, re, sys
 from collections import Counter
 from dataclasses import dataclass, field
 from itertools import chain
@@ -50,12 +50,12 @@ def check_ap0_style_baseline(source: str) -> list[Finding]:
         f"Missing typography baseline. Need: {', '.join(k for k in typo_required if k not in source)}"))
 
     # Color baseline
-    color_patterns = ['CATEGORICAL = [', 'DIVERGING = [', '#2166AC', '#B2182B', '#999999']
-    color_ok = all(p in source for p in color_patterns)
+    role_patterns = ["COLOR_ROLES", "PALETTE_ROLES", "semantic color roles", "semantic_color_roles"]
+    color_ok = any(p.lower() in source.lower() for p in role_patterns)
     findings.append(Finding("AP-0", color_ok,
         "PASS" if color_ok else "FAIL",
-        "Color palette baseline present" if color_ok else
-        "Missing CNS color palette (CATEGORICAL/DIVERGING)"))
+        "Semantic color roles declared" if color_ok else
+        "Missing semantic color-role declaration (for example COLOR_ROLES)"))
 
     # Export baseline
     export_patterns = ["pdf.fonttype", "svg.fonttype", "save_cns_figure"]
@@ -162,7 +162,9 @@ def check_ap7_default_font(source: str) -> Finding:
 def _find_fontsizes(source: str) -> list[int]:
     """Parse all fontSize params from code."""
     sizes = []
-    for match in re.finditer(r'(?:fontsize|font\.size|labelsize|titlesize|size)\s*[=:]\s*(\d+)', source):
+    # Match typography declarations, but not unrelated geometry kwargs such
+    # as marker/rounding_size or box padding.
+    for match in re.finditer(r'(?:fontsize|font\.size|labelsize|titlesize)\s*[=:]\s*(\d+)', source):
         sizes.append(int(match.group(1)))
     return sizes
 
@@ -268,3 +270,88 @@ def check_cl7_export_completeness(source: str) -> Finding:
     return Finding("CL-7", ok,
         "PASS" if ok else "FAIL",
         "Vector + raster both exported" if ok else "Missing export — need both PDF and PNG")
+
+
+def check_cl8_heatmap_annotation_contrast(source: str) -> Finding:
+    """Require the shared contrast helper for text rendered inside a heatmap."""
+    heatmap_tokens = ("imshow(", "heatmap(", "sns.heatmap", "pcolormesh(")
+    has_heatmap = any(token in source for token in heatmap_tokens)
+    annotation_text = bool(re.search(r"(?:ax\.)?text\s*\(|annot\s*=\s*True", source))
+    if not (has_heatmap and annotation_text):
+        return Finding("CL-8", True, "PASS", "N/A: no heatmap cell annotations detected")
+    helper_calls = len(re.findall(r"(?<!def\s)\bpick_text_color\s*\(", source))
+    fixed_light_text = bool(re.search(
+        r"(?:ax\.)?text\s*\([^)]{0,800}?\bcolor\s*=\s*['\"](?:white|#fff(?:fff)?|#f{3,6})['\"]",
+        source,
+        flags=re.IGNORECASE | re.DOTALL,
+    ))
+    safe_helper = helper_calls >= 1 and not fixed_light_text
+    return Finding(
+        "CL-8", safe_helper, "PASS" if safe_helper else "FAIL",
+        "Heatmap annotations use contrast-safe text selection" if safe_helper else
+        "Heatmap cell annotations need a real pick_text_color(cell_color) call; fixed white/light text is not auditable",
+    )
+
+
+def validate_source(source: str) -> dict[str, Any]:
+    """Run deterministic source checks and return a serialisable report."""
+    findings: list[Finding] = []
+    findings.extend(check_ap0_style_baseline(source))
+    findings.extend([
+        check_ap1_default_palette(source), check_ap2_jet_rainbow(source),
+        check_ap3_four_sided_borders(source), check_ap4_legend_occlusion(source),
+        check_ap5_low_res_export(source), check_ap6_missing_points(source),
+        check_ap7_default_font(source), check_cl1_fontsize(source),
+        check_cl2_dimensions(source), check_cl3_dpi(source),
+        check_cl4_font_embedding(source), check_cl5_spine_linewidth(source),
+        check_cl6_tick_direction(source), check_cl7_export_completeness(source),
+        check_cl8_heatmap_annotation_contrast(source),
+    ])
+    summary = Counter(f.category.lower() for f in findings)
+    payload = [
+        {"check_id": f.check_id, "category": f.category, "pass": f.pass_,
+         "message": f.message, "line": f.line}
+        for f in findings
+    ]
+    ready = summary["fail"] == 0
+    return {
+        "ready": ready,
+        "status": "READY" if ready else "FIX",
+        "summary": {key: summary[key] for key in ("pass", "fail", "warn")},
+        "findings": payload,
+    }
+
+
+def _read_source(value: str) -> tuple[str, str]:
+    path = Path(value)
+    if path.is_file():
+        return path.read_text(encoding="utf-8"), str(path)
+    if path.suffix.lower() in {".py", ".r"}:
+        raise FileNotFoundError(f"Plotting source not found: {path}")
+    return value, "<inline>"
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("source", help="Plotting source file or inline source text.")
+    parser.add_argument("--journal", help="Reserved for journal-specific extensions.")
+    parser.add_argument("--json", dest="json_path", type=Path, help="Write structured JSON report.")
+    args = parser.parse_args(argv)
+    try:
+        source, label = _read_source(args.source)
+    except (FileNotFoundError, OSError) as exc:
+        parser.error(str(exc))
+    report = validate_source(source)
+    print(f"Academic Figure Source QA: {report['status']}")
+    print(f"Source: {label}")
+    for finding in report["findings"]:
+        print(f"  [{finding['category']}] {finding['check_id']}: {finding['message']}")
+    summary = report["summary"]
+    print(f"Summary: {summary['pass']} PASS, {summary['fail']} FAIL, {summary['warn']} WARN")
+    if args.json_path:
+        args.json_path.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return 0 if report["ready"] else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

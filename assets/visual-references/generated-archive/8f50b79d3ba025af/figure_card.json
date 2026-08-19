@@ -1,0 +1,120 @@
+{
+  "schema": "publication-figure-design/figure-card-v1",
+  "source": "independent visual-grammar reconstruction",
+  "figure_type": "distribution_grid",
+  "canvas": {
+    "width_px": 1091,
+    "height_px": 643,
+    "aspect_ratio": 1.696734,
+    "mode": "RGB"
+  },
+  "background": {
+    "rgb": [
+      255.0,
+      255.0,
+      255.0
+    ],
+    "hex": "#ffffff",
+    "near_white": true
+  },
+  "ink_coverage": 0.18786,
+  "palette": {
+    "dominant": [
+      {
+        "hex": "#ffffff",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "fraction": 0.876286,
+        "role": "background"
+      },
+      {
+        "hex": "#98c1d9",
+        "rgb": [
+          152,
+          193,
+          217
+        ],
+        "fraction": 0.033103,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#cab5b7",
+        "rgb": [
+          202,
+          181,
+          183
+        ],
+        "fraction": 0.023027,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#ccd4de",
+        "rgb": [
+          204,
+          212,
+          222
+        ],
+        "fraction": 0.01426,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#ee6c4d",
+        "rgb": [
+          238,
+          108,
+          77
+        ],
+        "fraction": 0.014042,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#fad8d0",
+        "rgb": [
+          250,
+          216,
+          208
+        ],
+        "fraction": 0.014024,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#3d5a80",
+        "rgb": [
+          61,
+          90,
+          128
+        ],
+        "fraction": 0.013884,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#f39f8b",
+        "rgb": [
+          243,
+          159,
+          139
+        ],
+        "fraction": 0.011375,
+        "role": "data_or_annotation"
+      }
+    ],
+    "extraction": "extcolors-or-pillow-quantize"
+  },
+  "panels": {
+    "status": "manual_required",
+    "count": null,
+    "layout": null
+  },
+  "axes": {
+    "status": "manual_required"
+  },
+  "typography": {
+    "status": "manual_required"
+  },
+  "annotations": {
+    "status": "manual_required"
+  }
+}

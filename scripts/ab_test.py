@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Academic Figure Skill A/B Test Framework — Academic Figure Skill vs Bare Claude.
+"""Publication Figure Design A/B Test Framework — Publication Figure Design vs Bare Claude.
 
 Defines 5 test scenarios with objective scoring criteria.
 Each scenario returns: asset_hit, font_ok, palette_ok, spine_ok, render_ok, vector_export.
@@ -7,7 +7,7 @@ Each scenario returns: asset_hit, font_ok, palette_ok, spine_ok, render_ok, vect
 Usage:
     python ab_test.py              # print all 5 scenarios and scoring rubrics
     python ab_test.py --baseline   # run bare-Claude tests (generate without skill)
-    python ab_test.py --academic-figure-skill   # run Academic Figure Skill tests
+    python ab_test.py --publication-figure-design   # run Publication Figure Design tests
     python ab_test.py --compare    # compare both results
 """
 
@@ -63,7 +63,7 @@ SCENARIOS = [
             "figure_type": "multi-panel",
             "asset_exists": True,
             "asset_paths": ["Radar/plot_comparison_radar.py", "GroupedViolin/plot_GroupedViolin.py",
-                           "GroupedBarChart/plot_GroupedBarChartv1.py", "PCA/plot_PCA.R"],
+                           "GroupedBarChart/plot_grouped_bar_chart.py", "PCA/plot_PCA.R"],
             "all_assets_hit": True,
             "checks": [
                 "Asset Confirmation Table present as first comment block",
@@ -146,7 +146,7 @@ class ScenarioResult:
 def print_scenarios():
     """Print all 5 test scenarios with scoring rubrics."""
     print("=" * 60)
-    print("Academic Figure Skill A/B Test Framework — 5 Scenarios")
+    print("Publication Figure Design A/B Test Framework — 5 Scenarios")
     print("=" * 60)
     print()
     for s in SCENARIOS:
@@ -192,7 +192,7 @@ def score_scenario(scenario_id: str, checks_passed: list[bool], details: list[st
 def print_ab_report(baseline: dict, acad_fig_skill: dict):
     """Print A/B comparison report."""
     print("=" * 60)
-    print("Academic Figure Skill A/B Comparison — Baseline vs Academic Figure Skill")
+    print("Publication Figure Design A/B Comparison — Baseline vs Publication Figure Design")
     print("=" * 60)
     print()
 
@@ -215,7 +215,7 @@ def print_ab_report(baseline: dict, acad_fig_skill: dict):
         else:
             arrow = "="
 
-        print(f"  {sid}: Baseline={bl_rate:.0%}  Academic Figure Skill={cn_rate:.0%}  ({arrow}{delta:+.0%})")
+        print(f"  {sid}: Baseline={bl_rate:.0%}  Publication Figure Design={cn_rate:.0%}  ({arrow}{delta:+.0%})")
 
         baseline_total += bl.get("total", 0)
         acad_fig_skill_total += cn.get("total", 0)
@@ -226,28 +226,28 @@ def print_ab_report(baseline: dict, acad_fig_skill: dict):
     cn_overall = acad_fig_skill_pass / acad_fig_skill_total if acad_fig_skill_total > 0 else 0
 
     print()
-    print(f"  OVERALL: Baseline={bl_overall:.0%}  Academic Figure Skill={cn_overall:.0%}  (Δ={cn_overall - bl_overall:+.0%})")
+    print(f"  OVERALL: Baseline={bl_overall:.0%}  Publication Figure Design={cn_overall:.0%}  (Δ={cn_overall - bl_overall:+.0%})")
     print("=" * 60)
 
     if cn_overall > bl_overall:
-        print("Verdict: Academic Figure Skill WINS — objective quality improvement confirmed")
+        print("Verdict: Publication Figure Design WINS — objective quality improvement confirmed")
     elif cn_overall == bl_overall:
-        print("Verdict: TIE — Academic Figure Skill does not degrade output; value is in automation")
+        print("Verdict: TIE — Publication Figure Design does not degrade output; value is in automation")
     else:
-        print("Verdict: Academic Figure Skill REGRESSION — need to investigate")
+        print("Verdict: Publication Figure Design REGRESSION — need to investigate")
 
 
 if __name__ == "__main__":
     if "--compare" in sys.argv:
         # Load saved results if available
         bl_path = SKILL_ROOT / "scripts" / ".ab_baseline.json"
-        cn_path = SKILL_ROOT / "scripts" / ".ab_academic-figure-skill.json"
+        cn_path = SKILL_ROOT / "scripts" / ".ab_publication-figure-design.json"
         baseline = json.load(open(bl_path)) if bl_path.exists() else {}
         acad_fig_skill = json.load(open(cn_path)) if cn_path.exists() else {}
         print_ab_report(baseline, acad_fig_skill)
     else:
         print_scenarios()
-        print("To run A/B tests: send each scenario prompt to both bare Claude and Academic Figure Skill.")
-        print("Score each run using the checks above. Save results with --baseline or --academic-figure-skill.")
+        print("To run A/B tests: send each scenario prompt to both bare Claude and Publication Figure Design.")
+        print("Score each run using the checks above. Save results with --baseline or --publication-figure-design.")
         print()
-        print(f"Results saved to: {SKILL_ROOT}/scripts/.ab_baseline.json and .ab_academic-figure-skill.json")
+        print(f"Results saved to: {SKILL_ROOT}/scripts/.ab_baseline.json and .ab_publication-figure-design.json")

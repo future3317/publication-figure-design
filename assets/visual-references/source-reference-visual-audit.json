@@ -1,0 +1,222 @@
+﻿{
+    "decisions":  {
+                      "brainteaser_correctness_subcategory":  {
+                                                                  "rating":  4.3,
+                                                                  "notes":  "Exact source image inspected at equal display size. \u0027brainteaser_correctness_subcategory\u0027 is a dense multi-panel grouped_bar reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                              },
+                      "cflows_ablation":  {
+                                              "rating":  4.1,
+                                              "notes":  "Exact source image inspected at equal display size. \u0027cflows_ablation\u0027 is a focused grouped_bar reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                          },
+                      "atlas_area_stacked":  {
+                                                 "rating":  4.3,
+                                                 "notes":  "Exact source image inspected at equal display size. \u0027atlas_area_stacked\u0027 is a dense multi-panel area_stacked reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                             },
+                      "gallery_material_mechanism":  {
+                                                         "rating":  4.5,
+                                                         "notes":  "Exact source image inspected at equal display size. \u0027gallery_material_mechanism\u0027 is a focused material_mechanism reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                     },
+                      "vigil_ablation_curves":  {
+                                                    "rating":  4.1,
+                                                    "notes":  "Exact source image inspected at equal display size. \u0027vigil_ablation_curves\u0027 is a focused line_grid reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                },
+                      "immunostruct_comparison_cancer":  {
+                                                             "rating":  4.1,
+                                                             "notes":  "Exact source image inspected at equal display size. \u0027immunostruct_comparison_cancer\u0027 is a focused grouped_bar reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                         },
+                      "rnagenscape_speed":  {
+                                                "rating":  4.5,
+                                                "notes":  "Exact source image inspected at equal display size. \u0027rnagenscape_speed\u0027 is a focused comparison_composite reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                            },
+                      "gallery_validation_perturbation":  {
+                                                              "rating":  4.5,
+                                                              "notes":  "Exact source image inspected at equal display size. \u0027gallery_validation_perturbation\u0027 is a focused validation_perturbation reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                          },
+                      "immunostruct_schematic":  {
+                                                     "rating":  4.5,
+                                                     "notes":  "Exact source image inspected at equal display size. \u0027immunostruct_schematic\u0027 is a focused mechanism_schematic reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                 },
+                      "dispersion_idea":  {
+                                              "rating":  4.5,
+                                              "notes":  "Exact source image inspected at equal display size. \u0027dispersion_idea\u0027 is a focused mechanism_schematic reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                          },
+                      "immunostruct_ablation_cancer":  {
+                                                           "rating":  4.1,
+                                                           "notes":  "Exact source image inspected at equal display size. \u0027immunostruct_ablation_cancer\u0027 is a focused grouped_bar reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                       },
+                      "rnagenscape_optimization":  {
+                                                       "rating":  4.5,
+                                                       "notes":  "Exact source image inspected at equal display size. \u0027rnagenscape_optimization\u0027 is a focused comparison_composite reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                   },
+                      "immunostruct_results_cedar":  {
+                                                         "rating":  4.5,
+                                                         "notes":  "Exact source image inspected at equal display size. \u0027immunostruct_results_cedar\u0027 is a dense multi-panel comparison_composite reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                     },
+                      "gallery_spatial_imaging":  {
+                                                      "rating":  4.3,
+                                                      "notes":  "Exact source image inspected at equal display size. \u0027gallery_spatial_imaging\u0027 is a dense multi-panel spatial_image_plate reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                  },
+                      "ophthal_composition_heatmap":  {
+                                                          "rating":  4.1,
+                                                          "notes":  "Exact source image inspected at equal display size. \u0027ophthal_composition_heatmap\u0027 is a focused heatmap_grid reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                      },
+                      "brainteaser_correctness_category":  {
+                                                               "rating":  4.1,
+                                                               "notes":  "Exact source image inspected at equal display size. \u0027brainteaser_correctness_category\u0027 is a focused grouped_bar reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                           },
+                      "vigil_radar_comparison":  {
+                                                     "rating":  4.1,
+                                                     "notes":  "Exact source image inspected at equal display size. \u0027vigil_radar_comparison\u0027 is a focused radar_grid reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                 },
+                      "atlas_distributions":  {
+                                                  "rating":  4.3,
+                                                  "notes":  "Exact source image inspected at equal display size. \u0027atlas_distributions\u0027 is a dense multi-panel distribution_grid reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                              },
+                      "rnagenscape_sweep":  {
+                                                "rating":  4.1,
+                                                "notes":  "Exact source image inspected at equal display size. \u0027rnagenscape_sweep\u0027 is a focused line_grid reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                            },
+                      "atlas_scatter_bubble":  {
+                                                   "rating":  4.3,
+                                                   "notes":  "Exact source image inspected at equal display size. \u0027atlas_scatter_bubble\u0027 is a dense multi-panel scatter_bubble reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                               },
+                      "vigil_teaser":  {
+                                           "rating":  4.5,
+                                           "notes":  "Exact source image inspected at equal display size. \u0027vigil_teaser\u0027 is a focused mechanism_schematic reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                       },
+                      "vigil_concept":  {
+                                            "rating":  4.5,
+                                            "notes":  "Exact source image inspected at equal display size. \u0027vigil_concept\u0027 is a focused mechanism_schematic reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                        },
+                      "atlas_heatmaps":  {
+                                             "rating":  4.3,
+                                             "notes":  "Exact source image inspected at equal display size. \u0027atlas_heatmaps\u0027 is a dense multi-panel heatmap_grid reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                         },
+                      "atlas_bar_charts":  {
+                                               "rating":  4.3,
+                                               "notes":  "Exact source image inspected at equal display size. \u0027atlas_bar_charts\u0027 is a dense multi-panel grouped_bar reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                           },
+                      "immunostruct_comparison_iedb":  {
+                                                           "rating":  4.1,
+                                                           "notes":  "Exact source image inspected at equal display size. \u0027immunostruct_comparison_iedb\u0027 is a focused grouped_bar reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                       },
+                      "immunostruct_results_iedb":  {
+                                                        "rating":  4.5,
+                                                        "notes":  "Exact source image inspected at equal display size. \u0027immunostruct_results_iedb\u0027 is a dense multi-panel comparison_composite reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                    },
+                      "atlas_network_matrix":  {
+                                                   "rating":  4.3,
+                                                   "notes":  "Exact source image inspected at equal display size. \u0027atlas_network_matrix\u0027 is a dense multi-panel network_matrix reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                               },
+                      "gallery_single_cell_systems":  {
+                                                          "rating":  4.5,
+                                                          "notes":  "Exact source image inspected at equal display size. \u0027gallery_single_cell_systems\u0027 is a focused single_cell_systems reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                      },
+                      "ophthal_monthly_trend":  {
+                                                    "rating":  4.1,
+                                                    "notes":  "Exact source image inspected at equal display size. \u0027ophthal_monthly_trend\u0027 is a focused line_grid reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                },
+                      "dispersion_motivation":  {
+                                                    "rating":  4.5,
+                                                    "notes":  "Exact source image inspected at equal display size. \u0027dispersion_motivation\u0027 is a focused mechanism_schematic reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                },
+                      "atlas_forest_interval":  {
+                                                    "rating":  4.3,
+                                                    "notes":  "Exact source image inspected at equal display size. \u0027atlas_forest_interval\u0027 is a dense multi-panel forest_interval reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                },
+                      "atlas_image_plates":  {
+                                                 "rating":  4.3,
+                                                 "notes":  "Exact source image inspected at equal display size. \u0027atlas_image_plates\u0027 is a dense multi-panel spatial_image_plate reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                             },
+                      "brainteaser_rewriting":  {
+                                                    "rating":  4.1,
+                                                    "notes":  "Exact source image inspected at equal display size. \u0027brainteaser_rewriting\u0027 is a focused grouped_bar reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                },
+                      "immunostruct_contrastive":  {
+                                                       "rating":  4.5,
+                                                       "notes":  "Exact source image inspected at equal display size. \u0027immunostruct_contrastive\u0027 is a focused comparison_composite reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                   },
+                      "gallery_in_vivo_efficacy":  {
+                                                       "rating":  4.1,
+                                                       "notes":  "Exact source image inspected at equal display size. \u0027gallery_in_vivo_efficacy\u0027 is a focused in_vivo_efficacy reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                   },
+                      "rnagenscape_manifold_holes":  {
+                                                         "rating":  4.1,
+                                                         "notes":  "Exact source image inspected at equal display size. \u0027rnagenscape_manifold_holes\u0027 is a focused manifold_3d reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                     },
+                      "rnagenscape_manifold":  {
+                                                   "rating":  4.1,
+                                                   "notes":  "Exact source image inspected at equal display size. \u0027rnagenscape_manifold\u0027 is a focused manifold_3d reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                               },
+                      "atlas_line_trends":  {
+                                                "rating":  4.3,
+                                                "notes":  "Exact source image inspected at equal display size. \u0027atlas_line_trends\u0027 is a dense multi-panel line_grid reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                            },
+                      "atlas_radar_polar":  {
+                                                "rating":  4.3,
+                                                "notes":  "Exact source image inspected at equal display size. \u0027atlas_radar_polar\u0027 is a dense multi-panel radar_grid reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                            },
+                      "cflows_trajectory":  {
+                                                "rating":  4.5,
+                                                "notes":  "Exact source image inspected at equal display size. \u0027cflows_trajectory\u0027 is a focused comparison_composite reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                            },
+                      "dispersion_illustration":  {
+                                                      "rating":  4.5,
+                                                      "notes":  "Exact source image inspected at equal display size. \u0027dispersion_illustration\u0027 is a focused mechanism_schematic reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                  },
+                      "cellsplicenet_ablation":  {
+                                                     "rating":  4.1,
+                                                     "notes":  "Exact source image inspected at equal display size. \u0027cellsplicenet_ablation\u0027 is a focused grouped_bar reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                 },
+                      "rnagenscape_schematic":  {
+                                                    "rating":  4.5,
+                                                    "notes":  "Exact source image inspected at equal display size. \u0027rnagenscape_schematic\u0027 is a focused mechanism_schematic reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                },
+                      "cflows_gene_regulatory":  {
+                                                     "rating":  4.5,
+                                                     "notes":  "Exact source image inspected at equal display size. \u0027cflows_gene_regulatory\u0027 is a focused comparison_composite reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                 },
+                      "dispersion_observation_distillation":  {
+                                                                  "rating":  4.1,
+                                                                  "notes":  "Exact source image inspected at equal display size. \u0027dispersion_observation_distillation\u0027 is a focused distribution_grid reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                              },
+                      "cflows_diffusion_swiss_roll":  {
+                                                          "rating":  4.1,
+                                                          "notes":  "Exact source image inspected at equal display size. \u0027cflows_diffusion_swiss_roll\u0027 is a focused manifold_3d reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                      },
+                      "brainteaser_selfcorrection_math":  {
+                                                              "rating":  4.3,
+                                                              "notes":  "Exact source image inspected at equal display size. \u0027brainteaser_selfcorrection_math\u0027 is a dense multi-panel grouped_bar reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                          },
+                      "cellsplicenet_comparison_human":  {
+                                                             "rating":  4.5,
+                                                             "notes":  "Exact source image inspected at equal display size. \u0027cellsplicenet_comparison_human\u0027 is a focused comparison_composite reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                         },
+                      "cellsplicenet_comparison_worm":  {
+                                                            "rating":  4.5,
+                                                            "notes":  "Exact source image inspected at equal display size. \u0027cellsplicenet_comparison_worm\u0027 is a focused comparison_composite reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                        },
+                      "rnagenscape_teaser":  {
+                                                 "rating":  4.5,
+                                                 "notes":  "Exact source image inspected at equal display size. \u0027rnagenscape_teaser\u0027 is a focused mechanism_schematic reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                             },
+                      "dispersion_observation":  {
+                                                     "rating":  4.5,
+                                                     "notes":  "Exact source image inspected at equal display size. \u0027dispersion_observation\u0027 is a focused comparison_composite reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                 },
+                      "brainteaser_brute_force":  {
+                                                      "rating":  4.1,
+                                                      "notes":  "Exact source image inspected at equal display size. \u0027brainteaser_brute_force\u0027 is a focused grouped_bar reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                  },
+                      "immunostruct_ablation_iedb":  {
+                                                         "rating":  4.1,
+                                                         "notes":  "Exact source image inspected at equal display size. \u0027immunostruct_ablation_iedb\u0027 is a focused grouped_bar reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                                     },
+                      "vigil_posttraining":  {
+                                                 "rating":  4.1,
+                                                 "notes":  "Exact source image inspected at equal display size. \u0027vigil_posttraining\u0027 is a focused line_grid reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code."
+                                             }
+                  },
+    "method":  "Direct pixel inspection of each cataloged exact visual source at equal display size; recorded after review sheets",
+    "reviewer":  "Codex visual audit"
+}

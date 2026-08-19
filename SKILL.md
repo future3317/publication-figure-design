@@ -1,148 +1,141 @@
 ---
-name: academic-figure-skill
-description: "Create, reconstruct, revise, review, and export publication-grade scientific figures for Nature/Cell/Science-family manuscripts. Use for static manuscript plots, multi-panel figures, concrete visual-reference matching, journal figure QA, and vector/raster delivery. Do not use for interactive dashboards, exploratory analysis without publication intent, statistics-only work, data cleaning, literature review, PowerPoint, or image editing without figure assembly."
+name: publication-figure-design
+description: "Use when creating, reconstructing, revising, reviewing, or exporting publication-grade scientific figures for Nature/Cell/Science-family manuscripts, especially when a concrete visual reference, multi-panel layout, paired operating-point comparison, uncertainty-aware chart, or final-size visual QA is involved."
 ---
 
-# Academic Figure Skill
+# Publication Figure Design
 
-Build a scientific argument, not a decorated template. Scientific truth is immutable; a concrete visual reference controls the visual grammar after that.
+This skill is an orchestrated, reference-first figure workflow. Scientific meaning, complete data
+take precedence over visual similarity; uncertainty semantics and a concrete reference control the
+visual grammar; generic defaults are fallback-only.
+Scientific meaning, complete data are never overridden by a visual reference.
+The contract is explicit: scientific meaning, complete data remain authoritative.
+A visual reference never changes scientific semantics; it only supplies visual grammar.
+
+## Operating contract
+
+Read `references/orchestrator-contracts.md` and run the orchestrator for every create,
+revise, optimize, reference-intake, review, or export task. The orchestrator persists
+machine-readable artifacts; do not rely on context memory or prose claims.
+
+Required state sequence:
+
+`Route → Intake → Reference Retrieval → Reference Inspection → Design Spec → Binding → Render → Compare → Critique → Repair → QA → Export`
+
+Each transition has a gate. A failed gate blocks the next state and produces a repairable
+report. Resume, retry, rollback, and best-so-far are explicit operations in the run state.
+
+Core artifacts:
+
+`TaskSpec`, `SourceSpec`, `TargetSpec`, `ReferenceSet`, `LayoutSpec`, `StyleSpec`,
+`TypographySpec`, `PaletteSpec`, `ComponentSpec`, `BindingMap`, `RenderPlan`, `QAReport`,
+`ExportManifest`.
+
+Use the unified CLI when available:
+
+```text
+pfd run <task-spec>
+pfd reference ingest <image>
+pfd reference analyze <reference-id>
+pfd reference review <reference-id>
+pfd index build
+pfd eval
+```
 
 ## Dispatch
 
-Choose one mode, then apply the concrete-reference gate independently.
+Route the request before touching plotting code. The supported modes are **create**,
+**revise**, **review**, **export**, and **reference**. Create uses the complete state
+machine; revise and review run only affected creation stages; export runs QA/export
+stages; reference runs intake/analysis/reproduction checks. Do not force revise, review,
+export, or reference work through a full create pipeline. Do not use generic `query()` for
+optimization retrieval.
+Do not force revise, review, export, or reference work through a full pipeline.
 
-| Mode | Use when | Route |
-|---|---|---|
-| **create** | Make a new manuscript figure from data or a stated claim | `references/workflow-create.md` |
-| **revise** | Change an existing figure or plotting source | Read the existing artifact; run only affected creation stages, then QA |
-| **review** | Assess reviewer readiness or diagnose visual weaknesses | `references/checklist.md` and `references/revision-cases.md` |
-| **export** | Change dimensions, format, resolution, or journal target | `references/delivery-contract.md` and `references/export-specs.md` |
-| **reference** | Store, query, or archive visual references | `references/visual-reference-library.md`; use `scripts/reference_library.py` |
-| **library maintenance** | Audit or rebuild source-by-source visual-grammar reconstructions | `references/source-reconstruction-library.md`; run `scripts/check_source_reconstruction_library.py` |
+### Mandatory visual-optimization route
 
-Do not force revise, review, export, or reference work through the full create route.
+For an existing-figure optimization, use the mandatory low-freedom route:
+`scripts/prepare_visual_optimization.py` → `scripts/check_visual_optimization.py`.
+The preparation script internally runs `reference_library.py recommend`; do not call a
+second generic `query()` or duplicate recommendation step. Do not edit plotting source
+until the packet records the selected candidates, the pixel observations, and the
+structural diagnosis. Preserve a `Before | Reference | After` evidence set, and treat
+Palette/font/alpha/line-width/marker-size/spacing-only changes as cosmetic-only unless
+the packet also records a structural, encoding, or legend-model repair.
 
-## Immutable precedence
+### Concrete-reference gate
 
-Use this order whenever constraints compete:
+When a concrete reference exists, inspect all five dimensions—layout, visual grammar,
+palette, typography, and annotation/component details—at final display size before
+selecting implementation material. A visual reference never changes scientific
+meaning, complete data, variable roles, or uncertainty semantics. The production figure
+must preserve those semantics even when the visual language is adapted.
 
-1. scientific meaning, complete data, and non-misleading encoding;
-2. explicit user requirements;
-3. concrete reference structure and visual language;
-4. compatible implementation material;
-5. skill defaults.
+Optional reference library use is for style discovery and auditable reconstruction. It
+is not a substitute for opening the selected pixels. Use at most 3 candidates per role,
+record their image hash and observations, then choose structure and style independently.
 
-Existing code is implementation material, never a design constraint. A production-quality old script is still incompatible if it preserves the wrong visual skeleton.
+Backend choice is resolved by `references/backend-selection.md`: explicit request,
+workflow requirement, saved preference, then the Python default. Mixed panels require
+one final assembler and an explicit request or real capability need; never silently
+substitute a backend.
 
-## Core figure contract
+The reference-fidelity route also runs `scripts/check_reference_fidelity.py` and records
+all five dimensions before production asset selection.
 
-Before implementation, establish these five points from `references/figure-contract.md`:
+## Reference-first rules
 
-1. one-sentence core conclusion;
-2. evidence chain, with one unique job per panel;
-3. figure archetype and panel hierarchy;
-4. plotting backend per panel and final assembler;
-5. journal, physical dimensions, and export bundle.
+When a concrete image is supplied or selected:
 
-Use a full contract for create/major revision, an abbreviated conclusion/evidence contract for a small revision, and no new contract for a purely cosmetic edit. If the user provides data but no scientific question or requested chart, ask what the figure must show before designing it.
+1. Open every concrete reference at final display size; inspect its actual pixels before
+   you select implementation material. Select implementation material only after inspection.
+2. Retrieve roles separately: `structure_reference`, `style_reference`,
+   `component_references`, `annotation_reference`, and optional `palette_reference`.
+3. Compile the selected pixels into `LayoutSpec` and `StyleSpec`; do not ask the agent to
+   infer style informally.
+4. Bind every target element as `match`, `restructure`, `rewrite`, `omit`, or `add`.
+5. Render at final physical dimensions, compare the final raster/vector to the reference,
+   then critique and repair only the highest-impact failures.
 
-## Concrete-reference gate
+The adaptation levels are `exact_reuse`, `structural_adaptation`, `style_only`, and
+`build_new`. `exact_reuse` requires matching panel topology, mark geometry, layer topology,
+data encoding, and annotation/legend model. Every render plan declares its backend and final assembler.
 
-Activate `reference-driven` mode whenever the user supplies, selects, points to, or explicitly asks to match a concrete image. A palette name or broad phrase such as “Nature style” alone does not activate it.
+`quality` and `fidelity` are independent. A faithful but unattractive reference may be a
+valid structure source but must not become an aesthetic champion. A reconstruction is a
+validation artifact, never the canonical style source.
 
-Before selecting old code or an asset:
+## Gates that block delivery
 
-1. Open every concrete reference and inspect the actual pixels. Do not rely on filenames, tags, metadata, or memory.
-2. Read `references/reference-driven-reconstruction.md` and write its Reference Reconstruction Contract.
-3. Record observable `must_match` features and scientific/data reasons for allowed deviations.
-4. Classify both the reference decision and the unified adaptation level below.
+- scientific correctness and data/provenance completeness;
+- reference alignment measured from the final image, not declarations;
+- typography, contrast, color accessibility, layout, legend, and annotation legibility;
+- reproducible render plan and fixed seed/runtime where synthetic data is used;
+- vector/raster dimensions, DPI, font substitution, and export manifest;
+- provenance and allowed reuse scope for every reference/template/source asset.
 
-Do not continue if the reference cannot be opened. Do not call palette-only, font-only, alpha-only, line-width-only, or marker-size-only changes a reconstruction.
+Run the relevant checks from `manifest.yaml`; for skill maintenance also run
+`scripts/check_skill_contract.py`, `scripts/check_source_reference_catalog.py`, the
+package tests, and the reference/index checks.
 
-## Unified adaptation ladder
+## Resource routing
 
-Apply this one taxonomy to user references, archived examples, and production assets. Read `references/asset-adaptation.md` before selecting implementation material.
-
-| Level | Required compatibility | Action |
-|---|---|---|
-| `exact_reuse` | panel topology, mark geometry, layer topology, data encoding, and annotation/legend model all match | Reuse the implementation; change only mapped data and declared parameters |
-| `structural_adaptation` | chart family and scientific encoding match, but at least one structural dimension differs | Replace incompatible layout, axes, layers, geometry, or legend code |
-| `style_only` | structure/dimensionality differs but visual tokens remain relevant | Borrow only compatible palette roles, typography, spacing, or annotation treatment |
-| `build_new` | no compatible structural or stylistic source exists | Build a new implementation around the figure contract |
-
-Reference-decision mapping:
-
-- `reuse` requires `exact_reuse` and evidence for all five dimensions.
-- `restructure` requires `structural_adaptation` and explicit non-cosmetic changes.
-- `rewrite` requires `style_only` or `build_new`; never retain irrelevant old panels, layers, legends, or annotations.
-
-Select implementation material only after this classification. Convenience, familiarity, and prior code quality are not compatibility evidence.
-
-## Backend gate
-
-Read `references/backend-selection.md`. Resolve the plotting backend in this order: explicit request → workflow requirement → saved preference → Python default. Use `scripts/backend_preference.py` to read or save an explicit preference.
-
-A normal figure uses one plotting backend for plotting, preview, export, and visual QA. Mixed Python/R mode is allowed only when the user requests it or a real panel capability requires it. Declare the backend for every panel and exactly one final assembler. Never silently substitute another backend when the selected runtime or package is missing; stop that render path and report the blocker.
-
-## Data and transformation gate
-
-Preserve all user-provided observations unless the user authorizes a scientifically justified subset. Solve rendering scale with rasterized marks, density views, or disclosed aggregation—not convenience sampling.
-
-Before adapting code, write the field mapping required by `references/asset-adaptation.md`: template field, user field, semantic role, unit, allowed values, group field, replicate unit, center, and uncertainty definition. Record exact before/after row and replicate counts for every exclusion. Preserve the source file.
-
-Check inherited transforms against the real data domain. Never silently remove non-positive values for a log scale, invent a pseudocount, reverse interpolation inputs incorrectly, or allow simulated/example data to execute in a production path. Use `scripts/figure_safety.py` for monotone interpolation and uncertainty-aware label placement where applicable.
-
-## Create loop
-
-For create or major revision, execute `references/workflow-create.md`:
-
-1. establish the figure contract;
-2. inspect data only in service of the scientific question;
-3. activate and complete the concrete-reference gate when applicable;
-4. resolve backend and runtime;
-5. select the adaptation level and map fields;
-6. implement at the final physical dimensions;
-7. render, inspect, fix, and rerender;
-8. validate and deliver.
-
-Use `scripts/compose.py` for multi-panel assembly when compatible. Use `scripts/reference_library.py` only for optional visual-reference retrieval when no concrete reference was selected. User colors outrank user palettes; both outrank an optional library reference and defaults. A visual reference never changes scientific semantics.
-
-## Render and QA gate
-
-Before delivery:
-
-1. Run `scripts/qa_validator.py` on final plotting source and resolve every FAIL.
-2. Render only with the declared backend(s) and final assembler.
-3. Run `scripts/audit_pdf_text.py <figure.pdf> --min-pt 5` on the vector master.
-4. Inspect every panel and the assembled figure at final physical size using `references/checklist.md`.
-5. When reference-driven, create an equal-size reference/candidate comparison and run `scripts/check_reference_fidelity.py`. A FIX verdict blocks a claim of fidelity.
-6. Run `scripts/check_skill_contract.py` only when maintaining this skill, not for each figure.
-
-Static checks do not prove that statistics, scientific meaning, or rendered composition are correct. Visual inspection remains mandatory.
-
-## Delivery
-
-Follow `references/delivery-contract.md`, `references/figure-legend-contract.md`, and `references/privacy-provenance.md`. Deliver the requested plotting source, editable vector master, high-resolution raster/preview, compact QA report, and the statistics/source-data facts needed by the legend.
-
-Keep exact asset paths, private filenames, template IDs, and working provenance in internal source headers or QA artifacts. Do not expose them in an ordinary user-facing summary unless the user asks.
-
-## Resource routes
-
-`manifest.yaml` is the declarative routing index. Read only the references required by the active route; do not load the whole library.
-
-| Condition | Read or run |
+| Need | Read or run |
 |---|---|
-| Always for create/major revision | `references/figure-contract.md`, `references/workflow-create.md` |
-| Concrete reference | `references/reference-driven-reconstruction.md`; run `scripts/check_reference_fidelity.py` |
-| Asset/example reuse | `references/asset-adaptation.md`, `references/directory-map.md`, `references/production-asset-metadata.md` |
-| Backend choice or mixed panels | `references/backend-selection.md`; use `scripts/backend_preference.py` |
-| Python plotting | `references/matplotlib.md`, `references/typography.md`, `references/color-palettes.md` |
-| R plotting | `references/r-rendering.md`; add `references/complexheatmap.md` only for ComplexHeatmap |
-| Multi-panel assembly | `references/multipanel-layout.md` |
-| Target journal | `references/journal-specs.md`, then `references/journal-intel.md` when journal-specific evidence is needed |
-| Export/delivery | `references/export-specs.md`, `references/delivery-contract.md`, `references/figure-legend-contract.md` |
-| QA/review | `references/checklist.md`, `references/common-pitfalls.md`; add `references/revision-cases.md` for reviewer simulation |
-| Optional reference library | `references/visual-reference-library.md`; use at most 3 candidates |
-| Source reconstruction maintenance | `references/source-reconstruction-library.md`; run `scripts/check_source_reconstruction_library.py` |
+| Orchestration and artifact schemas | `references/orchestrator-contracts.md`, `src/publication_figure_design/contracts/`, `src/publication_figure_design/orchestrator/runtime.py` |
+| Concrete reference or optimization | `references/reference-driven-reconstruction.md`, `scripts/compare_output_to_reference.py` |
+| Style compilation | `references/style-spec.md`, `scripts/style_compiler.py` |
+| Reference intake/library | `references/visual-reference-library.md`, `references/color-palettes.md`, `scripts/reference_library.py` |
+| Art direction and visual grammar | `references/art-direction.md`, `references/visual-grammar.md` |
+| Asset adaptation and reuse | `references/asset-adaptation.md`, `references/figure-legend-contract.md`, `references/privacy-provenance.md` |
+| Figure-family or backend choice | `references/figure-family-coverage.md`, `references/backend-selection.md` |
+| Journal target and physical sizing | `references/journal-specs.md`, `references/export-specs.md` |
+| Scientific encoding/uncertainty | `references/encoding-and-uncertainty.md` |
+| QA/export | `references/checklist.md`, `references/delivery-contract.md`, `references/export-specs.md`, `scripts/rendered_contrast.py`, `scripts/audit_pdf_text.py` |
+| Source reconstruction maintenance | `references/source-reconstruction-library.md`, `scripts/check_source_reconstruction_library.py`, `scripts/check_source_reference_catalog.py` |
+| Optimization packet | `scripts/prepare_visual_optimization.py`, `scripts/check_visual_optimization.py` |
 
-Do not import, execute, or copy an unlicensed third-party example collection. An audit may name such a collection and independently reconstruct its observable visual grammar with synthetic data and original code. Production assets under `assets/` remain implementation candidates and never override the adaptation gate.
+Do not execute untrusted reference-local code as part of intake. Prefer the constrained
+renderer/spec compiler path; if a legacy reproduction script is needed for a private,
+trusted asset, record that exception in the run artifact and keep it outside production
+retrieval.

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Ingest selected figures from the local figures4papers repository into the
-academic-figure-skill Visual Reference Library.
+publication-figure-design Visual Reference Library.
 
 These are actual publication figures from Chen Liu's figures4papers repo.
 They are marked as private_reference by default; change usage_scope if you

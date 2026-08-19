@@ -1,0 +1,142 @@
+{
+  "aesthetic_rating": null,
+  "code_path": "assets/visual-references/generated-archive/039470ddb18c09ae/code.py",
+  "created_at": "2026-08-12T16:57:27Z",
+  "data_density": null,
+  "figure_card_path": "assets/visual-references/generated-archive/039470ddb18c09ae/figure_card.json",
+  "figure_type": "area_stacked",
+  "id": "039470ddb18c09ae",
+  "image_path": "assets/visual-references/generated-archive/039470ddb18c09ae/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "generated independently; source license recorded in audit manifest",
+  "n_groups": null,
+  "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
+  "observable_visual_grammar": {
+    "aspect_class": "balanced",
+    "density": "high",
+    "panel_count": 16,
+    "panel_grid": [
+      4,
+      4
+    ],
+    "visual_family": "area_stacked"
+  },
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "atlas_area_stacked",
+    "mosaic": [
+      "ABCD",
+      "EFGH",
+      "IJKL",
+      "MNOP"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "area:atlas"
+      },
+      {
+        "id": "B",
+        "kind": "area:atlas"
+      },
+      {
+        "id": "C",
+        "kind": "area:atlas"
+      },
+      {
+        "id": "D",
+        "kind": "area:atlas"
+      },
+      {
+        "id": "E",
+        "kind": "area:atlas"
+      },
+      {
+        "id": "F",
+        "kind": "area:atlas"
+      },
+      {
+        "id": "G",
+        "kind": "area:atlas"
+      },
+      {
+        "id": "H",
+        "kind": "area:atlas"
+      },
+      {
+        "id": "I",
+        "kind": "area:atlas"
+      },
+      {
+        "id": "J",
+        "kind": "area:atlas"
+      },
+      {
+        "id": "K",
+        "kind": "area:atlas"
+      },
+      {
+        "id": "L",
+        "kind": "area:atlas"
+      },
+      {
+        "id": "M",
+        "kind": "area:atlas"
+      },
+      {
+        "id": "N",
+        "kind": "area:atlas"
+      },
+      {
+        "id": "O",
+        "kind": "area:atlas"
+      },
+      {
+        "id": "P",
+        "kind": "area:atlas"
+      }
+    ],
+    "source_observation": "16 stacked-area and composition variants arranged as an atlas"
+  },
+  "reconstruction_method": "independent",
+  "renderer_version": 3,
+  "reproduction_preview_path": "assets/visual-references/generated-archive/039470ddb18c09ae/image.png",
+  "review_status": "pending",
+  "scope": "generated-archive",
+  "sha256": "6a177d9563e2a955e76763a56797a70438e645fd19bb5aae3f49f9e6710b78b6",
+  "source": "independent visual-grammar reconstruction",
+  "source_action": "licensed_visual_source",
+  "source_fingerprint": "350c25e427d945dee5fd98316eb6ebe307304b9d187d954a88c05852d664a60b",
+  "source_license_class": "Apache-2.0",
+  "source_relative_path": "assets/chart-atlas/atlas-08-area-stacked.png",
+  "source_repository": "nature-figure",
+  "source_url": null,
+  "subtype": "area_stacked",
+  "tags": [
+    "source-reconstruction",
+    "nature-figure",
+    "area_stacked"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "area_stacked",
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/source-reconstructions/pairs/47-039470ddb18c09ae.png",
+    "final_size_inspected": true,
+    "hierarchy": "fail",
+    "individual_pair_opened": true,
+    "inspection_method": "individual equal-size source|reconstruction pair opened",
+    "inspection_order": 47,
+    "legend_footprint": "fail",
+    "notes": "FAIL after individual review of pair 47-039470ddb18c09ae.png: the area_stacked reconstruction preserves the broad observable topology/mark family, but not the source's exact panel semantics, annotation system, hierarchy, or visual finish. Retained as pending reconstruction; use the separately cataloged exact visual source for inspiration.",
+    "panel_balance": "fail",
+    "reviewed_at": "2026-08-14T12:08:47Z",
+    "reviewer": "Codex individual visual audit",
+    "text_legibility": "fail",
+    "verdict": "fail",
+    "whitespace": "fail"
+  }
+}

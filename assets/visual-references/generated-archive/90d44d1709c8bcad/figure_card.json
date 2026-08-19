@@ -1,0 +1,120 @@
+{
+  "schema": "publication-figure-design/figure-card-v1",
+  "source": "independent visual-grammar reconstruction",
+  "figure_type": "spatial_image_plate",
+  "canvas": {
+    "width_px": 1285,
+    "height_px": 1002,
+    "aspect_ratio": 1.282435,
+    "mode": "RGB"
+  },
+  "background": {
+    "rgb": [
+      255.0,
+      255.0,
+      255.0
+    ],
+    "hex": "#ffffff",
+    "near_white": true
+  },
+  "ink_coverage": 0.605845,
+  "palette": {
+    "dominant": [
+      {
+        "hex": "#ffffff",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "fraction": 0.502547,
+        "role": "background"
+      },
+      {
+        "hex": "#481a6c",
+        "rgb": [
+          72,
+          26,
+          108
+        ],
+        "fraction": 0.119314,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#003070",
+        "rgb": [
+          0,
+          48,
+          112
+        ],
+        "fraction": 0.110336,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#121212",
+        "rgb": [
+          18,
+          18,
+          18
+        ],
+        "fraction": 0.100741,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#0b0824",
+        "rgb": [
+          11,
+          8,
+          36
+        ],
+        "fraction": 0.05062,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#757575",
+        "rgb": [
+          117,
+          117,
+          117
+        ],
+        "fraction": 0.050251,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#26547c",
+        "rgb": [
+          38,
+          84,
+          124
+        ],
+        "fraction": 0.046784,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#160e3a",
+        "rgb": [
+          22,
+          14,
+          58
+        ],
+        "fraction": 0.019407,
+        "role": "data_or_annotation"
+      }
+    ],
+    "extraction": "extcolors-or-pillow-quantize"
+  },
+  "panels": {
+    "status": "manual_required",
+    "count": null,
+    "layout": null
+  },
+  "axes": {
+    "status": "manual_required"
+  },
+  "typography": {
+    "status": "manual_required"
+  },
+  "annotations": {
+    "status": "manual_required"
+  }
+}

@@ -1,22 +1,63 @@
-name: academic-figure-skill
-version: "2.0.0"
+name: publication-figure-design
+# Compatibility identifier for packaged adapters; this repository has one current implementation.
+version: "2.1.0"
 entrypoint: "SKILL.md"
+
+# The root manifest is the only release/version source. Adapters are generated
+# from this file and must not carry independent workflow rules.
+schema_version: "1.0"
+runtime:
+  - "SKILL.md"
+  - "manifest.yaml"
+  - "references/"
+  - "scripts/"
+  - "src/"
+  - "assets/visual-references/"
+  - "assets/registry.jsonl"
+  - "schemas/"
+  - "indexes/"
 
 always_load:
   - "references/figure-contract.md"
+  - "references/orchestrator-contracts.md"
 
 routes:
   create:
     when: "new manuscript figure or major revision"
     load:
       - "references/workflow-create.md"
+      - "references/encoding-and-uncertainty.md"
+      - "references/figure-family-coverage.md"
+      - "references/journal-specs.md"
   concrete_reference:
     when: "a concrete reference image is supplied or selected"
     load:
+      - "references/art-direction.md"
+      - "references/figure-family-coverage.md"
+      - "references/visual-grammar.md"
       - "references/reference-driven-reconstruction.md"
       - "references/asset-adaptation.md"
     run:
       - "scripts/check_reference_fidelity.py"
+      - "scripts/reference_image_analysis.py analyze"
+      - "scripts/style_compiler.py"
+  visual_optimization:
+    when: "an existing figure is optimized, polished, beautified, improved, or redesigned"
+    load:
+      - "references/art-direction.md"
+      - "references/visual-grammar.md"
+      - "references/reference-driven-reconstruction.md"
+      - "references/visual-reference-library.md"
+      - "references/checklist.md"
+      - "references/encoding-and-uncertainty.md"
+      - "references/journal-specs.md"
+      - "references/figure-family-coverage.md"
+    run:
+      - "scripts/prepare_visual_optimization.py"
+      - "scripts/compare_output_to_reference.py"
+      - "scripts/palette_manager.py"
+      - "scripts/rendered_contrast.py"
+      - "scripts/check_visual_optimization.py"
   asset_adaptation:
     when: "production assets, examples, or prior plotting code are considered"
     load:
@@ -36,20 +77,78 @@ routes:
       - "references/delivery-contract.md"
       - "references/figure-legend-contract.md"
       - "references/privacy-provenance.md"
+      - "references/encoding-and-uncertainty.md"
     run:
       - "scripts/qa_validator.py"
       - "scripts/audit_pdf_text.py"
+      - "scripts/rendered_contrast.py"
+      - "scripts/check_visual_optimization.py"
   maintain_skill:
     when: "the skill itself changes"
     run:
       - "scripts/check_skill_contract.py"
       - "scripts/check_source_reconstruction_library.py"
+      - "scripts/check_source_reference_catalog.py"
+      - "scripts/figure_family_coverage.py"
   source_reconstruction:
     when: "source-by-source visual grammar examples are audited, rebuilt, or validated"
     load:
       - "references/source-reconstruction-library.md"
     run:
       - "scripts/check_source_reconstruction_library.py"
+      - "scripts/review_source_reconstructions.py"
+      - "scripts/audit_generated_reproductions.py"
+      - "scripts/make_generated_reproduction_contact_sheet.py"
+      - "scripts/source_reference_catalog.py"
+      - "scripts/check_source_reference_catalog.py"
+  reference_intake:
+    when: "a user supplies one or more images to store in the visual reference library"
+    load:
+      - "references/visual-reference-library.md"
+      - "references/figure-family-coverage.md"
+      - "references/privacy-provenance.md"
+    run:
+      - "scripts/reference_library.py ingest"
+      - "scripts/reference_image_analysis.py analyze"
+      - "scripts/reference_image_analysis.py compare"
+      - "scripts/check_reference_reproductions.py"
+      - "scripts/check_reference_reproduction_fidelity.py"
+      - "scripts/reference_library.py validate"
+      - "scripts/reference_library.py rebuild"
+      - "scripts/reference_reconstruction.py (reference-local renderer helper)"
+      - "scripts/visual_evidence.py (comparison helper used by fidelity gates)"
+  reference_benchmark:
+    when: "the optional ChartMimic benchmark catalog is refreshed or queried"
+    load:
+      - "assets/reference-benchmarks/chartmimic/README.md"
+      - "assets/reference-benchmarks/champion_references.json"
+    run:
+      - "scripts/chartmimic_catalog.py"
+  index_build:
+    when: "reference retrieval indexes are rebuilt or refreshed"
+    run:
+      - "scripts/build_reference_indexes.py"
+  eval:
+    when: "retrieval or generation benchmark metrics need to be measured"
+    load:
+      - "assets/reference-benchmarks/golden_tasks.json"
+    run:
+      - "scripts/evaluate_benchmark.py"
+      - "scripts/trigger_benchmark.py"
+      - "scripts/regression_benchmark.py"
+  figure_family_coverage:
+    when: "the figure family or reference-library coverage needs to be selected or audited"
+    load:
+      - "references/figure-family-coverage.md"
+    run:
+      - "scripts/figure_family_coverage.py"
+  source_review_batch:
+    when: "a maintained source reconstruction or source catalog needs batch review"
+    load:
+      - "references/source-reconstruction-library.md"
+    run:
+      - "scripts/audit_source_reconstruction_batch.py"
+      - "scripts/audit_source_catalog_batch.py"
 
 backend_policy:
   precedence:
@@ -63,4 +162,5 @@ backend_policy:
 validation:
   skill_contract: "python scripts/check_skill_contract.py"
   source_reconstruction_library: "python scripts/check_source_reconstruction_library.py"
+  source_reference_catalog: "python scripts/check_source_reference_catalog.py"
   tests: "python -m unittest discover -s scripts -p test_*.py -v"

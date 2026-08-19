@@ -1,0 +1,66 @@
+{
+  "aesthetic_rating": 4.1,
+  "code_path": null,
+  "created_at": "2026-08-12T17:30:09Z",
+  "data_density": null,
+  "figure_type": "line_grid",
+  "id": "4db30b32b65e6b71",
+  "image_path": "assets/visual-references/references/4db30b32b65e6b71/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "unknown",
+  "n_groups": null,
+  "notes": "Exact source visual sample cataloged for private reference; distinct from independent reconstruction.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "rnagenscape_sweep",
+    "mosaic": [
+      "AB"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "line:sweep"
+      },
+      {
+        "id": "B",
+        "kind": "line:sweep"
+      }
+    ],
+    "source_observation": "paired parameter-sweep curves"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "4db30b32b65e6b7160ebe025993c2ffdaf6e240d836c253419e91649d3da8deb",
+  "source": "figures4papers visual source",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "4db30b32b65e6b7160ebe025993c2ffdaf6e240d836c253419e91649d3da8deb",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_RNAGenScape/figures/results_sweep.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "rnagenscape_sweep",
+  "tags": [
+    "source-catalog",
+    "figures4papers",
+    "line_grid"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "line_grid",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'rnagenscape_sweep' is a focused line_grid reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

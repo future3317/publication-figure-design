@@ -107,6 +107,25 @@ class TestSkillMdWorkflowHooks(unittest.TestCase):
         self.assertIn("references/reference-driven-reconstruction.md", self.skill_md)
         self.assertIn("scripts/check_reference_fidelity.py", self.skill_md)
 
+    def test_visual_optimization_route_is_mandatory_and_rendered(self):
+        self.assertIn("### Mandatory visual-optimization route", self.skill_md)
+        self.assertIn("scripts/check_visual_optimization.py", self.skill_md)
+        self.assertIn("Palette/font/alpha/line-width/marker-size/spacing-only", self.skill_md)
+        self.assertIn("Before | Reference | After", self.skill_md)
+        self.assertIn("prepare_visual_optimization.py", self.skill_md)
+        self.assertIn("Do not use generic `query()`", self.skill_md)
+
+    def test_optimization_requires_an_explicit_palette_decision_and_contrast_evidence(self):
+        root = _resolve_skill_root()
+        contract = (root / "references" / "reference-driven-reconstruction.md").read_text(
+            encoding="utf-8"
+        )
+        checklist = (root / "references" / "checklist.md").read_text(encoding="utf-8")
+        self.assertIn("palette_decision", contract)
+        self.assertIn("text_contrast", contract)
+        self.assertIn("rendered_contrast.py", contract)
+        self.assertIn("contrast_ratio", checklist)
+
     def test_reference_fidelity_qa_is_complete(self):
         root = _resolve_skill_root()
         checklist = (root / "references" / "checklist.md").read_text(encoding="utf-8")
@@ -130,18 +149,25 @@ class TestWorkflowReferenceQueries(unittest.TestCase):
         p.write_bytes(data)
         return p
 
+    def _review(self, ref, rating=4):
+        return self.lib.review(ref.id, rating, {
+            "final_size_inspected": True, "hierarchy": "pass", "panel_balance": "pass",
+            "whitespace": "pass", "legend_footprint": "pass", "text_legibility": "pass",
+            "reviewer": "test rendered review",
+        })
+
     def test_create_workflow_can_query_reference(self):
         src = self._make_image("ref1.png", b"\x89PNG\r\n\x1a\nREF001")
-        self.lib.ingest(
+        ref = self.lib.ingest(
             src,
             "GroupedViolin",
             metadata_override={
                 "tags": ["pastel", "minimal"],
                 "journal_style": "Nature",
                 "palette": "summer_beach",
-                "aesthetic_rating": 4,
             },
         )
+        self._review(ref, 4)
 
         refs = self.lib.query(
             figure_type="GroupedViolin",
@@ -151,19 +177,19 @@ class TestWorkflowReferenceQueries(unittest.TestCase):
             limit=3,
         )
         self.assertEqual(len(refs), 1)
-        self.assertEqual(refs[0].figure_type, "GroupedViolin")
+        self.assertEqual(refs[0].figure_type, "grouped_violin")
 
     def test_query_returns_at_most_limit_candidates(self):
         for i in range(5):
             src = self._make_image(f"ref{i}.png", f"\x89PNG\r\n\x1a\nREF{i:03d}".encode())
-            self.lib.ingest(
+            ref = self.lib.ingest(
                 src,
                 "PCA",
                 metadata_override={
                     "tags": ["pastel"],
-                    "aesthetic_rating": 4,
                 },
             )
+            self._review(ref, 4)
 
         refs = self.lib.query(figure_type="PCA", tags=["pastel"], limit=3)
         self.assertLessEqual(len(refs), 3)
@@ -208,20 +234,21 @@ class TestWorkflowReferenceQueries(unittest.TestCase):
     def test_figure_type_query_only_matches_same_type(self):
         violin = self._make_image("v.png", b"\x89PNG\r\n\x1a\nVIOLIN")
         pca = self._make_image("p.png", b"\x89PNG\r\n\x1a\nPCA001")
-        self.lib.ingest(violin, "Violin", metadata_override={"tags": ["pastel"]})
-        self.lib.ingest(pca, "PCA", metadata_override={"tags": ["pastel"]})
+        self._review(self.lib.ingest(violin, "Violin", metadata_override={"tags": ["pastel"]}))
+        self._review(self.lib.ingest(pca, "PCA", metadata_override={"tags": ["pastel"]}))
 
         refs = self.lib.query(figure_type="Violin", tags=["pastel"])
         self.assertEqual(len(refs), 1)
-        self.assertEqual(refs[0].figure_type, "Violin")
+        self.assertEqual(refs[0].figure_type, "violin")
 
     def test_n_groups_filter_works(self):
         src = self._make_image("ng.png", b"\x89PNG\r\n\x1a\nNGROUP")
-        self.lib.ingest(
+        ref = self.lib.ingest(
             src,
             "GroupedViolin",
             metadata_override={"tags": ["minimal"], "n_groups": 4},
         )
+        self._review(ref)
 
         refs = self.lib.query(figure_type="GroupedViolin", n_groups=4)
         self.assertEqual(len(refs), 1)

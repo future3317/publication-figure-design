@@ -87,10 +87,15 @@ def run_smoke() -> dict:
                 "palette": "summer_beach",
                 "palette_policy": "preserve",
                 "journal_style": "Nature",
-                "aesthetic_rating": 4,
                 "n_groups": 3,
             },
         )
+        review = {
+            "final_size_inspected": True, "hierarchy": "pass", "panel_balance": "pass",
+            "whitespace": "pass", "legend_footprint": "pass", "text_legibility": "pass",
+            "reviewer": "e2e rendered review",
+        }
+        ref_preserve = lib.review(ref_preserve.id, 4, review)
 
         ref_adaptable = lib.ingest(
             adaptable_img,
@@ -100,10 +105,10 @@ def run_smoke() -> dict:
                 "palette": "sweet_macaron",
                 "palette_policy": "adaptable",
                 "journal_style": "Cell",
-                "aesthetic_rating": 4,
                 "n_groups": 3,
             },
         )
+        ref_adaptable = lib.review(ref_adaptable.id, 4, review)
 
         # 2. Query for GroupedViolin references matching "pastel" + "Nature".
         refs = lib.query(

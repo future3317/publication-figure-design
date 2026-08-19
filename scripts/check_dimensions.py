@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Academic Figure Skill Figure Dimension Compliance Checker.
+Publication Figure Design figure-dimension compliance checker.
 
 Checks figure dimensions against journal column widths:
   - Single column: 89 mm (tolerance +/- 3 mm)
@@ -338,7 +338,7 @@ def check(target, journal="nature-genetics"):
 # ---------------------------------------------------------------------------
 def main():
     parser = argparse.ArgumentParser(
-        description="Academic Figure Skill Figure Dimension Checker"
+        description="Publication Figure Design Figure Dimension Checker"
     )
     parser.add_argument(
         "target",

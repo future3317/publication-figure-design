@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Academic Figure Skill Font Size Compliance Checker.
+Publication Figure Design font-size compliance checker.
 
 Checks scientific figure code for font size violations (minimum 5pt at print
 dimensions) and DejaVu Sans / generic font family usage. Supports Python
@@ -258,7 +258,7 @@ def check(target, journal="nature-genetics"):
 # ---------------------------------------------------------------------------
 def main():
     parser = argparse.ArgumentParser(
-        description="Academic Figure Skill Font Size & Family Checker"
+        description="Publication Figure Design Font Size & Family Checker"
     )
     parser.add_argument(
         "target",

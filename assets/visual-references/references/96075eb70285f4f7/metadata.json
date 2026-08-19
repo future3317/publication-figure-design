@@ -1,0 +1,70 @@
+{
+  "aesthetic_rating": 4.5,
+  "code_path": null,
+  "created_at": "2026-08-12T17:30:09Z",
+  "data_density": null,
+  "figure_type": "comparison_composite",
+  "id": "96075eb70285f4f7",
+  "image_path": "assets/visual-references/references/96075eb70285f4f7/image.png",
+  "journal_style": null,
+  "layout": "multi-panel",
+  "license": "unknown",
+  "n_groups": null,
+  "notes": "Exact source visual sample cataloged for private reference; distinct from independent reconstruction.",
+  "palette": null,
+  "palette_policy": "preserve",
+  "production_ready": false,
+  "reconstruction_blueprint": {
+    "annotation_model": "panel_letters + local_legends + direct_callouts",
+    "blueprint_id": "cflows_gene_regulatory",
+    "mosaic": [
+      "ABC"
+    ],
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "network:regulatory"
+      },
+      {
+        "id": "B",
+        "kind": "scatter:trajectory"
+      },
+      {
+        "id": "C",
+        "kind": "line:dynamics"
+      }
+    ],
+    "source_observation": "network topology, state-space trajectory, and temporal dynamics"
+  },
+  "reference_kind": "exact_visual_source",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "96075eb70285f4f72869b99398c9a923336fbc3a5188883d9e8415e1cc027a46",
+  "source": "figures4papers visual source",
+  "source_action": "independent_reconstruction",
+  "source_fingerprint": "96075eb70285f4f72869b99398c9a923336fbc3a5188883d9e8415e1cc027a46",
+  "source_license_class": "unknown",
+  "source_relative_path": "figure_Cflows/figures/fig2_comparison_GeneRegulatory.png",
+  "source_repository": "figures4papers",
+  "source_url": null,
+  "subtype": "cflows_gene_regulatory",
+  "tags": [
+    "source-catalog",
+    "figures4papers",
+    "comparison_composite"
+  ],
+  "usage_scope": "internal_reference",
+  "visual_family": "comparison_composite",
+  "visual_review": {
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Exact source image inspected at equal display size. 'cflows_gene_regulatory' is a focused comparison_composite reference with a distinct panel topology and annotation system; retrieve it only for compatible visual grammar, not as runnable implementation code.",
+    "panel_balance": "pass",
+    "review_kind": "exact-source-pixel-inspection",
+    "reviewed_at": "2026-08-12T18:11:34Z",
+    "reviewer": "Codex visual audit",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  }
+}

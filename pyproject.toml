@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "publication-figure-design"
+# Package compatibility identifier; the repository keeps one current implementation.
+version = "2.1.0"
+description = "Reference-first orchestration and QA for publication-grade scientific figures"
+requires-python = ">=3.10"
+dependencies = [
+  "Pillow>=9.5",
+  "PyYAML>=6.0",
+]
+
+[project.scripts]
+pfd = "publication_figure_design.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+publication_figure_design = ["schemas/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "scripts"]
+python_files = ["test_*.py"]

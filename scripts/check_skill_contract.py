@@ -41,7 +41,7 @@ def validate_skill(root: Path | str) -> dict[str, object]:
     lines = skill.splitlines()
     if len(lines) > 300:
         errors.append(f"SKILL.md has {len(lines)} lines; router limit is 300.")
-    if not re.match(r"^---\s*\nname:\s*academic-figure-skill\s*\ndescription:", skill):
+    if not re.match(r"^---\s*\nname:\s*publication-figure-design\s*\ndescription:", skill):
         errors.append("SKILL.md frontmatter must contain only the expected name and description fields.")
     manifest = ""
     if not manifest_path.is_file():
@@ -78,6 +78,18 @@ def validate_skill(root: Path | str) -> dict[str, object]:
             errors.append(
                 f"Third-party source may be audited but must not become a runtime or copy dependency: {phrase}"
             )
+
+    # Production scripts and figure assets use one stable entrypoint. Numbered
+    # successors are a maintenance fork, while historical card metadata keeps
+    # its provenance separately and is intentionally outside this scan.
+    for base in (root / "scripts", root / "assets" / "figures"):
+        if not base.is_dir():
+            continue
+        for path in base.rglob("*"):
+            if not path.is_file() or path.suffix.lower() == ".pyc":
+                continue
+            if re.search(r"(?:^|[_-])(?:v\d+|final\d*|draft\d*)(?:[_-]|\.|$)", path.name, re.IGNORECASE):
+                errors.append(f"Production path uses an iteration-suffixed filename: {path.relative_to(root)}")
 
     return {
         "ok": not errors,
