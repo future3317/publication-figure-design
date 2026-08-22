@@ -1,0 +1,123 @@
+{
+  "aesthetic_rating": 4.2,
+  "aliases": [],
+  "allowed_usage": [
+    "private_reference"
+  ],
+  "analysis_quality": "reviewed",
+  "author": null,
+  "code_path": "assets/visual-references/references/0789bc5bea8a1131/code.py",
+  "colorspace": "embedded_icc",
+  "created_at": "2026-08-22T11:28:50Z",
+  "data_density": "high",
+  "dimensions": [
+    1440,
+    1496
+  ],
+  "eligible_for_code_reuse": false,
+  "eligible_for_reconstruction": true,
+  "eligible_for_structure": true,
+  "eligible_for_style": true,
+  "figure_card_path": "assets/visual-references/references/0789bc5bea8a1131/figure_card.json",
+  "figure_type": "radial_bar",
+  "has_alpha": false,
+  "id": "0789bc5bea8a1131",
+  "image_path": "assets/visual-references/references/0789bc5bea8a1131/image.jpg",
+  "journal_style": null,
+  "layout": "radial",
+  "license": "user-supplied; redistribution not established",
+  "lifecycle_state": "reviewed",
+  "n_groups": null,
+  "notes": "Radial grouped bars arranged in separated sector panels with outer category ribbons, numeric direct labels, and a centered Baseline disc.",
+  "original_quality": "reviewed",
+  "palette": null,
+  "palette_policy": "preserve",
+  "perceptual_hash": "b873c7acc9d83233",
+  "preview_path": "assets/visual-references/references/0789bc5bea8a1131/preview.png",
+  "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "reviewer": "Codex visual intake review 2026-08-22",
+        "state": "reviewed"
+      }
+    ],
+    "state": "reviewed"
+  },
+  "reconstruction_fidelity": "reviewed",
+  "reference_kind": "user_supplied",
+  "reproduction_preview_path": "assets/visual-references/references/0789bc5bea8a1131/reconstruction.png",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "0789bc5bea8a113190eebe67d0463b966b0de16b67f6c1e709ef289d191fa75b",
+  "source": "user-supplied reference image",
+  "source_url": null,
+  "subtype": "radial_grouped_bar",
+  "tags": [
+    "radial-bar",
+    "polar",
+    "grouped-bars",
+    "circular-layout",
+    "direct-labels"
+  ],
+  "thumbnail_path": "assets/visual-references/references/0789bc5bea8a1131/thumbnail.png",
+  "usage_scope": "private_reference",
+  "venue": null,
+  "visual_grammar": {
+    "annotations_typography": {
+      "callouts_and_leaders": "direct labels or compact equations stay adjacent to their marks; no decorative callouts",
+      "placement_and_clearance": "labels remain outside dense marks or use explicit clearance; no light text on light fills",
+      "text_hierarchy": "outer sector names are tangentially rotated; values are placed at bar tips; center reads Baseline"
+    },
+    "canvas_composition": {
+      "alignment_and_spacing": "consistent gutters and clearance around labels; no overlaps at final size",
+      "aspect_and_panel_layout": "single radial canvas with 12 separated sector panels and a centered baseline disc",
+      "visual_hierarchy": "data marks dominate; labels and legend are secondary; whitespace is intentional"
+    },
+    "chart_marks_axes": {
+      "axes_and_scales": "axes/scales are explicit where quantitative coordinates are present; radial geometry declares its baseline",
+      "guides_and_grid": "guides are sparse, low-contrast, and subordinate to marks",
+      "marks_and_encoding": "three radial bars per sector with variable radial extent and numeric value labels"
+    },
+    "connectors": "not_present",
+    "legend_key": {
+      "entries_and_encoding": "one entry per semantic color/mark role",
+      "frame_treatment": "frameless or very light frame",
+      "placement": "placed in the least dense whitespace region",
+      "scope": "bottom-centered three-entry legend without a frame"
+    },
+    "must_match": [
+      "sector gaps and radial symmetry",
+      "three-color role mapping",
+      "center baseline disc",
+      "tangential labels"
+    ],
+    "objects_material": "not_present",
+    "palette_roles": {
+      "background": "white background with no tinted page panel",
+      "contrast_and_emphasis": "dark text and outlines on light fills; emphasis uses saturated categorical marks",
+      "roles_and_proportions": "teal Beijing, pink Tianjin, purple Hebei; pastel sector backgrounds; black outlines"
+    },
+    "repetition_structures": {
+      "count_spacing_rhythm": "repeatable rhythm is consistent across marks",
+      "grouping_and_alignment": "groups align to their panel or baseline",
+      "topology": "12 sectors repeat the same three-bar rhythm with varying magnitude; sector labels align to their wedge",
+      "variation_and_emphasis": "variation is carried by magnitude or position, not arbitrary decoration"
+    }
+  },
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/reproduction-audit/0789bc5bea8a1131-reference-vs-reconstruction.png",
+    "comparison_ssim": 0.929608,
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Synthetic data and independent renderer reproduce the observed visual grammar; source data, labels, and original plotting code were not copied. Keep as private visual inspiration until benchmarked.",
+    "panel_balance": "pass",
+    "reconstruction_fidelity": "justified_deviation",
+    "review_kind": "equal-size source and synthetic reconstruction inspection",
+    "reviewer": "Codex visual intake review 2026-08-22",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  },
+  "year": null
+}

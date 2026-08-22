@@ -1,0 +1,124 @@
+{
+  "aesthetic_rating": 4.2,
+  "aliases": [],
+  "allowed_usage": [
+    "private_reference"
+  ],
+  "analysis_quality": "reviewed",
+  "author": null,
+  "code_path": "assets/visual-references/references/7f5b0663c1e25be3/code.py",
+  "colorspace": "embedded_icc",
+  "created_at": "2026-08-22T11:28:52Z",
+  "data_density": "high",
+  "dimensions": [
+    1440,
+    1592
+  ],
+  "eligible_for_code_reuse": false,
+  "eligible_for_reconstruction": true,
+  "eligible_for_structure": true,
+  "eligible_for_style": true,
+  "figure_card_path": "assets/visual-references/references/7f5b0663c1e25be3/figure_card.json",
+  "figure_type": "grouped_violin",
+  "has_alpha": false,
+  "id": "7f5b0663c1e25be3",
+  "image_path": "assets/visual-references/references/7f5b0663c1e25be3/image.jpg",
+  "journal_style": null,
+  "layout": "paired-groups",
+  "license": "user-supplied; redistribution not established",
+  "lifecycle_state": "reviewed",
+  "n_groups": null,
+  "notes": "Paired pre/post distribution comparison using split violins, boxplots, jittered raw points, mean diamonds, and connecting lines.",
+  "original_quality": "reviewed",
+  "palette": null,
+  "palette_policy": "preserve",
+  "perceptual_hash": "f8cbc71834c46cfb",
+  "preview_path": "assets/visual-references/references/7f5b0663c1e25be3/preview.png",
+  "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "reviewer": "Codex visual intake review 2026-08-22",
+        "state": "reviewed"
+      }
+    ],
+    "state": "reviewed"
+  },
+  "reconstruction_fidelity": "reviewed",
+  "reference_kind": "user_supplied",
+  "reproduction_preview_path": "assets/visual-references/references/7f5b0663c1e25be3/reconstruction.png",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "7f5b0663c1e25be32469c3ef439ba07d5fcb92c4cbaa418693508913d5b2cdb5",
+  "source": "user-supplied reference image",
+  "source_url": null,
+  "subtype": "paired_grouped_violin",
+  "tags": [
+    "violin",
+    "boxplot",
+    "raw-points",
+    "paired-groups",
+    "mean-connector",
+    "before-after"
+  ],
+  "thumbnail_path": "assets/visual-references/references/7f5b0663c1e25be3/thumbnail.png",
+  "usage_scope": "private_reference",
+  "venue": null,
+  "visual_grammar": {
+    "annotations_typography": {
+      "callouts_and_leaders": "direct labels or compact equations stay adjacent to their marks; no decorative callouts",
+      "placement_and_clearance": "labels remain outside dense marks or use explicit clearance; no light text on light fills",
+      "text_hierarchy": "species title and legend at upper right; bold axis titles; group labels below marks"
+    },
+    "canvas_composition": {
+      "alignment_and_spacing": "consistent gutters and clearance around labels; no overlaps at final size",
+      "aspect_and_panel_layout": "single tall canvas with two separated x groups: Pre and Post; two species per group",
+      "visual_hierarchy": "data marks dominate; labels and legend are secondary; whitespace is intentional"
+    },
+    "chart_marks_axes": {
+      "axes_and_scales": "axes/scales are explicit where quantitative coordinates are present; radial geometry declares its baseline",
+      "guides_and_grid": "guides are sparse, low-contrast, and subordinate to marks",
+      "marks_and_encoding": "violin distributions, narrow boxplots, raw jitter points, mean diamonds, and connecting mean segments"
+    },
+    "connectors": "not_present",
+    "legend_key": {
+      "entries_and_encoding": "one entry per semantic color/mark role",
+      "frame_treatment": "frameless or very light frame",
+      "placement": "placed in the least dense whitespace region",
+      "scope": "upper-right two-entry legend with a short title and no enclosing frame"
+    },
+    "must_match": [
+      "paired group spacing",
+      "species color identity across violin/box/points",
+      "raw-point visibility",
+      "mean connector direction"
+    ],
+    "objects_material": "not_present",
+    "palette_roles": {
+      "background": "white background with no tinted page panel",
+      "contrast_and_emphasis": "dark text and outlines on light fills; emphasis uses saturated categorical marks",
+      "roles_and_proportions": "salmon Versicolor and muted blue Virginica; translucent fills with darker outlines"
+    },
+    "repetition_structures": {
+      "count_spacing_rhythm": "repeatable rhythm is consistent across marks",
+      "grouping_and_alignment": "groups align to their panel or baseline",
+      "topology": "same two-species stack repeats for Pre and Post with a controlled gap",
+      "variation_and_emphasis": "variation is carried by magnitude or position, not arbitrary decoration"
+    }
+  },
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/reproduction-audit/7f5b0663c1e25be3-reference-vs-reconstruction.png",
+    "comparison_ssim": 0.963868,
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Synthetic data and independent renderer reproduce the observed visual grammar; source data, labels, and original plotting code were not copied. Keep as private visual inspiration until benchmarked.",
+    "panel_balance": "pass",
+    "reconstruction_fidelity": "justified_deviation",
+    "review_kind": "equal-size source and synthetic reconstruction inspection",
+    "reviewer": "Codex visual intake review 2026-08-22",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  },
+  "year": null
+}

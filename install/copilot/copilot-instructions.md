@@ -16,7 +16,7 @@ Runtime bundle:
 - `schemas/`
 - `indexes/`
 
-Generated: 2026-08-19 03:07 UTC
+Generated: 2026-08-22 11:43 UTC
 
 For publication-figure tasks, use the canonical `SKILL.md`, manifest route, and
 bundled runtime files. These instructions only provide loading context.

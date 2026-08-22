@@ -1,0 +1,124 @@
+{
+  "aesthetic_rating": 4.2,
+  "aliases": [],
+  "allowed_usage": [
+    "private_reference"
+  ],
+  "analysis_quality": "reviewed",
+  "author": null,
+  "code_path": "assets/visual-references/references/69782084ad8f59e4/code.py",
+  "colorspace": "embedded_icc",
+  "created_at": "2026-08-22T11:28:53Z",
+  "data_density": "high",
+  "dimensions": [
+    1440,
+    654
+  ],
+  "eligible_for_code_reuse": false,
+  "eligible_for_reconstruction": true,
+  "eligible_for_structure": true,
+  "eligible_for_style": true,
+  "figure_card_path": "assets/visual-references/references/69782084ad8f59e4/figure_card.json",
+  "figure_type": "ordination",
+  "has_alpha": false,
+  "id": "69782084ad8f59e4",
+  "image_path": "assets/visual-references/references/69782084ad8f59e4/image.jpg",
+  "journal_style": null,
+  "layout": "1x2",
+  "license": "user-supplied; redistribution not established",
+  "lifecycle_state": "reviewed",
+  "n_groups": null,
+  "notes": "Two-panel PCoA ordination with group-colored points, translucent confidence ellipses, dashed zero axes, PERMANOVA annotations, and panel letters.",
+  "original_quality": "reviewed",
+  "palette": null,
+  "palette_policy": "preserve",
+  "perceptual_hash": "8e46ad355a51da1a",
+  "preview_path": "assets/visual-references/references/69782084ad8f59e4/preview.png",
+  "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "reviewer": "Codex visual intake review 2026-08-22",
+        "state": "reviewed"
+      }
+    ],
+    "state": "reviewed"
+  },
+  "reconstruction_fidelity": "reviewed",
+  "reference_kind": "user_supplied",
+  "reproduction_preview_path": "assets/visual-references/references/69782084ad8f59e4/reconstruction.png",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "69782084ad8f59e4b83b7922027d26df451d5bc365335cc914f89b27fd43be60",
+  "source": "user-supplied reference image",
+  "source_url": null,
+  "subtype": "pcoa_two_panel",
+  "tags": [
+    "pcoa",
+    "ordination",
+    "two-panel",
+    "group-ellipses",
+    "permanova",
+    "embedding"
+  ],
+  "thumbnail_path": "assets/visual-references/references/69782084ad8f59e4/thumbnail.png",
+  "usage_scope": "private_reference",
+  "venue": null,
+  "visual_grammar": {
+    "annotations_typography": {
+      "callouts_and_leaders": "direct labels or compact equations stay adjacent to their marks; no decorative callouts",
+      "placement_and_clearance": "labels remain outside dense marks or use explicit clearance; no light text on light fills",
+      "text_hierarchy": "PERMANOVA, R2, and P annotations in the upper-left of each panel; titles centered above panels"
+    },
+    "canvas_composition": {
+      "alignment_and_spacing": "consistent gutters and clearance around labels; no overlaps at final size",
+      "aspect_and_panel_layout": "wide 1x2 panel layout with equal axes, shared visual grammar, and panel letters A/B",
+      "visual_hierarchy": "data marks dominate; labels and legend are secondary; whitespace is intentional"
+    },
+    "chart_marks_axes": {
+      "axes_and_scales": "axes/scales are explicit where quantitative coordinates are present; radial geometry declares its baseline",
+      "guides_and_grid": "guides are sparse, low-contrast, and subordinate to marks",
+      "marks_and_encoding": "filled points inside group ellipses; dashed horizontal/vertical zero guides"
+    },
+    "connectors": "not_present",
+    "legend_key": {
+      "entries_and_encoding": "one entry per semantic color/mark role",
+      "frame_treatment": "frameless or very light frame",
+      "placement": "placed in the least dense whitespace region",
+      "scope": "compact lower-left two-entry legend in the first panel only"
+    },
+    "must_match": [
+      "equal panel widths",
+      "group color and ellipse pairing",
+      "zero-axis guides",
+      "panel letters"
+    ],
+    "objects_material": "not_present",
+    "palette_roles": {
+      "background": "white background with no tinted page panel",
+      "contrast_and_emphasis": "dark text and outlines on light fills; emphasis uses saturated categorical marks",
+      "roles_and_proportions": "coral Control and cyan T2D points with matching translucent confidence ellipses"
+    },
+    "repetition_structures": {
+      "count_spacing_rhythm": "repeatable rhythm is consistent across marks",
+      "grouping_and_alignment": "groups align to their panel or baseline",
+      "topology": "two ordination panels repeat the same Control/T2D mark system while changing distance metric",
+      "variation_and_emphasis": "variation is carried by magnitude or position, not arbitrary decoration"
+    }
+  },
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/reproduction-audit/69782084ad8f59e4-reference-vs-reconstruction.png",
+    "comparison_ssim": 0.94603,
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Synthetic data and independent renderer reproduce the observed visual grammar; source data, labels, and original plotting code were not copied. Keep as private visual inspiration until benchmarked.",
+    "panel_balance": "pass",
+    "reconstruction_fidelity": "justified_deviation",
+    "review_kind": "equal-size source and synthetic reconstruction inspection",
+    "reviewer": "Codex visual intake review 2026-08-22",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  },
+  "year": null
+}

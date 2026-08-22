@@ -1,0 +1,17 @@
+{
+  "reference_size": [
+    1440,
+    1326
+  ],
+  "candidate_size": [
+    1440,
+    1326
+  ],
+  "size_match": true,
+  "size": [
+    1440,
+    1326
+  ],
+  "ssim": 0.944498,
+  "mean_absolute_error": 28.257723
+}

@@ -16,7 +16,7 @@ Runtime bundle:
 - `schemas/`
 - `indexes/`
 
-Generated: 2026-08-19 03:07 UTC
+Generated: 2026-08-22 11:43 UTC
 
 Install this directory at `~/.claude/skills/publication-figure-design/`.
 Load `SKILL.md` and resolve all relative scripts/resources from that directory.

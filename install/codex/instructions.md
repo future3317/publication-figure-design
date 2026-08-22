@@ -16,7 +16,7 @@ Runtime bundle:
 - `schemas/`
 - `indexes/`
 
-Generated: 2026-08-19 03:07 UTC
+Generated: 2026-08-22 11:43 UTC
 
 Load `SKILL.md` as the instruction entrypoint. When a route names a script,
 schema, index, or reference asset, use the bundled relative path; do not

@@ -4,9 +4,12 @@ Thank you for improving Publication Figure Design.
 
 ## Development
 
-Use Python 3.10+ and install dependencies from `requirements.txt`. From the repository root, run:
+Use the project Conda environment `piepaper` for all repository commands. On the
+maintainer workstation its interpreter is `D:\Anaconda\envs\piepaper\python.exe`.
+Install dependencies there, never in Conda `base`, and run from the repository root:
 
 ```bash
+conda activate piepaper
 python -m unittest discover -s scripts -p 'test_*.py' -q
 python scripts/check_skill_contract.py
 python scripts/check_references.py

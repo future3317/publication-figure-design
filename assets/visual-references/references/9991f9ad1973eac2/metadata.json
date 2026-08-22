@@ -1,0 +1,122 @@
+{
+  "aesthetic_rating": 4.2,
+  "aliases": [],
+  "allowed_usage": [
+    "private_reference"
+  ],
+  "analysis_quality": "reviewed",
+  "author": null,
+  "code_path": "assets/visual-references/references/9991f9ad1973eac2/code.py",
+  "colorspace": "embedded_icc",
+  "created_at": "2026-08-22T11:28:53Z",
+  "data_density": "low",
+  "dimensions": [
+    1088,
+    878
+  ],
+  "eligible_for_code_reuse": false,
+  "eligible_for_reconstruction": true,
+  "eligible_for_structure": true,
+  "eligible_for_style": true,
+  "figure_card_path": "assets/visual-references/references/9991f9ad1973eac2/figure_card.json",
+  "figure_type": "radial_arc_bar",
+  "has_alpha": false,
+  "id": "9991f9ad1973eac2",
+  "image_path": "assets/visual-references/references/9991f9ad1973eac2/image.jpg",
+  "journal_style": null,
+  "layout": "arc-over-bars",
+  "license": "user-supplied; redistribution not established",
+  "lifecycle_state": "reviewed",
+  "n_groups": null,
+  "notes": "Minimal semi-circular nested arc segments above a three-part horizontal bar, with centered labels and a two-row legend.",
+  "original_quality": "reviewed",
+  "palette": null,
+  "palette_policy": "preserve",
+  "perceptual_hash": "bee0c19f9e682577",
+  "preview_path": "assets/visual-references/references/9991f9ad1973eac2/preview.png",
+  "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "reviewer": "Codex visual intake review 2026-08-22",
+        "state": "reviewed"
+      }
+    ],
+    "state": "reviewed"
+  },
+  "reconstruction_fidelity": "reviewed",
+  "reference_kind": "user_supplied",
+  "reproduction_preview_path": "assets/visual-references/references/9991f9ad1973eac2/reconstruction.png",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "9991f9ad1973eac29c71bf04559907ab683305f3465d8d1a956bad0dcaf1ec30",
+  "source": "user-supplied reference image",
+  "source_url": null,
+  "subtype": "semi_circular_arc_bar",
+  "tags": [
+    "radial-arc",
+    "semi-circular",
+    "percentage",
+    "bar-comparison",
+    "minimal"
+  ],
+  "thumbnail_path": "assets/visual-references/references/9991f9ad1973eac2/thumbnail.png",
+  "usage_scope": "private_reference",
+  "venue": null,
+  "visual_grammar": {
+    "annotations_typography": {
+      "callouts_and_leaders": "direct labels or compact equations stay adjacent to their marks; no decorative callouts",
+      "placement_and_clearance": "labels remain outside dense marks or use explicit clearance; no light text on light fills",
+      "text_hierarchy": "Saitama centered above the outer arc; percentages centered inside high-contrast segments"
+    },
+    "canvas_composition": {
+      "alignment_and_spacing": "consistent gutters and clearance around labels; no overlaps at final size",
+      "aspect_and_panel_layout": "single wide canvas with nested upper arcs, a three-part horizontal bar, and a bottom legend",
+      "visual_hierarchy": "data marks dominate; labels and legend are secondary; whitespace is intentional"
+    },
+    "chart_marks_axes": {
+      "axes_and_scales": "axes/scales are explicit where quantitative coordinates are present; radial geometry declares its baseline",
+      "guides_and_grid": "guides are sparse, low-contrast, and subordinate to marks",
+      "marks_and_encoding": "thick semi-circular ring segments and aligned rectangular percentage bars"
+    },
+    "connectors": "not_present",
+    "legend_key": {
+      "entries_and_encoding": "one entry per semantic color/mark role",
+      "frame_treatment": "frameless or very light frame",
+      "placement": "placed in the least dense whitespace region",
+      "scope": "bottom-centered two-row legend grouped by Arc and Bar roles"
+    },
+    "must_match": [
+      "nested arc radii",
+      "arc-to-bar percentage correspondence",
+      "large empty whitespace around marks"
+    ],
+    "objects_material": "not_present",
+    "palette_roles": {
+      "background": "white background with no tinted page panel",
+      "contrast_and_emphasis": "dark text and outlines on light fills; emphasis uses saturated categorical marks",
+      "roles_and_proportions": "pink outer arc, navy middle arc, salmon/lilac inner arcs; blue/peach/lilac bars"
+    },
+    "repetition_structures": {
+      "count_spacing_rhythm": "repeatable rhythm is consistent across marks",
+      "grouping_and_alignment": "groups align to their panel or baseline",
+      "topology": "four arc roles nest concentrically; three bar roles repeat on one baseline",
+      "variation_and_emphasis": "variation is carried by magnitude or position, not arbitrary decoration"
+    }
+  },
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/reproduction-audit/9991f9ad1973eac2-reference-vs-reconstruction.png",
+    "comparison_ssim": 0.946793,
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Synthetic data and independent renderer reproduce the observed visual grammar; source data, labels, and original plotting code were not copied. Keep as private visual inspiration until benchmarked.",
+    "panel_balance": "pass",
+    "reconstruction_fidelity": "justified_deviation",
+    "review_kind": "equal-size source and synthetic reconstruction inspection",
+    "reviewer": "Codex visual intake review 2026-08-22",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  },
+  "year": null
+}

@@ -44,6 +44,10 @@ pfd index build
 pfd eval
 ```
 
+Run all Python commands through the repository runtime convention in
+`references/runtime-environment.md`: use the `piepaper` Conda environment and never
+silently fall back to Conda `base` or system Python.
+
 Every persisted session records `input_hash`, the concrete reference-index version,
 selected reference ids, renderer version, iteration history, QA result, and final output
 hash. Resume must reuse the recorded selection; it must not rerun an unseeded recommendation.

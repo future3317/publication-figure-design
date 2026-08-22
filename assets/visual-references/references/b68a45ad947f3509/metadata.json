@@ -1,0 +1,123 @@
+{
+  "aesthetic_rating": 4.2,
+  "aliases": [],
+  "allowed_usage": [
+    "private_reference"
+  ],
+  "analysis_quality": "reviewed",
+  "author": null,
+  "code_path": "assets/visual-references/references/b68a45ad947f3509/code.py",
+  "colorspace": "embedded_icc",
+  "created_at": "2026-08-22T11:28:51Z",
+  "data_density": "high",
+  "dimensions": [
+    1440,
+    1326
+  ],
+  "eligible_for_code_reuse": false,
+  "eligible_for_reconstruction": true,
+  "eligible_for_structure": true,
+  "eligible_for_style": true,
+  "figure_card_path": "assets/visual-references/references/b68a45ad947f3509/figure_card.json",
+  "figure_type": "scatter_marginal",
+  "has_alpha": false,
+  "id": "b68a45ad947f3509",
+  "image_path": "assets/visual-references/references/b68a45ad947f3509/image.jpg",
+  "journal_style": null,
+  "layout": "main-with-top-right-marginals",
+  "license": "user-supplied; redistribution not established",
+  "lifecycle_state": "reviewed",
+  "n_groups": null,
+  "notes": "Grouped regression scatter with top/right stacked histograms, dashed fits, translucent confidence ribbons, and inline model equations.",
+  "original_quality": "reviewed",
+  "palette": null,
+  "palette_policy": "preserve",
+  "perceptual_hash": "fa3dad1e70cad2d4",
+  "preview_path": "assets/visual-references/references/b68a45ad947f3509/preview.png",
+  "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "reviewer": "Codex visual intake review 2026-08-22",
+        "state": "reviewed"
+      }
+    ],
+    "state": "reviewed"
+  },
+  "reconstruction_fidelity": "reviewed",
+  "reference_kind": "user_supplied",
+  "reproduction_preview_path": "assets/visual-references/references/b68a45ad947f3509/reconstruction.png",
+  "review_status": "reviewed",
+  "scope": "references",
+  "sha256": "b68a45ad947f3509a87aadfcb9e553679a7423660e726d664cbe57708129e83f",
+  "source": "user-supplied reference image",
+  "source_url": null,
+  "subtype": "scatter_marginal_regression",
+  "tags": [
+    "scatter",
+    "marginal-histogram",
+    "regression",
+    "confidence-ribbon",
+    "direct-equations",
+    "four-groups"
+  ],
+  "thumbnail_path": "assets/visual-references/references/b68a45ad947f3509/thumbnail.png",
+  "usage_scope": "private_reference",
+  "venue": null,
+  "visual_grammar": {
+    "annotations_typography": {
+      "callouts_and_leaders": "direct labels or compact equations stay adjacent to their marks; no decorative callouts",
+      "placement_and_clearance": "labels remain outside dense marks or use explicit clearance; no light text on light fills",
+      "text_hierarchy": "four inline regression equations at upper left of the main panel; GST/LST axis labels are bold"
+    },
+    "canvas_composition": {
+      "alignment_and_spacing": "consistent gutters and clearance around labels; no overlaps at final size",
+      "aspect_and_panel_layout": "single main scatter panel with narrow top and right marginal histograms",
+      "visual_hierarchy": "data marks dominate; labels and legend are secondary; whitespace is intentional"
+    },
+    "chart_marks_axes": {
+      "axes_and_scales": "axes/scales are explicit where quantitative coordinates are present; radial geometry declares its baseline",
+      "guides_and_grid": "guides are sparse, low-contrast, and subordinate to marks",
+      "marks_and_encoding": "filled circular points, dashed regression fits, and translucent confidence ribbons"
+    },
+    "connectors": "not_present",
+    "legend_key": {
+      "entries_and_encoding": "one entry per semantic color/mark role",
+      "frame_treatment": "frameless or very light frame",
+      "placement": "placed in the least dense whitespace region",
+      "scope": "no boxed legend; group identity is carried by direct equation labels and consistent colors"
+    },
+    "must_match": [
+      "main/top/right panel geometry",
+      "same group color in points, fits, ribbons, histograms",
+      "direct equations"
+    ],
+    "objects_material": "not_present",
+    "palette_roles": {
+      "background": "white background with no tinted page panel",
+      "contrast_and_emphasis": "dark text and outlines on light fills; emphasis uses saturated categorical marks",
+      "roles_and_proportions": "navy, ochre, crimson, and cool gray group roles; translucent matching confidence ribbons"
+    },
+    "repetition_structures": {
+      "count_spacing_rhythm": "repeatable rhythm is consistent across marks",
+      "grouping_and_alignment": "groups align to their panel or baseline",
+      "topology": "four groups repeat point-fit-ribbon-histogram encoding",
+      "variation_and_emphasis": "variation is carried by magnitude or position, not arbitrary decoration"
+    }
+  },
+  "visual_review": {
+    "comparison_path": "assets/visual-references/review-evidence/reproduction-audit/b68a45ad947f3509-reference-vs-reconstruction.png",
+    "comparison_ssim": 0.944498,
+    "final_size_inspected": true,
+    "hierarchy": "pass",
+    "legend_footprint": "pass",
+    "notes": "Synthetic data and independent renderer reproduce the observed visual grammar; source data, labels, and original plotting code were not copied. Keep as private visual inspiration until benchmarked.",
+    "panel_balance": "pass",
+    "reconstruction_fidelity": "justified_deviation",
+    "review_kind": "equal-size source and synthetic reconstruction inspection",
+    "reviewer": "Codex visual intake review 2026-08-22",
+    "text_legibility": "pass",
+    "whitespace": "pass"
+  },
+  "year": null
+}

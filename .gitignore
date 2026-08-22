@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *.egg-info/
+.venv/
 
 # Tool / benchmark caches
 scripts/.eval_results.json

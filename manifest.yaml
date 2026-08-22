@@ -21,6 +21,7 @@ runtime:
 always_load:
   - "references/figure-contract.md"
   - "references/orchestrator-contracts.md"
+  - "references/runtime-environment.md"
 
 routes:
   create:
