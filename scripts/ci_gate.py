@@ -39,6 +39,7 @@ def main() -> int:
     run_step("scale benchmark", ["scripts/scale_benchmark.py"])
     run_step("generation corpus", ["scripts/evaluate_generation_regression.py", "--contract-only", "--enforce"])
     run_step("champion floors", ["scripts/check_champion_floors.py"])
+    run_step("champion board", ["scripts/champion_board.py", "--enforce", "--summary"])
     run_step("quarantine", ["scripts/check_reference_quarantine.py"])
     run_step("activation eval", ["scripts/evaluate_activation.py", "evals/activation/validation.jsonl"])
     run_step("adapter generation", ["scripts/generate_adapters.py"])

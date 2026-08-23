@@ -19,7 +19,7 @@ Runtime bundle:
 - `profiles/`
 - `evals/`
 
-Generated: 2026-08-23 17:08 UTC
+Generated: 2026-08-23 17:18 UTC
 
 Install this directory at `~/.claude/skills/publication-figure-design/`.
 Load `SKILL.md` and resolve all relative scripts/resources from that directory.

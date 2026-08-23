@@ -19,7 +19,7 @@ Runtime bundle:
 - `profiles/`
 - `evals/`
 
-Generated: 2026-08-23 17:08 UTC
+Generated: 2026-08-23 17:18 UTC
 
 Load `SKILL.md` as the instruction entrypoint. When a route names a script,
 schema, index, or reference asset, use the bundled relative path; do not

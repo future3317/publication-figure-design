@@ -19,7 +19,7 @@ Runtime bundle:
 - `profiles/`
 - `evals/`
 
-Generated: 2026-08-23 17:08 UTC
+Generated: 2026-08-23 17:18 UTC
 
 For publication-figure tasks, use the canonical `SKILL.md`, manifest route, and
 bundled runtime files. These instructions only provide loading context.

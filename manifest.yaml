@@ -96,6 +96,7 @@ routes:
       - "scripts/check_source_reference_catalog.py"
       - "scripts/figure_family_coverage.py"
       - "scripts/check_references.py"
+      - "scripts/champion_board.py"
   source_reconstruction:
     when: "source-by-source visual grammar examples are audited, rebuilt, or validated"
     load:
@@ -149,6 +150,7 @@ routes:
       - "scripts/adversarial_retrieval.py"
       - "scripts/evaluate_generation_regression.py"
       - "scripts/check_champion_floors.py"
+      - "scripts/champion_board.py"
       - "scripts/evaluate_activation.py"
       - "scripts/record_preference.py"
   figure_family_coverage:
@@ -157,6 +159,16 @@ routes:
       - "references/figure-family-coverage.md"
     run:
       - "scripts/figure_family_coverage.py"
+      - "scripts/champion_board.py"
+  champion_quality:
+    when: "publication candidates, human pairwise choices, or figure-family champions are reviewed"
+    load:
+      - "references/champion-board.md"
+      - "assets/reference-benchmarks/champion_board.json"
+    run:
+      - "scripts/champion_board.py"
+      - "scripts/record_preference.py"
+      - "scripts/check_champion_floors.py"
   source_review_batch:
     when: "a maintained source reconstruction or source catalog needs batch review"
     load:
@@ -177,6 +189,7 @@ backend_policy:
 validation:
   ci_gate: "python scripts/ci_gate.py"
   reference_assets: "python scripts/check_references.py --require-previews"
+  champion_board: "python scripts/champion_board.py --enforce"
   skill_contract: "python scripts/check_skill_contract.py"
   source_reconstruction_library: "python scripts/check_source_reconstruction_library.py"
   source_reference_catalog: "python scripts/check_source_reference_catalog.py"

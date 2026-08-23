@@ -61,6 +61,7 @@ Useful commands:
 & "D:\Anaconda\envs\piepaper\python.exe" -m publication_figure_design.cli reference analyze <reference-id>
 & "D:\Anaconda\envs\piepaper\python.exe" -m publication_figure_design.cli index build
 & "D:\Anaconda\envs\piepaper\python.exe" -m publication_figure_design.cli eval quick
+& "D:\Anaconda\envs\piepaper\python.exe" scripts/champion_board.py --output tmp/champion-board.json
 & "D:\Anaconda\envs\piepaper\python.exe" scripts/ci_gate.py
 ```
 
@@ -104,6 +105,13 @@ The figure QA layers remain separate:
 Reference-led renderers must explicitly consume `TypographySpec`, `PaletteSpec`,
 `LayoutSpec`, and `ComponentSpec`. A high visual similarity score cannot override a
 scientific or export failure.
+
+After the architecture is frozen, visual improvement is measured with publication-mode
+structure-first/style-first/balanced candidates and human pairwise choices. The
+[`Figure Family Champion Board`](references/champion-board.md) records the preferred and
+rejected candidates, reason codes, family champion/challenger, QA layers, and repair
+iterations. Its KPI is coverage × quality × diversity; unseeded families remain
+`needs_evidence`.
 
 For a focused check:
 

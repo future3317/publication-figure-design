@@ -58,6 +58,21 @@ FIGURE_FAMILIES: dict[str, dict[str, Any]] = {
         "selection_rule": "Use a schematic to explain entities and transformations, then support the mechanism with data panels; distinguish semantic arrows from measured vectors.",
         "must_observe": ["object geometry/material", "arrow path and direction", "stage grouping", "occlusion/layer order", "legend or direct-label scope"],
     },
+    "multi_axis_comparison": {
+        "figure_types": ["radar_grid", "radar", "radial_bar", "radial_arc_bar"],
+        "selection_rule": "Use polar/radial encodings only when the angular categories and radial scale remain readable at final size; preserve the independent meaning of area, radius, fill, and outline.",
+        "must_observe": ["angular category order", "radial baseline and ticks", "overlap/transparency", "legend separation", "label clearance"],
+    },
+    "image_quantitative_composite": {
+        "figure_types": ["spatial_image_plate", "microscopy", "segmentation_overlay", "single_cell_systems", "in_vivo_efficacy", "mixed_multi_panel"],
+        "selection_rule": "Pair image evidence with a linked quantitative readout; preserve scale, orientation, acquisition context, and the mapping between image regions and measurements.",
+        "must_observe": ["scale bar and orientation", "image-to-quantification linkage", "crop/field-of-view", "normalization", "panel balance"],
+    },
+    "asymmetric_multi_panel": {
+        "figure_types": ["comparison_composite", "conceptual_multi_panel", "mixed_multi_panel", "validation_perturbation"],
+        "selection_rule": "Use an asymmetric hero panel only when it carries the primary claim; subordinate panels must retain a readable relationship to that hero.",
+        "must_observe": ["hero-panel dominance", "reading order", "shared alignment lines", "cross-panel annotation grammar", "gutter rhythm"],
+    },
     "statistical_discovery": {
         "figure_types": ["volcano", "ma", "manhattan", "enrichment", "forest", "forest_interval", "funnel", "effect_size"],
         "selection_rule": "Make the statistical threshold and multiplicity context visible; highlight discoveries without hiding the full tested population.",

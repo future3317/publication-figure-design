@@ -165,6 +165,13 @@ champion regression. Development/validation/holdout splits, adversarial retrieva
 the 20-task generation-regression corpus, scale checks (100/500/1,000/5,000 references),
 and adapter canaries are separate gates.
 
+Visual quality improvement is evidence-led after the architecture is frozen: publication
+mode renders structure-first, style-first, and balanced candidates; a human records one
+preferred and one rejected candidate with reason codes; the Figure Family Champion Board
+tracks champion, challenger, last release, preference win rate, scientific pass, L0–L3,
+and repair iterations. A reference upper bound is not a generated champion, and a family
+with fewer than five reviewed tasks remains `needs_evidence` rather than production-ready.
+
 Reference-led renderers must explicitly consume `TypographySpec`, `PaletteSpec`,
 `LayoutSpec`, and `ComponentSpec` through `scripts/render_contract.py`. A renderer may not
 silently replace those tokens with backend defaults or report production-ready output
@@ -196,6 +203,7 @@ Use `pfd eval quick|full|visual|release`; `release` is the same gate as CI.
 | Source reconstruction maintenance | `references/source-reconstruction-library.md`, `scripts/check_source_reconstruction_library.py`, `scripts/check_source_reference_catalog.py` |
 | Optimization packet | `scripts/prepare_visual_optimization.py`, `scripts/check_visual_optimization.py` |
 | Benchmark and release gates | `scripts/ci_gate.py`, `scripts/evaluate_benchmark.py`, `scripts/evaluate_holdout.py`, `scripts/evaluate_generation_regression.py`, `scripts/check_champion_floors.py`, `scripts/adversarial_retrieval.py`, `scripts/scale_benchmark.py` |
+| Champion board and preference evidence | `references/champion-board.md`, `assets/reference-benchmarks/champion_board.json`, `scripts/champion_board.py`, `scripts/record_preference.py` |
 | Quarantine and sandbox | `scripts/check_reference_quarantine.py`, `scripts/migrate_reference_quarantine.py`, `scripts/reference_code_sandbox.py`, `scripts/render_contract.py` |
 
 Do not execute untrusted reference-local code as part of intake. Prefer the constrained

@@ -259,6 +259,13 @@ class PreferencePair:
     reasons: list[str] = field(default_factory=list)
     figure_family: str = ""
     status: str = "challenger"
+    preferred: str = ""
+    rejected: str = ""
+    reason_codes: list[str] = field(default_factory=list)
+    task_id: str = ""
 
     def to_dict(self) -> dict[str, Any]:
-        return {"left_id": self.left_id, "right_id": self.right_id, "winner": self.winner, "reasons": self.reasons, "figure_family": self.figure_family, "status": self.status}
+        preferred = self.preferred or self.winner
+        rejected = self.rejected or (self.right_id if preferred == self.left_id else self.left_id)
+        reason_codes = self.reason_codes or self.reasons
+        return {"left_id": self.left_id, "right_id": self.right_id, "winner": self.winner, "preferred": preferred, "rejected": rejected, "reasons": self.reasons, "reason_codes": reason_codes, "figure_family": self.figure_family, "task_id": self.task_id, "status": self.status}

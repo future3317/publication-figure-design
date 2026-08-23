@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "baseline": {
+    "architecture_commit": "04ee03a",
+    "release": "v4.0.0",
+    "policy": "human_pairwise_evidence_only"
+  },
+  "policy": {
+    "target_task_min": 5,
+    "target_task_max": 20,
+    "promotion_rule": "replace champion only when the challenger wins pairwise review and passes scientific, L0, L1, L2, and L3 gates",
+    "reference_upper_bound_is_not_generated_champion": true
+  },
+  "families": {
+    "comparison_effect": {"champion": null, "reference_upper_bound": "0de2014d0cf60d22", "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
+    "distribution_uncertainty": {"champion": null, "reference_upper_bound": "4d213749151b32cb", "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
+    "trend_trajectory": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
+    "paired_operating_point": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
+    "classification_diagnostics": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
+    "relationship_embedding": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
+    "matrix_array": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
+    "network_flow_set": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
+    "spatial_image": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
+    "mechanism_architecture": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
+    "statistical_discovery": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
+    "optimization_sensitivity": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
+    "multi_axis_comparison": {"champion": null, "reference_upper_bound": "22f32e9bd10b34ee", "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
+    "image_quantitative_composite": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
+    "asymmetric_multi_panel": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"}
+  }
+}
