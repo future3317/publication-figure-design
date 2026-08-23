@@ -12,6 +12,9 @@ scripts/.ab_publication-figure-design.json
 # Staging area for visual-reference ingest
 assets/visual-references/.staging/
 
+# Private local run material
+tmp/
+
 # OS
 .DS_Store
 Thumbs.db

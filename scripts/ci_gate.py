@@ -27,6 +27,7 @@ def main() -> int:
     run_step("unit", ["-m", "unittest", "discover", "-s", "scripts", "-p", "test_*.py", "-q"])
     run_step("package", ["-m", "unittest", "discover", "-s", "src/publication_figure_design/tests", "-p", "test_*.py", "-q"])
     run_step("reference validate", ["scripts/reference_library.py", "validate"])
+    run_step("reference asset contract", ["scripts/check_references.py", "--require-previews"])
     run_step("reference DNA", ["scripts/check_reference_dna.py"])
     run_step("reference reconstruction", ["scripts/check_reference_reproductions.py"])
     run_step("reference fidelity", ["scripts/check_reference_reproduction_fidelity.py"])

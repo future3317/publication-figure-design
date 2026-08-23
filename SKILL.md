@@ -182,7 +182,7 @@ Use `pfd eval quick|full|visual|release`; `release` is the same gate as CI.
 | Orchestration and artifact schemas | `references/orchestrator-contracts.md`, `src/publication_figure_design/contracts/`, `src/publication_figure_design/orchestrator/runtime.py` |
 | Concrete reference or optimization | `references/reference-driven-reconstruction.md`, `scripts/compare_output_to_reference.py` |
 | Style compilation | `references/style-spec.md`, `scripts/style_compiler.py` |
-| Reference intake/library | `references/visual-reference-library.md`, `references/color-palettes.md`, `scripts/reference_library.py` |
+| Reference intake/library | `references/visual-reference-library.md`, `references/color-palettes.md`, `scripts/reference_library.py`, `scripts/check_references.py --require-previews` |
 | Reference DNA and hybrid retrieval | `src/publication_figure_design/reference_intelligence/`, `scripts/build_reference_dna.py`, `scripts/build_reference_indexes.py` |
 | Journal profiles and style capsules | `profiles/journals/`, `profiles/style-capsules/`, `src/publication_figure_design/style/` |
 | Design compiler and patches | `src/publication_figure_design/design/`, `src/publication_figure_design/layout/` |

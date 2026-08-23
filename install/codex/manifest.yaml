@@ -1,6 +1,6 @@
 # Generated adapter metadata; package compatibility identifier only; one current workflow.
 name: publication-figure-design
-version: "3.0.0"
+version: "4.0.0"
 entrypoint: SKILL.md
 source_manifest: manifest.yaml
 runtime:

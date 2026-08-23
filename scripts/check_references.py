@@ -8,8 +8,9 @@ Validates:
   4. Every assets/figures/<type>/ has at least one script + one preview PNG
 
 Usage:
-    py check_references.py          # full integrity scan
-    py check_references.py --json   # machine-readable output
+    py check_references.py                    # full integrity scan
+    py check_references.py --require-previews # fail when a production asset lacks a preview
+    py check_references.py --json             # machine-readable output
 """
 
 from __future__ import annotations
@@ -111,7 +112,12 @@ def parse_skill_md_refs() -> list[str]:
     return [r for r in all_refs if "<" not in r and ">" not in r]
 
 
-def check_bidirectional_coverage(map_dirs: dict, asset_dirs: set) -> list[dict]:
+def check_bidirectional_coverage(
+    map_dirs: dict,
+    asset_dirs: set,
+    *,
+    require_previews: bool = False,
+) -> list[dict]:
     """Check every directory in map ↔ existence in assets, and vice versa."""
     findings = []
     map_set = set(map_dirs.keys())
@@ -140,7 +146,7 @@ def check_bidirectional_coverage(map_dirs: dict, asset_dirs: set) -> list[dict]:
         if not pngs:
             findings.append({
                 "check": "missing_preview_png",
-                "severity": "WARN",
+                "severity": "FAIL" if require_previews else "WARN",
                 "detail": f"assets/figures/{d}/ has {len(scripts)} script(s) but 0 preview PNGs",
             })
 
@@ -221,14 +227,18 @@ def check_reference_md_health() -> list[dict]:
     return findings
 
 
-def run_all() -> dict:
+def run_all(*, require_previews: bool = False) -> dict:
     map_dirs = parse_directory_map()
     asset_dirs = list_asset_dirs()
     aspect_keys = parse_compose_aspect_keys()
     skill_refs = parse_skill_md_refs()
 
     findings = []
-    findings += check_bidirectional_coverage(map_dirs, asset_dirs)
+    findings += check_bidirectional_coverage(
+        map_dirs,
+        asset_dirs,
+        require_previews=require_previews,
+    )
     findings += check_aspect_coverage(map_dirs, aspect_keys)
     findings += check_skill_refs_exist(skill_refs)
     findings += check_reference_md_health()
@@ -252,7 +262,7 @@ def run_all() -> dict:
 
 
 if __name__ == "__main__":
-    report = run_all()
+    report = run_all(require_previews="--require-previews" in sys.argv)
     use_json = "--json" in sys.argv
 
     if use_json:

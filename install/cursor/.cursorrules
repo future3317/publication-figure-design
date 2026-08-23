@@ -1,6 +1,6 @@
 # Publication Figure Design adapter — Cursor
 
-This is a thin loader for `publication-figure-design` manifest version `3.0.0`.
+This is a thin loader for `publication-figure-design` manifest version `4.0.0`.
 The canonical instructions and route contracts live in the bundled skill; this
 file is not a replacement or a second source of design rules.
 
@@ -19,7 +19,7 @@ Runtime bundle:
 - `profiles/`
 - `evals/`
 
-Generated: 2026-08-23 16:55 UTC
+Generated: 2026-08-23 17:08 UTC
 
 For publication-figure tasks, load and follow the canonical `SKILL.md` and its
 selected manifest route. Do not invent a local mini-version or bypass gates.

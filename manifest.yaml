@@ -1,6 +1,6 @@
 name: publication-figure-design
 # Compatibility identifier for packaged adapters; this repository has one current implementation.
-version: "3.0.0"
+version: "4.0.0"
 entrypoint: "SKILL.md"
 
 # The root manifest is the only release/version source. Adapters are generated
@@ -95,6 +95,7 @@ routes:
       - "scripts/check_source_reconstruction_library.py"
       - "scripts/check_source_reference_catalog.py"
       - "scripts/figure_family_coverage.py"
+      - "scripts/check_references.py"
   source_reconstruction:
     when: "source-by-source visual grammar examples are audited, rebuilt, or validated"
     load:
@@ -175,6 +176,7 @@ backend_policy:
 
 validation:
   ci_gate: "python scripts/ci_gate.py"
+  reference_assets: "python scripts/check_references.py --require-previews"
   skill_contract: "python scripts/check_skill_contract.py"
   source_reconstruction_library: "python scripts/check_source_reconstruction_library.py"
   source_reference_catalog: "python scripts/check_source_reference_catalog.py"
