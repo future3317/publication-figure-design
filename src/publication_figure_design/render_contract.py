@@ -37,4 +37,5 @@ def strict_renderer_payload(style_spec: Mapping[str, Any], layout_spec: Mapping[
         "ComponentSpec": dict(component_spec),
         "default_overrides_spec": False,
         "consumed_specs": list(REQUIRED_SPECS),
+        "render_trace_required": True,
     }

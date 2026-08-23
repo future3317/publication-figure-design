@@ -22,6 +22,12 @@ REQUIRED_PHRASES = (
     "data encoding",
     "annotation/legend model",
     "final assembler",
+    "ReferenceDNA",
+    "StyleCapsule",
+    "DesignPacket",
+    "DesignPatch",
+    "RenderTrace",
+    "pfd eval quick|full|visual|release",
 )
 
 
@@ -65,6 +71,16 @@ def validate_skill(root: Path | str) -> dict[str, object]:
     for relative in sorted(routed_resources):
         if not (root / relative).is_file():
             errors.append(f"Missing routed resource: {relative}")
+
+    for relative in (
+        "schemas/reference-dna.schema.json",
+        "scripts/check_reference_dna.py",
+        "scripts/evaluate_activation.py",
+        "profiles/style-capsules/restrained-editorial.yaml",
+        "profiles/journals/generic.yaml",
+    ):
+        if not (root / relative).is_file():
+            errors.append(f"Missing compiler resource: {relative}")
 
     metadata = root / "agents" / "openai.yaml"
     if not metadata.is_file():

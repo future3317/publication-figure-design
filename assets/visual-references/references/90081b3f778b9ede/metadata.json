@@ -85,6 +85,7 @@
     ],
     "source_observation": "image-plate workflow with sample, mask, overlay, zoom, and quantitative support"
   },
+  "reference_dna_path": "assets/visual-references/references/90081b3f778b9ede/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

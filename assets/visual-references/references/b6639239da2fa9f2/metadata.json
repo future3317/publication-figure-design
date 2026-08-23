@@ -73,6 +73,7 @@
     ],
     "source_observation": "dense subcategory comparison grid with six categorical panels"
   },
+  "reference_dna_path": "assets/visual-references/references/b6639239da2fa9f2/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

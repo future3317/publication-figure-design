@@ -47,6 +47,7 @@
     ],
     "source_observation": "three-panel human benchmark: methods, matrix evidence, and calibration"
   },
+  "reference_dna_path": "assets/visual-references/references/131654637e894c12/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

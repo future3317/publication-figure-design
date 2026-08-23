@@ -47,6 +47,7 @@
     ],
     "source_observation": "ablation bars with learning curve and metric table"
   },
+  "reference_dna_path": "assets/visual-references/references/4f7b7b4b01a1b498/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

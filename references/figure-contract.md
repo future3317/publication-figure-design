@@ -38,7 +38,7 @@ Classify the figure into one of four archetypes. The archetype determines layout
 | `image plate + quant` | Microscopy/images paired with quantification | Image panels (larger) + adjacent quantification panels |
 | `asymmetric mixed-modality` | Non-uniform layout mixing schematics, images, and data | Custom gridspec, variable panel sizes |
 
-If unsure, default to `asymmetric_mixed` — it produces the Nature-style look of one dominant panel + subordinate evidence panels. (Authoritative source: `SKILL.md` Step 0a.)
+If unsure, default to `asymmetric_mixed` — it produces the Nature-style look of one dominant panel + subordinate evidence panels. The authoritative archetype and panel-role fields live in the `TaskSpec`/`ScientificContract` intake artifact and figure-family profiles, not in a numbered prose step.
 
 Also record the evidence-family decision from `references/figure-family-coverage.md`:
 

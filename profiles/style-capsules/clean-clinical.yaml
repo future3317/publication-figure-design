@@ -1,0 +1,8 @@
+name: clean-clinical
+visual_hierarchy: {focal_weight: strong, secondary_weight: quiet, annotation_density: low}
+palette: {background: '#FFFFFF', neutral_strategy: cool-gray, categorical_chroma: moderate, accent_count: 1, role_consistency: strict}
+typography: {hierarchy_ratio: [1.0, 0.84, 0.72], weight_contrast: low, panel_labels: bold}
+geometry: {axis_weight_vs_data: 0.6, marker_visual_weight: moderate, grid_prominence: faint}
+spacing: {outer_margin_ratio: 0.08, panel_gap_ratio: 0.06, label_clearance_ratio: 0.03}
+legend: {preference: outside_right_or_direct}
+negative_rules: [avoid_3d_effects, avoid_low_contrast_text, avoid_rainbow_colormap]

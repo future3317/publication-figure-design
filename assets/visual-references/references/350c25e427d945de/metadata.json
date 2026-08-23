@@ -102,6 +102,7 @@
     ],
     "source_observation": "16 stacked-area and composition variants arranged as an atlas"
   },
+  "reference_dna_path": "assets/visual-references/references/350c25e427d945de/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

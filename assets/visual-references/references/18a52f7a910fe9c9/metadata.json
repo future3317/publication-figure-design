@@ -47,6 +47,7 @@
     ],
     "source_observation": "IEDB method comparison with interval panel"
   },
+  "reference_dna_path": "assets/visual-references/references/18a52f7a910fe9c9/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

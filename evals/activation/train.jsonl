@@ -1,0 +1,4 @@
+{"id":"create_publication_figure","query":"what is the best way to plot this result for a paper?","should_trigger":true,"expected_route":"create"}
+{"id":"beautify_existing","query":"make this figure publication-ready and fix spacing","should_trigger":true,"expected_route":"visual_optimization"}
+{"id":"reconstruct_reference","query":"reconstruct this paper figure using our reference library","should_trigger":true,"expected_route":"reference"}
+{"id":"generic_python","query":"how do I parse a JSON file in Python?","should_trigger":false,"expected_route":""}

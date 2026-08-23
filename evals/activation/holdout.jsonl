@@ -1,0 +1,3 @@
+{"id":"mechanism_schematic","query":"reconstruct this scientific mechanism schematic with publication visual grammar","should_trigger":true,"expected_route":"reference"}
+{"id":"export_vector","query":"export the final manuscript figure as editable SVG and PDF","should_trigger":true,"expected_route":"export"}
+{"id":"generic_chart","query":"make a quick exploratory chart","should_trigger":false,"expected_route":""}

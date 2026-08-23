@@ -10,7 +10,7 @@
   "journal_style": "Nature",
   "layout": "2x2",
   "license": "unknown",
-  "lifecycle_state": "raw",
+  "lifecycle_state": "analyzed",
   "n_groups": 3,
   "notes": "Synthetic reproduction of the WeChat MarginalDensity reference.",
   "palette": "soft_forest",
@@ -21,10 +21,15 @@
       {
         "reason": "legacy_intake_migration",
         "state": "raw"
+      },
+      {
+        "reason": "reference_dna_built",
+        "state": "analyzed"
       }
     ],
-    "state": "raw"
+    "state": "analyzed"
   },
+  "reference_dna_path": "assets/visual-references/generated-archive/387e55d62c99c422/reference_dna.json",
   "reproduction_preview_path": "assets/visual-references/generated-archive/387e55d62c99c422/image.png",
   "review_status": "pending",
   "scope": "generated-archive",

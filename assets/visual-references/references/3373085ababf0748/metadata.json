@@ -52,6 +52,7 @@
     ],
     "source_observation": "ablation hero panel supported by training, distribution, and metric panels"
   },
+  "reference_dna_path": "assets/visual-references/references/3373085ababf0748/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

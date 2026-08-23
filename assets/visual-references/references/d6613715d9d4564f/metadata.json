@@ -43,6 +43,7 @@
     ],
     "source_observation": "paired polar method comparisons"
   },
+  "reference_dna_path": "assets/visual-references/references/d6613715d9d4564f/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

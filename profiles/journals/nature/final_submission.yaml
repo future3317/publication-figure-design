@@ -1,0 +1,14 @@
+name: nature
+stage: final_submission
+source: Nature final submission guidance
+source_date: '2026-08-24'
+rules:
+  width_mm: {value: 89, unit: mm, level: recommended, applicability: single_column}
+  full_width_mm: {value: 183, unit: mm, level: recommended, applicability: double_column}
+  max_height_mm: {value: 170, unit: mm, level: recommended, applicability: figure}
+  font_pt: {value: [5, 7], unit: pt, level: recommended, applicability: labels_and_ticks}
+  panel_label_pt: {value: 8, unit: pt, level: recommended, applicability: panel_labels}
+  font_family: {value: Arial_or_Helvetica, unit: family_class, level: recommended, applicability: all_text}
+  editable_text: {value: true, unit: boolean, level: required, applicability: vector_exports}
+  font_embedding: {value: true, unit: boolean, level: required, applicability: vector_exports}
+  background_grid: {value: false, unit: boolean, level: recommended, applicability: all}

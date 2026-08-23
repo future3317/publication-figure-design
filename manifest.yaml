@@ -13,10 +13,13 @@ runtime:
   - "scripts/"
   - "src/"
   - "assets/visual-references/"
+  - "assets/visual-references/**/reference_dna.json"
   - "assets/reference-benchmarks/"
   - "assets/registry.jsonl"
   - "schemas/"
   - "indexes/"
+  - "profiles/"
+  - "evals/"
 
 always_load:
   - "references/figure-contract.md"
@@ -121,6 +124,7 @@ routes:
       - "scripts/reference_code_sandbox.py (explicit audit-only sandbox for legacy code.py)"
       - "scripts/check_reference_quarantine.py"
       - "scripts/migrate_reference_quarantine.py"
+      - "scripts/build_reference_dna.py"
   reference_benchmark:
     when: "the optional ChartMimic benchmark catalog is refreshed or queried"
     load:
@@ -132,6 +136,7 @@ routes:
     when: "reference retrieval indexes are rebuilt or refreshed"
     run:
       - "scripts/build_reference_indexes.py"
+      - "scripts/build_reference_dna.py"
   eval:
     when: "retrieval or generation benchmark metrics need to be measured"
     load:
@@ -143,6 +148,8 @@ routes:
       - "scripts/adversarial_retrieval.py"
       - "scripts/evaluate_generation_regression.py"
       - "scripts/check_champion_floors.py"
+      - "scripts/evaluate_activation.py"
+      - "scripts/record_preference.py"
   figure_family_coverage:
     when: "the figure family or reference-library coverage needs to be selected or audited"
     load:
@@ -172,3 +179,8 @@ validation:
   source_reconstruction_library: "python scripts/check_source_reconstruction_library.py"
   source_reference_catalog: "python scripts/check_source_reference_catalog.py"
   tests: "python -m unittest discover -s scripts -p test_*.py -v"
+  eval_modes:
+    quick: "pfd eval quick"
+    full: "pfd eval full"
+    visual: "pfd eval visual"
+    release: "pfd eval release"

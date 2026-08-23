@@ -43,6 +43,7 @@
     ],
     "source_observation": "conceptual idea paired with geometric explanation"
   },
+  "reference_dna_path": "assets/visual-references/references/e805fb0f7ccdf8aa/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

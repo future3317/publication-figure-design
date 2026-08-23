@@ -1,0 +1,8 @@
+name: minimal-comparison
+visual_hierarchy: {focal_weight: strong, secondary_weight: quiet, annotation_density: low}
+palette: {background: '#FFFFFF', neutral_strategy: neutral-gray, categorical_chroma: restrained, accent_count: 1, role_consistency: strict}
+typography: {hierarchy_ratio: [1.0, 0.80, 0.68], weight_contrast: low, panel_labels: bold}
+geometry: {axis_weight_vs_data: 0.7, marker_visual_weight: moderate, grid_prominence: none}
+spacing: {outer_margin_ratio: 0.10, panel_gap_ratio: 0.07, label_clearance_ratio: 0.03}
+legend: {preference: direct_label}
+negative_rules: [avoid_redundant_legend, avoid_heavy_box_frames, avoid_low_contrast_text]

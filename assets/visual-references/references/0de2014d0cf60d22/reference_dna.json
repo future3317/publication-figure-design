@@ -1,0 +1,250 @@
+{
+  "schema": "publication-figure-design/reference-dna",
+  "schema_version": "2.0",
+  "identity": {
+    "id": "0de2014d0cf60d22",
+    "source": "user-supplied reference image",
+    "license": "user-supplied; redistribution not established",
+    "journal": null,
+    "year": null,
+    "figure_family": "grouped_bar",
+    "source_kind": "code"
+  },
+  "composition": {
+    "aspect_ratio": null,
+    "panel_count": 1,
+    "panel_bboxes": [],
+    "panel_area_ratios": [],
+    "reading_order": [],
+    "hero_panel": null,
+    "gutters": {},
+    "outer_margins": {},
+    "alignment_lines": [],
+    "whitespace_regions": {}
+  },
+  "palette": {
+    "background": null,
+    "dominant": [],
+    "neutrals": [],
+    "categorical": [],
+    "sequential": [],
+    "diverging": [],
+    "accent": null,
+    "semantic_roles": {
+      "background": "White canvas with black axes and annotation text.",
+      "contrast_and_emphasis": "Darkest blue carries the strongest feature contrast while lightest blue remains legible against white via colored outlines.",
+      "roles_and_proportions": "G1-G4 use a light-to-dark blue sequence consistently across every group; black is reserved for axes, brackets, and statistics; open points use white fill with colored outlines."
+    },
+    "area_share": {},
+    "perceptual_distance": {},
+    "cvd_score": null,
+    "grayscale_score": null,
+    "code_literals": [
+      "#171717",
+      "#59699e",
+      "#89acd4",
+      "#c4d9ed",
+      "#e7f0f8",
+      "#ffffff",
+      "Agg",
+      "D",
+      "Features",
+      "bold",
+      "both",
+      "bottom",
+      "center",
+      "left",
+      "right",
+      "top",
+      "white"
+    ]
+  },
+  "typography": {
+    "family_class": "sans_serif_unknown",
+    "title_body_ratio": null,
+    "axis_tick_ratio": null,
+    "panel_label_style": null,
+    "weight": null,
+    "line_height": null,
+    "text_density": null,
+    "alignment": null,
+    "exact_font": null,
+    "exactness": "code_declared"
+  },
+  "geometry": {
+    "stroke_width_distribution": null,
+    "marker_family": {
+      "axes_and_scales": "Linear y-axis beginning at zero with shared absolute-count scale; categorical x-axis.",
+      "guides_and_grid": "No grid; strong left/bottom spines and a clean zero baseline.",
+      "marks_and_encoding": "Grouped bars encode aggregate level; open jittered points encode replicate observations; brackets encode pairwise significance."
+    },
+    "marker_size_distribution": null,
+    "corner_radius": null,
+    "arrowhead": null,
+    "leader_style": null,
+    "spine_model": null,
+    "grid_model": null,
+    "plot_calls": [
+      "Path",
+      "add_bracket",
+      "arange",
+      "array",
+      "bar",
+      "close",
+      "default_rng",
+      "enumerate",
+      "legend",
+      "len",
+      "main",
+      "max",
+      "mean",
+      "normal",
+      "plot",
+      "resolve",
+      "savefig",
+      "scatter",
+      "set_linewidth",
+      "set_visible",
+      "set_xticks",
+      "set_ylabel",
+      "set_ylim",
+      "set_yticks",
+      "subplots",
+      "text",
+      "tick_params",
+      "tight_layout",
+      "uniform",
+      "use"
+    ],
+    "line_count": 74
+  },
+  "annotations": {
+    "direct_labels": null,
+    "brackets": null,
+    "callouts": null,
+    "leaders": null,
+    "significance": null,
+    "clearance": null
+  },
+  "hierarchy": {
+    "focal_regions": null,
+    "saliency_distribution": null,
+    "visual_weight": null,
+    "density": "moderate",
+    "data_to_ink_proxy": null
+  },
+  "style": {
+    "aesthetic_tags": [
+      "user-supplied",
+      "grouped-bar",
+      "raw-points",
+      "significance-brackets",
+      "sequential-blue",
+      "single-panel"
+    ],
+    "style_cluster": null,
+    "style_vector": null,
+    "quality_score": 4.2
+  },
+  "constraints": {
+    "must_match": [],
+    "must_avoid": []
+  },
+  "embeddings": {
+    "semantic_embedding": null,
+    "visual_embedding": null,
+    "structure_embedding": null
+  },
+  "confidence": {
+    "geometry": 0.94,
+    "palette": 0.86,
+    "typography": 0.82
+  },
+  "extensions": {
+    "visual_grammar": {
+      "annotations_typography": {
+        "callouts_and_leaders": "ANOVA/Kruskal text is direct text without leaders; significance stars sit immediately above bracket spans.",
+        "placement_and_clearance": "Statistical callouts occupy open upper/middle whitespace; bracket tiers clear bar tops and points.",
+        "text_hierarchy": "Large bold serif-like axis/category labels, bold statistical keywords, and compact star labels."
+      },
+      "canvas_composition": {
+        "alignment_and_spacing": "Four tightly aligned bars per group, equal group spacing, shared zero baseline, and open whitespace above annotations.",
+        "aspect_and_panel_layout": "Single wide panel with three horizontal category groups; high annotation band above bars and generous right-side legend margin.",
+        "visual_hierarchy": "Category bars and raw points are primary; significance brackets and statistical callouts are secondary; feature key is tertiary."
+      },
+      "chart_marks_axes": {
+        "axes_and_scales": "Linear y-axis beginning at zero with shared absolute-count scale; categorical x-axis.",
+        "guides_and_grid": "No grid; strong left/bottom spines and a clean zero baseline.",
+        "marks_and_encoding": "Grouped bars encode aggregate level; open jittered points encode replicate observations; brackets encode pairwise significance."
+      },
+      "connectors": {
+        "anchors_and_routing": "Anchored above compared bars, routed in stacked tiers to avoid overlap.",
+        "direction_and_arrowhead": "No direction and no arrowheads; brackets denote pairwise significance.",
+        "geometry": "Orthogonal bracket connectors with short vertical end caps and horizontal comparison spans.",
+        "layering": "Above data marks and below star labels.",
+        "stroke": "Thin black solid strokes with compact star labels."
+      },
+      "legend_key": {
+        "entries_and_encoding": "Four filled swatches map directly to G1-G4 bar and point colors.",
+        "frame_treatment": "No visible frame; simple title and swatches.",
+        "placement": "Upper right, outside the data-dense bar region.",
+        "scope": "Global feature legend shared by all three category groups."
+      },
+      "must_match": [
+        "Three repeated grouped-bar categories with four bars each",
+        "Open raw points overlaid on every bar",
+        "Light-to-dark blue feature role mapping",
+        "Stacked black significance brackets above selected comparisons",
+        "Global legend in the upper-right whitespace"
+      ],
+      "objects_material": "not_present",
+      "palette_roles": {
+        "background": "White canvas with black axes and annotation text.",
+        "contrast_and_emphasis": "Darkest blue carries the strongest feature contrast while lightest blue remains legible against white via colored outlines.",
+        "roles_and_proportions": "G1-G4 use a light-to-dark blue sequence consistently across every group; black is reserved for axes, brackets, and statistics; open points use white fill with colored outlines."
+      },
+      "repetition_structures": {
+        "count_spacing_rhythm": "Four equal-width bars with narrow gaps; consistent within-group rhythm and larger between-group gap.",
+        "grouping_and_alignment": "Bars share group centers and a common baseline; raw points are jittered around each bar center.",
+        "topology": "Three repeated category groups, each containing four feature bars and matching raw observations.",
+        "variation_and_emphasis": "Feature emphasis comes from a light-to-dark sequential blue palette; significance tiers add emphasis above selected comparisons."
+      }
+    },
+    "figure_card": {},
+    "code": {
+      "calls": [
+        "Path",
+        "add_bracket",
+        "arange",
+        "array",
+        "bar",
+        "close",
+        "default_rng",
+        "enumerate",
+        "legend",
+        "len",
+        "main",
+        "max",
+        "mean",
+        "normal",
+        "plot",
+        "resolve",
+        "savefig",
+        "scatter",
+        "set_linewidth",
+        "set_visible",
+        "set_xticks",
+        "set_ylabel",
+        "set_ylim",
+        "set_yticks",
+        "subplots",
+        "text",
+        "tick_params",
+        "tight_layout",
+        "uniform",
+        "use"
+      ],
+      "static_only": true
+    }
+  }
+}

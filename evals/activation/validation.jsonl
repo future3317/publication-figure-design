@@ -1,0 +1,3 @@
+{"id":"review_nature","query":"check whether this figure is ready for Nature submission","should_trigger":true,"expected_route":"review"}
+{"id":"panel_spacing","query":"optimize panel spacing and legend placement in this manuscript figure","should_trigger":true,"expected_route":"visual_optimization"}
+{"id":"generic_dashboard","query":"build a business dashboard","should_trigger":false,"expected_route":""}

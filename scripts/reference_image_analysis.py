@@ -167,6 +167,11 @@ def analyze_image(
         has_alpha = "A" in opened.getbands() or "transparency" in opened.info
         colorspace = "embedded_icc" if opened.info.get("icc_profile") else "sRGB_assumed"
         image = opened.convert("RGB")
+        original_width, original_height = image.size
+        analysis_max = 1200
+        analysis_scale = min(1.0, analysis_max / max(original_width, original_height, 1))
+        if analysis_scale < 1.0:
+            image = image.resize((max(1, int(round(original_width * analysis_scale))), max(1, int(round(original_height * analysis_scale)))), Image.Resampling.LANCZOS)
     pixels = np.asarray(image, dtype=np.float32)
     h, w = pixels.shape[:2]
     corners = np.array([pixels[0, 0], pixels[0, -1], pixels[-1, 0], pixels[-1, -1]])
@@ -182,9 +187,10 @@ def analyze_image(
         "source_sha256": raw_sha256,
         "perceptual_hash": _perceptual_hash(image),
         "canvas": {
-            "width_px": int(w),
-            "height_px": int(h),
-            "aspect_ratio": round(w / max(h, 1), 6),
+            "width_px": int(original_width),
+            "height_px": int(original_height),
+            "aspect_ratio": round(original_width / max(original_height, 1), 6),
+            "analysis_scale": round(analysis_scale, 6),
             "mode": original_mode,
             "colorspace": colorspace,
             "has_alpha": bool(has_alpha),
@@ -246,6 +252,25 @@ def compare_images(reference_path: Path | str, candidate_path: Path | str) -> di
     report["ssim"] = round(score, 6)
     report["mean_absolute_error"] = round(float(np.mean(np.abs(reference - candidate))), 6)
     return report
+
+
+def analyze_reference_source(source_path: Path | str, *, metadata: dict[str, Any] | None = None) -> dict[str, Any]:
+    """Dispatch raster/vector/PDF/code inputs to the typed ReferenceDNA analyzer."""
+    source = Path(source_path)
+    if source.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp"}:
+        return analyze_image(source, figure_type=str((metadata or {}).get("figure_type", "unknown")))
+    import sys
+    src_root = source.parents[0]
+    repo_root = Path(__file__).resolve().parents[1]
+    package_root = repo_root / "src"
+    if str(package_root) not in sys.path:
+        sys.path.insert(0, str(package_root))
+    from publication_figure_design.reference_intelligence.analyzers import analyze_code, analyze_pdf, analyze_svg
+    analyzers = {".svg": analyze_svg, ".pdf": analyze_pdf, ".py": analyze_code}
+    analyzer = analyzers.get(source.suffix.lower())
+    if analyzer is None:
+        raise ValueError(f"unsupported reference source type: {source.suffix}")
+    return analyzer(source, metadata=metadata).to_dict()
 
 
 def main() -> int:

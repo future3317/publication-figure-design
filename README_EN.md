@@ -35,8 +35,20 @@ pfd reference ingest <image> <figure-type>
 pfd reference analyze <reference-id>
 pfd reference review <reference-id> <review.json>
 pfd index build
-pfd eval                    # unit tests + Recall/NDCG/generation canary
+pfd eval quick|full|visual|release  # release is identical to CI
 ```
+
+## Scientific Figure Design Compiler
+
+The production chain keeps the existing 12-stage state machine and compiles reference
+evidence into auditable contracts:
+
+`ScientificContract → ReferenceDNA → StyleCapsule + JournalProfile → DesignPacket → DesignPatch → RenderTrace → L0/L1/L2/L3 QA`
+
+Raster, SVG, PDF, and plotting-code inputs use separate analyzers. Raster evidence records
+font class and relative hierarchy rather than guessing an exact font. Retrieval is a transparent
+metadata + semantic + structure + StyleDNA hybrid index with deterministic NumPy search at the
+current corpus size; optional SigLIP2/DINO adapters remain outside core dependencies.
 
 Concrete references are opened and measured before implementation material is selected; structure, style, component, and annotation references are retrieved independently, and the final raster/vector is compared back to the reference.
 
@@ -80,11 +92,11 @@ The skill does not replace the plotting capabilities of Python or R. It provides
 |------------|-------------|
 | **Archetype Classification** | Four paradigms: `quantitative_grid`, `schematic-led`, `image plate + quant`, `asymmetric_mixed` — automatically drive layout and hero-panel strategy |
 | **29 Figure Types** | Heatmap / Volcano / Bar / Scatter / Box / PCA / RDA / Radar / Sankey / AUROC / Ridge / Violin / Marginal Density / KDE / Mantel Correlation / UpSet / Forest / Confusion Matrix / Manifold / Stacked Bar Scatter / Paired Box / Marker Gene Dot Plot / Trend Line / 3D Heatmap / Frequency Heatmap / Density Heatmap / Correlation Matrix / Grouped Correlation Matrix / Grouped Violin — each with production scripts (`.py` + `.R`) and preview PNG |
-| **Copy-First Rule** | Scan `assets/figures/<type>/` before generating code; if a production script matches, **run it natively** — Python runs `.py`, R runs `.R` — no translation, no quality degradation |
+| **Reference-first compilation** | Retrieve structure/style/palette/component roles from `assets/visual-references/`, compile Reference DNA into a DesignPacket, and reuse production assets only through the explicit asset-adaptation route |
 | **Cross-Type Parameter Inheritance** | When no production script exists, borrow Class A (hard params: colors/alpha/linewidth), Class B (scaling params: font sizes/dimensions), and Class C (logic params: legend on/off, grid on/off) from the nearest figure type |
 | **Multi-Language Composition** | R panels run natively → output spec-correct PNGs; Python composition engine tiles them by exact physical dimensions |
 | **Auto Hero-Panel Detection** | The panel carrying the core conclusion automatically gets larger visual weight; supporting panels are arranged as subordinates |
-| **4-Pass QA Protocol** | Pass 0: Anti-pattern scan (AP-0–7) → Pass 1: Code-level compliance (CL-1–7) → Pass 2: Visual logic & data integrity (VI-1–6) → Pass 3: Rendered output verification (VV-1–5) — 30+ checks total |
+| **Layered QA** | L0 Hard Technical → L1 Scientific → L2 Structural Visual → L3 Perceptual/Aesthetic; each layer is persisted and any hard-gate failure blocks a production-ready export |
 | **Data Validation Gate** | Pre-render per-panel checks — volcano needs ≥10 significant DE genes, AUROC curve separation ≥0.15, heatmap must have cross-row variance — refuse rendering if checks fail |
 | **Statistics & Reproducibility Report** | Mandatory per-figure: n definition, center statistic (mean/median), spread metric (SD/SEM/95% CI), test name, multiple-comparison correction, source-data traceability |
 | **Journal Color System** | Nature cool-blue, Cell warm, Science conservative grey; colorblind-friendly; avoids red-green-only differentiation |
@@ -128,26 +140,35 @@ Give an agent the image and say that it should be saved to the reference library
 ┌─────────────────────────────────────────────────────────────┐
 │  User Intent Parsing                                         │
 └─────────────────────────────────────────────────────────────┘
-  Step -1  Clarify intent   │ Ask reverse questions: "What question does this data answer?"
-  Step 0a  Classify archetype │ Four paradigms: quantitative grid / schematic-led / image plate + quant / asymmetric mixed
-  Step 0b  Parse data        │ Question-driven structured parsing — never template-driven
-  Step 1   Justify figure    │ Evidence-based selection: N panels answer N distinct scientific questions
-  Step 2   Detect environment│ Runtime self-check (Python / R kernels, dependency integrity)
-  Step 3   Inject style      │ Visual baseline: typography system + color scheme + export specs
-  Step 4   Scan assets       │ Scan assets/figures/<type>/, match production scripts per panel
-  Step 5   Render            │ Copy-First native execution or cross-type parameter inheritance
-  Step 5.5 Validate data     │ Pre-render per-panel feasibility check — refuse if criteria not met
-  Step 6   QA verification   │ 4-pass QA protocol, 30+ checkpoints
-  Step 7   Deliver           │ Vector PDF + 300dpi PNG + Statistics Report + QA Report
+  Route → Intake → Reference Retrieval → Reference Inspection
+      → Design Spec → Binding → Render → Compare → Critique
+      → Repair → QA → Export
+
+Reference DNA → StyleCapsule + JournalProfile → DesignPacket
+      → CandidateSet → DesignPatch → RenderTrace → layered QA
 ```
 
-**Core principle**: Question-driven, not template-driven — figure-type selection follows the number and structure of scientific questions; visual style is inherited through the asset library rather than built from scratch.
+**Core principle**: The scientific contract precedes visual references. References supply measurable visual grammar only; every candidate consumes the same `TypographySpec`, `PaletteSpec`, `LayoutSpec`, and `ComponentSpec` before structured critique/repair and layered QA.
 
 ---
 
 ## Installation
 
-`publication-figure-design` is a skill package built around `SKILL.md`. A complete installation must preserve `references/`, `scripts/`, `assets/`, `install/`, and other directories — the skill depends on these files for style baseline injection, asset scanning, and cross-platform adaptation.
+`publication-figure-design` uses `SKILL.md` as a thin entry point and `src/publication_figure_design/` as the current runtime. A complete installation must preserve `references/`, `scripts/`, `assets/`, `profiles/`, `indexes/`, `schemas/`, and `install/`; maintenance scripts are thin CLI wrappers around the orchestrator.
+
+All repository Python commands use the local `piepaper` interpreter:
+
+```powershell
+& "D:\Anaconda\envs\piepaper\python.exe" <script-or-module>
+```
+See `references/runtime-environment.md`; never silently fall back to Conda `base` or system Python.
+
+From the repository root, install the current runtime into that same environment so
+the `pfd` CLI is available:
+
+```powershell
+& "D:\Anaconda\envs\piepaper\python.exe" -m pip install -e .
+```
 
 ### Reference-analysis dependencies
 
@@ -155,8 +176,8 @@ The core plotting runtime is listed in `requirements.txt`. For reference intake
 and rendered comparison, install the small optional profile as well:
 
 ```bash
-python -m pip install -r requirements.txt
-python -m pip install -r requirements-reference.txt
+& "D:\Anaconda\envs\piepaper\python.exe" -m pip install -r requirements.txt
+& "D:\Anaconda\envs\piepaper\python.exe" -m pip install -r requirements-reference.txt
 ```
 
 The optional profile provides SSIM (`scikit-image`) and palette extraction
@@ -178,7 +199,7 @@ Clone the repository to a stable path and install the skill:
 ```bash
 mkdir -p ~/ai-skills
 cd ~/ai-skills
-git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
+git clone https://github.com/future3317/publication-figure-design.git publication-figure-design
 cp -r publication-figure-design ~/.claude/skills/
 ```
 
@@ -205,7 +226,7 @@ cp -r . ~/.claude/skills/publication-figure-design/
 Codex loads skills through `install/codex/` which provides `manifest.yaml` + `instructions.md`. Copy the required directories to `~/.codex/skills/publication-figure-design/`:
 
 ```bash
-git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
+git clone https://github.com/future3317/publication-figure-design.git publication-figure-design
 cd publication-figure-design
 mkdir -p ~/.codex/skills/publication-figure-design
 cp -r SKILL.md references/ scripts/ assets/ install/codex/* ~/.codex/skills/publication-figure-design/
@@ -216,7 +237,7 @@ After installation, describe your task naturally in a Codex session — the skil
 You can also ask Codex to install for you:
 
 ```text
-Install the Codex skill from https://github.com/TingxiYu/academic-figure-skill.git.
+Install the Codex skill from https://github.com/future3317/publication-figure-design.git.
 Clone it into a directory named publication-figure-design, then copy SKILL.md, references/, scripts/, assets/, and install/codex/ to ~/.codex/skills/publication-figure-design/.
 Keep the full directory structure — do not copy only SKILL.md.
 ```
@@ -226,7 +247,7 @@ Keep the full directory structure — do not copy only SKILL.md.
 Copy the skill rules file to your project root. Cursor will automatically follow the specifications when generating code:
 
 ```bash
-git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
+git clone https://github.com/future3317/publication-figure-design.git publication-figure-design
 cp publication-figure-design/install/cursor/.cursorrules <your-project>/.cursorrules
 ```
 
@@ -237,7 +258,7 @@ The `.cursorrules` file includes color palettes, typography baselines, export sp
 Copy the skill instructions file to your project's `.github/` directory. Copilot loads this context when generating code:
 
 ```bash
-git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
+git clone https://github.com/future3317/publication-figure-design.git publication-figure-design
 mkdir -p <your-project>/.github
 cp publication-figure-design/install/copilot/copilot-instructions.md <your-project>/.github/
 ```
@@ -280,22 +301,17 @@ For other AI coding assistants:
     │   ├── complexheatmap.md          ← R ComplexHeatmap guide
     │   ├── r-rendering.md             ← R PNG rendering specification (cairo device)
     │   └── compose.R                  ← R composition reference implementation
-    ├── scripts/                       ← Composition engine + QA tools + evaluation suite
-    │   ├── compose.py                 ← Multi-panel layout engine
-    │   ├── eval_runner.py             ← Full asset audit (29 types auto-scan)
-    │   ├── trigger_benchmark.py       ← Trigger accuracy benchmark
-    │   ├── qa_coverage.py             ← QA check coverage verification
-    │   ├── qa_validator.py            ← Automated code check (AP-0~CL-7)
-    │   ├── check_references.py        ← Reference integrity check
-    │   ├── e2e_runner.py              ← E2E integration test (A/B scenario auto-scoring)
-    │   ├── check_colors.py            ← Color compliance check
-    │   ├── check_dimensions.py        ← Dimension specification check
-    │   ├── check_export.py            ← Export parameter check
-    │   ├── check_fontsize.py          ← Font size compliance check
-    │   ├── check_figure.py            ← Figure comprehensive check
-    │   ├── generate_adapters.py       ← Cross-platform adapter generation
-    │   ├── generate_atlas.py          ← Figure atlas auto-generation
-    │   └── run_ab_tests.py            ← A/B test runner
+    ├── src/publication_figure_design/ ← current compiler core
+    │   ├── contracts/                 ← ScientificContract, ReferenceDNA, DesignPacket, etc.
+    │   ├── reference_intelligence/    ← source analyzers, DNA, hybrid retrieval
+    │   ├── style/                     ← JournalProfile, StyleCapsule, StyleSpec compiler
+    │   ├── design/                    ← candidates and deterministic DesignPatch
+    │   ├── layout/                    ← mm/pt primitives and constraints
+    │   ├── renderers/                 ← SVG/vector assembler
+    │   └── qa/                        ← L0/L1/L2/L3 QA, RenderTrace, anti-copy
+    ├── profiles/                      ← journal profiles + style capsules
+    ├── evals/                         ← activation train/validation/holdout data
+    ├── scripts/                       ← thin CLI wrappers, maintenance, release gate
     ├── assets/
     │   ├── figures/                   ← 29+ figure-type production scripts and previews
     │   │   ├── 3DHeatmap/             ← 3-D heatmap (R/ComplexHeatmap)
@@ -342,41 +358,41 @@ For other AI coding assistants:
 
 ## Quality Assessment
 
-### 4-Pass QA Protocol
+### Layered QA
 
-| Pass | Name | Checks | Description |
-|------|------|--------|-------------|
-| Pass 0 | Anti-Pattern Scan (AP) | 8 | Default palettes, four-sided borders, legend inside plot, screenshot-only export, jet colormap, bars without points, default fonts, large sample not rasterized |
-| Pass 1 | Code Compliance (CL) | 7 | Typography baseline, color scheme, export specs, asset confirmation table, no downsampling, figure dimensions, journal specs |
-| Pass 2 | Visual Logic & Data Integrity (VI) | 6 | Data range, heatmap variance, correlation strength, PCA separation, distribution shape, data loss transparency |
-| Pass 3 | Rendered Output Verification (VV) | 5 | PDF generated, PNG generated, non-zero files, font embedding, correct dimensions |
+| Layer | Name | Responsibility |
+|------|------|----------------|
+| L0 | Hard Technical | clipping, overlap, dimensions/DPI, font embedding, editable vector text, color space |
+| L1 | Scientific | data mapping, statistical transforms, axes/units, uncertainty and provenance |
+| L2 | Structural Visual | panel topology, proportions, whitespace, alignment, legend and annotations |
+| L3 | Perceptual/Aesthetic | hierarchy, balance, style fit, professional finish and reference affinity |
 
 ### Running Evaluations
 
 ```bash
-# Full asset audit
-python scripts/eval_runner.py
+# Quick checks
+pfd eval quick
 
-# Single type audit
-python scripts/eval_runner.py --type Heatmap
+# Full development evaluation
+pfd eval full
 
-# E2E integration tests
-python scripts/e2e_runner.py
+# Visual benchmark / holdout
+pfd eval visual
 
-# Trigger accuracy benchmark
-python scripts/trigger_benchmark.py
+# The same release gate as CI
+pfd eval release
 ```
 
 ---
 
 ## Contributing
 
-Publication Figure Design uses a skill plugin architecture. To add a new figure type:
+Publication Figure Design uses a skill plugin architecture. Maintain new references and figure families through the current routes:
 
-1. Create a new directory `<FigureType>/` under `assets/figures/`
-2. Add production scripts (`.py` or `.R`) and a preview PNG
-3. Add keyword mappings in `references/directory-map.md`
-4. Run `python scripts/eval_runner.py --type <FigureType>` to verify
+1. For a supplied reference image, use `pfd reference ingest` to start the `raw` record, then follow the `reference_intake` route for analyze → DNA → reproduction/fidelity → review/benchmark
+2. Add `assets/figures/<FigureType>/` scripts, previews, and sidecar metadata only for maintained production assets, and expose them through the explicit `asset-adaptation` route
+3. Add figure-family keyword mappings in `references/directory-map.md` and the corresponding benchmark/canary
+4. Run `& "D:\Anaconda\envs\piepaper\python.exe" -m publication_figure_design.cli eval release`
 
 ---
 

@@ -10,18 +10,15 @@ On this workstation the interpreter is:
 D:\Anaconda\envs\piepaper\python.exe
 ```
 
-Prefer the explicit interpreter path (or the activated `piepaper` environment):
-
-```powershell
-conda activate piepaper
-python scripts/ci_gate.py
-```
-
-For automation that must not depend on shell activation:
+Use the explicit interpreter path for every repository command; this avoids shell
+activation ambiguity and makes the runtime recorded by the session deterministic:
 
 ```powershell
 & "D:\Anaconda\envs\piepaper\python.exe" scripts/ci_gate.py
 ```
+
+Interactive `conda activate piepaper` is allowed for inspection, but do not use a
+bare `python` command in documented or automated workflow examples.
 
 Do not run this workflow with Conda `base`, an unrelated project environment, or the
 system Python. If the environment is missing a required package, install it into
@@ -44,4 +41,9 @@ When an offline source archive is supplied, install it only into `piepaper`.
 If build isolation tries to download unavailable build tools and the package is a
 pure Python style package, copying its verified import package into `piepaper`'s
 `Lib/site-packages` is an acceptable local installation route. Verify the resulting
-installation with `python -c "import scienceplots; print(scienceplots.__file__)"`.
+installation with `& "D:\Anaconda\envs\piepaper\python.exe" -c "import scienceplots; print(scienceplots.__file__)"`.
+
+Optional dependency layers are installed into the same environment only when needed:
+`& "D:\\Anaconda\\envs\\piepaper\\python.exe" -m pip install -e .[render-python]`,
+`.[reference-analysis]`, `.[reference-ml]`, `.[perceptual]`, or `.[vector]`. Core figure
+work must not pull Torch or model weights.

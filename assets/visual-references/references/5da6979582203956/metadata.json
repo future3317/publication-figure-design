@@ -52,6 +52,7 @@
     ],
     "source_observation": "generative pipeline with latent-space and spatial readouts"
   },
+  "reference_dna_path": "assets/visual-references/references/5da6979582203956/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

@@ -47,6 +47,7 @@
     ],
     "source_observation": "three cancer ablation panels with replicate observations"
   },
+  "reference_dna_path": "assets/visual-references/references/46c9e05df9d7c941/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

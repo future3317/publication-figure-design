@@ -1,0 +1,490 @@
+{
+  "schema": "publication-figure-design/reference-dna",
+  "schema_version": "2.0",
+  "identity": {
+    "id": "abb63055b0d49edb",
+    "source": "Chen Liu, figures4papers repository",
+    "license": "unknown",
+    "journal": "Nature",
+    "year": null,
+    "figure_family": "BarComposition",
+    "source_kind": "exact_visual_source"
+  },
+  "composition": {
+    "aspect_ratio": 4.333333,
+    "panel_count": 1,
+    "panel_bboxes": [
+      [
+        11,
+        15,
+        1164,
+        261
+      ]
+    ],
+    "panel_area_ratios": [],
+    "reading_order": [
+      0
+    ],
+    "hero_panel": null,
+    "gutters": {},
+    "outer_margins": {},
+    "alignment_lines": [],
+    "whitespace_regions": {
+      "status": "pixel_density",
+      "fraction": 0.597741
+    }
+  },
+  "palette": {
+    "background": "#ffffff",
+    "dominant": [
+      {
+        "hex": "#ffffff",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "fraction": 0.592696,
+        "role": "background"
+      },
+      {
+        "hex": "#7b9eab",
+        "rgb": [
+          123,
+          158,
+          171
+        ],
+        "fraction": 0.080292,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#5f625c",
+        "rgb": [
+          95,
+          98,
+          92
+        ],
+        "fraction": 0.078165,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#c7e6c6",
+        "rgb": [
+          199,
+          230,
+          198
+        ],
+        "fraction": 0.07667,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#ddbbb6",
+        "rgb": [
+          221,
+          187,
+          182
+        ],
+        "fraction": 0.060066,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#fcf3e9",
+        "rgb": [
+          252,
+          243,
+          233
+        ],
+        "fraction": 0.040202,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#f1fff2",
+        "rgb": [
+          241,
+          255,
+          242
+        ],
+        "fraction": 0.038261,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#ffffe1",
+        "rgb": [
+          255,
+          255,
+          225
+        ],
+        "fraction": 0.033649,
+        "role": "data_or_annotation"
+      }
+    ],
+    "neutrals": [],
+    "categorical": [],
+    "sequential": [],
+    "diverging": [],
+    "accent": null,
+    "semantic_roles": {},
+    "area_share": {},
+    "perceptual_distance": {},
+    "cvd_score": null,
+    "grayscale_score": null
+  },
+  "typography": {
+    "family_class": "manual_review_required",
+    "title_body_ratio": null,
+    "axis_tick_ratio": null,
+    "panel_label_style": null,
+    "weight": null,
+    "line_height": null,
+    "text_density": null,
+    "alignment": null,
+    "exact_font": null,
+    "font_family_class": "sans_serif_unknown",
+    "exactness": "relative_only"
+  },
+  "geometry": {
+    "stroke_width_distribution": 1.0,
+    "marker_family": {
+      "status": "heuristic",
+      "dark_pixel_fraction": 0.04883
+    },
+    "marker_size_distribution": null,
+    "corner_radius": null,
+    "arrowhead": null,
+    "leader_style": null,
+    "spine_model": {
+      "top": 0.0,
+      "bottom": 0.0,
+      "left": 0.0,
+      "right": 0.0
+    },
+    "grid_model": {
+      "horizontal_density": 0.137333,
+      "vertical_density": 0.090253
+    }
+  },
+  "annotations": {
+    "direct_labels": null,
+    "brackets": null,
+    "callouts": null,
+    "leaders": null,
+    "significance": null,
+    "clearance": null
+  },
+  "hierarchy": {
+    "focal_regions": [
+      11,
+      15,
+      1164,
+      261
+    ],
+    "saliency_distribution": {
+      "status": "ink_density_proxy",
+      "bbox_px": [
+        11,
+        15,
+        1164,
+        261
+      ]
+    },
+    "visual_weight": null,
+    "density": 0.402259,
+    "data_to_ink_proxy": 0.402259
+  },
+  "style": {
+    "aesthetic_tags": [
+      "figures4papers",
+      "publication-figure",
+      "bar-composition",
+      "stacked-bar",
+      "brute-force"
+    ],
+    "style_cluster": null,
+    "style_vector": null,
+    "quality_score": 4.1
+  },
+  "constraints": {
+    "must_match": [],
+    "must_avoid": []
+  },
+  "embeddings": {
+    "semantic_embedding": null,
+    "visual_embedding": null,
+    "structure_embedding": null
+  },
+  "confidence": {
+    "composition": 0.72,
+    "palette": 0.68,
+    "typography": 0.35
+  },
+  "extensions": {
+    "visual_grammar": {},
+    "figure_card": {
+      "schema": "publication-figure-design/figure-card",
+      "schema_version": "2.0",
+      "source": "user-supplied",
+      "figure_type": "BarComposition",
+      "source_sha256": "abb63055b0d49edbe9002e820294a622db1429d31b1d2446340036cf1db92607",
+      "perceptual_hash": "afd2d5d4852fd5b5",
+      "canvas": {
+        "width_px": 15600,
+        "height_px": 3600,
+        "aspect_ratio": 4.333333,
+        "analysis_scale": 0.076923,
+        "mode": "RGBA",
+        "colorspace": "sRGB_assumed",
+        "has_alpha": true
+      },
+      "background": {
+        "rgb": [
+          255.0,
+          255.0,
+          255.0
+        ],
+        "hex": "#ffffff",
+        "near_white": true
+      },
+      "ink_coverage": 0.402259,
+      "geometry": {
+        "content_bbox_px": [
+          11,
+          15,
+          1164,
+          261
+        ],
+        "whitespace_fraction": 0.597741,
+        "row_density_peaks": [
+          125,
+          79,
+          81,
+          82,
+          80
+        ],
+        "column_density_peaks": [
+          160,
+          628,
+          159,
+          600,
+          133
+        ],
+        "ink_density": 0.402259
+      },
+      "palette": {
+        "dominant": [
+          {
+            "hex": "#ffffff",
+            "rgb": [
+              255,
+              255,
+              255
+            ],
+            "fraction": 0.592696,
+            "role": "background"
+          },
+          {
+            "hex": "#7b9eab",
+            "rgb": [
+              123,
+              158,
+              171
+            ],
+            "fraction": 0.080292,
+            "role": "data_or_annotation"
+          },
+          {
+            "hex": "#5f625c",
+            "rgb": [
+              95,
+              98,
+              92
+            ],
+            "fraction": 0.078165,
+            "role": "data_or_annotation"
+          },
+          {
+            "hex": "#c7e6c6",
+            "rgb": [
+              199,
+              230,
+              198
+            ],
+            "fraction": 0.07667,
+            "role": "data_or_annotation"
+          },
+          {
+            "hex": "#ddbbb6",
+            "rgb": [
+              221,
+              187,
+              182
+            ],
+            "fraction": 0.060066,
+            "role": "data_or_annotation"
+          },
+          {
+            "hex": "#fcf3e9",
+            "rgb": [
+              252,
+              243,
+              233
+            ],
+            "fraction": 0.040202,
+            "role": "data_or_annotation"
+          },
+          {
+            "hex": "#f1fff2",
+            "rgb": [
+              241,
+              255,
+              242
+            ],
+            "fraction": 0.038261,
+            "role": "data_or_annotation"
+          },
+          {
+            "hex": "#ffffe1",
+            "rgb": [
+              255,
+              255,
+              225
+            ],
+            "fraction": 0.033649,
+            "role": "data_or_annotation"
+          }
+        ],
+        "extraction": "extcolors-or-pillow-quantize"
+      },
+      "panels": {
+        "status": "heuristic_single_canvas",
+        "count": 1,
+        "layout": "single_canvas",
+        "bboxes_px": [
+          [
+            11,
+            15,
+            1164,
+            261
+          ]
+        ],
+        "adjacency": [],
+        "reading_order": [
+          0
+        ]
+      },
+      "plot_bbox": [
+        11,
+        15,
+        1164,
+        261
+      ],
+      "whitespace_map": {
+        "status": "pixel_density",
+        "fraction": 0.597741
+      },
+      "visual_density": 0.402259,
+      "saliency": {
+        "status": "ink_density_proxy",
+        "bbox_px": [
+          11,
+          15,
+          1164,
+          261
+        ]
+      },
+      "axes": {
+        "status": "heuristic_pixel_measurement",
+        "spines": {
+          "top": 0.0,
+          "bottom": 0.0,
+          "left": 0.0,
+          "right": 0.0
+        },
+        "tick_proxy": {
+          "row_peaks": [
+            249,
+            112,
+            248,
+            113,
+            115,
+            114,
+            257,
+            126
+          ],
+          "column_peaks": [
+            205,
+            928,
+            225,
+            908,
+            439,
+            41,
+            275,
+            744
+          ]
+        },
+        "grid_proxy": {
+          "horizontal_density": 0.137333,
+          "vertical_density": 0.090253
+        }
+      },
+      "typography": {
+        "status": "heuristic_ink_hierarchy",
+        "font_family": "manual_review_required",
+        "hierarchy": [
+          {
+            "role": "headline_or_axis",
+            "ink_density_peak": 0.231733
+          },
+          {
+            "role": "body_or_tick",
+            "ink_density_peak": 0.137333
+          }
+        ],
+        "size_proxy": {
+          "largest_dark_run_px": 17
+        }
+      },
+      "annotations": {
+        "status": "heuristic_density_regions",
+        "content_bbox_px": [
+          11,
+          15,
+          1164,
+          261
+        ],
+        "high_density_rows": [
+          126,
+          257,
+          114,
+          115,
+          113
+        ],
+        "high_density_columns": [
+          744,
+          275,
+          41,
+          439,
+          908
+        ]
+      },
+      "marker_family": {
+        "status": "heuristic",
+        "dark_pixel_fraction": 0.04883
+      },
+      "stroke_width_px": {
+        "status": "heuristic_short_run_proxy",
+        "median": 1.0
+      },
+      "component_crops": [
+        {
+          "name": "content",
+          "bbox_px": [
+            11,
+            15,
+            1164,
+            261
+          ]
+        }
+      ]
+    }
+  }
+}

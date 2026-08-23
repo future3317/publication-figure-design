@@ -8,9 +8,11 @@
     "schema_version": {"const": "1.0"},
     "contract_name": {
       "enum": [
-        "TaskSpec", "SourceSpec", "TargetSpec", "ReferenceSet", "LayoutSpec",
+        "TaskSpec", "SourceSpec", "ScientificContract", "TargetSpec", "ReferenceSet", "LayoutSpec",
         "StyleSpec", "TypographySpec", "PaletteSpec", "ComponentSpec",
-        "BindingMap", "RenderPlan", "QAReport", "ExportManifest"
+        "BindingMap", "RenderPlan", "QAReport", "ExportManifest",
+        "ReferenceDNA", "StyleCapsule", "JournalProfile", "DesignPacket",
+        "DesignPatch", "RenderTrace", "PreferencePair"
       ]
     }
   },

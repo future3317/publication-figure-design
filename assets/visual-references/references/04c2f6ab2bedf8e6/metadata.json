@@ -52,6 +52,7 @@
     ],
     "source_observation": "four-stage motivation: inputs, latent-space idea, embedding, and response curve"
   },
+  "reference_dna_path": "assets/visual-references/references/04c2f6ab2bedf8e6/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

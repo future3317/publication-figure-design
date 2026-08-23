@@ -11,12 +11,15 @@ Runtime bundle:
 - `scripts/`
 - `src/`
 - `assets/visual-references/`
+- `assets/visual-references/**/reference_dna.json`
 - `assets/reference-benchmarks/`
 - `assets/registry.jsonl`
 - `schemas/`
 - `indexes/`
+- `profiles/`
+- `evals/`
 
-Generated: 2026-08-22 11:43 UTC
+Generated: 2026-08-23 16:55 UTC
 
 Install this directory at `~/.claude/skills/publication-figure-design/`.
 Load `SKILL.md` and resolve all relative scripts/resources from that directory.

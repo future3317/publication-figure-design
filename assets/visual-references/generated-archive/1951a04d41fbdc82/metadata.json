@@ -10,7 +10,7 @@
   "journal_style": null,
   "layout": "multi-panel",
   "license": "generated independently; source license recorded in audit manifest",
-  "lifecycle_state": "raw",
+  "lifecycle_state": "analyzed",
   "n_groups": null,
   "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
   "observable_visual_grammar": {
@@ -31,9 +31,13 @@
       {
         "reason": "legacy_intake_migration",
         "state": "raw"
+      },
+      {
+        "reason": "reference_dna_built",
+        "state": "analyzed"
       }
     ],
-    "state": "raw"
+    "state": "analyzed"
   },
   "reconstruction_blueprint": {
     "annotation_model": "panel_letters + local_legends + direct_callouts",
@@ -84,6 +88,7 @@
     "source_observation": "dense subcategory comparison grid with six categorical panels"
   },
   "reconstruction_method": "independent",
+  "reference_dna_path": "assets/visual-references/generated-archive/1951a04d41fbdc82/reference_dna.json",
   "renderer_version": 3,
   "reproduction_preview_path": "assets/visual-references/generated-archive/1951a04d41fbdc82/image.png",
   "review_status": "pending",

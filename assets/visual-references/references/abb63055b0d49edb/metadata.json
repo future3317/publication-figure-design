@@ -52,6 +52,7 @@
     ],
     "source_observation": "composition bars, comparison bars, raw observations, and summary table"
   },
+  "reference_dna_path": "assets/visual-references/references/abb63055b0d49edb/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

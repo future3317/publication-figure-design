@@ -43,6 +43,7 @@
     ],
     "source_observation": "paired parameter-sweep curves"
   },
+  "reference_dna_path": "assets/visual-references/references/4db30b32b65e6b71/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

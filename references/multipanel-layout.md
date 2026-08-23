@@ -1,6 +1,8 @@
 # Multi-Panel Layout & Anti-Redundancy
 
-Principles for composing multiple panels into a single figure. Apply these before generating the adaptive layout in Step 4.
+Principles for composing multiple panels into a single figure. Apply these before
+binding the `LayoutSpec` in the design compiler; asset lookup is handled separately by
+the explicit `asset-adaptation` route.
 
 ---
 

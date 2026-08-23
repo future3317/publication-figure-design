@@ -102,6 +102,7 @@
     ],
     "source_observation": "16 interval and effect-size variants arranged as an atlas"
   },
+  "reference_dna_path": "assets/visual-references/references/dc61a5257eae4748/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

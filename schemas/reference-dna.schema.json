@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "publication-figure-design/reference-dna.schema.json",
+  "title": "Reference DNA",
+  "type": "object",
+  "required": ["schema", "schema_version", "identity", "composition", "palette", "typography", "geometry", "annotations", "hierarchy", "style", "constraints", "confidence"],
+  "properties": {
+    "schema": {"const": "publication-figure-design/reference-dna"},
+    "schema_version": {"const": "2.0"},
+    "identity": {"type": "object"},
+    "composition": {"type": "object"},
+    "palette": {"type": "object"},
+    "typography": {"type": "object"},
+    "geometry": {"type": "object"},
+    "annotations": {"type": "object"},
+    "hierarchy": {"type": "object"},
+    "style": {"type": "object"},
+    "constraints": {"type": "object"},
+    "embeddings": {"type": "object"},
+    "confidence": {"type": "object"},
+    "extensions": {"type": "object"}
+  },
+  "additionalProperties": false
+}

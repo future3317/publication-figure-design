@@ -9,7 +9,7 @@
   "journal_style": "Nature",
   "layout": "2x2",
   "license": "unknown",
-  "lifecycle_state": "raw",
+  "lifecycle_state": "analyzed",
   "n_groups": 3,
   "notes": "User likes this style. Reference for LineTrend color scheme choices: shows 4 palette variants (terrain, crimson, aquatic, violet-teal) on the same time-series data. Borrow palette and panel layout, not data or clinical semantics.",
   "palette": null,
@@ -20,10 +20,15 @@
       {
         "reason": "legacy_intake_migration",
         "state": "raw"
+      },
+      {
+        "reason": "reference_dna_built",
+        "state": "analyzed"
       }
     ],
-    "state": "raw"
+    "state": "analyzed"
   },
+  "reference_dna_path": "assets/visual-references/references/977970a3c5ff8ad9/reference_dna.json",
   "review_status": "pending",
   "scope": "references",
   "sha256": "977970a3c5ff8ad9a394e09186b6872686dbfee78411c6e5752d6bfd1b294d47",

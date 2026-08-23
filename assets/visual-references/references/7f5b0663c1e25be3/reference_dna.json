@@ -1,0 +1,253 @@
+{
+  "schema": "publication-figure-design/reference-dna",
+  "schema_version": "2.0",
+  "identity": {
+    "id": "7f5b0663c1e25be3",
+    "source": "user-supplied reference image",
+    "license": "user-supplied; redistribution not established",
+    "journal": null,
+    "year": null,
+    "figure_family": "grouped_violin",
+    "source_kind": "code"
+  },
+  "composition": {
+    "aspect_ratio": null,
+    "panel_count": 1,
+    "panel_bboxes": [],
+    "panel_area_ratios": [],
+    "reading_order": [],
+    "hero_panel": null,
+    "gutters": {},
+    "outer_margins": {},
+    "alignment_lines": [],
+    "whitespace_regions": {}
+  },
+  "palette": {
+    "background": null,
+    "dominant": [],
+    "neutrals": [],
+    "categorical": [],
+    "sequential": [],
+    "diverging": [],
+    "accent": null,
+    "semantic_roles": {
+      "background": "white background with no tinted page panel",
+      "contrast_and_emphasis": "dark text and outlines on light fills; emphasis uses saturated categorical marks",
+      "roles_and_proportions": "salmon Versicolor and muted blue Virginica; translucent fills with darker outlines"
+    },
+    "area_share": {},
+    "perceptual_distance": {},
+    "cvd_score": null,
+    "grayscale_score": null,
+    "code_literals": [
+      "#1d5f89",
+      "#6f9dbd",
+      "#b82f46",
+      "#f08d9e",
+      "D",
+      "Post",
+      "Pre",
+      "RGB",
+      "Versicolor",
+      "Virginica",
+      "bodies",
+      "bold",
+      "boxes",
+      "color",
+      "lw",
+      "right",
+      "tight",
+      "top",
+      "white"
+    ]
+  },
+  "typography": {
+    "family_class": "sans_serif_unknown",
+    "title_body_ratio": null,
+    "axis_tick_ratio": null,
+    "panel_label_style": null,
+    "weight": null,
+    "line_height": null,
+    "text_density": null,
+    "alignment": null,
+    "exact_font": null,
+    "exactness": "code_declared"
+  },
+  "geometry": {
+    "stroke_width_distribution": null,
+    "marker_family": {
+      "axes_and_scales": "axes/scales are explicit where quantitative coordinates are present; radial geometry declares its baseline",
+      "guides_and_grid": "guides are sparse, low-contrast, and subordinate to marks",
+      "marks_and_encoding": "violin distributions, narrow boxplots, raw jitter points, mean diamonds, and connecting mean segments"
+    },
+    "marker_size_distribution": null,
+    "corner_radius": null,
+    "arrowhead": null,
+    "leader_style": null,
+    "spine_model": null,
+    "grid_model": null,
+    "plot_calls": [
+      "Path",
+      "Rectangle",
+      "boxplot",
+      "close",
+      "convert",
+      "default_rng",
+      "enumerate",
+      "legend",
+      "len",
+      "mean",
+      "normal",
+      "open",
+      "plot",
+      "render",
+      "resize",
+      "save",
+      "savefig",
+      "scatter",
+      "set_alpha",
+      "set_edgecolor",
+      "set_facecolor",
+      "set_linewidth",
+      "set_visible",
+      "set_xlabel",
+      "set_xlim",
+      "set_xticks",
+      "set_ylabel",
+      "set_ylim",
+      "subplots",
+      "tick_params",
+      "tight_layout",
+      "violinplot",
+      "with_name",
+      "zip"
+    ],
+    "line_count": 47
+  },
+  "annotations": {
+    "direct_labels": null,
+    "brackets": null,
+    "callouts": null,
+    "leaders": null,
+    "significance": null,
+    "clearance": null
+  },
+  "hierarchy": {
+    "focal_regions": null,
+    "saliency_distribution": null,
+    "visual_weight": null,
+    "density": "high",
+    "data_to_ink_proxy": null
+  },
+  "style": {
+    "aesthetic_tags": [
+      "violin",
+      "boxplot",
+      "raw-points",
+      "paired-groups",
+      "mean-connector",
+      "before-after"
+    ],
+    "style_cluster": null,
+    "style_vector": null,
+    "quality_score": 4.2
+  },
+  "constraints": {
+    "must_match": [],
+    "must_avoid": []
+  },
+  "embeddings": {
+    "semantic_embedding": null,
+    "visual_embedding": null,
+    "structure_embedding": null
+  },
+  "confidence": {
+    "geometry": 0.94,
+    "palette": 0.86,
+    "typography": 0.82
+  },
+  "extensions": {
+    "visual_grammar": {
+      "annotations_typography": {
+        "callouts_and_leaders": "direct labels or compact equations stay adjacent to their marks; no decorative callouts",
+        "placement_and_clearance": "labels remain outside dense marks or use explicit clearance; no light text on light fills",
+        "text_hierarchy": "species title and legend at upper right; bold axis titles; group labels below marks"
+      },
+      "canvas_composition": {
+        "alignment_and_spacing": "consistent gutters and clearance around labels; no overlaps at final size",
+        "aspect_and_panel_layout": "single tall canvas with two separated x groups: Pre and Post; two species per group",
+        "visual_hierarchy": "data marks dominate; labels and legend are secondary; whitespace is intentional"
+      },
+      "chart_marks_axes": {
+        "axes_and_scales": "axes/scales are explicit where quantitative coordinates are present; radial geometry declares its baseline",
+        "guides_and_grid": "guides are sparse, low-contrast, and subordinate to marks",
+        "marks_and_encoding": "violin distributions, narrow boxplots, raw jitter points, mean diamonds, and connecting mean segments"
+      },
+      "connectors": "not_present",
+      "legend_key": {
+        "entries_and_encoding": "one entry per semantic color/mark role",
+        "frame_treatment": "frameless or very light frame",
+        "placement": "placed in the least dense whitespace region",
+        "scope": "upper-right two-entry legend with a short title and no enclosing frame"
+      },
+      "must_match": [
+        "paired group spacing",
+        "species color identity across violin/box/points",
+        "raw-point visibility",
+        "mean connector direction"
+      ],
+      "objects_material": "not_present",
+      "palette_roles": {
+        "background": "white background with no tinted page panel",
+        "contrast_and_emphasis": "dark text and outlines on light fills; emphasis uses saturated categorical marks",
+        "roles_and_proportions": "salmon Versicolor and muted blue Virginica; translucent fills with darker outlines"
+      },
+      "repetition_structures": {
+        "count_spacing_rhythm": "repeatable rhythm is consistent across marks",
+        "grouping_and_alignment": "groups align to their panel or baseline",
+        "topology": "same two-species stack repeats for Pre and Post with a controlled gap",
+        "variation_and_emphasis": "variation is carried by magnitude or position, not arbitrary decoration"
+      }
+    },
+    "figure_card": {},
+    "code": {
+      "calls": [
+        "Path",
+        "Rectangle",
+        "boxplot",
+        "close",
+        "convert",
+        "default_rng",
+        "enumerate",
+        "legend",
+        "len",
+        "mean",
+        "normal",
+        "open",
+        "plot",
+        "render",
+        "resize",
+        "save",
+        "savefig",
+        "scatter",
+        "set_alpha",
+        "set_edgecolor",
+        "set_facecolor",
+        "set_linewidth",
+        "set_visible",
+        "set_xlabel",
+        "set_xlim",
+        "set_xticks",
+        "set_ylabel",
+        "set_ylim",
+        "subplots",
+        "tick_params",
+        "tight_layout",
+        "violinplot",
+        "with_name",
+        "zip"
+      ],
+      "static_only": true
+    }
+  }
+}

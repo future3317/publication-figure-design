@@ -142,6 +142,31 @@ class MultiRoleReferenceRetriever:
             result[role] = scored[: max(1, int(limit))]
         return result
 
+    def retrieve_hybrid(self, *, figure_type: str, roles: Optional[Sequence[str]] = None, tags: Optional[Sequence[str]] = None, limit: int = 3, **query: Any) -> Dict[str, List[Dict[str, Any]]]:
+        """Return hybrid-index results while preserving the role result shape."""
+        try:
+            from publication_figure_design.reference_intelligence.retrieval import HybridRetriever
+        except ImportError:
+            return self.retrieve(figure_type=figure_type, roles=roles, tags=tags, limit=limit, **query)
+        task = {"figure_type": figure_type, "tags": list(tags or []), **query}
+        retriever = HybridRetriever(self.references)
+        selected = list(roles or self.ROLES)
+        output: Dict[str, List[Dict[str, Any]]] = {}
+        for role in selected:
+            rows = retriever.search(task, role, limit=limit)
+            output[role] = [
+                {
+                    "id": row["id"], "image_path": row["metadata"].get("image_path"),
+                    "figure_type": row["metadata"].get("figure_type", ""), "role": role,
+                    "reference_alignment_score": row["score"],
+                    "aesthetic_quality_score": float(row["metadata"].get("aesthetic_quality", row["metadata"].get("aesthetic_rating", 0)) or 0) / 5.0,
+                    "scientific_correctness_score": float(row["metadata"].get("scientific_correctness", 1.0) or 1.0),
+                    "reasons": row.get("reasons", []), "signals": row.get("signals", {}), "metadata": row["metadata"],
+                }
+                for row in rows
+            ]
+        return output
+
 
 def retrieve_reference_roles(figure_type: str, *, root: Optional[Path] = None, references: Optional[Iterable[Mapping[str, Any]]] = None, **kwargs: Any) -> Dict[str, List[Dict[str, Any]]]:
     return MultiRoleReferenceRetriever(root=root, references=references).retrieve(figure_type=figure_type, **kwargs)

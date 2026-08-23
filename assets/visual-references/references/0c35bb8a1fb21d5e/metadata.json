@@ -47,6 +47,7 @@
     ],
     "source_observation": "cancer method comparison with interval panel"
   },
+  "reference_dna_path": "assets/visual-references/references/0c35bb8a1fb21d5e/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

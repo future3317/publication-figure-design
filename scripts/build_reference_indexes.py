@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build deterministic metadata/layout/style/component indexes for references."""
+"""Build transparent hybrid reference indexes for the reference collection."""
 
 from __future__ import annotations
 
@@ -9,6 +9,13 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+
+import sys
+
+SRC_ROOT = Path(__file__).resolve().parents[1] / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
+from publication_figure_design.reference_intelligence.embeddings import record_vectors  # noqa: E402
 
 
 def build_indexes(root: Path | None = None) -> dict[str, Any]:
@@ -29,6 +36,7 @@ def build_indexes(root: Path | None = None) -> dict[str, Any]:
     style: dict[str, dict[str, Any]] = {}
     component: dict[str, dict[str, Any]] = {}
     semantic: dict[str, dict[str, Any]] = {}
+    hybrid_records: dict[str, dict[str, Any]] = {}
     for record in records:
         ref_id = str(record.get("id", ""))
         for token in [record.get("figure_type"), record.get("subtype"), *(record.get("tags") or [])]:
@@ -68,7 +76,7 @@ def build_indexes(root: Path | None = None) -> dict[str, Any]:
         canvas = canvas if isinstance(canvas, dict) else {}
         geometry = geometry if isinstance(geometry, dict) else {}
         semantic[ref_id] = {
-            "model_version": "__SEMANTIC_VERSION__",
+            "model_version": "hybrid-deterministic",
             "vector": [
                 float(canvas.get("aspect_ratio", 0.0) or 0.0),
                 float(card.get("ink_coverage", 0.0) or 0.0),
@@ -76,19 +84,33 @@ def build_indexes(root: Path | None = None) -> dict[str, Any]:
                 float(record.get("aesthetic_quality", record.get("aesthetic_rating", 0.0)) or 0.0),
             ],
         }
+        dna = {}
+        dna_path = record.get("reference_dna_path")
+        if dna_path and (root / str(dna_path)).is_file():
+            try:
+                dna = json.loads((root / str(dna_path)).read_text(encoding="utf-8"))
+            except (OSError, ValueError):
+                dna = {}
+        hybrid_records[ref_id] = {
+            "semantic_vector": record_vectors(record, dna).get("semantic", []),
+            "structure_vector": record_vectors(record, dna).get("structure", []),
+            "style_vector": record_vectors(record, dna).get("style", []),
+            "dna_path": dna_path,
+        }
 
     out_dir = root / "indexes"
     out_dir.mkdir(parents=True, exist_ok=True)
     registry_path = root / "assets" / "registry.jsonl"
     corpus_bytes = registry_path.read_bytes() if registry_path.is_file() else b""
     corpus_sha256 = hashlib.sha256(corpus_bytes).hexdigest()
-    index_version = f"metadata-proxy-{corpus_sha256[:12]}"
-    semantic_version = f"deterministic-proxy-{corpus_sha256[:12]}"
+    index_version = f"hybrid-deterministic-{corpus_sha256[:12]}"
+    semantic_version = f"semantic-deterministic-{corpus_sha256[:12]}"
     provenance = {
         "index_version": index_version,
         "semantic_model_version": semantic_version,
         "schema_version": "1.0",
-        "embedding_model": "deterministic-metadata-proxy",
+        "embedding_model": "deterministic-semantic-structure-style",
+        "optional_backends": {"semantic": "siglip2", "visual_structure": "dinov2_or_dinov3"},
         "built_at": datetime.now(timezone.utc).isoformat(),
         "corpus_sha256": corpus_sha256,
         "record_count": len(records),
@@ -100,8 +122,6 @@ def build_indexes(root: Path | None = None) -> dict[str, Any]:
         "provenance": provenance,
         "record_count": len(records),
     }
-    # Replace the local placeholder after the version is derived from the
-    # corpus, keeping every semantic record tied to the same build identity.
     for value in semantic.values():
         value["model_version"] = semantic_version
     outputs = {
@@ -109,7 +129,8 @@ def build_indexes(root: Path | None = None) -> dict[str, Any]:
         "layout.json": {**common, "index_type": "layout", "records": layout},
         "style.json": {**common, "index_type": "style", "records": style},
         "component.json": {**common, "index_type": "component", "records": component},
-        "semantic.json": {**common, "index_type": "semantic_proxy", "records": semantic},
+        "semantic.json": {**common, "index_type": "semantic", "records": semantic},
+        "hybrid.json": {**common, "index_type": "hybrid", "records": hybrid_records},
     }
     for name, payload in outputs.items():
         (out_dir / name).write_text(json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")

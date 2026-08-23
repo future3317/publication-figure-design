@@ -60,6 +60,7 @@
     ],
     "source_observation": "six compact distribution and comparison panels"
   },
+  "reference_dna_path": "assets/visual-references/references/134b0fcb07dbab1b/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

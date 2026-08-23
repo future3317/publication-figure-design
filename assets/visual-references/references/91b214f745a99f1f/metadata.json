@@ -47,6 +47,7 @@
     ],
     "source_observation": "trajectory panel followed by dynamics and effect comparison"
   },
+  "reference_dna_path": "assets/visual-references/references/91b214f745a99f1f/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

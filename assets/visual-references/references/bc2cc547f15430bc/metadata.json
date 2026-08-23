@@ -52,6 +52,7 @@
     ],
     "source_observation": "category-level correctness panels with raw and interval evidence"
   },
+  "reference_dna_path": "assets/visual-references/references/bc2cc547f15430bc/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

@@ -56,6 +56,7 @@
     ],
     "source_observation": "single-cell system figure with workflow, embedding hero, markers, distributions, trajectory"
   },
+  "reference_dna_path": "assets/visual-references/references/999edb06b942f988/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

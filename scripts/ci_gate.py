@@ -27,6 +27,7 @@ def main() -> int:
     run_step("unit", ["-m", "unittest", "discover", "-s", "scripts", "-p", "test_*.py", "-q"])
     run_step("package", ["-m", "unittest", "discover", "-s", "src/publication_figure_design/tests", "-p", "test_*.py", "-q"])
     run_step("reference validate", ["scripts/reference_library.py", "validate"])
+    run_step("reference DNA", ["scripts/check_reference_dna.py"])
     run_step("reference reconstruction", ["scripts/check_reference_reproductions.py"])
     run_step("reference fidelity", ["scripts/check_reference_reproduction_fidelity.py"])
     run_step("source reconstruction", ["scripts/check_source_reconstruction_library.py"])
@@ -38,6 +39,7 @@ def main() -> int:
     run_step("generation corpus", ["scripts/evaluate_generation_regression.py", "--contract-only", "--enforce"])
     run_step("champion floors", ["scripts/check_champion_floors.py"])
     run_step("quarantine", ["scripts/check_reference_quarantine.py"])
+    run_step("activation eval", ["scripts/evaluate_activation.py", "evals/activation/validation.jsonl"])
     run_step("adapter generation", ["scripts/generate_adapters.py"])
     run_step("adapter canary", ["scripts/adapter_canary.py"])
     with tempfile.TemporaryDirectory(prefix="pfd-ci-") as temp:

@@ -1,0 +1,275 @@
+{
+  "schema": "publication-figure-design/reference-dna",
+  "schema_version": "2.0",
+  "identity": {
+    "id": "5f56377676b03836",
+    "source": "user-supplied reference image",
+    "license": "user-supplied; redistribution not established",
+    "journal": null,
+    "year": null,
+    "figure_family": "part_to_whole",
+    "source_kind": "code"
+  },
+  "composition": {
+    "aspect_ratio": null,
+    "panel_count": 1,
+    "panel_bboxes": [],
+    "panel_area_ratios": [],
+    "reading_order": [],
+    "hero_panel": null,
+    "gutters": {},
+    "outer_margins": {},
+    "alignment_lines": [],
+    "whitespace_regions": {}
+  },
+  "palette": {
+    "background": null,
+    "dominant": [],
+    "neutrals": [],
+    "categorical": [],
+    "sequential": [],
+    "diverging": [],
+    "accent": null,
+    "semantic_roles": {
+      "background": "white background with no tinted page panel",
+      "contrast_and_emphasis": "dark text and outlines on light fills; emphasis uses saturated categorical marks",
+      "roles_and_proportions": "ordered cool blue ramp transitions through pale neutrals to warm reds; white separators"
+    },
+    "area_share": {},
+    "perceptual_distance": {},
+    "cvd_score": null,
+    "grayscale_score": null,
+    "code_literals": [
+      "#1e3b70",
+      "#252525",
+      "#315fa5",
+      "#458bc1",
+      "#69a8c9",
+      "#98c5d7",
+      "#a7191d",
+      "#bdd2e5",
+      "#c51e25",
+      "#d8e5f2",
+      "#dd2727",
+      "#edf3fa",
+      "#ee8a6d",
+      "#ef4f41",
+      "#f0c6aa",
+      "#fff2df",
+      "ASPECT",
+      "ELEVATION",
+      "GSR",
+      "LST",
+      "NDSI",
+      "NDVI",
+      "NDWI",
+      "NIR",
+      "NS",
+      "NSC",
+      "NSD",
+      "PRE",
+      "RGB",
+      "SLOPE",
+      "ST",
+      "WS",
+      "center",
+      "g",
+      "off",
+      "tight",
+      "white"
+    ]
+  },
+  "typography": {
+    "family_class": "sans_serif_unknown",
+    "title_body_ratio": null,
+    "axis_tick_ratio": null,
+    "panel_label_style": null,
+    "weight": null,
+    "line_height": null,
+    "text_density": null,
+    "alignment": null,
+    "exact_font": null,
+    "exactness": "code_declared"
+  },
+  "geometry": {
+    "stroke_width_distribution": null,
+    "marker_family": {
+      "axes_and_scales": "axes/scales are explicit where quantitative coordinates are present; radial geometry declares its baseline",
+      "guides_and_grid": "guides are sparse, low-contrast, and subordinate to marks",
+      "marks_and_encoding": "extruded elliptical pie sectors with external percentage labels"
+    },
+    "marker_size_distribution": null,
+    "corner_radius": null,
+    "arrowhead": null,
+    "leader_style": null,
+    "spine_model": null,
+    "grid_model": null,
+    "plot_calls": [
+      "Affine2D",
+      "Path",
+      "Rectangle",
+      "Wedge",
+      "_ellipse_pie",
+      "add_patch",
+      "array",
+      "axis",
+      "close",
+      "convert",
+      "cos",
+      "deg2rad",
+      "legend",
+      "len",
+      "linspace",
+      "open",
+      "render",
+      "resize",
+      "save",
+      "savefig",
+      "scale",
+      "set_center",
+      "set_title",
+      "set_transform",
+      "set_xlim",
+      "set_ylim",
+      "sin",
+      "subplots",
+      "subplots_adjust",
+      "sum",
+      "text",
+      "to_rgb",
+      "with_name",
+      "zip"
+    ],
+    "line_count": 54
+  },
+  "annotations": {
+    "direct_labels": null,
+    "brackets": null,
+    "callouts": null,
+    "leaders": null,
+    "significance": null,
+    "clearance": null
+  },
+  "hierarchy": {
+    "focal_regions": null,
+    "saliency_distribution": null,
+    "visual_weight": null,
+    "density": "moderate",
+    "data_to_ink_proxy": null
+  },
+  "style": {
+    "aesthetic_tags": [
+      "pie",
+      "3d-pie",
+      "part-to-whole",
+      "legend-column",
+      "percentage-labels"
+    ],
+    "style_cluster": null,
+    "style_vector": null,
+    "quality_score": 4.2
+  },
+  "constraints": {
+    "must_match": [],
+    "must_avoid": []
+  },
+  "embeddings": {
+    "semantic_embedding": null,
+    "visual_embedding": null,
+    "structure_embedding": null
+  },
+  "confidence": {
+    "geometry": 0.94,
+    "palette": 0.86,
+    "typography": 0.82
+  },
+  "extensions": {
+    "visual_grammar": {
+      "annotations_typography": {
+        "callouts_and_leaders": "direct labels or compact equations stay adjacent to their marks; no decorative callouts",
+        "placement_and_clearance": "labels remain outside dense marks or use explicit clearance; no light text on light fills",
+        "text_hierarchy": "percentage labels sit outside larger sectors; title is centered above the pie"
+      },
+      "canvas_composition": {
+        "alignment_and_spacing": "consistent gutters and clearance around labels; no overlaps at final size",
+        "aspect_and_panel_layout": "wide single canvas; legend column at left and flattened elliptical pie at right",
+        "visual_hierarchy": "data marks dominate; labels and legend are secondary; whitespace is intentional"
+      },
+      "chart_marks_axes": {
+        "axes_and_scales": "axes/scales are explicit where quantitative coordinates are present; radial geometry declares its baseline",
+        "guides_and_grid": "guides are sparse, low-contrast, and subordinate to marks",
+        "marks_and_encoding": "extruded elliptical pie sectors with external percentage labels"
+      },
+      "connectors": "not_present",
+      "legend_key": {
+        "entries_and_encoding": "one entry per semantic color/mark role",
+        "frame_treatment": "frameless or very light frame",
+        "placement": "placed in the least dense whitespace region",
+        "scope": "long single-column legend at left with color swatches and variable names"
+      },
+      "must_match": [
+        "ellipse projection and depth cue",
+        "ordered palette progression",
+        "external percentage labels"
+      ],
+      "objects_material": {
+        "depth_cues": "repeated lower layers create extrusion",
+        "fill_and_material": "solid pastel sector fills with a stacked depth edge",
+        "outline_and_edges": "thin white separators between sectors",
+        "placement_and_scale": "pie occupies right two-thirds, legend occupies left column",
+        "shape_and_projection": "flattened ellipse conveys 3D perspective"
+      },
+      "palette_roles": {
+        "background": "white background with no tinted page panel",
+        "contrast_and_emphasis": "dark text and outlines on light fills; emphasis uses saturated categorical marks",
+        "roles_and_proportions": "ordered cool blue ramp transitions through pale neutrals to warm reds; white separators"
+      },
+      "repetition_structures": {
+        "count_spacing_rhythm": "repeatable rhythm is consistent across marks",
+        "grouping_and_alignment": "groups align to their panel or baseline",
+        "topology": "15 sectors repeat a single part-to-whole encoding with ordered color progression",
+        "variation_and_emphasis": "variation is carried by magnitude or position, not arbitrary decoration"
+      }
+    },
+    "figure_card": {},
+    "code": {
+      "calls": [
+        "Affine2D",
+        "Path",
+        "Rectangle",
+        "Wedge",
+        "_ellipse_pie",
+        "add_patch",
+        "array",
+        "axis",
+        "close",
+        "convert",
+        "cos",
+        "deg2rad",
+        "legend",
+        "len",
+        "linspace",
+        "open",
+        "render",
+        "resize",
+        "save",
+        "savefig",
+        "scale",
+        "set_center",
+        "set_title",
+        "set_transform",
+        "set_xlim",
+        "set_ylim",
+        "sin",
+        "subplots",
+        "subplots_adjust",
+        "sum",
+        "text",
+        "to_rgb",
+        "with_name",
+        "zip"
+      ],
+      "static_only": true
+    }
+  }
+}

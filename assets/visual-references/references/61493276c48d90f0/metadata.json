@@ -43,6 +43,7 @@
     ],
     "source_observation": "temporal method teaser paired with a predicted trajectory"
   },
+  "reference_dna_path": "assets/visual-references/references/61493276c48d90f0/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

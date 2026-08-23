@@ -52,6 +52,7 @@
     ],
     "source_observation": "heatmap hero with matrix, composition, and interval support"
   },
+  "reference_dna_path": "assets/visual-references/references/38a9c4e8fd691cbd/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

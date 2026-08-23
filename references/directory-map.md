@@ -1,7 +1,9 @@
 # Figure Type Directory Map
 
 Maps user language (Chinese + English) to exact `assets/figures/<dir>/` paths.
-Step 4 reads this table FIRST, then falls back to `ls figures/` for unmatched types.
+The `asset-adaptation` route reads this table first, then falls back to the maintained
+asset catalog for unmatched types. Normal reference-led creation retrieves from
+`assets/visual-references/` instead of treating a production asset as a universal template.
 
 **Usage:** Find the user's description in the "Keywords" column → use the exact directory path.
 One user request can match multiple directories — the engine picks the closest semantic match.

@@ -47,6 +47,7 @@
     ],
     "source_observation": "three ablation learning curves with uncertainty bands"
   },
+  "reference_dna_path": "assets/visual-references/references/302b8f53795653bf/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

@@ -122,6 +122,11 @@ def evaluate(path: Path) -> dict[str, Any]:
     generation = payload.get("generation", [])
     averages = _generation_summary(generation)
     primary = split_reports.get("development") or next(iter(split_reports.values()), {"retrieval": [], "retrieval_summary": {}})
+    preference_path = path.parent / "preference_pairs.jsonl"
+    preference = []
+    if preference_path.is_file():
+        preference = [json.loads(line) for line in preference_path.read_text(encoding="utf-8").splitlines() if line.strip()]
+    preference_summary = {"pair_count": len(preference), "win_rate": round(sum(1 for row in preference if row.get("winner") == row.get("left_id")) / len(preference), 6) if preference else 0.0, "reason_taxonomy": sorted({reason for row in preference for reason in row.get("reasons", [])})}
     return {
         "schema_version": "1.1",
         "benchmark": str(path),
@@ -134,6 +139,7 @@ def evaluate(path: Path) -> dict[str, Any]:
             "retrieval": RETRIEVAL_THRESHOLDS,
             "generation": GENERATION_THRESHOLDS,
         },
+        "preference_summary": preference_summary,
     }
 
 

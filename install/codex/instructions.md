@@ -11,12 +11,15 @@ Runtime bundle:
 - `scripts/`
 - `src/`
 - `assets/visual-references/`
+- `assets/visual-references/**/reference_dna.json`
 - `assets/reference-benchmarks/`
 - `assets/registry.jsonl`
 - `schemas/`
 - `indexes/`
+- `profiles/`
+- `evals/`
 
-Generated: 2026-08-22 11:43 UTC
+Generated: 2026-08-23 16:55 UTC
 
 Load `SKILL.md` as the instruction entrypoint. When a route names a script,
 schema, index, or reference asset, use the bundled relative path; do not

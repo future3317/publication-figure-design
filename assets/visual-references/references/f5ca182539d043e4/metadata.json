@@ -26,6 +26,7 @@
     ],
     "state": "benchmarked"
   },
+  "reference_dna_path": "assets/visual-references/references/f5ca182539d043e4/reference_dna.json",
   "reference_kind": "user_supplied",
   "reproduction_preview_path": "assets/visual-references/references/f5ca182539d043e4/reconstruction.png",
   "review_status": "reviewed",

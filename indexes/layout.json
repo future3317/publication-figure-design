@@ -1,19 +1,23 @@
 {
   "aliases": {
-    "current": "metadata-proxy-02685f13b42f"
+    "current": "hybrid-deterministic-9aa8024c8294"
   },
   "index_type": "layout",
-  "model_version": "metadata-proxy-02685f13b42f",
+  "model_version": "hybrid-deterministic-9aa8024c8294",
   "provenance": {
-    "built_at": "2026-08-19T02:52:38.112834+00:00",
-    "corpus_sha256": "02685f13b42ffb375ae0c66246ddbb76c2e2a4955d557ec6542a4a9a3184788a",
-    "embedding_model": "deterministic-metadata-proxy",
-    "index_version": "metadata-proxy-02685f13b42f",
-    "record_count": 141,
+    "built_at": "2026-08-23T16:43:11.497960+00:00",
+    "corpus_sha256": "9aa8024c8294992dc722230ec8e787ff401ab68ae6c124d4460e8b174d109d2d",
+    "embedding_model": "deterministic-semantic-structure-style",
+    "index_version": "hybrid-deterministic-9aa8024c8294",
+    "optional_backends": {
+      "semantic": "siglip2",
+      "visual_structure": "dinov2_or_dinov3"
+    },
+    "record_count": 147,
     "schema_version": "1.0",
-    "semantic_model_version": "deterministic-proxy-02685f13b42f"
+    "semantic_model_version": "semantic-deterministic-9aa8024c8294"
   },
-  "record_count": 141,
+  "record_count": 147,
   "records": {
     "006c1b3915544c07": {
       "canvas_composition": null,
@@ -62,6 +66,16 @@
       "figure_type": "grouped_bar",
       "layout": "multi-panel",
       "panel_topology": null
+    },
+    "0789bc5bea8a1131": {
+      "canvas_composition": {
+        "alignment_and_spacing": "consistent gutters and clearance around labels; no overlaps at final size",
+        "aspect_and_panel_layout": "single radial canvas with 12 separated sector panels and a centered baseline disc",
+        "visual_hierarchy": "data marks dominate; labels and legend are secondary; whitespace is intentional"
+      },
+      "figure_type": "radial_bar",
+      "layout": "radial",
+      "panel_topology": "12 sectors repeat the same three-bar rhythm with varying magnitude; sector labels align to their wedge"
     },
     "0929cd38b228b2df": {
       "canvas_composition": null,
@@ -417,6 +431,16 @@
       "layout": "multi-panel",
       "panel_topology": null
     },
+    "5f56377676b03836": {
+      "canvas_composition": {
+        "alignment_and_spacing": "consistent gutters and clearance around labels; no overlaps at final size",
+        "aspect_and_panel_layout": "wide single canvas; legend column at left and flattened elliptical pie at right",
+        "visual_hierarchy": "data marks dominate; labels and legend are secondary; whitespace is intentional"
+      },
+      "figure_type": "part_to_whole",
+      "layout": "legend-left-chart-right",
+      "panel_topology": "15 sectors repeat a single part-to-whole encoding with ordered color progression"
+    },
     "60358c36e16732bf": {
       "canvas_composition": null,
       "figure_type": "architecture_schematic",
@@ -465,6 +489,16 @@
       "layout": "multi-panel",
       "panel_topology": null
     },
+    "69782084ad8f59e4": {
+      "canvas_composition": {
+        "alignment_and_spacing": "consistent gutters and clearance around labels; no overlaps at final size",
+        "aspect_and_panel_layout": "wide 1x2 panel layout with equal axes, shared visual grammar, and panel letters A/B",
+        "visual_hierarchy": "data marks dominate; labels and legend are secondary; whitespace is intentional"
+      },
+      "figure_type": "ordination",
+      "layout": "1x2",
+      "panel_topology": "two ordination panels repeat the same Control/T2D mark system while changing distance metric"
+    },
     "6a3e2a00f9c820f6": {
       "canvas_composition": null,
       "figure_type": "spatial_image_plate",
@@ -512,6 +546,16 @@
       "figure_type": "line_grid",
       "layout": "multi-panel",
       "panel_topology": null
+    },
+    "7f5b0663c1e25be3": {
+      "canvas_composition": {
+        "alignment_and_spacing": "consistent gutters and clearance around labels; no overlaps at final size",
+        "aspect_and_panel_layout": "single tall canvas with two separated x groups: Pre and Post; two species per group",
+        "visual_hierarchy": "data marks dominate; labels and legend are secondary; whitespace is intentional"
+      },
+      "figure_type": "grouped_violin",
+      "layout": "paired-groups",
+      "panel_topology": "same two-species stack repeats for Pre and Post with a controlled gap"
     },
     "7fee7c75142949e5": {
       "canvas_composition": null,
@@ -584,6 +628,16 @@
       "figure_type": "scatter_bubble",
       "layout": "multi-panel",
       "panel_topology": null
+    },
+    "9991f9ad1973eac2": {
+      "canvas_composition": {
+        "alignment_and_spacing": "consistent gutters and clearance around labels; no overlaps at final size",
+        "aspect_and_panel_layout": "single wide canvas with nested upper arcs, a three-part horizontal bar, and a bottom legend",
+        "visual_hierarchy": "data marks dominate; labels and legend are secondary; whitespace is intentional"
+      },
+      "figure_type": "radial_arc_bar",
+      "layout": "arc-over-bars",
+      "panel_topology": "four arc roles nest concentrically; three bar roles repeat on one baseline"
     },
     "999edb06b942f988": {
       "canvas_composition": null,
@@ -668,6 +722,16 @@
       "figure_type": "grouped_bar",
       "layout": "multi-panel",
       "panel_topology": null
+    },
+    "b68a45ad947f3509": {
+      "canvas_composition": {
+        "alignment_and_spacing": "consistent gutters and clearance around labels; no overlaps at final size",
+        "aspect_and_panel_layout": "single main scatter panel with narrow top and right marginal histograms",
+        "visual_hierarchy": "data marks dominate; labels and legend are secondary; whitespace is intentional"
+      },
+      "figure_type": "scatter_marginal",
+      "layout": "main-with-top-right-marginals",
+      "panel_topology": "four groups repeat point-fit-ribbon-histogram encoding"
     },
     "baa6064b1812ccc7": {
       "canvas_composition": null,

@@ -8,7 +8,7 @@
     <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-Apache--2.0-2ea44f"></a>
     <a href="#安装与使用"><img alt="Install" src="https://img.shields.io/badge/install-Claude%20Code%20%7C%20Codex%20%7C%20Cursor%20%7C%20Copilot-111827"></a>
     <a href="#图表类型全览"><img alt="Figure Types" src="https://img.shields.io/badge/figures-29-0ea5e9"></a>
-    <a href="#assets-figure-atlas"><img alt="QA" src="https://img.shields.io/badge/QA-4%20pass%2030%2B%20checks-success"></a>
+    <a href="#质量评估与测试"><img alt="QA" src="https://img.shields.io/badge/QA-L0--L3%20layered-success"></a>
     <a href="README_EN.md"><img alt="Language" src="https://img.shields.io/badge/语言-English%20%7C%20中文-1f6feb"></a>
   </p>
   <p>
@@ -35,8 +35,18 @@ pfd reference ingest <image> <figure-type>
 pfd reference analyze <reference-id>
 pfd reference review <reference-id> <review.json>
 pfd index build
-pfd eval                    # 单元测试 + Recall/NDCG/生成质量 canary
+pfd eval quick|full|visual|release  # release 与 CI 完全一致
 ```
+
+## Scientific Figure Design Compiler
+
+当前生产链保留 12 阶段状态机，并将参考图编译为可验证合同：
+
+`ScientificContract → ReferenceDNA → StyleCapsule + JournalProfile → DesignPacket → DesignPatch → RenderTrace → L0/L1/L2/L3 QA`
+
+图片、SVG、PDF 和 plotting code 使用不同 analyzer；raster 只输出字体类别和相对层级，
+不猜精确字体。索引使用透明的 metadata + semantic + structure + StyleDNA 混合检索，
+当前规模直接使用 NumPy 全量搜索，可选 SigLIP2/DINO adapter 不进入 core 依赖。
 
 具体参考图必须先打开并测量，再选择实现材料；结构、风格、组件和注释参考独立检索，最终 raster/vector 必须重新与参考图比较。`SKILL.md` 是薄入口，机器契约、状态机和 QA 规则分别位于 `references/`、`src/` 和 `manifest.yaml`。
 
@@ -80,11 +90,11 @@ Publication Figure Design 是一个面向 AI 编程助手（Claude Code、Codex 
 |------|------|
 | **原型分类** | 四类范式：`quantitative_grid`（定量网格）、`schematic-led`（示意引导）、`image plate + quant`（图像-定量融合）、`asymmetric_mixed`（非对称复合）——自动驱动布局与英雄面板策略 |
 | **29 种图型** | 热图 / 火山图 / 柱状图 / 散点图 / 箱线图 / PCA / RDA / 雷达图 / 桑基图 / AUROC / 山脊图 / 小提琴图 / 边际密度 / 核密度 / Mantel 相关 / UpSet / 森林图 / 混淆矩阵 / 流形 / 堆叠柱散 / 配对箱线 / 标记基因点图 / 趋势线 / 3D 热图 / 频率热图 / 密度热图 / 相关矩阵 / 分组相关矩阵 / 分组小提琴——每种均有配套生产脚本（`.py` + `.R`）与预览 PNG |
-| **Copy-First 规则** | 生成代码前扫描 `assets/figures/<type>/`，匹配到生产脚本则**原生运行**——Python 跑 `.py`，R 跑 `.R`，不翻译、不降级质量 |
+| **参考优先编译** | 先从 `assets/visual-references/` 按 structure/style/palette/component 分角色检索，再把 Reference DNA 编译成 DesignPacket；已有生产资产只在 asset-adaptation 路由显式复用 |
 | **跨类型参数继承** | 无生产脚本时，从相近图型借用 Class A（硬参数：颜色/透明度/线宽）、Class B（比例参数：字号/尺寸）、Class C（逻辑参数：图例开关/网格开关）三类视觉参数 |
 | **混合语言组合** | R 面板原生运行 → 输出 spec-correct PNG，Python 排版引擎按精确物理尺寸拼合多面板 |
 | **英雄面板自动识别** | 承载核心结论的面板自动获得更大的视觉权重，支撑面板居次排列 |
-| **四轮 QA 协议** | Pass 0：反模式扫描（AP-0-7）→ Pass 1：代码级合规（CL-1-7）→ Pass 2：视觉逻辑与数据完整性（VI-1-6）→ Pass 3：渲染输出验证（VV-1-5），共 30+ 项检查 |
+| **分层 QA** | L0 Hard Technical → L1 Scientific → L2 Structural Visual → L3 Perceptual/Aesthetic；四层结果分别落盘，任一硬门禁失败都不能导出 production-ready 资产 |
 | **数据校验门禁** | 逐面板预检——火山图需 ≥10 个显著差异基因、AUROC 曲线分离需 ≥0.15、热图须有跨行方差——不通过则拒绝渲染 |
 | **统计与可复现报告** | 每张图强制附带：n 定义、中心统计量（均值/中位数）、散布度量（SD/SEM/95%CI）、检验名称、多重比较校正、source-data 溯源 |
 | **期刊配色系统** | Nature 偏冷蓝、Cell 偏暖、Science 偏保守灰；色盲友好，避免红绿独对区分 |
@@ -128,26 +138,35 @@ Publication Figure Design 是一个面向 AI 编程助手（Claude Code、Codex 
 ┌─────────────────────────────────────────────────────────────┐
 │  User Intent Parsing / 用户意图解析                           │
 └─────────────────────────────────────────────────────────────┘
-  Step -1  需求澄清    │ 逆向提问锚定分析目标："这份数据要回答什么问题？"
-  Step 0a  原型识别    │ 四类范式判定：定量网格 / 示意引导 / 图像-定量融合 / 非对称复合
-  Step 0b  数据解析    │ 问题驱动的结构化解析，拒绝模板化套用
-  Step 1   图型论证    │ 循证式选型：N 个面板对应 N 个独立科学问题
-  Step 2   环境探测    │ 运行时自检（Python / R 内核、依赖完整性）
-  Step 3   风格注入    │ 视觉基线固化：字体系统 + 配色方案 + 导出规格
-  Step 4   资产检索    │ 扫描 assets/figures/<type>/，逐面板匹配已有生产脚本
-  Step 5   渲染生成    │ Copy-First 原生运行或跨类型参数继承
-  Step 5.5 数据校验    │ 逐面板预判图表可用性，不通过则拒绝渲染
-  Step 6   质量验证    │ 四轮 QA 协议，30+ 项检查点
-  Step 7   成果交付    │ 矢量 PDF + 300dpi PNG + 统计报告 + QA 报告
+  Route → Intake → Reference Retrieval → Reference Inspection
+      → Design Spec → Binding → Render → Compare → Critique
+      → Repair → QA → Export
+
+Reference DNA → StyleCapsule + JournalProfile → DesignPacket
+      → CandidateSet → DesignPatch → RenderTrace → layered QA
 ```
 
-**核心原则**：问题驱动而非模板驱动——图型选择基于科学问题的数量与结构，视觉风格通过资产库进行继承而非从零构建。
+**核心原则**：科学契约先于视觉参考；参考图只提供可测量的视觉语法。候选图必须消费同一份
+`TypographySpec`、`PaletteSpec`、`LayoutSpec`、`ComponentSpec`，并经过结构化 critique/repair 与四层 QA。
 
 ---
 
 ## 安装与使用
 
-`publication-figure-design` 是一个以 `SKILL.md` 为核心的 Skill 包。完整安装需保留 `references/`、`scripts/`、`assets/`、`install/` 等目录，Skill 依赖这些文件完成视觉基线注入、资产检索和跨平台适配。
+`publication-figure-design` 是一个以 `SKILL.md` 为薄入口、以 `src/publication_figure_design/` 为当前运行时的 Skill 包。完整安装需保留 `references/`、`scripts/`、`assets/`、`profiles/`、`indexes/`、`schemas/` 和 `install/`；维护脚本只是 thin CLI wrappers，生产生命周期由 orchestrator 统一驱动。
+
+所有仓库 Python 命令统一使用本机 `piepaper` 环境的解释器：
+
+```powershell
+& "D:\Anaconda\envs\piepaper\python.exe" <script-or-module>
+```
+详见 `references/runtime-environment.md`；禁止静默回退到 Conda `base` 或系统 Python。
+
+在仓库根目录把当前运行时安装到同一环境后，`pfd` CLI 即可直接使用：
+
+```powershell
+& "D:\Anaconda\envs\piepaper\python.exe" -m pip install -e .
+```
 
 ### Claude Code
 
@@ -163,7 +182,7 @@ claude
 ```bash
 mkdir -p ~/ai-skills
 cd ~/ai-skills
-git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
+git clone https://github.com/future3317/publication-figure-design.git publication-figure-design
 cp -r publication-figure-design ~/.claude/skills/
 ```
 
@@ -190,7 +209,7 @@ cp -r . ~/.claude/skills/publication-figure-design/
 Codex 支持通过 `install/codex/` 中的 `manifest.yaml` + `instructions.md` 加载 Skill。将以下目录复制到 `~/.codex/skills/publication-figure-design/`：
 
 ```bash
-git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
+git clone https://github.com/future3317/publication-figure-design.git publication-figure-design
 cd publication-figure-design
 mkdir -p ~/.codex/skills/publication-figure-design
 cp -r SKILL.md references/ scripts/ assets/ install/codex/* ~/.codex/skills/publication-figure-design/
@@ -201,7 +220,7 @@ cp -r SKILL.md references/ scripts/ assets/ install/codex/* ~/.codex/skills/publ
 也可以让 Codex 代为安装：
 
 ```text
-从 https://github.com/TingxiYu/academic-figure-skill.git 安装 Codex skill。
+从 https://github.com/future3317/publication-figure-design.git 安装 Codex skill。
 克隆后将目录命名为 publication-figure-design，再将 SKILL.md、references/、scripts/、assets/ 和 install/codex/ 复制到 ~/.codex/skills/publication-figure-design/。
 保持完整目录结构，不要只复制 SKILL.md。
 ```
@@ -211,7 +230,7 @@ cp -r SKILL.md references/ scripts/ assets/ install/codex/* ~/.codex/skills/publ
 将 Skill 规则文件复制到项目根目录，Cursor 在生成代码时会自动遵循其中的规范：
 
 ```bash
-git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
+git clone https://github.com/future3317/publication-figure-design.git publication-figure-design
 cp publication-figure-design/install/cursor/.cursorrules <your-project>/.cursorrules
 ```
 
@@ -222,7 +241,7 @@ cp publication-figure-design/install/cursor/.cursorrules <your-project>/.cursorr
 将 Skill 指令文件复制到项目的 `.github/` 目录，Copilot 在生成代码时会加载这些上下文：
 
 ```bash
-git clone https://github.com/TingxiYu/academic-figure-skill.git publication-figure-design
+git clone https://github.com/future3317/publication-figure-design.git publication-figure-design
 mkdir -p <your-project>/.github
 cp publication-figure-design/install/copilot/copilot-instructions.md <your-project>/.github/
 ```
@@ -245,7 +264,7 @@ cp publication-figure-design/install/copilot/copilot-instructions.md <your-proje
 ```text
 	publication-figure-design/                     ← 核心 Skill 包（本目录）
     ├── README.md                      ← 项目说明文档（本文件）
-    ├── LICENSE                        ← MIT 许可证
+    ├── LICENSE                        ← Apache 2.0 许可证
     ├── SKILL.md                       ← 薄技能入口：Orchestrator、优先级与 Gate
     ├── references/                    ← 16 份共享知识文档
     │   ├── figure-contract.md         ← 图表合同：核心结论 + 证据链 + 审稿风险
@@ -264,22 +283,17 @@ cp publication-figure-design/install/copilot/copilot-instructions.md <your-proje
     │   ├── complexheatmap.md          ← R ComplexHeatmap 指南
     │   ├── r-rendering.md             ← R PNG 渲染规范（cairo 设备）
     │   └── compose.R                  ← R 排版参考实现
-    ├── scripts/                       ← 编译引擎 + QA 工具 + 评估套件
-    │   ├── compose.py                 ← 多面板排版引擎
-    │   ├── eval_runner.py             ← 全量资产审计（29 类型自动扫描）
-    │   ├── trigger_benchmark.py       ← 触发准确率基准测试
-    │   ├── qa_coverage.py             ← QA 检查覆盖度验证
-    │   ├── qa_validator.py            ← 代码自动检查（AP-0~CL-7）
-    │   ├── check_references.py        ← 引用完整性校验
-    │   ├── e2e_runner.py              ← E2E 集成测试（A/B 场景自动评分）
-    │   ├── check_colors.py            ← 配色合规检查
-    │   ├── check_dimensions.py        ← 尺寸规范检查
-    │   ├── check_export.py            ← 导出参数检查
-    │   ├── check_fontsize.py          ← 字号合规检查
-    │   ├── check_figure.py            ← 图表综合检查
-    │   ├── generate_adapters.py       ← 跨平台适配文件生成
-    │   ├── generate_atlas.py          ← 图鉴自动生成
-    │   └── run_ab_tests.py            ← A/B 测试运行器
+    ├── src/publication_figure_design/ ← 当前生产编译器核心
+    │   ├── contracts/                 ← ScientificContract、ReferenceDNA、DesignPacket 等
+    │   ├── reference_intelligence/    ← 源类型 analyzer、DNA、hybrid retrieval
+    │   ├── style/                     ← JournalProfile、StyleCapsule、StyleSpec compiler
+    │   ├── design/                    ← 候选生成和 DesignPatch
+    │   ├── layout/                    ← mm/pt primitives 和约束布局
+    │   ├── renderers/                 ← SVG/vector assembler
+    │   └── qa/                        ← L0/L1/L2/L3 分层 QA、RenderTrace、anti-copy
+    ├── profiles/                      ← journal profiles + style capsules
+    ├── evals/                         ← activation train/validation/holdout 数据
+    ├── scripts/                       ← thin CLI wrappers、维护和 release gate
     ├── assets/
     │   ├── figures/                   ← 29+ 种图型生产脚本与预览
     │   │   ├── 3DHeatmap/             ← 3D 热图（R/ComplexHeatmap）
@@ -326,32 +340,32 @@ cp publication-figure-design/install/copilot/copilot-instructions.md <your-proje
 
 ## 质量评估与测试
 
-### QA 四级协议
+### 分层 QA 协议
 
-| 轮次 | 名称 | 检查项数 | 说明 |
-|------|------|---------|------|
-| Pass 0 | 反模式扫描 (AP) | 8 | 默认色板、四边边框、图例内置、截图导出、jet 色条、无散点柱状图、默认字体、大样本未栅格化 |
-| Pass 1 | 代码合规 (CL) | 7 | 排版基线、配色方案、导出规格、资产确认表、无降采样、图表尺寸、期刊规范 |
-| Pass 2 | 视觉逻辑 (VI) | 6 | 数据范围、热图方差、相关性强度、PCA 分离度、分布形态、数据丢失透明度 |
-| Pass 3 | 渲染验证 (VV) | 5 | PDF 生成、PNG 生成、非零文件、字体嵌入、尺寸正确 |
+| 层级 | 名称 | 责任 |
+|------|------|------|
+| L0 | Hard Technical | clipping、重叠、尺寸/DPI、字体嵌入、向量文本、颜色空间 |
+| L1 | Scientific | 数据映射、统计变换、坐标/单位、不确定性和 provenance |
+| L2 | Structural Visual | panel topology、比例、留白、对齐、legend、annotation |
+| L3 | Perceptual/Aesthetic | 层次、平衡、风格适配、专业完成度、参考亲和度 |
 
 ### 运行评估
 
 ```bash
-# 全量资产评估
-python scripts/eval_runner.py
+# 快速检查
+pfd eval quick
 
-# 单类型评估
-python scripts/eval_runner.py --type Heatmap
+# 完整开发评估
+pfd eval full
 
-# E2E 集成测试
-python scripts/e2e_runner.py
+# 视觉 benchmark / holdout
+pfd eval visual
 
-# 触发准确率基准
-python scripts/trigger_benchmark.py
+# 与 CI 完全相同的 release gate
+pfd eval release
 
 # 提交/PR 强制门禁（contract → unit → orchestrator → reference → fidelity → benchmark → adapters → canary）
-python scripts/ci_gate.py
+& "D:\Anaconda\envs\piepaper\python.exe" scripts/ci_gate.py
 ```
 
 CI 对每次 push 和 pull request 自动执行同一门禁。检索阈值为 Recall@1 ≥ 0.90、
@@ -364,12 +378,12 @@ benchmarked → production`，不会因“有代码”自动进入推荐池。
 
 ## 贡献指南
 
-Publication Figure Design 采用 Skill 插件架构，添加新图型只需：
+Publication Figure Design 采用 Skill 插件架构，新增参考图或图型时沿当前路由维护：
 
-1. 在 `assets/figures/` 下创建新目录 `<FigureType>/`
-2. 放入生产脚本（`.py` 或 `.R`）和预览 PNG
-3. 在 `references/directory-map.md` 中添加关键词映射
-4. 运行 `python scripts/eval_runner.py --type <FigureType>` 验证通过
+1. 用户提供参考图时使用 `pfd reference ingest` 开始 `raw` 入库，再按 `reference_intake` 路由运行 analyze → DNA → reproduction/fidelity → review/benchmark
+2. 需要维护生产资产时才在 `assets/figures/<FigureType>/` 增加脚本、预览和 sidecar metadata，并通过 `asset-adaptation` 路由接入
+3. 新图型在 `references/directory-map.md` 中添加关键词映射，并补齐对应 benchmark/canary
+4. 运行 `& "D:\Anaconda\envs\piepaper\python.exe" -m publication_figure_design.cli eval release` 验证通过
 
 ---
 

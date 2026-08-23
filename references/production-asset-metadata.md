@@ -11,7 +11,7 @@ Help the agent decide, **before reading the full script**, whether a production 
 - an **example** whose visual system is valuable but whose data is hard-coded, or
 - a **reusable** component somewhere in between.
 
-This makes Step 4 (Production Asset Scan) faster and reduces bad native-run attempts.
+This makes the asset-adaptation route faster and reduces bad native-run attempts.
 
 ## File location
 
@@ -65,7 +65,7 @@ It describes the canonical script(s) in that directory. If multiple scripts exis
 - **`reusable`** — Has reusable logic but needs more careful inspection; may mix demo data with function code.
 - **`example`** — Heavily tied to a specific dataset or paper. Do not naive-run on unrelated data. Use for PARAM INHERIT or cross-type inheritance instead.
 
-## How Step 4 uses metadata
+## How the asset-adaptation route uses metadata
 
 After matching a figure type via `references/directory-map.md`:
 

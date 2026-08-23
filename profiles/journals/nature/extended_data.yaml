@@ -1,0 +1,8 @@
+name: nature
+stage: extended_data
+source: Nature Research figure guidance
+source_date: '2026-08-24'
+rules:
+  width_mm: {value: 183, unit: mm, level: recommended, applicability: extended_data}
+  min_font_pt: {value: 5, unit: pt, level: required, applicability: labels_and_ticks}
+  editable_text: {value: true, unit: boolean, level: required, applicability: vector_exports}

@@ -9,7 +9,7 @@
   "journal_style": "Nature",
   "layout": "1x2",
   "license": "unknown",
-  "lifecycle_state": "raw",
+  "lifecycle_state": "analyzed",
   "n_groups": 9,
   "notes": "WeChat screenshot: marker composition (%) bars with individual cell overlays, split by dorsal/ventral. Reproduction script provided (plot_BarWithSwarm.py).",
   "palette": "pastel_girl",
@@ -20,10 +20,15 @@
       {
         "reason": "legacy_intake_migration",
         "state": "raw"
+      },
+      {
+        "reason": "reference_dna_built",
+        "state": "analyzed"
       }
     ],
-    "state": "raw"
+    "state": "analyzed"
   },
+  "reference_dna_path": "assets/visual-references/references/44d7a697ee30c4ac/reference_dna.json",
   "review_status": "pending",
   "scope": "references",
   "sha256": "44d7a697ee30c4acf3f18983e2ef60be2e01a4cad99b970fc880942d8b5efa88",

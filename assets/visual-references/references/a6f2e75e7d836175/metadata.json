@@ -47,6 +47,7 @@
     ],
     "source_observation": "three post-training comparison curves"
   },
+  "reference_dna_path": "assets/visual-references/references/a6f2e75e7d836175/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

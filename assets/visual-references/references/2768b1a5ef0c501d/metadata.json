@@ -68,6 +68,7 @@
     ],
     "source_observation": "eight-panel benchmark result grid, distinct IEDB rendering"
   },
+  "reference_dna_path": "assets/visual-references/references/2768b1a5ef0c501d/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

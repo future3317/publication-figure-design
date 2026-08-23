@@ -1,0 +1,8 @@
+name: science
+stage: final_submission
+source: PFD journal profile; verify against current author instructions
+source_date: '2026-08-24'
+rules:
+  min_font_pt: {value: 5, unit: pt, level: required, applicability: all}
+  editable_text: {value: true, unit: boolean, level: recommended, applicability: vector_exports}
+  background_grid: {value: false, unit: boolean, level: house_default, applicability: all}

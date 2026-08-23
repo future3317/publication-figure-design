@@ -1,0 +1,8 @@
+name: soft-mechanism
+visual_hierarchy: {focal_weight: strong, secondary_weight: quiet, annotation_density: medium}
+palette: {background: '#FFFFFF', neutral_strategy: warm-gray, categorical_chroma: soft, accent_count: 2, role_consistency: semantic}
+typography: {hierarchy_ratio: [1.0, 0.82, 0.70], weight_contrast: low, panel_labels: bold}
+geometry: {axis_weight_vs_data: 0.5, marker_visual_weight: moderate, grid_prominence: none, corner_radius: 2.0}
+spacing: {outer_margin_ratio: 0.09, panel_gap_ratio: 0.07, label_clearance_ratio: 0.03}
+legend: {preference: direct_label_then_shared_legend}
+negative_rules: [avoid_literal_clipart, avoid_ambiguous_arrows, avoid_text_on_light_fill]

@@ -45,6 +45,7 @@
     "state": "reviewed"
   },
   "reconstruction_fidelity": "reviewed",
+  "reference_dna_path": "assets/visual-references/references/69782084ad8f59e4/reference_dna.json",
   "reference_kind": "user_supplied",
   "reproduction_preview_path": "assets/visual-references/references/69782084ad8f59e4/reconstruction.png",
   "review_status": "reviewed",

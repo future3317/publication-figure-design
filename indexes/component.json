@@ -1,19 +1,23 @@
 {
   "aliases": {
-    "current": "metadata-proxy-02685f13b42f"
+    "current": "hybrid-deterministic-9aa8024c8294"
   },
   "index_type": "component",
-  "model_version": "metadata-proxy-02685f13b42f",
+  "model_version": "hybrid-deterministic-9aa8024c8294",
   "provenance": {
-    "built_at": "2026-08-19T02:52:38.112834+00:00",
-    "corpus_sha256": "02685f13b42ffb375ae0c66246ddbb76c2e2a4955d557ec6542a4a9a3184788a",
-    "embedding_model": "deterministic-metadata-proxy",
-    "index_version": "metadata-proxy-02685f13b42f",
-    "record_count": 141,
+    "built_at": "2026-08-23T16:43:11.497960+00:00",
+    "corpus_sha256": "9aa8024c8294992dc722230ec8e787ff401ab68ae6c124d4460e8b174d109d2d",
+    "embedding_model": "deterministic-semantic-structure-style",
+    "index_version": "hybrid-deterministic-9aa8024c8294",
+    "optional_backends": {
+      "semantic": "siglip2",
+      "visual_structure": "dinov2_or_dinov3"
+    },
+    "record_count": 147,
     "schema_version": "1.0",
-    "semantic_model_version": "deterministic-proxy-02685f13b42f"
+    "semantic_model_version": "semantic-deterministic-9aa8024c8294"
   },
-  "record_count": 141,
+  "record_count": 147,
   "records": {
     "006c1b3915544c07": {
       "chart_marks_axes": null,
@@ -70,6 +74,22 @@
       "figure_type": "grouped_bar",
       "legend_key": null,
       "objects_material": null
+    },
+    "0789bc5bea8a1131": {
+      "chart_marks_axes": {
+        "axes_and_scales": "axes/scales are explicit where quantitative coordinates are present; radial geometry declares its baseline",
+        "guides_and_grid": "guides are sparse, low-contrast, and subordinate to marks",
+        "marks_and_encoding": "three radial bars per sector with variable radial extent and numeric value labels"
+      },
+      "connectors": "not_present",
+      "figure_type": "radial_bar",
+      "legend_key": {
+        "entries_and_encoding": "one entry per semantic color/mark role",
+        "frame_treatment": "frameless or very light frame",
+        "placement": "placed in the least dense whitespace region",
+        "scope": "bottom-centered three-entry legend without a frame"
+      },
+      "objects_material": "not_present"
     },
     "0929cd38b228b2df": {
       "chart_marks_axes": null,
@@ -515,6 +535,28 @@
       "legend_key": null,
       "objects_material": null
     },
+    "5f56377676b03836": {
+      "chart_marks_axes": {
+        "axes_and_scales": "axes/scales are explicit where quantitative coordinates are present; radial geometry declares its baseline",
+        "guides_and_grid": "guides are sparse, low-contrast, and subordinate to marks",
+        "marks_and_encoding": "extruded elliptical pie sectors with external percentage labels"
+      },
+      "connectors": "not_present",
+      "figure_type": "part_to_whole",
+      "legend_key": {
+        "entries_and_encoding": "one entry per semantic color/mark role",
+        "frame_treatment": "frameless or very light frame",
+        "placement": "placed in the least dense whitespace region",
+        "scope": "long single-column legend at left with color swatches and variable names"
+      },
+      "objects_material": {
+        "depth_cues": "repeated lower layers create extrusion",
+        "fill_and_material": "solid pastel sector fills with a stacked depth edge",
+        "outline_and_edges": "thin white separators between sectors",
+        "placement_and_scale": "pie occupies right two-thirds, legend occupies left column",
+        "shape_and_projection": "flattened ellipse conveys 3D perspective"
+      }
+    },
     "60358c36e16732bf": {
       "chart_marks_axes": null,
       "connectors": null,
@@ -571,6 +613,22 @@
       "legend_key": null,
       "objects_material": null
     },
+    "69782084ad8f59e4": {
+      "chart_marks_axes": {
+        "axes_and_scales": "axes/scales are explicit where quantitative coordinates are present; radial geometry declares its baseline",
+        "guides_and_grid": "guides are sparse, low-contrast, and subordinate to marks",
+        "marks_and_encoding": "filled points inside group ellipses; dashed horizontal/vertical zero guides"
+      },
+      "connectors": "not_present",
+      "figure_type": "ordination",
+      "legend_key": {
+        "entries_and_encoding": "one entry per semantic color/mark role",
+        "frame_treatment": "frameless or very light frame",
+        "placement": "placed in the least dense whitespace region",
+        "scope": "compact lower-left two-entry legend in the first panel only"
+      },
+      "objects_material": "not_present"
+    },
     "6a3e2a00f9c820f6": {
       "chart_marks_axes": null,
       "connectors": null,
@@ -626,6 +684,22 @@
       "figure_type": "line_grid",
       "legend_key": null,
       "objects_material": null
+    },
+    "7f5b0663c1e25be3": {
+      "chart_marks_axes": {
+        "axes_and_scales": "axes/scales are explicit where quantitative coordinates are present; radial geometry declares its baseline",
+        "guides_and_grid": "guides are sparse, low-contrast, and subordinate to marks",
+        "marks_and_encoding": "violin distributions, narrow boxplots, raw jitter points, mean diamonds, and connecting mean segments"
+      },
+      "connectors": "not_present",
+      "figure_type": "grouped_violin",
+      "legend_key": {
+        "entries_and_encoding": "one entry per semantic color/mark role",
+        "frame_treatment": "frameless or very light frame",
+        "placement": "placed in the least dense whitespace region",
+        "scope": "upper-right two-entry legend with a short title and no enclosing frame"
+      },
+      "objects_material": "not_present"
     },
     "7fee7c75142949e5": {
       "chart_marks_axes": null,
@@ -710,6 +784,22 @@
       "figure_type": "scatter_bubble",
       "legend_key": null,
       "objects_material": null
+    },
+    "9991f9ad1973eac2": {
+      "chart_marks_axes": {
+        "axes_and_scales": "axes/scales are explicit where quantitative coordinates are present; radial geometry declares its baseline",
+        "guides_and_grid": "guides are sparse, low-contrast, and subordinate to marks",
+        "marks_and_encoding": "thick semi-circular ring segments and aligned rectangular percentage bars"
+      },
+      "connectors": "not_present",
+      "figure_type": "radial_arc_bar",
+      "legend_key": {
+        "entries_and_encoding": "one entry per semantic color/mark role",
+        "frame_treatment": "frameless or very light frame",
+        "placement": "placed in the least dense whitespace region",
+        "scope": "bottom-centered two-row legend grouped by Arc and Bar roles"
+      },
+      "objects_material": "not_present"
     },
     "999edb06b942f988": {
       "chart_marks_axes": null,
@@ -808,6 +898,22 @@
       "figure_type": "grouped_bar",
       "legend_key": null,
       "objects_material": null
+    },
+    "b68a45ad947f3509": {
+      "chart_marks_axes": {
+        "axes_and_scales": "axes/scales are explicit where quantitative coordinates are present; radial geometry declares its baseline",
+        "guides_and_grid": "guides are sparse, low-contrast, and subordinate to marks",
+        "marks_and_encoding": "filled circular points, dashed regression fits, and translucent confidence ribbons"
+      },
+      "connectors": "not_present",
+      "figure_type": "scatter_marginal",
+      "legend_key": {
+        "entries_and_encoding": "one entry per semantic color/mark role",
+        "frame_treatment": "frameless or very light frame",
+        "placement": "placed in the least dense whitespace region",
+        "scope": "no boxed legend; group identity is carried by direct equation labels and consistent colors"
+      },
+      "objects_material": "not_present"
     },
     "baa6064b1812ccc7": {
       "chart_marks_axes": null,

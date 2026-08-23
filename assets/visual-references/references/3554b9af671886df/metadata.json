@@ -43,6 +43,7 @@
     ],
     "source_observation": "temporal concept sketch with forecast explanation"
   },
+  "reference_dna_path": "assets/visual-references/references/3554b9af671886df/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

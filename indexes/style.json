@@ -1,19 +1,23 @@
 {
   "aliases": {
-    "current": "metadata-proxy-02685f13b42f"
+    "current": "hybrid-deterministic-9aa8024c8294"
   },
   "index_type": "style",
-  "model_version": "metadata-proxy-02685f13b42f",
+  "model_version": "hybrid-deterministic-9aa8024c8294",
   "provenance": {
-    "built_at": "2026-08-19T02:52:38.112834+00:00",
-    "corpus_sha256": "02685f13b42ffb375ae0c66246ddbb76c2e2a4955d557ec6542a4a9a3184788a",
-    "embedding_model": "deterministic-metadata-proxy",
-    "index_version": "metadata-proxy-02685f13b42f",
-    "record_count": 141,
+    "built_at": "2026-08-23T16:43:11.497960+00:00",
+    "corpus_sha256": "9aa8024c8294992dc722230ec8e787ff401ab68ae6c124d4460e8b174d109d2d",
+    "embedding_model": "deterministic-semantic-structure-style",
+    "index_version": "hybrid-deterministic-9aa8024c8294",
+    "optional_backends": {
+      "semantic": "siglip2",
+      "visual_structure": "dinov2_or_dinov3"
+    },
+    "record_count": 147,
     "schema_version": "1.0",
-    "semantic_model_version": "deterministic-proxy-02685f13b42f"
+    "semantic_model_version": "semantic-deterministic-9aa8024c8294"
   },
-  "record_count": 141,
+  "record_count": 147,
   "records": {
     "006c1b3915544c07": {
       "aesthetic_quality": null,
@@ -61,6 +65,20 @@
       "aesthetic_quality": null,
       "annotations_typography": null,
       "palette_roles": null,
+      "style_spec_path": null
+    },
+    "0789bc5bea8a1131": {
+      "aesthetic_quality": 4.2,
+      "annotations_typography": {
+        "callouts_and_leaders": "direct labels or compact equations stay adjacent to their marks; no decorative callouts",
+        "placement_and_clearance": "labels remain outside dense marks or use explicit clearance; no light text on light fills",
+        "text_hierarchy": "outer sector names are tangentially rotated; values are placed at bar tips; center reads Baseline"
+      },
+      "palette_roles": {
+        "background": "white background with no tinted page panel",
+        "contrast_and_emphasis": "dark text and outlines on light fills; emphasis uses saturated categorical marks",
+        "roles_and_proportions": "teal Beijing, pink Tianjin, purple Hebei; pastel sector backgrounds; black outlines"
+      },
       "style_spec_path": null
     },
     "0929cd38b228b2df": {
@@ -429,6 +447,20 @@
       "palette_roles": null,
       "style_spec_path": null
     },
+    "5f56377676b03836": {
+      "aesthetic_quality": 4.2,
+      "annotations_typography": {
+        "callouts_and_leaders": "direct labels or compact equations stay adjacent to their marks; no decorative callouts",
+        "placement_and_clearance": "labels remain outside dense marks or use explicit clearance; no light text on light fills",
+        "text_hierarchy": "percentage labels sit outside larger sectors; title is centered above the pie"
+      },
+      "palette_roles": {
+        "background": "white background with no tinted page panel",
+        "contrast_and_emphasis": "dark text and outlines on light fills; emphasis uses saturated categorical marks",
+        "roles_and_proportions": "ordered cool blue ramp transitions through pale neutrals to warm reds; white separators"
+      },
+      "style_spec_path": null
+    },
     "60358c36e16732bf": {
       "aesthetic_quality": 4.7,
       "annotations_typography": null,
@@ -477,6 +509,20 @@
       "palette_roles": null,
       "style_spec_path": null
     },
+    "69782084ad8f59e4": {
+      "aesthetic_quality": 4.2,
+      "annotations_typography": {
+        "callouts_and_leaders": "direct labels or compact equations stay adjacent to their marks; no decorative callouts",
+        "placement_and_clearance": "labels remain outside dense marks or use explicit clearance; no light text on light fills",
+        "text_hierarchy": "PERMANOVA, R2, and P annotations in the upper-left of each panel; titles centered above panels"
+      },
+      "palette_roles": {
+        "background": "white background with no tinted page panel",
+        "contrast_and_emphasis": "dark text and outlines on light fills; emphasis uses saturated categorical marks",
+        "roles_and_proportions": "coral Control and cyan T2D points with matching translucent confidence ellipses"
+      },
+      "style_spec_path": null
+    },
     "6a3e2a00f9c820f6": {
       "aesthetic_quality": null,
       "annotations_typography": null,
@@ -523,6 +569,20 @@
       "aesthetic_quality": null,
       "annotations_typography": null,
       "palette_roles": null,
+      "style_spec_path": null
+    },
+    "7f5b0663c1e25be3": {
+      "aesthetic_quality": 4.2,
+      "annotations_typography": {
+        "callouts_and_leaders": "direct labels or compact equations stay adjacent to their marks; no decorative callouts",
+        "placement_and_clearance": "labels remain outside dense marks or use explicit clearance; no light text on light fills",
+        "text_hierarchy": "species title and legend at upper right; bold axis titles; group labels below marks"
+      },
+      "palette_roles": {
+        "background": "white background with no tinted page panel",
+        "contrast_and_emphasis": "dark text and outlines on light fills; emphasis uses saturated categorical marks",
+        "roles_and_proportions": "salmon Versicolor and muted blue Virginica; translucent fills with darker outlines"
+      },
       "style_spec_path": null
     },
     "7fee7c75142949e5": {
@@ -595,6 +655,20 @@
       "aesthetic_quality": null,
       "annotations_typography": null,
       "palette_roles": null,
+      "style_spec_path": null
+    },
+    "9991f9ad1973eac2": {
+      "aesthetic_quality": 4.2,
+      "annotations_typography": {
+        "callouts_and_leaders": "direct labels or compact equations stay adjacent to their marks; no decorative callouts",
+        "placement_and_clearance": "labels remain outside dense marks or use explicit clearance; no light text on light fills",
+        "text_hierarchy": "Saitama centered above the outer arc; percentages centered inside high-contrast segments"
+      },
+      "palette_roles": {
+        "background": "white background with no tinted page panel",
+        "contrast_and_emphasis": "dark text and outlines on light fills; emphasis uses saturated categorical marks",
+        "roles_and_proportions": "pink outer arc, navy middle arc, salmon/lilac inner arcs; blue/peach/lilac bars"
+      },
       "style_spec_path": null
     },
     "999edb06b942f988": {
@@ -679,6 +753,20 @@
       "aesthetic_quality": 4.3,
       "annotations_typography": null,
       "palette_roles": null,
+      "style_spec_path": null
+    },
+    "b68a45ad947f3509": {
+      "aesthetic_quality": 4.2,
+      "annotations_typography": {
+        "callouts_and_leaders": "direct labels or compact equations stay adjacent to their marks; no decorative callouts",
+        "placement_and_clearance": "labels remain outside dense marks or use explicit clearance; no light text on light fills",
+        "text_hierarchy": "four inline regression equations at upper left of the main panel; GST/LST axis labels are bold"
+      },
+      "palette_roles": {
+        "background": "white background with no tinted page panel",
+        "contrast_and_emphasis": "dark text and outlines on light fills; emphasis uses saturated categorical marks",
+        "roles_and_proportions": "navy, ochre, crimson, and cool gray group roles; translucent matching confidence ribbons"
+      },
       "style_spec_path": null
     },
     "baa6064b1812ccc7": {

@@ -68,6 +68,7 @@
     ],
     "source_observation": "dense self-correction grid: categorical gains, iterations, paired observations, and metrics"
   },
+  "reference_dna_path": "assets/visual-references/references/71133ed59cc16f8c/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

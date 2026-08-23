@@ -37,6 +37,12 @@ a new session instead of silently changing the reference choice.
 | `QAReport` | scientific/statistical/layout/typography/color/fidelity/accessibility/export gates and metrics |
 | `ExportManifest` | final files, source files, QA report, provenance, formats, actual font used, substitution policy |
 
+Compiler artifacts extend the same state machine: `ReferenceDNA`, `StyleCapsule`,
+`JournalProfile`, `DesignPacket`, `DesignPatch`, `RenderTrace`, `PreferencePair`.
+They are emitted by the existing stages rather than by a second workflow. `QAReport`
+contains separate `hard`/`soft` sections for L0 technical, L1 scientific, L2 structural,
+and L3 perceptual evidence.
+
 Do not promote a prose note, an agent declaration, or a reference-local script into a
 stage artifact. A stage is complete only when its machine-readable output passes its gate.
 

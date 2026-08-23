@@ -1,0 +1,278 @@
+{
+  "schema": "publication-figure-design/reference-dna",
+  "schema_version": "2.0",
+  "identity": {
+    "id": "22f32e9bd10b34ee",
+    "source": "user-supplied reference image",
+    "license": "user-supplied; redistribution not established",
+    "journal": null,
+    "year": null,
+    "figure_family": "radar_grid",
+    "source_kind": "code"
+  },
+  "composition": {
+    "aspect_ratio": null,
+    "panel_count": 1,
+    "panel_bboxes": [],
+    "panel_area_ratios": [],
+    "reading_order": [],
+    "hero_panel": null,
+    "gutters": {},
+    "outer_margins": {},
+    "alignment_lines": [],
+    "whitespace_regions": {}
+  },
+  "palette": {
+    "background": null,
+    "dominant": [],
+    "neutrals": [],
+    "categorical": [],
+    "sequential": [],
+    "diverging": [],
+    "accent": null,
+    "semantic_roles": {
+      "background": "White canvas with pale gray radial/grid guides and black outer spine.",
+      "contrast_and_emphasis": "High-contrast year outlines remain visible through translucent fills; dark bubbles remain legible against white outer space.",
+      "roles_and_proportions": "Navy, red, and orange encode the three years; dark blue bubbles encode planting area independently of year; black/gray text and guides provide structure."
+    },
+    "area_share": {},
+    "perceptual_distance": {},
+    "cvd_score": null,
+    "grayscale_score": null,
+    "code_literals": [
+      "#33496b",
+      "#34496b",
+      "#4d4d4d",
+      "#aeb5bd",
+      "#e34b59",
+      "#f2a15d",
+      "#ffffff",
+      "AH",
+      "Agg",
+      "BJ",
+      "CQ",
+      "FJ",
+      "GS",
+      "GX",
+      "GZ",
+      "HA",
+      "HB",
+      "HE",
+      "HI",
+      "HL",
+      "HN",
+      "IM",
+      "JL",
+      "JS",
+      "JX",
+      "LN",
+      "NX",
+      "QH",
+      "SC",
+      "SD",
+      "SH",
+      "SN",
+      "SX",
+      "TJ",
+      "XJ",
+      "XZ",
+      "YN",
+      "Year",
+      "ZJ",
+      "black",
+      "center",
+      "polar",
+      "right",
+      "white"
+    ]
+  },
+  "typography": {
+    "family_class": "sans_serif_unknown",
+    "title_body_ratio": null,
+    "axis_tick_ratio": null,
+    "panel_label_style": null,
+    "weight": null,
+    "line_height": null,
+    "text_density": null,
+    "alignment": null,
+    "exact_font": null,
+    "exactness": "code_declared"
+  },
+  "geometry": {
+    "stroke_width_distribution": null,
+    "marker_family": {
+      "axes_and_scales": "Polar angular categorical axis with radial linear ticks at 2000, 4000, and 6000.",
+      "guides_and_grid": "Circular radial grid and faint spokes support reading; dark circular spine frames the plot.",
+      "marks_and_encoding": "Polar filled polygons and vertices encode yearly grain yield; bubble area encodes planting area; radial position encodes magnitude."
+    },
+    "marker_size_distribution": null,
+    "corner_radius": null,
+    "arrowhead": null,
+    "leader_style": null,
+    "spine_model": null,
+    "grid_model": null,
+    "plot_calls": [
+      "Line2D",
+      "Path",
+      "add_subplot",
+      "clip",
+      "close",
+      "default_rng",
+      "figure",
+      "fill",
+      "grid",
+      "legend",
+      "len",
+      "linspace",
+      "main",
+      "normal",
+      "plot",
+      "resolve",
+      "savefig",
+      "scatter",
+      "set_linewidth",
+      "set_theta_direction",
+      "set_theta_offset",
+      "set_xticklabels",
+      "set_xticks",
+      "set_ylim",
+      "set_yticklabels",
+      "set_yticks",
+      "text",
+      "tight_layout",
+      "use",
+      "zip"
+    ],
+    "line_count": 69
+  },
+  "annotations": {
+    "direct_labels": null,
+    "brackets": null,
+    "callouts": null,
+    "leaders": null,
+    "significance": null,
+    "clearance": null
+  },
+  "hierarchy": {
+    "focal_regions": null,
+    "saliency_distribution": null,
+    "visual_weight": null,
+    "density": "high",
+    "data_to_ink_proxy": null
+  },
+  "style": {
+    "aesthetic_tags": [
+      "user-supplied",
+      "radar",
+      "polar",
+      "bubble-encoding",
+      "filled-polygons",
+      "donut-center",
+      "dual-legend"
+    ],
+    "style_cluster": null,
+    "style_vector": null,
+    "quality_score": 4.3
+  },
+  "constraints": {
+    "must_match": [],
+    "must_avoid": []
+  },
+  "embeddings": {
+    "semantic_embedding": null,
+    "visual_embedding": null,
+    "structure_embedding": null
+  },
+  "confidence": {
+    "geometry": 0.94,
+    "palette": 0.86,
+    "typography": 0.82
+  },
+  "extensions": {
+    "visual_grammar": {
+      "annotations_typography": {
+        "callouts_and_leaders": "No leader callouts; radial spokes and tick labels provide the coordinate system.",
+        "placement_and_clearance": "Labels sit just outside the polar spine; center title is isolated in the donut; legends stay outside the polar data region.",
+        "text_hierarchy": "Small outer category labels, medium radial tick labels, and a centered multi-line Grain Yield title."
+      },
+      "canvas_composition": {
+        "alignment_and_spacing": "Thirty radial categories evenly spaced around the circle; center donut clears the innermost data; right legends align vertically outside the polar axes.",
+        "aspect_and_panel_layout": "Large circular polar panel occupying the left/center of a square canvas, with two legends in the right margin and a small explanatory note below.",
+        "visual_hierarchy": "Filled yearly radar polygons and the white center donut are primary; outer bubble ring is a secondary quantitative layer; radial labels and legends support decoding."
+      },
+      "chart_marks_axes": {
+        "axes_and_scales": "Polar angular categorical axis with radial linear ticks at 2000, 4000, and 6000.",
+        "guides_and_grid": "Circular radial grid and faint spokes support reading; dark circular spine frames the plot.",
+        "marks_and_encoding": "Polar filled polygons and vertices encode yearly grain yield; bubble area encodes planting area; radial position encodes magnitude."
+      },
+      "connectors": "not_present",
+      "legend_key": {
+        "entries_and_encoding": "Year legend uses colored swatches; planting-area legend uses three differently sized bubbles.",
+        "frame_treatment": "No visible frames; clean text-and-key layout.",
+        "placement": "Right of the polar panel, vertically separated by semantic role.",
+        "scope": "Two global legends: one for year colors and one for planting-area bubble size."
+      },
+      "must_match": [
+        "Filled overlapping polar polygons for three years",
+        "Outer ring of bubble marks encoding a second variable",
+        "White central donut with centered Grain Yield label",
+        "Dense radial category labels and circular grid",
+        "Separate year and bubble-size legends outside the polar panel"
+      ],
+      "objects_material": {
+        "depth_cues": "Transparency and overlap create layered depth without gradients; bubble size supplies a second quantitative channel.",
+        "fill_and_material": "Year polygons use translucent fills to reveal overlap; bubbles use opaque/semi-transparent dark blue fills; center is white.",
+        "outline_and_edges": "Colored polygon outlines and a dark polar spine define the outer boundary; bubble edges are light for separation.",
+        "placement_and_scale": "Year polygons occupy the inner radial field; planting-area bubbles sit near the outer radius; donut is centered at the origin.",
+        "shape_and_projection": "Filled semi-transparent closed polygons on a polar coordinate system, with circular bubble marks around the outer ring and a central circular donut."
+      },
+      "palette_roles": {
+        "background": "White canvas with pale gray radial/grid guides and black outer spine.",
+        "contrast_and_emphasis": "High-contrast year outlines remain visible through translucent fills; dark bubbles remain legible against white outer space.",
+        "roles_and_proportions": "Navy, red, and orange encode the three years; dark blue bubbles encode planting area independently of year; black/gray text and guides provide structure."
+      },
+      "repetition_structures": {
+        "count_spacing_rhythm": "Dense, regular angular rhythm across all province/category labels.",
+        "grouping_and_alignment": "Each angle aligns year vertices, radial guides, labels, and one bubble mark.",
+        "topology": "Many evenly spaced radial categories repeat the same three yearly values plus one outer bubble.",
+        "variation_and_emphasis": "Year colors distinguish temporal series; bubble area varies by planting area; the central donut interrupts the dense center."
+      }
+    },
+    "figure_card": {},
+    "code": {
+      "calls": [
+        "Line2D",
+        "Path",
+        "add_subplot",
+        "clip",
+        "close",
+        "default_rng",
+        "figure",
+        "fill",
+        "grid",
+        "legend",
+        "len",
+        "linspace",
+        "main",
+        "normal",
+        "plot",
+        "resolve",
+        "savefig",
+        "scatter",
+        "set_linewidth",
+        "set_theta_direction",
+        "set_theta_offset",
+        "set_xticklabels",
+        "set_xticks",
+        "set_ylim",
+        "set_yticklabels",
+        "set_yticks",
+        "text",
+        "tight_layout",
+        "use",
+        "zip"
+      ],
+      "static_only": true
+    }
+  }
+}

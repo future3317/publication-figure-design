@@ -102,6 +102,7 @@
     ],
     "source_observation": "16 distribution variants arranged as an atlas"
   },
+  "reference_dna_path": "assets/visual-references/references/a1fe533d07dae36d/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

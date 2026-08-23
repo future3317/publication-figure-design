@@ -1,0 +1,262 @@
+{
+  "schema": "publication-figure-design/reference-dna",
+  "schema_version": "2.0",
+  "identity": {
+    "id": "b68a45ad947f3509",
+    "source": "user-supplied reference image",
+    "license": "user-supplied; redistribution not established",
+    "journal": null,
+    "year": null,
+    "figure_family": "scatter_marginal",
+    "source_kind": "code"
+  },
+  "composition": {
+    "aspect_ratio": null,
+    "panel_count": 1,
+    "panel_bboxes": [],
+    "panel_area_ratios": [],
+    "reading_order": [],
+    "hero_panel": null,
+    "gutters": {},
+    "outer_margins": {},
+    "alignment_lines": [],
+    "whitespace_regions": {}
+  },
+  "palette": {
+    "background": null,
+    "dominant": [],
+    "neutrals": [],
+    "categorical": [],
+    "sequential": [],
+    "diverging": [],
+    "accent": null,
+    "semantic_roles": {
+      "background": "white background with no tinted page panel",
+      "contrast_and_emphasis": "dark text and outlines on light fills; emphasis uses saturated categorical marks",
+      "roles_and_proportions": "navy, ochre, crimson, and cool gray group roles; translucent matching confidence ribbons"
+    },
+    "area_share": {},
+    "perceptual_distance": {},
+    "cvd_score": null,
+    "grayscale_score": null,
+    "code_literals": [
+      "#263653",
+      "#343b4e",
+      "#9aa5b7",
+      "#bd1737",
+      "#e5a01c",
+      "GST",
+      "Grass",
+      "LST",
+      "Land",
+      "RGB",
+      "Urban",
+      "Water",
+      "bold",
+      "horizontal",
+      "off",
+      "tight",
+      "white"
+    ]
+  },
+  "typography": {
+    "family_class": "sans_serif_unknown",
+    "title_body_ratio": null,
+    "axis_tick_ratio": null,
+    "panel_label_style": null,
+    "weight": null,
+    "line_height": null,
+    "text_density": null,
+    "alignment": null,
+    "exact_font": null,
+    "exactness": "code_declared"
+  },
+  "geometry": {
+    "stroke_width_distribution": null,
+    "marker_family": {
+      "axes_and_scales": "axes/scales are explicit where quantitative coordinates are present; radial geometry declares its baseline",
+      "guides_and_grid": "guides are sparse, low-contrast, and subordinate to marks",
+      "marks_and_encoding": "filled circular points, dashed regression fits, and translucent confidence ribbons"
+    },
+    "marker_size_distribution": null,
+    "corner_radius": null,
+    "arrowhead": null,
+    "leader_style": null,
+    "spine_model": null,
+    "grid_model": null,
+    "plot_calls": [
+      "GridSpec",
+      "Path",
+      "add_subplot",
+      "axis",
+      "clip",
+      "close",
+      "convert",
+      "default_rng",
+      "figure",
+      "fill_between",
+      "hist",
+      "index",
+      "len",
+      "linspace",
+      "max",
+      "mean",
+      "min",
+      "normal",
+      "open",
+      "plot",
+      "polyfit",
+      "polyval",
+      "render",
+      "resize",
+      "save",
+      "savefig",
+      "scatter",
+      "set_linewidth",
+      "set_xlabel",
+      "set_xlim",
+      "set_ylabel",
+      "set_ylim",
+      "sqrt",
+      "std",
+      "sum",
+      "text",
+      "tick_params",
+      "uniform",
+      "values",
+      "with_name"
+    ],
+    "line_count": 52
+  },
+  "annotations": {
+    "direct_labels": null,
+    "brackets": null,
+    "callouts": null,
+    "leaders": null,
+    "significance": null,
+    "clearance": null
+  },
+  "hierarchy": {
+    "focal_regions": null,
+    "saliency_distribution": null,
+    "visual_weight": null,
+    "density": "high",
+    "data_to_ink_proxy": null
+  },
+  "style": {
+    "aesthetic_tags": [
+      "scatter",
+      "marginal-histogram",
+      "regression",
+      "confidence-ribbon",
+      "direct-equations",
+      "four-groups"
+    ],
+    "style_cluster": null,
+    "style_vector": null,
+    "quality_score": 4.2
+  },
+  "constraints": {
+    "must_match": [],
+    "must_avoid": []
+  },
+  "embeddings": {
+    "semantic_embedding": null,
+    "visual_embedding": null,
+    "structure_embedding": null
+  },
+  "confidence": {
+    "geometry": 0.94,
+    "palette": 0.86,
+    "typography": 0.82
+  },
+  "extensions": {
+    "visual_grammar": {
+      "annotations_typography": {
+        "callouts_and_leaders": "direct labels or compact equations stay adjacent to their marks; no decorative callouts",
+        "placement_and_clearance": "labels remain outside dense marks or use explicit clearance; no light text on light fills",
+        "text_hierarchy": "four inline regression equations at upper left of the main panel; GST/LST axis labels are bold"
+      },
+      "canvas_composition": {
+        "alignment_and_spacing": "consistent gutters and clearance around labels; no overlaps at final size",
+        "aspect_and_panel_layout": "single main scatter panel with narrow top and right marginal histograms",
+        "visual_hierarchy": "data marks dominate; labels and legend are secondary; whitespace is intentional"
+      },
+      "chart_marks_axes": {
+        "axes_and_scales": "axes/scales are explicit where quantitative coordinates are present; radial geometry declares its baseline",
+        "guides_and_grid": "guides are sparse, low-contrast, and subordinate to marks",
+        "marks_and_encoding": "filled circular points, dashed regression fits, and translucent confidence ribbons"
+      },
+      "connectors": "not_present",
+      "legend_key": {
+        "entries_and_encoding": "one entry per semantic color/mark role",
+        "frame_treatment": "frameless or very light frame",
+        "placement": "placed in the least dense whitespace region",
+        "scope": "no boxed legend; group identity is carried by direct equation labels and consistent colors"
+      },
+      "must_match": [
+        "main/top/right panel geometry",
+        "same group color in points, fits, ribbons, histograms",
+        "direct equations"
+      ],
+      "objects_material": "not_present",
+      "palette_roles": {
+        "background": "white background with no tinted page panel",
+        "contrast_and_emphasis": "dark text and outlines on light fills; emphasis uses saturated categorical marks",
+        "roles_and_proportions": "navy, ochre, crimson, and cool gray group roles; translucent matching confidence ribbons"
+      },
+      "repetition_structures": {
+        "count_spacing_rhythm": "repeatable rhythm is consistent across marks",
+        "grouping_and_alignment": "groups align to their panel or baseline",
+        "topology": "four groups repeat point-fit-ribbon-histogram encoding",
+        "variation_and_emphasis": "variation is carried by magnitude or position, not arbitrary decoration"
+      }
+    },
+    "figure_card": {},
+    "code": {
+      "calls": [
+        "GridSpec",
+        "Path",
+        "add_subplot",
+        "axis",
+        "clip",
+        "close",
+        "convert",
+        "default_rng",
+        "figure",
+        "fill_between",
+        "hist",
+        "index",
+        "len",
+        "linspace",
+        "max",
+        "mean",
+        "min",
+        "normal",
+        "open",
+        "plot",
+        "polyfit",
+        "polyval",
+        "render",
+        "resize",
+        "save",
+        "savefig",
+        "scatter",
+        "set_linewidth",
+        "set_xlabel",
+        "set_xlim",
+        "set_ylabel",
+        "set_ylim",
+        "sqrt",
+        "std",
+        "sum",
+        "text",
+        "tick_params",
+        "uniform",
+        "values",
+        "with_name"
+      ],
+      "static_only": true
+    }
+  }
+}

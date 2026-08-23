@@ -1,8 +1,9 @@
 # StyleSpec compilation
 
 `StyleSpec` is the single visual-language contract shared by matplotlib, SVG, and
-image-generation panels. It is compiled from inspected reference pixels and stored with
-the run; renderer defaults may fill only fields that the selected spec leaves optional.
+image-generation panels. It is compiled from a `JournalProfile`, a `StyleCapsule`, and
+inspected `ReferenceDNA`, then stored with the run; renderer defaults may fill only fields
+that the selected spec leaves optional.
 
 ## Required groups
 

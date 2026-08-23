@@ -1,0 +1,264 @@
+{
+  "schema": "publication-figure-design/reference-dna",
+  "schema_version": "2.0",
+  "identity": {
+    "id": "0789bc5bea8a1131",
+    "source": "user-supplied reference image",
+    "license": "user-supplied; redistribution not established",
+    "journal": null,
+    "year": null,
+    "figure_family": "radial_bar",
+    "source_kind": "code"
+  },
+  "composition": {
+    "aspect_ratio": null,
+    "panel_count": 1,
+    "panel_bboxes": [],
+    "panel_area_ratios": [],
+    "reading_order": [],
+    "hero_panel": null,
+    "gutters": {},
+    "outer_margins": {},
+    "alignment_lines": [],
+    "whitespace_regions": {}
+  },
+  "palette": {
+    "background": null,
+    "dominant": [],
+    "neutrals": [],
+    "categorical": [],
+    "sequential": [],
+    "diverging": [],
+    "accent": null,
+    "semantic_roles": {
+      "background": "white background with no tinted page panel",
+      "contrast_and_emphasis": "dark text and outlines on light fills; emphasis uses saturated categorical marks",
+      "roles_and_proportions": "teal Beijing, pink Tianjin, purple Hebei; pastel sector backgrounds; black outlines"
+    },
+    "area_share": {},
+    "perceptual_distance": {},
+    "cvd_score": null,
+    "grayscale_score": null,
+    "code_literals": [
+      "#171717",
+      "#1f1f1f",
+      "#202020",
+      "#222222",
+      "#55c1ad",
+      "#777777",
+      "#8c7cc2",
+      "#eaf6f2",
+      "#f1edf8",
+      "#f59caf",
+      "#fbeff3",
+      "#fbf7e8",
+      "Baseline",
+      "Beijing",
+      "DUSI",
+      "EPE",
+      "EPI",
+      "FDI",
+      "Hebei",
+      "IBI",
+      "IEC",
+      "IIR",
+      "N",
+      "NDVI",
+      "PHE",
+      "RGB",
+      "RPF",
+      "SAVI",
+      "SIS",
+      "Tianjin",
+      "anchor",
+      "bold",
+      "center",
+      "g",
+      "polar",
+      "tight",
+      "white"
+    ]
+  },
+  "typography": {
+    "family_class": "sans_serif_unknown",
+    "title_body_ratio": null,
+    "axis_tick_ratio": null,
+    "panel_label_style": null,
+    "weight": null,
+    "line_height": null,
+    "text_density": null,
+    "alignment": null,
+    "exact_font": null,
+    "exactness": "code_declared"
+  },
+  "geometry": {
+    "stroke_width_distribution": null,
+    "marker_family": {
+      "axes_and_scales": "axes/scales are explicit where quantitative coordinates are present; radial geometry declares its baseline",
+      "guides_and_grid": "guides are sparse, low-contrast, and subordinate to marks",
+      "marks_and_encoding": "three radial bars per sector with variable radial extent and numeric value labels"
+    },
+    "marker_size_distribution": null,
+    "corner_radius": null,
+    "arrowhead": null,
+    "leader_style": null,
+    "spine_model": null,
+    "grid_model": null,
+    "plot_calls": [
+      "Path",
+      "Rectangle",
+      "add_subplot",
+      "array",
+      "bar",
+      "close",
+      "convert",
+      "deg2rad",
+      "degrees",
+      "enumerate",
+      "figure",
+      "fill",
+      "full_like",
+      "legend",
+      "len",
+      "linspace",
+      "max",
+      "open",
+      "render",
+      "resize",
+      "save",
+      "savefig",
+      "set_axis_off",
+      "set_theta_direction",
+      "set_theta_zero_location",
+      "set_ylim",
+      "subplots_adjust",
+      "text",
+      "tight_layout",
+      "with_name",
+      "zip"
+    ],
+    "line_count": 68
+  },
+  "annotations": {
+    "direct_labels": null,
+    "brackets": null,
+    "callouts": null,
+    "leaders": null,
+    "significance": null,
+    "clearance": null
+  },
+  "hierarchy": {
+    "focal_regions": null,
+    "saliency_distribution": null,
+    "visual_weight": null,
+    "density": "high",
+    "data_to_ink_proxy": null
+  },
+  "style": {
+    "aesthetic_tags": [
+      "radial-bar",
+      "polar",
+      "grouped-bars",
+      "circular-layout",
+      "direct-labels"
+    ],
+    "style_cluster": null,
+    "style_vector": null,
+    "quality_score": 4.2
+  },
+  "constraints": {
+    "must_match": [],
+    "must_avoid": []
+  },
+  "embeddings": {
+    "semantic_embedding": null,
+    "visual_embedding": null,
+    "structure_embedding": null
+  },
+  "confidence": {
+    "geometry": 0.94,
+    "palette": 0.86,
+    "typography": 0.82
+  },
+  "extensions": {
+    "visual_grammar": {
+      "annotations_typography": {
+        "callouts_and_leaders": "direct labels or compact equations stay adjacent to their marks; no decorative callouts",
+        "placement_and_clearance": "labels remain outside dense marks or use explicit clearance; no light text on light fills",
+        "text_hierarchy": "outer sector names are tangentially rotated; values are placed at bar tips; center reads Baseline"
+      },
+      "canvas_composition": {
+        "alignment_and_spacing": "consistent gutters and clearance around labels; no overlaps at final size",
+        "aspect_and_panel_layout": "single radial canvas with 12 separated sector panels and a centered baseline disc",
+        "visual_hierarchy": "data marks dominate; labels and legend are secondary; whitespace is intentional"
+      },
+      "chart_marks_axes": {
+        "axes_and_scales": "axes/scales are explicit where quantitative coordinates are present; radial geometry declares its baseline",
+        "guides_and_grid": "guides are sparse, low-contrast, and subordinate to marks",
+        "marks_and_encoding": "three radial bars per sector with variable radial extent and numeric value labels"
+      },
+      "connectors": "not_present",
+      "legend_key": {
+        "entries_and_encoding": "one entry per semantic color/mark role",
+        "frame_treatment": "frameless or very light frame",
+        "placement": "placed in the least dense whitespace region",
+        "scope": "bottom-centered three-entry legend without a frame"
+      },
+      "must_match": [
+        "sector gaps and radial symmetry",
+        "three-color role mapping",
+        "center baseline disc",
+        "tangential labels"
+      ],
+      "objects_material": "not_present",
+      "palette_roles": {
+        "background": "white background with no tinted page panel",
+        "contrast_and_emphasis": "dark text and outlines on light fills; emphasis uses saturated categorical marks",
+        "roles_and_proportions": "teal Beijing, pink Tianjin, purple Hebei; pastel sector backgrounds; black outlines"
+      },
+      "repetition_structures": {
+        "count_spacing_rhythm": "repeatable rhythm is consistent across marks",
+        "grouping_and_alignment": "groups align to their panel or baseline",
+        "topology": "12 sectors repeat the same three-bar rhythm with varying magnitude; sector labels align to their wedge",
+        "variation_and_emphasis": "variation is carried by magnitude or position, not arbitrary decoration"
+      }
+    },
+    "figure_card": {},
+    "code": {
+      "calls": [
+        "Path",
+        "Rectangle",
+        "add_subplot",
+        "array",
+        "bar",
+        "close",
+        "convert",
+        "deg2rad",
+        "degrees",
+        "enumerate",
+        "figure",
+        "fill",
+        "full_like",
+        "legend",
+        "len",
+        "linspace",
+        "max",
+        "open",
+        "render",
+        "resize",
+        "save",
+        "savefig",
+        "set_axis_off",
+        "set_theta_direction",
+        "set_theta_zero_location",
+        "set_ylim",
+        "subplots_adjust",
+        "text",
+        "tight_layout",
+        "with_name",
+        "zip"
+      ],
+      "static_only": true
+    }
+  }
+}

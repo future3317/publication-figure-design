@@ -10,7 +10,7 @@
   "journal_style": null,
   "layout": "multi-panel",
   "license": "generated independently; source license recorded in audit manifest",
-  "lifecycle_state": "raw",
+  "lifecycle_state": "analyzed",
   "n_groups": null,
   "notes": "Synthetic data and independent code; source pixels and plotting code were not copied.",
   "observable_visual_grammar": {
@@ -31,9 +31,13 @@
       {
         "reason": "legacy_intake_migration",
         "state": "raw"
+      },
+      {
+        "reason": "reference_dna_built",
+        "state": "analyzed"
       }
     ],
-    "state": "raw"
+    "state": "analyzed"
   },
   "reconstruction_blueprint": {
     "annotation_model": "panel_letters + local_legends + direct_callouts",
@@ -113,6 +117,7 @@
     "source_observation": "16 stacked-area and composition variants arranged as an atlas"
   },
   "reconstruction_method": "independent",
+  "reference_dna_path": "assets/visual-references/generated-archive/039470ddb18c09ae/reference_dna.json",
   "renderer_version": 3,
   "reproduction_preview_path": "assets/visual-references/generated-archive/039470ddb18c09ae/image.png",
   "review_status": "pending",

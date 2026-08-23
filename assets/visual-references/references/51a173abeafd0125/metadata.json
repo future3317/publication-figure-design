@@ -43,6 +43,7 @@
     ],
     "source_observation": "two-part teaser: cell representation to spatial expression"
   },
+  "reference_dna_path": "assets/visual-references/references/51a173abeafd0125/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

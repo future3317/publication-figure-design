@@ -25,6 +25,7 @@
     ],
     "state": "benchmarked"
   },
+  "reference_dna_path": "assets/visual-references/references/e52120014b49abe8/reference_dna.json",
   "review_status": "reviewed",
   "scope": "references",
   "sha256": "e52120014b49abe898add911e0751f80719d09a383e7faaa5a84c7e0c42bf1ac",

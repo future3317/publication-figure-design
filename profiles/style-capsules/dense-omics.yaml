@@ -1,0 +1,8 @@
+name: dense-omics
+visual_hierarchy: {focal_weight: strong, secondary_weight: medium, annotation_density: medium}
+palette: {background: '#FFFFFF', neutral_strategy: neutral-gray, categorical_chroma: restrained, accent_count: 2, role_consistency: strict}
+typography: {hierarchy_ratio: [1.0, 0.78, 0.66], weight_contrast: moderate, panel_labels: bold}
+geometry: {axis_weight_vs_data: 0.55, marker_visual_weight: light, grid_prominence: none}
+spacing: {outer_margin_ratio: 0.06, panel_gap_ratio: 0.04, label_clearance_ratio: 0.02}
+legend: {preference: shared_compact_legend}
+negative_rules: [avoid_duplicate_legends, avoid_unbounded_annotations, avoid_heavy_grid]

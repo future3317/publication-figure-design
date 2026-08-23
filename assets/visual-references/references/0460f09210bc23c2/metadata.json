@@ -47,6 +47,7 @@
     ],
     "source_observation": "before/after rewriting comparison with paired observation panel"
   },
+  "reference_dna_path": "assets/visual-references/references/0460f09210bc23c2/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

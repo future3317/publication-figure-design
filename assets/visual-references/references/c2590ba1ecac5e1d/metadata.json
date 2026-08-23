@@ -52,6 +52,7 @@
     ],
     "source_observation": "paired contrastive workflow followed by embedding and quantitative comparison"
   },
+  "reference_dna_path": "assets/visual-references/references/c2590ba1ecac5e1d/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

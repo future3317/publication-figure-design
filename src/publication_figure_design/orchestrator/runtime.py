@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any, Mapping
 
 from ..contracts import ReferenceSet, SourceSpec, TaskSpec
+from ..reference_intelligence import RenderTrace
 from .machine import GateResult, Orchestrator, StageContext
 
 
@@ -45,11 +46,34 @@ def _retrieve(context: StageContext) -> dict[str, Any]:
             ids = [ids]
         ids = [str(value) for value in ids]
         references = ReferenceSet(candidates=[{"id": value} for value in ids])
+    hybrid_result = None
+    if not references.candidates and metadata.get("figure_type"):
+        try:
+            from ..references.retrieval.multi_role import MultiRoleReferenceRetriever
+            hybrid_result = MultiRoleReferenceRetriever().retrieve_hybrid(
+                figure_type=str(metadata.get("figure_type")),
+                tags=metadata.get("tags", []),
+                layout=metadata.get("layout"),
+                limit=3,
+            )
+            candidates = hybrid_result.get("structure_reference", [])
+            references = ReferenceSet(
+                structure_reference=str(candidates[0]["id"]) if candidates else "",
+                style_reference=str((hybrid_result.get("style_reference") or [{}])[0].get("id", "")),
+                component_references=[str(row["id"]) for row in hybrid_result.get("component_references", [])],
+                annotation_reference=str((hybrid_result.get("annotation_reference") or [{}])[0].get("id", "")),
+                palette_reference=str((hybrid_result.get("palette_reference") or [{}])[0].get("id", "")),
+                candidates=candidates,
+                selection_reason="hybrid metadata + semantic + structure + style role assignment",
+            )
+        except (ImportError, OSError, ValueError):
+            hybrid_result = None
     return {
         "status": "ready" if references.candidates or references.structure_reference else "not_provided",
         "reference_set": references.to_dict(),
         "reference_index_version": context.telemetry.get("reference_index_version", "unknown"),
         "deterministic_resume": bool(context.telemetry.get("selected_reference_ids")),
+        "hybrid_candidates": hybrid_result or {},
     }
 
 
@@ -60,7 +84,7 @@ def _inspect(context: StageContext) -> dict[str, Any]:
         images = [images]
     if not images:
         return {"status": "not_provided", "cards": []}
-    from reference_image_analysis import analyze_image
+    from ..reference_intelligence.analyzers.raster import analyze_raster
 
     cards = []
     for image in images:
@@ -68,7 +92,8 @@ def _inspect(context: StageContext) -> dict[str, Any]:
         if not path.is_file():
             cards.append({"image": str(path), "status": "missing"})
             continue
-        cards.append(analyze_image(path, figure_type=str(metadata.get("figure_type", "unknown"))))
+        dna = analyze_raster(path, metadata=metadata)
+        cards.append({"figure_card": dna.extensions.get("figure_card", {}), "reference_dna": dna.to_dict()})
     return {"status": "ready" if all(card.get("status", "ready") != "missing" for card in cards) else "blocked", "cards": cards}
 
 
@@ -80,14 +105,41 @@ def _carry(stage: str):
     return handler
 
 
+def _design_spec(context: StageContext) -> dict[str, Any]:
+    metadata = _metadata(context)
+    packet = metadata.get("design_packet")
+    if packet is not None:
+        return {"status": "ready", "design_packet": packet}
+    from ..design.compiler import compile_design_packet
+    from ..style.capsules import load_style_capsule
+    from ..style.journals import load_journal_profile
+    task = {**context.task, **metadata}
+    capsule_name = str(metadata.get("style_capsule", "restrained-editorial"))
+    journal_name = str(metadata.get("journal", "generic"))
+    capsule = load_style_capsule(capsule_name)
+    journal = load_journal_profile(journal_name, str(metadata.get("submission_stage", "final_submission")))
+    packet = compile_design_packet(task, metadata.get("source", {}), metadata.get("reference_set", {}), journal, capsule)
+    from ..design.candidates import generate_candidates
+    generate_candidates(packet, str(metadata.get("generation_mode", "publication")))
+    return {"status": "ready", "design_packet": packet.to_dict(), "journal_profile": journal.to_dict(), "style_capsule": capsule.to_dict()}
+
+
+def _binding(context: StageContext) -> dict[str, Any]:
+    metadata = _metadata(context)
+    binding = metadata.get("binding_map") or metadata.get("bindings")
+    if binding is None:
+        source = metadata.get("source", {})
+        binding = {"bindings": source.get("variable_roles", {}), "unresolved_orphan_series": []}
+    return {"status": "ready", "binding_map": binding}
+
+
 def _compare(context: StageContext) -> dict[str, Any]:
     metadata = _metadata(context)
     reference = metadata.get("reference_image")
     candidate = metadata.get("candidate_image") or metadata.get("after_image")
     if not reference or not candidate:
         return {"status": "not_provided", "comparison": None}
-    from compare_output_to_reference import compare_output_to_reference
-
+    from ..qa.compare import compare_output_to_reference
     return {"status": "ready", "comparison": compare_output_to_reference(reference, candidate)}
 
 
@@ -105,13 +157,60 @@ def _render(context: StageContext) -> dict[str, Any]:
 
     reference_led = bool(metadata.get("reference_led") or metadata.get("reference_image") or metadata.get("reference_ids"))
     passed, failures = validate_render_contract(supplied, reference_led=reference_led)
+    trace = metadata.get("render_trace") or {"artists": [], "renderer": supplied.get("backend", ""), "renderer_version": supplied.get("renderer_version", "")}
+    if not isinstance(trace, Mapping):
+        return {"status": "blocked", "errors": ["render_trace must be an object"]}
     return {
         "status": "ready" if passed else "blocked",
         "render_plan": dict(supplied),
         "reference_led": reference_led,
         "consumed_specs": supplied.get("consumed_specs", []),
         "errors": failures,
+        "render_trace": dict(trace),
     }
+
+
+def _critique(context: StageContext) -> dict[str, Any]:
+    metadata = _metadata(context)
+    patch = metadata.get("design_patch") or metadata.get("critique_patch")
+    if patch is None:
+        return {"status": "not_provided", "design_patch": None}
+    if not isinstance(patch, Mapping) or not isinstance(patch.get("patches", []), list):
+        return {"status": "blocked", "errors": ["design_patch must contain a patches list"]}
+    return {"status": "ready", "design_patch": dict(patch), "machine_editable": True}
+
+
+def _repair(context: StageContext) -> dict[str, Any]:
+    metadata = _metadata(context)
+    patch = metadata.get("design_patch") or metadata.get("critique_patch")
+    packet = metadata.get("design_packet")
+    if patch is None or packet is None:
+        return {"status": "not_provided", "design_packet": packet, "applied_patch": patch}
+    try:
+        from ..design.patches import apply_design_patch
+        from ..reference_intelligence import DesignPacket
+        packet_obj = DesignPacket(**{key: packet.get(key, getattr(DesignPacket(), key)) for key in ("task", "scientific_contract", "references", "journal_profile", "style_capsule", "layout_constraints", "style_tokens", "bindings", "must_match", "must_avoid", "candidates", "patch_history")})
+        updated = apply_design_patch(packet_obj, dict(patch)).to_dict()
+    except (TypeError, ValueError, KeyError) as exc:
+        return {"status": "blocked", "errors": [str(exc)]}
+    return {"status": "ready", "design_packet": updated, "applied_patch": patch}
+
+
+def _qa(context: StageContext) -> dict[str, Any]:
+    metadata = _metadata(context)
+    figure = metadata.get("candidate_image") or metadata.get("output_image")
+    trace = metadata.get("render_trace") or {}
+    packet = metadata.get("design_packet") or {}
+    if not figure and not packet and not trace:
+        return {"status": "not_provided", "hard": {}, "scientific": {}, "structural": {}, "perceptual": {}, "passed": False}
+    from ..qa import run_hard_qa, run_scientific_qa, run_structural_qa, run_perceptual_qa
+    hard = run_hard_qa(figure, packet, trace) if figure else {"layer": "L0_hard_technical", "passed": False, "issues": ["figure image not provided"]}
+    scientific = run_scientific_qa(packet.get("scientific_contract", {}), trace)
+    compare = metadata.get("comparison") or {}
+    structural = run_structural_qa(compare)
+    perceptual = run_perceptual_qa(compare)
+    passed = bool(hard.get("passed") and scientific.get("passed") and structural.get("passed"))
+    return {"status": "ready" if passed else "blocked", "hard": hard, "scientific": scientific, "structural": structural, "perceptual": perceptual, "passed": passed}
 
 
 def build_runtime_orchestrator() -> Orchestrator:
@@ -123,13 +222,13 @@ def build_runtime_orchestrator() -> Orchestrator:
         WorkflowStage.INTAKE: _intake,
         WorkflowStage.REFERENCE_RETRIEVAL: _retrieve,
         WorkflowStage.REFERENCE_INSPECTION: _inspect,
-        WorkflowStage.DESIGN_SPEC: _carry("design_spec"),
-        WorkflowStage.BINDING: _carry("binding_map"),
+        WorkflowStage.DESIGN_SPEC: _design_spec,
+        WorkflowStage.BINDING: _binding,
         WorkflowStage.RENDER: _render,
         WorkflowStage.COMPARE: _compare,
-        WorkflowStage.CRITIQUE: _carry("critique"),
-        WorkflowStage.REPAIR: _carry("repair"),
-        WorkflowStage.QA: _carry("qa_report"),
+        WorkflowStage.CRITIQUE: _critique,
+        WorkflowStage.REPAIR: _repair,
+        WorkflowStage.QA: _qa,
         WorkflowStage.EXPORT: _carry("export_manifest"),
     }
     def status_gate(payload: Any) -> GateResult:

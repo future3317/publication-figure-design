@@ -52,6 +52,7 @@
     ],
     "source_observation": "optimization landscape hero with trajectory, method comparison, and embedding"
   },
+  "reference_dna_path": "assets/visual-references/references/4cf8539d0521b726/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

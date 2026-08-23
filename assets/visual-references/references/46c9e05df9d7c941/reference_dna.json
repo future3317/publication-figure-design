@@ -1,0 +1,488 @@
+{
+  "schema": "publication-figure-design/reference-dna",
+  "schema_version": "2.0",
+  "identity": {
+    "id": "46c9e05df9d7c941",
+    "source": "figures4papers visual source",
+    "license": "unknown",
+    "journal": null,
+    "year": null,
+    "figure_family": "grouped_bar",
+    "source_kind": "exact_visual_source"
+  },
+  "composition": {
+    "aspect_ratio": 4.666667,
+    "panel_count": 1,
+    "panel_bboxes": [
+      [
+        28,
+        28,
+        1165,
+        226
+      ]
+    ],
+    "panel_area_ratios": [],
+    "reading_order": [
+      0
+    ],
+    "hero_panel": null,
+    "gutters": {},
+    "outer_margins": {},
+    "alignment_lines": [],
+    "whitespace_regions": {
+      "status": "pixel_density",
+      "fraction": 0.793732
+    }
+  },
+  "palette": {
+    "background": "#ffffff",
+    "dominant": [
+      {
+        "hex": "#ffffff",
+        "rgb": [
+          255,
+          255,
+          255
+        ],
+        "fraction": 0.757633,
+        "role": "background"
+      },
+      {
+        "hex": "#427ab8",
+        "rgb": [
+          66,
+          122,
+          184
+        ],
+        "fraction": 0.06298,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#7fa4cd",
+        "rgb": [
+          127,
+          164,
+          205
+        ],
+        "fraction": 0.061145,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#b5cae3",
+        "rgb": [
+          181,
+          202,
+          227
+        ],
+        "fraction": 0.050587,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#f9f9fa",
+        "rgb": [
+          249,
+          249,
+          250
+        ],
+        "fraction": 0.025567,
+        "role": "background"
+      },
+      {
+        "hex": "#283542",
+        "rgb": [
+          40,
+          53,
+          66
+        ],
+        "fraction": 0.022776,
+        "role": "data_or_annotation"
+      },
+      {
+        "hex": "#feffff",
+        "rgb": [
+          254,
+          255,
+          255
+        ],
+        "fraction": 0.019296,
+        "role": "background"
+      },
+      {
+        "hex": "#fffffe",
+        "rgb": [
+          255,
+          255,
+          254
+        ],
+        "fraction": 1.6e-05,
+        "role": "background"
+      }
+    ],
+    "neutrals": [],
+    "categorical": [],
+    "sequential": [],
+    "diverging": [],
+    "accent": null,
+    "semantic_roles": {},
+    "area_share": {},
+    "perceptual_distance": {},
+    "cvd_score": null,
+    "grayscale_score": null
+  },
+  "typography": {
+    "family_class": "manual_review_required",
+    "title_body_ratio": null,
+    "axis_tick_ratio": null,
+    "panel_label_style": null,
+    "weight": null,
+    "line_height": null,
+    "text_density": null,
+    "alignment": null,
+    "exact_font": null,
+    "font_family_class": "sans_serif_unknown",
+    "exactness": "relative_only"
+  },
+  "geometry": {
+    "stroke_width_distribution": 1.0,
+    "marker_family": {
+      "status": "heuristic",
+      "dark_pixel_fraction": 0.022594
+    },
+    "marker_size_distribution": null,
+    "corner_radius": null,
+    "arrowhead": null,
+    "leader_style": null,
+    "spine_model": {
+      "top": 0.0,
+      "bottom": 0.0,
+      "left": 0.0,
+      "right": 0.0
+    },
+    "grid_model": {
+      "horizontal_density": 0.043667,
+      "vertical_density": 0.062257
+    }
+  },
+  "annotations": {
+    "direct_labels": null,
+    "brackets": null,
+    "callouts": null,
+    "leaders": null,
+    "significance": null,
+    "clearance": null
+  },
+  "hierarchy": {
+    "focal_regions": [
+      28,
+      28,
+      1165,
+      226
+    ],
+    "saliency_distribution": {
+      "status": "ink_density_proxy",
+      "bbox_px": [
+        28,
+        28,
+        1165,
+        226
+      ]
+    },
+    "visual_weight": null,
+    "density": 0.206268,
+    "data_to_ink_proxy": 0.206268
+  },
+  "style": {
+    "aesthetic_tags": [
+      "source-catalog",
+      "figures4papers",
+      "grouped_bar"
+    ],
+    "style_cluster": null,
+    "style_vector": null,
+    "quality_score": 4.1
+  },
+  "constraints": {
+    "must_match": [],
+    "must_avoid": []
+  },
+  "embeddings": {
+    "semantic_embedding": null,
+    "visual_embedding": null,
+    "structure_embedding": null
+  },
+  "confidence": {
+    "composition": 0.72,
+    "palette": 0.68,
+    "typography": 0.35
+  },
+  "extensions": {
+    "visual_grammar": {},
+    "figure_card": {
+      "schema": "publication-figure-design/figure-card",
+      "schema_version": "2.0",
+      "source": "user-supplied",
+      "figure_type": "grouped_bar",
+      "source_sha256": "46c9e05df9d7c941628791ac447c5d84a29d942896ce3a13d00432e9f5c720ef",
+      "perceptual_hash": "a5d2da2d9017d66d",
+      "canvas": {
+        "width_px": 16800,
+        "height_px": 3600,
+        "aspect_ratio": 4.666667,
+        "analysis_scale": 0.071429,
+        "mode": "RGBA",
+        "colorspace": "sRGB_assumed",
+        "has_alpha": true
+      },
+      "background": {
+        "rgb": [
+          255.0,
+          255.0,
+          255.0
+        ],
+        "hex": "#ffffff",
+        "near_white": true
+      },
+      "ink_coverage": 0.206268,
+      "geometry": {
+        "content_bbox_px": [
+          28,
+          28,
+          1165,
+          226
+        ],
+        "whitespace_fraction": 0.793732,
+        "row_density_peaks": [
+          220,
+          219,
+          221,
+          174,
+          122
+        ],
+        "column_density_peaks": [
+          80,
+          81,
+          671,
+          670,
+          669
+        ],
+        "ink_density": 0.206268
+      },
+      "palette": {
+        "dominant": [
+          {
+            "hex": "#ffffff",
+            "rgb": [
+              255,
+              255,
+              255
+            ],
+            "fraction": 0.757633,
+            "role": "background"
+          },
+          {
+            "hex": "#427ab8",
+            "rgb": [
+              66,
+              122,
+              184
+            ],
+            "fraction": 0.06298,
+            "role": "data_or_annotation"
+          },
+          {
+            "hex": "#7fa4cd",
+            "rgb": [
+              127,
+              164,
+              205
+            ],
+            "fraction": 0.061145,
+            "role": "data_or_annotation"
+          },
+          {
+            "hex": "#b5cae3",
+            "rgb": [
+              181,
+              202,
+              227
+            ],
+            "fraction": 0.050587,
+            "role": "data_or_annotation"
+          },
+          {
+            "hex": "#f9f9fa",
+            "rgb": [
+              249,
+              249,
+              250
+            ],
+            "fraction": 0.025567,
+            "role": "background"
+          },
+          {
+            "hex": "#283542",
+            "rgb": [
+              40,
+              53,
+              66
+            ],
+            "fraction": 0.022776,
+            "role": "data_or_annotation"
+          },
+          {
+            "hex": "#feffff",
+            "rgb": [
+              254,
+              255,
+              255
+            ],
+            "fraction": 0.019296,
+            "role": "background"
+          },
+          {
+            "hex": "#fffffe",
+            "rgb": [
+              255,
+              255,
+              254
+            ],
+            "fraction": 1.6e-05,
+            "role": "background"
+          }
+        ],
+        "extraction": "extcolors-or-pillow-quantize"
+      },
+      "panels": {
+        "status": "heuristic_single_canvas",
+        "count": 1,
+        "layout": "single_canvas",
+        "bboxes_px": [
+          [
+            28,
+            28,
+            1165,
+            226
+          ]
+        ],
+        "adjacency": [],
+        "reading_order": [
+          0
+        ]
+      },
+      "plot_bbox": [
+        28,
+        28,
+        1165,
+        226
+      ],
+      "whitespace_map": {
+        "status": "pixel_density",
+        "fraction": 0.793732
+      },
+      "visual_density": 0.206268,
+      "saliency": {
+        "status": "ink_density_proxy",
+        "bbox_px": [
+          28,
+          28,
+          1165,
+          226
+        ]
+      },
+      "axes": {
+        "status": "heuristic_pixel_measurement",
+        "spines": {
+          "top": 0.0,
+          "bottom": 0.0,
+          "left": 0.0,
+          "right": 0.0
+        },
+        "tick_proxy": {
+          "row_peaks": [
+            96,
+            94,
+            95,
+            110,
+            91,
+            97,
+            219,
+            220
+          ],
+          "column_peaks": [
+            478,
+            411,
+            773,
+            706,
+            81,
+            80,
+            375,
+            670
+          ]
+        },
+        "grid_proxy": {
+          "horizontal_density": 0.043667,
+          "vertical_density": 0.062257
+        }
+      },
+      "typography": {
+        "status": "heuristic_ink_hierarchy",
+        "font_family": "manual_review_required",
+        "hierarchy": [
+          {
+            "role": "headline_or_axis",
+            "ink_density_peak": 0.096567
+          },
+          {
+            "role": "body_or_tick",
+            "ink_density_peak": 0.043667
+          }
+        ],
+        "size_proxy": {
+          "largest_dark_run_px": 31
+        }
+      },
+      "annotations": {
+        "status": "heuristic_density_regions",
+        "content_bbox_px": [
+          28,
+          28,
+          1165,
+          226
+        ],
+        "high_density_rows": [
+          220,
+          219,
+          97,
+          91,
+          110
+        ],
+        "high_density_columns": [
+          670,
+          375,
+          80,
+          81,
+          706
+        ]
+      },
+      "marker_family": {
+        "status": "heuristic",
+        "dark_pixel_fraction": 0.022594
+      },
+      "stroke_width_px": {
+        "status": "heuristic_short_run_proxy",
+        "median": 1.0
+      },
+      "component_crops": [
+        {
+          "name": "content",
+          "bbox_px": [
+            28,
+            28,
+            1165,
+            226
+          ]
+        }
+      ]
+    }
+  }
+}

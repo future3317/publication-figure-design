@@ -95,6 +95,28 @@ class SourceSpec(Contract):
 
 
 @dataclass
+class ScientificContract(Contract):
+    """Explicit data-to-mark contract consumed by scientific QA."""
+
+    scientific_intent: str = ""
+    panel_roles: Dict[str, str] = None  # type: ignore[assignment]
+    marks: List[Dict[str, Any]] = None  # type: ignore[assignment]
+    statistics: Dict[str, Any] = None  # type: ignore[assignment]
+    uncertainty: Dict[str, Any] = None  # type: ignore[assignment]
+    units: Dict[str, str] = None  # type: ignore[assignment]
+    sample_size: Dict[str, Any] = None  # type: ignore[assignment]
+    provenance: Dict[str, Any] = None  # type: ignore[assignment]
+    contract_name: ClassVar[str] = "ScientificContract"
+
+    def __post_init__(self) -> None:
+        for name in ("panel_roles", "statistics", "uncertainty", "units", "sample_size", "provenance"):
+            if getattr(self, name) is None:
+                setattr(self, name, {})
+        if self.marks is None:
+            self.marks = []
+
+
+@dataclass
 class TargetSpec(Contract):
     journal: str = ""
     column_width_mm: float = 0.0
@@ -276,6 +298,9 @@ class QAReport(Contract):
     typography: Dict[str, Any] = None  # type: ignore[assignment]
     color: Dict[str, Any] = None  # type: ignore[assignment]
     reference_fidelity: Dict[str, Any] = None  # type: ignore[assignment]
+    hard: Dict[str, Any] = None  # type: ignore[assignment]
+    soft: Dict[str, Any] = None  # type: ignore[assignment]
+    layers: Dict[str, Any] = None  # type: ignore[assignment]
     accessibility: Dict[str, Any] = None  # type: ignore[assignment]
     export: Dict[str, Any] = None  # type: ignore[assignment]
     passed: bool = False
@@ -287,7 +312,7 @@ class QAReport(Contract):
     def __post_init__(self) -> None:
         for name in (
             "scientific", "statistics", "layout", "typography", "color",
-            "reference_fidelity", "accessibility", "export", "metrics",
+            "reference_fidelity", "accessibility", "export", "metrics", "hard", "soft", "layers",
         ):
             if getattr(self, name) is None:
                 setattr(self, name, {})

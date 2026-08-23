@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import importlib.util
 import json
 import sys
 from pathlib import Path
@@ -13,13 +14,20 @@ from .orchestrator import Orchestrator, WorkflowSession, build_runtime_orchestra
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SCRIPTS = ROOT / "scripts"
-if str(SCRIPTS) not in sys.path:
-    sys.path.insert(0, str(SCRIPTS))
 
 
 def _load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _load_maintenance_module(name: str) -> Any:
+    path = ROOT / "scripts" / f"{name}.py"
+    spec = importlib.util.spec_from_file_location(f"publication_figure_design.maintenance.{name}", path)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"cannot load maintenance module {name}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 
 def _run_task(args: argparse.Namespace) -> int:
@@ -38,16 +46,14 @@ def _run_task(args: argparse.Namespace) -> int:
 
 
 def _reference_command(args: argparse.Namespace) -> int:
-    from reference_library import ReferenceLibrary
-
-    library = ReferenceLibrary(ROOT)
+    library = _load_maintenance_module("reference_library").ReferenceLibrary(ROOT)
     if args.reference_action == "ingest":
         metadata = json.loads(args.metadata) if args.metadata else {}
         reference = library.ingest(Path(args.image), args.figure_type, metadata_override=metadata)
         print(json.dumps(reference.metadata, indent=2, ensure_ascii=False))
         return 0
     if args.reference_action == "analyze":
-        from reference_image_analysis import analyze_image
+        analyze_image = _load_maintenance_module("reference_image_analysis").analyze_image
 
         reference = library.get(args.reference_id)
         if reference is None:
@@ -57,6 +63,10 @@ def _reference_command(args: argparse.Namespace) -> int:
         output.parent.mkdir(parents=True, exist_ok=True)
         card = analyze_image(image, output=output, figure_type=reference.metadata.get("figure_type"))
         print(json.dumps(card, indent=2, ensure_ascii=False))
+        return 0
+    if args.reference_action == "dna":
+        dna = library.analyze_dna(args.reference_id)
+        print(json.dumps(dna, indent=2, ensure_ascii=False))
         return 0
     if args.reference_action == "review":
         review = _load_json(Path(args.review_json))
@@ -80,24 +90,22 @@ def _reference_command(args: argparse.Namespace) -> int:
 
 
 def _index_command(_: argparse.Namespace) -> int:
-    from build_reference_indexes import build_indexes
-
-    print(json.dumps(build_indexes(ROOT), indent=2, ensure_ascii=False))
+    print(json.dumps(_load_maintenance_module("build_reference_indexes").build_indexes(ROOT), indent=2, ensure_ascii=False))
     return 0
 
 
-def _eval_command(_: argparse.Namespace) -> int:
+def _eval_command(args: argparse.Namespace) -> int:
     import subprocess
-
-    result = subprocess.run(
-        [sys.executable, "-m", "unittest", "discover", "-s", str(ROOT / "scripts"), "-p", "test_*.py"],
-        cwd=ROOT,
-    )
-    benchmark = subprocess.run(
-        [sys.executable, str(ROOT / "scripts" / "evaluate_benchmark.py")],
-        cwd=ROOT,
-    )
-    return max(result.returncode, benchmark.returncode)
+    mode = args.eval_mode or "full"
+    if mode == "quick":
+        commands = [[sys.executable, "-m", "unittest", "discover", "-s", str(ROOT / "scripts"), "-p", "test_*.py"]]
+    elif mode == "visual":
+        commands = [[sys.executable, str(ROOT / "scripts" / "evaluate_benchmark.py")], [sys.executable, str(ROOT / "scripts" / "evaluate_holdout.py")]]
+    elif mode in {"full", "release"}:
+        commands = [[sys.executable, str(ROOT / "scripts" / "ci_gate.py")]] if mode == "release" else [[sys.executable, "-m", "unittest", "discover", "-s", str(ROOT / "scripts"), "-p", "test_*.py"], [sys.executable, str(ROOT / "scripts" / "evaluate_benchmark.py")]]
+    else:
+        raise SystemExit(f"Unknown eval mode: {mode}")
+    return max(subprocess.run(command, cwd=ROOT).returncode for command in commands)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -121,6 +129,9 @@ def build_parser() -> argparse.ArgumentParser:
     analyze.add_argument("reference_id")
     analyze.add_argument("--output")
     analyze.set_defaults(handler=_reference_command)
+    dna = ref_sub.add_parser("dna")
+    dna.add_argument("reference_id")
+    dna.set_defaults(handler=_reference_command)
     review = ref_sub.add_parser("review")
     review.add_argument("reference_id")
     review.add_argument("review_json")
@@ -139,7 +150,8 @@ def build_parser() -> argparse.ArgumentParser:
     build = index_sub.add_parser("build")
     build.set_defaults(handler=_index_command)
 
-    evaluation = sub.add_parser("eval", help="run the bundled test suite")
+    evaluation = sub.add_parser("eval", help="run quick, full, visual, or release evaluation")
+    evaluation.add_argument("eval_mode", nargs="?", choices=["quick", "full", "visual", "release"], default="full")
     evaluation.set_defaults(handler=_eval_command)
     return parser
 

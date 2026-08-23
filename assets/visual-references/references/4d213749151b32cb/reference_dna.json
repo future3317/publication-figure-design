@@ -1,0 +1,256 @@
+{
+  "schema": "publication-figure-design/reference-dna",
+  "schema_version": "2.0",
+  "identity": {
+    "id": "4d213749151b32cb",
+    "source": "user-supplied reference image",
+    "license": "user-supplied; redistribution not established",
+    "journal": null,
+    "year": null,
+    "figure_family": "histogram_overlay",
+    "source_kind": "code"
+  },
+  "composition": {
+    "aspect_ratio": null,
+    "panel_count": 1,
+    "panel_bboxes": [],
+    "panel_area_ratios": [],
+    "reading_order": [],
+    "hero_panel": null,
+    "gutters": {},
+    "outer_margins": {},
+    "alignment_lines": [],
+    "whitespace_regions": {}
+  },
+  "palette": {
+    "background": null,
+    "dominant": [],
+    "neutrals": [],
+    "categorical": [],
+    "sequential": [],
+    "diverging": [],
+    "accent": null,
+    "semantic_roles": {
+      "background": "White canvas with black axes and tick marks.",
+      "contrast_and_emphasis": "Saturated dataset colors remain distinguishable under overlap; white bar edges separate adjacent bars.",
+      "roles_and_proportions": "Red, navy, and teal identify the three datasets consistently in bars and curves; gray is reserved for the normal-fit legend key."
+    },
+    "area_share": {},
+    "perceptual_distance": {},
+    "cvd_score": null,
+    "grayscale_score": null,
+    "code_literals": [
+      "#188f83",
+      "#263653",
+      "#666666",
+      "#e24a3b",
+      "Agg",
+      "Frequency",
+      "bold",
+      "both",
+      "g",
+      "in",
+      "right",
+      "white"
+    ]
+  },
+  "typography": {
+    "family_class": "sans_serif_unknown",
+    "title_body_ratio": null,
+    "axis_tick_ratio": null,
+    "panel_label_style": null,
+    "weight": null,
+    "line_height": null,
+    "text_density": null,
+    "alignment": null,
+    "exact_font": null,
+    "exactness": "code_declared"
+  },
+  "geometry": {
+    "stroke_width_distribution": null,
+    "marker_family": {
+      "axes_and_scales": "Linear residual x-axis with shared frequency y-axis; x tick labels are interval bins.",
+      "guides_and_grid": "No interior grid; full black frame with inward ticks on all sides.",
+      "marks_and_encoding": "Overlaid frequency bars encode bin counts; dashed normal curves encode fitted distribution shape."
+    },
+    "marker_size_distribution": null,
+    "corner_radius": null,
+    "arrowhead": null,
+    "leader_style": null,
+    "spine_model": null,
+    "grid_model": null,
+    "plot_calls": [
+      "Path",
+      "bar",
+      "close",
+      "default_rng",
+      "diff",
+      "enumerate",
+      "exp",
+      "get_legend_handles_labels",
+      "histogram",
+      "index",
+      "legend",
+      "len",
+      "linspace",
+      "main",
+      "mean",
+      "normal",
+      "plot",
+      "range",
+      "resolve",
+      "savefig",
+      "set_linewidth",
+      "set_xlabel",
+      "set_xlim",
+      "set_xticklabels",
+      "set_xticks",
+      "set_ylabel",
+      "set_ylim",
+      "sqrt",
+      "subplots",
+      "text",
+      "tick_params",
+      "tight_layout",
+      "use",
+      "values",
+      "zip"
+    ],
+    "line_count": 63
+  },
+  "annotations": {
+    "direct_labels": null,
+    "brackets": null,
+    "callouts": null,
+    "leaders": null,
+    "significance": null,
+    "clearance": null
+  },
+  "hierarchy": {
+    "focal_regions": null,
+    "saliency_distribution": null,
+    "visual_weight": null,
+    "density": "moderate",
+    "data_to_ink_proxy": null
+  },
+  "style": {
+    "aesthetic_tags": [
+      "user-supplied",
+      "histogram",
+      "frequency",
+      "normal-fit",
+      "overlay",
+      "residuals",
+      "boxed-legend"
+    ],
+    "style_cluster": null,
+    "style_vector": null,
+    "quality_score": 4.1
+  },
+  "constraints": {
+    "must_match": [],
+    "must_avoid": []
+  },
+  "embeddings": {
+    "semantic_embedding": null,
+    "visual_embedding": null,
+    "structure_embedding": null
+  },
+  "confidence": {
+    "geometry": 0.94,
+    "palette": 0.86,
+    "typography": 0.82
+  },
+  "extensions": {
+    "visual_grammar": {
+      "annotations_typography": {
+        "callouts_and_leaders": "No callout leaders; distribution parameters are embedded in legend labels.",
+        "placement_and_clearance": "Legend occupies the upper-left blank region; panel label sits clear of data in the upper right; rotated bin labels are evenly spaced.",
+        "text_hierarchy": "Bold axis titles, compact rotated interval labels, math-styled residual notation, and a large panel label."
+      },
+      "canvas_composition": {
+        "alignment_and_spacing": "Shared bins align all three groups; bars are narrowly offset within each bin; generous horizontal margins preserve tails.",
+        "aspect_and_panel_layout": "Single wide panel with a dense central histogram field, rotated interval labels along the bottom, upper-left legend, and upper-right panel label.",
+        "visual_hierarchy": "Overlaid bars and dashed fit curves are primary; legend and panel label are secondary; axes and interval labels provide quantitative reading."
+      },
+      "chart_marks_axes": {
+        "axes_and_scales": "Linear residual x-axis with shared frequency y-axis; x tick labels are interval bins.",
+        "guides_and_grid": "No interior grid; full black frame with inward ticks on all sides.",
+        "marks_and_encoding": "Overlaid frequency bars encode bin counts; dashed normal curves encode fitted distribution shape."
+      },
+      "connectors": {
+        "anchors_and_routing": "Curves follow the shared residual x-scale and pass through the bar field.",
+        "direction_and_arrowhead": "No direction and no arrowheads; curves show distribution summaries.",
+        "geometry": "Smooth dashed normal-fit curves overlaid across the histogram bars.",
+        "layering": "Curves sit above translucent/solid bars for direct comparison.",
+        "stroke": "Thick dashed strokes matching each dataset's bar color."
+      },
+      "legend_key": {
+        "entries_and_encoding": "Three filled bar swatches include mu/sigma parameters; one dashed-line key denotes normal fits.",
+        "frame_treatment": "Visible light boxed frame with modest padding.",
+        "placement": "Upper left inside the plotting frame.",
+        "scope": "Global legend for all datasets and the fit-curve convention."
+      },
+      "must_match": [
+        "Three overlaid histogram series with shared residual bins",
+        "Frequency/count y-axis rather than density values",
+        "Dashed normal-fit curves aligned to each dataset color",
+        "Rotated interval labels on the x-axis",
+        "Boxed upper-left legend plus upper-right panel label"
+      ],
+      "objects_material": "not_present",
+      "palette_roles": {
+        "background": "White canvas with black axes and tick marks.",
+        "contrast_and_emphasis": "Saturated dataset colors remain distinguishable under overlap; white bar edges separate adjacent bars.",
+        "roles_and_proportions": "Red, navy, and teal identify the three datasets consistently in bars and curves; gray is reserved for the normal-fit legend key."
+      },
+      "repetition_structures": {
+        "count_spacing_rhythm": "Uniform bins across the residual range; within-bin bars are offset with small gaps.",
+        "grouping_and_alignment": "Each dataset's bars and fit curve share one semantic color and the same bin centers.",
+        "topology": "Three repeated histogram series use the same bins and x-domain.",
+        "variation_and_emphasis": "Color distinguishes datasets; dashed line style distinguishes fitted curves from observed bars."
+      }
+    },
+    "figure_card": {},
+    "code": {
+      "calls": [
+        "Path",
+        "bar",
+        "close",
+        "default_rng",
+        "diff",
+        "enumerate",
+        "exp",
+        "get_legend_handles_labels",
+        "histogram",
+        "index",
+        "legend",
+        "len",
+        "linspace",
+        "main",
+        "mean",
+        "normal",
+        "plot",
+        "range",
+        "resolve",
+        "savefig",
+        "set_linewidth",
+        "set_xlabel",
+        "set_xlim",
+        "set_xticklabels",
+        "set_xticks",
+        "set_ylabel",
+        "set_ylim",
+        "sqrt",
+        "subplots",
+        "text",
+        "tick_params",
+        "tight_layout",
+        "use",
+        "values",
+        "zip"
+      ],
+      "static_only": true
+    }
+  }
+}

@@ -1,6 +1,7 @@
 # Journal Technical Specifications
 
-Universal technical requirements shared across Nature/Cell/Science family journals.
+Journal-independent house defaults are documented here only as fallback guidance; hard
+requirements are selected from `profiles/journals/<journal>/<stage>.yaml`.
 
 ## Figure Dimensions
 
@@ -61,3 +62,11 @@ ggsave("figure.pdf", width = 183, height = 120, units = "mm")
 | Trend lines (regression, loess) | Solid, thicker than data points, matching color scheme |
 | Confidence bands | Semi-transparent fill (`alpha=0.15-0.25`) preferred over dense error bars |
 | Data point markers | Avoid oversized markers; `s=10-20` for scatter, `ms=3-5` for line plots |
+# Journal profiles
+
+The profile files under `profiles/journals/` are the current source of truth for
+submission constraints. Each rule records `value`, `unit`, `level`, `source`,
+`source_date`, and `applicability`. Values in this document are house guidance only;
+they are not universal Nature/Cell/Science constants. Resolve the requested journal
+and submission stage before compiling `TargetSpec` or `StyleSpec`, and keep journal
+requirements separate from PFD aesthetic defaults.

@@ -9,11 +9,21 @@ from .contracts import (
     ReferenceSet,
     RenderPlan,
     SourceSpec,
+    ScientificContract,
     PaletteSpec,
     StyleSpec,
     TargetSpec,
     TaskSpec,
     TypographySpec,
+)
+from .reference_intelligence import (
+    DesignPacket,
+    DesignPatch,
+    JournalProfile,
+    PreferencePair,
+    ReferenceDNA,
+    RenderTrace,
+    StyleCapsule,
 )
 from .orchestrator import (
     GateResult,
@@ -36,6 +46,7 @@ __all__ = [
     "ReferenceSet",
     "RenderPlan",
     "SourceSpec",
+    "ScientificContract",
     "PaletteSpec",
     "StageArtifact",
     "StageContext",
@@ -46,4 +57,11 @@ __all__ = [
     "TypographySpec",
     "WorkflowSession",
     "WorkflowStage",
+    "DesignPacket",
+    "DesignPatch",
+    "JournalProfile",
+    "PreferencePair",
+    "ReferenceDNA",
+    "RenderTrace",
+    "StyleCapsule",
 ]

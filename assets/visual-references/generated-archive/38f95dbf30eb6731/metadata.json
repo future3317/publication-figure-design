@@ -10,7 +10,7 @@
   "journal_style": "Nature",
   "layout": "1x3",
   "license": "unknown",
-  "lifecycle_state": "raw",
+  "lifecycle_state": "analyzed",
   "n_groups": 6,
   "notes": "Synthetic reproduction of the WeChat correlation matrix reference using matplotlib only. Generated with make_demo_corr().",
   "palette": null,
@@ -21,10 +21,15 @@
       {
         "reason": "legacy_intake_migration",
         "state": "raw"
+      },
+      {
+        "reason": "reference_dna_built",
+        "state": "analyzed"
       }
     ],
-    "state": "raw"
+    "state": "analyzed"
   },
+  "reference_dna_path": "assets/visual-references/generated-archive/38f95dbf30eb6731/reference_dna.json",
   "reproduction_preview_path": "assets/visual-references/generated-archive/38f95dbf30eb6731/image.png",
   "review_status": "pending",
   "scope": "generated-archive",

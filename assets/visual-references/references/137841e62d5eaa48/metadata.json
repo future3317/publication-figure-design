@@ -47,6 +47,7 @@
     ],
     "source_observation": "three-panel worm benchmark: methods, matrix evidence, and calibration"
   },
+  "reference_dna_path": "assets/visual-references/references/137841e62d5eaa48/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

@@ -1,19 +1,23 @@
 {
   "aliases": {
-    "current": "metadata-proxy-02685f13b42f"
+    "current": "hybrid-deterministic-9aa8024c8294"
   },
   "index_type": "metadata_inverted",
-  "model_version": "metadata-proxy-02685f13b42f",
+  "model_version": "hybrid-deterministic-9aa8024c8294",
   "provenance": {
-    "built_at": "2026-08-19T02:52:38.112834+00:00",
-    "corpus_sha256": "02685f13b42ffb375ae0c66246ddbb76c2e2a4955d557ec6542a4a9a3184788a",
-    "embedding_model": "deterministic-metadata-proxy",
-    "index_version": "metadata-proxy-02685f13b42f",
-    "record_count": 141,
+    "built_at": "2026-08-23T16:43:11.497960+00:00",
+    "corpus_sha256": "9aa8024c8294992dc722230ec8e787ff401ab68ae6c124d4460e8b174d109d2d",
+    "embedding_model": "deterministic-semantic-structure-style",
+    "index_version": "hybrid-deterministic-9aa8024c8294",
+    "optional_backends": {
+      "semantic": "siglip2",
+      "visual_structure": "dinov2_or_dinov3"
+    },
+    "record_count": 147,
     "schema_version": "1.0",
-    "semantic_model_version": "deterministic-proxy-02685f13b42f"
+    "semantic_model_version": "semantic-deterministic-9aa8024c8294"
   },
-  "record_count": 141,
+  "record_count": 147,
   "schema_version": "1.0",
   "terms": {
     "2-panel": [
@@ -25,6 +29,9 @@
     ],
     "3-panel": [
       "a7a3dfa02b650b2e"
+    ],
+    "3d-pie": [
+      "5f56377676b03836"
     ],
     "3d-vector": [
       "dcdd74bc2feb98d9"
@@ -98,7 +105,8 @@
     ],
     "bar-comparison": [
       "131654637e894c12",
-      "18a52f7a910fe9c9"
+      "18a52f7a910fe9c9",
+      "9991f9ad1973eac2"
     ],
     "bar-composition": [
       "abb63055b0d49edb"
@@ -126,6 +134,9 @@
       "44d7a697ee30c4ac",
       "4909e3dcba5b633c"
     ],
+    "before-after": [
+      "7f5b0663c1e25be3"
+    ],
     "benchmark": [
       "789156ffca30bef6"
     ],
@@ -144,6 +155,7 @@
       "4d2c99dd4a107724",
       "55abd06fbf4dcbb9",
       "5c8ff3b28ea11b6e",
+      "7f5b0663c1e25be3",
       "7fee7c75142949e5",
       "a2d89d3b3e97ec59",
       "e088eda258e1bd3a"
@@ -203,6 +215,9 @@
     ],
     "circular-bar": [
       "a7a3dfa02b650b2e"
+    ],
+    "circular-layout": [
+      "0789bc5bea8a1131"
     ],
     "clinical": [
       "977970a3c5ff8ad9"
@@ -287,6 +302,9 @@
     "conceptual_multi_panel": [
       "dcdd74bc2feb98d9"
     ],
+    "confidence-ribbon": [
+      "b68a45ad947f3509"
+    ],
     "correlation": [
       "e52120014b49abe8"
     ],
@@ -308,6 +326,12 @@
     ],
     "dense": [
       "3b94fea2e7f95f8f"
+    ],
+    "direct-equations": [
+      "b68a45ad947f3509"
+    ],
+    "direct-labels": [
+      "0789bc5bea8a1131"
     ],
     "dispersion_idea": [
       "e805fb0f7ccdf8aa"
@@ -347,6 +371,9 @@
     ],
     "dual-legend": [
       "22f32e9bd10b34ee"
+    ],
+    "embedding": [
+      "69782084ad8f59e4"
     ],
     "energy-gap": [
       "227c2b8a31a21253"
@@ -466,6 +493,9 @@
       "f68c31da6f34836c",
       "f68c31da6f34836c"
     ],
+    "four-groups": [
+      "b68a45ad947f3509"
+    ],
     "frequency": [
       "4d213749151b32cb"
     ],
@@ -491,6 +521,9 @@
       "76866da267962098",
       "8fbf151c1f63de42"
     ],
+    "group-ellipses": [
+      "69782084ad8f59e4"
+    ],
     "grouped": [
       "227c2b8a31a21253"
     ],
@@ -503,6 +536,9 @@
       "4909e3dcba5b633c",
       "789156ffca30bef6",
       "ed6bbae45d17df9c"
+    ],
+    "grouped-bars": [
+      "0789bc5bea8a1131"
     ],
     "grouped-violin": [
       "5c8ff3b28ea11b6e",
@@ -567,6 +603,9 @@
     ],
     "grouped_bar_inset": [
       "789156ffca30bef6"
+    ],
+    "grouped_violin": [
+      "7f5b0663c1e25be3"
     ],
     "groupedbarchart": [
       "44d7a697ee30c4ac",
@@ -678,6 +717,9 @@
     "learning_curves": [
       "6e0b081c34e20430"
     ],
+    "legend-column": [
+      "5f56377676b03836"
+    ],
     "line-comparison": [
       "43fe44adf197b97c"
     ],
@@ -755,6 +797,9 @@
       "387e55d62c99c422",
       "e088eda258e1bd3a"
     ],
+    "marginal-histogram": [
+      "b68a45ad947f3509"
+    ],
     "marginaldensity": [
       "387e55d62c99c422",
       "e088eda258e1bd3a"
@@ -771,6 +816,9 @@
     ],
     "mean": [
       "daaa5c61d74703b8"
+    ],
+    "mean-connector": [
+      "7f5b0663c1e25be3"
     ],
     "mean-ribbon": [
       "6e0b081c34e20430"
@@ -819,6 +867,7 @@
     ],
     "minimal": [
       "4d2c99dd4a107724",
+      "9991f9ad1973eac2",
       "daaa5c61d74703b8"
     ],
     "mixed-encoding": [
@@ -919,6 +968,10 @@
     "optimization": [
       "4cf8539d0521b726"
     ],
+    "ordination": [
+      "69782084ad8f59e4",
+      "69782084ad8f59e4"
+    ],
     "overlaid_histograms_normal_fits": [
       "4d213749151b32cb"
     ],
@@ -931,6 +984,12 @@
     "p-values": [
       "1c6e9e67bade247d"
     ],
+    "paired-groups": [
+      "7f5b0663c1e25be3"
+    ],
+    "paired_grouped_violin": [
+      "7f5b0663c1e25be3"
+    ],
     "palette-comparison": [
       "255c32ef8bf65d53",
       "977970a3c5ff8ad9"
@@ -938,10 +997,38 @@
     "palette_comparison": [
       "977970a3c5ff8ad9"
     ],
+    "part-to-whole": [
+      "5f56377676b03836"
+    ],
+    "part_to_whole": [
+      "5f56377676b03836"
+    ],
     "pastel": [
       "44d7a697ee30c4ac"
     ],
+    "pcoa": [
+      "69782084ad8f59e4"
+    ],
+    "pcoa_two_panel": [
+      "69782084ad8f59e4"
+    ],
+    "percentage": [
+      "9991f9ad1973eac2"
+    ],
+    "percentage-labels": [
+      "5f56377676b03836"
+    ],
+    "permanova": [
+      "69782084ad8f59e4"
+    ],
+    "pie": [
+      "5f56377676b03836"
+    ],
+    "pie_3d": [
+      "5f56377676b03836"
+    ],
     "polar": [
+      "0789bc5bea8a1131",
       "22f32e9bd10b34ee"
     ],
     "polar_bubble_radar_yearly_polygons": [
@@ -992,6 +1079,21 @@
     "radial": [
       "a7a3dfa02b650b2e"
     ],
+    "radial-arc": [
+      "9991f9ad1973eac2"
+    ],
+    "radial-bar": [
+      "0789bc5bea8a1131"
+    ],
+    "radial_arc_bar": [
+      "9991f9ad1973eac2"
+    ],
+    "radial_bar": [
+      "0789bc5bea8a1131"
+    ],
+    "radial_grouped_bar": [
+      "0789bc5bea8a1131"
+    ],
     "raincloud": [
       "4d2c99dd4a107724",
       "4d2c99dd4a107724",
@@ -1003,7 +1105,8 @@
       "653ce9637e303a41"
     ],
     "raw-points": [
-      "0de2014d0cf60d22"
+      "0de2014d0cf60d22",
+      "7f5b0663c1e25be3"
     ],
     "raw_point_grouped_comparison_significance": [
       "0de2014d0cf60d22"
@@ -1016,6 +1119,7 @@
     ],
     "regression": [
       "387e55d62c99c422",
+      "b68a45ad947f3509",
       "e088eda258e1bd3a"
     ],
     "replicates": [
@@ -1067,6 +1171,7 @@
     "scatter": [
       "227c2b8a31a21253",
       "387e55d62c99c422",
+      "b68a45ad947f3509",
       "daaa5c61d74703b8",
       "e088eda258e1bd3a"
     ],
@@ -1082,7 +1187,11 @@
       "984475212a83b640"
     ],
     "scatter_marginal": [
-      "227c2b8a31a21253"
+      "227c2b8a31a21253",
+      "b68a45ad947f3509"
+    ],
+    "scatter_marginal_regression": [
+      "b68a45ad947f3509"
     ],
     "scatterregressionraincloud": [
       "55abd06fbf4dcbb9",
@@ -1093,6 +1202,12 @@
     ],
     "semantic-colors": [
       "ed6bbae45d17df9c"
+    ],
+    "semi-circular": [
+      "9991f9ad1973eac2"
+    ],
+    "semi_circular_arc_bar": [
+      "9991f9ad1973eac2"
     ],
     "sequential-blue": [
       "0de2014d0cf60d22"
@@ -1301,6 +1416,9 @@
     "tumor-growth": [
       "977970a3c5ff8ad9"
     ],
+    "two-panel": [
+      "69782084ad8f59e4"
+    ],
     "uncertainty-band": [
       "43fe44adf197b97c"
     ],
@@ -1334,6 +1452,7 @@
     "violin": [
       "4d2c99dd4a107724",
       "55abd06fbf4dcbb9",
+      "7f5b0663c1e25be3",
       "a2d89d3b3e97ec59"
     ],
     "wechat": [

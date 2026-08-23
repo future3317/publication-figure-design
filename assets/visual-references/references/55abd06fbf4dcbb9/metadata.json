@@ -9,7 +9,7 @@
   "journal_style": "Nature",
   "layout": "2x3",
   "license": "unknown",
-  "lifecycle_state": "raw",
+  "lifecycle_state": "analyzed",
   "n_groups": 6,
   "notes": "WeChat screenshot: 2x3 grid of grouped scatter+regression (left) and half-violin/box/jitter raincloud (right) combinations. 6 panels show 2-group and 3-group variants with different color schemes. Reproduction script provided.",
   "palette": null,
@@ -20,10 +20,15 @@
       {
         "reason": "legacy_intake_migration",
         "state": "raw"
+      },
+      {
+        "reason": "reference_dna_built",
+        "state": "analyzed"
       }
     ],
-    "state": "raw"
+    "state": "analyzed"
   },
+  "reference_dna_path": "assets/visual-references/references/55abd06fbf4dcbb9/reference_dna.json",
   "review_status": "pending",
   "scope": "references",
   "sha256": "55abd06fbf4dcbb9aa35ff3a5cf42de2cdf1f5e28db6dfe97d08081d199e9274",

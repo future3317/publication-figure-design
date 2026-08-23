@@ -43,6 +43,7 @@
     ],
     "source_observation": "speed comparison with effect-size intervals"
   },
+  "reference_dna_path": "assets/visual-references/references/cd1fec84f615a43d/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

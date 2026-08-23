@@ -43,6 +43,7 @@ Generate a companion `figure_card.json` for each maintained reference:
 ```bash
 python scripts/reference_image_analysis.py analyze <image> \
   --figure-type <normalized_type> --output <reference_dir>/figure_card.json
+python scripts/build_reference_dna.py
 ```
 
 The analyzer records measurable pixel evidence (canvas dimensions/aspect ratio,
@@ -59,6 +60,9 @@ only: open selected pixels, and do not copy its code or images into production a
 For a batch, run the same intake independently for every image. Each record must have
 its own type, tags, and visual-grammar notes; a batch is not permission to assign the
 same three candidates to every future task.
+
+Each maintained reference also carries `reference_dna.json`; formal role retrieval uses
+the transparent `indexes/hybrid.json` index rather than the retired metadata proxy.
 
 ## Two reference workflows
 

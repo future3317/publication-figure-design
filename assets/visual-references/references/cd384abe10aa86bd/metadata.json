@@ -102,6 +102,7 @@
     ],
     "source_observation": "16 network/matrix variants arranged as an atlas"
   },
+  "reference_dna_path": "assets/visual-references/references/cd384abe10aa86bd/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

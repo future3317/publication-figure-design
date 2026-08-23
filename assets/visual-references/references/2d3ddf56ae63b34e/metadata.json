@@ -48,6 +48,7 @@
     ],
     "source_observation": "wide architecture panel with two subordinate explanatory branches"
   },
+  "reference_dna_path": "assets/visual-references/references/2d3ddf56ae63b34e/reference_dna.json",
   "reference_kind": "exact_visual_source",
   "review_status": "reviewed",
   "scope": "references",

@@ -21,7 +21,9 @@ Design principles
 * **Aesthetic vs. production readiness are separate.** ``aesthetic_rating`` is
   a human quality judgment; ``production_ready`` marks whether the asset is a
   candidate for future COPY-FIRST promotion.
-* **No embedding / CLIP / vector DB.** Queries are plain metadata filters.
+* **Deterministic hybrid-ready indexes.** Sidecars may carry ReferenceDNA and
+  retrieval remains transparent NumPy/rule based until optional model extras
+  are explicitly installed.
 """
 
 from __future__ import annotations
@@ -121,6 +123,7 @@ REFERENCE_METADATA_FIELDS = [
     "code_path",
     "reproduction_preview_path",
     "figure_card_path",
+    "reference_dna_path",
     "review_status",
     "lifecycle_state",
     "quarantine",
@@ -162,6 +165,7 @@ _DEFAULT_METADATA = {
     "code_path": None,
     "reproduction_preview_path": None,
     "figure_card_path": None,
+    "reference_dna_path": None,
     "review_status": "pending",
     "lifecycle_state": "raw",
     "quarantine": {},
@@ -809,6 +813,32 @@ class ReferenceLibrary:
                 self._refs[ref_id] = ref
                 return ref
         return None
+
+    def analyze_dna(self, ref_id: str) -> Dict[str, Any]:
+        """Build source-appropriate ReferenceDNA without executing source code."""
+        ref = self.get(ref_id)
+        if ref is None:
+            raise KeyError(f"Unknown reference id: {ref_id}")
+        try:
+            from publication_figure_design.reference_intelligence.dna_builder import build_reference_dna
+        except ImportError:
+            src_root = self.root / "src"
+            if str(src_root) not in sys.path:
+                sys.path.insert(0, str(src_root))
+            from publication_figure_design.reference_intelligence.dna_builder import build_reference_dna
+        image_path = self.root / str(ref.metadata.get("image_path", "")).replace("/", os.sep)
+        asset_dir = image_path.parent
+        dna = build_reference_dna(asset_dir, metadata=ref.metadata)
+        ref.metadata["reference_dna_path"] = _as_relative(asset_dir / "reference_dna.json", self.root)
+        ref.metadata["lifecycle_state"] = "analyzed"
+        ref.metadata.setdefault("quarantine", {"state": "raw", "history": []})
+        ref.metadata["quarantine"]["state"] = "analyzed"
+        history = ref.metadata["quarantine"].setdefault("history", [])
+        if not any(item.get("state") == "analyzed" and item.get("reason") == "reference_dna_built" for item in history if isinstance(item, dict)):
+            history.append({"state": "analyzed", "reason": "reference_dna_built"})
+        self._metadata_path(ref.id, ref.scope).write_text(json.dumps(ref.metadata, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
+        self._refs[ref.id] = ref
+        return dna.to_dict()
 
     def review(
         self,

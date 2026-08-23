@@ -5,7 +5,7 @@ description: "Use when creating, reconstructing, revising, reviewing, or exporti
 
 # Publication Figure Design
 
-This skill is an orchestrated, reference-first figure workflow. Scientific meaning, complete data
+This skill is an orchestrated, reference-first Scientific Figure Design Compiler. Scientific meaning, complete data
 take precedence over visual similarity; uncertainty semantics and a concrete reference control the
 visual grammar; generic defaults are fallback-only.
 Scientific meaning, complete data are never overridden by a visual reference.
@@ -41,7 +41,7 @@ pfd reference review <reference-id>
 pfd reference benchmark <reference-id> <canary.json>
 pfd reference promote <reference-id> <champion-evidence.json>
 pfd index build
-pfd eval
+pfd eval quick|full|visual|release
 ```
 
 Run all Python commands through the repository runtime convention in
@@ -51,6 +51,17 @@ silently fall back to Conda `base` or system Python.
 Every persisted session records `input_hash`, the concrete reference-index version,
 selected reference ids, renderer version, iteration history, QA result, and final output
 hash. Resume must reuse the recorded selection; it must not rerun an unseeded recommendation.
+
+The compiler path is:
+
+`ScientificContract → ReferenceDNA → StyleCapsule + JournalProfile → DesignPacket → CandidateSet → DesignPatch → RenderTrace → layered QA → ExportManifest`.
+
+Reference intelligence is source-specific: raster, SVG, PDF and plotting code use separate
+analyzers. Raster evidence records only font class and relative hierarchy; exact font and stroke
+values require vector or static-code evidence. The active index is a transparent hybrid index
+(metadata + semantic + structure + StyleDNA + task compatibility), not a metadata proxy.
+Use `reference_dna.json`, `profiles/style-capsules/`, and `profiles/journals/` as the current
+sources of truth.
 
 ## Dispatch
 
@@ -126,6 +137,11 @@ The adaptation levels are `exact_reuse`, `structural_adaptation`, `style_only`, 
 `build_new`. `exact_reuse` requires matching panel topology, mark geometry, layer topology,
 data encoding, and annotation/legend model. Every render plan declares its backend and final assembler.
 
+Generation modes are `fast` (one draft), `standard` (up to two drafts), and `publication`
+(structure-first, style-first, balanced low-cost candidates before final render). Critique emits
+machine-editable `DesignPatch` operations; Repair applies them deterministically. Renderers also
+emit `RenderTrace` so scientific QA can inspect data → transform/statistic → graphical mark.
+
 `quality` and `fidelity` are independent. A faithful but unattractive reference may be a
 valid structure source but must not become an aesthetic champion. A reconstruction is a
 validation artifact, never the canonical style source.
@@ -137,6 +153,8 @@ validation artifact, never the canonical style source.
 - typography, contrast, color accessibility, layout, legend, and annotation legibility;
 - reproducible render plan and fixed seed/runtime where synthetic data is used;
 - vector/raster dimensions, DPI, font substitution, and export manifest;
+- L0 hard technical, L1 scientific, L2 structural visual, and L3 soft perceptual QA as separate artifacts;
+- anti-copy checks that permit style logic but block copied scientific content, labels, unique assets, and near-identical placement;
 - provenance and allowed reuse scope for every reference/template/source asset.
 
 Benchmark delivery is a hard gate, not an informational score. CI enforces Recall@1 ≥ 0.90,
@@ -155,6 +173,7 @@ without the final QA/export artifacts.
 Run the relevant checks from `manifest.yaml`; for skill maintenance also run
 `scripts/check_skill_contract.py`, `scripts/check_source_reference_catalog.py`, the
 package tests, and the reference/index checks.
+Use `pfd eval quick|full|visual|release`; `release` is the same gate as CI.
 
 ## Resource routing
 
@@ -164,12 +183,16 @@ package tests, and the reference/index checks.
 | Concrete reference or optimization | `references/reference-driven-reconstruction.md`, `scripts/compare_output_to_reference.py` |
 | Style compilation | `references/style-spec.md`, `scripts/style_compiler.py` |
 | Reference intake/library | `references/visual-reference-library.md`, `references/color-palettes.md`, `scripts/reference_library.py` |
+| Reference DNA and hybrid retrieval | `src/publication_figure_design/reference_intelligence/`, `scripts/build_reference_dna.py`, `scripts/build_reference_indexes.py` |
+| Journal profiles and style capsules | `profiles/journals/`, `profiles/style-capsules/`, `src/publication_figure_design/style/` |
+| Design compiler and patches | `src/publication_figure_design/design/`, `src/publication_figure_design/layout/` |
 | Art direction and visual grammar | `references/art-direction.md`, `references/visual-grammar.md` |
 | Asset adaptation and reuse | `references/asset-adaptation.md`, `references/figure-legend-contract.md`, `references/privacy-provenance.md` |
 | Figure-family or backend choice | `references/figure-family-coverage.md`, `references/backend-selection.md` |
 | Journal target and physical sizing | `references/journal-specs.md`, `references/export-specs.md` |
 | Scientific encoding/uncertainty | `references/encoding-and-uncertainty.md` |
 | QA/export | `references/checklist.md`, `references/delivery-contract.md`, `references/export-specs.md`, `scripts/rendered_contrast.py`, `scripts/audit_pdf_text.py` |
+| Layered QA and trace | `src/publication_figure_design/qa/`, `RenderTrace`, `scripts/render_contract.py` |
 | Source reconstruction maintenance | `references/source-reconstruction-library.md`, `scripts/check_source_reconstruction_library.py`, `scripts/check_source_reference_catalog.py` |
 | Optimization packet | `scripts/prepare_visual_optimization.py`, `scripts/check_visual_optimization.py` |
 | Benchmark and release gates | `scripts/ci_gate.py`, `scripts/evaluate_benchmark.py`, `scripts/evaluate_holdout.py`, `scripts/evaluate_generation_regression.py`, `scripts/check_champion_floors.py`, `scripts/adversarial_retrieval.py`, `scripts/scale_benchmark.py` |

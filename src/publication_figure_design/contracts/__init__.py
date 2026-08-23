@@ -9,11 +9,21 @@ from .models import (
     ReferenceSet,
     RenderPlan,
     SourceSpec,
+    ScientificContract,
     PaletteSpec,
     StyleSpec,
     TargetSpec,
     TaskSpec,
     TypographySpec,
+)
+from ..reference_intelligence.dna import (
+    DesignPacket,
+    DesignPatch,
+    JournalProfile,
+    PreferencePair,
+    ReferenceDNA,
+    RenderTrace,
+    StyleCapsule,
 )
 
 __all__ = [
@@ -25,9 +35,17 @@ __all__ = [
     "ReferenceSet",
     "RenderPlan",
     "SourceSpec",
+    "ScientificContract",
     "PaletteSpec",
     "StyleSpec",
     "TargetSpec",
     "TaskSpec",
     "TypographySpec",
+    "DesignPacket",
+    "DesignPatch",
+    "JournalProfile",
+    "PreferencePair",
+    "ReferenceDNA",
+    "RenderTrace",
+    "StyleCapsule",
 ]

@@ -9,7 +9,7 @@
   "journal_style": "Nature",
   "layout": "2x2",
   "license": "unknown",
-  "lifecycle_state": "raw",
+  "lifecycle_state": "analyzed",
   "n_groups": 3,
   "notes": "WeChat screenshot: 2x2 scatter panels with marginal distributions (KDE, histogram, boxplot) and regression lines. Reproduction script (code.py) provided.",
   "palette": "soft_forest",
@@ -20,10 +20,15 @@
       {
         "reason": "legacy_intake_migration",
         "state": "raw"
+      },
+      {
+        "reason": "reference_dna_built",
+        "state": "analyzed"
       }
     ],
-    "state": "raw"
+    "state": "analyzed"
   },
+  "reference_dna_path": "assets/visual-references/references/e088eda258e1bd3a/reference_dna.json",
   "review_status": "pending",
   "scope": "references",
   "sha256": "e088eda258e1bd3ac1dec56fa0cd644de11daeee05a4e7e21374c6e9dc5e76aa",
