@@ -70,6 +70,10 @@ class TestSkillMdWorkflowHooks(unittest.TestCase):
         self.assertIn("scientific meaning, complete data", self.skill_md)
         self.assertIn("A visual reference never changes scientific semantics", self.skill_md)
 
+    def test_skill_scope_is_research_domain_and_venue_agnostic(self):
+        self.assertIn("across research domains and publication venues", self.skill_md)
+        self.assertNotIn("Nature/Cell/Science-family manuscripts", self.skill_md)
+
     def test_palette_priority_order(self):
         text = self.visual_refs
         # User explicit colors > user explicit palette > visual reference > default

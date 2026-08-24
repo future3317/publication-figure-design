@@ -1,6 +1,6 @@
 ---
 name: publication-figure-design
-description: "Use when creating, reconstructing, revising, reviewing, or exporting publication-grade scientific figures for Nature/Cell/Science-family manuscripts, especially when a concrete visual reference, multi-panel layout, paired operating-point comparison, uncertainty-aware chart, or final-size visual QA is involved."
+description: "Use when creating, reconstructing, revising, reviewing, or exporting publication-grade scientific figures across research domains and publication venues, especially when a concrete visual reference, multi-panel layout, paired operating-point comparison, uncertainty-aware chart, or final-size visual QA is involved."
 ---
 
 # Publication Figure Design
