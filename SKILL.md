@@ -5,25 +5,20 @@ description: "Use when creating, reconstructing, revising, reviewing, or exporti
 
 # Publication Figure Design
 
-This skill is an orchestrated, reference-first Scientific Figure Design Compiler. Scientific meaning, complete data
-take precedence over visual similarity; uncertainty semantics and a concrete reference control the
-visual grammar; generic defaults are fallback-only.
-Scientific meaning, complete data are never overridden by a visual reference.
-The contract is explicit: scientific meaning, complete data remain authoritative.
-A visual reference never changes scientific semantics; it only supplies visual grammar.
+This skill is an orchestrated, reference-first Scientific Figure Design Compiler. The contract keeps scientific meaning, complete data
+authoritative over visual similarity. A visual reference never changes scientific semantics; it controls visual grammar only.
 
 ## Operating contract
 
-Read `references/orchestrator-contracts.md` and run the orchestrator for every create,
-revise, optimize, reference-intake, review, or export task. The orchestrator persists
-machine-readable artifacts; do not rely on context memory or prose claims.
+Read `references/orchestrator-contracts.md` and run the orchestrator for every create, revise, optimize,
+reference-intake, review, or export task; it persists machine-readable artifacts, not prose-only claims.
 
 Required state sequence:
 
 `Route → Intake → Reference Retrieval → Reference Inspection → Design Spec → Binding → Render → Compare → Critique → Repair → QA → Export`
 
-Each transition has a gate. A failed gate blocks the next state and produces a repairable
-report. Resume, retry, rollback, and best-so-far are explicit operations in the run state.
+Each transition has a gate; failures block the next state and produce a repairable report. Resume, retry, rollback,
+and best-so-far are explicit operations in the run state.
 
 Core artifacts:
 
@@ -44,19 +39,14 @@ pfd index build
 pfd eval quick|full|visual|release
 ```
 
-Run all Python commands through the repository runtime convention in
-`references/runtime-environment.md`: use the `piepaper` Conda environment and never
-silently fall back to Conda `base` or system Python.
+Run Python through `references/runtime-environment.md` using the `piepaper` Conda environment; never fall back to
+Conda `base` or system Python.
 
-Every persisted session records `input_hash`, the concrete reference-index version,
-selected reference ids, renderer version, iteration history, QA result, and final output
-hash. Resume must reuse the recorded selection; it must not rerun an unseeded recommendation.
+Every session records `input_hash`, concrete index version, selected references, renderer version, iterations, QA,
+and output hash; resume reuses that selection and never reruns an unseeded recommendation.
 
-`manifest.yaml` treats `always_load`/`always_rulesets` and route `required_load`/
-`required_rulesets` as mandatory, and separates them from optional `load`: at route entry,
-read every required resource and compile every required ruleset before proceeding;
-a missing or unread required resource blocks Render/QA/Export. Ordinary `load` entries are
-supplemental and may be consulted when the task needs them.
+`manifest.yaml` treats `always_load`/`always_rulesets` and route `required_load`/`required_rulesets` as mandatory:
+read and compile them at route entry; missing/unread resources block Render/QA/Export. Ordinary `load` is supplemental.
 
 The compiler path is:
 
@@ -117,6 +107,15 @@ The semantic family decision, mathematical-domain check, comparison-control chec
 object/uncertainty attachment check, and cross-figure color-role check **must run before rendering**.
 Record the results in `TaskSpec` or `DesignPacket`; a failed preflight blocks
 Render until the contract is repaired.
+
+### Mandatory visual-failure triage
+
+Every critique/final-size review applies the compiled clearance, clipping,
+curve/uncertainty, panel, inset, overlay, range, terminology, and text rules. Repair
+in this order: overlap/clipping/unreadable text → ambiguous encoding → composition/
+whitespace → series/uncertainty separation → palette polish. Preserve raw curves and
+declared transforms; require explicit anchors and non-colliding reading paths for
+insets, bars, overlays, and callouts without changing data or domains.
 
 ## Dispatch
 

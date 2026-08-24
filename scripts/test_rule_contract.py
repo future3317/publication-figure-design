@@ -20,6 +20,18 @@ class RuleContractTests(unittest.TestCase):
         report = validate_rules(ROOT)
         self.assertTrue(report["ok"], report["errors"])
 
+    def test_visual_feedback_rules_are_present(self):
+        report = validate_rules(ROOT)
+        self.assertTrue(report["ok"], report["errors"])
+        rule_ids = set(report.get("rule_ids", []))
+        for rule_id in (
+            "LAY-002", "LAY-003", "ANN-002", "ANN-004", "SEM-003",
+            "CURVE-001", "CURVE-003", "CURVE-005", "MP-001", "MP-004",
+            "MP-005", "BAR-001",
+        ):
+            with self.subTest(rule_id=rule_id):
+                self.assertIn(rule_id, rule_ids)
+
     def test_block_rule_requires_verification_and_source(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

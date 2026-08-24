@@ -9,3 +9,33 @@ rules:
     verification: {mode: hybrid, checks: ["final_size_render", "layout_clearance_review"]}
     override: {allowed: false}
     tags: [layout, legibility]
+  - id: LAY-002
+    title: Reserve clearance between layout objects
+    scope: global
+    severity: block
+    statement: Panel titles, panel labels, legends, axes, tick labels, annotations, and neighboring panels must have non-overlapping clearance at final size.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-render-trace, source_type: project_contract, section: layout_clearance}]
+    verification: {mode: hybrid, checks: ["text_bbox_intersection", "final_size_review"]}
+    override: {allowed: false}
+    tags: [layout, overlap, legibility]
+  - id: LAY-003
+    title: Visual mass is balanced by evidence importance
+    scope: global
+    severity: warn
+    statement: Important panels and marks must not be reduced to unreadable thumbnails by excessive surrounding whitespace or by one panel taking disproportionate visual weight; restructure the grid when needed.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-house-visual-language, source_type: project_guidance, section: composition}]
+    verification: {mode: hybrid, checks: ["panel_area_balance", "final_size_review"]}
+    override: {allowed: true, reason_required: true}
+    tags: [layout, composition, whitespace]
+  - id: LAY-004
+    title: Axis domains and marks are not silently clipped
+    scope: global
+    severity: block
+    statement: Curves, markers, error bars, labels, and annotations must remain inside the declared plotting domain or have an explicit clipping, inset, or broken-axis explanation.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-scientific-contract, source_type: project_contract, section: axis_integrity}]
+    verification: {mode: hybrid, checks: ["mark_bbox_vs_axes", "axis_domain_audit"]}
+    override: {allowed: false}
+    tags: [layout, axes, clipping]

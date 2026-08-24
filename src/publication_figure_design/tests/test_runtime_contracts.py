@@ -27,6 +27,24 @@ class RuntimeContractTests(unittest.TestCase):
         self.assertIn("rules/families/heatmap-matrix.yaml", session.telemetry["active_rule_sets"])
         self.assertIn("HEAT-001", session.telemetry["active_rule_ids"])
 
+    def test_session_adds_curve_feedback_rules(self):
+        task = TaskSpec(task_id="curve-rules-test", metadata={"mode": "create", "figure_family": "curve_comparison"})
+        session = build_runtime_orchestrator().start(task)
+        self.assertIn("rules/families/curve-comparison.yaml", session.telemetry["active_rule_sets"])
+        self.assertIn("CURVE-001", session.telemetry["active_rule_ids"])
+
+    def test_session_adds_inset_feedback_rules(self):
+        task = TaskSpec(task_id="inset-rules-test", metadata={"mode": "create", "figure_family": "inset_comparison"})
+        session = build_runtime_orchestrator().start(task)
+        self.assertIn("rules/families/multi-panel-composite.yaml", session.telemetry["active_rule_sets"])
+        self.assertIn("MP-004", session.telemetry["active_rule_ids"])
+
+    def test_session_adds_bar_feedback_rules(self):
+        task = TaskSpec(task_id="bar-rules-test", metadata={"mode": "create", "figure_family": "bars_and_intervals"})
+        session = build_runtime_orchestrator().start(task)
+        self.assertIn("rules/families/bars-and-intervals.yaml", session.telemetry["active_rule_sets"])
+        self.assertIn("BAR-001", session.telemetry["active_rule_ids"])
+
     def test_production_runtime_allows_only_one_repair_retry(self):
         self.assertEqual(build_runtime_orchestrator().max_retries, 2)
 

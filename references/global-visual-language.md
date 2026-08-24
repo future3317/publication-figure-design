@@ -16,6 +16,19 @@ the `StyleSpec` rather than left as an informal preference.
 
 ## Baseline rules
 
+### Visual-failure priority
+
+During critique and repair, fix failures in this order:
+
+1. overlap, clipping, or unreadable text;
+2. invalid or ambiguous data encoding;
+3. panel hierarchy, composition, and whitespace imbalance;
+4. indistinguishable series or uncertainty layers;
+5. palette polish and decorative refinement.
+
+This order is structural: a polished palette never compensates for a collision,
+ambiguous curve grammar, or a panel that cannot be read at final size.
+
 - **Soft segmentation:** separate panels and semantic regions with whitespace,
   alignment, subtle tonal shifts, or thin separators. Avoid heavy boxes, dark
   dashboard grids, and borders that compete with the evidence.

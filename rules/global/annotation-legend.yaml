@@ -9,3 +9,43 @@ rules:
     verification: {mode: hybrid, checks: ["legend_mapping_audit", "annotation_clearance", "final_size_review"]}
     override: {allowed: false}
     tags: [annotation, legend, legibility]
+  - id: ANN-002
+    title: Keep explanatory text out of dense data paths
+    scope: global
+    severity: block
+    statement: Explanatory text must not sit on top of dense curves, error bars, nodes, or image detail; move it to the caption/legend or use a cleared callout with a visible anchor.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-semantic-encoding, source_type: project_contract, section: annotation_clearance}]
+    verification: {mode: hybrid, checks: ["text_data_intersection", "annotation_clearance"]}
+    override: {allowed: false}
+    tags: [annotation, overlap, curves]
+  - id: ANN-003
+    title: Callouts have an unambiguous anchor
+    scope: global
+    severity: block
+    statement: A point or region annotation uses a leader, clear offset, or backing box so the reader can identify its target without intersecting unrelated marks.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-semantic-encoding, source_type: project_contract, section: callouts}]
+    verification: {mode: hybrid, checks: ["callout_anchor_audit", "text_data_intersection"]}
+    override: {allowed: false}
+    tags: [annotation, callout]
+  - id: ANN-004
+    title: Avoid redundant naming channels
+    scope: global
+    severity: warn
+    statement: A method, group, or condition should not be named redundantly in a global legend, point labels, axis categories, and repeated panel text unless each occurrence has a distinct reading job.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-house-visual-language, source_type: project_guidance, section: annotation}]
+    verification: {mode: manual, checks: ["label_redundancy_review"]}
+    override: {allowed: true, reason_required: true}
+    tags: [annotation, legend, redundancy]
+  - id: ANN-005
+    title: Render text syntax correctly
+    scope: global
+    severity: block
+    statement: LaTeX, dash, minus, superscript, and special-character markup must render as intended; raw source syntax must not leak into titles, labels, or legends.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-render-trace, source_type: project_contract, section: typography_rendering}]
+    verification: {mode: hybrid, checks: ["glyph_render_audit", "final_size_review"]}
+    override: {allowed: false}
+    tags: [annotation, typography, rendering]

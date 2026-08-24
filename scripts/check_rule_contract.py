@@ -131,6 +131,7 @@ def validate_rules(root: Path | str) -> dict[str, object]:
         "errors": errors,
         "warnings": warnings,
         "metrics": {"rule_count": rule_count, "source_count": len(sources)},
+        "rule_ids": sorted(ids),
     }
 
 

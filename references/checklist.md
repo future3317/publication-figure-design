@@ -263,6 +263,31 @@ These checks require reasoning about what the code produces, not just pattern ma
 
 **Fix if FAIL:** Redesign the layout or encoding before adjusting palette, font, alpha, or line width. Separate connector, estimate, and uncertainty layers; merge the legend or direct-label the few conditions; and inspect the result at final physical size and thumbnail scale.
 
+### VI-9: Dense-curve and uncertainty grammar
+
+For frontier, evaluation, or time-series panels, verify that raw observations,
+declared trends, uncertainty, reference lines, and claim-bearing points have
+separate visual jobs. High-frequency jaggedness must not be silently smoothed away;
+overlapping ribbons must not form unreadable mixed blocks; and reference-line labels
+must be placed in clear space. If valid domains differ between series, state the
+common range or the domain difference rather than implying an accidental truncation.
+
+**Pass condition:** The plot's layer order and transforms are recoverable from the
+source/render trace, and the final-size image preserves series identity and trend
+readability.
+
+### VI-10: Composite, inset, and range stress
+
+For multi-panel, inset, geometry, or bar/interval figures, check panel area against
+evidence importance, remove repeated skeleton/reference elements with no new reading
+job, and verify that inset connectors do not cross the inset or collide with axes.
+Dense ellipsoid/node/3D overlays require fill/edge/wireframe/marker hierarchy.
+Extreme ranges require a declared log/broken-axis/inset treatment or an explicit
+outlier annotation; never crop or rescale silently.
+
+**Pass condition:** Every panel and inset has a clear source-to-evidence reading path,
+and no extreme mark, overlay, or empty margin suppresses the intended comparison.
+
 ### VI-6: Panel Label Consistency (Multi-Panel Only)
 
 **Question:** Are panel labels consistent in position, font, and style?
@@ -323,6 +348,23 @@ Passes 0-2 verify the **code**. Pass 3 verifies the **output**. These are proble
 - Panel label occlusion —move label offset from (-0.08, 1.02) to (-0.15, 1.04)
 
 **Pass condition:** No data occlusion visible. All labels, legends, and annotations are clearly separated from data elements.
+
+### VV-1a: Text, curve, and callout clearance
+
+At final display size, inspect title/panel-label/legend/axis/annotation bounding
+boxes and their intersections with data marks. Also inspect curve/annotation,
+reference-line label, inset-connector, and bar-top-label collisions. A light text
+color on a light fill is a failure even when it appears acceptable in an enlarged
+preview. Repair by moving, restructuring, or adding a local backing/edge; do not
+solve a semantic collision by merely shrinking all text.
+
+### VV-1b: Series and uncertainty separation
+
+When curves, bands, nodes, ellipsoids, or image detail overlap, verify at final size
+that each critical series remains traceable in grayscale and under reduced scale.
+Use redundant channels and layer hierarchy where color alone or weak dashed lines
+merge. A muddy translucent overlap, indistinguishable marker set, or unreadable
+representative object is a FIX, not a cosmetic warning.
 
 ### VV-2: Layout Regularity
 

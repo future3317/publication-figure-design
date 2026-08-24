@@ -43,17 +43,42 @@ family_rulesets:
   matrix_array: ["rules/families/heatmap-matrix.yaml"]
   scatter: ["rules/families/scatter-correlation.yaml"]
   correlation: ["rules/families/scatter-correlation.yaml"]
-  statistical_discovery: ["rules/families/scatter-correlation.yaml"]
-  time_series: ["rules/families/time-series.yaml"]
-  roc: ["rules/families/roc-pr-calibration.yaml"]
-  pr_curve: ["rules/families/roc-pr-calibration.yaml"]
-  calibration: ["rules/families/roc-pr-calibration.yaml"]
+  statistical_discovery:
+    - "rules/families/scatter-correlation.yaml"
+    - "rules/families/curve-comparison.yaml"
+  curve_comparison:
+    - "rules/families/curve-comparison.yaml"
+  multi_axis_comparison:
+    - "rules/families/curve-comparison.yaml"
+  multi_panel_statistical:
+    - "rules/families/multi-panel-composite.yaml"
+  image_quantitative_composite:
+    - "rules/families/image-quant-composite.yaml"
+    - "rules/families/microscopy.yaml"
+    - "rules/families/multi-panel-composite.yaml"
+  mechanism_architecture:
+    - "rules/families/schematic-mechanism.yaml"
+    - "rules/families/multi-panel-composite.yaml"
+  inset_comparison:
+    - "rules/families/multi-panel-composite.yaml"
+  bars_and_intervals:
+    - "rules/families/bars-and-intervals.yaml"
+  time_series:
+    - "rules/families/time-series.yaml"
+    - "rules/families/curve-comparison.yaml"
+  roc:
+    - "rules/families/roc-pr-calibration.yaml"
+    - "rules/families/curve-comparison.yaml"
+  pr_curve:
+    - "rules/families/roc-pr-calibration.yaml"
+    - "rules/families/curve-comparison.yaml"
+  calibration:
+    - "rules/families/roc-pr-calibration.yaml"
+    - "rules/families/curve-comparison.yaml"
   microscopy: ["rules/families/microscopy.yaml"]
   network: ["rules/families/network-graph.yaml"]
   graph: ["rules/families/network-graph.yaml"]
-  mechanism_architecture: ["rules/families/schematic-mechanism.yaml"]
   schematic: ["rules/families/schematic-mechanism.yaml"]
-  image_quantitative_composite: ["rules/families/image-quant-composite.yaml", "rules/families/microscopy.yaml"]
 
 always_load:
   - "references/figure-contract.md"
