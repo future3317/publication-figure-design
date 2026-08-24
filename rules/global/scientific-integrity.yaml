@@ -1,0 +1,121 @@
+rules:
+  - id: SCI-001
+    title: Preserve source data and scientific meaning
+    scope: global
+    severity: block
+    statement: Do not fabricate, delete, move, smooth, or otherwise alter source observations to strengthen a visual conclusion; references only provide visual grammar.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-scientific-contract, source_type: project_contract, section: scientific_contract}]
+    verification: {mode: hybrid, checks: ["binding_source_trace", "scientific_review"]}
+    override: {allowed: false}
+    tags: [scientific-integrity, provenance]
+  - id: SCI-002
+    title: Declare transformations
+    scope: global
+    severity: block
+    statement: Log, normalization, smoothing, interpolation, clipping, winsorization, baseline subtraction, and aggregation require an explicit provenance record and domain definition.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-render-trace, source_type: project_contract, section: render_trace}]
+    verification: {mode: hybrid, checks: ["transform_trace", "domain_audit"]}
+    override: {allowed: false}
+    tags: [transform, provenance]
+  - id: SCI-003
+    title: Preserve units denominators and scale semantics
+    scope: global
+    severity: block
+    statement: Units, denominators, normalization bases, shared color domains, and axis limits must not change silently between panels or figures.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-scientific-contract, source_type: project_contract, section: semantic_binding}]
+    verification: {mode: hybrid, checks: ["unit_denominator_audit", "panel_scale_audit"]}
+    override: {allowed: false}
+    tags: [units, scale, comparison]
+  - id: SCI-004
+    title: Uncertainty labels are explicit
+    scope: global
+    severity: block
+    statement: SD, SEM, confidence interval, prediction interval, and posterior interval must remain distinct and be declared in the binding or caption contract.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: nature-formatting-guide, source_type: journal_guidance, section: statistics}]
+    verification: {mode: hybrid, checks: ["uncertainty_type_audit", "caption_contract"]}
+    override: {allowed: false}
+    tags: [uncertainty, statistics]
+  - id: DATA-001
+    title: Bound arrays are valid
+    scope: global
+    severity: block
+    statement: Plotted arrays must be non-empty and finite where the declared mathematical domain requires it.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-scientific-contract, source_type: project_contract, section: data_validity}]
+    verification: {mode: automated, checks: ["array_finiteness", "domain_validation"]}
+    override: {allowed: false}
+    tags: [data-validity, rendering]
+  - id: DATA-002
+    title: Marks reproduce bound data
+    scope: global
+    severity: block
+    statement: Graphical marks must correspond to source values after only the declared transformations.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-render-trace, source_type: project_contract, section: render_trace}]
+    verification: {mode: hybrid, checks: ["render_trace", "source_reconciliation"]}
+    override: {allowed: false}
+    tags: [data-validity, rendering]
+  - id: DATA-003
+    title: Axis limits preserve valid observations
+    scope: global
+    severity: block
+    statement: Axis limits must not silently exclude valid observations; intentional clipping is declared and visible.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-scientific-contract, source_type: project_contract, section: axis_integrity}]
+    verification: {mode: hybrid, checks: ["axis_domain_audit", "clipping_report"]}
+    override: {allowed: false}
+    tags: [data-validity, axes]
+  - id: DATA-004
+    title: Clipping and saturation are reported
+    scope: global
+    severity: block
+    statement: Clipping, saturation, masking, and out-of-domain values are detected and reported in the QA artifact.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-scientific-contract, source_type: project_contract, section: render_integrity}]
+    verification: {mode: hybrid, checks: ["pixel_saturation_audit", "qa_report"]}
+    override: {allowed: false}
+    tags: [data-validity, rendering]
+  - id: DATA-005
+    title: Statistics reproduce from bound data
+    scope: global
+    severity: block
+    statement: Reported statistics and intervals must reproduce from the bound source data and declared method.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-scientific-contract, source_type: project_contract, section: statistic_binding}]
+    verification: {mode: hybrid, checks: ["statistic_recompute", "binding_source_trace"]}
+    override: {allowed: false}
+    tags: [data-validity, statistics]
+  - id: DATA-006
+    title: Synthetic data are labeled
+    scope: global
+    severity: block
+    statement: Synthetic or demo data must be explicitly identified and cannot be presented as experimental evidence.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-scientific-contract, source_type: project_contract, section: synthetic_data}]
+    verification: {mode: hybrid, checks: ["data_origin_audit", "caption_contract"]}
+    override: {allowed: false}
+    tags: [data-validity, provenance]
+  - id: DATA-007
+    title: Synthetic parameters cannot manufacture a conclusion
+    scope: global
+    severity: block
+    statement: Synthetic parameters must not be tuned to manufacture a desired scientific conclusion or to pass a visual signal threshold.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-scientific-contract, source_type: project_contract, section: scientific_integrity}]
+    verification: {mode: hybrid, checks: ["synthetic_parameter_review", "scientific_review"]}
+    override: {allowed: false}
+    tags: [data-validity, scientific-integrity]
+  - id: DATA-008
+    title: Density anomalies trigger inspection
+    scope: global
+    severity: warn
+    statement: Blank or unusually dense panels trigger inspection and do not justify changing scientific data solely to satisfy a density target.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-scientific-contract, source_type: project_contract, section: render_integrity}]
+    verification: {mode: hybrid, checks: ["panel_content_density", "manual_review"]}
+    override: {allowed: true, reason_required: true}
+    tags: [data-validity, rendering]

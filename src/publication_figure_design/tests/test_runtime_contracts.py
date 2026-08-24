@@ -1,10 +1,9 @@
-import tempfile
 import unittest
-from pathlib import Path
 
 from publication_figure_design.contracts import TaskSpec
 from publication_figure_design.orchestrator.machine import WorkflowStage
 from publication_figure_design.orchestrator.runtime import build_runtime_orchestrator
+from publication_figure_design.qa.technical import run_hard_qa
 
 
 class RuntimeContractTests(unittest.TestCase):
@@ -14,6 +13,19 @@ class RuntimeContractTests(unittest.TestCase):
         self.assertTrue(session.telemetry["input_hash"])
         self.assertIn("reference_index_version", session.telemetry)
         self.assertEqual(session.telemetry["renderer_version"], "renderer-test")
+
+    def test_session_compiles_active_rule_sets(self):
+        task = TaskSpec(task_id="rules-test", metadata={"mode": "create"})
+        session = build_runtime_orchestrator().start(task)
+        self.assertIn("active_rule_sets", session.telemetry)
+        self.assertIn("rules/global/scientific-integrity.yaml", session.telemetry["active_rule_sets"])
+        self.assertIn("SCI-001", session.telemetry["active_rule_ids"])
+
+    def test_session_adds_family_rules(self):
+        task = TaskSpec(task_id="family-rules-test", metadata={"mode": "create", "figure_family": "heatmap"})
+        session = build_runtime_orchestrator().start(task)
+        self.assertIn("rules/families/heatmap-matrix.yaml", session.telemetry["active_rule_sets"])
+        self.assertIn("HEAT-001", session.telemetry["active_rule_ids"])
 
     def test_production_runtime_allows_only_one_repair_retry(self):
         self.assertEqual(build_runtime_orchestrator().max_retries, 2)
@@ -56,6 +68,11 @@ class RuntimeContractTests(unittest.TestCase):
             "annotation_reference": ["annotation-1"],
             "palette_reference": ["palette-1"],
         })
+
+    def test_placeholder_journal_profile_blocks_technical_certification(self):
+        report = run_hard_qa(__file__, {"journal_profile": {"name": "science", "status": "placeholder"}})
+        self.assertFalse(report["passed"])
+        self.assertTrue(any("placeholder" in issue for issue in report["issues"]))
 
 
 if __name__ == "__main__":

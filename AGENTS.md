@@ -28,6 +28,8 @@ rendering. Critique returns deterministic `DesignPatch` operations, and renderer
 
 - Contracts and runtime: `src/publication_figure_design/`
 - Agent routing and gates: `SKILL.md`, `manifest.yaml`
+- Rule hierarchy and provenance: `rules/`, `sources/registry.yaml`,
+  `scripts/check_rule_contract.py`
 - Reading contract: `always_load` and route-level `required_load` are mandatory; ordinary
   `load` entries are supplemental and must not be treated as a substitute for required
   material.
@@ -35,6 +37,12 @@ rendering. Critique returns deterministic `DesignPatch` operations, and renderer
 - Style: `profiles/style-capsules/`, `profiles/journals/`
 - Reference lifecycle: `raw → analyzed → reviewed → benchmarked → production`
 - Evaluation: `evals/`, `assets/reference-benchmarks/`, `scripts/ci_gate.py`
+
+Rules are categorized as G0 scientific invariants, G1 accessibility/legibility, J
+journal/stage requirements, F figure-family constraints, H house defaults, and B
+backend details. Precedence is `G0 > G1 > J > explicit user requirement > F > H > B`;
+conflicts between non-overridable rules block. Benchmark/champion state is evaluation
+policy, not a scientific rule.
 
 Do not revive deleted `eval_runner.py`, `e2e_runner.py`, `run_ab_tests.py`, or
 metadata-proxy ranking. Do not create ordinary `v1`, `v2`, `final2`, or parallel

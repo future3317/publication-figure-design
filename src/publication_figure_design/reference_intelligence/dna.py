@@ -179,9 +179,27 @@ class JournalProfile:
     rules: dict[str, Any] = field(default_factory=dict)
     source: str = ""
     source_date: str = ""
+    source_url: str | None = None
+    source_title: str | None = None
+    retrieved_at: str | None = None
+    effective_date: str | None = None
+    source_section: str | None = None
+    status: str = "verified"
+    verified: bool = False
+    confidence: str = "inferred"
+    review_after: str | None = None
+    applies_to: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
-        return {"name": self.name, "stage": self.stage, "rules": self.rules, "source": self.source, "source_date": self.source_date}
+        return {
+            "name": self.name, "stage": self.stage, "rules": self.rules,
+            "source": self.source, "source_date": self.source_date,
+            "source_url": self.source_url, "source_title": self.source_title,
+            "retrieved_at": self.retrieved_at, "effective_date": self.effective_date,
+            "source_section": self.source_section, "status": self.status,
+            "verified": self.verified, "confidence": self.confidence,
+            "review_after": self.review_after, "applies_to": self.applies_to,
+        }
 
 
 @dataclass

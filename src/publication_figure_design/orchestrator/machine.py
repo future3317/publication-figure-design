@@ -17,6 +17,8 @@ from enum import Enum
 from pathlib import Path
 from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Union
 
+import yaml
+
 from ..contracts.models import Contract, TaskSpec
 
 
@@ -36,6 +38,36 @@ def _current_index_version() -> str:
     except (OSError, ValueError):
         return "unknown"
     return str(payload.get("provenance", {}).get("index_version") or payload.get("model_version") or "unknown")
+
+
+def _active_rule_context(task: Mapping[str, Any]) -> dict[str, Any]:
+    """Compile manifest-selected rules into persisted session telemetry."""
+    root = Path(__file__).resolve().parents[3]
+    manifest = yaml.safe_load((root / "manifest.yaml").read_text(encoding="utf-8")) or {}
+    metadata = task.get("metadata") or {}
+    route = str(metadata.get("route") or metadata.get("mode") or "create")
+    route = {"optimize": "visual_optimization", "reference": "concrete_reference", "maintain": "maintain_skill"}.get(route, route)
+    config = (manifest.get("routes") or {}).get(route, {})
+    family = str(metadata.get("figure_family") or metadata.get("figure_type") or "")
+    family_paths = (manifest.get("family_rulesets") or {}).get(family, [])
+    paths = list(dict.fromkeys([
+        *(str(item) for item in manifest.get("always_rulesets", []) or []),
+        *(str(item) for item in config.get("required_rulesets", []) or []),
+        *(str(item) for item in family_paths or []),
+    ]))
+    ids: list[str] = []
+    for relative in paths:
+        path = root / relative
+        if not path.is_file():
+            raise ValueError(f"active ruleset is missing: {relative}")
+        payload = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        rows = payload.get("rules", payload) if isinstance(payload, dict) else payload
+        if isinstance(rows, dict):
+            rows = [rows]
+        if not isinstance(rows, list):
+            raise ValueError(f"active ruleset is not a rule list: {relative}")
+        ids.extend(str(row["id"]) for row in rows if isinstance(row, Mapping) and row.get("id"))
+    return {"active_rule_sets": paths, "active_rule_ids": list(dict.fromkeys(ids)), "active_rule_route": route}
 
 
 def _jsonable(value: Any) -> Any:
@@ -181,6 +213,8 @@ class WorkflowSession:
         telemetry.setdefault("input_hash", _canonical_hash(task))
         telemetry.setdefault("renderer_version", str(task.get("metadata", {}).get("renderer_version", "")))
         telemetry.setdefault("output_hash", "")
+        if "active_rule_sets" not in telemetry or "active_rule_ids" not in telemetry:
+            telemetry.update(_active_rule_context(task))
         return cls(
             session_id=str(data["session_id"]),
             task=task,
@@ -232,27 +266,29 @@ class Orchestrator:
             if not isinstance(contract, Contract):
                 raise TypeError("initial contracts must inherit Contract")
             contract_map[contract.contract_name] = contract.to_dict()
+        telemetry = {
+            "route": "",
+            "reference_ids": [],
+            "selected_reference_ids": [],
+            "selected_roles": {},
+            "top_k_ids": [],
+            "task_id": task.task_id,
+            "figure_family": str(task.metadata.get("figure_family", "")),
+            "reference_index_version": str(task.metadata.get("reference_index_version") or _current_index_version()),
+            "input_hash": _canonical_hash(task.to_dict()),
+            "renderer_version": str(task.metadata.get("renderer_version", "")),
+            "style_spec_version": str(task.metadata.get("style_spec_version", "")),
+            "iterations": 0,
+            "failed_gates": [],
+            "final_scores": {},
+            "output_hash": "",
+        }
+        telemetry.update(_active_rule_context(task.to_dict()))
         return WorkflowSession(
             session_id=task.task_id or uuid.uuid4().hex,
             task=task.to_dict(),
             contracts=contract_map,
-            telemetry={
-                "route": "",
-                "reference_ids": [],
-                "selected_reference_ids": [],
-                "selected_roles": {},
-                "top_k_ids": [],
-                "task_id": task.task_id,
-                "figure_family": str(task.metadata.get("figure_family", "")),
-                "reference_index_version": str(task.metadata.get("reference_index_version") or _current_index_version()),
-                "input_hash": _canonical_hash(task.to_dict()),
-                "renderer_version": str(task.metadata.get("renderer_version", "")),
-                "style_spec_version": str(task.metadata.get("style_spec_version", "")),
-                "iterations": 0,
-                "failed_gates": [],
-                "final_scores": {},
-                "output_hash": "",
-            },
+            telemetry=telemetry,
         )
 
     def resume(self, session: Union[WorkflowSession, Mapping[str, Any], str, Path]) -> WorkflowSession:

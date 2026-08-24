@@ -1,0 +1,11 @@
+rules:
+  - id: HOUSE-007
+    title: Protect composition clearance
+    scope: house
+    severity: advisory
+    statement: Keep outer margins, gutters, label clearance, and annotation breathing room; composition may be asymmetric when it improves the evidence hierarchy.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-house-visual-language, source_type: project_guidance, section: whitespace}]
+    verification: {mode: manual, checks: ["composition_review", "final_size_review"]}
+    override: {allowed: true, reason_required: true}
+    tags: [house, layout, whitespace]

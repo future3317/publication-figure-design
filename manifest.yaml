@@ -20,12 +20,57 @@ runtime:
   - "indexes/"
   - "profiles/"
   - "evals/"
+  - "rules/"
+  - "sources/registry.yaml"
+
+# Rules are compiled separately from explanatory references.  Global invariants and
+# house defaults are always active; route sets add only the family/backend/journal
+# rules needed for that operation.
+always_rulesets:
+  - "rules/global/scientific-integrity.yaml"
+  - "rules/global/accessibility.yaml"
+  - "rules/global/provenance-reproducibility.yaml"
+  - "rules/global/annotation-legend.yaml"
+  - "rules/global/layout-legibility.yaml"
+  - "rules/house/visual-language.yaml"
+  - "rules/house/typography.yaml"
+  - "rules/house/palette.yaml"
+  - "rules/house/whitespace-layout.yaml"
+  - "rules/house/annotation-style.yaml"
+
+family_rulesets:
+  heatmap: ["rules/families/heatmap-matrix.yaml"]
+  matrix_array: ["rules/families/heatmap-matrix.yaml"]
+  scatter: ["rules/families/scatter-correlation.yaml"]
+  correlation: ["rules/families/scatter-correlation.yaml"]
+  statistical_discovery: ["rules/families/scatter-correlation.yaml"]
+  time_series: ["rules/families/time-series.yaml"]
+  roc: ["rules/families/roc-pr-calibration.yaml"]
+  pr_curve: ["rules/families/roc-pr-calibration.yaml"]
+  calibration: ["rules/families/roc-pr-calibration.yaml"]
+  microscopy: ["rules/families/microscopy.yaml"]
+  network: ["rules/families/network-graph.yaml"]
+  graph: ["rules/families/network-graph.yaml"]
+  mechanism_architecture: ["rules/families/schematic-mechanism.yaml"]
+  schematic: ["rules/families/schematic-mechanism.yaml"]
+  image_quantitative_composite: ["rules/families/image-quant-composite.yaml", "rules/families/microscopy.yaml"]
 
 always_load:
   - "references/figure-contract.md"
   - "references/orchestrator-contracts.md"
   - "references/runtime-environment.md"
   - "references/global-visual-language.md"
+  - "rules/README.md"
+  - "rules/global/scientific-integrity.yaml"
+  - "rules/global/accessibility.yaml"
+  - "rules/global/provenance-reproducibility.yaml"
+  - "rules/global/annotation-legend.yaml"
+  - "rules/global/layout-legibility.yaml"
+  - "rules/house/visual-language.yaml"
+  - "rules/house/typography.yaml"
+  - "rules/house/palette.yaml"
+  - "rules/house/whitespace-layout.yaml"
+  - "rules/house/annotation-style.yaml"
 
 routes:
   create:
@@ -42,6 +87,10 @@ routes:
       - "references/figure-family-coverage.md"
       - "references/journal-specs.md"
       - "references/style-spec.md"
+    required_rulesets:
+      - "rules/global/statistical-integrity.yaml"
+      - "rules/global/semantic-encoding.yaml"
+      - "rules/global/comparison-integrity.yaml"
   concrete_reference:
     when: "a concrete reference image is supplied or selected"
     load:
@@ -58,6 +107,9 @@ routes:
       - "references/reference-driven-reconstruction.md"
       - "references/asset-adaptation.md"
       - "references/style-spec.md"
+    required_rulesets:
+      - "rules/global/semantic-encoding.yaml"
+      - "rules/global/comparison-integrity.yaml"
     run:
       - "scripts/check_reference_fidelity.py"
       - "scripts/reference_image_analysis.py analyze"
@@ -86,6 +138,9 @@ routes:
       - "references/figure-family-coverage.md"
       - "references/style-spec.md"
       - "references/color-palettes.md"
+    required_rulesets:
+      - "rules/global/semantic-encoding.yaml"
+      - "rules/global/statistical-integrity.yaml"
     run:
       - "scripts/prepare_visual_optimization.py"
       - "scripts/compare_output_to_reference.py"
@@ -126,6 +181,10 @@ routes:
       - "references/privacy-provenance.md"
       - "references/encoding-and-uncertainty.md"
       - "references/export-specs.md"
+    required_rulesets:
+      - "rules/global/statistical-integrity.yaml"
+      - "rules/global/semantic-encoding.yaml"
+      - "rules/global/image-integrity.yaml"
     run:
       - "scripts/qa_validator.py"
       - "scripts/audit_pdf_text.py"
@@ -146,6 +205,8 @@ routes:
       - "references/source-reconstruction-library.md"
     required_load:
       - "references/source-reconstruction-library.md"
+    required_rulesets:
+      - "rules/global/reference-use.yaml"
     run:
       - "scripts/check_source_reconstruction_library.py"
       - "scripts/review_source_reconstructions.py"
@@ -163,6 +224,9 @@ routes:
       - "references/visual-reference-library.md"
       - "references/figure-family-coverage.md"
       - "references/privacy-provenance.md"
+    required_rulesets:
+      - "rules/global/image-integrity.yaml"
+      - "rules/global/provenance-reproducibility.yaml"
     run:
       - "scripts/reference_library.py ingest"
       - "scripts/reference_image_analysis.py analyze"
@@ -213,6 +277,8 @@ routes:
       - "references/figure-family-coverage.md"
     required_load:
       - "references/figure-family-coverage.md"
+    required_rulesets:
+      - "rules/global/semantic-encoding.yaml"
     run:
       - "scripts/figure_family_coverage.py"
       - "scripts/champion_board.py"
@@ -228,6 +294,9 @@ routes:
       - "assets/reference-benchmarks/champion_board.json"
       - "assets/reference-benchmarks/real_generation_tasks.json"
       - "assets/reference-benchmarks/visual-baseline-v1.json"
+    required_rulesets:
+      - "rules/global/accessibility.yaml"
+      - "rules/global/provenance-reproducibility.yaml"
     run:
       - "scripts/champion_board.py"
       - "scripts/run_visual_sprint.py"
@@ -257,6 +326,8 @@ backend_policy:
 
 validation:
   ci_gate: "python scripts/ci_gate.py"
+  rule_contract: "python scripts/check_rule_contract.py"
+  journal_profile_contract: "python scripts/check_journal_profiles.py"
   reference_assets: "python scripts/check_references.py --require-previews"
   champion_board: "python scripts/champion_board.py --enforce"
   visual_regression: "python scripts/visual_regression.py --contract-only"

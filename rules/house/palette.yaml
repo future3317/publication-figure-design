@@ -1,0 +1,11 @@
+rules:
+  - id: HOUSE-006
+    title: Keep semantic colors stable
+    scope: house
+    severity: advisory
+    statement: A semantic role keeps the same color role across a manuscript unless a documented journal, accessibility, or data-semantic reason changes it.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-house-visual-language, source_type: project_guidance, section: palette}]
+    verification: {mode: hybrid, checks: ["paper_color_role_audit", "palette_role_audit"]}
+    override: {allowed: true, reason_required: true}
+    tags: [house, palette, consistency]

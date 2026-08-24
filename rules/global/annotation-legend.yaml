@@ -1,0 +1,11 @@
+rules:
+  - id: ANN-001
+    title: Legend and annotation grammar is unambiguous
+    scope: global
+    severity: block
+    statement: Every legend entry and annotation maps to a semantic role, does not obscure evidence, and remains readable at final size; duplicated explanations belong in the caption.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-semantic-encoding, source_type: project_contract, section: annotation_legend}]
+    verification: {mode: hybrid, checks: ["legend_mapping_audit", "annotation_clearance", "final_size_review"]}
+    override: {allowed: false}
+    tags: [annotation, legend, legibility]

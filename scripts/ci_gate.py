@@ -40,6 +40,8 @@ def run_step(name: str, args: list[str]) -> None:
 
 def main() -> int:
     run_step("contract", ["scripts/check_skill_contract.py"])
+    run_step("rule contract", ["scripts/check_rule_contract.py"])
+    run_step("journal profile contract", ["scripts/check_journal_profiles.py"])
     run_step("unit", ["-m", "unittest", "discover", "-s", "scripts", "-p", "test_*.py", "-q"])
     run_step("package", ["-m", "unittest", "discover", "-s", "src/publication_figure_design/tests", "-p", "test_*.py", "-q"])
     run_step("reference validate", ["scripts/reference_library.py", "validate"])

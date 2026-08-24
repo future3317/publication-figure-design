@@ -1,7 +1,17 @@
 name: cell
 stage: final_submission
-source: PFD journal profile; verify against current author instructions
-source_date: '2026-08-24'
+source: PFD placeholder; verify against current Cell author instructions
+source_url: null
+source_title: Cell author instructions (not yet verified)
+retrieved_at: '2026-08-25'
+effective_date: null
+source_section: null
+source_date: '2026-08-25'
+status: placeholder
+verified: false
+confidence: inferred
+review_after: '2026-09-25'
+applies_to: [final_submission]
 rules:
   min_font_pt: {value: 5, unit: pt, level: required, applicability: all}
   editable_text: {value: true, unit: boolean, level: recommended, applicability: vector_exports}

@@ -22,6 +22,10 @@ or variable roles of the target figure.
 - Journal profiles and reusable style capsules in [`profiles/`](profiles/), plus
   deterministic hybrid indexes in [`indexes/`](indexes/).
 - Executable evaluation and release gates in [`scripts/`](scripts/) and [`evals/`](evals/).
+- Machine-readable rule hierarchy in [`rules/`](rules/) with source provenance in
+  [`sources/registry.yaml`](sources/registry.yaml). Global scientific/accessibility
+  rules are distinct from house defaults, family constraints, journal profiles, and
+  backend details.
 
 ## Runtime lifecycle
 
@@ -47,9 +51,16 @@ the final repair and export decision.
 ### 阅读材料契约
 
 `manifest.yaml` 将材料分成三层：`always_load` 是所有任务必读，路由下的
-`required_load` 是进入该路由时必读，普通 `load` 是按任务需要查阅的补充材料。
+`required_load` 是进入该路由时必读，普通 `load` 是按任务需要查阅的补充材料；
+`always_rulesets` 和 `required_rulesets` 是必须编译的机器规则，不等同于普通阅读材料。
 路由的强制材料没有读完或文件缺失时，不得进入 Render、QA 或 Export；
 [`scripts/check_skill_contract.py`](scripts/check_skill_contract.py) 会检查这份合同。
+规则与来源可单独验证：
+
+```powershell
+& "D:\Anaconda\envs\piepaper\python.exe" scripts/check_rule_contract.py
+& "D:\Anaconda\envs\piepaper\python.exe" scripts/check_journal_profiles.py
+```
 
 ## Quick start
 

@@ -21,6 +21,10 @@ meaning, statistical transform, uncertainty semantics, labels, or variable roles
   deterministic hybrid retrieval indexes.
 - [`scripts/`](scripts/) and [`evals/`](evals/) contain maintenance commands and the
   executable evaluation/release gates.
+- [`rules/`](rules/) is the machine-readable rule source, while
+  [`sources/registry.yaml`](sources/registry.yaml) records rule provenance. Global
+  scientific/accessibility invariants are separate from house defaults, family rules,
+  journal profiles, and backend implementation details.
 
 ## Runtime lifecycle
 
@@ -45,11 +49,19 @@ the final repair and export decision.
 
 ### Reading contract
 
-`manifest.yaml` separates three levels of material: `always_load` is required for every
+`manifest.yaml` separates reading from machine rules: `always_load` is required for every
 task, a route's `required_load` must be read when entering that route, and ordinary
-`load` entries are supplemental reading. A route may not proceed to Render, QA, or Export
-until its required material is available and read. The contract is checked by
+`load` entries are supplemental reading. `always_rulesets` and `required_rulesets` are
+compiled before rendering and are not optional reading. A route may not proceed to
+Render, QA, or Export until its required material is available and read. The contract is checked by
 [`scripts/check_skill_contract.py`](scripts/check_skill_contract.py).
+
+Validate rules and source provenance with:
+
+```powershell
+& "D:\Anaconda\envs\piepaper\python.exe" scripts/check_rule_contract.py
+& "D:\Anaconda\envs\piepaper\python.exe" scripts/check_journal_profiles.py
+```
 
 ## Quick start
 

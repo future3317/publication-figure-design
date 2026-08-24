@@ -1,6 +1,9 @@
 # QA Protocol
 
-This is an **LLM-executable** quality assurance protocol. After generating figure code, the LLM executes this protocol automatically as Step 6 of the Hub workflow. Each check specifies what to look for in the generated code and how to verify it; the reference-driven pass also invokes its lightweight checker.
+This is an **LLM-executable** quality assurance protocol. It compiles the active
+`rules/` sets and the target journal profile into checks; it is not a universal recipe
+for one font, one width, one spine model, or one export helper. A house default is a
+diagnostic/advisory unless the active profile promotes it to a requirement.
 
 ## Automated Validation
 
@@ -22,18 +25,19 @@ The protocol runs in four passes. Pass 0 catches common anti-patterns. Pass 1 ve
 
 Run these checks first. They catch the issues reviewers flag most often and take seconds to verify.
 
-### AP-0: Style Baseline Injection
+### AP-0: Active Style Contract
 
-**How to check:** Verify the generated code begins with the three mandatory baseline blocks from the reference files. Search for the exact code patterns in order:
+**How to check:** Verify that the selected backend consumes the compiled
+`TypographySpec`, `PaletteSpec`, `LayoutSpec`, `ComponentSpec`, and export contract.
+The following are the generic house defaults, not copy-verbatim requirements:
 
-1. Typography baseline —must contain ALL of: `font.family`, `font.sans-serif`, `font.size: 8`, `axes.spines.top: False`, `axes.spines.right: False`, `axes.linewidth: 0.6`, `xtick.direction: 'out'`, `legend.frameon: False`
-   (Authoritative source: `references/typography.md` COPY VERBATIM block)
+1. Typography defaults may include explicit family, hierarchy, spine, tick, and legend choices; exact values come from the active journal/house profile and final-size review.
 2. Color baseline must declare semantic roles (for example `COLOR_ROLES` or `PALETTE_ROLES`) for background, neutral/context, comparison groups, and focal accent. Exact hex values are selected from scientific meaning and the active reference; one fixed palette must not be injected into every figure.
-3. Export baseline —must contain: `pdf.fonttype: 42` AND `svg.fonttype: 'none'` AND a function named `save_cns_figure`
+3. Export is checked by the capability IDs in `references/export-specs.md`; helper names are not required.
 
-**Pass condition:** Typography and export baselines are present, and semantic color roles are explicit. Exact colors need not equal a global palette.
+**Pass condition:** Active profile requirements are satisfied, semantic color roles are explicit, and any house-default deviation is recorded. Exact colors need not equal a global palette.
 
-**Fix if FAIL:** Add the typography/export baselines and a figure-specific semantic color-role map. Choose colors only after the scientific roles and active reference are known.
+**Fix if FAIL:** Compile the active specs and add a figure-specific semantic color-role map. Choose colors only after the scientific roles and active reference are known.
 
 ### AP-1: Default Color Palette
 
@@ -61,17 +65,21 @@ Run these checks first. They catch the issues reviewers flag most often and take
 
 **Pass condition:** No jet/rainbow/hsv colormap in continuous data contexts.
 
-### AP-3: Four-Sided Borders
+### AP-3: Border and Grid Model
 
-**How to check:** Verify these are present in the code (they disable top/right spines):
+**How to check:** Inspect the compiled `LayoutSpec` and final render. A clean
+left/bottom spine model is the PFD house default, but a different model is valid when
+the family, reference, accessibility need, or journal profile documents it.
 
 - **Python:** `axes.spines.top: False` AND `axes.spines.right: False` (in rcParams or per-axis)
 - **R ggplot2:** `theme(panel.grid = element_blank())` or `theme_bw()` + spine removal, or a clean theme
 - **R base:** Explicit `bty='l'` or spine removal
 
-**Fix if FAIL:** Add spine removal. For matplotlib: `ax.spines[['top','right']].set_visible(False)`. For R: `theme(panel.grid = element_blank())`.
+**Fix if FAIL:** Repair the active layout contract or record the documented deviation;
+do not force a spine recipe merely to satisfy this advisory.
 
-**Pass condition:** Top and right spines removed; no default grey grid background.
+**Pass condition:** The border/grid model is intentional, readable at final size, and
+does not compete with evidence.
 
 ### AP-4: Legend Occlusion
 
@@ -385,42 +393,29 @@ Passes 0-2 verify the **code**. Pass 3 verifies the **output**. These are proble
 
 **Pass condition:** No light-on-light or dark-on-dark text remains in the final raster.
 
-### VV-5: Data Signal Integrity
+### VV-5: Data Validity & Render Integrity
 
-**Question:** Does the plotted data actually carry the signal this chart type requires? This is the most common class of silent failure —the code runs, the figure renders, but the underlying data generation is mathematically broken, producing an empty or saturated plot.
+This gate verifies that the rendered marks faithfully represent the bound source data;
+it does **not** require a relationship, effect size, variance, or classification signal
+to be scientifically strong. A null result is a valid result.
 
-**This check applies to ALL figure types.** The LLM scans the generated data values and the rendered pixel output simultaneously.
+Apply these rule IDs from `rules/global/scientific-integrity.yaml` and
+`rules/global/provenance-reproducibility.yaml`:
 
-**How to check per chart type —run these quantitative checks on the generated data before plotting:**
+| Rule | Check | Failure action |
+|---|---|---|
+| DATA-001 | arrays are non-empty and finite where the domain requires | block render and repair the binding/data contract |
+| DATA-002 | graphical marks reproduce source values after declared transforms | block and reconcile `RenderTrace` |
+| DATA-003 | axis limits do not silently exclude valid observations | block and record an explicit domain decision |
+| DATA-004 | clipping, saturation, and masked values are reported | block or warn according to the target policy |
+| DATA-005 | computed statistics reproduce from bound data | block and recompute from the source |
+| DATA-006 | synthetic/demo data are explicitly labeled | block production evidence; allow clearly labeled draft |
+| DATA-007 | synthetic parameters were not tuned to manufacture a conclusion | block and restore the scientific contract |
+| DATA-008 | blank or unusually dense panels trigger inspection | warn/manual review; never tune data to pass |
 
-| Chart Type | Check | Pass Condition | Common Failure |
-|-----------|-------|---------------|----------------|
-| **Volcano** | `(padj < 0.05).sum()` | ≥0 DE genes, ≥0% of total | All points grey (p-values too large) or all points colored (p-values artificially small) |
-| **AUROC / ROC** | `(tpr - fpr).max()` at any FPR point | ≥.15 for any curve | Curves follow the diagonal (AUC≥.5) or saturate instantly (formula blowup at high AUC) |
-| **Heatmap** | `np.std(data, axis=1).mean()` | Row variance > 0.2 | Flat rows —all Z-scores near 0, clustering meaningless |
-| | `len(np.unique(data))` | > 30 unique values | Data is all identical or binary |
-| **Bar chart** | `abs(means.max() - means.min())` | Range > 0.05× means.max() | All bars equal height —no signal |
-| | `(sem / mean).max()` | < 1.0 per group | Error bars larger than the measurement |
-| **Correlation matrix** | `abs(corr_mat).max()` (off-diagonal) | ≥.3 | No correlations —plot is an identity matrix |
-| **RDA / PCA** | Between-group variance / within-group variance (for labeled groups) | Ratio > 1.0 | Groups completely overlap —ordination failed |
-| **Box / Violin** | `abs(medians.max() - medians.min())` | ≥0% of data range | All groups same distribution |
-| **Scatter** | `abs(pearson_r)` | ≥.15 for labeled regression | Points form a shapeless cloud |
-| **Line / Trend** | `(y.max() - y.min()) / y.mean()` | Range > 0.1 | Flat line —no trend |
-| **Multi-panel general** | Pixel content density per panel | Each panel: content density > 1.5% | Panel is blank or invisible |
-
-**How to run the check (two-phase):**
-
-**Phase A —Code-level check (before rendering):** Scan the data generation code. For each chart type present in the figure, compute the relevant statistic from the data arrays. If any statistic fails the pass condition, flag VV-5 FAIL with the specific chart type and value.
-
-**Phase B —Pixel-level check (after rendering):** Compute per-panel content density from the rendered PNG. If any panel has <1.5% non-background pixels, flag VV-5 WARN. If >50% non-background pixels, flag VV-5 WARN (possible overplotting).
-
-**Fix if FAIL:**
-- Data generation formula wrong —debug the formula; verify with a quick prototype test before embedding in the full figure
-- Parameter too extreme —adjust simulation parameters (effect size, noise level, sample count)
-- All-one-value —check for division by zero, log(0), or constant arrays
-- Panel invisible —verify data arrays are non-empty and within the axis range; check for `set_xlim`/`set_ylim` excluding all data
-
-**Pass condition:** All chart-type-specific checks pass. All panels have 1.5%-50% content density.
+Content density is a rendering diagnostic only. It cannot be used as a proxy for
+scientific signal, and fixes must never change effect size, noise, sample count, or
+filtering merely to make a plot look more persuasive.
 
 ### Visual Verification Protocol
 

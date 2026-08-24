@@ -1,0 +1,21 @@
+rules:
+  - id: SEM-001
+    title: Assign one job to each visual channel
+    scope: global
+    severity: block
+    statement: Position, color, shape, line, and size must have explicit semantic roles; connector, trend line, and uncertainty marks cannot carry ambiguous multiple meanings.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-semantic-encoding, source_type: project_contract, section: visual_channels}]
+    verification: {mode: hybrid, checks: ["semantic_channel_audit", "render_trace"]}
+    override: {allowed: false}
+    tags: [encoding, semantics]
+  - id: SEM-002
+    title: Ordered relations are encoded honestly
+    scope: global
+    severity: block
+    statement: Connect observations only when time, dose, or another ordered relation is real; categorical states and unpaired observations must not be presented as trajectories.
+    applicability: {figure_types: [time_series, scatter_correlation, distributions], outputs: [digital, print]}
+    evidence: [{source_id: pfd-semantic-encoding, source_type: project_contract, section: relationships}]
+    verification: {mode: hybrid, checks: ["relationship_integrity_audit", "binding_source_trace"]}
+    override: {allowed: false}
+    tags: [encoding, relationships]

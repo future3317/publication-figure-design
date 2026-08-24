@@ -1,5 +1,14 @@
 # Global Visual Language
 
+> This document is the readable companion to the machine-readable rules under
+> `rules/`. Scientific invariants live in `rules/global/`; the preferences below
+> are PFD house defaults in `rules/house/`. Do not treat a house preference as a
+> journal hard requirement or as evidence that a scientific effect should exist.
+
+Rule precedence is: scientific integrity → accessibility/legibility → journal hard
+requirements → explicit user requirements → family rules → house defaults → backend
+defaults. Conflicts between non-overridable rules block the run and are reported.
+
 This is the default visual baseline for every figure family. Scientific meaning,
 uncertainty semantics, explicit user requirements, journal constraints, and an
 inspected concrete reference take precedence; any visual deviation is recorded in

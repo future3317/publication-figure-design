@@ -1,0 +1,11 @@
+rules:
+  - id: ROC-001
+    title: ROC and PR baselines are meaningful
+    scope: family
+    severity: block
+    statement: AUC is computed from the bound evaluation data; ROC chance and PR baseline semantics are declared, with PR baseline tied to prevalence where applicable.
+    applicability: {figure_types: [roc, pr_curve, calibration], outputs: [digital, print]}
+    evidence: [{source_id: pfd-family-guidance, source_type: project_guidance, section: roc-pr-calibration}]
+    verification: {mode: hybrid, checks: ["curve_recompute", "baseline_semantics_audit"]}
+    override: {allowed: false}
+    tags: [family, roc, calibration]

@@ -1,0 +1,21 @@
+rules:
+  - id: REF-001
+    title: References control grammar, not facts
+    scope: global
+    severity: block
+    statement: A reference may inform layout, style, palette roles, and component grammar but must not change source values, labels, variables, conditions, or uncertainty semantics.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-scientific-contract, source_type: project_contract, section: reference_boundary}]
+    verification: {mode: hybrid, checks: ["reference_boundary_audit", "binding_source_trace"]}
+    override: {allowed: false}
+    tags: [reference, scientific-integrity]
+  - id: REF-002
+    title: Generated output does not contaminate canonical references
+    scope: global
+    severity: block
+    statement: Generated outputs and benchmark or holdout artifacts require lineage and cannot enter the production reference pool without explicit review and promotion.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-house-visual-language, source_type: project_contract, section: reference_lifecycle}]
+    verification: {mode: hybrid, checks: ["reference_quarantine", "lineage_review"]}
+    override: {allowed: false}
+    tags: [reference, provenance]

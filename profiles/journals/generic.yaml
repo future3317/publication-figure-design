@@ -1,7 +1,17 @@
 name: generic
 stage: final_submission
 source: PFD house profile
-source_date: '2026-08-24'
+source_url: https://github.com/future3317/publication-figure-design
+source_title: Publication Figure Design house profile
+retrieved_at: '2026-08-25'
+effective_date: null
+source_section: house-defaults
+source_date: '2026-08-25'
+status: verified
+verified: true
+confidence: authoritative
+review_after: '2027-08-25'
+applies_to: [draft, final_submission]
 rules:
   width_mm: {value: 89, unit: mm, level: recommended, applicability: single_column}
   min_font_pt: {value: 5, unit: pt, level: required, applicability: all}

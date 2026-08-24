@@ -10,42 +10,10 @@ from pathlib import Path
 
 import yaml
 
-
-REQUIRED_PHRASES = (
-    "Open every concrete reference",
-    "Select implementation material",
-    "exact_reuse",
-    "structural_adaptation",
-    "style_only",
-    "build_new",
-    "panel topology",
-    "mark geometry",
-    "layer topology",
-    "data encoding",
-    "annotation/legend model",
-    "final assembler",
-    "ReferenceDNA",
-    "StyleCapsule",
-    "DesignPacket",
-    "DesignPatch",
-    "RenderTrace",
-    "pfd eval quick|full|visual|release",
-    "Global visual language",
-    "soft segmentation",
-    "short title hierarchy",
-    "whitespace is structural",
-    "low-saturation semantic colors",
-    "restrained legends and annotations",
-    "Scientific figure-design principles",
-    "figure-versus-table preflight",
-    "visualize model outputs, not only metrics",
-    "do not invent or exaggerate scientific effects",
-    "one visual variable per experimental variable",
-    "main figure answers one scientific question",
-    "same sample, camera, crop, scale",
-    "caption carries the explanation",
-    "must run before rendering",
-)
+try:
+    from check_rule_contract import validate_rules
+except ImportError:  # pragma: no cover - package-style import
+    from scripts.check_rule_contract import validate_rules
 
 
 # Materials that change the behavior of a route are a contract, not optional
@@ -114,6 +82,37 @@ REQUIRED_ROUTE_LOADS: dict[str, tuple[str, ...]] = {
     ),
 }
 
+REQUIRED_ROUTE_RULESETS: dict[str, tuple[str, ...]] = {
+    "create": (
+        "rules/global/statistical-integrity.yaml",
+        "rules/global/semantic-encoding.yaml",
+        "rules/global/comparison-integrity.yaml",
+    ),
+    "concrete_reference": (
+        "rules/global/semantic-encoding.yaml",
+        "rules/global/comparison-integrity.yaml",
+    ),
+    "visual_optimization": (
+        "rules/global/semantic-encoding.yaml",
+        "rules/global/statistical-integrity.yaml",
+    ),
+    "qa": (
+        "rules/global/statistical-integrity.yaml",
+        "rules/global/semantic-encoding.yaml",
+        "rules/global/image-integrity.yaml",
+    ),
+    "source_reconstruction": ("rules/global/reference-use.yaml",),
+    "reference_intake": (
+        "rules/global/image-integrity.yaml",
+        "rules/global/provenance-reproducibility.yaml",
+    ),
+    "figure_family_coverage": ("rules/global/semantic-encoding.yaml",),
+    "champion_quality": (
+        "rules/global/accessibility.yaml",
+        "rules/global/provenance-reproducibility.yaml",
+    ),
+}
+
 
 def _linked_paths(text: str) -> set[str]:
     return set(re.findall(r"((?:references|scripts)/[A-Za-z0-9_./-]+\.(?:md|py))", text))
@@ -131,15 +130,28 @@ def validate_skill(root: Path | str) -> dict[str, object]:
     lines = skill.splitlines()
     if len(lines) > 300:
         errors.append(f"SKILL.md has {len(lines)} lines; router limit is 300.")
-    if not re.match(r"^---\s*\nname:\s*publication-figure-design\s*\ndescription:", skill):
-        errors.append("SKILL.md frontmatter must contain only the expected name and description fields.")
+    frontmatter = re.match(r"^---\s*\n(.*?)\n---\s*(?:\n|$)", skill, flags=re.DOTALL)
+    if not frontmatter:
+        errors.append("SKILL.md must start with YAML frontmatter.")
+    else:
+        if len(frontmatter.group(1)) > 1024:
+            errors.append("SKILL.md frontmatter exceeds the Agent Skills 1024-character limit.")
+        try:
+            metadata = yaml.safe_load(frontmatter.group(1)) or {}
+        except yaml.YAMLError as exc:
+            metadata = {}
+            errors.append(f"SKILL.md frontmatter is not valid YAML: {exc}")
+        if not isinstance(metadata, dict) or metadata.get("name") != "publication-figure-design":
+            errors.append("SKILL.md frontmatter name must be publication-figure-design.")
+        if not isinstance(metadata, dict) or not isinstance(metadata.get("description"), str):
+            errors.append("SKILL.md frontmatter must include a description.")
     manifest = ""
     manifest_data: dict[str, object] = {}
     if not manifest_path.is_file():
         errors.append("Missing root manifest.yaml.")
     else:
         manifest = manifest_path.read_text(encoding="utf-8", errors="replace")
-        for token in ("always_load:", "routes:", "backend_policy:", "validation:"):
+        for token in ("always_load:", "always_rulesets:", "routes:", "backend_policy:", "validation:"):
             if token not in manifest:
                 errors.append(f"manifest.yaml is missing {token}")
         always_load = manifest.split("always_load:", 1)[-1].split("routes:", 1)[0]
@@ -185,23 +197,52 @@ def validate_skill(root: Path | str) -> dict[str, object]:
                         f"manifest.yaml route '{route}' required_load must be a subset of load: "
                         + ", ".join(outside_load)
                     )
+                expected_rulesets = REQUIRED_ROUTE_RULESETS.get(route, ())
+                configured_rulesets = config.get("required_rulesets", [])
+                if not isinstance(configured_rulesets, list):
+                    errors.append(f"manifest.yaml route '{route}' required_rulesets must be a list.")
+                    configured_rulesets = []
+                missing_rulesets = [item for item in expected_rulesets if item not in configured_rulesets]
+                if missing_rulesets:
+                    errors.append(
+                        f"manifest.yaml route '{route}' missing required_rulesets: "
+                        + ", ".join(missing_rulesets)
+                    )
+                for ruleset in configured_rulesets:
+                    if not (root / ruleset).is_file():
+                        errors.append(f"Missing required route ruleset: {ruleset}")
 
-    for phrase in REQUIRED_PHRASES:
-        if phrase not in skill:
-            errors.append(f"SKILL.md is missing required contract phrase: {phrase}")
-
-    inspect_at = skill.find("Open every concrete reference")
-    select_at = skill.find("Select implementation material")
-    if inspect_at < 0 or select_at < 0 or inspect_at >= select_at:
-        errors.append("Concrete-reference inspection must precede implementation-material selection.")
+        always_rulesets = manifest_data.get("always_rulesets", [])
+        if not isinstance(always_rulesets, list) or not always_rulesets:
+            errors.append("manifest.yaml must declare non-empty always_rulesets.")
+        else:
+            for ruleset in always_rulesets:
+                if not (root / ruleset).is_file():
+                    errors.append(f"Missing always-loaded ruleset: {ruleset}")
+        family_rulesets = manifest_data.get("family_rulesets", {})
+        if not isinstance(family_rulesets, dict):
+            errors.append("manifest.yaml family_rulesets must be a mapping.")
+        else:
+            for family, rulesets in family_rulesets.items():
+                if not isinstance(rulesets, list) or not rulesets:
+                    errors.append(f"manifest.yaml family '{family}' must declare a non-empty ruleset list.")
+                    continue
+                for ruleset in rulesets:
+                    if not (root / str(ruleset)).is_file():
+                        errors.append(f"Missing family ruleset for {family}: {ruleset}")
 
     routed_resources = _linked_paths(skill) | _linked_paths(manifest)
     for relative in sorted(routed_resources):
         if not (root / relative).is_file():
             errors.append(f"Missing routed resource: {relative}")
 
+    rule_report = validate_rules(root)
+    errors.extend(f"rule contract: {error}" for error in rule_report["errors"])
+
     for relative in (
         "schemas/reference-dna.schema.json",
+        "schemas/rule.schema.json",
+        "schemas/journal-profile.schema.json",
         "scripts/check_reference_dna.py",
         "scripts/evaluate_activation.py",
         "profiles/style-capsules/restrained-editorial.yaml",

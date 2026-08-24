@@ -1,0 +1,41 @@
+rules:
+  - id: A11Y-001
+    title: Critical meaning cannot rely on hue alone
+    scope: global
+    severity: block
+    statement: Critical categorical distinctions must have a redundant cue such as label, marker, line style, geometry, or a target-permitted pattern.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: w3c-wcag22-1-4-1, source_type: standard, section: SC-1.4.1}]
+    verification: {mode: hybrid, checks: ["semantic_channel_audit", "grayscale_render_check"]}
+    override: {allowed: false}
+    tags: [accessibility, color]
+  - id: A11Y-002
+    title: Graphical objects remain visible
+    scope: global
+    severity: block
+    statement: Meaningful graphical objects should meet at least 3:1 contrast against adjacent or background colors when the target medium applies WCAG-like contrast.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: w3c-wcag22-1-4-11, source_type: standard, section: SC-1.4.11}]
+    verification: {mode: automated, checks: ["rendered_contrast"]}
+    override: {allowed: false}
+    tags: [accessibility, contrast]
+  - id: A11Y-003
+    title: Text has final-size contrast
+    scope: global
+    severity: block
+    statement: Normal text must meet 4.5:1 contrast where WCAG-like contrast applies, and must be inspected at final physical size.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: w3c-wcag22-1-4-3, source_type: standard, section: SC-1.4.3}]
+    verification: {mode: hybrid, checks: ["rendered_contrast", "final_size_review"]}
+    override: {allowed: false}
+    tags: [accessibility, typography]
+  - id: A11Y-004
+    title: Generate a semantic description
+    scope: global
+    severity: warn
+    statement: Digital delivery should include a long description covering purpose, axes or variables, primary pattern, key comparison, and uncertainty.
+    applicability: {figure_types: ["*"], outputs: [digital]}
+    evidence: [{source_id: nature-figure-guide, source_type: journal_guidance, section: accessibility}]
+    verification: {mode: manual, checks: ["long_description_review"]}
+    override: {allowed: true, reason_required: true}
+    tags: [accessibility, alt-text]

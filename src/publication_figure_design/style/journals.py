@@ -18,4 +18,13 @@ def load_journal_profile(name: str, stage: str = "final_submission", *, root: Pa
     if not path.is_file():
         path = root / "profiles" / "journals" / "generic.yaml"
     payload = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
-    return JournalProfile(name=str(payload.get("name", journal)), stage=str(payload.get("stage", stage)), rules=dict(payload.get("rules", {})), source=str(payload.get("source", "")), source_date=str(payload.get("source_date", "")))
+    return JournalProfile(
+        name=str(payload.get("name", journal)), stage=str(payload.get("stage", stage)),
+        rules=dict(payload.get("rules", {})), source=str(payload.get("source", "")),
+        source_date=str(payload.get("source_date", "")),
+        source_url=payload.get("source_url"), source_title=payload.get("source_title"),
+        retrieved_at=payload.get("retrieved_at"), effective_date=payload.get("effective_date"),
+        source_section=payload.get("source_section"), status=str(payload.get("status", "verified")),
+        verified=bool(payload.get("verified", False)), confidence=str(payload.get("confidence", "inferred")),
+        review_after=payload.get("review_after"), applies_to=list(payload.get("applies_to", []) or []),
+    )

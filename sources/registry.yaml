@@ -1,0 +1,146 @@
+schema_version: "1.0"
+sources:
+  - id: pfd-scientific-contract
+    publisher: publication-figure-design
+    title: Scientific contract and binding rules
+    url: https://github.com/future3317/publication-figure-design
+    authority: project_contract
+    retrieved_at: "2026-08-25"
+    effective_date: null
+    scope: project
+    version: "4.0.0"
+    status: verified
+    confidence: authoritative
+    review_after: "2027-08-25"
+  - id: pfd-render-trace
+    publisher: publication-figure-design
+    title: RenderTrace contract
+    url: https://github.com/future3317/publication-figure-design
+    authority: project_contract
+    retrieved_at: "2026-08-25"
+    effective_date: null
+    scope: project
+    version: "4.0.0"
+    status: verified
+    confidence: authoritative
+    review_after: "2027-08-25"
+  - id: pfd-semantic-encoding
+    publisher: publication-figure-design
+    title: Semantic encoding contract
+    url: https://github.com/future3317/publication-figure-design
+    authority: project_contract
+    retrieved_at: "2026-08-25"
+    effective_date: null
+    scope: project
+    version: "4.0.0"
+    status: verified
+    confidence: authoritative
+    review_after: "2027-08-25"
+  - id: pfd-comparison-contract
+    publisher: publication-figure-design
+    title: Controlled comparison contract
+    url: https://github.com/future3317/publication-figure-design
+    authority: project_contract
+    retrieved_at: "2026-08-25"
+    effective_date: null
+    scope: project
+    version: "4.0.0"
+    status: verified
+    confidence: authoritative
+    review_after: "2027-08-25"
+  - id: pfd-house-visual-language
+    publisher: publication-figure-design
+    title: PFD house visual language
+    url: https://github.com/future3317/publication-figure-design
+    authority: project_guidance
+    retrieved_at: "2026-08-25"
+    effective_date: null
+    scope: house
+    version: "4.0.0"
+    status: verified
+    confidence: authoritative
+    review_after: "2027-08-25"
+  - id: pfd-family-guidance
+    publisher: publication-figure-design
+    title: Figure-family guidance
+    url: https://github.com/future3317/publication-figure-design
+    authority: project_guidance
+    retrieved_at: "2026-08-25"
+    effective_date: null
+    scope: family
+    version: "4.0.0"
+    status: verified
+    confidence: authoritative
+    review_after: "2027-08-25"
+  - id: w3c-wcag22-1-4-1
+    publisher: W3C
+    title: WCAG 2.2 Use of Color
+    url: https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html
+    authority: standard
+    retrieved_at: "2026-08-25"
+    effective_date: "2023-10-05"
+    scope: accessibility
+    version: "WCAG 2.2"
+    status: verified
+    confidence: authoritative
+    review_after: "2027-08-25"
+  - id: w3c-wcag22-1-4-3
+    publisher: W3C
+    title: WCAG 2.2 Contrast Minimum
+    url: https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html
+    authority: standard
+    retrieved_at: "2026-08-25"
+    effective_date: "2023-10-05"
+    scope: accessibility
+    version: "WCAG 2.2"
+    status: verified
+    confidence: authoritative
+    review_after: "2027-08-25"
+  - id: w3c-wcag22-1-4-11
+    publisher: W3C
+    title: WCAG 2.2 Non-text Contrast
+    url: https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html
+    authority: standard
+    retrieved_at: "2026-08-25"
+    effective_date: "2023-10-05"
+    scope: accessibility
+    version: "WCAG 2.2"
+    status: verified
+    confidence: authoritative
+    review_after: "2027-08-25"
+  - id: nature-figure-guide
+    publisher: Nature Research
+    title: Preparing figures - our specifications
+    url: https://research-figure-guide.nature.com/figures/preparing-figures-our-specifications/
+    authority: journal_guidance
+    retrieved_at: "2026-08-25"
+    effective_date: null
+    scope: journal
+    version: current-web
+    status: verified
+    confidence: authoritative
+    review_after: "2026-11-25"
+  - id: nature-image-integrity
+    publisher: Nature Research
+    title: Image Integrity
+    url: https://research-figure-guide.nature.com/figures/image-integrity/
+    authority: journal_guidance
+    retrieved_at: "2026-08-25"
+    effective_date: null
+    scope: journal
+    version: current-web
+    status: verified
+    confidence: authoritative
+    review_after: "2026-11-25"
+  - id: nature-formatting-guide
+    publisher: Nature
+    title: Formatting guide
+    url: https://www.nature.com/nature/for-authors/formatting-guide
+    authority: journal_guidance
+    retrieved_at: "2026-08-25"
+    effective_date: null
+    scope: journal
+    version: current-web
+    status: verified
+    confidence: authoritative
+    review_after: "2026-11-25"

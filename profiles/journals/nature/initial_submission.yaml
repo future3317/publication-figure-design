@@ -1,7 +1,17 @@
 name: nature
 stage: initial_submission
 source: Nature Research figure guidance
-source_date: '2026-08-24'
+source_url: https://research-figure-guide.nature.com/figures/preparing-figures-our-specifications/
+source_title: Preparing figures - our specifications
+retrieved_at: '2026-08-25'
+effective_date: null
+source_section: initial-submission
+source_date: '2026-08-25'
+status: verified
+verified: true
+confidence: authoritative
+review_after: '2026-11-25'
+applies_to: [initial_submission]
 rules:
   width_mm: {value: 89, unit: mm, level: recommended, applicability: single_column}
   full_width_mm: {value: 183, unit: mm, level: recommended, applicability: double_column}

@@ -1,0 +1,11 @@
+rules:
+  - id: HEAT-001
+    title: Heatmap color domain is declared
+    scope: family
+    severity: block
+    statement: A heatmap records the matrix meaning, missing-versus-zero semantics, normalization domain, and any diverging midpoint; comparable panels share a color domain unless explicitly labeled.
+    applicability: {figure_types: [heatmap, matrix_array], outputs: [digital, print]}
+    evidence: [{source_id: pfd-family-guidance, source_type: project_guidance, section: heatmap-matrix}]
+    verification: {mode: hybrid, checks: ["color_domain_audit", "matrix_semantics_review"]}
+    override: {allowed: false}
+    tags: [family, heatmap, matrix]

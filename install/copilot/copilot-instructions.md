@@ -18,8 +18,10 @@ Runtime bundle:
 - `indexes/`
 - `profiles/`
 - `evals/`
+- `rules/`
+- `sources/registry.yaml`
 
-Generated: 2026-08-23 18:07 UTC
+Generated: 2026-08-24 17:20 UTC
 
 For publication-figure tasks, use the canonical `SKILL.md`, manifest route, and
 bundled runtime files. These instructions only provide loading context.

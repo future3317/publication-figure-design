@@ -1,0 +1,11 @@
+rules:
+  - id: TIME-001
+    title: Time ordering and missingness remain visible
+    scope: family
+    severity: block
+    statement: Preserve true time order and irregular intervals; missing time points cannot be silently interpolated and observed points must remain distinguishable from connecting lines.
+    applicability: {figure_types: [time_series, longitudinal], outputs: [digital, print]}
+    evidence: [{source_id: pfd-family-guidance, source_type: project_guidance, section: time-series}]
+    verification: {mode: hybrid, checks: ["time_order_audit", "missingness_trace"]}
+    override: {allowed: false}
+    tags: [family, time-series]

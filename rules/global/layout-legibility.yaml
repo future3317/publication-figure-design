@@ -1,0 +1,11 @@
+rules:
+  - id: LAY-001
+    title: Layout is judged at final size
+    scope: global
+    severity: block
+    statement: Panel topology, spacing, labels, legends, annotations, and visual hierarchy must remain legible at the final physical size and output medium.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-render-trace, source_type: project_contract, section: final_size_truth}]
+    verification: {mode: hybrid, checks: ["final_size_render", "layout_clearance_review"]}
+    override: {allowed: false}
+    tags: [layout, legibility]

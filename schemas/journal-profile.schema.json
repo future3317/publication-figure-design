@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "publication-figure-design/journal-profile.schema.json",
+  "title": "Journal profile provenance envelope",
+  "type": "object",
+  "required": ["name", "stage", "source", "retrieved_at", "status", "confidence", "review_after", "applies_to", "rules"],
+  "properties": {
+    "name": {"type": "string"},
+    "stage": {"type": "string"},
+    "source": {"type": "string"},
+    "source_url": {"type": ["string", "null"]},
+    "source_title": {"type": ["string", "null"]},
+    "retrieved_at": {"type": "string"},
+    "effective_date": {"type": ["string", "null"]},
+    "source_section": {"type": ["string", "null"]},
+    "status": {"enum": ["verified", "stale", "placeholder"]},
+    "verified": {"type": "boolean"},
+    "confidence": {"enum": ["authoritative", "inferred"]},
+    "review_after": {"type": "string"},
+    "applies_to": {"type": "array", "items": {"type": "string"}},
+    "rules": {"type": "object"}
+  }
+}

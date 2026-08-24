@@ -1,0 +1,11 @@
+rules:
+  - id: MICRO-001
+    title: Microscopy panels inherit image integrity
+    scope: family
+    severity: block
+    statement: Microscopy panels preserve original evidence, shared processing across comparison groups, calibrated scale bars, and explicit segmentation or overlay provenance.
+    applicability: {figure_types: [microscopy, image_quantitative_composite], outputs: [digital, print]}
+    evidence: [{source_id: nature-image-integrity, source_type: journal_guidance, section: image-manipulation}]
+    verification: {mode: hybrid, checks: ["image_provenance", "scale_bar_calibration", "overlay_reproduction"]}
+    override: {allowed: false}
+    tags: [family, microscopy, image-integrity]

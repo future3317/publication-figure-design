@@ -1,0 +1,11 @@
+rules:
+  - id: NET-001
+    title: Network edges represent declared relations
+    scope: family
+    severity: block
+    statement: Node and edge roles, directionality, weights, and layout semantics must be declared; edge styling cannot imply a relation absent from the source graph.
+    applicability: {figure_types: [network, graph, mechanism_architecture], outputs: [digital, print]}
+    evidence: [{source_id: pfd-family-guidance, source_type: project_guidance, section: network-graph}]
+    verification: {mode: hybrid, checks: ["edge_source_trace", "graph_semantics_review"]}
+    override: {allowed: false}
+    tags: [family, network, semantics]

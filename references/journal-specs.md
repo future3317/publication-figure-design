@@ -1,7 +1,9 @@
 # Journal Technical Specifications
 
 Journal-independent house defaults are documented here only as fallback guidance; hard
-requirements are selected from `profiles/journals/<journal>/<stage>.yaml`.
+requirements are selected from `profiles/journals/<journal>/<stage>.yaml`. Width and
+height values in this document are not universal checks and must not override a target
+profile or explicit final-size contract.
 
 ## Figure Dimensions
 

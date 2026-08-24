@@ -1,0 +1,41 @@
+rules:
+  - id: HOUSE-001
+    title: Use soft segmentation
+    scope: house
+    severity: advisory
+    statement: Prefer whitespace, alignment, subtle tonal shifts, and thin separators over heavy boxes or dashboard grids.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-house-visual-language, source_type: project_guidance, section: visual-language}]
+    verification: {mode: manual, checks: ["composition_review"]}
+    override: {allowed: true, reason_required: true}
+    tags: [house, segmentation]
+  - id: HOUSE-002
+    title: Preserve whitespace as structure
+    scope: house
+    severity: advisory
+    statement: Preserve margins, gutters, label clearance, and breathing room; do not fill empty space merely to increase density.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-house-visual-language, source_type: project_guidance, section: whitespace}]
+    verification: {mode: manual, checks: ["final_size_review"]}
+    override: {allowed: true, reason_required: true}
+    tags: [house, whitespace]
+  - id: HOUSE-003
+    title: Use restrained semantic color
+    scope: house
+    severity: advisory
+    statement: Use stable role-based colors with restrained chroma and sparse accents, while preserving accessibility contrast for text and critical marks.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-house-visual-language, source_type: project_guidance, section: palette}]
+    verification: {mode: hybrid, checks: ["palette_role_audit", "rendered_contrast"]}
+    override: {allowed: true, reason_required: true}
+    tags: [house, palette]
+  - id: HOUSE-004
+    title: Keep legends and annotations restrained
+    scope: house
+    severity: advisory
+    statement: Prefer direct labels when useful; otherwise use one compact legend and annotate only claim-bearing events, thresholds, uncertainty, or exceptions.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-house-visual-language, source_type: project_guidance, section: annotation}]
+    verification: {mode: manual, checks: ["legend_annotation_review"]}
+    override: {allowed: true, reason_required: true}
+    tags: [house, annotation]

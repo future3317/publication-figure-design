@@ -1,0 +1,41 @@
+rules:
+  - id: STAT-001
+    title: Define the observation unit
+    scope: global
+    severity: block
+    statement: Every n must identify the observation unit and distinguish biological from technical replicates.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: nature-formatting-guide, source_type: journal_guidance, section: sample-size}]
+    verification: {mode: hybrid, checks: ["replicate_unit_audit", "caption_contract"]}
+    override: {allowed: false}
+    tags: [statistics, replication]
+  - id: STAT-002
+    title: Preserve paired and repeated-measures identity
+    scope: global
+    severity: block
+    statement: Paired or repeated-measures observations must retain subject or sample identity through aggregation and plotting.
+    applicability: {figure_types: [paired_operating_point, distributions, scatter_correlation], outputs: [digital, print]}
+    evidence: [{source_id: pfd-scientific-contract, source_type: project_contract, section: comparison_integrity}]
+    verification: {mode: hybrid, checks: ["pairing_identity_audit", "binding_source_trace"]}
+    override: {allowed: false}
+    tags: [statistics, paired-data]
+  - id: STAT-003
+    title: Statistical methods and multiplicity remain explicit
+    scope: global
+    severity: block
+    statement: Test method, tail, multiple-comparison correction, effect size, interval, test statistic, and degrees of freedom remain available when applicable; stars alone are not a statistical definition.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: nature-formatting-guide, source_type: journal_guidance, section: statistics}]
+    verification: {mode: hybrid, checks: ["statistical_metadata_audit", "legend_caption_review"]}
+    override: {allowed: false}
+    tags: [statistics, reporting]
+  - id: STAT-004
+    title: Missingness and exclusions are traceable
+    scope: global
+    severity: block
+    statement: Missing observations, exclusions, outlier criteria, and filtering must be recorded and cannot be chosen only to improve appearance.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-scientific-contract, source_type: project_contract, section: data_provenance}]
+    verification: {mode: hybrid, checks: ["exclusion_trace", "source_data_reconciliation"]}
+    override: {allowed: false}
+    tags: [statistics, missing-data]

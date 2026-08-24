@@ -52,8 +52,9 @@ Every persisted session records `input_hash`, the concrete reference-index versi
 selected reference ids, renderer version, iteration history, QA result, and final output
 hash. Resume must reuse the recorded selection; it must not rerun an unseeded recommendation.
 
-`manifest.yaml` treats `always_load` and route `required_load` as mandatory, and separates
-them from optional `load`: at route entry, read every required resource before proceeding;
+`manifest.yaml` treats `always_load`/`always_rulesets` and route `required_load`/
+`required_rulesets` as mandatory, and separates them from optional `load`: at route entry,
+read every required resource and compile every required ruleset before proceeding;
 a missing or unread required resource blocks Render/QA/Export. Ordinary `load` entries are
 supplemental and may be consulted when the task needs them.
 
@@ -68,8 +69,14 @@ values require vector or static-code evidence. The active index is a transparent
 Use `reference_dna.json`, `profiles/style-capsules/`, and `profiles/journals/` as the current
 sources of truth.
 
-## Global visual language
+## Rule hierarchy (mandatory)
+Compile `manifest.yaml` `always_rulesets` and route `required_rulesets` before Design Spec.
+Rules are G0 scientific, G1 accessibility, J journal, F family, H house, or B backend.
+Precedence is `G0 > G1 > J > explicit user requirement > F > H > B`; non-overridable
+conflicts block and report. Benchmark/champion data are evaluation policy; `rules/` is
+the machine source and markdown references explain application.
 
+## Global visual language
 Apply the baseline in `references/global-visual-language.md` to every figure family unless
 scientific semantics, an explicit user requirement, journal constraints, or an inspected
 concrete reference require a documented deviation:
@@ -116,10 +123,8 @@ Render until the contract is repaired.
 Route the request before touching plotting code. The supported modes are **create**,
 **revise**, **review**, **export**, and **reference**. Create uses the complete state
 machine; revise and review run only affected creation stages; export runs QA/export
-stages; reference runs intake/analysis/reproduction checks. Do not force revise, review,
-export, or reference work through a full create pipeline. Do not use generic `query()` for
+stages; reference runs intake/analysis/reproduction checks. Do not force revise, review, export, or reference work through a full pipeline. Do not use generic `query()` for
 optimization retrieval.
-Do not force revise, review, export, or reference work through a full pipeline.
 
 ### Mandatory visual-optimization route
 
@@ -266,6 +271,7 @@ Use `pfd eval quick|full|visual|release`; `release` is the same gate as CI.
 
 | Need | Read or run |
 |---|---|
+| Rule hierarchy and provenance | `rules/`, `sources/registry.yaml`, `scripts/check_rule_contract.py`, `scripts/check_journal_profiles.py` |
 | Orchestration and artifact schemas | `references/orchestrator-contracts.md`, `src/publication_figure_design/contracts/`, `src/publication_figure_design/orchestrator/runtime.py` |
 | Global visual language | `references/global-visual-language.md` |
 | Concrete reference or optimization | `references/reference-driven-reconstruction.md`, `scripts/compare_output_to_reference.py` |

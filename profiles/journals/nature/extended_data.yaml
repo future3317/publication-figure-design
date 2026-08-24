@@ -1,7 +1,17 @@
 name: nature
 stage: extended_data
 source: Nature Research figure guidance
-source_date: '2026-08-24'
+source_url: https://research-figure-guide.nature.com/figures/extended-data-formatting-guidelines/
+source_title: Extended data formatting guidelines
+retrieved_at: '2026-08-25'
+effective_date: null
+source_section: extended-data
+source_date: '2026-08-25'
+status: verified
+verified: true
+confidence: authoritative
+review_after: '2026-11-25'
+applies_to: [extended_data, final_submission]
 rules:
   width_mm: {value: 183, unit: mm, level: recommended, applicability: extended_data}
   min_font_pt: {value: 5, unit: pt, level: required, applicability: labels_and_ticks}

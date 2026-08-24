@@ -1,0 +1,11 @@
+rules:
+  - id: HOUSE-008
+    title: Annotations carry claims not decoration
+    scope: house
+    severity: advisory
+    statement: Annotations should identify claim-bearing events, thresholds, uncertainty, or exceptions; duplicated legend and callout text is removed.
+    applicability: {figure_types: ["*"], outputs: [digital, print]}
+    evidence: [{source_id: pfd-house-visual-language, source_type: project_guidance, section: annotation}]
+    verification: {mode: manual, checks: ["legend_annotation_review"]}
+    override: {allowed: true, reason_required: true}
+    tags: [house, annotation]

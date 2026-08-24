@@ -1,9 +1,11 @@
 # Color Palette Reference
 
-> **BASELINE -- COPY VERBATIM:** Copy this block into every generated script. Do not modify values, omit lines, or substitute default palettes.
+> **Palette contract:** Use these as role and accessibility examples. Compile exact
+> colors from the scientific roles, inspected references, target profile, and
+> contrast checks; do not copy one fixed palette into every figure.
 
 ```python
-# Publication Figure Design Nature/Cell/Science Color Palette -- COPY VERBATIM
+# Publication Figure Design semantic palette examples
 CATEGORICAL = ["#2166AC", "#B2182B", "#1B7837", "#F1A340", "#762A83", "#666666"]
 CATEGORICAL_EXTENDED = [
     "#2166AC", "#B2182B", "#1B7837", "#F1A340", "#762A83", "#666666",
@@ -17,7 +19,7 @@ BLACK       = "#222222"
 ```
 
 ```r
-# Publication Figure Design Nature/Cell/Science Color Palette -- COPY VERBATIM
+# Publication Figure Design semantic palette examples
 categorical <- c("#2166AC", "#B2182B", "#1B7837", "#F1A340", "#762A83", "#666666")
 categorical_extended <- c(
   "#2166AC", "#B2182B", "#1B7837", "#F1A340", "#762A83", "#666666",
