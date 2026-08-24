@@ -43,6 +43,13 @@ They are emitted by the existing stages rather than by a second workflow. `QARep
 contains separate `hard`/`soft` sections for L0 technical, L1 scientific, L2 structural,
 and L3 perceptual evidence.
 
+When publication mode produces three candidates, `PreferencePair` is accepted only
+after the Codex/Luna visual judge has compared the same pair in both display orders.
+`scripts/auto_visual_judge.py` maps local A/B labels to candidate ids and marks an
+order-disagreement as `uncertain`; uncertain comparisons cannot update a champion.
+The production runtime reads the sprint stop rule from the Champion Board: three
+candidates, one repair retry, and two judge rounds (forward plus reverse).
+
 Do not promote a prose note, an agent declaration, or a reference-local script into a
 stage artifact. A stage is complete only when its machine-readable output passes its gate.
 

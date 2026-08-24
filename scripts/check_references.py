@@ -36,6 +36,33 @@ FIGURES_DIR = SKILL_DIR / "assets" / "figures"
 REFERENCES = SKILL_DIR / "references"
 
 
+def check_reference_evidence_content_types(root: Path = SKILL_DIR) -> list[str]:
+    """Check that review-evidence extensions match their lightweight content."""
+    evidence_root = root / "assets" / "visual-references" / "review-evidence"
+    if not evidence_root.exists():
+        return []
+    failures: list[str] = []
+    signatures = {
+        ".png": b"\x89PNG\r\n\x1a\n",
+        ".jpg": b"\xff\xd8\xff",
+        ".jpeg": b"\xff\xd8\xff",
+    }
+    for path in sorted(evidence_root.rglob("*")):
+        if not path.is_file():
+            continue
+        suffix = path.suffix.lower()
+        relative = path.relative_to(evidence_root).as_posix()
+        if suffix in signatures:
+            if path.read_bytes()[: len(signatures[suffix])] != signatures[suffix]:
+                failures.append(f"{relative}: {suffix} does not contain a matching image signature")
+        elif suffix == ".json":
+            try:
+                json.loads(path.read_text(encoding="utf-8"))
+            except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+                failures.append(f"{relative}: .json is not valid JSON ({exc})")
+    return failures
+
+
 def parse_directory_map() -> dict[str, str]:
     """Parse directory-map.md → {directory_name: description_line}.
 
@@ -242,6 +269,10 @@ def run_all(*, require_previews: bool = False) -> dict:
     findings += check_aspect_coverage(map_dirs, aspect_keys)
     findings += check_skill_refs_exist(skill_refs)
     findings += check_reference_md_health()
+    findings += [
+        {"check": "reference_evidence_content_type", "severity": "FAIL", "detail": failure}
+        for failure in check_reference_evidence_content_types(SKILL_DIR)
+    ]
 
     fails = [f for f in findings if f["severity"] == "FAIL"]
     warns = [f for f in findings if f["severity"] == "WARN"]

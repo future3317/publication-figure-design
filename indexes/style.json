@@ -1,23 +1,23 @@
 {
   "aliases": {
-    "current": "hybrid-deterministic-9aa8024c8294"
+    "current": "hybrid-deterministic-f0ba1254cc14"
   },
   "index_type": "style",
-  "model_version": "hybrid-deterministic-9aa8024c8294",
+  "model_version": "hybrid-deterministic-f0ba1254cc14",
   "provenance": {
-    "built_at": "2026-08-23T16:43:11.497960+00:00",
-    "corpus_sha256": "9aa8024c8294992dc722230ec8e787ff401ab68ae6c124d4460e8b174d109d2d",
+    "built_at": "2026-08-24T03:13:31.030581+00:00",
+    "corpus_sha256": "f0ba1254cc146b72da5d0a137dd8caec0f549300017e00aed7c888d097aece24",
     "embedding_model": "deterministic-semantic-structure-style",
-    "index_version": "hybrid-deterministic-9aa8024c8294",
+    "index_version": "hybrid-deterministic-f0ba1254cc14",
     "optional_backends": {
       "semantic": "siglip2",
       "visual_structure": "dinov2_or_dinov3"
     },
-    "record_count": 147,
+    "record_count": 152,
     "schema_version": "1.0",
-    "semantic_model_version": "semantic-deterministic-9aa8024c8294"
+    "semantic_model_version": "semantic-deterministic-f0ba1254cc14"
   },
-  "record_count": 147,
+  "record_count": 152,
   "records": {
     "006c1b3915544c07": {
       "aesthetic_quality": null,
@@ -429,6 +429,12 @@
       "palette_roles": null,
       "style_spec_path": null
     },
+    "59c6c64979eaffe6": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
     "5c8ff3b28ea11b6e": {
       "aesthetic_quality": 4,
       "annotations_typography": null,
@@ -491,6 +497,12 @@
       "palette_roles": null,
       "style_spec_path": null
     },
+    "6606ccf3be95bbd2": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
     "668bc98b544d54d5": {
       "aesthetic_quality": null,
       "annotations_typography": null,
@@ -529,6 +541,12 @@
       "palette_roles": null,
       "style_spec_path": null
     },
+    "6b6c904d9ac07c20": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
     "6e0b081c34e20430": {
       "aesthetic_quality": 4.3,
       "annotations_typography": null,
@@ -549,6 +567,18 @@
     },
     "789156ffca30bef6": {
       "aesthetic_quality": 4.0,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "7a43702e46152b46": {
+      "aesthetic_quality": null,
+      "annotations_typography": null,
+      "palette_roles": null,
+      "style_spec_path": null
+    },
+    "7ac8148810f9b9c2": {
+      "aesthetic_quality": null,
       "annotations_typography": null,
       "palette_roles": null,
       "style_spec_path": null

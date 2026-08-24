@@ -1,0 +1,69 @@
+{
+  "aesthetic_rating": null,
+  "aliases": [],
+  "allowed_usage": [
+    "private_reference"
+  ],
+  "analysis_quality": "unassessed",
+  "author": null,
+  "code_path": null,
+  "colorspace": "sRGB_assumed",
+  "created_at": "2026-08-24T03:10:57Z",
+  "data_density": "dense",
+  "dimensions": [
+    1800,
+    1500
+  ],
+  "eligible_for_code_reuse": false,
+  "eligible_for_reconstruction": false,
+  "eligible_for_structure": false,
+  "eligible_for_style": false,
+  "figure_card_path": "assets/visual-references/references/6606ccf3be95bbd2/figure_card.json",
+  "figure_type": "scatter_regression",
+  "has_alpha": false,
+  "id": "6606ccf3be95bbd2",
+  "image_path": "assets/visual-references/references/6606ccf3be95bbd2/image.png",
+  "journal_style": "Nature-like",
+  "layout": "1x1",
+  "license": "unknown; internal reference only",
+  "lifecycle_state": "analyzed",
+  "n_groups": null,
+  "notes": "Observed reference: purple regression line with translucent confidence band, nested density contours, compact upper-left statistics block, right-side continuous legend. Scientific content is reference-only; inspect pixels before adaptation.",
+  "original_quality": "unassessed",
+  "palette": null,
+  "palette_policy": "preserve",
+  "perceptual_hash": "e6649b99126767e8",
+  "preview_path": "assets/visual-references/references/6606ccf3be95bbd2/preview.png",
+  "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "reason": "reference_dna_built",
+        "state": "analyzed"
+      }
+    ],
+    "state": "analyzed"
+  },
+  "reconstruction_fidelity": "unassessed",
+  "reference_dna_path": "assets/visual-references/references/6606ccf3be95bbd2/reference_dna.json",
+  "reference_kind": "exact_visual_source",
+  "reproduction_preview_path": null,
+  "review_status": "pending",
+  "scope": "references",
+  "sha256": "6606ccf3be95bbd2efa5bb58cd1c07ac3708df867fee06138ba5724abb2c2886",
+  "source": "project figure atlas; provenance not established",
+  "source_url": null,
+  "subtype": "regression_density_contour",
+  "tags": [
+    "scatter",
+    "regression",
+    "density-contour",
+    "confidence-band",
+    "statistical-discovery"
+  ],
+  "thumbnail_path": "assets/visual-references/references/6606ccf3be95bbd2/thumbnail.png",
+  "usage_scope": "internal_reference",
+  "venue": null,
+  "visual_grammar": null,
+  "year": null
+}

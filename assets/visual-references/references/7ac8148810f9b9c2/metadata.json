@@ -1,0 +1,70 @@
+{
+  "aesthetic_rating": null,
+  "aliases": [],
+  "allowed_usage": [
+    "private_reference"
+  ],
+  "analysis_quality": "unassessed",
+  "author": null,
+  "code_path": null,
+  "colorspace": "sRGB_assumed",
+  "created_at": "2026-08-24T03:10:57Z",
+  "data_density": "dense",
+  "dimensions": [
+    2296,
+    1961
+  ],
+  "eligible_for_code_reuse": false,
+  "eligible_for_reconstruction": false,
+  "eligible_for_structure": false,
+  "eligible_for_style": false,
+  "figure_card_path": "assets/visual-references/references/7ac8148810f9b9c2/figure_card.json",
+  "figure_type": "multi_group_comparison",
+  "has_alpha": false,
+  "id": "7ac8148810f9b9c2",
+  "image_path": "assets/visual-references/references/7ac8148810f9b9c2/image.png",
+  "journal_style": "Nature-like",
+  "layout": "three-panel-horizontal",
+  "license": "unknown; internal reference only",
+  "lifecycle_state": "analyzed",
+  "n_groups": null,
+  "notes": "Observed reference: three aligned group-comparison panels with translucent raw points, mean/interval overlays, rotated group labels, and bracketed p-value annotations above each panel. Scientific content is reference-only; inspect pixels before adaptation.",
+  "original_quality": "unassessed",
+  "palette": null,
+  "palette_policy": "preserve",
+  "perceptual_hash": "cadad40ab5735aac",
+  "preview_path": "assets/visual-references/references/7ac8148810f9b9c2/preview.png",
+  "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "reason": "reference_dna_built",
+        "state": "analyzed"
+      }
+    ],
+    "state": "analyzed"
+  },
+  "reconstruction_fidelity": "unassessed",
+  "reference_dna_path": "assets/visual-references/references/7ac8148810f9b9c2/reference_dna.json",
+  "reference_kind": "exact_visual_source",
+  "reproduction_preview_path": null,
+  "review_status": "pending",
+  "scope": "references",
+  "sha256": "7ac8148810f9b9c2de5bf1f293702b5dcf93e30ad5dc89debf7a65395ae02dc4",
+  "source": "project figure atlas; provenance not established",
+  "source_url": null,
+  "subtype": "jittered_group_comparison",
+  "tags": [
+    "scatter",
+    "jitter",
+    "multi-group",
+    "significance-annotations",
+    "mean-interval",
+    "statistical-discovery"
+  ],
+  "thumbnail_path": "assets/visual-references/references/7ac8148810f9b9c2/thumbnail.png",
+  "usage_scope": "internal_reference",
+  "venue": null,
+  "visual_grammar": null,
+  "year": null
+}

@@ -5,6 +5,11 @@ image-generation panels. It is compiled from a `JournalProfile`, a `StyleCapsule
 inspected `ReferenceDNA`, then stored with the run; renderer defaults may fill only fields
 that the selected spec leaves optional.
 
+The cross-family baseline is defined in `references/global-visual-language.md`: soft
+segmentation, short title hierarchy, structural whitespace, low-saturation semantic colors,
+and restrained legends/annotations. Compile those defaults into the spec before applying
+reference-specific tokens; do not leave them as prose-only guidance.
+
 ## Required groups
 
 - canvas and panel backgrounds;

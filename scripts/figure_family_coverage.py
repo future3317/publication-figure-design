@@ -75,6 +75,10 @@ FIGURE_FAMILIES: dict[str, dict[str, Any]] = {
     },
     "statistical_discovery": {
         "figure_types": ["volcano", "ma", "manhattan", "enrichment", "forest", "forest_interval", "funnel", "effect_size"],
+        # These references retain their primary semantic family, but provide
+        # useful discovery-figure grammar (thresholds, effect comparisons,
+        # dense statistical annotation) when a direct subtype is unavailable.
+        "related_visual_types": ["scatter_regression", "ridge", "multi_group_comparison", "multi_panel_statistical"],
         "selection_rule": "Make the statistical threshold and multiplicity context visible; highlight discoveries without hiding the full tested population.",
         "must_observe": ["threshold lines", "significance/effect axes", "label selection", "multiple-testing or interval meaning"],
     },
@@ -91,13 +95,15 @@ def build_coverage_report(library: Any) -> dict[str, Any]:
     families: list[dict[str, Any]] = []
     for family_id, spec in FIGURE_FAMILIES.items():
         refs: dict[str, Any] = {}
-        for figure_type in spec["figure_types"]:
+        lookup_types = list(spec["figure_types"]) + list(spec.get("related_visual_types", []))
+        for figure_type in lookup_types:
             for ref in library.query(figure_type=figure_type):
                 refs[ref.id] = ref
         ids = sorted(refs)
         families.append({
             "id": family_id,
             "figure_types": spec["figure_types"],
+            **({"related_visual_types": spec["related_visual_types"]} if spec.get("related_visual_types") else {}),
             "candidate_ids": ids[:8],
             "reference_count": len(ids),
             "covered": bool(ids),

@@ -29,6 +29,15 @@ class ChampionBoardTests(unittest.TestCase):
         self.assertIn("direct_label_or_legendless", row["gaps"])
         self.assertEqual(row["status"], "needs_evidence")
 
+    def test_focus_sprint_is_five_families_and_not_ready_without_evidence(self):
+        board = json.loads((ROOT / "assets/reference-benchmarks/champion_board.json").read_text(encoding="utf-8"))
+        report = build_report(ROOT, board)
+        self.assertEqual(report["summary"]["focus_family_count"], 5)
+        self.assertEqual(report["summary"]["focus_ready_family_count"], 0)
+        focus_rows = [row for row in report["families"] if row["focus"]]
+        self.assertEqual(len(focus_rows), 5)
+        self.assertTrue(all(row["status"] == "needs_evidence" for row in focus_rows))
+
 
 if __name__ == "__main__":
     unittest.main()

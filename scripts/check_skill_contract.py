@@ -8,6 +8,8 @@ import json
 import re
 from pathlib import Path
 
+import yaml
+
 
 REQUIRED_PHRASES = (
     "Open every concrete reference",
@@ -28,7 +30,89 @@ REQUIRED_PHRASES = (
     "DesignPatch",
     "RenderTrace",
     "pfd eval quick|full|visual|release",
+    "Global visual language",
+    "soft segmentation",
+    "short title hierarchy",
+    "whitespace is structural",
+    "low-saturation semantic colors",
+    "restrained legends and annotations",
+    "Scientific figure-design principles",
+    "figure-versus-table preflight",
+    "visualize model outputs, not only metrics",
+    "do not invent or exaggerate scientific effects",
+    "one visual variable per experimental variable",
+    "main figure answers one scientific question",
+    "same sample, camera, crop, scale",
+    "caption carries the explanation",
+    "must run before rendering",
 )
+
+
+# Materials that change the behavior of a route are a contract, not optional
+# background reading.  Keep this list small and route-specific; broad style
+# discovery remains in the route's ordinary ``load`` list.
+REQUIRED_ROUTE_LOADS: dict[str, tuple[str, ...]] = {
+    "create": (
+        "references/workflow-create.md",
+        "references/encoding-and-uncertainty.md",
+        "references/figure-family-coverage.md",
+        "references/journal-specs.md",
+        "references/style-spec.md",
+    ),
+    "concrete_reference": (
+        "references/art-direction.md",
+        "references/figure-family-coverage.md",
+        "references/visual-grammar.md",
+        "references/reference-driven-reconstruction.md",
+        "references/asset-adaptation.md",
+        "references/style-spec.md",
+    ),
+    "visual_optimization": (
+        "references/art-direction.md",
+        "references/visual-grammar.md",
+        "references/reference-driven-reconstruction.md",
+        "references/visual-reference-library.md",
+        "references/checklist.md",
+        "references/encoding-and-uncertainty.md",
+        "references/journal-specs.md",
+        "references/figure-family-coverage.md",
+        "references/style-spec.md",
+        "references/color-palettes.md",
+    ),
+    "asset_adaptation": (
+        "references/asset-adaptation.md",
+        "references/directory-map.md",
+        "references/production-asset-metadata.md",
+    ),
+    "backend": ("references/backend-selection.md",),
+    "qa": (
+        "references/checklist.md",
+        "references/delivery-contract.md",
+        "references/figure-legend-contract.md",
+        "references/privacy-provenance.md",
+        "references/encoding-and-uncertainty.md",
+        "references/export-specs.md",
+    ),
+    "source_reconstruction": ("references/source-reconstruction-library.md",),
+    "source_review_batch": ("references/source-reconstruction-library.md",),
+    "reference_intake": (
+        "references/visual-reference-library.md",
+        "references/figure-family-coverage.md",
+        "references/privacy-provenance.md",
+    ),
+    "reference_benchmark": (
+        "assets/reference-benchmarks/chartmimic/README.md",
+        "assets/reference-benchmarks/champion_references.json",
+    ),
+    "eval": ("assets/reference-benchmarks/golden_tasks.json",),
+    "figure_family_coverage": ("references/figure-family-coverage.md",),
+    "champion_quality": (
+        "references/champion-board.md",
+        "assets/reference-benchmarks/champion_board.json",
+        "assets/reference-benchmarks/real_generation_tasks.json",
+        "assets/reference-benchmarks/visual-baseline-v1.json",
+    ),
+}
 
 
 def _linked_paths(text: str) -> set[str]:
@@ -50,6 +134,7 @@ def validate_skill(root: Path | str) -> dict[str, object]:
     if not re.match(r"^---\s*\nname:\s*publication-figure-design\s*\ndescription:", skill):
         errors.append("SKILL.md frontmatter must contain only the expected name and description fields.")
     manifest = ""
+    manifest_data: dict[str, object] = {}
     if not manifest_path.is_file():
         errors.append("Missing root manifest.yaml.")
     else:
@@ -57,6 +142,49 @@ def validate_skill(root: Path | str) -> dict[str, object]:
         for token in ("always_load:", "routes:", "backend_policy:", "validation:"):
             if token not in manifest:
                 errors.append(f"manifest.yaml is missing {token}")
+        always_load = manifest.split("always_load:", 1)[-1].split("routes:", 1)[0]
+        if "references/global-visual-language.md" not in always_load:
+            errors.append("manifest.yaml must always load the global visual language rules.")
+        try:
+            parsed = yaml.safe_load(manifest)
+            if isinstance(parsed, dict):
+                manifest_data = parsed
+            else:
+                errors.append("manifest.yaml must parse to a mapping.")
+        except yaml.YAMLError as exc:
+            errors.append(f"manifest.yaml is not valid YAML: {exc}")
+
+        routes = manifest_data.get("routes", {})
+        if not isinstance(routes, dict):
+            errors.append("manifest.yaml routes must be a mapping.")
+        else:
+            for route, expected in REQUIRED_ROUTE_LOADS.items():
+                config = routes.get(route)
+                if not isinstance(config, dict):
+                    errors.append(f"manifest.yaml route '{route}' is missing.")
+                    continue
+                load = config.get("load", [])
+                required = config.get("required_load")
+                if not isinstance(load, list):
+                    errors.append(f"manifest.yaml route '{route}' load must be a list.")
+                    continue
+                if not isinstance(required, list):
+                    errors.append(f"manifest.yaml route '{route}' must declare required_load.")
+                    continue
+                missing = [resource for resource in expected if resource not in required]
+                if missing:
+                    errors.append(
+                        f"manifest.yaml route '{route}' missing required_load entries: {', '.join(missing)}"
+                    )
+                for resource in required:
+                    if not (root / resource).is_file():
+                        errors.append(f"Missing required route resource: {resource}")
+                outside_load = [resource for resource in required if resource not in load]
+                if outside_load:
+                    errors.append(
+                        f"manifest.yaml route '{route}' required_load must be a subset of load: "
+                        + ", ".join(outside_load)
+                    )
 
     for phrase in REQUIRED_PHRASES:
         if phrase not in skill:

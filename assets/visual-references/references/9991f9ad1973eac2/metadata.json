@@ -106,7 +106,7 @@
     }
   },
   "visual_review": {
-    "comparison_path": "assets/visual-references/review-evidence/reproduction-audit/9991f9ad1973eac2-reference-vs-reconstruction.png",
+    "comparison_path": "assets/visual-references/review-evidence/reproduction-audit/9991f9ad1973eac2-reference-vs-reconstruction.json",
     "comparison_ssim": 0.946793,
     "final_size_inspected": true,
     "hierarchy": "pass",

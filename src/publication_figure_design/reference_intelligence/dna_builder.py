@@ -15,9 +15,13 @@ def _source_path(reference_dir: Path, metadata: Mapping[str, Any]) -> Path:
         value = metadata.get(key)
         if value:
             path = Path(str(value))
-            candidate = path if path.is_absolute() else reference_dir.parents[4] / path
-            if candidate.is_file():
-                return candidate
+            if path.is_absolute() and path.is_file():
+                return path
+            if not path.is_absolute():
+                for ancestor in (reference_dir, *reference_dir.parents):
+                    candidate = ancestor / path
+                    if candidate.is_file():
+                        return candidate
     for suffixes in ((".svg",), (".pdf",), (".py",), (".png", ".jpg", ".jpeg")):
         for suffix in suffixes:
             matches = sorted(reference_dir.glob(f"*{suffix}"))

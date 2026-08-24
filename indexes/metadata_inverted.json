@@ -1,23 +1,23 @@
 {
   "aliases": {
-    "current": "hybrid-deterministic-9aa8024c8294"
+    "current": "hybrid-deterministic-f0ba1254cc14"
   },
   "index_type": "metadata_inverted",
-  "model_version": "hybrid-deterministic-9aa8024c8294",
+  "model_version": "hybrid-deterministic-f0ba1254cc14",
   "provenance": {
-    "built_at": "2026-08-23T16:43:11.497960+00:00",
-    "corpus_sha256": "9aa8024c8294992dc722230ec8e787ff401ab68ae6c124d4460e8b174d109d2d",
+    "built_at": "2026-08-24T03:13:31.030581+00:00",
+    "corpus_sha256": "f0ba1254cc146b72da5d0a137dd8caec0f549300017e00aed7c888d097aece24",
     "embedding_model": "deterministic-semantic-structure-style",
-    "index_version": "hybrid-deterministic-9aa8024c8294",
+    "index_version": "hybrid-deterministic-f0ba1254cc14",
     "optional_backends": {
       "semantic": "siglip2",
       "visual_structure": "dinov2_or_dinov3"
     },
-    "record_count": 147,
+    "record_count": 152,
     "schema_version": "1.0",
-    "semantic_model_version": "semantic-deterministic-9aa8024c8294"
+    "semantic_model_version": "semantic-deterministic-f0ba1254cc14"
   },
-  "record_count": 147,
+  "record_count": 152,
   "schema_version": "1.0",
   "terms": {
     "2-panel": [
@@ -302,6 +302,9 @@
     "conceptual_multi_panel": [
       "dcdd74bc2feb98d9"
     ],
+    "confidence-band": [
+      "6606ccf3be95bbd2"
+    ],
     "confidence-ribbon": [
       "b68a45ad947f3509"
     ],
@@ -310,7 +313,8 @@
     ],
     "correlation-matrix": [
       "255c32ef8bf65d53",
-      "38f95dbf30eb6731"
+      "38f95dbf30eb6731",
+      "59c6c64979eaffe6"
     ],
     "cross-validation": [
       "6e0b081c34e20430"
@@ -327,8 +331,20 @@
     "dense": [
       "3b94fea2e7f95f8f"
     ],
+    "density": [
+      "7a43702e46152b46"
+    ],
+    "density-contour": [
+      "6606ccf3be95bbd2"
+    ],
+    "differential-expression-threshold": [
+      "6b6c904d9ac07c20"
+    ],
     "direct-equations": [
       "b68a45ad947f3509"
+    ],
+    "direct-label": [
+      "7a43702e46152b46"
     ],
     "direct-labels": [
       "0789bc5bea8a1131"
@@ -349,7 +365,8 @@
       "134b0fcb07dbab1b"
     ],
     "distribution": [
-      "653ce9637e303a41"
+      "653ce9637e303a41",
+      "7a43702e46152b46"
     ],
     "distribution-comparison": [
       "7b7b02d82ccc7207"
@@ -366,11 +383,17 @@
       "b3c62bc6c4258378",
       "b3c62bc6c4258378"
     ],
+    "diverging-palette": [
+      "59c6c64979eaffe6"
+    ],
     "donut-center": [
       "22f32e9bd10b34ee"
     ],
     "dual-legend": [
       "22f32e9bd10b34ee"
+    ],
+    "effect-size": [
+      "6b6c904d9ac07c20"
     ],
     "embedding": [
       "69782084ad8f59e4"
@@ -513,6 +536,9 @@
     ],
     "gallery_validation_perturbation": [
       "245ad31f97b20546"
+    ],
+    "gene-labels": [
+      "6b6c904d9ac07c20"
     ],
     "geometry": [
       "653ce9637e303a41"
@@ -702,7 +728,11 @@
       "789156ffca30bef6"
     ],
     "jitter": [
-      "4d2c99dd4a107724"
+      "4d2c99dd4a107724",
+      "7ac8148810f9b9c2"
+    ],
+    "jittered_group_comparison": [
+      "7ac8148810f9b9c2"
     ],
     "joint-plot": [
       "227c2b8a31a21253"
@@ -789,6 +819,9 @@
       "9f02fa4603dae748",
       "9f02fa4603dae748"
     ],
+    "mantel_heatmap_links": [
+      "59c6c64979eaffe6"
+    ],
     "many-series": [
       "789156ffca30bef6"
     ],
@@ -819,6 +852,9 @@
     ],
     "mean-connector": [
       "7f5b0663c1e25be3"
+    ],
+    "mean-interval": [
+      "7ac8148810f9b9c2"
     ],
     "mean-ribbon": [
       "6e0b081c34e20430"
@@ -897,10 +933,14 @@
     "multi-curve": [
       "a6f2e75e7d836175"
     ],
+    "multi-group": [
+      "7ac8148810f9b9c2"
+    ],
     "multi-panel": [
       "387e55d62c99c422",
       "43fe44adf197b97c",
       "55abd06fbf4dcbb9",
+      "59c6c64979eaffe6",
       "653ce9637e303a41",
       "6e0b081c34e20430",
       "7fee7c75142949e5",
@@ -909,8 +949,17 @@
       "dcdd74bc2feb98d9",
       "e088eda258e1bd3a"
     ],
+    "multi_group_comparison": [
+      "7ac8148810f9b9c2"
+    ],
     "multi_panel_line_comparison": [
       "43fe44adf197b97c"
+    ],
+    "multi_panel_statistical": [
+      "59c6c64979eaffe6"
+    ],
+    "multiple-testing": [
+      "6b6c904d9ac07c20"
     ],
     "nature": [
       "4d2c99dd4a107724",
@@ -948,6 +997,9 @@
       "dc61a5257eae4748",
       "e7fa7d98cd4f5263",
       "f68c31da6f34836c"
+    ],
+    "network-links": [
+      "59c6c64979eaffe6"
     ],
     "network_matrix": [
       "c3c538a466aef22e",
@@ -1119,8 +1171,12 @@
     ],
     "regression": [
       "387e55d62c99c422",
+      "6606ccf3be95bbd2",
       "b68a45ad947f3509",
       "e088eda258e1bd3a"
+    ],
+    "regression_density_contour": [
+      "6606ccf3be95bbd2"
     ],
     "replicates": [
       "daaa5c61d74703b8"
@@ -1135,6 +1191,13 @@
     ],
     "residuals": [
       "4d213749151b32cb"
+    ],
+    "ridge": [
+      "7a43702e46152b46",
+      "7a43702e46152b46"
+    ],
+    "ridgeline_distribution": [
+      "7a43702e46152b46"
     ],
     "rnagenscape_manifold": [
       "83e55ca23d8aa2fa"
@@ -1160,6 +1223,9 @@
     "roc-density": [
       "a7a3dfa02b650b2e"
     ],
+    "sample-rug": [
+      "7a43702e46152b46"
+    ],
     "scaling-law": [
       "653ce9637e303a41",
       "f5ca182539d043e4"
@@ -1171,6 +1237,8 @@
     "scatter": [
       "227c2b8a31a21253",
       "387e55d62c99c422",
+      "6606ccf3be95bbd2",
+      "7ac8148810f9b9c2",
       "b68a45ad947f3509",
       "daaa5c61d74703b8",
       "e088eda258e1bd3a"
@@ -1193,6 +1261,9 @@
     "scatter_marginal_regression": [
       "b68a45ad947f3509"
     ],
+    "scatter_regression": [
+      "6606ccf3be95bbd2"
+    ],
     "scatterregressionraincloud": [
       "55abd06fbf4dcbb9",
       "a2d89d3b3e97ec59"
@@ -1212,12 +1283,18 @@
     "sequential-blue": [
       "0de2014d0cf60d22"
     ],
+    "significance-annotations": [
+      "7ac8148810f9b9c2"
+    ],
     "significance-brackets": [
       "0de2014d0cf60d22",
       "55abd06fbf4dcbb9",
       "5c8ff3b28ea11b6e",
       "7fee7c75142949e5",
       "a2d89d3b3e97ec59"
+    ],
+    "significance-stars": [
+      "59c6c64979eaffe6"
     ],
     "single-panel": [
       "0de2014d0cf60d22"
@@ -1352,6 +1429,13 @@
     "statistical-annotation": [
       "1c6e9e67bade247d"
     ],
+    "statistical-discovery": [
+      "59c6c64979eaffe6",
+      "6606ccf3be95bbd2",
+      "6b6c904d9ac07c20",
+      "7a43702e46152b46",
+      "7ac8148810f9b9c2"
+    ],
     "summary-callout": [
       "7b7b02d82ccc7207"
     ],
@@ -1392,6 +1476,9 @@
     ],
     "three-series": [
       "7b7b02d82ccc7207"
+    ],
+    "threshold-lines": [
+      "6b6c904d9ac07c20"
     ],
     "time-series": [
       "66fe0f27f4469754",
@@ -1454,6 +1541,10 @@
       "55abd06fbf4dcbb9",
       "7f5b0663c1e25be3",
       "a2d89d3b3e97ec59"
+    ],
+    "volcano": [
+      "6b6c904d9ac07c20",
+      "6b6c904d9ac07c20"
     ],
     "wechat": [
       "255c32ef8bf65d53",

@@ -1,26 +1,26 @@
 {
   "aliases": {
-    "current": "hybrid-deterministic-9aa8024c8294"
+    "current": "hybrid-deterministic-f0ba1254cc14"
   },
   "index_type": "semantic",
-  "model_version": "hybrid-deterministic-9aa8024c8294",
+  "model_version": "hybrid-deterministic-f0ba1254cc14",
   "provenance": {
-    "built_at": "2026-08-23T16:43:11.497960+00:00",
-    "corpus_sha256": "9aa8024c8294992dc722230ec8e787ff401ab68ae6c124d4460e8b174d109d2d",
+    "built_at": "2026-08-24T03:13:31.030581+00:00",
+    "corpus_sha256": "f0ba1254cc146b72da5d0a137dd8caec0f549300017e00aed7c888d097aece24",
     "embedding_model": "deterministic-semantic-structure-style",
-    "index_version": "hybrid-deterministic-9aa8024c8294",
+    "index_version": "hybrid-deterministic-f0ba1254cc14",
     "optional_backends": {
       "semantic": "siglip2",
       "visual_structure": "dinov2_or_dinov3"
     },
-    "record_count": 147,
+    "record_count": 152,
     "schema_version": "1.0",
-    "semantic_model_version": "semantic-deterministic-9aa8024c8294"
+    "semantic_model_version": "semantic-deterministic-f0ba1254cc14"
   },
-  "record_count": 147,
+  "record_count": 152,
   "records": {
     "006c1b3915544c07": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.121399,
         0.194763,
@@ -29,7 +29,7 @@
       ]
     },
     "0087399b5105ff42": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.013017,
@@ -38,7 +38,7 @@
       ]
     },
     "017beb996ea9fd8c": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.610947,
         0.151106,
@@ -47,7 +47,7 @@
       ]
     },
     "01bafd03ff174176": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.162124,
@@ -56,7 +56,7 @@
       ]
     },
     "039470ddb18c09ae": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.365569,
         0.624597,
@@ -65,7 +65,7 @@
       ]
     },
     "0460f09210bc23c2": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -74,7 +74,7 @@
       ]
     },
     "04c2f6ab2bedf8e6": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -83,7 +83,7 @@
       ]
     },
     "050e4b8075e0b6c8": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.207963,
@@ -92,7 +92,7 @@
       ]
     },
     "0789bc5bea8a1131": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.962567,
         0.262786,
@@ -101,7 +101,7 @@
       ]
     },
     "0929cd38b228b2df": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.09762,
@@ -110,7 +110,7 @@
       ]
     },
     "0c35bb8a1fb21d5e": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -119,7 +119,7 @@
       ]
     },
     "0c768f24b9178014": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.196434,
@@ -128,7 +128,7 @@
       ]
     },
     "0c9a72a5118651b4": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.076698,
@@ -137,7 +137,7 @@
       ]
     },
     "0de2014d0cf60d22": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.376276,
         0.160343,
@@ -146,7 +146,7 @@
       ]
     },
     "131654637e894c12": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -155,7 +155,7 @@
       ]
     },
     "134b0fcb07dbab1b": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -164,7 +164,7 @@
       ]
     },
     "137841e62d5eaa48": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -173,7 +173,7 @@
       ]
     },
     "14487fd036228090": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.417969,
         0.011181,
@@ -182,7 +182,7 @@
       ]
     },
     "14c360a8f274c9e0": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.421215,
@@ -191,7 +191,7 @@
       ]
     },
     "18a52f7a910fe9c9": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -200,7 +200,7 @@
       ]
     },
     "1951a04d41fbdc82": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.365569,
         0.299301,
@@ -209,7 +209,7 @@
       ]
     },
     "1bbfbc38a3f246e4": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -218,7 +218,7 @@
       ]
     },
     "1c6e9e67bade247d": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.941898,
         0.149215,
@@ -227,7 +227,7 @@
       ]
     },
     "227c2b8a31a21253": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.846024,
         0.153731,
@@ -236,7 +236,7 @@
       ]
     },
     "22f32e9bd10b34ee": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.105991,
         0.195624,
@@ -245,7 +245,7 @@
       ]
     },
     "245ad31f97b20546": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -254,7 +254,7 @@
       ]
     },
     "2528309a41ba6eda": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -263,7 +263,7 @@
       ]
     },
     "255c32ef8bf65d53": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -272,7 +272,7 @@
       ]
     },
     "25d6fc50f5808104": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -281,7 +281,7 @@
       ]
     },
     "2728b083dfaa29b9": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.366631,
         0.305536,
@@ -290,7 +290,7 @@
       ]
     },
     "2768b1a5ef0c501d": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -299,7 +299,7 @@
       ]
     },
     "2932af23fa869f4e": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.331126,
@@ -308,7 +308,7 @@
       ]
     },
     "2ad2be6fa9c9165e": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -317,7 +317,7 @@
       ]
     },
     "2d3ddf56ae63b34e": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -326,7 +326,7 @@
       ]
     },
     "2e0706fae3256e1d": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -335,7 +335,7 @@
       ]
     },
     "302b8f53795653bf": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -344,7 +344,7 @@
       ]
     },
     "3373085ababf0748": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -353,7 +353,7 @@
       ]
     },
     "33db3d53a233846b": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.018635,
@@ -362,7 +362,7 @@
       ]
     },
     "350c25e427d945de": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -371,7 +371,7 @@
       ]
     },
     "3554b9af671886df": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -380,7 +380,7 @@
       ]
     },
     "387e55d62c99c422": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.981662,
         0.152846,
@@ -389,7 +389,7 @@
       ]
     },
     "38a9c4e8fd691cbd": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -398,7 +398,7 @@
       ]
     },
     "38f95dbf30eb6731": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         2.777665,
         0.326857,
@@ -407,7 +407,7 @@
       ]
     },
     "3b94fea2e7f95f8f": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -416,7 +416,7 @@
       ]
     },
     "40dd7c7c14c45b45": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -425,7 +425,7 @@
       ]
     },
     "43fe44adf197b97c": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         2.1875,
         0.213954,
@@ -434,7 +434,7 @@
       ]
     },
     "44d7a697ee30c4ac": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -443,7 +443,7 @@
       ]
     },
     "45aa6ecccf398b71": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.693624,
         0.066835,
@@ -452,7 +452,7 @@
       ]
     },
     "46c9e05df9d7c941": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -461,7 +461,7 @@
       ]
     },
     "4909e3dcba5b633c": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.553637,
         0.242602,
@@ -470,7 +470,7 @@
       ]
     },
     "4a0e3040bbdbfe5e": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -479,7 +479,7 @@
       ]
     },
     "4c23827efb6772dd": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.366631,
         0.300373,
@@ -488,7 +488,7 @@
       ]
     },
     "4cf8539d0521b726": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -497,7 +497,7 @@
       ]
     },
     "4d213749151b32cb": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.214848,
         0.14009,
@@ -506,7 +506,7 @@
       ]
     },
     "4d2c99dd4a107724": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -515,7 +515,7 @@
       ]
     },
     "4db30b32b65e6b71": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -524,7 +524,7 @@
       ]
     },
     "4f49efc5caa16375": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.366631,
         0.193037,
@@ -533,7 +533,7 @@
       ]
     },
     "4f7b7b4b01a1b498": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -542,7 +542,7 @@
       ]
     },
     "51a173abeafd0125": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -551,7 +551,7 @@
       ]
     },
     "55abd06fbf4dcbb9": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -560,7 +560,7 @@
       ]
     },
     "55cb7dd1690cd0e8": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.366631,
         0.29454,
@@ -569,7 +569,7 @@
       ]
     },
     "55d8c952b3e9d4c0": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.422522,
@@ -578,7 +578,7 @@
       ]
     },
     "59846b700abcf89c": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -586,8 +586,17 @@
         4.5
       ]
     },
+    "59c6c64979eaffe6": {
+      "model_version": "semantic-deterministic-f0ba1254cc14",
+      "vector": [
+        1.55658,
+        0.201709,
+        0.798291,
+        0.0
+      ]
+    },
     "5c8ff3b28ea11b6e": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.308373,
         0.119445,
@@ -596,7 +605,7 @@
       ]
     },
     "5d169138e229097f": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.693624,
         0.374093,
@@ -605,7 +614,7 @@
       ]
     },
     "5da6979582203956": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -614,7 +623,7 @@
       ]
     },
     "5f56377676b03836": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.493776,
         0.19764,
@@ -623,7 +632,7 @@
       ]
     },
     "60358c36e16732bf": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         2.048841,
         0.130475,
@@ -632,7 +641,7 @@
       ]
     },
     "60c6e271c65d00b5": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.076404,
@@ -641,7 +650,7 @@
       ]
     },
     "61493276c48d90f0": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -650,7 +659,7 @@
       ]
     },
     "650b40786cbcf05f": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.333688,
         0.180025,
@@ -659,7 +668,7 @@
       ]
     },
     "653ce9637e303a41": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.041581,
         0.130859,
@@ -667,8 +676,17 @@
         4.5
       ]
     },
+    "6606ccf3be95bbd2": {
+      "model_version": "semantic-deterministic-f0ba1254cc14",
+      "vector": [
+        1.2,
+        0.233363,
+        0.766637,
+        0.0
+      ]
+    },
     "668bc98b544d54d5": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.096579,
         0.267665,
@@ -677,7 +695,7 @@
       ]
     },
     "66fe0f27f4469754": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -686,7 +704,7 @@
       ]
     },
     "68e244fb949f46ad": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.365569,
         0.289415,
@@ -695,7 +713,7 @@
       ]
     },
     "69782084ad8f59e4": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         2.201835,
         0.271367,
@@ -704,7 +722,7 @@
       ]
     },
     "6a3e2a00f9c820f6": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.333688,
         0.561022,
@@ -712,8 +730,17 @@
         0.0
       ]
     },
+    "6b6c904d9ac07c20": {
+      "model_version": "semantic-deterministic-f0ba1254cc14",
+      "vector": [
+        1.397306,
+        0.047695,
+        0.952305,
+        0.0
+      ]
+    },
     "6e0b081c34e20430": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.410035,
         0.152014,
@@ -722,7 +749,7 @@
       ]
     },
     "71133ed59cc16f8c": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -731,7 +758,7 @@
       ]
     },
     "76866da267962098": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.466007,
         0.387022,
@@ -740,7 +767,7 @@
       ]
     },
     "789156ffca30bef6": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         3.198802,
         0.18341,
@@ -748,8 +775,26 @@
         4.0
       ]
     },
+    "7a43702e46152b46": {
+      "model_version": "semantic-deterministic-f0ba1254cc14",
+      "vector": [
+        0.99376,
+        0.278428,
+        0.721572,
+        0.0
+      ]
+    },
+    "7ac8148810f9b9c2": {
+      "model_version": "semantic-deterministic-f0ba1254cc14",
+      "vector": [
+        1.170831,
+        0.068461,
+        0.931539,
+        0.0
+      ]
+    },
     "7b7b02d82ccc7207": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.380658,
         0.267652,
@@ -758,7 +803,7 @@
       ]
     },
     "7ddf31ce2228813a": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.390306,
         0.50724,
@@ -767,7 +812,7 @@
       ]
     },
     "7e2a22eeb372a7a0": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.693624,
         0.037564,
@@ -776,7 +821,7 @@
       ]
     },
     "7f5b0663c1e25be3": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.904523,
         0.138375,
@@ -785,7 +830,7 @@
       ]
     },
     "7fee7c75142949e5": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -794,7 +839,7 @@
       ]
     },
     "83e55ca23d8aa2fa": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -803,7 +848,7 @@
       ]
     },
     "854fe931bde6ca6c": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -812,7 +857,7 @@
       ]
     },
     "8c7c60af478ae5d0": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -821,7 +866,7 @@
       ]
     },
     "8f50b79d3ba025af": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.696734,
         0.18786,
@@ -830,7 +875,7 @@
       ]
     },
     "8fbf151c1f63de42": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -839,7 +884,7 @@
       ]
     },
     "90081b3f778b9ede": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -848,7 +893,7 @@
       ]
     },
     "90d44d1709c8bcad": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.282435,
         0.605845,
@@ -857,7 +902,7 @@
       ]
     },
     "91b214f745a99f1f": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -866,7 +911,7 @@
       ]
     },
     "96075eb70285f4f7": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -875,7 +920,7 @@
       ]
     },
     "977970a3c5ff8ad9": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -884,7 +929,7 @@
       ]
     },
     "984475212a83b640": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.366631,
         0.118345,
@@ -893,7 +938,7 @@
       ]
     },
     "9991f9ad1973eac2": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.23918,
         0.253908,
@@ -902,7 +947,7 @@
       ]
     },
     "999edb06b942f988": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -911,7 +956,7 @@
       ]
     },
     "9a8189149180a686": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -920,7 +965,7 @@
       ]
     },
     "9f02fa4603dae748": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -929,7 +974,7 @@
       ]
     },
     "a1fe533d07dae36d": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -938,7 +983,7 @@
       ]
     },
     "a2d89d3b3e97ec59": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         2.173171,
         0.132604,
@@ -947,7 +992,7 @@
       ]
     },
     "a6d35e1b68a1bfe8": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.122554,
         0.127857,
@@ -956,7 +1001,7 @@
       ]
     },
     "a6f2e75e7d836175": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -965,7 +1010,7 @@
       ]
     },
     "a7a3dfa02b650b2e": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.975924,
         0.134978,
@@ -974,7 +1019,7 @@
       ]
     },
     "abb63055b0d49edb": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -983,7 +1028,7 @@
       ]
     },
     "ac5e1cef8d16e9ce": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.1322,
@@ -992,7 +1037,7 @@
       ]
     },
     "b0947af37e8c5ffc": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.365569,
         0.727685,
@@ -1001,7 +1046,7 @@
       ]
     },
     "b1a15c9fca75c316": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.027358,
         0.329633,
@@ -1010,7 +1055,7 @@
       ]
     },
     "b3c62bc6c4258378": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.365569,
         0.298393,
@@ -1019,7 +1064,7 @@
       ]
     },
     "b6639239da2fa9f2": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -1028,7 +1073,7 @@
       ]
     },
     "b68a45ad947f3509": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.085973,
         0.203655,
@@ -1037,7 +1082,7 @@
       ]
     },
     "baa6064b1812ccc7": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.065818,
@@ -1046,7 +1091,7 @@
       ]
     },
     "bbc8c0b8708d4246": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -1055,7 +1100,7 @@
       ]
     },
     "bc2cc547f15430bc": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -1064,7 +1109,7 @@
       ]
     },
     "c2590ba1ecac5e1d": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -1073,7 +1118,7 @@
       ]
     },
     "c3c538a466aef22e": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.340064,
         0.048383,
@@ -1082,7 +1127,7 @@
       ]
     },
     "c420d057ffad6041": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.124871,
         0.137298,
@@ -1091,7 +1136,7 @@
       ]
     },
     "c4e05bb68a08caf3": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.294988,
@@ -1100,7 +1145,7 @@
       ]
     },
     "c5792016a54e2baa": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.31855,
@@ -1109,7 +1154,7 @@
       ]
     },
     "c8e5d2a76d98c008": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.162487,
@@ -1118,7 +1163,7 @@
       ]
     },
     "cd1fec84f615a43d": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -1127,7 +1172,7 @@
       ]
     },
     "cd384abe10aa86bd": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -1136,7 +1181,7 @@
       ]
     },
     "cd60f96af964c870": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.167024,
         0.268888,
@@ -1145,7 +1190,7 @@
       ]
     },
     "d01fd400ce53d20e": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.072794,
@@ -1154,7 +1199,7 @@
       ]
     },
     "d369f5654b6d5ae0": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.696734,
         0.074061,
@@ -1163,7 +1208,7 @@
       ]
     },
     "d6613715d9d4564f": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -1172,7 +1217,7 @@
       ]
     },
     "d7147990bd79a4d1": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.387593,
@@ -1181,7 +1226,7 @@
       ]
     },
     "d79527fec611432d": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.076568,
@@ -1190,7 +1235,7 @@
       ]
     },
     "da81ff330b16403c": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.155588,
@@ -1199,7 +1244,7 @@
       ]
     },
     "daaa5c61d74703b8": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -1208,7 +1253,7 @@
       ]
     },
     "dc61a5257eae4748": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -1217,7 +1262,7 @@
       ]
     },
     "dcdd74bc2feb98d9": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.366283,
         0.230086,
@@ -1226,7 +1271,7 @@
       ]
     },
     "e088eda258e1bd3a": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -1235,7 +1280,7 @@
       ]
     },
     "e52120014b49abe8": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -1244,7 +1289,7 @@
       ]
     },
     "e7fa7d98cd4f5263": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -1253,7 +1298,7 @@
       ]
     },
     "e805fb0f7ccdf8aa": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -1262,7 +1307,7 @@
       ]
     },
     "ed3e9f652126a1d1": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.696734,
         0.186282,
@@ -1271,7 +1316,7 @@
       ]
     },
     "ed6bbae45d17df9c": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -1280,7 +1325,7 @@
       ]
     },
     "f1f564e0c7221f24": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         0.0,
         0.0,
@@ -1289,7 +1334,7 @@
       ]
     },
     "f2017fa1dc5bc795": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.360406,
@@ -1298,7 +1343,7 @@
       ]
     },
     "f32ad9b16aaba213": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.20447,
@@ -1307,7 +1352,7 @@
       ]
     },
     "f406d7202f0bb30c": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.695179,
         0.2497,
@@ -1316,7 +1361,7 @@
       ]
     },
     "f5ca182539d043e4": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.985153,
         0.107549,
@@ -1325,7 +1370,7 @@
       ]
     },
     "f68c31da6f34836c": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.365569,
         0.067809,
@@ -1334,7 +1379,7 @@
       ]
     },
     "f70aada5f671778b": {
-      "model_version": "semantic-deterministic-9aa8024c8294",
+      "model_version": "semantic-deterministic-f0ba1254cc14",
       "vector": [
         1.693624,
         0.193523,

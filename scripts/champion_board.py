@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Build and validate the Figure Family Champion Board.
 
-The board is a small, human-maintained evidence ledger.  This command joins it
-with the current reference registry, generation-regression corpus, and pairwise
-preference records to report where visual quality is actually supported.  An
-unseeded family is reported as ``needs_evidence``; it is not silently promoted
+The board is a small evidence ledger. This command joins it with the current
+reference registry, generation-regression corpus, pairwise preference records, and
+blind-judge calibration evidence to report where visual quality is actually supported.
+An unseeded family is reported as ``needs_evidence``; it is not silently promoted
 from a high metadata score.
 """
 
@@ -27,7 +27,24 @@ except ImportError:  # pragma: no cover - package import fallback
 
 BOARD_PATH = Path("assets/reference-benchmarks/champion_board.json")
 CORPUS_PATH = Path("assets/reference-benchmarks/generation_regression_corpus.json")
+REAL_TASK_PATH = Path("assets/reference-benchmarks/real_generation_tasks.json")
 PREFERENCE_PATH = Path("assets/reference-benchmarks/preference_pairs.jsonl")
+REASON_CODES = {
+    "layout",
+    "hierarchy",
+    "spacing",
+    "typography",
+    "palette",
+    "annotation",
+    "data_clarity",
+    "overall_polish",
+}
+REASON_ALIASES = {
+    "whitespace": "spacing",
+    "professional_finish": "overall_polish",
+    "palette_discipline": "palette",
+    "annotation_clearance": "annotation",
+}
 
 
 def _norm(value: Any) -> str:
@@ -133,6 +150,25 @@ def _family_tasks(corpus: dict[str, Any], family_id: str, figure_types: list[str
     return tasks
 
 
+def _generation_tasks(root: Path, corpus: dict[str, Any]) -> list[dict[str, Any]]:
+    """Join the fixed regression identities with executed real-paper tasks.
+
+    The regression corpus remains the release gate.  The real-paper manifest is
+    separate evidence for the frozen visual sprint and is only joined here so the
+    Champion Board reports actual task coverage instead of counting placeholders.
+    """
+    tasks = list(corpus.get("tasks", []))
+    manifest_path = root / REAL_TASK_PATH
+    if not manifest_path.is_file():
+        return tasks
+    payload = json.loads(manifest_path.read_text(encoding="utf-8"))
+    existing = {str(task.get("id")) for task in tasks}
+    for task in payload.get("tasks", []):
+        if str(task.get("id")) not in existing:
+            tasks.append(task)
+    return tasks
+
+
 def _preference_ids(row: dict[str, Any]) -> tuple[str, str]:
     preferred = str(row.get("preferred") or row.get("winner") or "")
     rejected = str(row.get("rejected") or "")
@@ -142,6 +178,11 @@ def _preference_ids(row: dict[str, Any]) -> tuple[str, str]:
     return preferred, rejected
 
 
+def _reason_codes(row: dict[str, Any]) -> list[str]:
+    values = row.get("reason_codes") or row.get("reasons") or []
+    return [REASON_ALIASES.get(str(value).strip(), str(value).strip()) for value in values if str(value).strip()]
+
+
 def _validate_board(board: dict[str, Any]) -> list[str]:
     failures: list[str] = []
     if board.get("schema_version") != "1.0":
@@ -149,12 +190,49 @@ def _validate_board(board: dict[str, Any]) -> list[str]:
     policy = board.get("policy") or {}
     if int(policy.get("target_task_min", 0)) != 5 or int(policy.get("target_task_max", 0)) != 20:
         failures.append("champion board target task range must be 5..20")
+    focus = board.get("focus")
+    if not isinstance(focus, dict):
+        failures.append("champion board focus must be an object")
+    else:
+        active = focus.get("active_families")
+        if not isinstance(active, list) or len(active) != 5 or len(set(active)) != 5:
+            failures.append("champion board focus must declare exactly five unique families")
+        if int(focus.get("task_target", 0)) != 5:
+            failures.append("champion board focus task_target must be 5")
+        if int(focus.get("max_candidates", 0)) != 3:
+            failures.append("champion board focus max_candidates must be 3")
+        if int(focus.get("max_repairs", 0)) != 1:
+            failures.append("champion board focus max_repairs must be 1")
+        if int(focus.get("max_judge_rounds", 0)) != 2:
+            failures.append("champion board focus max_judge_rounds must be 2")
+        if set(focus.get("reason_codes", [])) != REASON_CODES:
+            failures.append("champion board focus reason_codes must be the canonical eight codes")
+        ready_rule = focus.get("ready_rule")
+        expected_rule = {
+            "generation_tasks": 5,
+            "preference_pairs": 5,
+            "auto_pairwise_count": 10,
+            "judge_order_consistency": 0.9,
+            "degradation_detection_rate": 0.9,
+            "challenger_win_rate": 0.6,
+            "scientific_pass": True,
+            "L0": True,
+            "L1": True,
+            "champion": True,
+            "auto_ready": True,
+        }
+        if ready_rule != expected_rule:
+            failures.append("champion board focus ready_rule does not match the evidence policy")
     families = board.get("families")
     if not isinstance(families, dict):
         return failures + ["champion board families must be an object"]
     missing = sorted(set(FIGURE_FAMILIES) - set(families))
     if missing:
         failures.append("board missing figure families: " + ", ".join(missing))
+    active = set((board.get("focus") or {}).get("active_families", []))
+    unknown_focus = sorted(active - set(families))
+    if unknown_focus:
+        failures.append("focus family is not present in board: " + ", ".join(unknown_focus))
     for family_id, row in families.items():
         if not isinstance(row, dict):
             failures.append(f"{family_id}: board row must be an object")
@@ -171,13 +249,14 @@ def build_report(root: Path, board: dict[str, Any]) -> dict[str, Any]:
     records = _registry(root)
     corpus_path = root / CORPUS_PATH
     corpus = json.loads(corpus_path.read_text(encoding="utf-8")) if corpus_path.is_file() else {"tasks": []}
+    generation_tasks = _generation_tasks(root, corpus)
     preferences = _read_jsonl(root / PREFERENCE_PATH)
     preference_families = {family: [row for row in preferences if _norm(row.get("figure_family")) == _norm(family)] for family in FIGURE_FAMILIES}
     assigned_preference_count = sum(len(rows) for rows in preference_families.values())
     rows: list[dict[str, Any]] = []
     for family_id, spec in FIGURE_FAMILIES.items():
         family_records = _family_records(records, list(spec["figure_types"]))
-        tasks = _family_tasks(corpus, family_id, list(spec["figure_types"]))
+        tasks = _family_tasks({"tasks": generation_tasks}, family_id, list(spec["figure_types"]))
         ratings = [float(record["aesthetic_rating"]) / 5.0 for record in family_records if isinstance(record.get("aesthetic_rating"), (int, float))]
         review_pass_rate = mean([1.0 if _review_pass(record) else 0.0 for record in family_records]) if family_records else 0.0
         quality = round(mean([mean(ratings), review_pass_rate]) if ratings else review_pass_rate, 4)
@@ -207,11 +286,40 @@ def build_report(root: Path, board: dict[str, Any]) -> dict[str, Any]:
         grammar = _grammar_presence(family_records)
         gaps = [name for name in ("annotation_grammar", "multi_panel_topology", "dense", "sparse", "journal_profile", "palette_roles", "direct_label_or_legendless", "asymmetric_hero", "mixed_image_quantitative") if grammar.get(name, 0) == 0]
         evidence = board_row.get("evidence") or {}
+        focus = board.get("focus", {})
+        active_families = set(focus.get("active_families", []))
+        is_focus = family_id in active_families
+        ready_rule = focus.get("ready_rule", {}) if is_focus else {}
         readiness = board_row.get("status")
-        if readiness == "ready" and (len(tasks) < 5 or not board_row.get("champion") or evidence.get("scientific_pass") is not True):
+        if is_focus:
+            candidate_contract_pass = all(
+                isinstance(row.get("candidate_ids"), list)
+                and len(row.get("candidate_ids", [])) == int(focus.get("max_candidates", 3))
+                for row in preference_rows
+            )
+            evidence_pass = (
+                float(evidence.get("auto_pairwise_count", 0)) >= int(ready_rule.get("auto_pairwise_count", 10))
+                and float(evidence.get("judge_order_consistency", 0.0)) >= float(ready_rule.get("judge_order_consistency", 0.9))
+                and float(evidence.get("degradation_detection_rate", 0.0)) >= float(ready_rule.get("degradation_detection_rate", 0.9))
+                and float(evidence.get("challenger_win_rate", 0.0)) >= float(ready_rule.get("challenger_win_rate", 0.6))
+            )
+            ready = (
+                len(tasks) >= int(ready_rule.get("generation_tasks", 5))
+                and len(preference_rows) >= int(ready_rule.get("preference_pairs", 5))
+                and candidate_contract_pass
+                and evidence_pass
+                and (not ready_rule.get("scientific_pass") or evidence.get("scientific_pass") is True)
+                and (not ready_rule.get("L0") or evidence.get("L0") is True)
+                and (not ready_rule.get("L1") or evidence.get("L1") is True)
+                and (not ready_rule.get("champion") or bool(board_row.get("champion")))
+                and (not ready_rule.get("auto_ready") or evidence.get("auto_ready") is True)
+            )
+            readiness = "ready" if ready else "needs_evidence"
+        elif readiness == "ready" and (len(tasks) < 5 or not board_row.get("champion") or evidence.get("scientific_pass") is not True):
             readiness = "needs_evidence"
         rows.append({
             "id": family_id,
+            "focus": is_focus,
             "figure_types": list(spec["figure_types"]),
             "reference_count": len(family_records),
             "task_count": len(tasks),
@@ -229,13 +337,23 @@ def build_report(root: Path, board: dict[str, Any]) -> dict[str, Any]:
             "last_release": board_row.get("last_release"),
             "human_preference_win_rate": round(win_rate, 4) if win_rate is not None else None,
             "preference_pair_count": len(preference_rows),
-            "reason_codes": sorted({code for row in preference_rows for code in (row.get("reason_codes") or row.get("reasons") or [])}),
+            "candidate_contract_pass": all(
+                isinstance(row.get("candidate_ids"), list)
+                and len(row.get("candidate_ids", [])) == int(focus.get("max_candidates", 3))
+                for row in preference_rows
+            ) if is_focus else None,
+            "reason_codes": sorted({code for row in preference_rows for code in _reason_codes(row)}),
             "scientific_pass": evidence.get("scientific_pass"),
             "L0": evidence.get("L0"),
             "L1": evidence.get("L1"),
             "L2": evidence.get("L2"),
             "L3": evidence.get("L3"),
             "repair_iterations": evidence.get("repair_iterations"),
+            "auto_pairwise_count": evidence.get("auto_pairwise_count"),
+            "judge_order_consistency": evidence.get("judge_order_consistency"),
+            "degradation_detection_rate": evidence.get("degradation_detection_rate"),
+            "challenger_win_rate": evidence.get("challenger_win_rate"),
+            "auto_ready": evidence.get("auto_ready"),
             "status": readiness,
         })
     scores = [row["coverage_quality_diversity"] for row in rows]
@@ -246,11 +364,13 @@ def build_report(root: Path, board: dict[str, Any]) -> dict[str, Any]:
         "summary": {
             "family_count": len(rows),
             "ready_family_count": sum(row["status"] == "ready" for row in rows),
+            "focus_family_count": len(board.get("focus", {}).get("active_families", [])),
+            "focus_ready_family_count": sum(row["status"] == "ready" for row in rows if row["focus"]),
             "mean_coverage_quality_diversity": round(mean(scores), 4) if scores else 0.0,
             "min_coverage_quality_diversity": round(min(scores), 4) if scores else 0.0,
             "preference_pair_count": len(preferences),
             "unassigned_preference_pair_count": len(preferences) - assigned_preference_count,
-            "generation_task_count": len(corpus.get("tasks", [])),
+            "generation_task_count": len(generation_tasks),
         },
         "families": rows,
     }
@@ -273,6 +393,15 @@ def main() -> int:
             failures.append("preference row must contain distinct preferred and rejected ids")
         if not reasons:
             failures.append("preference row must contain at least one reason code")
+        unknown_reasons = sorted({str(value) for value in reasons if REASON_ALIASES.get(str(value), str(value)) not in REASON_CODES})
+        if unknown_reasons:
+            failures.append("preference row uses unsupported reason codes: " + ", ".join(unknown_reasons))
+        candidate_ids = row.get("candidate_ids")
+        if candidate_ids is not None:
+            if not isinstance(candidate_ids, list) or len(candidate_ids) != 3:
+                failures.append("preference row candidate_ids must contain exactly three candidates when present")
+            elif str(row.get("left_id")) not in candidate_ids or str(row.get("right_id")) not in candidate_ids:
+                failures.append("preference row candidate_ids must include left_id and right_id")
     report = build_report(root, board)
     report["failures"] = failures
     report["passed"] = not failures

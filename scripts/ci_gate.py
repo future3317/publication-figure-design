@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import json
 import os
 import subprocess
 import sys
@@ -13,6 +14,21 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PYTHON = sys.executable
 ENV = {**os.environ, "PYTHONPATH": str(ROOT / "src") + os.pathsep + str(ROOT / "scripts")}
+
+
+def run_visual_regression_gate() -> None:
+    """Run the real sprint when the private paper corpus is available."""
+    manifest = ROOT / "assets" / "reference-benchmarks" / "real_generation_tasks.json"
+    report = ROOT / "tmp" / "visual_sprint" / "sprint_report.json"
+    sources_available = False
+    if manifest.is_file():
+        payload = json.loads(manifest.read_text(encoding="utf-8"))
+        sources_available = all(Path(str(row.get("source_image", ""))).is_file() for row in payload.get("tasks", []))
+    if sources_available:
+        run_step("visual sprint render", ["scripts/run_visual_sprint.py"])
+        run_step("visual regression", ["scripts/visual_regression.py", "--current-report", str(report)])
+    else:
+        run_step("visual regression contract", ["scripts/visual_regression.py", "--contract-only"])
 
 
 def run_step(name: str, args: list[str]) -> None:
@@ -38,6 +54,7 @@ def main() -> int:
     run_step("adversarial retrieval", ["scripts/adversarial_retrieval.py"])
     run_step("scale benchmark", ["scripts/scale_benchmark.py"])
     run_step("generation corpus", ["scripts/evaluate_generation_regression.py", "--contract-only", "--enforce"])
+    run_visual_regression_gate()
     run_step("champion floors", ["scripts/check_champion_floors.py"])
     run_step("champion board", ["scripts/champion_board.py", "--enforce", "--summary"])
     run_step("quarantine", ["scripts/check_reference_quarantine.py"])

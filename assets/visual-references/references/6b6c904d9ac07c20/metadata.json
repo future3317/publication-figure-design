@@ -1,0 +1,70 @@
+{
+  "aesthetic_rating": null,
+  "aliases": [],
+  "allowed_usage": [
+    "private_reference"
+  ],
+  "analysis_quality": "unassessed",
+  "author": null,
+  "code_path": null,
+  "colorspace": "sRGB_assumed",
+  "created_at": "2026-08-24T03:10:57Z",
+  "data_density": "very-dense",
+  "dimensions": [
+    1245,
+    891
+  ],
+  "eligible_for_code_reuse": false,
+  "eligible_for_reconstruction": false,
+  "eligible_for_structure": false,
+  "eligible_for_style": false,
+  "figure_card_path": "assets/visual-references/references/6b6c904d9ac07c20/figure_card.json",
+  "figure_type": "volcano",
+  "has_alpha": true,
+  "id": "6b6c904d9ac07c20",
+  "image_path": "assets/visual-references/references/6b6c904d9ac07c20/image.png",
+  "journal_style": "Nature-like",
+  "layout": "1x1",
+  "license": "unknown; internal reference only",
+  "lifecycle_state": "analyzed",
+  "n_groups": null,
+  "notes": "Observed reference: full tested population in muted gray, semantic up/down accents, horizontal adjusted-p threshold, vertical fold-change thresholds, sparse top-hit labels, and external legend. Scientific content is reference-only; inspect pixels before adaptation.",
+  "original_quality": "unassessed",
+  "palette": null,
+  "palette_policy": "preserve",
+  "perceptual_hash": "a1cc7b7d8c318c29",
+  "preview_path": "assets/visual-references/references/6b6c904d9ac07c20/preview.png",
+  "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "reason": "reference_dna_built",
+        "state": "analyzed"
+      }
+    ],
+    "state": "analyzed"
+  },
+  "reconstruction_fidelity": "unassessed",
+  "reference_dna_path": "assets/visual-references/references/6b6c904d9ac07c20/reference_dna.json",
+  "reference_kind": "exact_visual_source",
+  "reproduction_preview_path": null,
+  "review_status": "pending",
+  "scope": "references",
+  "sha256": "6b6c904d9ac07c20f90fe3bf68429c231032bfe150ae28f254ce3c0a422102fd",
+  "source": "project production pattern reference; provenance not established",
+  "source_url": null,
+  "subtype": "differential-expression-threshold",
+  "tags": [
+    "volcano",
+    "threshold-lines",
+    "multiple-testing",
+    "effect-size",
+    "gene-labels",
+    "statistical-discovery"
+  ],
+  "thumbnail_path": "assets/visual-references/references/6b6c904d9ac07c20/thumbnail.png",
+  "usage_scope": "internal_reference",
+  "venue": null,
+  "visual_grammar": null,
+  "year": null
+}

@@ -1,0 +1,70 @@
+{
+  "aesthetic_rating": null,
+  "aliases": [],
+  "allowed_usage": [
+    "private_reference"
+  ],
+  "analysis_quality": "unassessed",
+  "author": null,
+  "code_path": null,
+  "colorspace": "sRGB_assumed",
+  "created_at": "2026-08-24T03:10:57Z",
+  "data_density": "dense",
+  "dimensions": [
+    1911,
+    1923
+  ],
+  "eligible_for_code_reuse": false,
+  "eligible_for_reconstruction": false,
+  "eligible_for_structure": false,
+  "eligible_for_style": false,
+  "figure_card_path": "assets/visual-references/references/7a43702e46152b46/figure_card.json",
+  "figure_type": "ridge",
+  "has_alpha": false,
+  "id": "7a43702e46152b46",
+  "image_path": "assets/visual-references/references/7a43702e46152b46/image.png",
+  "journal_style": "Nature-like",
+  "layout": "vertical-stack",
+  "license": "unknown; internal reference only",
+  "lifecycle_state": "analyzed",
+  "n_groups": null,
+  "notes": "Observed reference: vertically stacked filled ridgelines with shared horizontal scale, per-row sample-size labels, dashed baselines and side title strip. Scientific content is reference-only; inspect pixels before adaptation.",
+  "original_quality": "unassessed",
+  "palette": null,
+  "palette_policy": "preserve",
+  "perceptual_hash": "ed36b269706868b7",
+  "preview_path": "assets/visual-references/references/7a43702e46152b46/preview.png",
+  "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "reason": "reference_dna_built",
+        "state": "analyzed"
+      }
+    ],
+    "state": "analyzed"
+  },
+  "reconstruction_fidelity": "unassessed",
+  "reference_dna_path": "assets/visual-references/references/7a43702e46152b46/reference_dna.json",
+  "reference_kind": "exact_visual_source",
+  "reproduction_preview_path": null,
+  "review_status": "pending",
+  "scope": "references",
+  "sha256": "7a43702e46152b46913d829f8890df5b403bb0184c953645c90cdc6c65c87ac0",
+  "source": "project figure atlas; provenance not established",
+  "source_url": null,
+  "subtype": "ridgeline_distribution",
+  "tags": [
+    "ridge",
+    "distribution",
+    "density",
+    "sample-rug",
+    "direct-label",
+    "statistical-discovery"
+  ],
+  "thumbnail_path": "assets/visual-references/references/7a43702e46152b46/thumbnail.png",
+  "usage_scope": "internal_reference",
+  "venue": null,
+  "visual_grammar": null,
+  "year": null
+}

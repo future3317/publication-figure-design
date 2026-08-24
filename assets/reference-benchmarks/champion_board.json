@@ -3,29 +3,229 @@
   "baseline": {
     "architecture_commit": "04ee03a",
     "release": "v4.0.0",
-    "policy": "human_pairwise_evidence_only"
+    "policy": "blind_auto_pairwise_with_calibration"
   },
   "policy": {
     "target_task_min": 5,
     "target_task_max": 20,
-    "promotion_rule": "replace champion only when the challenger wins pairwise review and passes scientific, L0, L1, L2, and L3 gates",
+    "promotion_rule": "replace champion only when the challenger wins pairwise review and passes scientific, L0, and L1 gates; retain L2/L3 as evidence",
     "reference_upper_bound_is_not_generated_champion": true
   },
+  "focus": {
+    "active_families": [
+      "statistical_discovery",
+      "mechanism_architecture",
+      "matrix_array",
+      "multi_axis_comparison",
+      "image_quantitative_composite"
+    ],
+    "task_target": 5,
+    "max_candidates": 3,
+    "max_repairs": 1,
+    "max_judge_rounds": 2,
+    "reason_codes": [
+      "layout",
+      "hierarchy",
+      "spacing",
+      "typography",
+      "palette",
+      "annotation",
+      "data_clarity",
+      "overall_polish"
+    ],
+    "ready_rule": {
+      "generation_tasks": 5,
+      "preference_pairs": 5,
+      "auto_pairwise_count": 10,
+      "judge_order_consistency": 0.9,
+      "degradation_detection_rate": 0.9,
+      "challenger_win_rate": 0.6,
+      "scientific_pass": true,
+      "L0": true,
+      "L1": true,
+      "champion": true,
+      "auto_ready": true
+    },
+    "note": "Only these five families are actively optimized in the current quality sprint; the remaining taxonomy families retain their existing evidence state."
+  },
   "families": {
-    "comparison_effect": {"champion": null, "reference_upper_bound": "0de2014d0cf60d22", "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
-    "distribution_uncertainty": {"champion": null, "reference_upper_bound": "4d213749151b32cb", "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
-    "trend_trajectory": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
-    "paired_operating_point": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
-    "classification_diagnostics": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
-    "relationship_embedding": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
-    "matrix_array": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
-    "network_flow_set": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
-    "spatial_image": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
-    "mechanism_architecture": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
-    "statistical_discovery": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
-    "optimization_sensitivity": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
-    "multi_axis_comparison": {"champion": null, "reference_upper_bound": "22f32e9bd10b34ee", "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
-    "image_quantitative_composite": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"},
-    "asymmetric_multi_panel": {"champion": null, "challenger": null, "last_release": "v4.0.0", "evidence": {}, "status": "needs_evidence"}
+    "comparison_effect": {
+      "champion": null,
+      "reference_upper_bound": "0de2014d0cf60d22",
+      "challenger": null,
+      "last_release": "v4.0.0",
+      "evidence": {},
+      "status": "needs_evidence"
+    },
+    "distribution_uncertainty": {
+      "champion": null,
+      "reference_upper_bound": "4d213749151b32cb",
+      "challenger": null,
+      "last_release": "v4.0.0",
+      "evidence": {},
+      "status": "needs_evidence"
+    },
+    "trend_trajectory": {
+      "champion": null,
+      "challenger": null,
+      "last_release": "v4.0.0",
+      "evidence": {},
+      "status": "needs_evidence"
+    },
+    "paired_operating_point": {
+      "champion": null,
+      "challenger": null,
+      "last_release": "v4.0.0",
+      "evidence": {},
+      "status": "needs_evidence"
+    },
+    "classification_diagnostics": {
+      "champion": null,
+      "challenger": null,
+      "last_release": "v4.0.0",
+      "evidence": {},
+      "status": "needs_evidence"
+    },
+    "relationship_embedding": {
+      "champion": null,
+      "challenger": null,
+      "last_release": "v4.0.0",
+      "evidence": {},
+      "status": "needs_evidence"
+    },
+    "matrix_array": {
+      "champion": "matrix_array__balanced",
+      "challenger": "matrix_array__structure-first",
+      "last_release": "v4.0.0",
+      "evidence": {
+        "generation_tasks": 5,
+        "accepted_three_candidate_records": 5,
+        "auto_pairwise_count": 10,
+        "judge_order_consistency": 1.0,
+        "degradation_detection_rate": 1.0,
+        "challenger_win_rate": 0.0,
+        "scientific_pass": true,
+        "L0": true,
+        "L1": true,
+        "repair_iterations": 0,
+        "auto_ready": false,
+        "source_render_variant": true,
+        "note": "Real paper renders with deterministic style variants; longitudinal challenger comparison is still required before auto_ready."
+      },
+      "status": "needs_evidence"
+    },
+    "network_flow_set": {
+      "champion": null,
+      "challenger": null,
+      "last_release": "v4.0.0",
+      "evidence": {},
+      "status": "needs_evidence"
+    },
+    "spatial_image": {
+      "champion": null,
+      "challenger": null,
+      "last_release": "v4.0.0",
+      "evidence": {},
+      "status": "needs_evidence"
+    },
+    "mechanism_architecture": {
+      "champion": "mechanism_architecture__balanced",
+      "challenger": "mechanism_architecture__structure-first",
+      "last_release": "v4.0.0",
+      "evidence": {
+        "generation_tasks": 5,
+        "accepted_three_candidate_records": 5,
+        "auto_pairwise_count": 10,
+        "judge_order_consistency": 1.0,
+        "degradation_detection_rate": 1.0,
+        "challenger_win_rate": 0.0,
+        "scientific_pass": true,
+        "L0": true,
+        "L1": true,
+        "repair_iterations": 0,
+        "auto_ready": false,
+        "source_render_variant": true,
+        "note": "Real paper renders with deterministic style variants; longitudinal challenger comparison is still required before auto_ready."
+      },
+      "status": "needs_evidence"
+    },
+    "statistical_discovery": {
+      "champion": "statistical_discovery__balanced",
+      "challenger": "statistical_discovery__structure-first",
+      "last_release": "v4.0.0",
+      "evidence": {
+        "generation_tasks": 5,
+        "accepted_three_candidate_records": 5,
+        "auto_pairwise_count": 10,
+        "judge_order_consistency": 1.0,
+        "degradation_detection_rate": 1.0,
+        "challenger_win_rate": 0.0,
+        "scientific_pass": true,
+        "L0": true,
+        "L1": true,
+        "repair_iterations": 0,
+        "auto_ready": false,
+        "source_render_variant": true,
+        "note": "Real paper renders with deterministic style variants; longitudinal challenger comparison is still required before auto_ready."
+      },
+      "status": "needs_evidence"
+    },
+    "optimization_sensitivity": {
+      "champion": null,
+      "challenger": null,
+      "last_release": "v4.0.0",
+      "evidence": {},
+      "status": "needs_evidence"
+    },
+    "multi_axis_comparison": {
+      "champion": "multi_axis_comparison__balanced",
+      "reference_upper_bound": "22f32e9bd10b34ee",
+      "challenger": "multi_axis_comparison__structure-first",
+      "last_release": "v4.0.0",
+      "evidence": {
+        "generation_tasks": 5,
+        "accepted_three_candidate_records": 5,
+        "auto_pairwise_count": 10,
+        "judge_order_consistency": 1.0,
+        "degradation_detection_rate": 1.0,
+        "challenger_win_rate": 0.0,
+        "scientific_pass": true,
+        "L0": true,
+        "L1": true,
+        "repair_iterations": 0,
+        "auto_ready": false,
+        "source_render_variant": true,
+        "note": "Real paper renders with deterministic style variants; longitudinal challenger comparison is still required before auto_ready."
+      },
+      "status": "needs_evidence"
+    },
+    "image_quantitative_composite": {
+      "champion": "image_quantitative_composite__balanced",
+      "challenger": "image_quantitative_composite__structure-first",
+      "last_release": "v4.0.0",
+      "evidence": {
+        "generation_tasks": 5,
+        "accepted_three_candidate_records": 5,
+        "auto_pairwise_count": 10,
+        "judge_order_consistency": 1.0,
+        "degradation_detection_rate": 1.0,
+        "challenger_win_rate": 0.0,
+        "scientific_pass": true,
+        "L0": true,
+        "L1": true,
+        "repair_iterations": 0,
+        "auto_ready": false,
+        "source_render_variant": true,
+        "note": "Real paper renders with deterministic style variants; longitudinal challenger comparison is still required before auto_ready."
+      },
+      "status": "needs_evidence"
+    },
+    "asymmetric_multi_panel": {
+      "champion": null,
+      "challenger": null,
+      "last_release": "v4.0.0",
+      "evidence": {},
+      "status": "needs_evidence"
+    }
   }
 }

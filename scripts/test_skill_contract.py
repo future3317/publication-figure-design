@@ -7,6 +7,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
+import yaml
+
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -126,6 +128,26 @@ class SkillArchitectureTests(unittest.TestCase):
         ):
             self.assertIn(phrase, guidance)
 
+    def test_operational_route_materials_are_explicitly_required(self):
+        try:
+            from check_skill_contract import REQUIRED_ROUTE_LOADS
+        except ImportError:  # pragma: no cover
+            from scripts.check_skill_contract import REQUIRED_ROUTE_LOADS
+
+        manifest = yaml.safe_load((ROOT / "manifest.yaml").read_text(encoding="utf-8"))
+        routes = manifest["routes"]
+        for route, expected in REQUIRED_ROUTE_LOADS.items():
+            with self.subTest(route=route):
+                required = routes[route].get("required_load", [])
+                for resource in expected:
+                    self.assertIn(resource, required)
+
+    def test_required_load_is_a_subset_of_route_load(self):
+        manifest = yaml.safe_load((ROOT / "manifest.yaml").read_text(encoding="utf-8"))
+        for route, config in manifest["routes"].items():
+            with self.subTest(route=route):
+                self.assertTrue(set(config.get("required_load", [])).issubset(config.get("load", [])))
+
 
 class SelfCheckTests(unittest.TestCase):
     def test_self_check_accepts_repository(self):
@@ -200,6 +222,28 @@ class SelfCheckTests(unittest.TestCase):
             report = validate_skill(root)
         self.assertFalse(report["ok"])
         self.assertIn("references/missing.md", " ".join(report["errors"]))
+
+    def test_self_check_rejects_missing_required_route_resource(self):
+        from check_skill_contract import validate_skill
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "agents").mkdir()
+            (root / "agents" / "openai.yaml").write_text("interface: {}\n", encoding="utf-8")
+            (root / "SKILL.md").write_text(
+                "---\nname: publication-figure-design\ndescription: test\n---\n"
+                "Open every concrete reference.\nSelect implementation material.\n"
+                + "\n".join(("exact_reuse", "structural_adaptation", "style_only", "build_new"))
+                + "\npanel topology\nmark geometry\nlayer topology\ndata encoding\n"
+                "annotation/legend model\nfinal assembler\n",
+                encoding="utf-8",
+            )
+            manifest = (ROOT / "manifest.yaml").read_text(encoding="utf-8")
+            manifest = manifest.replace("references/style-spec.md", "references/missing.md")
+            (root / "manifest.yaml").write_text(manifest, encoding="utf-8")
+            report = validate_skill(root)
+        self.assertFalse(report["ok"])
+        self.assertTrue(any("Missing required route resource" in error for error in report["errors"]))
 
 
 if __name__ == "__main__":

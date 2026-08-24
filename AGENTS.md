@@ -28,6 +28,9 @@ rendering. Critique returns deterministic `DesignPatch` operations, and renderer
 
 - Contracts and runtime: `src/publication_figure_design/`
 - Agent routing and gates: `SKILL.md`, `manifest.yaml`
+- Reading contract: `always_load` and route-level `required_load` are mandatory; ordinary
+  `load` entries are supplemental and must not be treated as a substitute for required
+  material.
 - Reference intelligence: `reference_dna.json`, `indexes/hybrid.json`
 - Style: `profiles/style-capsules/`, `profiles/journals/`
 - Reference lifecycle: `raw → analyzed → reviewed → benchmarked → production`

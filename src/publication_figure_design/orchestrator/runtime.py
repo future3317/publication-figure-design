@@ -8,12 +8,23 @@ recorded as ``not_provided`` for the agent to repair or fill.
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 from typing import Any, Mapping
 
 from ..contracts import ReferenceSet, SourceSpec, TaskSpec
 from ..reference_intelligence import RenderTrace
 from .machine import GateResult, Orchestrator, StageContext
+
+
+def _max_repairs() -> int:
+    """Read the sprint stop rule from the canonical Champion Board config."""
+    root = Path(__file__).resolve().parents[3]
+    payload = json.loads((root / "assets" / "reference-benchmarks" / "champion_board.json").read_text(encoding="utf-8"))
+    repairs = int(payload["focus"]["max_repairs"])
+    if repairs < 0:
+        raise ValueError("champion board max_repairs must be non-negative")
+    return repairs
 
 
 def _metadata(context: StageContext) -> dict[str, Any]:
@@ -68,12 +79,45 @@ def _retrieve(context: StageContext) -> dict[str, Any]:
             )
         except (ImportError, OSError, ValueError):
             hybrid_result = None
+    role_fields = {
+        "structure_reference": references.structure_reference,
+        "style_reference": references.style_reference,
+        "component_references": references.component_references,
+        "annotation_reference": references.annotation_reference,
+        "palette_reference": references.palette_reference,
+    }
+    selected_roles = {
+        role: ([str(value)] if isinstance(value, str) and value else [str(item) for item in value if item])
+        for role, value in role_fields.items()
+    }
+    top_k_ids = [
+        str(row.get("id"))
+        for row in references.candidates
+        if isinstance(row, Mapping) and row.get("id")
+    ]
+    if hybrid_result:
+        for rows in hybrid_result.values():
+            if isinstance(rows, list):
+                top_k_ids.extend(
+                    str(row.get("id"))
+                    for row in rows
+                    if isinstance(row, Mapping) and row.get("id")
+                )
+    top_k_ids = list(dict.fromkeys(top_k_ids))
+    selected_ids = list(dict.fromkeys(value for values in selected_roles.values() for value in values))
     return {
         "status": "ready" if references.candidates or references.structure_reference else "not_provided",
         "reference_set": references.to_dict(),
         "reference_index_version": context.telemetry.get("reference_index_version", "unknown"),
         "deterministic_resume": bool(context.telemetry.get("selected_reference_ids")),
         "hybrid_candidates": hybrid_result or {},
+        "selection_trace": {
+            "task_id": str(context.task.get("task_id", context.session_id)),
+            "figure_family": str(metadata.get("figure_family") or metadata.get("visual_family") or metadata.get("figure_type", "")),
+            "selected_reference_ids": selected_ids,
+            "selected_roles": selected_roles,
+            "top_k_ids": top_k_ids,
+        },
     }
 
 
@@ -236,4 +280,4 @@ def build_runtime_orchestrator() -> Orchestrator:
             return GateResult(False, "handler reported blocked", {"errors": payload.get("errors", [])})
         return GateResult(True, "handler status accepted")
 
-    return Orchestrator(handlers=handlers, gates={WorkflowStage.RENDER: status_gate})
+    return Orchestrator(handlers=handlers, gates={WorkflowStage.RENDER: status_gate}, max_retries=_max_repairs() + 1)

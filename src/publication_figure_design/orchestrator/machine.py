@@ -148,6 +148,11 @@ class WorkflowSession:
     telemetry: Dict[str, Any] = field(default_factory=lambda: {
         "route": "",
         "reference_ids": [],
+        "selected_reference_ids": [],
+        "selected_roles": {},
+        "top_k_ids": [],
+        "task_id": "",
+        "figure_family": "",
         "style_spec_version": "",
         "iterations": 0,
         "failed_gates": [],
@@ -168,6 +173,10 @@ class WorkflowSession:
         task = dict(data.get("task", {}))
         telemetry = dict(data.get("telemetry", {}))
         telemetry.setdefault("selected_reference_ids", list(telemetry.get("reference_ids", [])))
+        telemetry.setdefault("selected_roles", {})
+        telemetry.setdefault("top_k_ids", [])
+        telemetry.setdefault("task_id", str(task.get("task_id", data.get("session_id", ""))))
+        telemetry.setdefault("figure_family", str((task.get("metadata") or {}).get("figure_family", "")))
         telemetry.setdefault("reference_index_version", str(task.get("metadata", {}).get("reference_index_version", "unknown")))
         telemetry.setdefault("input_hash", _canonical_hash(task))
         telemetry.setdefault("renderer_version", str(task.get("metadata", {}).get("renderer_version", "")))
@@ -231,6 +240,10 @@ class Orchestrator:
                 "route": "",
                 "reference_ids": [],
                 "selected_reference_ids": [],
+                "selected_roles": {},
+                "top_k_ids": [],
+                "task_id": task.task_id,
+                "figure_family": str(task.metadata.get("figure_family", "")),
                 "reference_index_version": str(task.metadata.get("reference_index_version") or _current_index_version()),
                 "input_hash": _canonical_hash(task.to_dict()),
                 "renderer_version": str(task.metadata.get("renderer_version", "")),
@@ -330,6 +343,11 @@ class Orchestrator:
                             selected.append(str(value))
                     selected.extend(str(value) for value in reference_set.get("component_references", []) if value)
                     session.telemetry["selected_reference_ids"] = sorted(set(selected))
+                trace = payload.get("selection_trace")
+                if isinstance(trace, Mapping):
+                    for field in ("task_id", "figure_family", "selected_roles", "top_k_ids"):
+                        if field in trace:
+                            session.telemetry[field] = _jsonable(trace[field])
             if key == WorkflowStage.EXPORT.value:
                 output_path = payload.get("figure_path") or payload.get("output_path")
                 if output_path:

@@ -3,10 +3,13 @@ visual_hierarchy:
   focal_weight: strong
   secondary_weight: quiet
   annotation_density: low
+  segmentation: soft
+  title_length: short
 palette:
   background: '#FFFFFF'
   neutral_strategy: warm-gray
   categorical_chroma: restrained
+  semantic_chroma: low
   accent_count: 1
   role_consistency: strict
 typography:
@@ -21,6 +24,8 @@ spacing:
   outer_margin_ratio: 0.08
   panel_gap_ratio: 0.06
   label_clearance_ratio: 0.03
+  whitespace_priority: structural
 legend:
   preference: direct_label_then_shared_legend
+  annotation_policy: claim_bearing_only
 negative_rules: [avoid_heavy_box_frames, avoid_rainbow_colormap, avoid_redundant_legend]

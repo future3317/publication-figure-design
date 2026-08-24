@@ -44,6 +44,13 @@ chosen and compiled into `ReferenceDNA → StyleCapsule + JournalProfile → Des
 Publication mode renders structure-first, style-first, and balanced candidates before
 the final repair and export decision.
 
+### 阅读材料契约
+
+`manifest.yaml` 将材料分成三层：`always_load` 是所有任务必读，路由下的
+`required_load` 是进入该路由时必读，普通 `load` 是按任务需要查阅的补充材料。
+路由的强制材料没有读完或文件缺失时，不得进入 Render、QA 或 Export；
+[`scripts/check_skill_contract.py`](scripts/check_skill_contract.py) 会检查这份合同。
+
 ## Quick start
 
 Use the repository's dedicated `piepaper` environment. On the maintainer workstation,
@@ -106,12 +113,61 @@ Reference-led renderers must explicitly consume `TypographySpec`, `PaletteSpec`,
 `LayoutSpec`, and `ComponentSpec`. A high visual similarity score cannot override a
 scientific or export failure.
 
-After the architecture is frozen, visual improvement is measured with publication-mode
-structure-first/style-first/balanced candidates and human pairwise choices. The
-[`Figure Family Champion Board`](references/champion-board.md) records the preferred and
-rejected candidates, reason codes, family champion/challenger, QA layers, and repair
-iterations. Its KPI is coverage × quality × diversity; unseeded families remain
-`needs_evidence`.
+After the architecture is frozen, the quality sprint is deliberately limited to five
+focus families: `statistical_discovery`, `mechanism_architecture`, `matrix_array`,
+`multi_axis_comparison`, and `image_quantitative_composite`. Each real task produces
+exactly three publication candidates (structure-first, style-first, balanced). The
+Codex/Luna visual judge compares the candidates with the display order swapped and
+accepts only consistent structured output; [`scripts/auto_visual_judge.py`](scripts/auto_visual_judge.py)
+also scores known original/degraded calibration pairs. A focus family becomes `ready`
+only after five real tasks, five accepted three-candidate records, ten swapped pairwise
+judgments, order consistency/degradation detection ≥0.90, challenger win rate ≥0.60,
+scientific/L0/L1 pass, and `auto_ready=true`. The loop hard-stops at three candidates,
+one repair, and two judge rounds; an uncertain result keeps the current champion. L2/L3
+and coverage × quality × diversity remain diagnostics. Do not create placeholder tasks
+or synthetic preference evidence.
+
+Run the current real-paper sprint with:
+
+```powershell
+$env:PYTHONPATH = "E:\CODE\publication-figure-design\src;E:\CODE\publication-figure-design\scripts"
+& "D:\Anaconda\envs\piepaper\python.exe" scripts/run_visual_sprint.py
+& "D:\Anaconda\envs\piepaper\python.exe" scripts/champion_board.py --enforce --summary
+```
+
+The checked-in task manifest is
+[`assets/reference-benchmarks/real_generation_tasks.json`](assets/reference-benchmarks/real_generation_tasks.json).
+The run writes 75 candidate PNGs, swapped-judge records, calibration evidence, and
+family contact sheets under `tmp/visual_sprint/` (kept out of Git). These candidates
+are marked `source_render_variant`: the real paper render remains the semantic source,
+so the run measures visual preference and calibration but does not claim a production
+champion until a longitudinal challenger beats an existing champion.
+
+The current 25-task output is frozen as `visual-baseline-v1`. To compare a later real
+render against it:
+
+```powershell
+& "D:\Anaconda\envs\piepaper\python.exe" scripts/visual_regression.py `
+  --current-report tmp/visual_sprint/sprint_report.json `
+  --output tmp/visual_sprint/visual-regression.json
+```
+
+The report contains only unchanged/win/loss/uncertain counts, family win rates,
+reason-code deltas, and hard-QA regressions. Changed renders require forward and
+reverse blind-judge payloads; uncertain review blocks promotion. The baseline is a
+regression checkpoint, not a Champion Board entry.
+
+Do not overwrite a frozen baseline during ordinary development. A new baseline is
+created only after the regression report satisfies the promotion rule, for example:
+
+```powershell
+& "D:\Anaconda\envs\piepaper\python.exe" scripts/freeze_visual_baseline.py `
+  --report tmp/visual_sprint/sprint_report.json `
+  --output assets/reference-benchmarks/visual-baseline-v2.json
+```
+
+The freezer derives the image directory and baseline id from the output name and
+refuses to replace an existing checkpoint unless `--replace` is explicitly supplied.
 
 For a focused check:
 

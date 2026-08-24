@@ -25,6 +25,7 @@ always_load:
   - "references/figure-contract.md"
   - "references/orchestrator-contracts.md"
   - "references/runtime-environment.md"
+  - "references/global-visual-language.md"
 
 routes:
   create:
@@ -34,6 +35,13 @@ routes:
       - "references/encoding-and-uncertainty.md"
       - "references/figure-family-coverage.md"
       - "references/journal-specs.md"
+      - "references/style-spec.md"
+    required_load:
+      - "references/workflow-create.md"
+      - "references/encoding-and-uncertainty.md"
+      - "references/figure-family-coverage.md"
+      - "references/journal-specs.md"
+      - "references/style-spec.md"
   concrete_reference:
     when: "a concrete reference image is supplied or selected"
     load:
@@ -42,6 +50,14 @@ routes:
       - "references/visual-grammar.md"
       - "references/reference-driven-reconstruction.md"
       - "references/asset-adaptation.md"
+      - "references/style-spec.md"
+    required_load:
+      - "references/art-direction.md"
+      - "references/figure-family-coverage.md"
+      - "references/visual-grammar.md"
+      - "references/reference-driven-reconstruction.md"
+      - "references/asset-adaptation.md"
+      - "references/style-spec.md"
     run:
       - "scripts/check_reference_fidelity.py"
       - "scripts/reference_image_analysis.py analyze"
@@ -57,6 +73,19 @@ routes:
       - "references/encoding-and-uncertainty.md"
       - "references/journal-specs.md"
       - "references/figure-family-coverage.md"
+      - "references/style-spec.md"
+      - "references/color-palettes.md"
+    required_load:
+      - "references/art-direction.md"
+      - "references/visual-grammar.md"
+      - "references/reference-driven-reconstruction.md"
+      - "references/visual-reference-library.md"
+      - "references/checklist.md"
+      - "references/encoding-and-uncertainty.md"
+      - "references/journal-specs.md"
+      - "references/figure-family-coverage.md"
+      - "references/style-spec.md"
+      - "references/color-palettes.md"
     run:
       - "scripts/prepare_visual_optimization.py"
       - "scripts/compare_output_to_reference.py"
@@ -69,9 +98,15 @@ routes:
       - "references/asset-adaptation.md"
       - "references/directory-map.md"
       - "references/production-asset-metadata.md"
+    required_load:
+      - "references/asset-adaptation.md"
+      - "references/directory-map.md"
+      - "references/production-asset-metadata.md"
   backend:
     when: "a plotting backend must be selected or mixed panels are required"
     load:
+      - "references/backend-selection.md"
+    required_load:
       - "references/backend-selection.md"
     use:
       - "scripts/backend_preference.py"
@@ -83,6 +118,14 @@ routes:
       - "references/figure-legend-contract.md"
       - "references/privacy-provenance.md"
       - "references/encoding-and-uncertainty.md"
+      - "references/export-specs.md"
+    required_load:
+      - "references/checklist.md"
+      - "references/delivery-contract.md"
+      - "references/figure-legend-contract.md"
+      - "references/privacy-provenance.md"
+      - "references/encoding-and-uncertainty.md"
+      - "references/export-specs.md"
     run:
       - "scripts/qa_validator.py"
       - "scripts/audit_pdf_text.py"
@@ -101,6 +144,8 @@ routes:
     when: "source-by-source visual grammar examples are audited, rebuilt, or validated"
     load:
       - "references/source-reconstruction-library.md"
+    required_load:
+      - "references/source-reconstruction-library.md"
     run:
       - "scripts/check_source_reconstruction_library.py"
       - "scripts/review_source_reconstructions.py"
@@ -111,6 +156,10 @@ routes:
   reference_intake:
     when: "a user supplies one or more images to store in the visual reference library"
     load:
+      - "references/visual-reference-library.md"
+      - "references/figure-family-coverage.md"
+      - "references/privacy-provenance.md"
+    required_load:
       - "references/visual-reference-library.md"
       - "references/figure-family-coverage.md"
       - "references/privacy-provenance.md"
@@ -132,6 +181,9 @@ routes:
     load:
       - "assets/reference-benchmarks/chartmimic/README.md"
       - "assets/reference-benchmarks/champion_references.json"
+    required_load:
+      - "assets/reference-benchmarks/chartmimic/README.md"
+      - "assets/reference-benchmarks/champion_references.json"
     run:
       - "scripts/chartmimic_catalog.py"
   index_build:
@@ -142,6 +194,8 @@ routes:
   eval:
     when: "retrieval or generation benchmark metrics need to be measured"
     load:
+      - "assets/reference-benchmarks/golden_tasks.json"
+    required_load:
       - "assets/reference-benchmarks/golden_tasks.json"
     run:
       - "scripts/evaluate_benchmark.py"
@@ -157,21 +211,36 @@ routes:
     when: "the figure family or reference-library coverage needs to be selected or audited"
     load:
       - "references/figure-family-coverage.md"
+    required_load:
+      - "references/figure-family-coverage.md"
     run:
       - "scripts/figure_family_coverage.py"
       - "scripts/champion_board.py"
   champion_quality:
-    when: "publication candidates, human pairwise choices, or figure-family champions are reviewed"
+    when: "publication candidates, blind auto pairwise choices, calibration, or figure-family champions are reviewed"
     load:
       - "references/champion-board.md"
       - "assets/reference-benchmarks/champion_board.json"
+      - "assets/reference-benchmarks/real_generation_tasks.json"
+      - "assets/reference-benchmarks/visual-baseline-v1.json"
+    required_load:
+      - "references/champion-board.md"
+      - "assets/reference-benchmarks/champion_board.json"
+      - "assets/reference-benchmarks/real_generation_tasks.json"
+      - "assets/reference-benchmarks/visual-baseline-v1.json"
     run:
       - "scripts/champion_board.py"
+      - "scripts/run_visual_sprint.py"
+      - "scripts/freeze_visual_baseline.py"
+      - "scripts/visual_regression.py"
       - "scripts/record_preference.py"
+      - "scripts/auto_visual_judge.py"
       - "scripts/check_champion_floors.py"
   source_review_batch:
     when: "a maintained source reconstruction or source catalog needs batch review"
     load:
+      - "references/source-reconstruction-library.md"
+    required_load:
       - "references/source-reconstruction-library.md"
     run:
       - "scripts/audit_source_reconstruction_batch.py"
@@ -190,6 +259,7 @@ validation:
   ci_gate: "python scripts/ci_gate.py"
   reference_assets: "python scripts/check_references.py --require-previews"
   champion_board: "python scripts/champion_board.py --enforce"
+  visual_regression: "python scripts/visual_regression.py --contract-only"
   skill_contract: "python scripts/check_skill_contract.py"
   source_reconstruction_library: "python scripts/check_source_reconstruction_library.py"
   source_reference_catalog: "python scripts/check_source_reference_catalog.py"

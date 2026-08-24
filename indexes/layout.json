@@ -1,23 +1,23 @@
 {
   "aliases": {
-    "current": "hybrid-deterministic-9aa8024c8294"
+    "current": "hybrid-deterministic-f0ba1254cc14"
   },
   "index_type": "layout",
-  "model_version": "hybrid-deterministic-9aa8024c8294",
+  "model_version": "hybrid-deterministic-f0ba1254cc14",
   "provenance": {
-    "built_at": "2026-08-23T16:43:11.497960+00:00",
-    "corpus_sha256": "9aa8024c8294992dc722230ec8e787ff401ab68ae6c124d4460e8b174d109d2d",
+    "built_at": "2026-08-24T03:13:31.030581+00:00",
+    "corpus_sha256": "f0ba1254cc146b72da5d0a137dd8caec0f549300017e00aed7c888d097aece24",
     "embedding_model": "deterministic-semantic-structure-style",
-    "index_version": "hybrid-deterministic-9aa8024c8294",
+    "index_version": "hybrid-deterministic-f0ba1254cc14",
     "optional_backends": {
       "semantic": "siglip2",
       "visual_structure": "dinov2_or_dinov3"
     },
-    "record_count": 147,
+    "record_count": 152,
     "schema_version": "1.0",
-    "semantic_model_version": "semantic-deterministic-9aa8024c8294"
+    "semantic_model_version": "semantic-deterministic-f0ba1254cc14"
   },
-  "record_count": 147,
+  "record_count": 152,
   "records": {
     "006c1b3915544c07": {
       "canvas_composition": null,
@@ -413,6 +413,12 @@
       "layout": "multi-panel",
       "panel_topology": null
     },
+    "59c6c64979eaffe6": {
+      "canvas_composition": null,
+      "figure_type": "multi_panel_statistical",
+      "layout": "asymmetric-multi-panel",
+      "panel_topology": null
+    },
     "5c8ff3b28ea11b6e": {
       "canvas_composition": null,
       "figure_type": "GroupedViolin",
@@ -471,6 +477,12 @@
       "layout": "mixed",
       "panel_topology": null
     },
+    "6606ccf3be95bbd2": {
+      "canvas_composition": null,
+      "figure_type": "scatter_regression",
+      "layout": "1x1",
+      "panel_topology": null
+    },
     "668bc98b544d54d5": {
       "canvas_composition": null,
       "figure_type": "in_vivo_efficacy",
@@ -505,6 +517,12 @@
       "layout": "multi-panel",
       "panel_topology": null
     },
+    "6b6c904d9ac07c20": {
+      "canvas_composition": null,
+      "figure_type": "volcano",
+      "layout": "1x1",
+      "panel_topology": null
+    },
     "6e0b081c34e20430": {
       "canvas_composition": null,
       "figure_type": "learning_curves",
@@ -527,6 +545,18 @@
       "canvas_composition": null,
       "figure_type": "grouped_bar_inset",
       "layout": "single-with-insets",
+      "panel_topology": null
+    },
+    "7a43702e46152b46": {
+      "canvas_composition": null,
+      "figure_type": "ridge",
+      "layout": "vertical-stack",
+      "panel_topology": null
+    },
+    "7ac8148810f9b9c2": {
+      "canvas_composition": null,
+      "figure_type": "multi_group_comparison",
+      "layout": "three-panel-horizontal",
       "panel_topology": null
     },
     "7b7b02d82ccc7207": {
