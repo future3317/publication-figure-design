@@ -44,7 +44,7 @@ __all__ = [
 # ---------------------------------------------------------------------------
 
 _ALLOWED_ASSET_KINDS = {"template", "reusable", "example"}
-_ALLOWED_RUNTIMES = {"python", "r", "mixed"}
+_ALLOWED_RUNTIMES = {"python", "r", "tex", "mixed"}
 _ALLOWED_PALETTE_POLICIES = {"preserve", "adaptable"}
 
 _REQUIRED_FIELDS = ["id", "figure_type", "asset_kind", "runtime", "production_ready"]

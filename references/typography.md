@@ -90,3 +90,12 @@ ht_opt(
 - Linux: Neither Arial nor Helvetica is guaranteed. Use `Liberation Sans` or install `fonts-liberation` / `msttcorefonts`
 - For R on Linux: use `showtext` package to register and embed fonts; export with `cairo_pdf()` device
 - Always embed fonts in PDF output: `pdf.fonttype: 42` (matplotlib), `cairo_pdf()` (R)
+
+## TeX / TikZ / PGFPlots
+
+For TeX figures, choose the engine from the manuscript font policy: `lualatex` or
+`xelatex` with `fontspec` for system/OpenType fonts, or `pdflatex` with an explicit
+legacy-font policy. Keep the same family, hierarchy, and final-size minimum as the
+active `TypographySpec`; do not let a TeX default silently change sizes. Verify the
+compiled PDF for embedded fonts, missing glyphs, and overfull boxes. Read
+`references/tex-rendering.md` for the complete source and compile contract.

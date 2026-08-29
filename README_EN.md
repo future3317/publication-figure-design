@@ -47,6 +47,14 @@ and compiled into `ReferenceDNA → StyleCapsule + JournalProfile → DesignPack
 Publication mode renders structure-first, style-first, and balanced candidates before
 the final repair and export decision.
 
+## TeX backend
+
+TeX/TikZ/PGFPlots is a first-class backend for native vector geometry, manuscript-matched
+fonts, and editable PDF output. Read [`references/tex-rendering.md`](references/tex-rendering.md),
+declare the engine/package compatibility and final assembler, and carry compile logs,
+font embedding, overfull-box, page-geometry, and final-size PNG evidence into QA. If the
+TeX capability is missing, stop that route rather than silently switching to Python/R.
+
 ### Reading contract
 
 `manifest.yaml` separates reading from machine rules: `always_load` is required for every

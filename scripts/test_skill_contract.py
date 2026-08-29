@@ -51,6 +51,14 @@ class SkillArchitectureTests(unittest.TestCase):
         self.assertIn("references/backend-selection.md", self.skill)
         self.assertTrue((ROOT / "scripts" / "backend_preference.py").is_file())
 
+    def test_tex_backend_contract_is_routed(self):
+        manifest = (ROOT / "manifest.yaml").read_text(encoding="utf-8")
+        self.assertIn("tex_backend:", manifest)
+        self.assertIn("references/tex-rendering.md", self.skill)
+        self.assertIn("references/tex-rendering.md", manifest)
+        self.assertIn("rules/backend/tex.yaml", manifest)
+        self.assertTrue((ROOT / "references" / "tex-rendering.md").is_file())
+
     def test_new_contract_resources_are_routed(self):
         expected = (
             "references/asset-adaptation.md",

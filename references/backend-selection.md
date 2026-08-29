@@ -14,11 +14,26 @@ Save a preference only after an explicit user choice:
 ```bash
 python scripts/backend_preference.py set python
 python scripts/backend_preference.py set r
+python scripts/backend_preference.py set tex
 ```
 
 ## Execution contract
 
 A single-backend figure uses the selected backend for plotting, preview, vector/raster export, and visual-QA renders. If its runtime or a required package is missing, report the blocker and stop that render path. Do not silently generate a substitute in another language.
+
+## TeX / TikZ / PGFPlots
+
+Treat `tex` as a first-class backend. Read `references/tex-rendering.md` before
+writing or revising `.tex` sources. Select PGFPlots for quantitative plots and TikZ
+for schematics/geometry; both may be assembled in one TeX source. Declare the engine
+(`lualatex`, `xelatex`, or `pdflatex`), package/compatibility versions, build directory,
+and final assembler in `RenderPlan`. A missing compiler or package blocks this route;
+Python/R substitution is not a successful render.
+
+The TeX source, generated data inputs, compile log, PDF font evidence, and final-size
+PNG are part of the reproducibility chain. Compile non-interactively with `-halt-on-error`
+and keep unrestricted shell escape disabled unless a specific, allowlisted local helper
+is required and recorded.
 
 ## Mixed mode
 

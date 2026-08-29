@@ -47,3 +47,11 @@ Optional dependency layers are installed into the same environment only when nee
 `& "D:\\Anaconda\\envs\\piepaper\\python.exe" -m pip install -e .[render-python]`,
 `.[reference-analysis]`, `.[reference-ml]`, `.[perceptual]`, or `.[vector]`. Core figure
 work must not pull Torch or model weights.
+
+## TeX toolchain
+
+TeX compilers are external capabilities rather than Python packages. For a TeX route,
+verify the requested `lualatex`, `xelatex`, or `pdflatex` executable and required
+TikZ/PGFPlots packages before rendering, record their versions, and stop if unavailable.
+Use `references/tex-rendering.md` for the non-interactive compile command and shell-escape
+policy. Do not switch to another plotting backend to hide a missing TeX capability.

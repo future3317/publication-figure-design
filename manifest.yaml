@@ -190,6 +190,24 @@ routes:
       - "references/backend-selection.md"
     use:
       - "scripts/backend_preference.py"
+  tex_backend:
+    when: "TeX, TikZ, or PGFPlots is selected for any panel or final assembly"
+    load:
+      - "references/backend-selection.md"
+      - "references/tex-rendering.md"
+      - "references/typography.md"
+      - "references/export-specs.md"
+    required_load:
+      - "references/backend-selection.md"
+      - "references/tex-rendering.md"
+      - "references/typography.md"
+      - "references/export-specs.md"
+    required_rulesets:
+      - "rules/backend/tex.yaml"
+    run:
+      - "scripts/check_tex_source.py"
+      - "scripts/audit_pdf_text.py"
+      - "scripts/rendered_contrast.py"
   qa:
     when: "a figure is reviewed or prepared for delivery"
     load:
@@ -359,6 +377,7 @@ validation:
   skill_contract: "python scripts/check_skill_contract.py"
   source_reconstruction_library: "python scripts/check_source_reconstruction_library.py"
   source_reference_catalog: "python scripts/check_source_reference_catalog.py"
+  tex_source: "python scripts/check_tex_source.py"
   tests: "python -m unittest discover -s scripts -p test_*.py -v"
   eval_modes:
     quick: "pfd eval quick"

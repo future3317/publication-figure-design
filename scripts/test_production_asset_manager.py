@@ -55,6 +55,13 @@ class TestMetadataValidation(unittest.TestCase):
         self.assertFalse(ok)
         self.assertTrue(any("runtime" in e for e in errors))
 
+    def test_tex_runtime_is_supported(self):
+        ok, errors = validate_metadata({
+            "id": "tex-template", "figure_type": "schematic", "asset_kind": "template",
+            "runtime": "tex", "production_ready": True,
+        })
+        self.assertTrue(ok, errors)
+
     def test_invalid_palette_policy(self):
         ok, errors = validate_metadata({
             "id": "x", "figure_type": "X", "asset_kind": "template",

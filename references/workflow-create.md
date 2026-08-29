@@ -18,6 +18,11 @@ If a concrete reference exists, complete `reference-driven-reconstruction.md` be
 
 Follow `backend-selection.md`. Then follow `asset-adaptation.md` to map fields and select `exact_reuse`, `structural_adaptation`, `style_only`, or `build_new`. Do not choose implementation material by filename similarity alone.
 
+If the backend is TeX, read `tex-rendering.md` before writing `.tex`: choose TikZ or
+PGFPlots by panel capability, pin engine/package compatibility, keep data in bound
+inputs, and declare one final assembler. Compile with `-halt-on-error` and keep shell
+escape disabled unless an explicit local allowlist is recorded.
+
 For comparisons with multiple conditions, operating points, paired observations, or uncertainty, read `encoding-and-uncertainty.md` before choosing the chart family. Classify the relationship as paired, continuous, independent, or operating-point; write the visual-channel mapping; and reject a continuous-axis errorbar template when x positions are only method-specific locations.
 
 ## 5. Build at final size
@@ -31,6 +36,10 @@ Assert transform domains, finite values, group order, uncertainty semantics, and
 ## 7. Render and inspect
 
 Render with the declared backend(s). Inspect each panel and the assembly at final physical size. Check clipping, occlusion, typography, hierarchy, uncertainty coverage, legend placement, and color roles. For paired/operating-point figures, inspect whether the categorical or continuous axis implies the intended relationship, whether connectors are genuine pairings, and whether error bars overpower the point estimates. Inspect at final physical size and as a thumbnail. For every declared text-on-fill region, run `scripts/rendered_contrast.py` and require >=4.5:1 contrast. Fix and rerender; do not approve from source alone.
+
+For TeX, additionally inspect the compile log, PDF page geometry, font embedding,
+glyphs, overfull boxes, TikZ/PGFPlots clipping, layer order, and connector/annotation
+clearance; a successful compile alone is not visual QA.
 
 ## 8. Validate and deliver
 

@@ -12,7 +12,7 @@ import os
 from pathlib import Path
 
 
-VALID_BACKENDS = {"python", "r"}
+VALID_BACKENDS = {"python", "r", "tex"}
 
 
 def config_path() -> Path:
@@ -42,7 +42,7 @@ def get_backend(path: Path) -> str | None:
 def set_backend(path: Path, backend: str) -> str:
     normalized = backend.lower()
     if normalized not in VALID_BACKENDS:
-        raise ValueError("backend must be one of: python, r")
+        raise ValueError("backend must be one of: python, r, tex")
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps({"backend": normalized}, indent=2) + "\n", encoding="utf-8")
     return normalized

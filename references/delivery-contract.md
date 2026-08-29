@@ -3,6 +3,7 @@
 Deliver only artifacts requested or needed for a reproducible manuscript figure:
 
 - plotting source and any clean source-data table produced for the figure;
+- for TeX figures, the `.tex` source, generated data inputs, and recorded compiler/package versions;
 - editable PDF or SVG vector master for line art;
 - requested TIFF plus a PNG preview at the declared physical dimensions and resolution;
 - compact QA result, including unresolved warnings and skipped checks;

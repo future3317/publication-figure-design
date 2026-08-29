@@ -45,6 +45,12 @@ class RuntimeContractTests(unittest.TestCase):
         self.assertIn("rules/families/bars-and-intervals.yaml", session.telemetry["active_rule_sets"])
         self.assertIn("BAR-001", session.telemetry["active_rule_ids"])
 
+    def test_session_compiles_tex_backend_rules(self):
+        task = TaskSpec(task_id="tex-rules-test", metadata={"mode": "tex_backend", "route": "tex_backend", "backend": "tex"})
+        session = build_runtime_orchestrator().start(task)
+        self.assertIn("rules/backend/tex.yaml", session.telemetry["active_rule_sets"])
+        self.assertIn("TEX-001", session.telemetry["active_rule_ids"])
+
     def test_production_runtime_allows_only_one_repair_retry(self):
         self.assertEqual(build_runtime_orchestrator().max_retries, 2)
 

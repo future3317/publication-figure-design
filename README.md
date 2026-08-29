@@ -48,6 +48,14 @@ chosen and compiled into `ReferenceDNA → StyleCapsule + JournalProfile → Des
 Publication mode renders structure-first, style-first, and balanced candidates before
 the final repair and export decision.
 
+## TeX 后端
+
+TeX/TikZ/PGFPlots 是一等后端，适用于需要原生矢量几何、论文字体一致性或可编辑
+PDF 的图。选择 TeX 后先读 [`references/tex-rendering.md`](references/tex-rendering.md)，
+声明 `lualatex`/`xelatex`/`pdflatex`、PGFPlots 兼容版本和最终 assembler；编译日志、
+字体嵌入、overfull box、页面尺寸与最终大小 PNG 都必须进入 QA。缺少 TeX 能力时
+停止该路径，不静默改用 Python/R。
+
 ### 阅读材料契约
 
 `manifest.yaml` 将材料分成三层：`always_load` 是所有任务必读，路由下的

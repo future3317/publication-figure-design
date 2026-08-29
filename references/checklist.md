@@ -192,6 +192,16 @@ Each check includes: **what to scan for**, **the pass condition**, and **the fix
 
 ---
 
+## TeX backend checks (when `backend=tex`)
+
+Run `scripts/check_tex_source.py` before compilation. Treat shell-escape tokens,
+unbalanced document environments, missing required package declarations, and missing
+physical-size bindings as actionable findings. Compile with `-halt-on-error`, then
+inspect the log for overfull boxes, undefined references, package errors, and missing
+glyphs. Audit PDF page geometry and embedded fonts, render a final-size PNG, and run
+the same overlap, clipping, contrast, hierarchy, and uncertainty checks as other
+backends. A compiling `.tex` file is not sufficient for READY.
+
 ## Pass 2: Visual Logic & Data Integrity
 
 These checks require reasoning about what the code produces, not just pattern matching. The LLM reads the code, imagines the output, and verifies visual logic.

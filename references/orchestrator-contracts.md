@@ -33,9 +33,9 @@ a new session instead of silently changing the reference choice.
 | `LayoutSpec` | panel topology, bboxes, reading order, plot/legend regions, whitespace and gaps |
 | `StyleSpec` | palette, typography, strokes, markers, opacity, grid/spines, legend, annotation, spacing, density |
 | `BindingMap` | target element → `match/restructure/rewrite/omit/add`, with no orphan series |
-| `RenderPlan` | renderer per panel, backend, final assembler, raster/vector, variants, font fallback |
+| `RenderPlan` | renderer per panel, backend, final assembler, raster/vector, variants, font fallback; for TeX, engine, package/compatibility versions, compile command, and shell-escape policy |
 | `QAReport` | scientific/statistical/layout/typography/color/fidelity/accessibility/export gates and metrics |
-| `ExportManifest` | final files, source files, QA report, provenance, formats, actual font used, substitution policy |
+| `ExportManifest` | final files, source files, QA report, provenance, formats, actual font used, substitution policy; for TeX, compile log and PDF font/page-geometry evidence |
 
 Compiler artifacts extend the same state machine: `ReferenceDNA`, `StyleCapsule`,
 `JournalProfile`, `DesignPacket`, `DesignPatch`, `RenderTrace`, `PreferencePair`.

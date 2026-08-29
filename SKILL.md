@@ -149,9 +149,10 @@ is not a substitute for opening the selected pixels. Use at most 3 candidates pe
 record their image hash and observations, then choose structure and style independently.
 
 Backend choice is resolved by `references/backend-selection.md`: explicit request,
-workflow requirement, saved preference, then the Python default. Mixed panels require
-one final assembler and an explicit request or real capability need; never silently
-substitute a backend.
+workflow requirement, saved preference, then the Python default. TeX/TikZ/PGFPlots is
+a first-class backend; when selected, read `references/tex-rendering.md` and record the
+engine/package versions. Mixed panels require one final assembler and an explicit
+capability need; never silently substitute a backend.
 
 The reference-fidelity route also runs `scripts/check_reference_fidelity.py` and records
 all five dimensions before production asset selection.
@@ -285,6 +286,7 @@ Use `pfd eval quick|full|visual|release`; `release` is the same gate as CI.
 | Journal target and physical sizing | `references/journal-specs.md`, `references/export-specs.md` |
 | Scientific encoding/uncertainty | `references/encoding-and-uncertainty.md` |
 | QA/export | `references/checklist.md`, `references/delivery-contract.md`, `references/export-specs.md`, `scripts/rendered_contrast.py`, `scripts/audit_pdf_text.py` |
+| TeX/TikZ/PGFPlots backend | `references/tex-rendering.md`, `scripts/check_tex_source.py`, `scripts/audit_pdf_text.py` |
 | Layered QA and trace | `src/publication_figure_design/qa/`, `RenderTrace`, `scripts/render_contract.py` |
 | Source reconstruction maintenance | `references/source-reconstruction-library.md`, `scripts/check_source_reconstruction_library.py`, `scripts/check_source_reference_catalog.py` |
 | Optimization packet | `scripts/prepare_visual_optimization.py`, `scripts/check_visual_optimization.py` |

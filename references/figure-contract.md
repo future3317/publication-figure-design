@@ -75,9 +75,9 @@ Read `references/encoding-and-uncertainty.md`. A numeric x variable does not req
 
 Declare the plotting backend for every panel and exactly one final assembler. Resolve the choice through `backend-selection.md`. A normal figure uses one backend; mixed Python/R mode requires an explicit request or a real capability need.
 
-- **Panel backend(s):** [Python / R]
-- **Final assembler:** [Python / R]
-- **Required runtime/package:** [name]
+- **Panel backend(s):** [Python / R / TeX (TikZ or PGFPlots)]
+- **Final assembler:** [Python / R / TeX]
+- **Required runtime/package:** [name and version, including TeX engine/packages when applicable]
 - **Mixed-mode reason:** [explicit/required reason or N/A]
 
 Do not silently substitute another backend if the selected runtime is missing.

@@ -50,7 +50,7 @@ It describes the canonical script(s) in that directory. If multiple scripts exis
 | `figure_type` | yes | string | Matches the directory name in `assets/figures/` and `references/directory-map.md`. |
 | `variant` | no | string | Distinguishes multiple scripts of the same figure type. Default `"default"`. |
 | `asset_kind` | yes | `template`, `reusable`, `example` | Reuse recommendation (see below). |
-| `runtime` | yes | `python`, `r`, `mixed` | Language runtime needed. |
+| `runtime` | yes | `python`, `r`, `tex`, `mixed` | Language/runtime needed; TeX assets must declare the engine and packages in `dependencies` or `notes`. |
 | `dependencies` | no | list of strings | Top-level packages the script imports. |
 | `data_shape` | no | `wide`, `long`, `matrix`, `xy`, `paired`, ... | Expected data layout. |
 | `grouping` | no | string | How groups/categories are represented. |

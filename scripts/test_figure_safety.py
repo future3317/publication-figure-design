@@ -67,6 +67,12 @@ class BackendPreferenceTests(unittest.TestCase):
         with patch.dict(os.environ, {"ACADEMIC_FIGURE_CONFIG": "./custom-pref.json"}):
             self.assertEqual(config_path(), Path("custom-pref.json"))
 
+    def test_tex_backend_round_trip(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "preferences.json"
+            self.assertEqual(set_backend(path, "TeX"), "tex")
+            self.assertEqual(get_backend(path), "tex")
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
