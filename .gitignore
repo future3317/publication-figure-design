@@ -8,6 +8,19 @@ __pycache__/
 scripts/.eval_results.json
 scripts/.ab_baseline.json
 scripts/.ab_publication-figure-design.json
+.pytest_cache/
+
+# One-off local migration / seed-generation helpers
+scripts/add_seed_sha256.py
+scripts/backfill_rule_authority.py
+scripts/fix_seed_figure_types.py
+scripts/generate_eval_mutations.py
+scripts/generate_family_seed_references.py
+scripts/reorganize_family_seed.py
+scripts/seed_mark_reviewed.py
+
+# Root-level accidental render output
+figure.png
 
 # Staging area for visual-reference ingest
 assets/visual-references/.staging/
