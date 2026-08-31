@@ -1,14 +1,15 @@
 {
   "schema": "publication-figure-design/reference-dna",
-  "schema_version": "2.0",
+  "schema_version": "2.1",
   "identity": {
     "id": "seed-classification_diagnostics-confusion_matrix_count",
     "source": "synthetic family seed for classification_diagnostics/confusion_matrix_count",
     "license": "generated independently; synthetic data and code",
     "journal": "generic",
     "year": null,
-    "figure_family": "confusion_matrix",
-    "source_kind": "raster"
+    "figure_family": "classification_diagnostics",
+    "source_kind": "raster",
+    "subtype": "confusion_matrix"
   },
   "composition": {
     "aspect_ratio": 1.0,

@@ -1,14 +1,15 @@
 {
   "schema": "publication-figure-design/reference-dna",
-  "schema_version": "2.0",
+  "schema_version": "2.1",
   "identity": {
     "id": "seed-classification_diagnostics-calibration",
     "source": "synthetic family seed for classification_diagnostics/calibration",
     "license": "generated independently; synthetic data and code",
     "journal": "generic",
     "year": null,
-    "figure_family": "calibration",
-    "source_kind": "raster"
+    "figure_family": "classification_diagnostics",
+    "source_kind": "raster",
+    "subtype": "calibration"
   },
   "composition": {
     "aspect_ratio": 1.0,

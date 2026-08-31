@@ -1,14 +1,15 @@
 {
   "schema": "publication-figure-design/reference-dna",
-  "schema_version": "2.0",
+  "schema_version": "2.1",
   "identity": {
     "id": "seed-classification_diagnostics-precision_recall",
     "source": "synthetic family seed for classification_diagnostics/precision_recall",
     "license": "generated independently; synthetic data and code",
     "journal": "generic",
     "year": null,
-    "figure_family": "pr_curve",
-    "source_kind": "raster"
+    "figure_family": "classification_diagnostics",
+    "source_kind": "raster",
+    "subtype": "pr_curve"
   },
   "composition": {
     "aspect_ratio": 1.0,

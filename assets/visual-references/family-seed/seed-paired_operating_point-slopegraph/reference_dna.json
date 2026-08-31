@@ -1,14 +1,15 @@
 {
   "schema": "publication-figure-design/reference-dna",
-  "schema_version": "2.0",
+  "schema_version": "2.1",
   "identity": {
     "id": "seed-paired_operating_point-slopegraph",
     "source": "synthetic family seed for paired_operating_point/slopegraph",
     "license": "generated independently; synthetic data and code",
     "journal": "generic",
     "year": null,
-    "figure_family": "slopegraph",
-    "source_kind": "raster"
+    "figure_family": "paired_operating_point",
+    "source_kind": "raster",
+    "subtype": "slopegraph"
   },
   "composition": {
     "aspect_ratio": 0.8,

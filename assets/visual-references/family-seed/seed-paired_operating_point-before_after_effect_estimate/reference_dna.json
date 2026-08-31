@@ -1,6 +1,6 @@
 {
   "schema": "publication-figure-design/reference-dna",
-  "schema_version": "2.0",
+  "schema_version": "2.1",
   "identity": {
     "id": "seed-paired_operating_point-before_after_effect_estimate",
     "source": "synthetic family seed for paired_operating_point/before_after_effect_estimate",

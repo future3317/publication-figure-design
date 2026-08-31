@@ -3,10 +3,10 @@
   "$id": "publication-figure-design/reference-dna.schema.json",
   "title": "Reference DNA",
   "type": "object",
-  "required": ["schema", "schema_version", "identity", "composition", "palette", "typography", "geometry", "annotations", "hierarchy", "style", "constraints", "confidence"],
+  "required": ["schema", "schema_version", "identity", "composition", "palette", "typography", "geometry", "annotations", "hierarchy", "style", "constraints", "confidence", "scientific_semantics", "encoding_rationale", "pedagogy", "caption_requirements", "accessibility_evidence"],
   "properties": {
     "schema": {"const": "publication-figure-design/reference-dna"},
-    "schema_version": {"const": "2.0"},
+    "schema_version": {"const": "2.1"},
     "identity": {"type": "object"},
     "composition": {"type": "object"},
     "palette": {"type": "object"},
@@ -74,10 +74,10 @@
     "accessibility_evidence": {
       "type": "object",
       "properties": {
-        "color_redundancy": {"type": "boolean"},
-        "grayscale_safe": {"type": "boolean"},
-        "cvd_safe": {"type": "boolean"},
-        "direct_label_possible": {"type": "boolean"}
+        "color_redundancy": {"type": ["boolean", "null"]},
+        "grayscale_safe": {"type": ["boolean", "null"]},
+        "cvd_safe": {"type": ["boolean", "null"]},
+        "direct_label_possible": {"type": ["boolean", "null"]}
       },
       "additionalProperties": true
     }
