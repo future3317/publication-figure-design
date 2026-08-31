@@ -90,8 +90,20 @@ FIGURE_FAMILIES: dict[str, dict[str, Any]] = {
 }
 
 
+def _champion_families() -> set[str]:
+    """Read champion family names from the champion board."""
+    try:
+        from pathlib import Path
+        path = Path(__file__).resolve().parents[1] / "assets" / "reference-benchmarks" / "champion_board.json"
+        board = json.loads(path.read_text(encoding="utf-8"))
+        return set(board.get("families", {}).keys())
+    except Exception:
+        return set()
+
+
 def build_coverage_report(library: Any) -> dict[str, Any]:
-    """Measure reviewed references available for every taxonomy family."""
+    """Measure four-level reference coverage for every taxonomy family."""
+    champion_families = _champion_families()
     families: list[dict[str, Any]] = []
     for family_id, spec in FIGURE_FAMILIES.items():
         refs: dict[str, Any] = {}
@@ -100,19 +112,38 @@ def build_coverage_report(library: Any) -> dict[str, Any]:
             for ref in library.query(figure_type=figure_type):
                 refs[ref.id] = ref
         ids = sorted(refs)
+        reviewed = [rid for rid in ids if getattr(refs[rid].metadata, "review_status", None) == "reviewed" or refs[rid].metadata.get("review_status") == "reviewed"]
+        production_ready = [rid for rid in ids if refs[rid].metadata.get("production_ready") is True]
         families.append({
             "id": family_id,
             "figure_types": spec["figure_types"],
             **({"related_visual_types": spec["related_visual_types"]} if spec.get("related_visual_types") else {}),
             "candidate_ids": ids[:8],
             "reference_count": len(ids),
+            "reviewed_count": len(reviewed),
+            "production_ready_count": len(production_ready),
+            "coverage": {
+                "presence": bool(ids),
+                "reviewed": bool(reviewed),
+                "production_ready": bool(production_ready),
+                "champion": family_id in champion_families,
+            },
             "covered": bool(ids),
         })
-    covered = sum(1 for item in families if item["covered"])
+    presence = sum(1 for item in families if item["coverage"]["presence"])
+    reviewed = sum(1 for item in families if item["coverage"]["reviewed"])
+    production_ready = sum(1 for item in families if item["coverage"]["production_ready"])
+    champion = sum(1 for item in families if item["coverage"]["champion"])
     return {
         "family_count": len(families),
-        "covered_family_count": covered,
-        "missing_families": [item["id"] for item in families if not item["covered"]],
+        "covered_family_count": presence,
+        "missing_families": [item["id"] for item in families if not item["coverage"]["presence"]],
+        "coverage_levels": {
+            "presence": presence,
+            "reviewed": reviewed,
+            "production_ready": production_ready,
+            "champion": champion,
+        },
         "families": families,
     }
 

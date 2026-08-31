@@ -29,6 +29,19 @@ class FigureFamilyCoverageTests(unittest.TestCase):
         self.assertFalse(report["missing_families"], f"gaps remain: {report['missing_families']}")
         self.assertTrue(all("candidate_ids" in item for item in report["families"] ))
 
+    def test_audit_reports_four_level_coverage(self):
+        report = build_coverage_report(ReferenceLibrary())
+        levels = report["coverage_levels"]
+        self.assertIn("presence", levels)
+        self.assertIn("reviewed", levels)
+        self.assertIn("production_ready", levels)
+        self.assertIn("champion", levels)
+        self.assertGreaterEqual(levels["presence"], levels["reviewed"])
+        self.assertGreaterEqual(levels["reviewed"], levels["production_ready"])
+        for item in report["families"]:
+            self.assertIn("coverage", item)
+            self.assertIn("presence", item["coverage"])
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
