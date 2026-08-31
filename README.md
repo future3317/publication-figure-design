@@ -19,13 +19,27 @@ or variable roles of the target figure.
   layered QA.
 - Reference assets under [`assets/`](assets/), with source-specific analysis,
   `ReferenceDNA`, reproduction material, previews, provenance, and lifecycle state.
-- Journal profiles and reusable style capsules in [`profiles/`](profiles/), plus
-  deterministic hybrid indexes in [`indexes/`](indexes/).
+  `ReferenceDNA` now carries a scientific-semantics layer: claim type, encoding
+  rationale, pedagogical notes, caption requirements, and accessibility evidence,
+  so retrieval is driven by *why* a reference works, not only by how it looks.
+- Journal profiles, reusable style capsules, and **domain profiles** in
+  [`profiles/`](profiles/). Domain profiles change the semantic contract for a field
+  (`ml-ai`, `biomedical`, `genomics`, `microscopy`, `chemistry-materials`,
+  `systematic-review`); they are not skin swaps.
+- Deterministic hybrid indexes in [`indexes/`](indexes/).
 - Executable evaluation and release gates in [`scripts/`](scripts/) and [`evals/`](evals/).
+  The output eval suite now includes adversarial mutations, semantic correctness,
+  statistical integrity, visual clarity, accessibility, publication compliance,
+  export integrity, and reference-selection tests.
 - Machine-readable rule hierarchy in [`rules/`](rules/) with source provenance in
-  [`sources/registry.yaml`](sources/registry.yaml). Global scientific/accessibility
+  [`sources/registry.yaml`](sources/registry.yaml). Each rule records an
+  `authority` level (`scientific_integrity`, `publisher_requirement`,
+  `accessibility`, `evidence_based_guidance`, `house_style`, `heuristic`) and a
+  rationale, so conflicts resolve by authority. Global scientific/accessibility
   rules are distinct from house defaults, family constraints, journal profiles, and
   backend details.
+- An **anti-pattern atlas** in [`assets/anti-pattern-atlas/`](assets/anti-pattern-atlas/)
+  that pairs bad figures with diagnosis and corrected figures.
 
 ## Runtime lifecycle
 
@@ -207,9 +221,14 @@ scripts/                         CLI wrappers, maintenance, and gates
 references/                      workflow and visual-grammar contracts
 assets/figures/                  maintained figure-family scripts and previews
 assets/visual-references/        reference corpus and per-image artifacts
-profiles/                        journal profiles and style capsules
+assets/anti-pattern-atlas/       bad → diagnosis → corrected examples
+profiles/journals/               journal/venue constraints
+profiles/style-capsules/         reusable visual-grammar packages
+profiles/domains/                field-specific semantic contracts
 indexes/                         deterministic retrieval indexes
-evals/                           activation, benchmark, and regression data
+rules/                           machine-readable scientific and house rules
+evals/                           activation, output eval, benchmark, and regression data
+sources/registry.yaml            external evidence provenance
 ```
 
 ## Contributing

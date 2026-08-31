@@ -17,14 +17,25 @@ meaning, statistical transform, uncertainty semantics, labels, or variable roles
   orchestration, and layered QA.
 - [`assets/`](assets/) contains maintained figure assets and the reference corpus,
   including metadata, `ReferenceDNA`, reproduction material, previews, and provenance.
-- [`profiles/`](profiles/) and [`indexes/`](indexes/) contain journal/style profiles and
-  deterministic hybrid retrieval indexes.
+  `ReferenceDNA` now includes a scientific-semantics layer: claim type, encoding
+  rationale, pedagogy, caption requirements, and accessibility evidence, so retrieval
+  is driven by *why* a reference works, not only its visual appearance.
+- [`profiles/`](profiles/) and [`indexes/`](indexes/) contain journal/style profiles,
+  deterministic hybrid retrieval indexes, and **domain profiles** that change the
+  semantic contract for a field (`ml-ai`, `biomedical`, `genomics`, `microscopy`,
+  `chemistry-materials`, `systematic-review`) rather than acting as skin swaps.
 - [`scripts/`](scripts/) and [`evals/`](evals/) contain maintenance commands and the
-  executable evaluation/release gates.
+  executable evaluation/release gates. The output eval suite now covers adversarial
+  mutations, semantic correctness, statistical integrity, visual clarity,
+  accessibility, publication compliance, export integrity, and reference selection.
 - [`rules/`](rules/) is the machine-readable rule source, while
-  [`sources/registry.yaml`](sources/registry.yaml) records rule provenance. Global
-  scientific/accessibility invariants are separate from house defaults, family rules,
-  journal profiles, and backend implementation details.
+  [`sources/registry.yaml`](sources/registry.yaml) records rule provenance. Each rule
+  now carries an `authority` level (`scientific_integrity`, `publisher_requirement`,
+  `accessibility`, `evidence_based_guidance`, `house_style`, `heuristic`) and a
+  rationale. Global scientific/accessibility invariants are separate from house
+  defaults, family rules, journal profiles, and backend implementation details.
+- [`assets/anti-pattern-atlas/`](assets/anti-pattern-atlas/) pairs bad figures with
+  diagnosis and corrected counterparts.
 
 ## Runtime lifecycle
 
@@ -202,9 +213,14 @@ scripts/                         CLI wrappers, maintenance, and gates
 references/                      workflow and visual-grammar contracts
 assets/figures/                  maintained figure-family scripts and previews
 assets/visual-references/        reference corpus and per-image artifacts
-profiles/                        journal profiles and style capsules
+assets/anti-pattern-atlas/       bad → diagnosis → corrected examples
+profiles/journals/               journal/venue constraints
+profiles/style-capsules/         reusable visual-grammar packages
+profiles/domains/                field-specific semantic contracts
 indexes/                         deterministic retrieval indexes
-evals/                           activation, benchmark, and regression data
+rules/                           machine-readable scientific and house rules
+evals/                           activation, output eval, benchmark, and regression data
+sources/registry.yaml            external evidence provenance
 ```
 
 ## Contributing
