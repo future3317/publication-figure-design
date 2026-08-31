@@ -1,0 +1,10 @@
+{
+  "rule_ids": [
+    "LAY-002",
+    "ANN-002"
+  ],
+  "family": "curve_comparison",
+  "source_ids": [
+    "pfd-render-trace"
+  ]
+}

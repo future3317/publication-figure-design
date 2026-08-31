@@ -1,0 +1,10 @@
+{
+  "rule_ids": [
+    "HOUSE-009",
+    "A11Y-001"
+  ],
+  "family": "matrix_array",
+  "source_ids": [
+    "crameri-2020"
+  ]
+}

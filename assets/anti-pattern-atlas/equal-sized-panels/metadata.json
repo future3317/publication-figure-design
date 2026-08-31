@@ -1,0 +1,9 @@
+{
+  "rule_ids": [
+    "LAY-003"
+  ],
+  "family": "asymmetric_multi_panel",
+  "source_ids": [
+    "pfd-house-visual-language"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "rule_ids": [
+    "CLF-001"
+  ],
+  "family": "classification_diagnostics",
+  "source_ids": [
+    "tripod-ai"
+  ]
+}

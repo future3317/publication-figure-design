@@ -1,0 +1,11 @@
+{
+  "rule_ids": [
+    "PAIR-002",
+    "SEM-002"
+  ],
+  "family": "paired_operating_point",
+  "source_ids": [
+    "pfd-family-guidance",
+    "heer-bostock-2010"
+  ]
+}

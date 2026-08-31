@@ -1,0 +1,10 @@
+{
+  "rule_ids": [
+    "STAT-005"
+  ],
+  "family": "comparison_effect",
+  "source_ids": [
+    "weissgerber-2015",
+    "plos-data-presentation"
+  ]
+}
