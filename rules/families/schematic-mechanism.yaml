@@ -1,11 +1,32 @@
 rules:
-  - id: MECH-001
-    title: Schematic connectors show real relationships
-    scope: family
-    severity: block
-    statement: Arrows and connectors must encode a declared causal, procedural, or data-flow relation; direction, endpoint, routing, and line style are recorded in ComponentSpec.
-    applicability: {figure_types: [mechanism_architecture, schematic], outputs: [digital, print]}
-    evidence: [{source_id: pfd-family-guidance, source_type: project_guidance, section: schematic-mechanism}]
-    verification: {mode: hybrid, checks: ["connector_geometry_audit", "component_source_trace"]}
-    override: {allowed: false}
-    tags: [family, schematic, connectors]
+- id: MECH-001
+  title: Schematic connectors show real relationships
+  scope: family
+  severity: block
+  statement: Arrows and connectors must encode a declared causal, procedural, or data-flow
+    relation; direction, endpoint, routing, and line style are recorded in ComponentSpec.
+  applicability:
+    figure_types:
+    - mechanism_architecture
+    - schematic
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-family-guidance
+    source_type: project_guidance
+    section: schematic-mechanism
+  verification:
+    mode: hybrid
+    checks:
+    - connector_geometry_audit
+    - component_source_trace
+  override:
+    allowed: false
+  tags:
+  - family
+  - schematic
+  - connectors
+  authority: evidence_based_guidance
+  rationale: Arrows and connectors must encode a declared causal, procedural, or data-flow
+    relation; direction, endpoint, routing, and line style are recorded in ComponentSpec.

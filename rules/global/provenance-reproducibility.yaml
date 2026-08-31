@@ -1,21 +1,59 @@
 rules:
-  - id: PROV-001
-    title: Trace data to rendered marks
-    scope: global
-    severity: block
-    statement: Each rendered element must be traceable through data, declared transform or statistic, and graphical mark in RenderTrace or an equivalent backend trace.
-    applicability: {figure_types: ["*"], outputs: [digital, print]}
-    evidence: [{source_id: pfd-render-trace, source_type: project_contract, section: render_trace}]
-    verification: {mode: hybrid, checks: ["render_trace_completeness", "source_reconciliation"]}
-    override: {allowed: false}
-    tags: [provenance, reproducibility]
-  - id: PROV-002
-    title: Final-size output is authoritative
-    scope: global
-    severity: block
-    statement: Legibility and visual comparisons are judged at the final physical size and export format, not only from an enlarged notebook preview.
-    applicability: {figure_types: ["*"], outputs: [digital, print]}
-    evidence: [{source_id: nature-figure-guide, source_type: journal_guidance, section: final-size}]
-    verification: {mode: hybrid, checks: ["final_size_render", "export_reopen"]}
-    override: {allowed: false}
-    tags: [provenance, export]
+- id: PROV-001
+  title: Trace data to rendered marks
+  scope: global
+  severity: block
+  statement: Each rendered element must be traceable through data, declared transform
+    or statistic, and graphical mark in RenderTrace or an equivalent backend trace.
+  applicability:
+    figure_types:
+    - '*'
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-render-trace
+    source_type: project_contract
+    section: render_trace
+  verification:
+    mode: hybrid
+    checks:
+    - render_trace_completeness
+    - source_reconciliation
+  override:
+    allowed: false
+  tags:
+  - provenance
+  - reproducibility
+  authority: scientific_integrity
+  rationale: Each rendered element must be traceable through data, declared transform
+    or statistic, and graphical mark in RenderTrace or an equivalent backend trace.
+- id: PROV-002
+  title: Final-size output is authoritative
+  scope: global
+  severity: block
+  statement: Legibility and visual comparisons are judged at the final physical size
+    and export format, not only from an enlarged notebook preview.
+  applicability:
+    figure_types:
+    - '*'
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: nature-figure-guide
+    source_type: journal_guidance
+    section: final-size
+  verification:
+    mode: hybrid
+    checks:
+    - final_size_render
+    - export_reopen
+  override:
+    allowed: false
+  tags:
+  - provenance
+  - export
+  authority: scientific_integrity
+  rationale: Legibility and visual comparisons are judged at the final physical size
+    and export format, not only from an enlarged notebook preview.

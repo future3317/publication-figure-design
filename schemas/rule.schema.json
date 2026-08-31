@@ -20,6 +20,8 @@
         "checks": {"type": "array", "minItems": 1, "items": {"type": "string"}}
       }
     },
+    "authority": {"enum": ["normative", "publisher_requirement", "scientific_integrity", "evidence_based_guidance", "house_style", "heuristic"]},
+    "rationale": {"type": "string", "minLength": 1},
     "override": {"type": "object"},
     "conflicts_with": {"type": "array", "items": {"type": "string"}},
     "tags": {"type": "array", "items": {"type": "string"}}

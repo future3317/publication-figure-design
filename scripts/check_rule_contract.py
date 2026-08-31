@@ -14,6 +14,7 @@ import yaml
 SCOPES = {"global", "house", "journal", "family", "backend", "eval"}
 SEVERITIES = {"block", "warn", "advisory"}
 MODES = {"automated", "manual", "hybrid"}
+AUTHORITIES = {"normative", "publisher_requirement", "scientific_integrity", "evidence_based_guidance", "house_style", "heuristic"}
 
 
 def _load_yaml(path: Path, errors: list[str]) -> Any:
@@ -97,6 +98,9 @@ def validate_rules(root: Path | str) -> dict[str, object]:
                 errors.append(f"{path} {rule_id}: invalid scope {rule.get('scope')!r}")
             if rule.get("severity") not in SEVERITIES:
                 errors.append(f"{path} {rule_id}: invalid severity {rule.get('severity')!r}")
+            authority = rule.get("authority")
+            if authority is not None and authority not in AUTHORITIES:
+                errors.append(f"{path} {rule_id}: invalid authority {authority!r}")
             if not isinstance(rule.get("statement"), str) or not rule["statement"].strip():
                 errors.append(f"{path} {rule_id}: missing statement")
             verification = rule.get("verification")

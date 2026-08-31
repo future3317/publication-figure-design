@@ -1,41 +1,133 @@
 rules:
-  - id: SEM-001
-    title: Assign one job to each visual channel
-    scope: global
-    severity: block
-    statement: Position, color, shape, line, and size must have explicit semantic roles; connector, trend line, and uncertainty marks cannot carry ambiguous multiple meanings.
-    applicability: {figure_types: ["*"], outputs: [digital, print]}
-    evidence: [{source_id: pfd-semantic-encoding, source_type: project_contract, section: visual_channels}]
-    verification: {mode: hybrid, checks: ["semantic_channel_audit", "render_trace"]}
-    override: {allowed: false}
-    tags: [encoding, semantics]
-  - id: SEM-002
-    title: Ordered relations are encoded honestly
-    scope: global
-    severity: block
-    statement: Connect observations only when time, dose, or another ordered relation is real; categorical states and unpaired observations must not be presented as trajectories.
-    applicability: {figure_types: [time_series, scatter_correlation, distributions], outputs: [digital, print]}
-    evidence: [{source_id: pfd-semantic-encoding, source_type: project_contract, section: relationships}]
-    verification: {mode: hybrid, checks: ["relationship_integrity_audit", "binding_source_trace"]}
-    override: {allowed: false}
-    tags: [encoding, relationships]
-  - id: SEM-003
-    title: Terminology and role names stay consistent
-    scope: global
-    severity: block
-    statement: Method names, condition names, panel labels, curve names, and uncertainty labels must use one canonical terminology across titles, legends, axes, captions, and related figures.
-    applicability: {figure_types: ["*"], outputs: [digital, print]}
-    evidence: [{source_id: pfd-scientific-contract, source_type: project_contract, section: semantic_consistency}]
-    verification: {mode: hybrid, checks: ["paper_visual_contract", "label_consistency_audit"]}
-    override: {allowed: false}
-    tags: [encoding, terminology, consistency]
-  - id: SEM-004
-    title: Dense series remain visually distinguishable
-    scope: global
-    severity: block
-    statement: Series that overlap or share similar colors must be separated by line style, marker, edge, direct label, or another redundant cue; color and weak dashed lines alone are insufficient when they merge at final size.
-    applicability: {figure_types: ["*"], outputs: [digital, print]}
-    evidence: [{source_id: pfd-semantic-encoding, source_type: project_contract, section: visual_channels}]
-    verification: {mode: hybrid, checks: ["series_separation_audit", "grayscale_render_check"]}
-    override: {allowed: false}
-    tags: [encoding, curves, accessibility]
+- id: SEM-001
+  title: Assign one job to each visual channel
+  scope: global
+  severity: block
+  statement: Position, color, shape, line, and size must have explicit semantic roles;
+    connector, trend line, and uncertainty marks cannot carry ambiguous multiple meanings.
+  applicability:
+    figure_types:
+    - '*'
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-semantic-encoding
+    source_type: project_contract
+    section: visual_channels
+  - source_id: cleveland-mcgill-1984
+    source_type: evidence_based_guidance
+    section: graphical_perception_hierarchy
+  verification:
+    mode: hybrid
+    checks:
+    - semantic_channel_audit
+    - render_trace
+  override:
+    allowed: false
+  tags:
+  - encoding
+  - semantics
+  authority: evidence_based_guidance
+  rationale: Position, color, shape, line, and size must have explicit semantic roles;
+    connector, trend line, and uncertainty marks cannot carry ambiguous multiple meanings.
+- id: SEM-002
+  title: Ordered relations are encoded honestly
+  scope: global
+  severity: block
+  statement: Connect observations only when time, dose, or another ordered relation
+    is real; categorical states and unpaired observations must not be presented as
+    trajectories.
+  applicability:
+    figure_types:
+    - time_series
+    - scatter_correlation
+    - distributions
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-semantic-encoding
+    source_type: project_contract
+    section: relationships
+  - source_id: heer-bostock-2010
+    source_type: evidence_based_guidance
+    section: ordered_relationship_perception
+  verification:
+    mode: hybrid
+    checks:
+    - relationship_integrity_audit
+    - binding_source_trace
+  override:
+    allowed: false
+  tags:
+  - encoding
+  - relationships
+  authority: evidence_based_guidance
+  rationale: Connect observations only when time, dose, or another ordered relation
+    is real; categorical states and unpaired observations must not be presented as
+    trajectories.
+- id: SEM-003
+  title: Terminology and role names stay consistent
+  scope: global
+  severity: block
+  statement: Method names, condition names, panel labels, curve names, and uncertainty
+    labels must use one canonical terminology across titles, legends, axes, captions,
+    and related figures.
+  applicability:
+    figure_types:
+    - '*'
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-scientific-contract
+    source_type: project_contract
+    section: semantic_consistency
+  verification:
+    mode: hybrid
+    checks:
+    - paper_visual_contract
+    - label_consistency_audit
+  override:
+    allowed: false
+  tags:
+  - encoding
+  - terminology
+  - consistency
+  authority: evidence_based_guidance
+  rationale: Method names, condition names, panel labels, curve names, and uncertainty
+    labels must use one canonical terminology across titles, legends, axes, captions,
+    and related figures.
+- id: SEM-004
+  title: Dense series remain visually distinguishable
+  scope: global
+  severity: block
+  statement: Series that overlap or share similar colors must be separated by line
+    style, marker, edge, direct label, or another redundant cue; color and weak dashed
+    lines alone are insufficient when they merge at final size.
+  applicability:
+    figure_types:
+    - '*'
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-semantic-encoding
+    source_type: project_contract
+    section: visual_channels
+  verification:
+    mode: hybrid
+    checks:
+    - series_separation_audit
+    - grayscale_render_check
+  override:
+    allowed: false
+  tags:
+  - encoding
+  - curves
+  - accessibility
+  authority: normative
+  rationale: Series that overlap or share similar colors must be separated by line
+    style, marker, edge, direct label, or another redundant cue; color and weak dashed
+    lines alone are insufficient when they merge at

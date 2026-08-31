@@ -1,51 +1,169 @@
 rules:
-  - id: TEX-001
-    title: Compile TeX figures reproducibly
-    scope: backend
-    severity: block
-    statement: TeX figures must declare their compiler and PGF/TikZ compatibility, compile with errors treated as failures, and record the source, compiler, package versions, and output in the render/export trace.
-    applicability: {figure_types: ["*"], outputs: [digital, print]}
-    evidence: [{source_id: pfd-scientific-contract, source_type: project_contract, section: reproducibility}]
-    verification: {mode: hybrid, checks: [tex_compile_log, compiler_version_record, render_trace]}
-    override: {allowed: false}
-    tags: [backend, tex, reproducibility]
-  - id: TEX-002
-    title: Keep TeX typography consistent and embedded
-    scope: backend
-    severity: block
-    statement: TeX text must use an explicit font policy consistent with the manuscript or target profile; font substitution, missing glyphs, and non-embedded fonts must be detected before delivery.
-    applicability: {figure_types: ["*"], outputs: [digital, print]}
-    evidence: [{source_id: pfd-render-trace, source_type: project_contract, section: typography_rendering}]
-    verification: {mode: hybrid, checks: [pdf_font_audit, glyph_render_audit, final_size_review]}
-    override: {allowed: false}
-    tags: [backend, tex, typography, fonts]
-  - id: TEX-003
-    title: Bind TeX geometry to final physical size
-    scope: backend
-    severity: block
-    statement: TeX canvas dimensions, axis widths, panel gaps, line widths, and text sizes must be bound to the declared final physical dimensions; standalone preview scaling must not hide clipping or unreadable labels.
-    applicability: {figure_types: ["*"], outputs: [digital, print]}
-    evidence: [{source_id: pfd-render-trace, source_type: project_contract, section: final_size_truth}]
-    verification: {mode: hybrid, checks: [pdf_page_geometry, final_size_render, bbox_and_clipping_audit]}
-    override: {allowed: false}
-    tags: [backend, tex, dimensions, layout]
-  - id: TEX-004
-    title: Preserve semantic and visual contracts in TikZ layers
-    scope: backend
-    severity: block
-    statement: TikZ/PGFPlots layers, arrows, nodes, legends, fills, and clipping paths must consume the compiled LayoutSpec, TypographySpec, PaletteSpec, and ComponentSpec without changing data meaning or uncertainty semantics.
-    applicability: {figure_types: ["*"], outputs: [digital, print]}
-    evidence: [{source_id: pfd-semantic-encoding, source_type: project_contract, section: visual_channels}]
-    verification: {mode: hybrid, checks: [render_contract, layer_order_audit, scientific_trace_audit]}
-    override: {allowed: false}
-    tags: [backend, tex, tikz, pgfplots, semantics]
-  - id: TEX-005
-    title: Do not enable unrestricted shell escape
-    scope: backend
-    severity: block
-    statement: TeX compilation must run without unrestricted shell escape by default; any required externalization command is explicit, local, allowlisted, and recorded in the run artifact.
-    applicability: {figure_types: ["*"], outputs: [digital, print]}
-    evidence: [{source_id: pfd-scientific-contract, source_type: project_contract, section: reproducibility}]
-    verification: {mode: hybrid, checks: [compile_command_audit, shell_escape_audit]}
-    override: {allowed: false}
-    tags: [backend, tex, reproducibility]
+- id: TEX-001
+  title: Compile TeX figures reproducibly
+  scope: backend
+  severity: block
+  statement: TeX figures must declare their compiler and PGF/TikZ compatibility, compile
+    with errors treated as failures, and record the source, compiler, package versions,
+    and output in the render/export trace.
+  applicability:
+    figure_types:
+    - '*'
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-scientific-contract
+    source_type: project_contract
+    section: reproducibility
+  verification:
+    mode: hybrid
+    checks:
+    - tex_compile_log
+    - compiler_version_record
+    - render_trace
+  override:
+    allowed: false
+  tags:
+  - backend
+  - tex
+  - reproducibility
+  authority: publisher_requirement
+  rationale: TeX figures must declare their compiler and PGF/TikZ compatibility, compile
+    with errors treated as failures, and record the source, compiler, package versions,
+    and output in the render/export trace.
+- id: TEX-002
+  title: Keep TeX typography consistent and embedded
+  scope: backend
+  severity: block
+  statement: TeX text must use an explicit font policy consistent with the manuscript
+    or target profile; font substitution, missing glyphs, and non-embedded fonts must
+    be detected before delivery.
+  applicability:
+    figure_types:
+    - '*'
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-render-trace
+    source_type: project_contract
+    section: typography_rendering
+  verification:
+    mode: hybrid
+    checks:
+    - pdf_font_audit
+    - glyph_render_audit
+    - final_size_review
+  override:
+    allowed: false
+  tags:
+  - backend
+  - tex
+  - typography
+  - fonts
+  authority: publisher_requirement
+  rationale: TeX text must use an explicit font policy consistent with the manuscript
+    or target profile; font substitution, missing glyphs, and non-embedded fonts must
+    be detected before delivery.
+- id: TEX-003
+  title: Bind TeX geometry to final physical size
+  scope: backend
+  severity: block
+  statement: TeX canvas dimensions, axis widths, panel gaps, line widths, and text
+    sizes must be bound to the declared final physical dimensions; standalone preview
+    scaling must not hide clipping or unreadable labels.
+  applicability:
+    figure_types:
+    - '*'
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-render-trace
+    source_type: project_contract
+    section: final_size_truth
+  verification:
+    mode: hybrid
+    checks:
+    - pdf_page_geometry
+    - final_size_render
+    - bbox_and_clipping_audit
+  override:
+    allowed: false
+  tags:
+  - backend
+  - tex
+  - dimensions
+  - layout
+  authority: publisher_requirement
+  rationale: TeX canvas dimensions, axis widths, panel gaps, line widths, and text
+    sizes must be bound to the declared final physical dimensions; standalone preview
+    scaling must not hide clipping or unreadable labe
+- id: TEX-004
+  title: Preserve semantic and visual contracts in TikZ layers
+  scope: backend
+  severity: block
+  statement: TikZ/PGFPlots layers, arrows, nodes, legends, fills, and clipping paths
+    must consume the compiled LayoutSpec, TypographySpec, PaletteSpec, and ComponentSpec
+    without changing data meaning or uncertainty semantics.
+  applicability:
+    figure_types:
+    - '*'
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-semantic-encoding
+    source_type: project_contract
+    section: visual_channels
+  verification:
+    mode: hybrid
+    checks:
+    - render_contract
+    - layer_order_audit
+    - scientific_trace_audit
+  override:
+    allowed: false
+  tags:
+  - backend
+  - tex
+  - tikz
+  - pgfplots
+  - semantics
+  authority: publisher_requirement
+  rationale: TikZ/PGFPlots layers, arrows, nodes, legends, fills, and clipping paths
+    must consume the compiled LayoutSpec, TypographySpec, PaletteSpec, and ComponentSpec
+    without changing data meaning or uncertainty
+- id: TEX-005
+  title: Do not enable unrestricted shell escape
+  scope: backend
+  severity: block
+  statement: TeX compilation must run without unrestricted shell escape by default;
+    any required externalization command is explicit, local, allowlisted, and recorded
+    in the run artifact.
+  applicability:
+    figure_types:
+    - '*'
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-scientific-contract
+    source_type: project_contract
+    section: reproducibility
+  verification:
+    mode: hybrid
+    checks:
+    - compile_command_audit
+    - shell_escape_audit
+  override:
+    allowed: false
+  tags:
+  - backend
+  - tex
+  - reproducibility
+  authority: publisher_requirement
+  rationale: TeX compilation must run without unrestricted shell escape by default;
+    any required externalization command is explicit, local, allowlisted, and recorded
+    in the run artifact.

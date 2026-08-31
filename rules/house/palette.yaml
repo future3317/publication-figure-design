@@ -1,11 +1,64 @@
 rules:
-  - id: HOUSE-006
-    title: Keep semantic colors stable
-    scope: house
-    severity: advisory
-    statement: A semantic role keeps the same color role across a manuscript unless a documented journal, accessibility, or data-semantic reason changes it.
-    applicability: {figure_types: ["*"], outputs: [digital, print]}
-    evidence: [{source_id: pfd-house-visual-language, source_type: project_guidance, section: palette}]
-    verification: {mode: hybrid, checks: ["paper_color_role_audit", "palette_role_audit"]}
-    override: {allowed: true, reason_required: true}
-    tags: [house, palette, consistency]
+- id: HOUSE-006
+  title: Keep semantic colors stable
+  scope: house
+  severity: advisory
+  statement: A semantic role keeps the same color role across a manuscript unless
+    a documented journal, accessibility, or data-semantic reason changes it.
+  applicability:
+    figure_types:
+    - '*'
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-house-visual-language
+    source_type: project_guidance
+    section: palette
+  verification:
+    mode: hybrid
+    checks:
+    - paper_color_role_audit
+    - palette_role_audit
+  override:
+    allowed: true
+    reason_required: true
+  tags:
+  - house
+  - palette
+  - consistency
+  authority: house_style
+  rationale: A semantic role keeps the same color role across a manuscript unless
+    a documented journal, accessibility, or data-semantic reason changes it.
+- id: HOUSE-009
+  title: Avoid perceptually non-uniform colormaps for quantitative data
+  scope: house
+  severity: warn
+  statement: Rainbow, jet, and other perceptually non-uniform colormaps should not be
+    used for sequential or diverging quantitative encodings; prefer perceptually uniform
+    or scientifically designed colormaps.
+  applicability:
+    figure_types:
+    - '*'
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: crameri-2020
+    source_type: evidence_based_guidance
+    section: colour_and_accessibility
+  verification:
+    mode: hybrid
+    checks:
+    - colormap_name_audit
+    - perceptual_uniformity_proxy
+  override:
+    allowed: true
+    reason_required: true
+  tags:
+  - house
+  - palette
+  - colormap
+  - accessibility
+  authority: evidence_based_guidance
+  rationale: Rainbow, jet, and other perceptually non-uniform colormaps should not be used for sequential or diverging quantitative encodings.

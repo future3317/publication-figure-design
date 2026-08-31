@@ -1,11 +1,34 @@
 rules:
-  - id: CMP-001
-    title: Hold controlled comparison variables fixed
-    scope: global
-    severity: block
-    statement: Qualitative comparisons keep sample, camera, crop, scale, orientation, axes, and other controlled factors fixed; one visual variable represents one experimental variable.
-    applicability: {figure_types: [multi_panel_statistical, image_quantitative_composite, mechanism_architecture], outputs: [digital, print]}
-    evidence: [{source_id: pfd-comparison-contract, source_type: project_contract, section: controlled_comparison}]
-    verification: {mode: hybrid, checks: ["comparison_control_audit", "panel_metadata_audit"]}
-    override: {allowed: false}
-    tags: [comparison, semantics]
+- id: CMP-001
+  title: Hold controlled comparison variables fixed
+  scope: global
+  severity: block
+  statement: Qualitative comparisons keep sample, camera, crop, scale, orientation,
+    axes, and other controlled factors fixed; one visual variable represents one experimental
+    variable.
+  applicability:
+    figure_types:
+    - multi_panel_statistical
+    - image_quantitative_composite
+    - mechanism_architecture
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-comparison-contract
+    source_type: project_contract
+    section: controlled_comparison
+  verification:
+    mode: hybrid
+    checks:
+    - comparison_control_audit
+    - panel_metadata_audit
+  override:
+    allowed: false
+  tags:
+  - comparison
+  - semantics
+  authority: evidence_based_guidance
+  rationale: Qualitative comparisons keep sample, camera, crop, scale, orientation,
+    axes, and other controlled factors fixed; one visual variable represents one experimental
+    variable.

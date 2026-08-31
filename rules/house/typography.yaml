@@ -1,11 +1,31 @@
 rules:
-  - id: HOUSE-005
-    title: Use a visible text hierarchy
-    scope: house
-    severity: advisory
-    statement: Title, body/axis, tick, and annotation sizes should form a visible hierarchy at final physical size; exact family and sizes come from the active profile.
-    applicability: {figure_types: ["*"], outputs: [digital, print]}
-    evidence: [{source_id: pfd-house-visual-language, source_type: project_guidance, section: typography}]
-    verification: {mode: hybrid, checks: ["typography_hierarchy", "final_size_review"]}
-    override: {allowed: true, reason_required: true}
-    tags: [house, typography]
+- id: HOUSE-005
+  title: Use a visible text hierarchy
+  scope: house
+  severity: advisory
+  statement: Title, body/axis, tick, and annotation sizes should form a visible hierarchy
+    at final physical size; exact family and sizes come from the active profile.
+  applicability:
+    figure_types:
+    - '*'
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-house-visual-language
+    source_type: project_guidance
+    section: typography
+  verification:
+    mode: hybrid
+    checks:
+    - typography_hierarchy
+    - final_size_review
+  override:
+    allowed: true
+    reason_required: true
+  tags:
+  - house
+  - typography
+  authority: house_style
+  rationale: Title, body/axis, tick, and annotation sizes should form a visible hierarchy
+    at final physical size; exact family and sizes come from the active profile.

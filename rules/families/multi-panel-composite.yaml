@@ -1,61 +1,217 @@
 rules:
-  - id: MP-001
-    title: Balance panel area with evidence hierarchy
-    scope: family
-    severity: warn
-    statement: Panel area, visual weight, and whitespace must reflect evidence importance; a key panel cannot become an unreadable thumbnail while a low-value panel or empty margin dominates the composition.
-    applicability: {figure_types: [multi_panel_statistical, mechanism_architecture, image_quantitative_composite, inset_comparison, multi_panel], outputs: [digital, print]}
-    evidence: [{source_id: pfd-house-visual-language, source_type: project_guidance, section: composition}]
-    verification: {mode: hybrid, checks: [panel_area_balance, whitespace_balance, final_size_review]}
-    override: {allowed: true, reason_required: true}
-    tags: [family, multi-panel, composition, whitespace]
-  - id: MP-002
-    title: Deduplicate shared skeletons and references
-    scope: family
-    severity: warn
-    statement: A shared skeleton, reference panel, or legend is shown once unless repetition has a distinct reading job; duplicate grey or baseline elements must not consume visual attention without adding evidence.
-    applicability: {figure_types: [multi_panel_statistical, mechanism_architecture, image_quantitative_composite, multi_panel], outputs: [digital, print]}
-    evidence: [{source_id: pfd-house-visual-language, source_type: project_guidance, section: data_ink}]
-    verification: {mode: manual, checks: [repeated_reference_review, legend_duplication_review]}
-    override: {allowed: true, reason_required: true}
-    tags: [family, multi-panel, redundancy]
-  - id: MP-003
-    title: Align directly comparable panels
-    scope: family
-    severity: block
-    statement: Panels intended for direct comparison must use consistent axis domain, scale, orientation, and baseline; a deliberate domain difference must be labeled where it changes interpretation.
-    applicability: {figure_types: [multi_panel_statistical, image_quantitative_composite, multi_panel], outputs: [digital, print]}
-    evidence: [{source_id: pfd-comparison-contract, source_type: project_contract, section: controlled_comparison}]
-    verification: {mode: hybrid, checks: [shared_axis_audit, comparison_control_audit]}
-    override: {allowed: false}
-    tags: [family, multi-panel, comparison]
-  - id: MP-004
-    title: Make inset source and zoom relationship explicit
-    scope: family
-    severity: block
-    statement: An inset must identify its source region and zoomed region with non-crossing connectors, an independent border and readable scale; it must not duplicate the same data without a clear source-to-zoom reading path.
-    applicability: {figure_types: [inset_comparison, image_quantitative_composite, multi_panel], outputs: [digital, print]}
-    evidence: [{source_id: pfd-scientific-contract, source_type: project_contract, section: panel_topology}]
-    verification: {mode: hybrid, checks: [inset_source_zoom_audit, connector_crossing_audit, inset_scale_review]}
-    override: {allowed: false}
-    tags: [family, inset, connector, zoom]
-  - id: MP-005
-    title: Layer dense geometric overlays
-    scope: family
-    severity: block
-    statement: Overlapping ellipsoids, nodes, or 3D objects must use explicit fill, edge, wireframe, marker, depth, or representative-object hierarchy; color alone cannot separate a dense overlay.
-    applicability: {figure_types: [mechanism_architecture, image_quantitative_composite, multi_panel, geometry], outputs: [digital, print]}
-    evidence: [{source_id: pfd-semantic-encoding, source_type: project_contract, section: visual_channels}]
-    verification: {mode: hybrid, checks: [overlay_layer_audit, occlusion_review, final_size_review]}
-    override: {allowed: false}
-    tags: [family, overlay, 3d, geometry]
-  - id: MP-006
-    title: Keep global and local legends coherent
-    scope: family
-    severity: warn
-    statement: Global and panel-local legends must share names, roles, and visual encodings; remove duplicate entries when one legend can serve the same reading job.
-    applicability: {figure_types: [multi_panel_statistical, mechanism_architecture, image_quantitative_composite, multi_panel], outputs: [digital, print]}
-    evidence: [{source_id: pfd-semantic-encoding, source_type: project_contract, section: annotation_legend}]
-    verification: {mode: hybrid, checks: [legend_consistency_audit, legend_duplication_review]}
-    override: {allowed: true, reason_required: true}
-    tags: [family, multi-panel, legend]
+- id: MP-001
+  title: Balance panel area with evidence hierarchy
+  scope: family
+  severity: warn
+  statement: Panel area, visual weight, and whitespace must reflect evidence importance;
+    a key panel cannot become an unreadable thumbnail while a low-value panel or empty
+    margin dominates the composition.
+  applicability:
+    figure_types:
+    - multi_panel_statistical
+    - mechanism_architecture
+    - image_quantitative_composite
+    - inset_comparison
+    - multi_panel
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-house-visual-language
+    source_type: project_guidance
+    section: composition
+  verification:
+    mode: hybrid
+    checks:
+    - panel_area_balance
+    - whitespace_balance
+    - final_size_review
+  override:
+    allowed: true
+    reason_required: true
+  tags:
+  - family
+  - multi-panel
+  - composition
+  - whitespace
+  authority: evidence_based_guidance
+  rationale: Panel area, visual weight, and whitespace must reflect evidence importance;
+    a key panel cannot become an unreadable thumbnail while a low-value panel or empty
+    margin dominates the composition.
+- id: MP-002
+  title: Deduplicate shared skeletons and references
+  scope: family
+  severity: warn
+  statement: A shared skeleton, reference panel, or legend is shown once unless repetition
+    has a distinct reading job; duplicate grey or baseline elements must not consume
+    visual attention without adding evidence.
+  applicability:
+    figure_types:
+    - multi_panel_statistical
+    - mechanism_architecture
+    - image_quantitative_composite
+    - multi_panel
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-house-visual-language
+    source_type: project_guidance
+    section: data_ink
+  verification:
+    mode: manual
+    checks:
+    - repeated_reference_review
+    - legend_duplication_review
+  override:
+    allowed: true
+    reason_required: true
+  tags:
+  - family
+  - multi-panel
+  - redundancy
+  authority: evidence_based_guidance
+  rationale: A shared skeleton, reference panel, or legend is shown once unless repetition
+    has a distinct reading job; duplicate grey or baseline elements must not consume
+    visual attention without adding evidence.
+- id: MP-003
+  title: Align directly comparable panels
+  scope: family
+  severity: block
+  statement: Panels intended for direct comparison must use consistent axis domain,
+    scale, orientation, and baseline; a deliberate domain difference must be labeled
+    where it changes interpretation.
+  applicability:
+    figure_types:
+    - multi_panel_statistical
+    - image_quantitative_composite
+    - multi_panel
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-comparison-contract
+    source_type: project_contract
+    section: controlled_comparison
+  verification:
+    mode: hybrid
+    checks:
+    - shared_axis_audit
+    - comparison_control_audit
+  override:
+    allowed: false
+  tags:
+  - family
+  - multi-panel
+  - comparison
+  authority: evidence_based_guidance
+  rationale: Panels intended for direct comparison must use consistent axis domain,
+    scale, orientation, and baseline; a deliberate domain difference must be labeled
+    where it changes interpretation.
+- id: MP-004
+  title: Make inset source and zoom relationship explicit
+  scope: family
+  severity: block
+  statement: An inset must identify its source region and zoomed region with non-crossing
+    connectors, an independent border and readable scale; it must not duplicate the
+    same data without a clear source-to-zoom reading path.
+  applicability:
+    figure_types:
+    - inset_comparison
+    - image_quantitative_composite
+    - multi_panel
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-scientific-contract
+    source_type: project_contract
+    section: panel_topology
+  verification:
+    mode: hybrid
+    checks:
+    - inset_source_zoom_audit
+    - connector_crossing_audit
+    - inset_scale_review
+  override:
+    allowed: false
+  tags:
+  - family
+  - inset
+  - connector
+  - zoom
+  authority: evidence_based_guidance
+  rationale: An inset must identify its source region and zoomed region with non-crossing
+    connectors, an independent border and readable scale; it must not duplicate the
+    same data without a clear source-to-zoom rea
+- id: MP-005
+  title: Layer dense geometric overlays
+  scope: family
+  severity: block
+  statement: Overlapping ellipsoids, nodes, or 3D objects must use explicit fill,
+    edge, wireframe, marker, depth, or representative-object hierarchy; color alone
+    cannot separate a dense overlay.
+  applicability:
+    figure_types:
+    - mechanism_architecture
+    - image_quantitative_composite
+    - multi_panel
+    - geometry
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-semantic-encoding
+    source_type: project_contract
+    section: visual_channels
+  verification:
+    mode: hybrid
+    checks:
+    - overlay_layer_audit
+    - occlusion_review
+    - final_size_review
+  override:
+    allowed: false
+  tags:
+  - family
+  - overlay
+  - 3d
+  - geometry
+  authority: evidence_based_guidance
+  rationale: Overlapping ellipsoids, nodes, or 3D objects must use explicit fill,
+    edge, wireframe, marker, depth, or representative-object hierarchy; color alone
+    cannot separate a dense overlay.
+- id: MP-006
+  title: Keep global and local legends coherent
+  scope: family
+  severity: warn
+  statement: Global and panel-local legends must share names, roles, and visual encodings;
+    remove duplicate entries when one legend can serve the same reading job.
+  applicability:
+    figure_types:
+    - multi_panel_statistical
+    - mechanism_architecture
+    - image_quantitative_composite
+    - multi_panel
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-semantic-encoding
+    source_type: project_contract
+    section: annotation_legend
+  verification:
+    mode: hybrid
+    checks:
+    - legend_consistency_audit
+    - legend_duplication_review
+  override:
+    allowed: true
+    reason_required: true
+  tags:
+  - family
+  - multi-panel
+  - legend
+  authority: evidence_based_guidance
+  rationale: Global and panel-local legends must share names, roles, and visual encodings;
+    remove duplicate entries when one legend can serve the same reading job.

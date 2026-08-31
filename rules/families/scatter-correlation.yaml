@@ -1,11 +1,36 @@
 rules:
-  - id: SCAT-001
-    title: Correlation is not causality
-    scope: family
-    severity: warn
-    statement: Scatter and correlation figures declare the correlation statistic, observation unit, transform, and uncertainty; descriptive association must not be labeled causal.
-    applicability: {figure_types: [scatter, correlation, statistical_discovery], outputs: [digital, print]}
-    evidence: [{source_id: pfd-family-guidance, source_type: project_guidance, section: scatter-correlation}]
-    verification: {mode: hybrid, checks: ["correlation_metadata_audit", "label_review"]}
-    override: {allowed: true, reason_required: true}
-    tags: [family, scatter, correlation]
+- id: SCAT-001
+  title: Correlation is not causality
+  scope: family
+  severity: warn
+  statement: Scatter and correlation figures declare the correlation statistic, observation
+    unit, transform, and uncertainty; descriptive association must not be labeled
+    causal.
+  applicability:
+    figure_types:
+    - scatter
+    - correlation
+    - statistical_discovery
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-family-guidance
+    source_type: project_guidance
+    section: scatter-correlation
+  verification:
+    mode: hybrid
+    checks:
+    - correlation_metadata_audit
+    - label_review
+  override:
+    allowed: true
+    reason_required: true
+  tags:
+  - family
+  - scatter
+  - correlation
+  authority: evidence_based_guidance
+  rationale: Scatter and correlation figures declare the correlation statistic, observation
+    unit, transform, and uncertainty; descriptive association must not be labeled
+    causal.

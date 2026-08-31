@@ -1,41 +1,125 @@
 rules:
-  - id: IMG-001
-    title: Preserve original image evidence
-    scope: global
-    severity: block
-    statement: Keep original image evidence and record crop, rotation, resampling, gamma, contrast, and normalization operations; a final montage is not the only source.
-    applicability: {figure_types: [microscopy, gels_blots, image_quantitative_composite], outputs: [digital, print]}
-    evidence: [{source_id: nature-image-integrity, source_type: journal_guidance, section: image-manipulation}]
-    verification: {mode: hybrid, checks: ["image_provenance", "operation_trace"]}
-    override: {allowed: false}
-    tags: [image-integrity, provenance]
-  - id: IMG-002
-    title: No content-generating scientific image repair
-    scope: global
-    severity: block
-    statement: Do not use clone, heal, content-aware erase, generative fill, or other content-generating edits on scientific image evidence.
-    applicability: {figure_types: [microscopy, gels_blots, image_quantitative_composite], outputs: [digital, print]}
-    evidence: [{source_id: nature-image-integrity, source_type: journal_guidance, section: prohibited-manipulation}]
-    verification: {mode: manual, checks: ["image_edit_audit", "source_layer_review"]}
-    override: {allowed: false}
-    tags: [image-integrity, prohibited-edit]
-  - id: IMG-003
-    title: Scale bars are calibrated
-    scope: global
-    severity: block
-    statement: Scale bars must come from calibration metadata or a known pixel size and remain traceable to source data; visual estimation is not evidence.
-    applicability: {figure_types: [microscopy, spatial], outputs: [digital, print]}
-    evidence: [{source_id: nature-image-integrity, source_type: journal_guidance, section: scale-bars}]
-    verification: {mode: hybrid, checks: ["scale_bar_calibration", "render_trace"]}
-    override: {allowed: false}
-    tags: [image-integrity, scale]
-  - id: IMG-004
-    title: Image and illustration types are labeled
-    scope: global
-    severity: warn
-    statement: Primary scientific imagery and illustrative artwork must be explicitly typed in the asset manifest; generated illustration must follow the target journal policy.
-    applicability: {figure_types: ["*"], outputs: [digital, print]}
-    evidence: [{source_id: nature-image-integrity, source_type: journal_guidance, section: generative-ai}]
-    verification: {mode: manual, checks: ["asset_type_review", "journal_ai_policy_review"]}
-    override: {allowed: true, reason_required: true}
-    tags: [image-integrity, provenance]
+- id: IMG-001
+  title: Preserve original image evidence
+  scope: global
+  severity: block
+  statement: Keep original image evidence and record crop, rotation, resampling, gamma,
+    contrast, and normalization operations; a final montage is not the only source.
+  applicability:
+    figure_types:
+    - microscopy
+    - gels_blots
+    - image_quantitative_composite
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: nature-image-integrity
+    source_type: journal_guidance
+    section: image-manipulation
+  verification:
+    mode: hybrid
+    checks:
+    - image_provenance
+    - operation_trace
+  override:
+    allowed: false
+  tags:
+  - image-integrity
+  - provenance
+  authority: scientific_integrity
+  rationale: Keep original image evidence and record crop, rotation, resampling, gamma,
+    contrast, and normalization operations; a final montage is not the only source.
+- id: IMG-002
+  title: No content-generating scientific image repair
+  scope: global
+  severity: block
+  statement: Do not use clone, heal, content-aware erase, generative fill, or other
+    content-generating edits on scientific image evidence.
+  applicability:
+    figure_types:
+    - microscopy
+    - gels_blots
+    - image_quantitative_composite
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: nature-image-integrity
+    source_type: journal_guidance
+    section: prohibited-manipulation
+  verification:
+    mode: manual
+    checks:
+    - image_edit_audit
+    - source_layer_review
+  override:
+    allowed: false
+  tags:
+  - image-integrity
+  - prohibited-edit
+  authority: evidence_based_guidance
+  rationale: Do not use clone, heal, content-aware erase, generative fill, or other
+    content-generating edits on scientific image evidence.
+- id: IMG-003
+  title: Scale bars are calibrated
+  scope: global
+  severity: block
+  statement: Scale bars must come from calibration metadata or a known pixel size
+    and remain traceable to source data; visual estimation is not evidence.
+  applicability:
+    figure_types:
+    - microscopy
+    - spatial
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: nature-image-integrity
+    source_type: journal_guidance
+    section: scale-bars
+  verification:
+    mode: hybrid
+    checks:
+    - scale_bar_calibration
+    - render_trace
+  override:
+    allowed: false
+  tags:
+  - image-integrity
+  - scale
+  authority: evidence_based_guidance
+  rationale: Scale bars must come from calibration metadata or a known pixel size
+    and remain traceable to source data; visual estimation is not evidence.
+- id: IMG-004
+  title: Image and illustration types are labeled
+  scope: global
+  severity: warn
+  statement: Primary scientific imagery and illustrative artwork must be explicitly
+    typed in the asset manifest; generated illustration must follow the target journal
+    policy.
+  applicability:
+    figure_types:
+    - '*'
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: nature-image-integrity
+    source_type: journal_guidance
+    section: generative-ai
+  verification:
+    mode: manual
+    checks:
+    - asset_type_review
+    - journal_ai_policy_review
+  override:
+    allowed: true
+    reason_required: true
+  tags:
+  - image-integrity
+  - provenance
+  authority: scientific_integrity
+  rationale: Primary scientific imagery and illustrative artwork must be explicitly
+    typed in the asset manifest; generated illustration must follow the target journal
+    policy.

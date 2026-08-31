@@ -1,11 +1,31 @@
 rules:
-  - id: IQC-001
-    title: Image and quantitative panels share comparison context
-    scope: family
-    severity: block
-    statement: Image and quantitative panels identify the same sample or cohort, preserve shared conditions, and distinguish representative imagery from aggregated statistics.
-    applicability: {figure_types: [image_quantitative_composite], outputs: [digital, print]}
-    evidence: [{source_id: pfd-comparison-contract, source_type: project_contract, section: mixed-panel-comparison}]
-    verification: {mode: hybrid, checks: ["cohort_identity_audit", "panel_comparison_audit"]}
-    override: {allowed: false}
-    tags: [family, image, quantitative]
+- id: IQC-001
+  title: Image and quantitative panels share comparison context
+  scope: family
+  severity: block
+  statement: Image and quantitative panels identify the same sample or cohort, preserve
+    shared conditions, and distinguish representative imagery from aggregated statistics.
+  applicability:
+    figure_types:
+    - image_quantitative_composite
+    outputs:
+    - digital
+    - print
+  evidence:
+  - source_id: pfd-comparison-contract
+    source_type: project_contract
+    section: mixed-panel-comparison
+  verification:
+    mode: hybrid
+    checks:
+    - cohort_identity_audit
+    - panel_comparison_audit
+  override:
+    allowed: false
+  tags:
+  - family
+  - image
+  - quantitative
+  authority: evidence_based_guidance
+  rationale: Image and quantitative panels identify the same sample or cohort, preserve
+    shared conditions, and distinguish representative imagery from aggregated statistics.
