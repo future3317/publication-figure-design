@@ -21,7 +21,7 @@ Runtime bundle:
 - `rules/`
 - `sources/registry.yaml`
 
-Generated: 2026-08-29 15:36 UTC
+Generated: 2026-08-31 09:22 UTC
 
 For publication-figure tasks, use the canonical `SKILL.md`, manifest route, and
 bundled runtime files. These instructions only provide loading context.

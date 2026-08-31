@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "description": "Catalog of intentionally broken figure mutations used to test whether the QA layer detects and reports the correct rule violations.",
+  "mutations": [
+    {
+      "id": "tiny_font",
+      "category": "publication-compliance",
+      "description": "Axis and tick text is rendered below the journal's minimum final-size font requirement.",
+      "expected_failures": ["LAY-001", "HOUSE-005"]
+    },
+    {
+      "id": "missing_units",
+      "category": "scientific-correctness",
+      "description": "Axis labels describe a measured quantity without declaring units.",
+      "expected_failures": ["SCI-003"]
+    },
+    {
+      "id": "wrong_errorbar_semantics",
+      "category": "statistical-integrity",
+      "description": "Error bars are labeled as standard deviation but computed as standard error, or vice versa.",
+      "expected_failures": ["SCI-004"]
+    },
+    {
+      "id": "mean_bar_hides_distribution",
+      "category": "statistical-integrity",
+      "description": "Small-sample continuous data is summarized by mean-only bars, hiding the underlying distribution.",
+      "expected_failures": ["STAT-005"]
+    },
+    {
+      "id": "lost_pair_identity",
+      "category": "statistical-integrity",
+      "description": "Paired observations are aggregated into independent group bars, destroying pair identity.",
+      "expected_failures": ["PAIR-001", "STAT-002"]
+    },
+    {
+      "id": "categorical_points_connected_as_line",
+      "category": "semantic-correctness",
+      "description": "Unordered categorical operating points are connected by a continuous line.",
+      "expected_failures": ["PAIR-002", "SEM-002"]
+    },
+    {
+      "id": "wrong_colormap",
+      "category": "accessibility",
+      "description": "A rainbow or jet colormap is used for a sequential quantitative encoding.",
+      "expected_failures": ["HOUSE-009", "A11Y-001"]
+    },
+    {
+      "id": "color_only_encoding",
+      "category": "accessibility",
+      "description": "A critical categorical distinction relies solely on hue with no redundant cue.",
+      "expected_failures": ["A11Y-001"]
+    },
+    {
+      "id": "low_contrast",
+      "category": "accessibility",
+      "description": "Text or graphical objects fall below WCAG-like contrast thresholds.",
+      "expected_failures": ["A11Y-002", "A11Y-003"]
+    },
+    {
+      "id": "legend_overlap",
+      "category": "visual-clarity",
+      "description": "Legend or annotation overlaps data marks or neighboring panels.",
+      "expected_failures": ["LAY-002", "ANN-002"]
+    },
+    {
+      "id": "clipped_annotation",
+      "category": "visual-clarity",
+      "description": "A label, error bar, or annotation is clipped by panel boundaries.",
+      "expected_failures": ["LAY-004"]
+    },
+    {
+      "id": "inconsistent_axes",
+      "category": "visual-clarity",
+      "description": "Related panels use inconsistent axis ranges or units.",
+      "expected_failures": ["SCI-003", "CMP-001"]
+    }
+  ]
+}

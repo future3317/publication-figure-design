@@ -1,0 +1,4 @@
+{
+  "objective": "plot concentration over time",
+  "family": "time_series"
+}

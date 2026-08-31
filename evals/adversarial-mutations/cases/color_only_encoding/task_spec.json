@@ -1,0 +1,4 @@
+{
+  "objective": "compare three categorical groups in a scatter",
+  "family": "scatter_correlation"
+}

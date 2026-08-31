@@ -1,0 +1,3 @@
+{"id":"color_only_encoding","family":"scatter_correlation","source_mutation":"adversarial-mutations/cases/color_only_encoding","expected_failures":["A11Y-001"],"description":"Categorical distinction relies only on hue."}
+{"id":"low_contrast","family":"line_trend","source_mutation":"adversarial-mutations/cases/low_contrast","expected_failures":["A11Y-002","A11Y-003"],"description":"Text and objects below contrast thresholds."}
+{"id":"wrong_colormap","family":"matrix_array","source_mutation":"adversarial-mutations/cases/wrong_colormap","expected_failures":["HOUSE-009","A11Y-001"],"description":"Rainbow colormap for sequential quantitative data."}

@@ -1,0 +1,3 @@
+{"id":"tiny_font","family":"line_trend","source_mutation":"adversarial-mutations/cases/tiny_font","expected_failures":["LAY-001","HOUSE-005"],"description":"Axis text below Nature minimum font size."}
+{"id":"missing_units","family":"time_series","source_mutation":"adversarial-mutations/cases/missing_units","expected_failures":["SCI-003"],"description":"Axis label omits units."}
+{"id":"non_vector_text","family":"line_trend","expected_failures":["PROV-002"],"description":"Vector export contains rasterized text."}

@@ -1,0 +1,3 @@
+{"id":"legend_overlap","family":"curve_comparison","source_mutation":"adversarial-mutations/cases/legend_overlap","expected_failures":["LAY-002","ANN-002"],"description":"Legend overlaps data marks."}
+{"id":"clipped_annotation","family":"line_trend","source_mutation":"adversarial-mutations/cases/clipped_annotation","expected_failures":["LAY-004"],"description":"Annotation clipped by panel boundary."}
+{"id":"tiny_font","family":"line_trend","source_mutation":"adversarial-mutations/cases/tiny_font","expected_failures":["LAY-001","HOUSE-005"],"description":"Axis text rendered below minimum final size."}

@@ -1,0 +1,7 @@
+{
+  "failures": [
+    "SCI-003",
+    "CMP-001"
+  ],
+  "warnings": []
+}

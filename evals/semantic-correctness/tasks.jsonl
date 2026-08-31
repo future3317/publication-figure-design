@@ -1,0 +1,3 @@
+{"id":"categorical_points_connected_as_line","family":"paired_operating_point","source_mutation":"adversarial-mutations/cases/categorical_points_connected_as_line","expected_failures":["PAIR-002","SEM-002"],"description":"Unordered categorical operating points connected by a continuous line."}
+{"id":"inconsistent_axes","family":"multi_panel_statistical","source_mutation":"adversarial-mutations/cases/inconsistent_axes","expected_failures":["SCI-003","CMP-001"],"description":"Related panels use inconsistent axis ranges."}
+{"id":"channel_roles","family":"scatter_correlation","expected_failures":["SEM-001"],"description":"Color hue reused for two different categorical roles in the same figure."}

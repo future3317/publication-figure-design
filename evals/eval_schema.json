@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "publication-figure-design/eval-task.schema.json",
+  "title": "Output evaluation task",
+  "type": "object",
+  "required": ["id", "suite", "family", "mutation", "expected_failures", "detection_mode"],
+  "properties": {
+    "id": {"type": "string"},
+    "suite": {"type": "string"},
+    "family": {"type": "string"},
+    "mutation": {"type": "string"},
+    "description": {"type": "string"},
+    "generate_script": {"type": "string"},
+    "task_spec": {"type": "object"},
+    "expected_failures": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "expected_warnings": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "detection_mode": {"enum": ["automated", "manual", "hybrid"]},
+    "automated_checks": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "required_source_registry_ids": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  }
+}

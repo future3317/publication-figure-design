@@ -1,0 +1,3 @@
+{"id":"missing_embedded_font","family":"line_trend","expected_failures":["PROV-002"],"description":"PDF export lacks embedded fonts."}
+{"id":"missing_figure_manifest","family":"line_trend","expected_failures":["PROV-001"],"description":"Publication package missing figure-manifest.json."}
+{"id":"wrong_dpi","family":"line_trend","expected_failures":["LAY-001"],"description":"Raster export DPI does not match journal spec."}
