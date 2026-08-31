@@ -144,3 +144,123 @@ sources:
     status: verified
     confidence: authoritative
     review_after: "2026-11-25"
+  - id: cell-figure-guide
+    publisher: Cell Press
+    title: Cell Press figure guidelines
+    url: https://www.cell.com/figureguidelines
+    authority: journal_guidance
+    retrieved_at: "2026-08-25"
+    effective_date: null
+    scope: journal
+    version: current-web
+    status: verified
+    confidence: authoritative
+    review_after: "2026-11-25"
+  - id: science-figure-guide
+    publisher: Science
+    title: Science figure preparation
+    url: https://www.science.org/content/page/science-journals-editorial-policies
+    authority: journal_guidance
+    retrieved_at: "2026-08-25"
+    effective_date: null
+    scope: journal
+    version: current-web
+    status: verified
+    confidence: authoritative
+    review_after: "2026-11-25"
+  - id: plos-data-presentation
+    publisher: PLOS
+    title: PLOS data presentation guidance
+    url: https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128
+    authority: publisher_guidance
+    retrieved_at: "2026-08-25"
+    effective_date: "2015-04-01"
+    scope: statistical_graphics
+    version: "2015"
+    status: verified
+    confidence: authoritative
+    review_after: "2027-08-25"
+  - id: cleveland-mcgill-1984
+    publisher: Journal of the American Statistical Association
+    title: Graphical Perception and Graphical Methods for Analyzing Scientific Data
+    url: https://www.tandfonline.com/doi/abs/10.1080/01621459.1984.10478080
+    authority: evidence_based_guidance
+    retrieved_at: "2026-08-25"
+    effective_date: "1984-09-01"
+    scope: graphical_perception
+    version: "1984"
+    status: verified
+    confidence: authoritative
+    review_after: "2027-08-25"
+  - id: heer-bostock-2010
+    publisher: IEEE Trans. Visualization & Computer Graphics
+    title: Crowdsourcing Graphical Perception
+    url: https://dl.acm.org/doi/10.5555/1879211.1879213
+    authority: evidence_based_guidance
+    retrieved_at: "2026-08-25"
+    effective_date: "2010-11-01"
+    scope: graphical_perception
+    version: "2010"
+    status: verified
+    confidence: authoritative
+    review_after: "2027-08-25"
+  - id: rougier-2014
+    publisher: PLOS Computational Biology
+    title: Ten Simple Rules for Better Figures
+    url: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833
+    authority: evidence_based_guidance
+    retrieved_at: "2026-08-25"
+    effective_date: "2014-09-01"
+    scope: scientific_figure_design
+    version: "2014"
+    status: verified
+    confidence: authoritative
+    review_after: "2027-08-25"
+  - id: weissgerber-2015
+    publisher: PLOS Biology
+    title: Beyond Bar and Line Graphs
+    url: https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128
+    authority: evidence_based_guidance
+    retrieved_at: "2026-08-25"
+    effective_date: "2015-04-01"
+    scope: statistical_graphics
+    version: "2015"
+    status: verified
+    confidence: authoritative
+    review_after: "2027-08-25"
+  - id: crameri-2020
+    publisher: Nature Communications
+    title: The misuse of colour in science communication
+    url: https://www.nature.com/articles/s41467-020-19160-7
+    authority: evidence_based_guidance
+    retrieved_at: "2026-08-25"
+    effective_date: "2020-10-01"
+    scope: color_accessibility
+    version: "2020"
+    status: verified
+    confidence: authoritative
+    review_after: "2027-08-25"
+  - id: prisma-2020
+    publisher: PRISMA Statement
+    title: PRISMA 2020 Statement and Flow Diagram
+    url: https://www.prisma-statement.org/prisma-2020-flow-diagram
+    authority: reporting_standard
+    retrieved_at: "2026-08-25"
+    effective_date: "2021-03-01"
+    scope: systematic_review
+    version: "2020"
+    status: verified
+    confidence: authoritative
+    review_after: "2027-08-25"
+  - id: tripod-ai
+    publisher: TRIPOD+AI Statement
+    title: TRIPOD+AI reporting guideline for prediction models
+    url: https://www.tripod-statement.org/scope/
+    authority: reporting_standard
+    retrieved_at: "2026-08-25"
+    effective_date: "2024-01-01"
+    scope: prediction_model_reporting
+    version: "2024"
+    status: verified
+    confidence: authoritative
+    review_after: "2027-08-25"
