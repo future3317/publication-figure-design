@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any, Mapping
 
-from ..reference_intelligence.dna import DesignPacket, JournalProfile, ReferenceDNA, StyleCapsule
+from ..reference_intelligence.dna import DesignPacket, DomainProfile, JournalProfile, ReferenceDNA, StyleCapsule
 from ..style.capsules import compile_style_capsule
 
 
@@ -14,7 +14,47 @@ def _to_dict(value: Any) -> dict[str, Any]:
     return dict(value or {})
 
 
-def compile_design_packet(task: Mapping[str, Any], source: Mapping[str, Any] | Any, references: Mapping[str, Any] | Any, journal: JournalProfile | Mapping[str, Any], capsule: StyleCapsule | Mapping[str, Any]) -> DesignPacket:
+def _apply_domain_profile(packet: DesignPacket, domain: DomainProfile | Mapping[str, Any] | None) -> None:
+    """Apply domain reporting constraints and family preferences to the packet."""
+    if domain is None:
+        return
+    domain_data = _to_dict(domain)
+    packet.domain_profile = domain_data
+    packet.domain_source_ids = list(domain_data.get("reporting_standards", []))
+
+    # Preferred / discouraged families become explicit must_match / must_avoid rules.
+    constraints_applied: list[str] = []
+    for family in domain_data.get("preferred_families", []):
+        packet.must_match.append(f"preferred_family:{family}")
+        constraints_applied.append(f"preferred_family:{family}")
+    for family in domain_data.get("discouraged_families", []):
+        packet.must_avoid.append(f"discouraged_family:{family}")
+        constraints_applied.append(f"discouraged_family:{family}")
+
+    # Required figure types and semantic contracts become domain rules.
+    for key in domain_data.get("required_figures", {}):
+        packet.must_match.append(f"domain_required_figure:{key}")
+        constraints_applied.append(f"domain_required_figure:{key}")
+    for key in domain_data.get("semantic_contracts", {}):
+        packet.must_match.append(f"domain_semantic_contract:{key}")
+        constraints_applied.append(f"domain_semantic_contract:{key}")
+
+    # Negative rules are added to must_avoid.
+    for rule in domain_data.get("negative_rules", []):
+        packet.must_avoid.append(f"domain_negative_rule:{rule}")
+        constraints_applied.append(f"domain_negative_rule:{rule}")
+
+    packet.domain_constraints_applied = constraints_applied
+
+
+def compile_design_packet(
+    task: Mapping[str, Any],
+    source: Mapping[str, Any] | Any,
+    references: Mapping[str, Any] | Any,
+    journal: JournalProfile | Mapping[str, Any],
+    capsule: StyleCapsule | Mapping[str, Any],
+    domain: DomainProfile | Mapping[str, Any] | None = None,
+) -> DesignPacket:
     task_data = _to_dict(task)
     source_data = _to_dict(source)
     reference_data = _to_dict(references)
@@ -39,4 +79,5 @@ def compile_design_packet(task: Mapping[str, Any], source: Mapping[str, Any] | A
         {"path": "typography.min_font_pt", "operator": ">=", "value": journal_data.get("rules", {}).get("min_font_pt", {}).get("value", 5)},
         {"path": "layout.gutter", "operator": ">=", "value": capsule_data.get("spacing", {}).get("panel_gap_ratio", 0.04)},
     ])
+    _apply_domain_profile(packet, domain)
     return packet

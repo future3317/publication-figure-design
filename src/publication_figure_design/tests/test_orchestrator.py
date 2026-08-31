@@ -68,6 +68,22 @@ class OrchestratorTests(unittest.TestCase):
         self.assertEqual(session.telemetry["reference_ids"], ["ref-1"])
         self.assertEqual(session.artifacts[WorkflowStage.REFERENCE_RETRIEVAL.value]["payload"]["status"], "ready")
 
+    def test_domain_profile_is_loaded_into_design_spec(self):
+        orchestrator = build_runtime_orchestrator()
+        session = orchestrator.start(TaskSpec(
+            task_id="domain-run",
+            metadata={"domain": "ml-ai", "journal": "generic"},
+        ))
+        orchestrator.run(session)
+        self.assertTrue(session.is_complete())
+        design = session.artifacts[WorkflowStage.DESIGN_SPEC.value]["payload"]
+        self.assertIn("domain_profile", design)
+        self.assertEqual(design["domain_profile"]["domain"], "ml-ai")
+        packet = design["design_packet"]
+        self.assertEqual(packet["domain_profile"]["domain"], "ml-ai")
+        self.assertTrue(any("preferred_family:comparison_effect" in c for c in packet["domain_constraints_applied"]))
+        self.assertIn("tripod-ai", packet["domain_source_ids"])
+
 
 if __name__ == "__main__":
     unittest.main()

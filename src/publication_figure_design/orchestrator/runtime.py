@@ -155,17 +155,28 @@ def _design_spec(context: StageContext) -> dict[str, Any]:
     if packet is not None:
         return {"status": "ready", "design_packet": packet}
     from ..design.compiler import compile_design_packet
+    from ..profiles.domains import load_domain_profile
     from ..style.capsules import load_style_capsule
     from ..style.journals import load_journal_profile
     task = {**context.task, **metadata}
     capsule_name = str(metadata.get("style_capsule", "restrained-editorial"))
     journal_name = str(metadata.get("journal", "generic"))
+    domain_name = metadata.get("domain")
     capsule = load_style_capsule(capsule_name)
     journal = load_journal_profile(journal_name, str(metadata.get("submission_stage", "final_submission")))
-    packet = compile_design_packet(task, metadata.get("source", {}), metadata.get("reference_set", {}), journal, capsule)
+    domain = load_domain_profile(str(domain_name)) if domain_name else None
+    packet = compile_design_packet(task, metadata.get("source", {}), metadata.get("reference_set", {}), journal, capsule, domain)
     from ..design.candidates import generate_candidates
     generate_candidates(packet, str(metadata.get("generation_mode", "publication")))
-    return {"status": "ready", "design_packet": packet.to_dict(), "journal_profile": journal.to_dict(), "style_capsule": capsule.to_dict()}
+    result = {
+        "status": "ready",
+        "design_packet": packet.to_dict(),
+        "journal_profile": journal.to_dict(),
+        "style_capsule": capsule.to_dict(),
+    }
+    if domain is not None:
+        result["domain_profile"] = domain
+    return result
 
 
 def _binding(context: StageContext) -> dict[str, Any]:

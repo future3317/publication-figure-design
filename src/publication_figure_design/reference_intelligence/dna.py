@@ -170,7 +170,7 @@ def _infer_accessibility_evidence(metadata: Mapping[str, Any], grammar: Mapping[
 @dataclass
 class ReferenceDNA:
     schema: str = "publication-figure-design/reference-dna"
-    schema_version: str = "2.0"
+    schema_version: str = "2.1"
     identity: dict[str, Any] = field(default_factory=dict)
     composition: dict[str, Any] = field(default_factory=dict)
     palette: dict[str, Any] = field(default_factory=dict)
@@ -312,8 +312,8 @@ class ReferenceDNA:
         for section in ("identity", "composition", "palette", "typography", "geometry", "annotations", "hierarchy", "style", "constraints", "embeddings", "confidence", "scientific_semantics", "encoding_rationale", "pedagogy", "caption_requirements", "accessibility_evidence"):
             if not isinstance(getattr(self, section), dict):
                 failures.append(f"{section} must be an object")
-        if self.schema_version != "2.0":
-            failures.append("reference DNA schema_version must be 2.0")
+        if self.schema_version != "2.1":
+            failures.append("reference DNA schema_version must be 2.1")
         return failures
 
 
@@ -364,12 +364,44 @@ class JournalProfile:
 
 
 @dataclass
+class DomainProfile:
+    domain: str = ""
+    name: str = ""
+    status: str = "verified"
+    confidence: str = "inferred"
+    preferred_families: list[str] = field(default_factory=list)
+    discouraged_families: list[str] = field(default_factory=list)
+    required_figures: dict[str, Any] = field(default_factory=dict)
+    semantic_contracts: dict[str, Any] = field(default_factory=dict)
+    reporting_standards: list[str] = field(default_factory=list)
+    negative_rules: list[str] = field(default_factory=list)
+    journal_profiles_compatible: list[str] = field(default_factory=list)
+    rules: dict[str, Any] = field(default_factory=dict)
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "domain": self.domain, "name": self.name, "status": self.status,
+            "confidence": self.confidence, "preferred_families": self.preferred_families,
+            "discouraged_families": self.discouraged_families,
+            "required_figures": self.required_figures,
+            "semantic_contracts": self.semantic_contracts,
+            "reporting_standards": self.reporting_standards,
+            "negative_rules": self.negative_rules,
+            "journal_profiles_compatible": self.journal_profiles_compatible,
+            "rules": self.rules,
+        }
+
+
+@dataclass
 class DesignPacket:
     task: dict[str, Any] = field(default_factory=dict)
     scientific_contract: dict[str, Any] = field(default_factory=dict)
     references: dict[str, Any] = field(default_factory=dict)
     journal_profile: dict[str, Any] = field(default_factory=dict)
     style_capsule: dict[str, Any] = field(default_factory=dict)
+    domain_profile: dict[str, Any] = field(default_factory=dict)
+    domain_constraints_applied: list[str] = field(default_factory=list)
+    domain_source_ids: list[str] = field(default_factory=list)
     layout_constraints: list[dict[str, Any]] = field(default_factory=list)
     style_tokens: dict[str, Any] = field(default_factory=dict)
     bindings: dict[str, Any] = field(default_factory=dict)
@@ -379,7 +411,17 @@ class DesignPacket:
     patch_history: list[dict[str, Any]] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
-        return {"task": self.task, "scientific_contract": self.scientific_contract, "references": self.references, "journal_profile": self.journal_profile, "style_capsule": self.style_capsule, "layout_constraints": self.layout_constraints, "style_tokens": self.style_tokens, "bindings": self.bindings, "must_match": self.must_match, "must_avoid": self.must_avoid, "candidates": self.candidates, "patch_history": self.patch_history}
+        return {
+            "task": self.task, "scientific_contract": self.scientific_contract,
+            "references": self.references, "journal_profile": self.journal_profile,
+            "style_capsule": self.style_capsule, "domain_profile": self.domain_profile,
+            "domain_constraints_applied": self.domain_constraints_applied,
+            "domain_source_ids": self.domain_source_ids,
+            "layout_constraints": self.layout_constraints,
+            "style_tokens": self.style_tokens, "bindings": self.bindings,
+            "must_match": self.must_match, "must_avoid": self.must_avoid,
+            "candidates": self.candidates, "patch_history": self.patch_history,
+        }
 
 
 @dataclass
