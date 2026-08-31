@@ -6,6 +6,7 @@ scipy>=1.10
 seaborn>=0.12
 PyYAML>=6.0
 scikit-learn>=1.2
+jsonschema>=4.18
 
 # The default runtime remains lightweight; install ML/vector/perceptual extras
 # only for those workflows.
