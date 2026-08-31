@@ -21,7 +21,7 @@ class OutputEvalRunnerTest(unittest.TestCase):
         suite_dir = ROOT / "evals" / "adversarial-mutations"
         report = run_suite(suite_dir)
         self.assertEqual(report["suite"], "adversarial-mutations")
-        self.assertEqual(report["mutation_count"], 12)
+        self.assertEqual(report["task_count"], 12)
         self.assertIn("precision", report)
         self.assertIn("recall", report)
         self.assertIn("f1", report)

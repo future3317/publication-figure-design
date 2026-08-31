@@ -61,6 +61,7 @@ def main() -> int:
     run_step("champion board", ["scripts/champion_board.py", "--enforce", "--summary"])
     run_step("quarantine", ["scripts/check_reference_quarantine.py"])
     run_step("activation eval", ["scripts/evaluate_activation.py", "evals/activation/validation.jsonl"])
+    run_step("output eval", ["scripts/run_output_eval.py", "--all"])
     run_step("adapter generation", ["scripts/generate_adapters.py"])
     run_step("adapter canary", ["scripts/adapter_canary.py"])
     with tempfile.TemporaryDirectory(prefix="pfd-ci-") as temp:

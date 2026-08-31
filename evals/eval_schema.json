@@ -3,14 +3,14 @@
   "$id": "publication-figure-design/eval-task.schema.json",
   "title": "Output evaluation task",
   "type": "object",
-  "required": ["id", "suite", "family", "mutation", "expected_failures", "detection_mode"],
+  "required": ["id", "suite", "detection_mode"],
   "properties": {
     "id": {"type": "string"},
     "suite": {"type": "string"},
-    "family": {"type": "string"},
-    "mutation": {"type": "string"},
+    "family": {"type": ["string", "null"]},
+    "mutation": {"type": ["string", "null"]},
     "description": {"type": "string"},
-    "generate_script": {"type": "string"},
+    "generate_script": {"type": ["string", "null"]},
     "task_spec": {"type": "object"},
     "expected_failures": {
       "type": "array",
@@ -20,6 +20,13 @@
       "type": "array",
       "items": {"type": "string"}
     },
+    "query": {"type": "string"},
+    "expected_family": {"type": ["string", "null"]},
+    "expected_reference_substrings": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "unexpected_family": {"type": ["string", "null"]},
     "detection_mode": {"enum": ["automated", "manual", "hybrid"]},
     "automated_checks": {
       "type": "array",
