@@ -1,0 +1,70 @@
+rules:
+  - id: PAIR-001
+    title: Paired identity survives aggregation
+    scope: family
+    severity: block
+    statement: Paired or repeated-measures observations must retain subject or sample identity through aggregation and plotting; means or intervals alone cannot hide the pair structure.
+    applicability: {figure_types: [paired_operating_point], outputs: [digital, print]}
+    evidence:
+      - source_id: pfd-family-guidance
+        source_type: project_guidance
+        section: paired_operating_point
+      - source_id: weissgerber-2015
+        source_type: evidence_based_guidance
+        section: paired_and_small_sample_data
+    verification: {mode: hybrid, checks: ["pairing_identity_audit", "raw_point_visibility", "binding_source_trace"]}
+    override: {allowed: false}
+    tags: [family, paired-data, statistical-integrity]
+    authority: scientific_integrity
+    rationale: Paired or repeated-measures observations must retain subject or sample identity through aggregation and plotting; means or intervals alone cannot hide the pair structure.
+
+  - id: PAIR-002
+    title: Do not imply continuity between categorical operating points
+    scope: family
+    severity: block
+    statement: Connect paired observations only to show the matched relationship; do not draw a continuous trajectory that implies ordered intermediate states between method-specific or categorical operating points.
+    applicability: {figure_types: [paired_operating_point], outputs: [digital, print]}
+    evidence:
+      - source_id: pfd-family-guidance
+        source_type: project_guidance
+        section: paired_operating_point
+      - source_id: heer-bostock-2010
+        source_type: evidence_based_guidance
+        section: ordered_relationship_perception
+    verification: {mode: hybrid, checks: ["relationship_integrity_audit", "render_trace"]}
+    override: {allowed: false}
+    tags: [family, paired-data, semantic-encoding]
+    authority: scientific_integrity
+    rationale: Connect paired observations only to show the matched relationship; do not draw a continuous trajectory that implies ordered intermediate states between method-specific or categorical operating points.
+
+  - id: PAIR-003
+    title: Direction of change is readable
+    scope: family
+    severity: warn
+    statement: When pairs are directional (before/after, control/treatment), the figure must make the direction of change explicit through position, connecting line orientation, or direct labels.
+    applicability: {figure_types: [paired_operating_point], outputs: [digital, print]}
+    evidence:
+      - source_id: pfd-family-guidance
+        source_type: project_guidance
+        section: paired_operating_point
+    verification: {mode: hybrid, checks: ["direction_audit", "grayscale_render_check"]}
+    override: {allowed: true, reason_required: true}
+    tags: [family, paired-data, visual-clarity]
+    authority: evidence_based_guidance
+    rationale: When pairs are directional, the figure must make the direction of change explicit through position, connecting line orientation, or direct labels.
+
+  - id: PAIR-004
+    title: Pair-level uncertainty is preserved
+    scope: family
+    severity: warn
+    statement: When uncertainty is part of the claim, show pair-level or difference-level intervals rather than only group-level summaries.
+    applicability: {figure_types: [paired_operating_point], outputs: [digital, print]}
+    evidence:
+      - source_id: pfd-family-guidance
+        source_type: project_guidance
+        section: paired_operating_point
+    verification: {mode: hybrid, checks: ["uncertainty_semantics_audit", "statistical_metadata_audit"]}
+    override: {allowed: true, reason_required: true}
+    tags: [family, paired-data, uncertainty]
+    authority: evidence_based_guidance
+    rationale: When uncertainty is part of the claim, show pair-level or difference-level intervals rather than only group-level summaries.

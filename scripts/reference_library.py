@@ -76,7 +76,7 @@ __all__ = [
 _UTC_FMT = "%Y-%m-%dT%H:%M:%SZ"
 
 # Allowed scopes for a visual reference.
-_SCOPES = {"references", "generated-archive"}
+_SCOPES = {"references", "generated-archive", "family-seed"}
 
 # Allowed review statuses.
 _REVIEW_STATUSES = {"pending", "reviewed", "rejected", "promoted"}

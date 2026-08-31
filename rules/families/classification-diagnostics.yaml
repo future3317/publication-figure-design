@@ -1,0 +1,73 @@
+rules:
+  - id: CLF-001
+    title: Discrimination, calibration, and threshold utility are separate claims
+    scope: family
+    severity: block
+    statement: Ranking quality (ROC/PR), probability quality (calibration), and threshold decisions are distinct analytical goals; a single ROC or AUC figure must not be treated as evidence for calibration or clinical utility.
+    applicability: {figure_types: [roc, pr_curve, calibration, confusion_matrix, decision_curve], outputs: [digital, print]}
+    evidence:
+      - source_id: pfd-family-guidance
+        source_type: project_guidance
+        section: classification_diagnostics
+      - source_id: tripod-ai
+        source_type: reporting_standard
+        section: prediction_model_performance
+    verification: {mode: hybrid, checks: ["claim_panel_mapping", "render_trace", "figure_family_audit"]}
+    override: {allowed: false}
+    tags: [family, classification, calibration, discrimination]
+    authority: scientific_integrity
+    rationale: Ranking quality, probability quality, and threshold decisions are distinct analytical goals; a single ROC or AUC figure must not be treated as evidence for calibration or clinical utility.
+
+  - id: CLF-002
+    title: Report prevalence and class imbalance
+    scope: family
+    severity: block
+    statement: Classification diagnostics must report class prevalence, sample size per class, and any class imbalance that affects the interpretation of accuracy, precision, recall, or calibration.
+    applicability: {figure_types: [roc, pr_curve, calibration, confusion_matrix, decision_curve], outputs: [digital, print]}
+    evidence:
+      - source_id: pfd-family-guidance
+        source_type: project_guidance
+        section: classification_diagnostics
+      - source_id: tripod-ai
+        source_type: reporting_standard
+        section: participant_flow_and_outcomes
+    verification: {mode: hybrid, checks: ["prevalence_audit", "caption_contract", "sample_size_audit"]}
+    override: {allowed: false}
+    tags: [family, classification, prevalence, sample-size]
+    authority: scientific_integrity
+    rationale: Classification diagnostics must report class prevalence, sample size per class, and any class imbalance that affects interpretation.
+
+  - id: CLF-003
+    title: Threshold markers are explicit
+    scope: family
+    severity: warn
+    statement: When an operating point is discussed in the text, the figure must mark the corresponding threshold on ROC, PR, calibration, or threshold-trade-off panels.
+    applicability: {figure_types: [roc, pr_curve, calibration, decision_curve], outputs: [digital, print]}
+    evidence:
+      - source_id: pfd-family-guidance
+        source_type: project_guidance
+        section: classification_diagnostics
+    verification: {mode: hybrid, checks: ["threshold_marker_audit", "label_consistency_audit"]}
+    override: {allowed: true, reason_required: true}
+    tags: [family, classification, threshold]
+    authority: evidence_based_guidance
+    rationale: When an operating point is discussed, the figure must mark the corresponding threshold.
+
+  - id: CLF-004
+    title: Confidence evidence is shown
+    scope: family
+    severity: warn
+    statement: Calibration plots, threshold curves, and performance summaries should show confidence bands, bin counts, or bootstrap intervals; point estimates alone are insufficient.
+    applicability: {figure_types: [roc, pr_curve, calibration, decision_curve], outputs: [digital, print]}
+    evidence:
+      - source_id: pfd-family-guidance
+        source_type: project_guidance
+        section: classification_diagnostics
+      - source_id: tripod-ai
+        source_type: reporting_standard
+        section: model_evaluation
+    verification: {mode: hybrid, checks: ["uncertainty_semantics_audit", "statistical_metadata_audit"]}
+    override: {allowed: true, reason_required: true}
+    tags: [family, classification, uncertainty, calibration]
+    authority: evidence_based_guidance
+    rationale: Calibration plots and threshold curves should show confidence bands, bin counts, or bootstrap intervals.

@@ -1,0 +1,59 @@
+{
+  "aesthetic_rating": 3,
+  "code_path": "assets/visual-references/family-seed/seed-paired_operating_point-connected_paired_observations/code.py",
+  "created_at": "2026-08-31T05:36:34Z",
+  "data_density": "medium",
+  "figure_card_path": "assets/visual-references/family-seed/seed-paired_operating_point-connected_paired_observations/figure_card.json",
+  "figure_type": "paired_comparison",
+  "id": "seed-paired_operating_point-connected_paired_observations",
+  "image_path": "assets/visual-references/family-seed/seed-paired_operating_point-connected_paired_observations/image.png",
+  "journal_style": "generic",
+  "layout": "1x1",
+  "license": "generated independently; synthetic data and code",
+  "lifecycle_state": "reviewed",
+  "n_groups": null,
+  "notes": "Synthetic seed reference for the paired_operating_point family, subtype connected_paired_observations. Generated with independent matplotlib code.",
+  "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "reason": "synthetic_family_seed",
+        "state": "raw"
+      },
+      {
+        "reason": "reference_dna_built",
+        "state": "analyzed"
+      },
+      {
+        "reason": "seed_reference_approved_for_coverage",
+        "state": "reviewed"
+      }
+    ],
+    "state": "reviewed"
+  },
+  "reconstruction_blueprint": {
+    "blueprint_id": "paired_operating_point_connected_paired_observations",
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "paired_operating_point:connected_paired_observations"
+      }
+    ],
+    "source_observation": "connected_paired_observations rendering of paired_operating_point semantics"
+  },
+  "reference_dna_path": "assets/visual-references/family-seed/seed-paired_operating_point-connected_paired_observations/reference_dna.json",
+  "reproduction_preview_path": "assets/visual-references/family-seed/seed-paired_operating_point-connected_paired_observations/image.png",
+  "review_status": "reviewed",
+  "scope": "family-seed",
+  "source": "synthetic family seed for paired_operating_point/connected_paired_observations",
+  "source_url": null,
+  "subtype": "connected_paired_observations",
+  "tags": [
+    "synthetic",
+    "family-seed",
+    "paired_operating_point",
+    "connected_paired_observations"
+  ],
+  "usage_scope": "internal_reference",
+  "sha256": "7516857c9ad46bfa0d27bd7e86b47605b093f707c9205168deed73012e580179"
+}

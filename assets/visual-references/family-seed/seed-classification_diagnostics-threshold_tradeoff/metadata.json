@@ -1,0 +1,59 @@
+{
+  "aesthetic_rating": 3,
+  "code_path": "assets/visual-references/family-seed/seed-classification_diagnostics-threshold_tradeoff/code.py",
+  "created_at": "2026-08-31T05:36:35Z",
+  "data_density": "medium",
+  "figure_card_path": "assets/visual-references/family-seed/seed-classification_diagnostics-threshold_tradeoff/figure_card.json",
+  "figure_type": "decision_curve",
+  "id": "seed-classification_diagnostics-threshold_tradeoff",
+  "image_path": "assets/visual-references/family-seed/seed-classification_diagnostics-threshold_tradeoff/image.png",
+  "journal_style": "generic",
+  "layout": "1x1",
+  "license": "generated independently; synthetic data and code",
+  "lifecycle_state": "reviewed",
+  "n_groups": null,
+  "notes": "Synthetic seed reference for the classification_diagnostics family, subtype threshold_tradeoff. Generated with independent matplotlib code.",
+  "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "reason": "synthetic_family_seed",
+        "state": "raw"
+      },
+      {
+        "reason": "reference_dna_built",
+        "state": "analyzed"
+      },
+      {
+        "reason": "seed_reference_approved_for_coverage",
+        "state": "reviewed"
+      }
+    ],
+    "state": "reviewed"
+  },
+  "reconstruction_blueprint": {
+    "blueprint_id": "classification_diagnostics_threshold_tradeoff",
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "classification_diagnostics:threshold_tradeoff"
+      }
+    ],
+    "source_observation": "threshold_tradeoff rendering of classification_diagnostics semantics"
+  },
+  "reference_dna_path": "assets/visual-references/family-seed/seed-classification_diagnostics-threshold_tradeoff/reference_dna.json",
+  "reproduction_preview_path": "assets/visual-references/family-seed/seed-classification_diagnostics-threshold_tradeoff/image.png",
+  "review_status": "reviewed",
+  "scope": "family-seed",
+  "source": "synthetic family seed for classification_diagnostics/threshold_tradeoff",
+  "source_url": null,
+  "subtype": "threshold_tradeoff",
+  "tags": [
+    "synthetic",
+    "family-seed",
+    "classification_diagnostics",
+    "threshold_tradeoff"
+  ],
+  "usage_scope": "internal_reference",
+  "sha256": "f13efcd04f62b8228e078d48c87d64ef3f41f28ed026d12f46c3b94457452134"
+}

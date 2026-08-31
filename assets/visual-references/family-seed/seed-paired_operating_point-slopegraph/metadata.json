@@ -1,0 +1,59 @@
+{
+  "aesthetic_rating": 3,
+  "code_path": "assets/visual-references/family-seed/seed-paired_operating_point-slopegraph/code.py",
+  "created_at": "2026-08-31T05:36:34Z",
+  "data_density": "medium",
+  "figure_card_path": "assets/visual-references/family-seed/seed-paired_operating_point-slopegraph/figure_card.json",
+  "figure_type": "slopegraph",
+  "id": "seed-paired_operating_point-slopegraph",
+  "image_path": "assets/visual-references/family-seed/seed-paired_operating_point-slopegraph/image.png",
+  "journal_style": "generic",
+  "layout": "1x1",
+  "license": "generated independently; synthetic data and code",
+  "lifecycle_state": "reviewed",
+  "n_groups": null,
+  "notes": "Synthetic seed reference for the paired_operating_point family, subtype slopegraph. Generated with independent matplotlib code.",
+  "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "reason": "synthetic_family_seed",
+        "state": "raw"
+      },
+      {
+        "reason": "reference_dna_built",
+        "state": "analyzed"
+      },
+      {
+        "reason": "seed_reference_approved_for_coverage",
+        "state": "reviewed"
+      }
+    ],
+    "state": "reviewed"
+  },
+  "reconstruction_blueprint": {
+    "blueprint_id": "paired_operating_point_slopegraph",
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "paired_operating_point:slopegraph"
+      }
+    ],
+    "source_observation": "slopegraph rendering of paired_operating_point semantics"
+  },
+  "reference_dna_path": "assets/visual-references/family-seed/seed-paired_operating_point-slopegraph/reference_dna.json",
+  "reproduction_preview_path": "assets/visual-references/family-seed/seed-paired_operating_point-slopegraph/image.png",
+  "review_status": "reviewed",
+  "scope": "family-seed",
+  "source": "synthetic family seed for paired_operating_point/slopegraph",
+  "source_url": null,
+  "subtype": "slopegraph",
+  "tags": [
+    "synthetic",
+    "family-seed",
+    "paired_operating_point",
+    "slopegraph"
+  ],
+  "usage_scope": "internal_reference",
+  "sha256": "bcff4b96a6a78c2a23f475f30cbe51426fcb3b85271abb19c74b577021ce3282"
+}

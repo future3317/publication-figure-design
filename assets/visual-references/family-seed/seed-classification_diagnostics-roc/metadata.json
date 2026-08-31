@@ -1,0 +1,59 @@
+{
+  "aesthetic_rating": 3,
+  "code_path": "assets/visual-references/family-seed/seed-classification_diagnostics-roc/code.py",
+  "created_at": "2026-08-31T05:36:35Z",
+  "data_density": "medium",
+  "figure_card_path": "assets/visual-references/family-seed/seed-classification_diagnostics-roc/figure_card.json",
+  "figure_type": "roc",
+  "id": "seed-classification_diagnostics-roc",
+  "image_path": "assets/visual-references/family-seed/seed-classification_diagnostics-roc/image.png",
+  "journal_style": "generic",
+  "layout": "1x1",
+  "license": "generated independently; synthetic data and code",
+  "lifecycle_state": "reviewed",
+  "n_groups": null,
+  "notes": "Synthetic seed reference for the classification_diagnostics family, subtype roc. Generated with independent matplotlib code.",
+  "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "reason": "synthetic_family_seed",
+        "state": "raw"
+      },
+      {
+        "reason": "reference_dna_built",
+        "state": "analyzed"
+      },
+      {
+        "reason": "seed_reference_approved_for_coverage",
+        "state": "reviewed"
+      }
+    ],
+    "state": "reviewed"
+  },
+  "reconstruction_blueprint": {
+    "blueprint_id": "classification_diagnostics_roc",
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "classification_diagnostics:roc"
+      }
+    ],
+    "source_observation": "roc rendering of classification_diagnostics semantics"
+  },
+  "reference_dna_path": "assets/visual-references/family-seed/seed-classification_diagnostics-roc/reference_dna.json",
+  "reproduction_preview_path": "assets/visual-references/family-seed/seed-classification_diagnostics-roc/image.png",
+  "review_status": "reviewed",
+  "scope": "family-seed",
+  "source": "synthetic family seed for classification_diagnostics/roc",
+  "source_url": null,
+  "subtype": "roc",
+  "tags": [
+    "synthetic",
+    "family-seed",
+    "classification_diagnostics",
+    "roc"
+  ],
+  "usage_scope": "internal_reference",
+  "sha256": "6af4ca87bc3f72042f6559d550b3d1a663af4606a7a9e517a25f2974226babf0"
+}

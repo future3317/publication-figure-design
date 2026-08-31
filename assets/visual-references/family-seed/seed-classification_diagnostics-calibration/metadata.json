@@ -1,0 +1,59 @@
+{
+  "aesthetic_rating": 3,
+  "code_path": "assets/visual-references/family-seed/seed-classification_diagnostics-calibration/code.py",
+  "created_at": "2026-08-31T05:36:35Z",
+  "data_density": "medium",
+  "figure_card_path": "assets/visual-references/family-seed/seed-classification_diagnostics-calibration/figure_card.json",
+  "figure_type": "calibration",
+  "id": "seed-classification_diagnostics-calibration",
+  "image_path": "assets/visual-references/family-seed/seed-classification_diagnostics-calibration/image.png",
+  "journal_style": "generic",
+  "layout": "1x1",
+  "license": "generated independently; synthetic data and code",
+  "lifecycle_state": "reviewed",
+  "n_groups": null,
+  "notes": "Synthetic seed reference for the classification_diagnostics family, subtype calibration. Generated with independent matplotlib code.",
+  "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "reason": "synthetic_family_seed",
+        "state": "raw"
+      },
+      {
+        "reason": "reference_dna_built",
+        "state": "analyzed"
+      },
+      {
+        "reason": "seed_reference_approved_for_coverage",
+        "state": "reviewed"
+      }
+    ],
+    "state": "reviewed"
+  },
+  "reconstruction_blueprint": {
+    "blueprint_id": "classification_diagnostics_calibration",
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "classification_diagnostics:calibration"
+      }
+    ],
+    "source_observation": "calibration rendering of classification_diagnostics semantics"
+  },
+  "reference_dna_path": "assets/visual-references/family-seed/seed-classification_diagnostics-calibration/reference_dna.json",
+  "reproduction_preview_path": "assets/visual-references/family-seed/seed-classification_diagnostics-calibration/image.png",
+  "review_status": "reviewed",
+  "scope": "family-seed",
+  "source": "synthetic family seed for classification_diagnostics/calibration",
+  "source_url": null,
+  "subtype": "calibration",
+  "tags": [
+    "synthetic",
+    "family-seed",
+    "classification_diagnostics",
+    "calibration"
+  ],
+  "usage_scope": "internal_reference",
+  "sha256": "fca2fe4fa2277532e42f9fa51b4ec151910dc9ee5251015c63c41b78b89f4bd8"
+}

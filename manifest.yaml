@@ -75,6 +75,12 @@ family_rulesets:
   calibration:
     - "rules/families/roc-pr-calibration.yaml"
     - "rules/families/curve-comparison.yaml"
+  paired_operating_point:
+    - "rules/families/paired-operating-point.yaml"
+  classification_diagnostics:
+    - "rules/families/classification-diagnostics.yaml"
+    - "rules/families/roc-pr-calibration.yaml"
+    - "rules/families/curve-comparison.yaml"
   microscopy: ["rules/families/microscopy.yaml"]
   network: ["rules/families/network-graph.yaml"]
   graph: ["rules/families/network-graph.yaml"]
@@ -302,8 +308,10 @@ routes:
     when: "retrieval or generation benchmark metrics need to be measured"
     load:
       - "assets/reference-benchmarks/golden_tasks.json"
+      - "evals/eval_schema.json"
     required_load:
       - "assets/reference-benchmarks/golden_tasks.json"
+      - "evals/eval_schema.json"
     run:
       - "scripts/evaluate_benchmark.py"
       - "scripts/trigger_benchmark.py"
@@ -314,6 +322,7 @@ routes:
       - "scripts/champion_board.py"
       - "scripts/evaluate_activation.py"
       - "scripts/record_preference.py"
+      - "scripts/run_output_eval.py"
   figure_family_coverage:
     when: "the figure family or reference-library coverage needs to be selected or audited"
     load:

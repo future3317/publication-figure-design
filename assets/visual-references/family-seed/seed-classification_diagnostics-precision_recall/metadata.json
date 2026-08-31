@@ -1,0 +1,59 @@
+{
+  "aesthetic_rating": 3,
+  "code_path": "assets/visual-references/family-seed/seed-classification_diagnostics-precision_recall/code.py",
+  "created_at": "2026-08-31T05:36:35Z",
+  "data_density": "medium",
+  "figure_card_path": "assets/visual-references/family-seed/seed-classification_diagnostics-precision_recall/figure_card.json",
+  "figure_type": "pr_curve",
+  "id": "seed-classification_diagnostics-precision_recall",
+  "image_path": "assets/visual-references/family-seed/seed-classification_diagnostics-precision_recall/image.png",
+  "journal_style": "generic",
+  "layout": "1x1",
+  "license": "generated independently; synthetic data and code",
+  "lifecycle_state": "reviewed",
+  "n_groups": null,
+  "notes": "Synthetic seed reference for the classification_diagnostics family, subtype precision_recall. Generated with independent matplotlib code.",
+  "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "reason": "synthetic_family_seed",
+        "state": "raw"
+      },
+      {
+        "reason": "reference_dna_built",
+        "state": "analyzed"
+      },
+      {
+        "reason": "seed_reference_approved_for_coverage",
+        "state": "reviewed"
+      }
+    ],
+    "state": "reviewed"
+  },
+  "reconstruction_blueprint": {
+    "blueprint_id": "classification_diagnostics_precision_recall",
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "classification_diagnostics:precision_recall"
+      }
+    ],
+    "source_observation": "precision_recall rendering of classification_diagnostics semantics"
+  },
+  "reference_dna_path": "assets/visual-references/family-seed/seed-classification_diagnostics-precision_recall/reference_dna.json",
+  "reproduction_preview_path": "assets/visual-references/family-seed/seed-classification_diagnostics-precision_recall/image.png",
+  "review_status": "reviewed",
+  "scope": "family-seed",
+  "source": "synthetic family seed for classification_diagnostics/precision_recall",
+  "source_url": null,
+  "subtype": "precision_recall",
+  "tags": [
+    "synthetic",
+    "family-seed",
+    "classification_diagnostics",
+    "precision_recall"
+  ],
+  "usage_scope": "internal_reference",
+  "sha256": "f7ebfca00f85ed93ccfd2f5ad7b2566baa6fb5ff6b1085bc5ecb8d1359736e43"
+}

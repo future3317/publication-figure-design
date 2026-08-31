@@ -1,0 +1,59 @@
+{
+  "aesthetic_rating": 3,
+  "code_path": "assets/visual-references/family-seed/seed-classification_diagnostics-confusion_matrix_normalized/code.py",
+  "created_at": "2026-08-31T05:36:35Z",
+  "data_density": "medium",
+  "figure_card_path": "assets/visual-references/family-seed/seed-classification_diagnostics-confusion_matrix_normalized/figure_card.json",
+  "figure_type": "confusion_matrix",
+  "id": "seed-classification_diagnostics-confusion_matrix_normalized",
+  "image_path": "assets/visual-references/family-seed/seed-classification_diagnostics-confusion_matrix_normalized/image.png",
+  "journal_style": "generic",
+  "layout": "1x1",
+  "license": "generated independently; synthetic data and code",
+  "lifecycle_state": "reviewed",
+  "n_groups": null,
+  "notes": "Synthetic seed reference for the classification_diagnostics family, subtype confusion_matrix_normalized. Generated with independent matplotlib code.",
+  "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "reason": "synthetic_family_seed",
+        "state": "raw"
+      },
+      {
+        "reason": "reference_dna_built",
+        "state": "analyzed"
+      },
+      {
+        "reason": "seed_reference_approved_for_coverage",
+        "state": "reviewed"
+      }
+    ],
+    "state": "reviewed"
+  },
+  "reconstruction_blueprint": {
+    "blueprint_id": "classification_diagnostics_confusion_matrix_normalized",
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "classification_diagnostics:confusion_matrix_normalized"
+      }
+    ],
+    "source_observation": "confusion_matrix_normalized rendering of classification_diagnostics semantics"
+  },
+  "reference_dna_path": "assets/visual-references/family-seed/seed-classification_diagnostics-confusion_matrix_normalized/reference_dna.json",
+  "reproduction_preview_path": "assets/visual-references/family-seed/seed-classification_diagnostics-confusion_matrix_normalized/image.png",
+  "review_status": "reviewed",
+  "scope": "family-seed",
+  "source": "synthetic family seed for classification_diagnostics/confusion_matrix_normalized",
+  "source_url": null,
+  "subtype": "confusion_matrix_normalized",
+  "tags": [
+    "synthetic",
+    "family-seed",
+    "classification_diagnostics",
+    "confusion_matrix_normalized"
+  ],
+  "usage_scope": "internal_reference",
+  "sha256": "a6654d94f9f90ef50e11b9d08154b52724921c10a232676d365a4ddbe174310d"
+}

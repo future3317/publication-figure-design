@@ -1,0 +1,59 @@
+{
+  "aesthetic_rating": 3,
+  "code_path": "assets/visual-references/family-seed/seed-paired_operating_point-paired_dot/code.py",
+  "created_at": "2026-08-31T05:36:34Z",
+  "data_density": "medium",
+  "figure_card_path": "assets/visual-references/family-seed/seed-paired_operating_point-paired_dot/figure_card.json",
+  "figure_type": "paired_comparison",
+  "id": "seed-paired_operating_point-paired_dot",
+  "image_path": "assets/visual-references/family-seed/seed-paired_operating_point-paired_dot/image.png",
+  "journal_style": "generic",
+  "layout": "1x1",
+  "license": "generated independently; synthetic data and code",
+  "lifecycle_state": "reviewed",
+  "n_groups": null,
+  "notes": "Synthetic seed reference for the paired_operating_point family, subtype paired_dot. Generated with independent matplotlib code.",
+  "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "reason": "synthetic_family_seed",
+        "state": "raw"
+      },
+      {
+        "reason": "reference_dna_built",
+        "state": "analyzed"
+      },
+      {
+        "reason": "seed_reference_approved_for_coverage",
+        "state": "reviewed"
+      }
+    ],
+    "state": "reviewed"
+  },
+  "reconstruction_blueprint": {
+    "blueprint_id": "paired_operating_point_paired_dot",
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "paired_operating_point:paired_dot"
+      }
+    ],
+    "source_observation": "paired_dot rendering of paired_operating_point semantics"
+  },
+  "reference_dna_path": "assets/visual-references/family-seed/seed-paired_operating_point-paired_dot/reference_dna.json",
+  "reproduction_preview_path": "assets/visual-references/family-seed/seed-paired_operating_point-paired_dot/image.png",
+  "review_status": "reviewed",
+  "scope": "family-seed",
+  "source": "synthetic family seed for paired_operating_point/paired_dot",
+  "source_url": null,
+  "subtype": "paired_dot",
+  "tags": [
+    "synthetic",
+    "family-seed",
+    "paired_operating_point",
+    "paired_dot"
+  ],
+  "usage_scope": "internal_reference",
+  "sha256": "49dc01daf16b2137df3416c6541abdd4a36606f765fa6f6b1a68763c15e01800"
+}

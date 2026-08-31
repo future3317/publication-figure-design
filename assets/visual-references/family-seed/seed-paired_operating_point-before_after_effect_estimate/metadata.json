@@ -1,0 +1,59 @@
+{
+  "aesthetic_rating": 3,
+  "code_path": "assets/visual-references/family-seed/seed-paired_operating_point-before_after_effect_estimate/code.py",
+  "created_at": "2026-08-31T05:36:34Z",
+  "data_density": "medium",
+  "figure_card_path": "assets/visual-references/family-seed/seed-paired_operating_point-before_after_effect_estimate/figure_card.json",
+  "figure_type": "paired_comparison",
+  "id": "seed-paired_operating_point-before_after_effect_estimate",
+  "image_path": "assets/visual-references/family-seed/seed-paired_operating_point-before_after_effect_estimate/image.png",
+  "journal_style": "generic",
+  "layout": "1x1",
+  "license": "generated independently; synthetic data and code",
+  "lifecycle_state": "reviewed",
+  "n_groups": null,
+  "notes": "Synthetic seed reference for the paired_operating_point family, subtype before_after_effect_estimate. Generated with independent matplotlib code.",
+  "production_ready": false,
+  "quarantine": {
+    "history": [
+      {
+        "reason": "synthetic_family_seed",
+        "state": "raw"
+      },
+      {
+        "reason": "reference_dna_built",
+        "state": "analyzed"
+      },
+      {
+        "reason": "seed_reference_approved_for_coverage",
+        "state": "reviewed"
+      }
+    ],
+    "state": "reviewed"
+  },
+  "reconstruction_blueprint": {
+    "blueprint_id": "paired_operating_point_before_after_effect_estimate",
+    "panel_recipes": [
+      {
+        "id": "A",
+        "kind": "paired_operating_point:before_after_effect_estimate"
+      }
+    ],
+    "source_observation": "before_after_effect_estimate rendering of paired_operating_point semantics"
+  },
+  "reference_dna_path": "assets/visual-references/family-seed/seed-paired_operating_point-before_after_effect_estimate/reference_dna.json",
+  "reproduction_preview_path": "assets/visual-references/family-seed/seed-paired_operating_point-before_after_effect_estimate/image.png",
+  "review_status": "reviewed",
+  "scope": "family-seed",
+  "source": "synthetic family seed for paired_operating_point/before_after_effect_estimate",
+  "source_url": null,
+  "subtype": "before_after_effect_estimate",
+  "tags": [
+    "synthetic",
+    "family-seed",
+    "paired_operating_point",
+    "before_after_effect_estimate"
+  ],
+  "usage_scope": "internal_reference",
+  "sha256": "bde71837331d774a364872f4950641b6fa132547cb4c0b407871b08495b2d9f0"
+}

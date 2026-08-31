@@ -25,7 +25,8 @@ class FigureFamilyCoverageTests(unittest.TestCase):
         report = build_coverage_report(ReferenceLibrary())
         self.assertEqual(report["family_count"], len(FIGURE_FAMILIES))
         self.assertGreaterEqual(report["covered_family_count"], 6)
-        self.assertTrue(report["missing_families"])
+        # Full coverage is now expected; if gaps reappear the audit will list them.
+        self.assertFalse(report["missing_families"], f"gaps remain: {report['missing_families']}")
         self.assertTrue(all("candidate_ids" in item for item in report["families"] ))
 
 
