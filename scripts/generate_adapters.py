@@ -80,20 +80,14 @@ Load `SKILL.md` and resolve all relative scripts/resources from that directory.
 
 def generate_codex_manifest() -> tuple[str, str]:
     version = _manifest_version()
+    files = "\n".join(f"  - {item}" for item in _runtime_files())
     manifest = f"""# Generated adapter metadata; package compatibility identifier only; one current workflow.
 name: publication-figure-design
 version: \"{version}\"
 entrypoint: SKILL.md
 source_manifest: manifest.yaml
 runtime:
-  - SKILL.md
-  - manifest.yaml
-  - references/
-  - scripts/
-  - assets/visual-references/
-  - assets/registry.jsonl
-  - schemas/
-  - indexes/
+{files}
 """
     instructions = _loader_header("OpenAI Codex") + """
 Load `SKILL.md` as the instruction entrypoint. When a route names a script,
