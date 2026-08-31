@@ -3,7 +3,7 @@
   "$id": "publication-figure-design/rule.schema.json",
   "title": "Publication Figure Design rule",
   "type": "object",
-  "required": ["id", "title", "scope", "severity", "statement", "verification"],
+  "required": ["id", "title", "scope", "severity", "statement", "verification", "authority", "rationale"],
   "properties": {
     "id": {"type": "string", "pattern": "^[A-Z][A-Z0-9-]+-[0-9]{3}$"},
     "title": {"type": "string", "minLength": 1},

@@ -99,8 +99,12 @@ def validate_rules(root: Path | str) -> dict[str, object]:
             if rule.get("severity") not in SEVERITIES:
                 errors.append(f"{path} {rule_id}: invalid severity {rule.get('severity')!r}")
             authority = rule.get("authority")
-            if authority is not None and authority not in AUTHORITIES:
+            if not authority:
+                errors.append(f"{path} {rule_id}: missing authority")
+            elif authority not in AUTHORITIES:
                 errors.append(f"{path} {rule_id}: invalid authority {authority!r}")
+            if not isinstance(rule.get("rationale"), str) or not rule["rationale"].strip():
+                errors.append(f"{path} {rule_id}: missing rationale")
             if not isinstance(rule.get("statement"), str) or not rule["statement"].strip():
                 errors.append(f"{path} {rule_id}: missing statement")
             verification = rule.get("verification")
