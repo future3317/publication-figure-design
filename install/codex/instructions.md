@@ -22,7 +22,7 @@ Runtime bundle:
 - `rules/`
 - `sources/registry.yaml`
 
-Generated: 2026-08-31 10:17 UTC
+Generated: 2026-08-31 10:48 UTC
 
 Load `SKILL.md` as the instruction entrypoint. When a route names a script,
 schema, index, or reference asset, use the bundled relative path; do not
