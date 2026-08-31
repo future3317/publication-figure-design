@@ -1,0 +1,45 @@
+name: Microscopy and Imaging
+domain: microscopy
+source: PFD domain guidance
+source_url: null
+source_title: Microscopy and imaging figure design guidance
+retrieved_at: "2026-08-31"
+effective_date: null
+source_section: microscopy
+status: verified
+verified: true
+confidence: inferred
+review_after: "2027-08-31"
+applies_to: [fluorescence_microscopy, histology, electron_microscopy, live_imaging]
+preferred_families:
+  - spatial_image
+  - image_quantitative_composite
+  - comparison_effect
+  - mechanism_architecture
+discouraged_families:
+  - multi_axis_comparison
+required_figures:
+  image_with_scale_bar: scale bar must be editable and calibrated
+  companion_quantification: image linked to quantitative readout
+  channel_mapping: declare channel colors and dyes
+semantic_contracts:
+  scale_bar: must be present and calibrated
+  crop_fov: disclose cropping or field selection
+  normalization: declare intensity normalization
+  segmentation_semantics: label what each overlay means
+reporting_standards:
+  - rembi
+negative_rules:
+  - Avoid cropping without field-of-view disclosure
+  - Avoid adjusting brightness/contrast without disclosure
+  - Avoid rasterized scale bars in vector exports
+journal_profiles_compatible:
+  - nature
+  - science
+  - cell
+  - generic
+rules:
+  editable_scale_bar:
+    value: true
+    level: required
+    applicability: vector_exports

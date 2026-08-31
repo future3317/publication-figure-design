@@ -1,0 +1,48 @@
+name: Biomedical and Clinical
+domain: biomedical
+source: PFD domain guidance
+source_url: null
+source_title: Biomedical and clinical figure design guidance
+retrieved_at: "2026-08-31"
+effective_date: null
+source_section: biomedical
+status: verified
+verified: true
+confidence: inferred
+review_after: "2027-08-31"
+applies_to: [clinical_trial, biomarker_study, diagnostic_study, epidemiology]
+preferred_families:
+  - comparison_effect
+  - distribution_uncertainty
+  - paired_operating_point
+  - classification_diagnostics
+  - statistical_discovery
+  - trend_trajectory
+discouraged_families:
+  - multi_axis_comparison
+required_figures:
+  forest_plot: report effect estimate with confidence interval
+  km_survival: show censoring marks and number at risk
+  diagnostic_calibration: separate discrimination, calibration, threshold utility
+semantic_contracts:
+  observation_unit: distinguish biological vs technical replicate
+  prevalence: report class prevalence for diagnostic figures
+  confidence_interval: report CI method and level
+reporting_standards:
+  - tripod-ai
+  - consort
+  - remark
+negative_rules:
+  - Avoid ROC-only reporting for diagnostic models
+  - Avoid hiding missingness or exclusions
+  - Avoid mean-only bars for small clinical samples
+journal_profiles_compatible:
+  - nature
+  - science
+  - cell
+  - generic
+rules:
+  number_at_risk:
+    value: required
+    level: recommended
+    applicability: survival_curves

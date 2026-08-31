@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "publication-figure-design/domain-profile.schema.json",
+  "title": "Domain profile",
+  "type": "object",
+  "required": ["name", "domain", "source", "retrieved_at", "status", "confidence", "review_after", "preferred_families", "reporting_standards"],
+  "properties": {
+    "name": {"type": "string"},
+    "domain": {"type": "string"},
+    "source": {"type": "string"},
+    "source_url": {"type": ["string", "null"]},
+    "source_title": {"type": ["string", "null"]},
+    "retrieved_at": {"type": "string"},
+    "effective_date": {"type": ["string", "null"]},
+    "source_section": {"type": ["string", "null"]},
+    "status": {"enum": ["verified", "stale", "placeholder"]},
+    "verified": {"type": "boolean"},
+    "confidence": {"enum": ["authoritative", "inferred"]},
+    "review_after": {"type": "string"},
+    "applies_to": {"type": "array", "items": {"type": "string"}},
+    "preferred_families": {"type": "array", "items": {"type": "string"}},
+    "discouraged_families": {"type": "array", "items": {"type": "string"}},
+    "required_figures": {"type": "object"},
+    "semantic_contracts": {"type": "object"},
+    "reporting_standards": {"type": "array", "items": {"type": "string"}},
+    "negative_rules": {"type": "array", "items": {"type": "string"}},
+    "journal_profiles_compatible": {"type": "array", "items": {"type": "string"}},
+    "rules": {"type": "object"}
+  }
+}

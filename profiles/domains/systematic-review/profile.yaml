@@ -1,0 +1,45 @@
+name: Systematic Review and Meta-Analysis
+domain: systematic-review
+source: PFD domain guidance
+source_url: null
+source_title: Systematic review figure design guidance
+retrieved_at: "2026-08-31"
+effective_date: null
+source_section: systematic-review
+status: verified
+verified: true
+confidence: inferred
+review_after: "2027-08-31"
+applies_to: [systematic_review, meta_analysis, scoping_review, rapid_review]
+preferred_families:
+  - network_flow_set
+  - comparison_effect
+  - statistical_discovery
+  - mechanism_architecture
+discouraged_families:
+  - multi_axis_comparison
+required_figures:
+  prisma_flow_diagram: report study flow with reasons for exclusion
+  forest_plot: report effect sizes and study weights
+  risk_of_bias: summarize bias assessment across studies
+semantic_contracts:
+  study_flow: every transition must be justified
+  effect_size: report metric, CI, and weight
+  heterogeneity: report I2 or tau where applicable
+reporting_standards:
+  - prisma-2020
+  - moose
+negative_rules:
+  - Avoid omitting excluded-study reasons
+  - Avoid funnel plots without declaring tests for asymmetry
+  - Avoid selective outcome reporting graphs
+journal_profiles_compatible:
+  - nature
+  - science
+  - cell
+  - generic
+rules:
+  prisma_template:
+    value: required
+    level: required
+    applicability: flow_diagram

@@ -1,0 +1,47 @@
+name: Genomics and Omics
+domain: genomics
+source: PFD domain guidance
+source_url: null
+source_title: Genomics and omics figure design guidance
+retrieved_at: "2026-08-31"
+effective_date: null
+source_section: genomics
+status: verified
+verified: true
+confidence: inferred
+review_after: "2027-08-31"
+applies_to: [genome_wide_association, rnaseq, single_cell, proteomics, metabolomics]
+preferred_families:
+  - statistical_discovery
+  - matrix_array
+  - relationship_embedding
+  - comparison_effect
+  - spatial_image
+discouraged_families:
+  - multi_axis_comparison
+required_figures:
+  volcano_plot: show effect size and significance threshold
+  ma_plot: show normalization and dependency on abundance
+  manhattan_plot: show chromosome boundaries and significance line
+  enrichment_dotplot: report gene set size and adjusted p-value
+semantic_contracts:
+  multiplicity_correction: report method and threshold
+  normalization: declare normalization method
+  tested_population: show all tested features, not only significant
+reporting_standards:
+  - mine
+  - strobe
+negative_rules:
+  - Avoid labeling only significant points
+  - Avoid hiding the tested population
+  - Avoid arbitrary color thresholds
+journal_profiles_compatible:
+  - nature
+  - science
+  - cell
+  - generic
+rules:
+  significance_threshold:
+    value: visible
+    level: required
+    applicability: discovery_figures

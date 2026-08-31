@@ -1,0 +1,47 @@
+name: Machine Learning and AI
+domain: ml-ai
+source: PFD domain guidance
+source_url: null
+source_title: Machine Learning and AI figure design guidance
+retrieved_at: "2026-08-31"
+effective_date: null
+source_section: ml-ai
+status: verified
+verified: true
+confidence: inferred
+review_after: "2027-08-31"
+applies_to: [ml_paper, ai_conference, benchmark_report]
+preferred_families:
+  - comparison_effect
+  - classification_diagnostics
+  - optimization_sensitivity
+  - trend_trajectory
+  - matrix_array
+  - relationship_embedding
+discouraged_families:
+  - multi_axis_comparison
+required_figures:
+  ablation: one controlled change per panel with seed intervals
+  benchmark: raw metric plus uncertainty, not only leaderboard rank
+  calibration: separate discrimination and probability quality plots
+semantic_contracts:
+  seed_uncertainty: must show variance across random seeds
+  metric_definition: primary metric must match community definition
+  dataset_scale: report n and task split
+reporting_standards:
+  - tripod-ai
+  - ml-reproducibility-checklist
+negative_rules:
+  - Avoid radar charts for benchmark comparison
+  - Avoid smoothing away training endpoints
+  - Avoid claiming robustness without perturbation coverage
+journal_profiles_compatible:
+  - nature
+  - science
+  - cell
+  - generic
+rules:
+  seed_intervals:
+    value: required
+    level: recommended
+    applicability: learning_curves

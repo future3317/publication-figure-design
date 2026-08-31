@@ -1,0 +1,45 @@
+name: Chemistry and Materials Science
+domain: chemistry-materials
+source: PFD domain guidance
+source_url: null
+source_title: Chemistry and materials figure design guidance
+retrieved_at: "2026-08-31"
+effective_date: null
+source_section: chemistry-materials
+status: verified
+verified: true
+confidence: inferred
+review_after: "2027-08-31"
+applies_to: [synthesis, catalysis, battery, polymer, nanomaterial]
+preferred_families:
+  - comparison_effect
+  - trend_trajectory
+  - mechanism_architecture
+  - matrix_array
+  - spatial_image
+discouraged_families:
+  - relationship_embedding
+required_figures:
+  synthesis_scheme: explicit reagents, conditions, yields
+  performance_curve: controlled cycling or kinetic conditions
+  structure_characterization: diffraction, spectra, or microscopy linked to claim
+semantic_contracts:
+  error_bar_definition: SD, SEM, or CI must be explicit
+  replicate_definition: report number of independent syntheses or measurements
+  units: physical quantities require units
+reporting_standards:
+  - chemical_structure_guidelines
+negative_rules:
+  - Avoid hiding replicate variability in mean-only bars
+  - Avoid unsupported mechanistic arrows
+  - Avoid presenting one representative trace without replicate evidence
+journal_profiles_compatible:
+  - nature
+  - science
+  - cell
+  - generic
+rules:
+  yield_reporting:
+    value: explicit
+    level: required
+    applicability: synthesis_schemes
