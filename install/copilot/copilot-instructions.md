@@ -13,6 +13,7 @@ Runtime bundle:
 - `assets/visual-references/`
 - `assets/visual-references/**/reference_dna.json`
 - `assets/reference-benchmarks/`
+- `assets/anti-pattern-atlas/`
 - `assets/registry.jsonl`
 - `schemas/`
 - `indexes/`
@@ -21,7 +22,7 @@ Runtime bundle:
 - `rules/`
 - `sources/registry.yaml`
 
-Generated: 2026-08-31 09:30 UTC
+Generated: 2026-08-31 10:17 UTC
 
 For publication-figure tasks, use the canonical `SKILL.md`, manifest route, and
 bundled runtime files. These instructions only provide loading context.

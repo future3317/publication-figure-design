@@ -15,6 +15,7 @@ runtime:
   - "assets/visual-references/"
   - "assets/visual-references/**/reference_dna.json"
   - "assets/reference-benchmarks/"
+  - "assets/anti-pattern-atlas/"
   - "assets/registry.jsonl"
   - "schemas/"
   - "indexes/"
