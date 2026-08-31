@@ -8,10 +8,10 @@
     "journal": null,
     "year": null,
     "figure_family": "grouped_bar",
-    "source_kind": "code"
+    "source_kind": "user_supplied"
   },
   "composition": {
-    "aspect_ratio": null,
+    "aspect_ratio": 1.3762755102040816,
     "panel_count": 1,
     "panel_bboxes": [],
     "panel_area_ratios": [],
@@ -20,10 +20,12 @@
     "gutters": {},
     "outer_margins": {},
     "alignment_lines": [],
-    "whitespace_regions": {}
+    "whitespace_regions": {
+      "fraction": 0.8396569007584498
+    }
   },
   "palette": {
-    "background": null,
+    "background": "#ffffff",
     "dominant": [],
     "neutrals": [],
     "categorical": [],
@@ -38,26 +40,7 @@
     "area_share": {},
     "perceptual_distance": {},
     "cvd_score": null,
-    "grayscale_score": null,
-    "code_literals": [
-      "#171717",
-      "#59699e",
-      "#89acd4",
-      "#c4d9ed",
-      "#e7f0f8",
-      "#ffffff",
-      "Agg",
-      "D",
-      "Features",
-      "bold",
-      "both",
-      "bottom",
-      "center",
-      "left",
-      "right",
-      "top",
-      "white"
-    ]
+    "grayscale_score": null
   },
   "typography": {
     "family_class": "sans_serif_unknown",
@@ -69,7 +52,8 @@
     "text_density": null,
     "alignment": null,
     "exact_font": null,
-    "exactness": "code_declared"
+    "font_family_class": "sans_serif_unknown",
+    "exactness": "relative_only"
   },
   "geometry": {
     "stroke_width_distribution": null,
@@ -83,40 +67,7 @@
     "arrowhead": null,
     "leader_style": null,
     "spine_model": null,
-    "grid_model": null,
-    "plot_calls": [
-      "Path",
-      "add_bracket",
-      "arange",
-      "array",
-      "bar",
-      "close",
-      "default_rng",
-      "enumerate",
-      "legend",
-      "len",
-      "main",
-      "max",
-      "mean",
-      "normal",
-      "plot",
-      "resolve",
-      "savefig",
-      "scatter",
-      "set_linewidth",
-      "set_visible",
-      "set_xticks",
-      "set_ylabel",
-      "set_ylim",
-      "set_yticks",
-      "subplots",
-      "text",
-      "tick_params",
-      "tight_layout",
-      "uniform",
-      "use"
-    ],
-    "line_count": 74
+    "grid_model": null
   },
   "annotations": {
     "direct_labels": null,
@@ -130,8 +81,8 @@
     "focal_regions": null,
     "saliency_distribution": null,
     "visual_weight": null,
-    "density": "moderate",
-    "data_to_ink_proxy": null
+    "density": 0.16034309924155019,
+    "data_to_ink_proxy": 0.16034309924155019
   },
   "style": {
     "aesthetic_tags": [
@@ -156,9 +107,9 @@
     "structure_embedding": null
   },
   "confidence": {
-    "geometry": 0.94,
-    "palette": 0.86,
-    "typography": 0.82
+    "composition": 0.72,
+    "palette": 0.68,
+    "typography": 0.35
   },
   "extensions": {
     "visual_grammar": {
@@ -210,41 +161,77 @@
         "variation_and_emphasis": "Feature emphasis comes from a light-to-dark sequential blue palette; significance tiers add emphasis above selected comparisons."
       }
     },
-    "figure_card": {},
-    "code": {
-      "calls": [
-        "Path",
-        "add_bracket",
-        "arange",
-        "array",
-        "bar",
-        "close",
-        "default_rng",
-        "enumerate",
-        "legend",
-        "len",
-        "main",
-        "max",
-        "mean",
-        "normal",
-        "plot",
-        "resolve",
-        "savefig",
-        "scatter",
-        "set_linewidth",
-        "set_visible",
-        "set_xticks",
-        "set_ylabel",
-        "set_ylim",
-        "set_yticks",
-        "subplots",
-        "text",
-        "tick_params",
-        "tight_layout",
-        "uniform",
-        "use"
-      ],
-      "static_only": true
+    "figure_card": {
+      "canvas": {
+        "width_px": 1079,
+        "height_px": 784,
+        "aspect_ratio": 1.3762755102040816
+      },
+      "background": {
+        "rgb": [
+          253.0,
+          253.0,
+          253.0
+        ],
+        "hex": "#ffffff"
+      },
+      "ink_coverage": 0.16034309924155019,
+      "geometry": {
+        "whitespace_fraction": 0.8396569007584498
+      },
+      "palette": {
+        "dominant": []
+      },
+      "panels": {
+        "count": 1,
+        "bboxes_px": []
+      },
+      "whitespace_map": {
+        "fraction": 0.8396569007584498
+      },
+      "visual_density": 0.16034309924155019
     }
+  },
+  "scientific_semantics": {
+    "claim_type": null,
+    "analytical_task": null,
+    "evidence_role": null,
+    "data_relationship": "independent_categorical",
+    "observation_unit": null,
+    "paired_or_independent": "independent",
+    "uncertainty_type": null,
+    "expected_reader_question": null
+  },
+  "encoding_rationale": {
+    "primary_channel": "position_aligned_length",
+    "secondary_channels": [],
+    "comparison_baseline": null,
+    "perceptual_task": "compare_magnitudes",
+    "why_this_encoding": null,
+    "alternatives_considered": []
+  },
+  "pedagogy": {
+    "why_it_works": null,
+    "what_to_notice": null,
+    "when_to_use": "Use for independent group magnitudes when the zero baseline is meaningful.",
+    "when_not_to_use": "Do not use mean-only bars to hide small-n distributions or paired structure.",
+    "common_misreadings": [],
+    "failure_modes": [],
+    "transferable_patterns": [],
+    "non_transferable_style_tokens": []
+  },
+  "caption_requirements": {
+    "required_elements": [],
+    "uncertainty_definition": null,
+    "n_definition": null,
+    "units": null,
+    "normalization": null,
+    "statistical_test": null
+  },
+  "accessibility_evidence": {
+    "color_redundancy": null,
+    "grayscale_safe": false,
+    "cvd_safe": false,
+    "direct_label_possible": null
   }
 }

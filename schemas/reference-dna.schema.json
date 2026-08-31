@@ -18,7 +18,69 @@
     "constraints": {"type": "object"},
     "embeddings": {"type": "object"},
     "confidence": {"type": "object"},
-    "extensions": {"type": "object"}
+    "extensions": {"type": "object"},
+    "scientific_semantics": {
+      "type": "object",
+      "properties": {
+        "claim_type": {"type": ["string", "null"]},
+        "analytical_task": {"type": ["string", "null"]},
+        "evidence_role": {"type": ["string", "null"]},
+        "data_relationship": {"type": ["string", "null"]},
+        "observation_unit": {"type": ["string", "null"]},
+        "paired_or_independent": {"type": ["string", "null"]},
+        "uncertainty_type": {"type": ["string", "null"]},
+        "expected_reader_question": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "encoding_rationale": {
+      "type": "object",
+      "properties": {
+        "primary_channel": {"type": ["string", "null"]},
+        "secondary_channels": {"type": "array", "items": {"type": "string"}},
+        "comparison_baseline": {"type": ["string", "null"]},
+        "perceptual_task": {"type": ["string", "null"]},
+        "why_this_encoding": {"type": ["string", "null"]},
+        "alternatives_considered": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "pedagogy": {
+      "type": "object",
+      "properties": {
+        "why_it_works": {"type": ["string", "null"]},
+        "what_to_notice": {"type": ["string", "null"]},
+        "when_to_use": {"type": ["string", "null"]},
+        "when_not_to_use": {"type": ["string", "null"]},
+        "common_misreadings": {"type": "array", "items": {"type": "string"}},
+        "failure_modes": {"type": "array", "items": {"type": "string"}},
+        "transferable_patterns": {"type": "array", "items": {"type": "string"}},
+        "non_transferable_style_tokens": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "caption_requirements": {
+      "type": "object",
+      "properties": {
+        "required_elements": {"type": "array", "items": {"type": "string"}},
+        "uncertainty_definition": {"type": ["string", "null"]},
+        "n_definition": {"type": ["string", "null"]},
+        "units": {"type": ["string", "null"]},
+        "normalization": {"type": ["string", "null"]},
+        "statistical_test": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "accessibility_evidence": {
+      "type": "object",
+      "properties": {
+        "color_redundancy": {"type": "boolean"},
+        "grayscale_safe": {"type": "boolean"},
+        "cvd_safe": {"type": "boolean"},
+        "direct_label_possible": {"type": "boolean"}
+      },
+      "additionalProperties": true
+    }
   },
   "additionalProperties": false
 }

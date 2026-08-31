@@ -20,8 +20,14 @@ def check(root: Path) -> dict:
         if metadata.get("reference_dna_path") != dna_path.relative_to(root).as_posix():
             invalid.append(f"{metadata_path}: reference_dna_path does not point to sidecar")
         dna = json.loads(dna_path.read_text(encoding="utf-8"))
-        if dna.get("schema_version") != "2.0" or not all(isinstance(dna.get(key), dict) for key in ("identity", "composition", "palette", "typography", "geometry", "annotations", "hierarchy", "style", "constraints", "confidence")):
+        required_keys = ("identity", "composition", "palette", "typography", "geometry", "annotations", "hierarchy", "style", "constraints", "confidence")
+        optional_semantic_keys = ("scientific_semantics", "encoding_rationale", "pedagogy", "caption_requirements", "accessibility_evidence")
+        if dna.get("schema_version") != "2.0" or not all(isinstance(dna.get(key), dict) for key in required_keys):
             invalid.append(str(dna_path))
+        else:
+            for key in optional_semantic_keys:
+                if key in dna and not isinstance(dna[key], dict):
+                    invalid.append(f"{dna_path}: {key} must be an object if present")
     return {"references": len(references), "missing": missing, "invalid": invalid, "passed": not missing and not invalid}
 
 

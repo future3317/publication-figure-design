@@ -55,4 +55,4 @@ def build_reference_dna(reference_dir: Path, *, metadata: Mapping[str, Any] | No
 
 def load_reference_dna(reference_dir: Path) -> ReferenceDNA:
     payload = json.loads((Path(reference_dir) / "reference_dna.json").read_text(encoding="utf-8"))
-    return ReferenceDNA(**{key: payload.get(key, {}) for key in ("identity", "composition", "palette", "typography", "geometry", "annotations", "hierarchy", "style", "constraints", "embeddings", "confidence", "extensions")}, schema=payload.get("schema", "publication-figure-design/reference-dna"), schema_version=str(payload.get("schema_version", "2.0")))
+    return ReferenceDNA(**{key: payload.get(key, {}) for key in ("identity", "composition", "palette", "typography", "geometry", "annotations", "hierarchy", "style", "constraints", "embeddings", "confidence", "extensions", "scientific_semantics", "encoding_rationale", "pedagogy", "caption_requirements", "accessibility_evidence")}, schema=payload.get("schema", "publication-figure-design/reference-dna"), schema_version=str(payload.get("schema_version", "2.0")))

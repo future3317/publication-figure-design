@@ -1,0 +1,179 @@
+{
+  "schema": "publication-figure-design/reference-dna",
+  "schema_version": "2.0",
+  "identity": {
+    "id": "seed-classification_diagnostics-confusion_matrix_normalized",
+    "source": "synthetic family seed for classification_diagnostics/confusion_matrix_normalized",
+    "license": "generated independently; synthetic data and code",
+    "journal": "generic",
+    "year": null,
+    "figure_family": "confusion_matrix",
+    "source_kind": "raster"
+  },
+  "composition": {
+    "aspect_ratio": 1.0,
+    "panel_count": 1,
+    "panel_bboxes": [],
+    "panel_area_ratios": [],
+    "reading_order": [],
+    "hero_panel": null,
+    "gutters": {},
+    "outer_margins": {},
+    "alignment_lines": [],
+    "whitespace_regions": {
+      "fraction": 0.6318305555555556
+    }
+  },
+  "palette": {
+    "background": "#ffffff",
+    "dominant": [],
+    "neutrals": [],
+    "categorical": [],
+    "sequential": [],
+    "diverging": [],
+    "accent": null,
+    "semantic_roles": {},
+    "area_share": {},
+    "perceptual_distance": {},
+    "cvd_score": null,
+    "grayscale_score": null
+  },
+  "typography": {
+    "family_class": "sans_serif_unknown",
+    "title_body_ratio": null,
+    "axis_tick_ratio": null,
+    "panel_label_style": null,
+    "weight": null,
+    "line_height": null,
+    "text_density": null,
+    "alignment": null,
+    "exact_font": null,
+    "font_family_class": "sans_serif_unknown",
+    "exactness": "relative_only"
+  },
+  "geometry": {
+    "stroke_width_distribution": null,
+    "marker_family": null,
+    "marker_size_distribution": null,
+    "corner_radius": null,
+    "arrowhead": null,
+    "leader_style": null,
+    "spine_model": null,
+    "grid_model": null
+  },
+  "annotations": {
+    "direct_labels": null,
+    "brackets": null,
+    "callouts": null,
+    "leaders": null,
+    "significance": null,
+    "clearance": null
+  },
+  "hierarchy": {
+    "focal_regions": null,
+    "saliency_distribution": null,
+    "visual_weight": null,
+    "density": 0.36816944444444444,
+    "data_to_ink_proxy": 0.36816944444444444
+  },
+  "style": {
+    "aesthetic_tags": [
+      "synthetic",
+      "family-seed",
+      "classification_diagnostics",
+      "confusion_matrix_normalized"
+    ],
+    "style_cluster": null,
+    "style_vector": null,
+    "quality_score": 3
+  },
+  "constraints": {
+    "must_match": [],
+    "must_avoid": []
+  },
+  "embeddings": {
+    "semantic_embedding": null,
+    "visual_embedding": null,
+    "structure_embedding": null
+  },
+  "confidence": {
+    "composition": 0.72,
+    "palette": 0.68,
+    "typography": 0.35
+  },
+  "extensions": {
+    "visual_grammar": {},
+    "figure_card": {
+      "canvas": {
+        "width_px": 600,
+        "height_px": 600,
+        "aspect_ratio": 1.0
+      },
+      "background": {
+        "rgb": [
+          255.0,
+          255.0,
+          255.0
+        ],
+        "hex": "#ffffff"
+      },
+      "ink_coverage": 0.36816944444444444,
+      "geometry": {
+        "whitespace_fraction": 0.6318305555555556
+      },
+      "palette": {
+        "dominant": []
+      },
+      "panels": {
+        "count": 1,
+        "bboxes_px": []
+      },
+      "whitespace_map": {
+        "fraction": 0.6318305555555556
+      },
+      "visual_density": 0.36816944444444444
+    }
+  },
+  "scientific_semantics": {
+    "claim_type": "confusion_matrix_normalized rendering of classification_diagnostics semantics",
+    "analytical_task": null,
+    "evidence_role": null,
+    "data_relationship": "matrix",
+    "observation_unit": null,
+    "paired_or_independent": null,
+    "uncertainty_type": null,
+    "expected_reader_question": null
+  },
+  "encoding_rationale": {
+    "primary_channel": "color_magnitude",
+    "secondary_channels": [],
+    "comparison_baseline": null,
+    "perceptual_task": "find_extremum",
+    "why_this_encoding": null,
+    "alternatives_considered": []
+  },
+  "pedagogy": {
+    "why_it_works": null,
+    "what_to_notice": null,
+    "when_to_use": null,
+    "when_not_to_use": null,
+    "common_misreadings": [],
+    "failure_modes": [],
+    "transferable_patterns": [],
+    "non_transferable_style_tokens": []
+  },
+  "caption_requirements": {
+    "required_elements": [],
+    "uncertainty_definition": null,
+    "n_definition": null,
+    "units": null,
+    "normalization": null,
+    "statistical_test": null
+  },
+  "accessibility_evidence": {
+    "color_redundancy": null,
+    "grayscale_safe": false,
+    "cvd_safe": false,
+    "direct_label_possible": null
+  }
+}

@@ -8,10 +8,10 @@
     "journal": "Nature",
     "year": null,
     "figure_family": "heatmap",
-    "source_kind": "code"
+    "source_kind": "raster"
   },
   "composition": {
-    "aspect_ratio": null,
+    "aspect_ratio": 2.7776649746192894,
     "panel_count": 1,
     "panel_bboxes": [],
     "panel_area_ratios": [],
@@ -20,10 +20,12 @@
     "gutters": {},
     "outer_margins": {},
     "alignment_lines": [],
-    "whitespace_regions": {}
+    "whitespace_regions": {
+      "fraction": 0.6606423611111112
+    }
   },
   "palette": {
-    "background": null,
+    "background": "#ffffff",
     "dominant": [],
     "neutrals": [],
     "categorical": [],
@@ -34,70 +36,7 @@
     "area_share": {},
     "perceptual_distance": {},
     "cvd_score": null,
-    "grayscale_score": null,
-    "code_literals": [
-      "#053061",
-      "#1B7837",
-      "#2166AC",
-      "#313695",
-      "#3AB5B3",
-      "#3B0F70",
-      "#4393C3",
-      "#4575B4",
-      "#54278F",
-      "#5AAE61",
-      "#61829D",
-      "#67001F",
-      "#74ADD1",
-      "#756BB1",
-      "#762A83",
-      "#7B6C9F",
-      "#80C66D",
-      "#92C5DE",
-      "#976793",
-      "#9970AB",
-      "#9E9AC8",
-      "#A188BD",
-      "#A50026",
-      "#A50F15",
-      "#A6DBA0",
-      "#ABD9E9",
-      "#B2182B",
-      "#BBC5DE",
-      "#C2A5CF",
-      "#D6604D",
-      "#D9F0D3",
-      "#DE2D26",
-      "#E1D5E7",
-      "#E7777F",
-      "#F46D43",
-      "#F4A582",
-      "#F7F7F7",
-      "#FB6A4A",
-      "#FC9272",
-      "#FDAE61",
-      "#FDE0DD",
-      "#FEE090",
-      "#FFFFBF",
-      "CRR",
-      "FHD",
-      "Hmax",
-      "Interaction",
-      "MOCH",
-      "SimHei",
-      "SimSun",
-      "VCI",
-      "auto",
-      "black",
-      "both",
-      "center",
-      "custom",
-      "gray",
-      "off",
-      "scripts",
-      "tight",
-      "white"
-    ]
+    "grayscale_score": null
   },
   "typography": {
     "family_class": "sans_serif_unknown",
@@ -109,7 +48,8 @@
     "text_density": null,
     "alignment": null,
     "exact_font": null,
-    "exactness": "code_declared"
+    "font_family_class": "sans_serif_unknown",
+    "exactness": "relative_only"
   },
   "geometry": {
     "stroke_width_distribution": null,
@@ -119,63 +59,7 @@
     "arrowhead": null,
     "leader_style": null,
     "spine_model": null,
-    "grid_model": null,
-    "plot_calls": [
-      "ArgumentParser",
-      "DataFrame",
-      "Normalize",
-      "Path",
-      "_configure_fonts",
-      "_draw_circle_heatmap",
-      "_draw_color_heatmap",
-      "_draw_numeric_heatmap",
-      "_make_cmap_from_hex",
-      "abs",
-      "add_argument",
-      "add_axes",
-      "arange",
-      "axis",
-      "clip",
-      "cmap",
-      "colorbar",
-      "default_rng",
-      "exit",
-      "fill_diagonal",
-      "from_list",
-      "get",
-      "imshow",
-      "insert",
-      "len",
-      "main",
-      "make_demo_corr",
-      "next",
-      "norm",
-      "parse_args",
-      "plot_correlation_matrix_combo",
-      "range",
-      "read_csv",
-      "resolve",
-      "savefig",
-      "scatter",
-      "set_label",
-      "set_visible",
-      "set_xlim",
-      "set_xticklabels",
-      "set_xticks",
-      "set_ylim",
-      "set_yticklabels",
-      "set_yticks",
-      "str",
-      "subplots",
-      "suptitle",
-      "text",
-      "tick_params",
-      "tight_layout",
-      "to_rgb",
-      "uniform",
-      "values"
-    ],
-    "line_count": 226
+    "grid_model": null
   },
   "annotations": {
     "direct_labels": null,
@@ -189,8 +73,8 @@
     "focal_regions": null,
     "saliency_distribution": null,
     "visual_weight": null,
-    "density": "medium",
-    "data_to_ink_proxy": null
+    "density": 0.33935763888888887,
+    "data_to_ink_proxy": 0.33935763888888887
   },
   "style": {
     "aesthetic_tags": [
@@ -214,70 +98,83 @@
     "structure_embedding": null
   },
   "confidence": {
-    "geometry": 0.94,
-    "palette": 0.86,
-    "typography": 0.82
+    "composition": 0.72,
+    "palette": 0.68,
+    "typography": 0.35
   },
   "extensions": {
     "visual_grammar": {},
-    "figure_card": {},
-    "code": {
-      "calls": [
-        "ArgumentParser",
-        "DataFrame",
-        "Normalize",
-        "Path",
-        "_configure_fonts",
-        "_draw_circle_heatmap",
-        "_draw_color_heatmap",
-        "_draw_numeric_heatmap",
-        "_make_cmap_from_hex",
-        "abs",
-        "add_argument",
-        "add_axes",
-        "arange",
-        "axis",
-        "clip",
-        "cmap",
-        "colorbar",
-        "default_rng",
-        "exit",
-        "fill_diagonal",
-        "from_list",
-        "get",
-        "imshow",
-        "insert",
-        "len",
-        "main",
-        "make_demo_corr",
-        "next",
-        "norm",
-        "parse_args",
-        "plot_correlation_matrix_combo",
-        "range",
-        "read_csv",
-        "resolve",
-        "savefig",
-        "scatter",
-        "set_label",
-        "set_visible",
-        "set_xlim",
-        "set_xticklabels",
-        "set_xticks",
-        "set_ylim",
-        "set_yticklabels",
-        "set_yticks",
-        "str",
-        "subplots",
-        "suptitle",
-        "text",
-        "tick_params",
-        "tight_layout",
-        "to_rgb",
-        "uniform",
-        "values"
-      ],
-      "static_only": true
+    "figure_card": {
+      "canvas": {
+        "width_px": 2736,
+        "height_px": 985,
+        "aspect_ratio": 2.7776649746192894
+      },
+      "background": {
+        "rgb": [
+          255.0,
+          255.0,
+          255.0
+        ],
+        "hex": "#ffffff"
+      },
+      "ink_coverage": 0.33935763888888887,
+      "geometry": {
+        "whitespace_fraction": 0.6606423611111112
+      },
+      "palette": {
+        "dominant": []
+      },
+      "panels": {
+        "count": 1,
+        "bboxes_px": []
+      },
+      "whitespace_map": {
+        "fraction": 0.6606423611111112
+      },
+      "visual_density": 0.33935763888888887
     }
+  },
+  "scientific_semantics": {
+    "claim_type": null,
+    "analytical_task": null,
+    "evidence_role": null,
+    "data_relationship": "matrix",
+    "observation_unit": null,
+    "paired_or_independent": null,
+    "uncertainty_type": null,
+    "expected_reader_question": null
+  },
+  "encoding_rationale": {
+    "primary_channel": "color_magnitude",
+    "secondary_channels": [],
+    "comparison_baseline": null,
+    "perceptual_task": "find_extremum",
+    "why_this_encoding": null,
+    "alternatives_considered": []
+  },
+  "pedagogy": {
+    "why_it_works": null,
+    "what_to_notice": null,
+    "when_to_use": null,
+    "when_not_to_use": null,
+    "common_misreadings": [],
+    "failure_modes": [],
+    "transferable_patterns": [],
+    "non_transferable_style_tokens": []
+  },
+  "caption_requirements": {
+    "required_elements": [],
+    "uncertainty_definition": null,
+    "n_definition": null,
+    "units": null,
+    "normalization": null,
+    "statistical_test": null
+  },
+  "accessibility_evidence": {
+    "color_redundancy": null,
+    "grayscale_safe": false,
+    "cvd_safe": false,
+    "direct_label_possible": null
   }
 }

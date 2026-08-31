@@ -8,10 +8,10 @@
     "journal": null,
     "year": null,
     "figure_family": "manifold_3d",
-    "source_kind": "code"
+    "source_kind": "raster"
   },
   "composition": {
-    "aspect_ratio": null,
+    "aspect_ratio": 1.41796875,
     "panel_count": 1,
     "panel_bboxes": [],
     "panel_area_ratios": [],
@@ -20,10 +20,12 @@
     "gutters": {},
     "outer_margins": {},
     "alignment_lines": [],
-    "whitespace_regions": {}
+    "whitespace_regions": {
+      "fraction": 0.9888193009641874
+    }
   },
   "palette": {
-    "background": null,
+    "background": "#ffffff",
     "dominant": [],
     "neutrals": [],
     "categorical": [],
@@ -34,21 +36,7 @@
     "area_share": {},
     "perceptual_distance": {},
     "cvd_score": null,
-    "grayscale_score": null,
-    "code_literals": [
-      "A",
-      "AB",
-      "B",
-      "density",
-      "focused",
-      "height",
-      "id",
-      "kind",
-      "mosaic",
-      "scripts",
-      "wide",
-      "width"
-    ]
+    "grayscale_score": null
   },
   "typography": {
     "family_class": "sans_serif_unknown",
@@ -60,7 +48,8 @@
     "text_density": null,
     "alignment": null,
     "exact_font": null,
-    "exactness": "code_declared"
+    "font_family_class": "sans_serif_unknown",
+    "exactness": "relative_only"
   },
   "geometry": {
     "stroke_width_distribution": null,
@@ -70,19 +59,7 @@
     "arrowhead": null,
     "leader_style": null,
     "spine_model": null,
-    "grid_model": null,
-    "plot_calls": [
-      "Path",
-      "exec_module",
-      "insert",
-      "module_from_spec",
-      "render_from_spec",
-      "resolve",
-      "spec_from_file_location",
-      "str",
-      "with_name"
-    ],
-    "line_count": 19
+    "grid_model": null
   },
   "annotations": {
     "direct_labels": null,
@@ -96,8 +73,8 @@
     "focal_regions": null,
     "saliency_distribution": null,
     "visual_weight": null,
-    "density": null,
-    "data_to_ink_proxy": null
+    "density": 0.011180699035812673,
+    "data_to_ink_proxy": 0.011180699035812673
   },
   "style": {
     "aesthetic_tags": [
@@ -119,26 +96,83 @@
     "structure_embedding": null
   },
   "confidence": {
-    "geometry": 0.94,
-    "palette": 0.86,
-    "typography": 0.82
+    "composition": 0.72,
+    "palette": 0.68,
+    "typography": 0.35
   },
   "extensions": {
     "visual_grammar": {},
-    "figure_card": {},
-    "code": {
-      "calls": [
-        "Path",
-        "exec_module",
-        "insert",
-        "module_from_spec",
-        "render_from_spec",
-        "resolve",
-        "spec_from_file_location",
-        "str",
-        "with_name"
-      ],
-      "static_only": true
+    "figure_card": {
+      "canvas": {
+        "width_px": 1089,
+        "height_px": 768,
+        "aspect_ratio": 1.41796875
+      },
+      "background": {
+        "rgb": [
+          255.0,
+          255.0,
+          255.0
+        ],
+        "hex": "#ffffff"
+      },
+      "ink_coverage": 0.011180699035812673,
+      "geometry": {
+        "whitespace_fraction": 0.9888193009641874
+      },
+      "palette": {
+        "dominant": []
+      },
+      "panels": {
+        "count": 1,
+        "bboxes_px": []
+      },
+      "whitespace_map": {
+        "fraction": 0.9888193009641874
+      },
+      "visual_density": 0.011180699035812673
     }
+  },
+  "scientific_semantics": {
+    "claim_type": "paired manifold rendering of source and generated distributions",
+    "analytical_task": null,
+    "evidence_role": null,
+    "data_relationship": null,
+    "observation_unit": null,
+    "paired_or_independent": null,
+    "uncertainty_type": null,
+    "expected_reader_question": null
+  },
+  "encoding_rationale": {
+    "primary_channel": null,
+    "secondary_channels": [],
+    "comparison_baseline": null,
+    "perceptual_task": null,
+    "why_this_encoding": null,
+    "alternatives_considered": []
+  },
+  "pedagogy": {
+    "why_it_works": null,
+    "what_to_notice": null,
+    "when_to_use": null,
+    "when_not_to_use": null,
+    "common_misreadings": [],
+    "failure_modes": [],
+    "transferable_patterns": [],
+    "non_transferable_style_tokens": []
+  },
+  "caption_requirements": {
+    "required_elements": [],
+    "uncertainty_definition": null,
+    "n_definition": null,
+    "units": null,
+    "normalization": null,
+    "statistical_test": null
+  },
+  "accessibility_evidence": {
+    "color_redundancy": null,
+    "grayscale_safe": false,
+    "cvd_safe": false,
+    "direct_label_possible": null
   }
 }

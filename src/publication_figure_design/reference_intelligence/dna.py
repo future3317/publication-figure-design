@@ -21,6 +21,152 @@ def _list(value: Sequence[Any] | None = None) -> list[Any]:
     return list(value or [])
 
 
+def _infer_scientific_semantics(metadata: Mapping[str, Any], grammar: Mapping[str, Any], card: Mapping[str, Any]) -> dict[str, Any]:
+    """Infer the scientific intent captured by the reference from metadata."""
+    blueprint = metadata.get("reconstruction_blueprint") or {}
+    family = metadata.get("figure_type") or grammar.get("figure_family") or ""
+    return {
+        "claim_type": blueprint.get("source_observation") or metadata.get("scientific_claim"),
+        "analytical_task": metadata.get("analytical_task"),
+        "evidence_role": blueprint.get("evidence_role"),
+        "data_relationship": _infer_data_relationship(family),
+        "observation_unit": metadata.get("observation_unit"),
+        "paired_or_independent": _infer_paired_status(family),
+        "uncertainty_type": metadata.get("uncertainty_type"),
+        "expected_reader_question": metadata.get("expected_reader_question"),
+    }
+
+
+def _infer_data_relationship(family: str) -> str | None:
+    family = (family or "").lower()
+    if any(token in family for token in ("paired", "before_after", "matched", "slope")):
+        return "paired"
+    if any(token in family for token in ("time", "trend", "trajectory", "learning_curve", "series")):
+        return "ordered_continuous"
+    if any(token in family for token in ("bar", "grouped", "comparison", "effect")):
+        return "independent_categorical"
+    if any(token in family for token in ("scatter", "correlation", "regression", "embedding")):
+        return "association"
+    if any(token in family for token in ("heatmap", "matrix", "confusion")):
+        return "matrix"
+    if any(token in family for token in ("roc", "pr", "calibration", "classification")):
+        return "threshold_ranking"
+    return None
+
+
+def _infer_paired_status(family: str) -> str | None:
+    family = (family or "").lower()
+    if any(token in family for token in ("paired", "before_after", "matched", "slope", "dumbbell")):
+        return "paired"
+    if any(token in family for token in ("grouped", "independent", "comparison_effect")):
+        return "independent"
+    return None
+
+
+def _infer_encoding_rationale(metadata: Mapping[str, Any], grammar: Mapping[str, Any], card: Mapping[str, Any]) -> dict[str, Any]:
+    """Infer why the reference encoding is appropriate for its scientific task."""
+    family = metadata.get("figure_type") or grammar.get("figure_family") or ""
+    palette_roles = grammar.get("palette_roles") or metadata.get("palette_roles") or {}
+    return {
+        "primary_channel": _infer_primary_channel(family),
+        "secondary_channels": _list(grammar.get("secondary_channels")),
+        "comparison_baseline": grammar.get("comparison_baseline"),
+        "perceptual_task": _infer_perceptual_task(family),
+        "why_this_encoding": grammar.get("why_this_encoding"),
+        "alternatives_considered": _list(grammar.get("alternatives_considered")),
+    }
+
+
+def _infer_primary_channel(family: str) -> str | None:
+    family = (family or "").lower()
+    if any(token in family for token in ("bar", "grouped", "comparison")):
+        return "position_aligned_length"
+    if any(token in family for token in ("scatter", "correlation", "regression")):
+        return "position_unaligned"
+    if any(token in family for token in ("line", "trend", "time", "trajectory")):
+        return "position_connected"
+    if any(token in family for token in ("heatmap", "matrix")):
+        return "color_magnitude"
+    if any(token in family for token in ("pie", "donut")):
+        return "angle_area"
+    return None
+
+
+def _infer_perceptual_task(family: str) -> str | None:
+    family = (family or "").lower()
+    if any(token in family for token in ("comparison", "bar", "effect", "dumbbell")):
+        return "compare_magnitudes"
+    if any(token in family for token in ("trend", "time", "trajectory")):
+        return "compare_ordered_positions"
+    if any(token in family for token in ("scatter", "correlation")):
+        return "judge_association"
+    if any(token in family for token in ("heatmap", "matrix")):
+        return "find_extremum"
+    if any(token in family for token in ("roc", "pr", "calibration")):
+        return "judge_threshold_quality"
+    return None
+
+
+def _infer_pedagogy(metadata: Mapping[str, Any], grammar: Mapping[str, Any], card: Mapping[str, Any]) -> dict[str, Any]:
+    """Generate teaching notes for when and when not to emulate the reference."""
+    family = metadata.get("figure_type") or grammar.get("figure_family") or ""
+    return {
+        "why_it_works": grammar.get("why_it_works"),
+        "what_to_notice": grammar.get("what_to_notice"),
+        "when_to_use": grammar.get("when_to_use") or _generic_when_to_use(family),
+        "when_not_to_use": grammar.get("when_not_to_use") or _generic_when_not_to_use(family),
+        "common_misreadings": _list(grammar.get("common_misreadings")),
+        "failure_modes": _list(grammar.get("failure_modes")),
+        "transferable_patterns": _list(grammar.get("transferable_patterns")),
+        "non_transferable_style_tokens": _list(grammar.get("non_transferable_style_tokens")),
+    }
+
+
+def _generic_when_to_use(family: str) -> str | None:
+    family = (family or "").lower()
+    if "paired" in family:
+        return "Use when observations are matched or repeated and pair identity is the evidence."
+    if any(token in family for token in ("bar", "comparison")):
+        return "Use for independent group magnitudes when the zero baseline is meaningful."
+    if any(token in family for token in ("scatter", "correlation")):
+        return "Use to reveal association, density, or outliers between two continuous measures."
+    return None
+
+
+def _generic_when_not_to_use(family: str) -> str | None:
+    family = (family or "").lower()
+    if "paired" in family:
+        return "Do not use to imply a continuous trajectory across categorical operating points."
+    if any(token in family for token in ("bar", "comparison")):
+        return "Do not use mean-only bars to hide small-n distributions or paired structure."
+    if any(token in family for token in ("scatter", "correlation")):
+        return "Do not use to claim causality or to compare exact scalar tables."
+    return None
+
+
+def _infer_caption_requirements(metadata: Mapping[str, Any], grammar: Mapping[str, Any], card: Mapping[str, Any]) -> dict[str, Any]:
+    """Infer what the caption must declare for scientific correctness."""
+    return {
+        "required_elements": _list(grammar.get("caption_required_elements")),
+        "uncertainty_definition": metadata.get("uncertainty_definition"),
+        "n_definition": metadata.get("n_definition"),
+        "units": metadata.get("units"),
+        "normalization": metadata.get("normalization"),
+        "statistical_test": metadata.get("statistical_test"),
+    }
+
+
+def _infer_accessibility_evidence(metadata: Mapping[str, Any], grammar: Mapping[str, Any], card: Mapping[str, Any]) -> dict[str, Any]:
+    """Infer accessibility properties from palette and grammar metadata."""
+    palette = dict(card.get("palette") or {})
+    return {
+        "color_redundancy": grammar.get("color_redundancy") if "color_redundancy" in grammar else None,
+        "grayscale_safe": palette.get("grayscale_score") is not None and (palette.get("grayscale_score") or 0) > 0.7,
+        "cvd_safe": palette.get("cvd_score") is not None and (palette.get("cvd_score") or 0) > 0.7,
+        "direct_label_possible": grammar.get("direct_label_possible"),
+    }
+
+
 @dataclass
 class ReferenceDNA:
     schema: str = "publication-figure-design/reference-dna"
@@ -37,6 +183,11 @@ class ReferenceDNA:
     embeddings: dict[str, Any] = field(default_factory=dict)
     confidence: dict[str, float] = field(default_factory=dict)
     extensions: dict[str, Any] = field(default_factory=dict)
+    scientific_semantics: dict[str, Any] = field(default_factory=dict)
+    encoding_rationale: dict[str, Any] = field(default_factory=dict)
+    pedagogy: dict[str, Any] = field(default_factory=dict)
+    caption_requirements: dict[str, Any] = field(default_factory=dict)
+    accessibility_evidence: dict[str, Any] = field(default_factory=dict)
 
     @classmethod
     def from_metadata(cls, metadata: Mapping[str, Any], *, card: Mapping[str, Any] | None = None) -> "ReferenceDNA":
@@ -133,6 +284,11 @@ class ReferenceDNA:
             },
             confidence=dict(meta.get("confidence") or {}),
             extensions={"visual_grammar": grammar, "figure_card": card},
+            scientific_semantics=_infer_scientific_semantics(meta, grammar, card),
+            encoding_rationale=_infer_encoding_rationale(meta, grammar, card),
+            pedagogy=_infer_pedagogy(meta, grammar, card),
+            caption_requirements=_infer_caption_requirements(meta, grammar, card),
+            accessibility_evidence=_infer_accessibility_evidence(meta, grammar, card),
         )
 
     def to_dict(self) -> dict[str, Any]:
@@ -144,11 +300,16 @@ class ReferenceDNA:
             "hierarchy": self.hierarchy, "style": self.style,
             "constraints": self.constraints, "embeddings": self.embeddings,
             "confidence": self.confidence, "extensions": self.extensions,
+            "scientific_semantics": self.scientific_semantics,
+            "encoding_rationale": self.encoding_rationale,
+            "pedagogy": self.pedagogy,
+            "caption_requirements": self.caption_requirements,
+            "accessibility_evidence": self.accessibility_evidence,
         }
 
     def validate(self) -> list[str]:
         failures: list[str] = []
-        for section in ("identity", "composition", "palette", "typography", "geometry", "annotations", "hierarchy", "style", "constraints", "embeddings", "confidence"):
+        for section in ("identity", "composition", "palette", "typography", "geometry", "annotations", "hierarchy", "style", "constraints", "embeddings", "confidence", "scientific_semantics", "encoding_rationale", "pedagogy", "caption_requirements", "accessibility_evidence"):
             if not isinstance(getattr(self, section), dict):
                 failures.append(f"{section} must be an object")
         if self.schema_version != "2.0":

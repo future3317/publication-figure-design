@@ -11,113 +11,22 @@
     "source_kind": "exact_visual_source"
   },
   "composition": {
-    "aspect_ratio": 1.428571,
+    "aspect_ratio": 1.4285714285714286,
     "panel_count": 1,
-    "panel_bboxes": [
-      [
-        241,
-        237,
-        780,
-        521
-      ]
-    ],
+    "panel_bboxes": [],
     "panel_area_ratios": [],
-    "reading_order": [
-      0
-    ],
+    "reading_order": [],
     "hero_panel": null,
     "gutters": {},
     "outer_margins": {},
     "alignment_lines": [],
     "whitespace_regions": {
-      "status": "pixel_density",
-      "fraction": 0.895441
+      "fraction": 0.8954414285714286
     }
   },
   "palette": {
     "background": "#ffffff",
-    "dominant": [
-      {
-        "hex": "#ffffff",
-        "rgb": [
-          255,
-          255,
-          255
-        ],
-        "fraction": 0.895626,
-        "role": "background"
-      },
-      {
-        "hex": "#bdcaee",
-        "rgb": [
-          189,
-          202,
-          238
-        ],
-        "fraction": 0.025326,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#8babfa",
-        "rgb": [
-          139,
-          171,
-          250
-        ],
-        "fraction": 0.023777,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#d6dce7",
-        "rgb": [
-          214,
-          220,
-          231
-        ],
-        "fraction": 0.018351,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#8594e0",
-        "rgb": [
-          133,
-          148,
-          224
-        ],
-        "fraction": 0.01534,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#ccd4e9",
-        "rgb": [
-          204,
-          212,
-          233
-        ],
-        "fraction": 0.008576,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#bbb7d9",
-        "rgb": [
-          187,
-          183,
-          217
-        ],
-        "fraction": 0.006586,
-        "role": "data_or_annotation"
-      },
-      {
-        "hex": "#7f72b9",
-        "rgb": [
-          127,
-          114,
-          185
-        ],
-        "fraction": 0.006419,
-        "role": "data_or_annotation"
-      }
-    ],
+    "dominant": [],
     "neutrals": [],
     "categorical": [],
     "sequential": [],
@@ -130,7 +39,7 @@
     "grayscale_score": null
   },
   "typography": {
-    "family_class": "manual_review_required",
+    "family_class": "sans_serif_unknown",
     "title_body_ratio": null,
     "axis_tick_ratio": null,
     "panel_label_style": null,
@@ -143,25 +52,14 @@
     "exactness": "relative_only"
   },
   "geometry": {
-    "stroke_width_distribution": 8.0,
-    "marker_family": {
-      "status": "heuristic",
-      "dark_pixel_fraction": 0.00039
-    },
+    "stroke_width_distribution": null,
+    "marker_family": null,
     "marker_size_distribution": null,
     "corner_radius": null,
     "arrowhead": null,
     "leader_style": null,
-    "spine_model": {
-      "top": 0.0,
-      "bottom": 0.0,
-      "left": 0.0,
-      "right": 0.0
-    },
-    "grid_model": {
-      "horizontal_density": 0.0,
-      "vertical_density": 0.0
-    }
+    "spine_model": null,
+    "grid_model": null
   },
   "annotations": {
     "direct_labels": null,
@@ -172,24 +70,11 @@
     "clearance": null
   },
   "hierarchy": {
-    "focal_regions": [
-      241,
-      237,
-      780,
-      521
-    ],
-    "saliency_distribution": {
-      "status": "ink_density_proxy",
-      "bbox_px": [
-        241,
-        237,
-        780,
-        521
-      ]
-    },
+    "focal_regions": null,
+    "saliency_distribution": null,
     "visual_weight": null,
-    "density": 0.104559,
-    "data_to_ink_proxy": 0.104559
+    "density": 0.10455857142857143,
+    "data_to_ink_proxy": 0.10455857142857143
   },
   "style": {
     "aesthetic_tags": [
@@ -218,20 +103,10 @@
   "extensions": {
     "visual_grammar": {},
     "figure_card": {
-      "schema": "publication-figure-design/figure-card",
-      "schema_version": "2.0",
-      "source": "user-supplied",
-      "figure_type": "manifold_3d",
-      "source_sha256": "83e55ca23d8aa2fa591a46d3fe4f9d6ac11e17cbc9657e2615d883ea6deb937c",
-      "perceptual_hash": "e19b9e646593316c",
       "canvas": {
         "width_px": 1000,
         "height_px": 700,
-        "aspect_ratio": 1.428571,
-        "analysis_scale": 1.0,
-        "mode": "RGBA",
-        "colorspace": "sRGB_assumed",
-        "has_alpha": true
+        "aspect_ratio": 1.4285714285714286
       },
       "background": {
         "rgb": [
@@ -239,250 +114,65 @@
           255.0,
           255.0
         ],
-        "hex": "#ffffff",
-        "near_white": true
+        "hex": "#ffffff"
       },
-      "ink_coverage": 0.104559,
+      "ink_coverage": 0.10455857142857143,
       "geometry": {
-        "content_bbox_px": [
-          241,
-          237,
-          780,
-          521
-        ],
-        "whitespace_fraction": 0.895441,
-        "row_density_peaks": [
-          417,
-          416,
-          418,
-          415,
-          414
-        ],
-        "column_density_peaks": [
-          415,
-          417,
-          412,
-          414,
-          416
-        ],
-        "ink_density": 0.104559
+        "whitespace_fraction": 0.8954414285714286
       },
       "palette": {
-        "dominant": [
-          {
-            "hex": "#ffffff",
-            "rgb": [
-              255,
-              255,
-              255
-            ],
-            "fraction": 0.895626,
-            "role": "background"
-          },
-          {
-            "hex": "#bdcaee",
-            "rgb": [
-              189,
-              202,
-              238
-            ],
-            "fraction": 0.025326,
-            "role": "data_or_annotation"
-          },
-          {
-            "hex": "#8babfa",
-            "rgb": [
-              139,
-              171,
-              250
-            ],
-            "fraction": 0.023777,
-            "role": "data_or_annotation"
-          },
-          {
-            "hex": "#d6dce7",
-            "rgb": [
-              214,
-              220,
-              231
-            ],
-            "fraction": 0.018351,
-            "role": "data_or_annotation"
-          },
-          {
-            "hex": "#8594e0",
-            "rgb": [
-              133,
-              148,
-              224
-            ],
-            "fraction": 0.01534,
-            "role": "data_or_annotation"
-          },
-          {
-            "hex": "#ccd4e9",
-            "rgb": [
-              204,
-              212,
-              233
-            ],
-            "fraction": 0.008576,
-            "role": "data_or_annotation"
-          },
-          {
-            "hex": "#bbb7d9",
-            "rgb": [
-              187,
-              183,
-              217
-            ],
-            "fraction": 0.006586,
-            "role": "data_or_annotation"
-          },
-          {
-            "hex": "#7f72b9",
-            "rgb": [
-              127,
-              114,
-              185
-            ],
-            "fraction": 0.006419,
-            "role": "data_or_annotation"
-          }
-        ],
-        "extraction": "extcolors-or-pillow-quantize"
+        "dominant": []
       },
       "panels": {
-        "status": "heuristic_single_canvas",
         "count": 1,
-        "layout": "single_canvas",
-        "bboxes_px": [
-          [
-            241,
-            237,
-            780,
-            521
-          ]
-        ],
-        "adjacency": [],
-        "reading_order": [
-          0
-        ]
+        "bboxes_px": []
       },
-      "plot_bbox": [
-        241,
-        237,
-        780,
-        521
-      ],
       "whitespace_map": {
-        "status": "pixel_density",
-        "fraction": 0.895441
+        "fraction": 0.8954414285714286
       },
-      "visual_density": 0.104559,
-      "saliency": {
-        "status": "ink_density_proxy",
-        "bbox_px": [
-          241,
-          237,
-          780,
-          521
-        ]
-      },
-      "axes": {
-        "status": "heuristic_pixel_measurement",
-        "spines": {
-          "top": 0.0,
-          "bottom": 0.0,
-          "left": 0.0,
-          "right": 0.0
-        },
-        "tick_proxy": {
-          "row_peaks": [
-            248,
-            249,
-            247,
-            242,
-            246,
-            243,
-            244,
-            245
-          ],
-          "column_peaks": [
-            410,
-            417,
-            411,
-            415,
-            416,
-            412,
-            414,
-            413
-          ]
-        },
-        "grid_proxy": {
-          "horizontal_density": 0.0,
-          "vertical_density": 0.0
-        }
-      },
-      "typography": {
-        "status": "heuristic_ink_hierarchy",
-        "font_family": "manual_review_required",
-        "hierarchy": [
-          {
-            "role": "headline_or_axis",
-            "ink_density_peak": 0.018
-          },
-          {
-            "role": "body_or_tick",
-            "ink_density_peak": 0.0
-          }
-        ],
-        "size_proxy": {
-          "largest_dark_run_px": 443
-        }
-      },
-      "annotations": {
-        "status": "heuristic_density_regions",
-        "content_bbox_px": [
-          241,
-          237,
-          780,
-          521
-        ],
-        "high_density_rows": [
-          245,
-          244,
-          243,
-          246,
-          242
-        ],
-        "high_density_columns": [
-          413,
-          414,
-          412,
-          416,
-          415
-        ]
-      },
-      "marker_family": {
-        "status": "heuristic",
-        "dark_pixel_fraction": 0.00039
-      },
-      "stroke_width_px": {
-        "status": "heuristic_short_run_proxy",
-        "median": 8.0
-      },
-      "component_crops": [
-        {
-          "name": "content",
-          "bbox_px": [
-            241,
-            237,
-            780,
-            521
-          ]
-        }
-      ]
+      "visual_density": 0.10455857142857143
     }
+  },
+  "scientific_semantics": {
+    "claim_type": "paired manifold rendering of source and generated distributions",
+    "analytical_task": null,
+    "evidence_role": null,
+    "data_relationship": null,
+    "observation_unit": null,
+    "paired_or_independent": null,
+    "uncertainty_type": null,
+    "expected_reader_question": null
+  },
+  "encoding_rationale": {
+    "primary_channel": null,
+    "secondary_channels": [],
+    "comparison_baseline": null,
+    "perceptual_task": null,
+    "why_this_encoding": null,
+    "alternatives_considered": []
+  },
+  "pedagogy": {
+    "why_it_works": null,
+    "what_to_notice": null,
+    "when_to_use": null,
+    "when_not_to_use": null,
+    "common_misreadings": [],
+    "failure_modes": [],
+    "transferable_patterns": [],
+    "non_transferable_style_tokens": []
+  },
+  "caption_requirements": {
+    "required_elements": [],
+    "uncertainty_definition": null,
+    "n_definition": null,
+    "units": null,
+    "normalization": null,
+    "statistical_test": null
+  },
+  "accessibility_evidence": {
+    "color_redundancy": null,
+    "grayscale_safe": false,
+    "cvd_safe": false,
+    "direct_label_possible": null
   }
 }

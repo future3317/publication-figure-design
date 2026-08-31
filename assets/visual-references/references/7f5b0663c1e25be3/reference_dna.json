@@ -8,10 +8,10 @@
     "journal": null,
     "year": null,
     "figure_family": "grouped_violin",
-    "source_kind": "code"
+    "source_kind": "user_supplied"
   },
   "composition": {
-    "aspect_ratio": null,
+    "aspect_ratio": 0.9045226130653267,
     "panel_count": 1,
     "panel_bboxes": [],
     "panel_area_ratios": [],
@@ -20,10 +20,12 @@
     "gutters": {},
     "outer_margins": {},
     "alignment_lines": [],
-    "whitespace_regions": {}
+    "whitespace_regions": {
+      "fraction": 0.859794930875576
+    }
   },
   "palette": {
-    "background": null,
+    "background": "#ffffff",
     "dominant": [],
     "neutrals": [],
     "categorical": [],
@@ -38,28 +40,7 @@
     "area_share": {},
     "perceptual_distance": {},
     "cvd_score": null,
-    "grayscale_score": null,
-    "code_literals": [
-      "#1d5f89",
-      "#6f9dbd",
-      "#b82f46",
-      "#f08d9e",
-      "D",
-      "Post",
-      "Pre",
-      "RGB",
-      "Versicolor",
-      "Virginica",
-      "bodies",
-      "bold",
-      "boxes",
-      "color",
-      "lw",
-      "right",
-      "tight",
-      "top",
-      "white"
-    ]
+    "grayscale_score": null
   },
   "typography": {
     "family_class": "sans_serif_unknown",
@@ -71,7 +52,8 @@
     "text_density": null,
     "alignment": null,
     "exact_font": null,
-    "exactness": "code_declared"
+    "font_family_class": "sans_serif_unknown",
+    "exactness": "relative_only"
   },
   "geometry": {
     "stroke_width_distribution": null,
@@ -85,44 +67,7 @@
     "arrowhead": null,
     "leader_style": null,
     "spine_model": null,
-    "grid_model": null,
-    "plot_calls": [
-      "Path",
-      "Rectangle",
-      "boxplot",
-      "close",
-      "convert",
-      "default_rng",
-      "enumerate",
-      "legend",
-      "len",
-      "mean",
-      "normal",
-      "open",
-      "plot",
-      "render",
-      "resize",
-      "save",
-      "savefig",
-      "scatter",
-      "set_alpha",
-      "set_edgecolor",
-      "set_facecolor",
-      "set_linewidth",
-      "set_visible",
-      "set_xlabel",
-      "set_xlim",
-      "set_xticks",
-      "set_ylabel",
-      "set_ylim",
-      "subplots",
-      "tick_params",
-      "tight_layout",
-      "violinplot",
-      "with_name",
-      "zip"
-    ],
-    "line_count": 47
+    "grid_model": null
   },
   "annotations": {
     "direct_labels": null,
@@ -136,8 +81,8 @@
     "focal_regions": null,
     "saliency_distribution": null,
     "visual_weight": null,
-    "density": "high",
-    "data_to_ink_proxy": null
+    "density": 0.14020506912442396,
+    "data_to_ink_proxy": 0.14020506912442396
   },
   "style": {
     "aesthetic_tags": [
@@ -162,9 +107,9 @@
     "structure_embedding": null
   },
   "confidence": {
-    "geometry": 0.94,
-    "palette": 0.86,
-    "typography": 0.82
+    "composition": 0.72,
+    "palette": 0.68,
+    "typography": 0.35
   },
   "extensions": {
     "visual_grammar": {
@@ -209,45 +154,77 @@
         "variation_and_emphasis": "variation is carried by magnitude or position, not arbitrary decoration"
       }
     },
-    "figure_card": {},
-    "code": {
-      "calls": [
-        "Path",
-        "Rectangle",
-        "boxplot",
-        "close",
-        "convert",
-        "default_rng",
-        "enumerate",
-        "legend",
-        "len",
-        "mean",
-        "normal",
-        "open",
-        "plot",
-        "render",
-        "resize",
-        "save",
-        "savefig",
-        "scatter",
-        "set_alpha",
-        "set_edgecolor",
-        "set_facecolor",
-        "set_linewidth",
-        "set_visible",
-        "set_xlabel",
-        "set_xlim",
-        "set_xticks",
-        "set_ylabel",
-        "set_ylim",
-        "subplots",
-        "tick_params",
-        "tight_layout",
-        "violinplot",
-        "with_name",
-        "zip"
-      ],
-      "static_only": true
+    "figure_card": {
+      "canvas": {
+        "width_px": 1440,
+        "height_px": 1592,
+        "aspect_ratio": 0.9045226130653267
+      },
+      "background": {
+        "rgb": [
+          255.0,
+          255.0,
+          255.0
+        ],
+        "hex": "#ffffff"
+      },
+      "ink_coverage": 0.14020506912442396,
+      "geometry": {
+        "whitespace_fraction": 0.859794930875576
+      },
+      "palette": {
+        "dominant": []
+      },
+      "panels": {
+        "count": 1,
+        "bboxes_px": []
+      },
+      "whitespace_map": {
+        "fraction": 0.859794930875576
+      },
+      "visual_density": 0.14020506912442396
     }
+  },
+  "scientific_semantics": {
+    "claim_type": null,
+    "analytical_task": null,
+    "evidence_role": null,
+    "data_relationship": "independent_categorical",
+    "observation_unit": null,
+    "paired_or_independent": "independent",
+    "uncertainty_type": null,
+    "expected_reader_question": null
+  },
+  "encoding_rationale": {
+    "primary_channel": "position_aligned_length",
+    "secondary_channels": [],
+    "comparison_baseline": null,
+    "perceptual_task": null,
+    "why_this_encoding": null,
+    "alternatives_considered": []
+  },
+  "pedagogy": {
+    "why_it_works": null,
+    "what_to_notice": null,
+    "when_to_use": null,
+    "when_not_to_use": null,
+    "common_misreadings": [],
+    "failure_modes": [],
+    "transferable_patterns": [],
+    "non_transferable_style_tokens": []
+  },
+  "caption_requirements": {
+    "required_elements": [],
+    "uncertainty_definition": null,
+    "n_definition": null,
+    "units": null,
+    "normalization": null,
+    "statistical_test": null
+  },
+  "accessibility_evidence": {
+    "color_redundancy": null,
+    "grayscale_safe": false,
+    "cvd_safe": false,
+    "direct_label_possible": null
   }
 }

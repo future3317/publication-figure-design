@@ -8,10 +8,10 @@
     "journal": "Nature",
     "year": null,
     "figure_family": "GroupedBarChart",
-    "source_kind": "code"
+    "source_kind": "raster"
   },
   "composition": {
-    "aspect_ratio": null,
+    "aspect_ratio": 1.5536374845869296,
     "panel_count": 1,
     "panel_bboxes": [],
     "panel_area_ratios": [],
@@ -20,10 +20,12 @@
     "gutters": {},
     "outer_margins": {},
     "alignment_lines": [],
-    "whitespace_regions": {}
+    "whitespace_regions": {
+      "fraction": 0.7487618739205526
+    }
   },
   "palette": {
-    "background": null,
+    "background": "#ffffff",
     "dominant": [],
     "neutrals": [],
     "categorical": [],
@@ -34,35 +36,7 @@
     "area_share": {},
     "perceptual_distance": {},
     "cvd_score": null,
-    "grayscale_score": null,
-    "code_literals": [
-      "#5B79A2",
-      "#5DBCD2",
-      "#6BAF72",
-      "#7D7D7D",
-      "#8E7CC3",
-      "#9E9E9E",
-      "#C75B6B",
-      "#E8976A",
-      "#E8C547",
-      "SimHei",
-      "SimSun",
-      "black",
-      "bold",
-      "bottom",
-      "butt",
-      "center",
-      "dorsal",
-      "facet",
-      "left",
-      "marker",
-      "right",
-      "scripts",
-      "tight",
-      "top",
-      "value",
-      "ventral"
-    ]
+    "grayscale_score": null
   },
   "typography": {
     "family_class": "sans_serif_unknown",
@@ -74,7 +48,8 @@
     "text_density": null,
     "alignment": null,
     "exact_font": null,
-    "exactness": "code_declared"
+    "font_family_class": "sans_serif_unknown",
+    "exactness": "relative_only"
   },
   "geometry": {
     "stroke_width_distribution": null,
@@ -84,62 +59,7 @@
     "arrowhead": null,
     "leader_style": null,
     "spine_model": null,
-    "grid_model": null,
-    "plot_calls": [
-      "ArgumentParser",
-      "DataFrame",
-      "Path",
-      "_configure_fonts",
-      "add_argument",
-      "append",
-      "bar",
-      "default_rng",
-      "dropna",
-      "enumerate",
-      "exit",
-      "fromkeys",
-      "full_like",
-      "get_palette",
-      "get_ylim",
-      "grid",
-      "insert",
-      "isinstance",
-      "items",
-      "len",
-      "list",
-      "main",
-      "make_demo_data",
-      "mean",
-      "next",
-      "normal",
-      "nunique",
-      "parse_args",
-      "plot",
-      "plot_bar_with_swarm",
-      "range",
-      "read_csv",
-      "resolve",
-      "savefig",
-      "scatter",
-      "set_axisbelow",
-      "set_linewidth",
-      "set_visible",
-      "set_xticklabels",
-      "set_xticks",
-      "set_ylabel",
-      "set_ylim",
-      "split",
-      "str",
-      "strip",
-      "subplots",
-      "text",
-      "tight_layout",
-      "to_numpy",
-      "tolist",
-      "uniform",
-      "zip"
-    ],
-    "line_count": 187
+    "grid_model": null
   },
   "annotations": {
     "direct_labels": null,
@@ -153,8 +73,8 @@
     "focal_regions": null,
     "saliency_distribution": null,
     "visual_weight": null,
-    "density": "medium",
-    "data_to_ink_proxy": null
+    "density": 0.25123812607944734,
+    "data_to_ink_proxy": 0.25123812607944734
   },
   "style": {
     "aesthetic_tags": [
@@ -179,69 +99,83 @@
     "structure_embedding": null
   },
   "confidence": {
-    "geometry": 0.94,
-    "palette": 0.86,
-    "typography": 0.82
+    "composition": 0.72,
+    "palette": 0.68,
+    "typography": 0.35
   },
   "extensions": {
     "visual_grammar": {},
-    "figure_card": {},
-    "code": {
-      "calls": [
-        "ArgumentParser",
-        "DataFrame",
-        "Path",
-        "_configure_fonts",
-        "add_argument",
-        "append",
-        "bar",
-        "default_rng",
-        "dropna",
-        "enumerate",
-        "exit",
-        "fromkeys",
-        "full_like",
-        "get_palette",
-        "get_ylim",
-        "grid",
-        "insert",
-        "isinstance",
-        "items",
-        "len",
-        "list",
-        "main",
-        "make_demo_data",
-        "mean",
-        "next",
-        "normal",
-        "nunique",
-        "parse_args",
-        "plot",
-        "plot_bar_with_swarm",
-        "range",
-        "read_csv",
-        "resolve",
-        "savefig",
-        "scatter",
-        "set_axisbelow",
-        "set_linewidth",
-        "set_visible",
-        "set_xticklabels",
-        "set_xticks",
-        "set_ylabel",
-        "set_ylim",
-        "split",
-        "str",
-        "strip",
-        "subplots",
-        "text",
-        "tight_layout",
-        "to_numpy",
-        "tolist",
-        "uniform",
-        "zip"
-      ],
-      "static_only": true
+    "figure_card": {
+      "canvas": {
+        "width_px": 2520,
+        "height_px": 1622,
+        "aspect_ratio": 1.5536374845869296
+      },
+      "background": {
+        "rgb": [
+          255.0,
+          255.0,
+          255.0
+        ],
+        "hex": "#ffffff"
+      },
+      "ink_coverage": 0.25123812607944734,
+      "geometry": {
+        "whitespace_fraction": 0.7487618739205526
+      },
+      "palette": {
+        "dominant": []
+      },
+      "panels": {
+        "count": 1,
+        "bboxes_px": []
+      },
+      "whitespace_map": {
+        "fraction": 0.7487618739205526
+      },
+      "visual_density": 0.25123812607944734
     }
+  },
+  "scientific_semantics": {
+    "claim_type": null,
+    "analytical_task": null,
+    "evidence_role": null,
+    "data_relationship": "independent_categorical",
+    "observation_unit": null,
+    "paired_or_independent": "independent",
+    "uncertainty_type": null,
+    "expected_reader_question": null
+  },
+  "encoding_rationale": {
+    "primary_channel": "position_aligned_length",
+    "secondary_channels": [],
+    "comparison_baseline": null,
+    "perceptual_task": "compare_magnitudes",
+    "why_this_encoding": null,
+    "alternatives_considered": []
+  },
+  "pedagogy": {
+    "why_it_works": null,
+    "what_to_notice": null,
+    "when_to_use": "Use for independent group magnitudes when the zero baseline is meaningful.",
+    "when_not_to_use": "Do not use mean-only bars to hide small-n distributions or paired structure.",
+    "common_misreadings": [],
+    "failure_modes": [],
+    "transferable_patterns": [],
+    "non_transferable_style_tokens": []
+  },
+  "caption_requirements": {
+    "required_elements": [],
+    "uncertainty_definition": null,
+    "n_definition": null,
+    "units": null,
+    "normalization": null,
+    "statistical_test": null
+  },
+  "accessibility_evidence": {
+    "color_redundancy": null,
+    "grayscale_safe": false,
+    "cvd_safe": false,
+    "direct_label_possible": null
   }
 }
