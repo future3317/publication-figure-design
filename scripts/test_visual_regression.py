@@ -47,7 +47,7 @@ class VisualRegressionTests(unittest.TestCase):
     def test_changed_render_requires_and_accepts_swapped_judge(self) -> None:
         first = self.baseline["tasks"][0]
         family = first["figure_family"]
-        with tempfile.TemporaryDirectory(dir=ROOT / "tmp") as temp:
+        with tempfile.TemporaryDirectory() as temp:
             changed = Path(temp) / "changed.png"
             shutil.copy2(ROOT / first["image"], changed)
             changed.write_bytes(changed.read_bytes() + b"changed")
@@ -64,10 +64,59 @@ class VisualRegressionTests(unittest.TestCase):
             self.assertEqual(report["overall"]["win"], 1)
             self.assertEqual(report["family_win_rates"][family]["win_rate"], 1.0)
 
+    def _minimal_sprint_report(self, image_path: Path, baseline_tasks: list[dict]) -> dict:
+        tasks = []
+        for row in baseline_tasks:
+            family = row["figure_family"]
+            task_id = row["task_id"]
+            tasks.append({
+                "id": task_id,
+                "figure_family": family,
+                "figure_type": "scatter",
+                "source_image": str(image_path),
+                "source_code": "",
+                "candidate_ids": [
+                    f"{family}__structure-first",
+                    f"{family}__style-first",
+                    f"{family}__balanced",
+                ],
+                "candidate_paths": {
+                    f"{family}__structure-first": str(image_path),
+                    f"{family}__style-first": str(image_path),
+                    f"{family}__balanced": str(image_path),
+                },
+                "pairwise": [],
+                "qa": {
+                    f"{family}__structure-first": {"L0": {"passed": True}, "L1": {"passed": True}},
+                    f"{family}__style-first": {"L0": {"passed": True}, "L1": {"passed": True}},
+                    f"{family}__balanced": {"L0": {"passed": True}, "L1": {"passed": True}},
+                },
+                "repair_iterations": 0,
+                "generation_method": "source_render_variant",
+            })
+        return {
+            "schema_version": "1.0",
+            "task_count": len(tasks),
+            "candidate_count": len(tasks) * 3,
+            "swapped_pair_count": len(tasks) * 2,
+            "accepted_pair_count": len(tasks) * 2,
+            "calibration": {"case_count": len(tasks), "degradation_detection_rate": 1.0},
+            "families": {},
+            "tasks": tasks,
+        }
+
     def test_freezing_a_new_output_does_not_overwrite_existing_baseline(self) -> None:
-        report_path = ROOT / "tmp" / "visual_sprint" / "sprint_report.json"
-        with tempfile.TemporaryDirectory(dir=ROOT / "tmp") as temp:
-            output = Path(temp) / "visual-baseline-v2.json"
+        first_image = ROOT / self.baseline["tasks"][0]["image"]
+        tmp_root = ROOT / "tmp"
+        tmp_root.mkdir(exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=tmp_root) as temp:
+            temp = Path(temp)
+            report_path = temp / "sprint_report.json"
+            report_path.write_text(
+                json.dumps(self._minimal_sprint_report(first_image, self.baseline["tasks"])),
+                encoding="utf-8",
+            )
+            output = temp / "visual-baseline-v2.json"
             payload = freeze(report_path.relative_to(ROOT), output.relative_to(ROOT))
             self.assertEqual(payload["baseline_id"], "visual-baseline-v2")
             self.assertTrue(output.is_file())
@@ -75,7 +124,7 @@ class VisualRegressionTests(unittest.TestCase):
             self.assertEqual(validate_baseline(payload, ROOT), [])
             self.assertTrue((ROOT / "assets/reference-benchmarks/visual-baseline-v1.json").is_file())
             with self.assertRaises(FileExistsError):
-                freeze(report_path, output)
+                freeze(report_path.relative_to(ROOT), output.relative_to(ROOT))
 
 
 if __name__ == "__main__":

@@ -38,7 +38,7 @@ import shutil
 import sys
 import re
 from datetime import datetime, timezone
-from pathlib import Path
+from pathlib import Path, PurePath, PureWindowsPath
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
 try:
@@ -379,15 +379,38 @@ def _now_utc() -> str:
     return datetime.now(timezone.utc).strftime(_UTC_FMT)
 
 
+def _looks_windows_absolute(path: Any) -> bool:
+    """True for Windows drive-letter or UNC paths."""
+    if path is None:
+        return False
+    text = str(path)
+    if text.startswith("\\\\"):
+        return True
+    if len(text) >= 2 and text[1] == ":" and text[0].isalpha():
+        return True
+    return False
+
+
 def _as_relative(path: Any, root: Path = SKILL_ROOT) -> str:
     """Convert *path* to a forward-slash relative path below *root*.
 
-    Raises ValueError if the path is outside *root* or absolute.
+    Raises ValueError if the path is outside *root* or an absolute path.
+    Windows drive-letter / UNC paths are rejected on non-Windows hosts because
+    they cannot be inside the project root and are not portable.
     """
     if path is None:
         return None  # type: ignore[return-value]
-    p = Path(path)
+    text = str(path)
     root = Path(root).resolve()
+
+    # On POSIX hosts, Windows-style absolute paths are non-portable and can
+    # never resolve inside the project root.
+    if sys.platform != "win32" and _looks_windows_absolute(text):
+        raise ValueError(
+            f"Absolute path {path!r} is not allowed; only project-relative paths are permitted."
+        )
+
+    p = Path(text)
     if p.is_absolute():
         try:
             p = p.resolve().relative_to(root)

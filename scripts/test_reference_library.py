@@ -169,6 +169,18 @@ class TestMetadataValidation(unittest.TestCase):
         self.assertFalse(ok)
         self.assertTrue(any("outside" in e or "Absolute path" in e for e in errors))
 
+    def test_windows_drive_path_rejected_on_any_platform(self):
+        for path in ("C:/Users/someone/outside.png", "D:\\data\\image.png"):
+            with self.subTest(path=path):
+                ok, errors = validate_metadata({**self._minimal(), "image_path": path})
+                self.assertFalse(ok, errors)
+                self.assertTrue(any("Absolute path" in e for e in errors))
+
+    def test_unc_path_rejected_on_any_platform(self):
+        ok, errors = validate_metadata({**self._minimal(), "image_path": "\\\\server\\share\\image.png"})
+        self.assertFalse(ok, errors)
+        self.assertTrue(any("Absolute path" in e for e in errors))
+
 
 # ---------------------------------------------------------------------------
 # ReferenceLibrary core
