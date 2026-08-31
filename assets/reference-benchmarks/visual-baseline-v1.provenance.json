@@ -1,0 +1,238 @@
+{
+  "schema_version": "1.0",
+  "baseline_id": "visual-baseline-v1",
+  "previous_baseline_id": null,
+  "rebuild_reason": "Initial freeze after ReferenceDNA 2.1 semantic rebuild and closure-sprint integration; first pinned visual baseline for the publication-figure compiler.",
+  "reference_dna_version": "2.1",
+  "renderer_commit": "9ba14bf045ea3d55ba81b649565327acb3ba42b7",
+  "renderer_version": "sprint-1",
+  "task_count": 25,
+  "changed_tasks": [
+    {
+      "task_id": "statistical_discovery_01",
+      "figure_family": "statistical_discovery",
+      "old_hash": null,
+      "new_hash": "4b7650b67ef2faaaf91f5c8ceccac7284958009c2ce54bdfe2411d39b5a4ba86",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "statistical_discovery_02",
+      "figure_family": "statistical_discovery",
+      "old_hash": null,
+      "new_hash": "abfa371d495e065bc69e0a0f3d5755636be00274184ed50a5a4aa9825e6a832b",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "statistical_discovery_03",
+      "figure_family": "statistical_discovery",
+      "old_hash": null,
+      "new_hash": "f240423acd8fc29d86cd26ae53adf1b8db840b50da7b8d19af1da977ee5d0a84",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "statistical_discovery_04",
+      "figure_family": "statistical_discovery",
+      "old_hash": null,
+      "new_hash": "650982b8a42bb663c6eec5cb819398db831da9ad30d97c6f9a7893fc67343813",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "statistical_discovery_05",
+      "figure_family": "statistical_discovery",
+      "old_hash": null,
+      "new_hash": "079938053b95ad58aacf3bf182995f19346769013ed02fd157e0125c2f7fe314",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "mechanism_architecture_01",
+      "figure_family": "mechanism_architecture",
+      "old_hash": null,
+      "new_hash": "634ac92639a04ea04494e5d38541def42ef61131d1013f3864a69bcf6d6529f3",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "mechanism_architecture_02",
+      "figure_family": "mechanism_architecture",
+      "old_hash": null,
+      "new_hash": "6523d454e6aa2cfc4efd1ea1bc9687abadefc3c77ecc8baf05d8349709a54ab3",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "mechanism_architecture_03",
+      "figure_family": "mechanism_architecture",
+      "old_hash": null,
+      "new_hash": "2911f1e078b8ddef1d010183b4b1dd34e1ca9506877f781f92b21a0f3d728dc0",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "mechanism_architecture_04",
+      "figure_family": "mechanism_architecture",
+      "old_hash": null,
+      "new_hash": "4523952ab2aad0fd651f1b29ca814d10a199e36dd3805644f2a50b2cd9171263",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "mechanism_architecture_05",
+      "figure_family": "mechanism_architecture",
+      "old_hash": null,
+      "new_hash": "af47812208693524f90c2adf008821678892107c8e87b3ca1362a85ff9ff7e14",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "matrix_array_01",
+      "figure_family": "matrix_array",
+      "old_hash": null,
+      "new_hash": "d24a09ac84d4c75b50b25bbbb5896024515ecb81667128aa05c2395d176c850f",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "matrix_array_02",
+      "figure_family": "matrix_array",
+      "old_hash": null,
+      "new_hash": "a5a5664f13936273799a6c4aa15e0898985507166479aa7ddd15ee4f313c38e5",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "matrix_array_03",
+      "figure_family": "matrix_array",
+      "old_hash": null,
+      "new_hash": "ed1e42b06eb9a1f63dc07c703dc546b088f4529d8735e32b25a3c6027e9aeac8",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "matrix_array_04",
+      "figure_family": "matrix_array",
+      "old_hash": null,
+      "new_hash": "ebdd41edd3e56796cbb1b28b7be1bda6d867377837c4bf6e5b7c6b425969c629",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "matrix_array_05",
+      "figure_family": "matrix_array",
+      "old_hash": null,
+      "new_hash": "c8f7fde199dee9aa04778505ea6c1b517a0dcc3a7c1493490ee6097999161f26",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "multi_axis_comparison_01",
+      "figure_family": "multi_axis_comparison",
+      "old_hash": null,
+      "new_hash": "6cec5250bd4f8570e42ef0d408ca1e45b3c12924385262b519d0bc231675d96e",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "multi_axis_comparison_02",
+      "figure_family": "multi_axis_comparison",
+      "old_hash": null,
+      "new_hash": "cb1020ca4ec52be31e8a11cff6cda374a37be6c310a8ded6d665a09ef81a5981",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "multi_axis_comparison_03",
+      "figure_family": "multi_axis_comparison",
+      "old_hash": null,
+      "new_hash": "75089269cb74a9a584e6a8bfaa507fc0845e768c98fd97b7e6c1fd64c57b5ae7",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "multi_axis_comparison_04",
+      "figure_family": "multi_axis_comparison",
+      "old_hash": null,
+      "new_hash": "2fb3cd32426bd34aa95a0f6d507348b3ef5a25845039a7a55016623c10c4ad0f",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "multi_axis_comparison_05",
+      "figure_family": "multi_axis_comparison",
+      "old_hash": null,
+      "new_hash": "6176853284f357027a8b2fb7fa852a4433257800b5eff214383569609ebb526e",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "image_quantitative_composite_01",
+      "figure_family": "image_quantitative_composite",
+      "old_hash": null,
+      "new_hash": "dd0be645d4e32dc1c315057cf844aab200740dc3c58da983faf8afdd21d31011",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "image_quantitative_composite_02",
+      "figure_family": "image_quantitative_composite",
+      "old_hash": null,
+      "new_hash": "9e39515b8b8fc3a9524c095b60f39dfcb651fd741701772608f24b2728b30737",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "image_quantitative_composite_03",
+      "figure_family": "image_quantitative_composite",
+      "old_hash": null,
+      "new_hash": "18fd009d5ba3ff9be41921bb188da5b45e90b29d2c37a6921015db6d43f8ef1c",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "image_quantitative_composite_04",
+      "figure_family": "image_quantitative_composite",
+      "old_hash": null,
+      "new_hash": "acf7024134487dc7abc203f2aaa4f80d9dcb4cccf5923b660126ec19c4059ebc",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    },
+    {
+      "task_id": "image_quantitative_composite_05",
+      "figure_family": "image_quantitative_composite",
+      "old_hash": null,
+      "new_hash": "04a8abac82cdcca070db2616e472643bbfd4255f845c7c4a9dc467e74deccb27",
+      "reason": "new_entry",
+      "L0": true,
+      "L1": true
+    }
+  ],
+  "promotion_policy": "new real renders must beat this baseline by blind swapped review; source_render_variant never promotes a Champion"
+}
