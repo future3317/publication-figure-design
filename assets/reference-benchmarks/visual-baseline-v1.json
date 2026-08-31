@@ -18,7 +18,7 @@
       "figure_family": "statistical_discovery",
       "source_image": "E:\\PAPER\\General Equivariant Covariance Networks for Probabilistic Structured Prediction\\figures\\statistical_misspecification_consolidation\\dielectric_law_adaptation_main.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/statistical_discovery_01.png",
-      "sha256": "30b54ad36b7a035a763a422ed0167b0a13c7a63b6b62b38e24e2eb5542190b13",
+      "sha256": "4b7650b67ef2faaaf91f5c8ceccac7284958009c2ce54bdfe2411d39b5a4ba86",
       "L0": true,
       "L1": true
     },
@@ -27,7 +27,7 @@
       "figure_family": "statistical_discovery",
       "source_image": "E:\\PAPER\\General Equivariant Covariance Networks for Probabilistic Structured Prediction\\figures\\synthetic_closure_230e2df\\synthetic_cross_family_recovery.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/statistical_discovery_02.png",
-      "sha256": "47da44e9d337004c58764f270a894c62abb0065910fed5848d3ce2dc1fcc73f2",
+      "sha256": "abfa371d495e065bc69e0a0f3d5755636be00274184ed50a5a4aa9825e6a832b",
       "L0": true,
       "L1": true
     },
@@ -108,7 +108,7 @@
       "figure_family": "matrix_array",
       "source_image": "E:\\PAPER\\General Equivariant Covariance Networks for Probabilistic Structured Prediction\\figures\\dielectric_factorial_design_space\\dielectric_factorial_design_space.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/matrix_array_01.png",
-      "sha256": "c7f028f691fea6bc62dde9d929f17542acf078bb1dd3eee08eaecce6ff6dfe25",
+      "sha256": "d24a09ac84d4c75b50b25bbbb5896024515ecb81667128aa05c2395d176c850f",
       "L0": true,
       "L1": true
     },
@@ -162,7 +162,7 @@
       "figure_family": "multi_axis_comparison",
       "source_image": "E:\\PAPER\\CrossPiezo_EliteTail_Instability\\figures\\screening_resolution\\fig3_property_dependence.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/multi_axis_comparison_02.png",
-      "sha256": "a1783546ef0d1a90f2838b3039d409a21375d116aa3420f5a0bd476f52977f95",
+      "sha256": "cb1020ca4ec52be31e8a11cff6cda374a37be6c310a8ded6d665a09ef81a5981",
       "L0": true,
       "L1": true
     },
@@ -216,7 +216,7 @@
       "figure_family": "image_quantitative_composite",
       "source_image": "E:\\PAPER\\mg2si_evidence_gated_discovery\\figures\\figure_4_candidate_batch.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/image_quantitative_composite_03.png",
-      "sha256": "cf982e24b3ac74d1ec06c5067d742197fc37dda9c945653da00ff782d5cc6844",
+      "sha256": "18fd009d5ba3ff9be41921bb188da5b45e90b29d2c37a6921015db6d43f8ef1c",
       "L0": true,
       "L1": true
     },
