@@ -6,7 +6,13 @@
   "objective": "exercise the persisted publication figure workflow",
   "requested_outputs": ["qa_report"],
   "metadata": {
-    "reference_ids": ["0de2014d0cf60d22"],
-    "style_spec_version": "1.0"
+    "style_spec_version": "1.0",
+    "candidate_image": "assets/visual-references/references/83e55ca23d8aa2fa/image.png",
+    "design_packet": {
+      "style_tokens": {"foreground": "#222222"},
+      "journal_profile": {"name": "generic", "status": "verified", "verified": true},
+      "scientific_contract": {"figure_type": "reference-qa-canary"}
+    },
+    "render_trace": {"artists": [{"id": "canary-mark", "type": "image"}]}
   }
 }

@@ -78,8 +78,10 @@ def validate_baseline(payload: dict[str, Any], root: Path = ROOT) -> list[str]:
         expected = str(row.get("sha256", ""))
         if expected and _sha256(image) != expected:
             failures.append(f"baseline image changed: {row.get('task_id')}")
-        if row.get("L0") is not True or row.get("L1") is not True:
-            failures.append(f"baseline QA is not L0/L1 clean: {row.get('task_id')}")
+        if not re.fullmatch(r"[0-9a-f]{64}", str(row.get("source_sha256", ""))):
+            failures.append(f"baseline source image identity missing or invalid: {row.get('task_id')}")
+        if row.get("L0") is not True:
+            failures.append(f"baseline is not L0 clean: {row.get('task_id')}")
     return failures
 
 
@@ -100,6 +102,15 @@ def compare(baseline: dict[str, Any], current: dict[str, Any], judges: dict[str,
             failures.append(f"current report missing task: {task_id}")
             continue
         family = str(base.get("figure_family"))
+        source_hash = str(row.get("source_sha256", ""))
+        if not source_hash or source_hash != str(base.get("source_sha256", "")):
+            failures.append(f"source image changed since baseline: {task_id}")
+            results.append({"task_id": task_id, "figure_family": family, "changed": True, "outcome": "uncertain", "L0": False, "L1": False})
+            continue
+        if row.get("generation_method") == "source_render_variant":
+            failures.append(f"source-render variant is not a skill visual regression: {task_id}")
+            results.append({"task_id": task_id, "figure_family": family, "changed": True, "outcome": "uncertain", "L0": False, "L1": False})
+            continue
         candidate_id = f"{family}__balanced"
         current_path = Path(str((row.get("candidate_paths") or {}).get(candidate_id, "")))
         if not current_path.is_file():

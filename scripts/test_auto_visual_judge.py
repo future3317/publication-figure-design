@@ -7,9 +7,9 @@ from tempfile import TemporaryDirectory
 from PIL import Image
 
 try:
-    from auto_visual_judge import AutoVisualJudge, calibrate, degrade_image, judge_pair
+    from auto_visual_judge import calibrate, degrade_image, judge_pair
 except ModuleNotFoundError:
-    from scripts.auto_visual_judge import AutoVisualJudge, calibrate, degrade_image, judge_pair
+    from scripts.auto_visual_judge import calibrate, degrade_image, judge_pair
 
 
 def response(preferred: str, confidence: float = 0.9) -> dict:
@@ -23,14 +23,6 @@ def response(preferred: str, confidence: float = 0.9) -> dict:
 
 
 class AutoVisualJudgeTests(unittest.TestCase):
-    def test_facade_uses_same_consensus_contract(self):
-        result = AutoVisualJudge().pair(
-            {"display_order": ["a", "b"], "judge": response("A")},
-            {"display_order": ["b", "a"], "judge": response("B")},
-        )
-        self.assertTrue(result["accepted"])
-        self.assertEqual(result["preferred"], "a")
-
     def test_swapped_order_maps_to_same_candidate(self):
         result = judge_pair(
             {"display_order": ["a", "b"], "judge": response("B")},

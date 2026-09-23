@@ -20,3 +20,4 @@ runtime:
   - evals/
   - rules/
   - sources/registry.yaml
+  - docs/maintenance/runtime-and-evaluation.md

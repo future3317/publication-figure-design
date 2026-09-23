@@ -3,7 +3,7 @@
   "baseline": {
     "architecture_commit": "04ee03a",
     "release": "v4.0.0",
-    "policy": "blind_auto_pairwise_with_calibration"
+    "policy": "swapped_order_pairwise_with_calibration"
   },
   "policy": {
     "target_task_min": 5,
@@ -94,24 +94,10 @@
       "status": "needs_evidence"
     },
     "matrix_array": {
-      "champion": "matrix_array__balanced",
-      "challenger": "matrix_array__structure-first",
+      "champion": null,
+      "challenger": null,
       "last_release": "v4.0.0",
-      "evidence": {
-        "generation_tasks": 5,
-        "accepted_three_candidate_records": 5,
-        "auto_pairwise_count": 10,
-        "judge_order_consistency": 1.0,
-        "degradation_detection_rate": 1.0,
-        "challenger_win_rate": 0.0,
-        "scientific_pass": true,
-        "L0": true,
-        "L1": true,
-        "repair_iterations": 0,
-        "auto_ready": false,
-        "source_render_variant": true,
-        "note": "Real paper renders with deterministic style variants; longitudinal challenger comparison is still required before auto_ready."
-      },
+      "evidence": {},
       "status": "needs_evidence"
     },
     "network_flow_set": {
@@ -129,45 +115,17 @@
       "status": "needs_evidence"
     },
     "mechanism_architecture": {
-      "champion": "mechanism_architecture__balanced",
-      "challenger": "mechanism_architecture__structure-first",
+      "champion": null,
+      "challenger": null,
       "last_release": "v4.0.0",
-      "evidence": {
-        "generation_tasks": 5,
-        "accepted_three_candidate_records": 5,
-        "auto_pairwise_count": 10,
-        "judge_order_consistency": 1.0,
-        "degradation_detection_rate": 1.0,
-        "challenger_win_rate": 0.0,
-        "scientific_pass": true,
-        "L0": true,
-        "L1": true,
-        "repair_iterations": 0,
-        "auto_ready": false,
-        "source_render_variant": true,
-        "note": "Real paper renders with deterministic style variants; longitudinal challenger comparison is still required before auto_ready."
-      },
+      "evidence": {},
       "status": "needs_evidence"
     },
     "statistical_discovery": {
-      "champion": "statistical_discovery__balanced",
-      "challenger": "statistical_discovery__structure-first",
+      "champion": null,
+      "challenger": null,
       "last_release": "v4.0.0",
-      "evidence": {
-        "generation_tasks": 5,
-        "accepted_three_candidate_records": 5,
-        "auto_pairwise_count": 10,
-        "judge_order_consistency": 1.0,
-        "degradation_detection_rate": 1.0,
-        "challenger_win_rate": 0.0,
-        "scientific_pass": true,
-        "L0": true,
-        "L1": true,
-        "repair_iterations": 0,
-        "auto_ready": false,
-        "source_render_variant": true,
-        "note": "Real paper renders with deterministic style variants; longitudinal challenger comparison is still required before auto_ready."
-      },
+      "evidence": {},
       "status": "needs_evidence"
     },
     "optimization_sensitivity": {
@@ -178,46 +136,18 @@
       "status": "needs_evidence"
     },
     "multi_axis_comparison": {
-      "champion": "multi_axis_comparison__balanced",
+      "champion": null,
       "reference_upper_bound": "22f32e9bd10b34ee",
-      "challenger": "multi_axis_comparison__structure-first",
+      "challenger": null,
       "last_release": "v4.0.0",
-      "evidence": {
-        "generation_tasks": 5,
-        "accepted_three_candidate_records": 5,
-        "auto_pairwise_count": 10,
-        "judge_order_consistency": 1.0,
-        "degradation_detection_rate": 1.0,
-        "challenger_win_rate": 0.0,
-        "scientific_pass": true,
-        "L0": true,
-        "L1": true,
-        "repair_iterations": 0,
-        "auto_ready": false,
-        "source_render_variant": true,
-        "note": "Real paper renders with deterministic style variants; longitudinal challenger comparison is still required before auto_ready."
-      },
+      "evidence": {},
       "status": "needs_evidence"
     },
     "image_quantitative_composite": {
-      "champion": "image_quantitative_composite__balanced",
-      "challenger": "image_quantitative_composite__structure-first",
+      "champion": null,
+      "challenger": null,
       "last_release": "v4.0.0",
-      "evidence": {
-        "generation_tasks": 5,
-        "accepted_three_candidate_records": 5,
-        "auto_pairwise_count": 10,
-        "judge_order_consistency": 1.0,
-        "degradation_detection_rate": 1.0,
-        "challenger_win_rate": 0.0,
-        "scientific_pass": true,
-        "L0": true,
-        "L1": true,
-        "repair_iterations": 0,
-        "auto_ready": false,
-        "source_render_variant": true,
-        "note": "Real paper renders with deterministic style variants; longitudinal challenger comparison is still required before auto_ready."
-      },
+      "evidence": {},
       "status": "needs_evidence"
     },
     "asymmetric_multi_panel": {

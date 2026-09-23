@@ -6,237 +6,236 @@
   "candidate_strategy": "balanced",
   "renderer_version": "sprint-1",
   "task_count": 25,
-  "reason_code_counts": {
-    "hierarchy": 25,
-    "layout": 25,
-    "overall_polish": 25,
-    "spacing": 25
+  "source_identity_correction": {
+    "date": "2026-09-23",
+    "task_ids": ["multi_axis_comparison_02", "multi_axis_comparison_03"],
+    "reason": "The current source images no longer matched the frozen source-render PNGs; checkpoint realignment only, not a quality promotion."
   },
   "tasks": [
     {
       "task_id": "statistical_discovery_01",
       "figure_family": "statistical_discovery",
+      "source_sha256": "6394d9f4fb6f8c637bf55c121c92432d0e907ebcbdcea2d4c2c42d25aa4d28f2",
       "source_image": "E:\\PAPER\\General Equivariant Covariance Networks for Probabilistic Structured Prediction\\figures\\statistical_misspecification_consolidation\\dielectric_law_adaptation_main.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/statistical_discovery_01.png",
       "sha256": "4b7650b67ef2faaaf91f5c8ceccac7284958009c2ce54bdfe2411d39b5a4ba86",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "statistical_discovery_02",
       "figure_family": "statistical_discovery",
+      "source_sha256": "07c461a93b150f654d19c13f473f6f491677802c45f6a656f59740250344e849",
       "source_image": "E:\\PAPER\\General Equivariant Covariance Networks for Probabilistic Structured Prediction\\figures\\synthetic_closure_230e2df\\synthetic_cross_family_recovery.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/statistical_discovery_02.png",
       "sha256": "abfa371d495e065bc69e0a0f3d5755636be00274184ed50a5a4aa9825e6a832b",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "statistical_discovery_03",
       "figure_family": "statistical_discovery",
+      "source_sha256": "eaee3963279fb264ba18c46a0b649cb6b3a770e7071cf2a01ecfab9d23cd81c0",
       "source_image": "E:\\PAPER\\General Equivariant Covariance Networks for Probabilistic Structured Prediction\\figures\\dielectric_final\\dielectric_calibration.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/statistical_discovery_03.png",
       "sha256": "f240423acd8fc29d86cd26ae53adf1b8db840b50da7b8d19af1da977ee5d0a84",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "statistical_discovery_04",
       "figure_family": "statistical_discovery",
+      "source_sha256": "eb9e2d1f9b644b770d8a8ee0d61bb562d79a5a53cb4308a581956c9ae01aa7ea",
       "source_image": "E:\\PAPER\\General Equivariant Covariance Networks for Probabilistic Structured Prediction\\figures\\dielectric_final\\dielectric_parity.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/statistical_discovery_04.png",
       "sha256": "650982b8a42bb663c6eec5cb819398db831da9ad30d97c6f9a7893fc67343813",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "statistical_discovery_05",
       "figure_family": "statistical_discovery",
+      "source_sha256": "4620134d52ea05f852a13173238dc4bdee85d552dc9dd2d2aaf5d90dd043a1ad",
       "source_image": "E:\\PAPER\\General Equivariant Covariance Networks for Probabilistic Structured Prediction\\figures\\dielectric_final\\dielectric_uncertainty_alignment.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/statistical_discovery_05.png",
       "sha256": "079938053b95ad58aacf3bf182995f19346769013ed02fd157e0125c2f7fe314",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "mechanism_architecture_01",
       "figure_family": "mechanism_architecture",
+      "source_sha256": "700372f60cc056f63488826e5f1ebb7b3c86f0322d12cebd5a3564fb167e5178",
       "source_image": "E:\\PAPER\\EviPGCE\\figures\\figure1_architecture.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/mechanism_architecture_01.png",
       "sha256": "634ac92639a04ea04494e5d38541def42ef61131d1013f3864a69bcf6d6529f3",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "mechanism_architecture_02",
       "figure_family": "mechanism_architecture",
+      "source_sha256": "60a62044016cbe70fa0ecefe02eb4f1e48cec04b3e7b908c4e50d9d1072a33d2",
       "source_image": "E:\\PAPER\\EviPGCE\\figures\\figure2_publication_gate.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/mechanism_architecture_02.png",
       "sha256": "6523d454e6aa2cfc4efd1ea1bc9687abadefc3c77ecc8baf05d8349709a54ab3",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "mechanism_architecture_03",
       "figure_family": "mechanism_architecture",
+      "source_sha256": "08b9f36fe77824f2874865a2676568f0fed7dab4f75f505f375cd9db46c54f7c",
       "source_image": "E:\\PAPER\\GaugeFlow Stabilizer-Aware Response-Field Flow for Tensor-Orbit Conditioned Crystal Generation\\figures\\gaugeflow_architecture.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/mechanism_architecture_03.png",
       "sha256": "2911f1e078b8ddef1d010183b4b1dd34e1ca9506877f781f92b21a0f3d728dc0",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "mechanism_architecture_04",
       "figure_family": "mechanism_architecture",
+      "source_sha256": "658f7bf3d6bde8dc00336441f1045fc6b262ea07ec6749e9a3fb645573a6781e",
       "source_image": "E:\\PAPER\\GaugeFlow Stabilizer-Aware Response-Field Flow for Tensor-Orbit Conditioned Crystal Generation\\figures\\base_probability_factorization.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/mechanism_architecture_04.png",
       "sha256": "4523952ab2aad0fd651f1b29ca814d10a199e36dd3805644f2a50b2cd9171263",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "mechanism_architecture_05",
       "figure_family": "mechanism_architecture",
+      "source_sha256": "09b14f73ac829980dff26a0652cf5c1881423347dcd1b6e57764192764b43756",
       "source_image": "E:\\PAPER\\continual_materials_adaptation\\figures\\controlled_mechanism_map.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/mechanism_architecture_05.png",
       "sha256": "af47812208693524f90c2adf008821678892107c8e87b3ca1362a85ff9ff7e14",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "matrix_array_01",
       "figure_family": "matrix_array",
+      "source_sha256": "b6cff639f5330e92ea39541b149e6dc24ff503d956ab64d4f4f4c59c7622871e",
       "source_image": "E:\\PAPER\\General Equivariant Covariance Networks for Probabilistic Structured Prediction\\figures\\dielectric_factorial_design_space\\dielectric_factorial_design_space.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/matrix_array_01.png",
       "sha256": "d24a09ac84d4c75b50b25bbbb5896024515ecb81667128aa05c2395d176c850f",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "matrix_array_02",
       "figure_family": "matrix_array",
+      "source_sha256": "d4baf53c30211f68e500c27b6236f875edc1235a302eeed1992b7011cad855db",
       "source_image": "E:\\PAPER\\General Equivariant Covariance Networks for Probabilistic Structured Prediction\\figures\\dielectric_final\\dielectric_spectrum.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/matrix_array_02.png",
       "sha256": "a5a5664f13936273799a6c4aa15e0898985507166479aa7ddd15ee4f313c38e5",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "matrix_array_03",
       "figure_family": "matrix_array",
+      "source_sha256": "4af45dc06dd9d6da9a6cd956a26cbd9b61356c0ba140aaa28b64bce52a9e0884",
       "source_image": "E:\\PAPER\\Uncertainty-Aware Equivariant Neural Networks\\figures\\paper_figure_spd.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/matrix_array_03.png",
       "sha256": "ed1e42b06eb9a1f63dc07c703dc546b088f4529d8735e32b25a3c6027e9aeac8",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "matrix_array_04",
       "figure_family": "matrix_array",
+      "source_sha256": "c1ddf6236caff4c3f9254e8f1036d2f93b85f325235bb2a17a52690cc207597a",
       "source_image": "E:\\PAPER\\Uncertainty-Aware Equivariant Neural Networks\\figures\\analysis_condition_number.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/matrix_array_04.png",
       "sha256": "ebdd41edd3e56796cbb1b28b7be1bda6d867377837c4bf6e5b7c6b425969c629",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "matrix_array_05",
       "figure_family": "matrix_array",
+      "source_sha256": "25eaf57319d325f88ae13934fc13ffb0cdccfdd00a238f43a6c5bb9eeedf925e",
       "source_image": "E:\\PAPER\\Uncertainty-Aware Equivariant Neural Networks\\figures\\spd_analysis_test.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/matrix_array_05.png",
       "sha256": "c8f7fde199dee9aa04778505ea6c1b517a0dcc3a7c1493490ee6097999161f26",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "multi_axis_comparison_01",
       "figure_family": "multi_axis_comparison",
+      "source_sha256": "6f54d1d6d4bb78fff5a20fc6dd8c3e1f32e688e7a97ed8480adcdd52fea37a11",
       "source_image": "E:\\PAPER\\CrossPiezo_EliteTail_Instability\\figures\\screening_resolution\\fig2_banded_naucc.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/multi_axis_comparison_01.png",
       "sha256": "6cec5250bd4f8570e42ef0d408ca1e45b3c12924385262b519d0bc231675d96e",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "multi_axis_comparison_02",
       "figure_family": "multi_axis_comparison",
+      "source_sha256": "9c39e3c1bafa74e1303ac68f7f7b513b689a00b5e8e3c9150cf4558be20dab2c",
       "source_image": "E:\\PAPER\\CrossPiezo_EliteTail_Instability\\figures\\screening_resolution\\fig3_property_dependence.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/multi_axis_comparison_02.png",
-      "sha256": "cb1020ca4ec52be31e8a11cff6cda374a37be6c310a8ded6d665a09ef81a5981",
-      "L0": true,
-      "L1": true
+      "sha256": "2a79848bbe8fe91f132c7ca1fee59b86bcb53373e35672c8e9650bc8fd58b53b",
+      "L0": true
     },
     {
       "task_id": "multi_axis_comparison_03",
       "figure_family": "multi_axis_comparison",
+      "source_sha256": "ddf0a84395dca88e9dd79606d22feb6ce853b5acee7a71e753c8bd0d1b383a29",
       "source_image": "E:\\PAPER\\CrossPiezo_EliteTail_Instability\\figures\\screening_resolution\\fig5_portfolio_frontier.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/multi_axis_comparison_03.png",
-      "sha256": "75089269cb74a9a584e6a8bfaa507fc0845e768c98fd97b7e6c1fd64c57b5ae7",
-      "L0": true,
-      "L1": true
+      "sha256": "a8dcbccfd50bf9a195fd0a02914235f755b95ac01f2e477645f1db720f82532b",
+      "L0": true
     },
     {
       "task_id": "multi_axis_comparison_04",
       "figure_family": "multi_axis_comparison",
+      "source_sha256": "28b4577f38ddb00964bb082641175387ba8312d65211c416383fe3a343073a80",
       "source_image": "E:\\PAPER\\continual_materials_adaptation\\figures\\real_operating_points.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/multi_axis_comparison_04.png",
       "sha256": "2fb3cd32426bd34aa95a0f6d507348b3ef5a25845039a7a55016623c10c4ad0f",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "multi_axis_comparison_05",
       "figure_family": "multi_axis_comparison",
+      "source_sha256": "3f7cf9ba4b5693d0a0ff13d8964602b180efe19a22b5bd2305fe62cc16f35c68",
       "source_image": "E:\\PAPER\\continual_materials_adaptation\\figures\\p0_selection_tradeoff.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/multi_axis_comparison_05.png",
       "sha256": "6176853284f357027a8b2fb7fa852a4433257800b5eff214383569609ebb526e",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "image_quantitative_composite_01",
       "figure_family": "image_quantitative_composite",
+      "source_sha256": "110f95c5dbe01469653baa236312da8f19ca2737f52eb162006da64685f306ec",
       "source_image": "E:\\PAPER\\GaugeFlow Stabilizer-Aware Response-Field Flow for Tensor-Orbit Conditioned Crystal Generation\\figures\\f_conditional_crystal_gallery.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/image_quantitative_composite_01.png",
       "sha256": "dd0be645d4e32dc1c315057cf844aab200740dc3c58da983faf8afdd21d31011",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "image_quantitative_composite_02",
       "figure_family": "image_quantitative_composite",
+      "source_sha256": "60ebffc8af7217c62b7768407f55078c3cb08e926eac4fcc96200e744fb9e776",
       "source_image": "E:\\PAPER\\GaugeFlow Stabilizer-Aware Response-Field Flow for Tensor-Orbit Conditioned Crystal Generation\\figures\\ycu_polymorph_comparison.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/image_quantitative_composite_02.png",
       "sha256": "9e39515b8b8fc3a9524c095b60f39dfcb651fd741701772608f24b2728b30737",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "image_quantitative_composite_03",
       "figure_family": "image_quantitative_composite",
+      "source_sha256": "a748080941a54d4bc0dace0afec570eae1029172048de3485b350636852a96f4",
       "source_image": "E:\\PAPER\\mg2si_evidence_gated_discovery\\figures\\figure_4_candidate_batch.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/image_quantitative_composite_03.png",
       "sha256": "18fd009d5ba3ff9be41921bb188da5b45e90b29d2c37a6921015db6d43f8ef1c",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "image_quantitative_composite_04",
       "figure_family": "image_quantitative_composite",
+      "source_sha256": "0f09898f4b8caa295cd5ddbda0709de1d09bdbae3c690a7c27aec7623eba3139",
       "source_image": "E:\\PAPER\\EviPGCE\\figures\\Publication Gate Funnel + Case Study.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/image_quantitative_composite_04.png",
       "sha256": "acf7024134487dc7abc203f2aaa4f80d9dcb4cccf5923b660126ec19c4059ebc",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "image_quantitative_composite_05",
       "figure_family": "image_quantitative_composite",
+      "source_sha256": "d2606bc74ab263e483fe5347433f32cb9bca17cf0882be20ba31e5c17021af15",
       "source_image": "E:\\PAPER\\Uncertainty-Aware Equivariant Neural Networks\\figures\\figure3_physical_components.png",
       "image": "assets/reference-benchmarks/visual-baseline-v1/image_quantitative_composite_05.png",
       "sha256": "04a8abac82cdcca070db2616e472643bbfd4255f845c7c4a9dc467e74deccb27",
-      "L0": true,
-      "L1": true
+      "L0": true
     }
   ],
   "promotion_policy": "new real renders must beat this baseline by blind swapped review; source_render_variant never promotes a Champion"

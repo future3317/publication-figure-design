@@ -34,6 +34,8 @@ def _run_task(args: argparse.Namespace) -> int:
     if args.resume:
         session = WorkflowSession.load(args.task_spec)
         orchestrator = build_runtime_orchestrator()
+        if session.status in {"blocked", "error"}:
+            orchestrator.retry(session)
     else:
         task = TaskSpec.from_dict(_load_json(args.task_spec))
         orchestrator = build_runtime_orchestrator()

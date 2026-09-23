@@ -8,10 +8,10 @@ from typing import Any
 from ..reference_intelligence.dna import DesignPacket
 
 
-def generate_candidates(packet: DesignPacket, mode: str = "publication") -> list[dict[str, Any]]:
-    if mode not in {"fast", "standard", "publication"}:
-        raise ValueError("mode must be fast, standard, or publication")
-    count = {"fast": 1, "standard": 2, "publication": 3}[mode]
+def generate_candidates(packet: DesignPacket, mode: str = "production") -> list[dict[str, Any]]:
+    if mode not in {"production", "evaluation"}:
+        raise ValueError("mode must be production or evaluation")
+    count = 1 if mode == "production" else 3
     variants = [
         ("structure-first", {"layout_priority": "structure", "legend_strategy": "shared_compact"}),
         ("style-first", {"layout_priority": "style", "legend_strategy": "direct_then_shared"}),

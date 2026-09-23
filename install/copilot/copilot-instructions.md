@@ -21,8 +21,9 @@ Runtime bundle:
 - `evals/`
 - `rules/`
 - `sources/registry.yaml`
+- `docs/maintenance/runtime-and-evaluation.md`
 
-Generated: 2026-08-31 10:48 UTC
+Generated: 2026-09-23 14:07 UTC
 
 For publication-figure tasks, use the canonical `SKILL.md`, manifest route, and
 bundled runtime files. These instructions only provide loading context.

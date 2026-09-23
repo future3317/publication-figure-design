@@ -165,19 +165,6 @@ def degrade_image(source: Path, output: Path, kind: str) -> dict[str, Any]:
     return {"source": str(source), "output": str(output), "degradation_kind": kind}
 
 
-class AutoVisualJudge:
-    """Small runtime facade used by the orchestrator or a Codex-side driver."""
-
-    def __init__(self, calibration_floor: float = 0.90) -> None:
-        self.calibration_floor = calibration_floor
-
-    def pair(self, forward: dict[str, Any], reverse: dict[str, Any]) -> dict[str, Any]:
-        return judge_pair(forward, reverse)
-
-    def calibrate(self, rows: Iterable[dict[str, Any]]) -> dict[str, Any]:
-        return calibrate(rows, self.calibration_floor)
-
-
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)

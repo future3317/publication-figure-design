@@ -1,8 +1,12 @@
 import unittest
+import tempfile
+from pathlib import Path
 
 from publication_figure_design.contracts import TaskSpec
 from publication_figure_design.orchestrator.machine import WorkflowStage
 from publication_figure_design.orchestrator.runtime import build_runtime_orchestrator
+from publication_figure_design.orchestrator.runtime import _qa
+from publication_figure_design.orchestrator.machine import StageContext
 from publication_figure_design.qa.technical import run_hard_qa
 
 
@@ -20,12 +24,16 @@ class RuntimeContractTests(unittest.TestCase):
         self.assertIn("active_rule_sets", session.telemetry)
         self.assertIn("rules/global/scientific-integrity.yaml", session.telemetry["active_rule_sets"])
         self.assertIn("SCI-001", session.telemetry["active_rule_ids"])
+        self.assertIn("policy_packet", session.telemetry)
+        self.assertIn("hard_constraints", session.telemetry["policy_packet"])
+        self.assertIn("style_tokens", session.telemetry["policy_packet"])
 
     def test_session_adds_family_rules(self):
         task = TaskSpec(task_id="family-rules-test", metadata={"mode": "create", "figure_family": "heatmap"})
         session = build_runtime_orchestrator().start(task)
         self.assertIn("rules/families/heatmap-matrix.yaml", session.telemetry["active_rule_sets"])
         self.assertIn("HEAT-001", session.telemetry["active_rule_ids"])
+        self.assertTrue(any(item.startswith("HEAT-001:") for item in session.telemetry["policy_packet"]["family_constraints"]))
 
     def test_session_adds_curve_feedback_rules(self):
         task = TaskSpec(task_id="curve-rules-test", metadata={"mode": "create", "figure_family": "curve_comparison"})
@@ -53,6 +61,61 @@ class RuntimeContractTests(unittest.TestCase):
 
     def test_production_runtime_allows_only_one_repair_retry(self):
         self.assertEqual(build_runtime_orchestrator().max_retries, 2)
+
+    def test_production_design_defaults_to_one_candidate(self):
+        orchestrator = build_runtime_orchestrator()
+        session = orchestrator.start(TaskSpec(
+            task_id="one-production-candidate",
+            metadata={"source": {"source_id": "source"}},
+        ))
+        while orchestrator.next_stage(session) != WorkflowStage.DESIGN_SPEC and session.status == "ready":
+            orchestrator.advance(session)
+        orchestrator.advance(session)
+
+        packet = session.artifacts[WorkflowStage.DESIGN_SPEC.value]["payload"]["design_packet"]
+        self.assertEqual(len(packet["candidates"]), 1)
+
+    def test_evaluation_mode_keeps_three_candidates(self):
+        orchestrator = build_runtime_orchestrator()
+        session = orchestrator.start(TaskSpec(
+            task_id="three-evaluation-candidates",
+            metadata={"generation_mode": "evaluation"},
+        ))
+        while orchestrator.next_stage(session) != WorkflowStage.DESIGN_SPEC and session.status == "ready":
+            orchestrator.advance(session)
+        orchestrator.advance(session)
+
+        packet = session.artifacts[WorkflowStage.DESIGN_SPEC.value]["payload"]["design_packet"]
+        self.assertEqual(len(packet["candidates"]), 3)
+
+    def test_structural_comparison_is_optional_without_a_reference(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            figure = Path(tmp) / "figure.png"
+            figure.write_bytes(b"rendered-figure")
+            result = _qa(StageContext(
+                session_id="qa-no-reference",
+                stage=WorkflowStage.QA.value,
+                task={"metadata": {"candidate_image": str(figure), "design_packet": {
+                    "style_tokens": {"foreground": "#222222"},
+                    "journal_profile": {"name": "generic", "status": "verified", "verified": True},
+                    "scientific_contract": {"data": "bound"},
+                }, "render_trace": {"artists": [{"type": "line"}]}}},
+                contracts={},
+                artifacts={},
+            ))
+
+        self.assertTrue(result["passed"], result["errors"])
+        self.assertEqual(result["structural"]["status"], "not_applicable")
+
+    def test_review_without_a_figure_blocks_without_entering_render_repair(self):
+        orchestrator = build_runtime_orchestrator()
+        session = orchestrator.start(TaskSpec(task_id="review-missing-figure", mode="review"))
+
+        orchestrator.run(session)
+
+        self.assertEqual(session.status, "blocked")
+        self.assertEqual(session.current_stage, WorkflowStage.QA.value)
+        self.assertNotIn(WorkflowStage.CRITIQUE.value, session.route_plan.stages)
 
     def test_reference_led_renderer_must_consume_all_specs(self):
         task = TaskSpec(task_id="render-test", metadata={"reference_led": True, "render_plan": {"consumed_specs": ["PaletteSpec"]}})

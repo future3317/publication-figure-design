@@ -8,35 +8,40 @@ the production runtime lives in `src/publication_figure_design/`.
 
 ## Required workflow
 
-For create, revise, review, export, optimization, or reference-intake work, use the
-orchestrated lifecycle:
-
-`Route → Intake → Reference Retrieval → Reference Inspection → Design Spec → Binding → Render → Compare → Critique → Repair → QA → Export`
+Create, revise, review, export, and reference tasks use the persisted `RoutePlan` from
+`manifest.yaml`. Reference stages are conditional on reference evidence; failed
+create/revise QA can insert one critique/repair/render/QA cycle. Review/export failures
+report and block without forcing a render. `WorkflowSession` stores the plan and cursor so
+repeated stages resume deterministically. Critique pauses for a concrete `DesignPatch`;
+resume the saved session after supplying the patch.
 
 The scientific contract is authoritative. References provide visual grammar only and
-must never change data meaning, statistical transforms, uncertainty semantics, labels,
-or variable roles.
+must not change data meaning, statistical transforms, uncertainty semantics, labels, or
+variable roles. Inspect selected pixels and retrieve structure, style, palette,
+component, and annotation roles independently when useful. Compile the evidence into
+`ReferenceDNA → StyleCapsule + JournalProfile → DesignPacket`.
 
-Reference-led work must retrieve roles independently (`structure`, `style`, `palette`,
-`component`, and `annotation` when needed), inspect the selected pixels, and compile
-them into `ReferenceDNA → StyleCapsule + JournalProfile → DesignPacket`. Publication
-mode produces structure-first, style-first, and balanced candidates before final
-rendering. Critique returns deterministic `DesignPatch` operations, and renderers emit
-`RenderTrace` for scientific QA.
+The runtime compiles applicable rules into a compact `PolicyPacket`; use that packet and
+the validator's concrete QA feedback instead of loading every rules YAML file into an
+agent prompt. Production defaults to one candidate; three candidates are reserved for
+explicit evaluation runs.
 
 ## Current sources of truth
 
 - Contracts and runtime: `src/publication_figure_design/`
-- Agent routing and gates: `SKILL.md`, `manifest.yaml`
+- Agent entrypoint and workflow graph: `SKILL.md`, `manifest.yaml`
 - Rule hierarchy and provenance: `rules/`, `sources/registry.yaml`,
   `scripts/check_rule_contract.py`
-- Reading contract: `always_load` and route-level `required_load` are mandatory; ordinary
-  `load` entries are supplemental and must not be treated as a substitute for required
-  material.
+- Runtime policy: `manifest.yaml` owns workflow stages, conditional insertion, and rule
+  selection. `docs/maintenance/runtime-and-evaluation.md` owns maintainer-only benchmark
+  and release procedures; it is not ordinary agent context.
 - Reference intelligence: `reference_dna.json`, `indexes/hybrid.json`
 - Style: `profiles/style-capsules/`, `profiles/journals/`
 - Reference lifecycle: `raw → analyzed → reviewed → benchmarked → production`
 - Evaluation: `evals/`, `assets/reference-benchmarks/`, `scripts/ci_gate.py`
+
+Ordinary figure-generation tasks must not inherit benchmark thresholds, sprint families,
+visual-judge policy, or baseline-promotion details from maintainer documentation.
 
 Rules are categorized as G0 scientific invariants, G1 accessibility/legibility, J
 journal/stage requirements, F figure-family constraints, H house defaults, and B

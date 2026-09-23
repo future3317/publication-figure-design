@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Integration tests for Phase 2 workflow changes.
-
-These tests verify that SKILL.md contains the expected workflow hooks and that
-ReferenceLibrary supports the queries described in the workflow.
-"""
+"""Integration tests for the manifest-driven runtime and reference library."""
 
 from __future__ import annotations
 
@@ -14,127 +10,64 @@ import tempfile
 import unittest
 from pathlib import Path
 
+import yaml
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from reference_library import ReferenceLibrary, _resolve_skill_root
 
 
 class TestSkillMdWorkflowHooks(unittest.TestCase):
-    """Verify that SKILL.md contains the Phase 2 integration instructions."""
+    """Verify the thin entrypoint and manifest-owned runtime contract."""
 
     @classmethod
     def setUpClass(cls):
         root = _resolve_skill_root()
         cls.root = root
         cls.skill_md = (root / "SKILL.md").read_text(encoding="utf-8")
-        cls.visual_refs = (root / "references" / "visual-reference-library.md").read_text(
-            encoding="utf-8"
-        )
-        cls.asset_adaptation = (root / "references" / "asset-adaptation.md").read_text(
-            encoding="utf-8"
-        )
-        cls.delivery = (root / "references" / "delivery-contract.md").read_text(
-            encoding="utf-8"
-        )
-        cls.privacy = (root / "references" / "privacy-provenance.md").read_text(
-            encoding="utf-8"
-        )
+        cls.manifest = yaml.safe_load((root / "manifest.yaml").read_text(encoding="utf-8"))
 
-    def test_task_dispatch_section_exists(self):
-        self.assertIn("## Dispatch", self.skill_md)
+    def test_entrypoint_routes_to_persisted_orchestrator(self):
+        self.assertIn("pfd run <task-spec>", self.skill_md)
+        self.assertIn("RoutePlan", self.skill_md)
+        self.assertIn("PolicyPacket", self.skill_md)
 
-    def test_five_modes_defined(self):
-        for mode in ("create", "revise", "review", "export", "reference"):
-            self.assertIn(f"**{mode}**", self.skill_md)
+    def test_scientific_semantics_and_final_qa_are_mandatory(self):
+        self.assertIn("scientific brief", self.skill_md)
+        self.assertIn("A reference controls visual grammar only", self.skill_md)
+        self.assertIn("never copy a reference's scientific content", self.skill_md)
+        self.assertIn("Final QA must cover", self.skill_md)
 
-    def test_reference_mode_shortcuts(self):
-        self.assertIn("ReferenceLibrary().ingest", self.visual_refs)
-        self.assertIn("archive_generated_figure", self.visual_refs)
-        self.assertIn("query(figure_type=\"GroupedViolin\"", self.visual_refs)
+    def test_global_visual_language_and_tex_route_remain_available(self):
+        for phrase in ("soft segmentation", "short, evidence-led titles", "low-saturation", "compact"):
+            self.assertIn(phrase, self.skill_md)
+        self.assertIn("references/tex-rendering.md", self.skill_md)
+        self.assertIn("intended physical size", self.skill_md)
 
-    def test_revise_export_do_not_use_full_pipeline(self):
-        self.assertIn("run only affected creation stages", self.skill_md)
-        self.assertIn("Do not force revise, review, export, or reference work", self.skill_md)
+    def test_routes_are_manifest_owned_and_route_specific(self):
+        workflows = self.manifest["workflows"]
+        self.assertIn("create", workflows)
+        self.assertIn("revise", workflows)
+        self.assertIn("review", workflows)
+        self.assertIn("export", workflows)
+        self.assertIn("reference", workflows)
+        self.assertNotIn("load", self.manifest)
+        self.assertNotIn("required_load", self.manifest)
+        self.assertNotIn("always_load", self.manifest)
+        self.assertIn("reference_present", self.manifest["conditions"])
+        self.assertEqual(self.manifest["conditions"]["qa_failed"]["modes"], ["create", "revise"])
+        self.assertEqual(self.manifest["conditions"]["qa_failed"]["insert_once"], [
+            "Critique", "Repair", "Render", "QA",
+        ])
 
-    def test_step_4_5_section_exists(self):
-        self.assertIn("Optional reference library", self.skill_md)
-        self.assertIn("optional style discovery", self.visual_refs)
+    def test_maintenance_and_evaluation_details_are_not_in_runtime_entrypoint(self):
+        self.assertIn("docs/maintenance/runtime-and-evaluation.md", self.skill_md)
+        for term in ("Recall@1", "blind judge", "focus_ready_family_count", "75 candidates"):
+            self.assertNotIn(term, self.skill_md)
 
-    def test_default_reference_limit_is_three(self):
-        self.assertIn("at most 3 candidates", self.skill_md)
-        self.assertIn("limit=3", self.visual_refs)
-
-    def test_production_semantics_priority_over_visual_style(self):
-        # The instruction must state that scientific semantics cannot be overridden
-        # by a visual reference.
-        self.assertIn("scientific meaning, complete data", self.skill_md)
-        self.assertIn("A visual reference never changes scientific semantics", self.skill_md)
-
-    def test_skill_scope_is_research_domain_and_venue_agnostic(self):
-        self.assertIn("across research domains and publication venues", self.skill_md)
-        self.assertNotIn("Nature/Cell/Science-family manuscripts", self.skill_md)
-
-    def test_palette_priority_order(self):
-        text = self.visual_refs
-        # User explicit colors > user explicit palette > visual reference > default
-        idx_user_colors = text.find("User explicit colors")
-        idx_user_palette = text.find("User explicit palette")
-        idx_ref = text.find("Production / reference original palette")
-        idx_default = text.find("Skill default palette")
-        self.assertGreater(idx_user_colors, 0)
-        self.assertGreater(idx_user_palette, idx_user_colors)
-        self.assertGreater(idx_ref, idx_user_palette)
-        self.assertGreater(idx_default, idx_ref)
-
-    def test_palette_policy_preserve_and_adaptable_mentioned(self):
-        self.assertIn("palette_policy", self.visual_refs)
-        self.assertIn("preserve", self.visual_refs)
-        self.assertIn("adaptable", self.visual_refs)
-
-    def test_visual_source_report_in_delivery(self):
-        self.assertIn("Internal audit record", self.privacy)
-        self.assertIn("asset filenames", self.privacy)
-        self.assertIn("reference IDs", self.privacy)
-        self.assertIn("QA result", self.delivery)
-
-    def test_visual_reference_library_in_references_table(self):
-        self.assertIn("references/visual-reference-library.md", self.skill_md)
-
-    def test_concrete_reference_gate_precedes_production_scan(self):
-        gate = self.skill_md.find("## Concrete-reference gate")
-        scan = self.skill_md.find("Select implementation material")
-        self.assertGreaterEqual(gate, 0)
-        self.assertGreater(scan, gate)
-        self.assertIn("all five dimensions", self.skill_md)
-
-    def test_reference_reconstruction_resources_are_linked(self):
-        self.assertIn("references/reference-driven-reconstruction.md", self.skill_md)
-        self.assertIn("scripts/check_reference_fidelity.py", self.skill_md)
-
-    def test_visual_optimization_route_is_mandatory_and_rendered(self):
-        self.assertIn("### Mandatory visual-optimization route", self.skill_md)
+    def test_existing_figure_optimization_has_required_evidence_tools(self):
+        self.assertIn("scripts/prepare_visual_optimization.py", self.skill_md)
         self.assertIn("scripts/check_visual_optimization.py", self.skill_md)
-        self.assertIn("Palette/font/alpha/line-width/marker-size/spacing-only", self.skill_md)
-        self.assertIn("Before | Reference | After", self.skill_md)
-        self.assertIn("prepare_visual_optimization.py", self.skill_md)
-        self.assertIn("Do not use generic `query()`", self.skill_md)
-
-    def test_optimization_requires_an_explicit_palette_decision_and_contrast_evidence(self):
-        root = _resolve_skill_root()
-        contract = (root / "references" / "reference-driven-reconstruction.md").read_text(
-            encoding="utf-8"
-        )
-        checklist = (root / "references" / "checklist.md").read_text(encoding="utf-8")
-        self.assertIn("palette_decision", contract)
-        self.assertIn("text_contrast", contract)
-        self.assertIn("rendered_contrast.py", contract)
-        self.assertIn("contrast_ratio", checklist)
-
-    def test_reference_fidelity_qa_is_complete(self):
-        root = _resolve_skill_root()
-        checklist = (root / "references" / "checklist.md").read_text(encoding="utf-8")
-        for number in range(1, 11):
-            self.assertIn(f"RF-{number}", checklist)
 
 
 class TestWorkflowReferenceQueries(unittest.TestCase):

@@ -3,6 +3,7 @@
 from .machine import (
     GateResult,
     Orchestrator,
+    RoutePlan,
     StageArtifact,
     StageContext,
     StageRecord,
@@ -14,6 +15,7 @@ from .runtime import build_runtime_orchestrator
 __all__ = [
     "GateResult",
     "Orchestrator",
+    "RoutePlan",
     "StageArtifact",
     "StageContext",
     "StageRecord",

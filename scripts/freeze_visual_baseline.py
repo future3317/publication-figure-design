@@ -7,7 +7,6 @@ import argparse
 import hashlib
 import json
 import shutil
-from collections import Counter
 from pathlib import Path
 
 
@@ -41,7 +40,6 @@ def freeze(report_path: Path, output_path: Path, *, replace: bool = False) -> di
         shutil.rmtree(baseline_dir)
     baseline_dir.mkdir(parents=True, exist_ok=True)
     frozen = []
-    reason_counts = Counter()
     for row in tasks:
         family = str(row["figure_family"])
         task_id = str(row["id"])
@@ -51,16 +49,14 @@ def freeze(report_path: Path, output_path: Path, *, replace: bool = False) -> di
         destination = baseline_dir / f"{task_id}.png"
         shutil.copy2(source, destination)
         qa = row.get("qa", {}).get(f"{family}__balanced", {})
-        for pair in row.get("pairwise", []):
-            reason_counts.update(pair.get("consensus", {}).get("reason_codes", []))
         frozen.append({
             "task_id": task_id,
             "figure_family": family,
             "source_image": row.get("source_image", ""),
+            "source_sha256": row.get("source_sha256") or _sha256(Path(str(row["source_image"]))),
             "image": str(destination.relative_to(ROOT)).replace("\\", "/"),
             "sha256": _sha256(destination),
             "L0": bool((qa.get("L0") or {}).get("passed")),
-            "L1": bool((qa.get("L1") or {}).get("passed")),
         })
     payload = {
         "schema_version": "1.0",
@@ -70,7 +66,6 @@ def freeze(report_path: Path, output_path: Path, *, replace: bool = False) -> di
         "candidate_strategy": "balanced",
         "renderer_version": "sprint-1",
         "task_count": len(frozen),
-        "reason_code_counts": dict(sorted(reason_counts.items())),
         "tasks": frozen,
         "promotion_policy": "new real renders must beat this baseline by blind swapped review; source_render_variant never promotes a Champion",
     }

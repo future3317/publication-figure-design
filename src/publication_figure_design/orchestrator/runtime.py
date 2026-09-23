@@ -8,23 +8,12 @@ recorded as ``not_provided`` for the agent to repair or fill.
 
 from __future__ import annotations
 
-import json
 from pathlib import Path
 from typing import Any, Mapping
 
 from ..contracts import ReferenceSet, SourceSpec, TaskSpec
 from ..reference_intelligence import RenderTrace
 from .machine import GateResult, Orchestrator, StageContext
-
-
-def _max_repairs() -> int:
-    """Read the sprint stop rule from the canonical Champion Board config."""
-    root = Path(__file__).resolve().parents[3]
-    payload = json.loads((root / "assets" / "reference-benchmarks" / "champion_board.json").read_text(encoding="utf-8"))
-    repairs = int(payload["focus"]["max_repairs"])
-    if repairs < 0:
-        raise ValueError("champion board max_repairs must be non-negative")
-    return repairs
 
 
 def _metadata(context: StageContext) -> dict[str, Any]:
@@ -167,7 +156,7 @@ def _design_spec(context: StageContext) -> dict[str, Any]:
     domain = load_domain_profile(str(domain_name)) if domain_name else None
     packet = compile_design_packet(task, metadata.get("source", {}), metadata.get("reference_set", {}), journal, capsule, domain)
     from ..design.candidates import generate_candidates
-    generate_candidates(packet, str(metadata.get("generation_mode", "publication")))
+    generate_candidates(packet, str(metadata.get("generation_mode", "production")))
     result = {
         "status": "ready",
         "design_packet": packet.to_dict(),
@@ -229,6 +218,13 @@ def _critique(context: StageContext) -> dict[str, Any]:
     metadata = _metadata(context)
     patch = metadata.get("design_patch") or metadata.get("critique_patch")
     if patch is None:
+        feedback = context.telemetry.get("policy_packet", {}).get("qa_feedback", [])
+        if feedback:
+            return {
+                "status": "blocked",
+                "errors": ["A DesignPatch is required before the QA repair cycle can continue.", *feedback],
+                "qa_feedback": feedback,
+            }
         return {"status": "not_provided", "design_patch": None}
     if not isinstance(patch, Mapping) or not isinstance(patch.get("patches", []), list):
         return {"status": "blocked", "errors": ["design_patch must contain a patches list"]}
@@ -257,15 +253,36 @@ def _qa(context: StageContext) -> dict[str, Any]:
     trace = metadata.get("render_trace") or {}
     packet = metadata.get("design_packet") or {}
     if not figure and not packet and not trace:
-        return {"status": "not_provided", "hard": {}, "scientific": {}, "structural": {}, "perceptual": {}, "passed": False}
+        return {
+            "status": "blocked",
+            "errors": ["A figure and its scientific/render evidence are required for QA."],
+            "hard": {},
+            "scientific": {},
+            "structural": {},
+            "perceptual": {},
+            "passed": False,
+        }
     from ..qa import run_hard_qa, run_scientific_qa, run_structural_qa, run_perceptual_qa
     hard = run_hard_qa(figure, packet, trace) if figure else {"layer": "L0_hard_technical", "passed": False, "issues": ["figure image not provided"]}
     scientific = run_scientific_qa(packet.get("scientific_contract", {}), trace)
     compare = metadata.get("comparison") or {}
-    structural = run_structural_qa(compare)
+    comparison_requested = bool(metadata.get("reference_led") or metadata.get("reference_image") or metadata.get("reference_ids"))
+    if compare:
+        structural = run_structural_qa(compare)
+    elif comparison_requested:
+        structural = {"layer": "L2_structural_visual", "passed": False, "metrics": {}, "issues": ["reference comparison was requested but no comparison evidence was provided"]}
+    else:
+        structural = {"layer": "L2_structural_visual", "passed": True, "metrics": {}, "status": "not_applicable"}
     perceptual = run_perceptual_qa(compare)
+    errors = [*hard.get("issues", []), *scientific.get("issues", [])]
+    errors.extend(structural.get("issues", []))
+    errors.extend(
+        f"{name} {value:.3f} is below the structural QA floor 0.680"
+        for name, value in structural.get("metrics", {}).items()
+        if float(value) < 0.68
+    )
     passed = bool(hard.get("passed") and scientific.get("passed") and structural.get("passed"))
-    return {"status": "ready" if passed else "blocked", "hard": hard, "scientific": scientific, "structural": structural, "perceptual": perceptual, "passed": passed}
+    return {"status": "ready" if passed else "blocked", "errors": errors, "hard": hard, "scientific": scientific, "structural": structural, "perceptual": perceptual, "passed": passed}
 
 
 def build_runtime_orchestrator() -> Orchestrator:
@@ -291,4 +308,12 @@ def build_runtime_orchestrator() -> Orchestrator:
             return GateResult(False, "handler reported blocked", {"errors": payload.get("errors", [])})
         return GateResult(True, "handler status accepted")
 
-    return Orchestrator(handlers=handlers, gates={WorkflowStage.RENDER: status_gate}, max_retries=_max_repairs() + 1)
+    return Orchestrator(
+        handlers=handlers,
+        gates={
+            WorkflowStage.RENDER: status_gate,
+            WorkflowStage.CRITIQUE: status_gate,
+            WorkflowStage.QA: status_gate,
+        },
+        max_retries=2,
+    )

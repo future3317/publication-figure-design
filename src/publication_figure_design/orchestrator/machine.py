@@ -41,21 +41,23 @@ def _current_index_version() -> str:
 
 
 def _active_rule_context(task: Mapping[str, Any]) -> dict[str, Any]:
-    """Compile manifest-selected rules into persisted session telemetry."""
+    """Compile selected rule sources into a compact task policy packet."""
     root = Path(__file__).resolve().parents[3]
     manifest = yaml.safe_load((root / "manifest.yaml").read_text(encoding="utf-8")) or {}
     metadata = task.get("metadata") or {}
-    route = str(metadata.get("route") or metadata.get("mode") or "create")
-    route = {"optimize": "visual_optimization", "reference": "concrete_reference", "maintain": "maintain_skill"}.get(route, route)
-    config = (manifest.get("routes") or {}).get(route, {})
+    route = str(metadata.get("route") or metadata.get("mode") or task.get("mode") or "create")
+    route = (manifest.get("rule_route_aliases") or {}).get(route, route)
     family = str(metadata.get("figure_family") or metadata.get("figure_type") or "")
     family_paths = (manifest.get("family_rulesets") or {}).get(family, [])
     paths = list(dict.fromkeys([
         *(str(item) for item in manifest.get("always_rulesets", []) or []),
-        *(str(item) for item in config.get("required_rulesets", []) or []),
+        *(str(item) for item in (manifest.get("route_rulesets") or {}).get(route, []) or []),
         *(str(item) for item in family_paths or []),
     ]))
     ids: list[str] = []
+    hard_constraints: list[str] = []
+    style_tokens: dict[str, str] = {}
+    family_constraints: list[str] = []
     for relative in paths:
         path = root / relative
         if not path.is_file():
@@ -66,8 +68,70 @@ def _active_rule_context(task: Mapping[str, Any]) -> dict[str, Any]:
             rows = [rows]
         if not isinstance(rows, list):
             raise ValueError(f"active ruleset is not a rule list: {relative}")
-        ids.extend(str(row["id"]) for row in rows if isinstance(row, Mapping) and row.get("id"))
-    return {"active_rule_sets": paths, "active_rule_ids": list(dict.fromkeys(ids)), "active_rule_route": route}
+        for row in rows:
+            if not isinstance(row, Mapping) or not row.get("id"):
+                continue
+            rule_id = str(row["id"])
+            ids.append(rule_id)
+            statement = str(row.get("statement", ""))
+            if row.get("severity") == "block" or row.get("authority") in {"scientific_integrity", "accessibility", "publisher_requirement"}:
+                hard_constraints.append(rule_id)
+            if row.get("authority") == "house_style":
+                style_tokens[rule_id] = statement
+            if row.get("scope") == "family":
+                family_constraints.append(f"{rule_id}: {statement}")
+    from ..style.journals import load_journal_profile
+    journal = load_journal_profile(
+        str(metadata.get("journal", "generic")),
+        str(metadata.get("submission_stage", "final_submission")),
+    )
+    journal_constraints = [
+        {"id": name, **rule}
+        for name, rule in journal.rules.items()
+        if isinstance(rule, Mapping) and rule.get("level") == "required"
+    ]
+    return {
+        "active_rule_sets": paths,
+        "active_rule_ids": list(dict.fromkeys(ids)),
+        "active_rule_route": route,
+        "policy_packet": {
+            "hard_constraints": hard_constraints,
+            "style_tokens": style_tokens,
+            "family_constraints": family_constraints,
+            "journal_constraints": journal_constraints,
+            "qa_feedback": [],
+        },
+    }
+
+
+def _route_plan_for(task: Mapping[str, Any]) -> "RoutePlan":
+    root = Path(__file__).resolve().parents[3]
+    manifest = yaml.safe_load((root / "manifest.yaml").read_text(encoding="utf-8")) or {}
+    workflows = manifest.get("workflows") or {}
+    metadata = task.get("metadata") or {}
+    aliases = manifest.get("workflow_aliases") or {}
+    requested = str(task.get("mode") or "create")
+    route = str(metadata.get("route") or metadata.get("mode") or "")
+    requested_route = route or requested
+    mode = aliases.get(requested_route, requested_route)
+    if mode not in workflows:
+        raise ValueError(f"Unknown workflow route {requested_route!r}")
+    stages = [str(stage) for stage in workflows[mode]["stages"]]
+    condition = (manifest.get("conditions") or {}).get("reference_present", {})
+    reference_supplied = bool(
+        metadata.get("reference_ids") or metadata.get("references") or metadata.get("reference_set")
+        or metadata.get("reference_image") or metadata.get("reference_images")
+    )
+    if reference_supplied and mode in condition.get("modes", []):
+        index = stages.index(str(condition["after"])) + 1
+        stages[index:index] = [str(stage) for stage in condition["stages"]]
+    return RoutePlan(mode=mode, stages=stages)
+
+
+def _conditions() -> dict[str, Any]:
+    root = Path(__file__).resolve().parents[3]
+    manifest = yaml.safe_load((root / "manifest.yaml").read_text(encoding="utf-8")) or {}
+    return manifest.get("conditions") or {}
 
 
 def _jsonable(value: Any) -> Any:
@@ -99,7 +163,24 @@ class WorkflowStage(str, Enum):
     EXPORT = "Export"
 
 
-STAGE_ORDER: tuple[WorkflowStage, ...] = tuple(WorkflowStage)
+@dataclass
+class RoutePlan:
+    mode: str
+    stages: List[str]
+    cursor: int = -1
+    applied_conditions: List[str] = field(default_factory=list)
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+    @classmethod
+    def from_dict(cls, data: Mapping[str, Any]) -> "RoutePlan":
+        return cls(
+            mode=str(data.get("mode", "create")),
+            stages=[str(stage) for stage in data.get("stages", [])],
+            cursor=int(data.get("cursor", -1)),
+            applied_conditions=[str(item) for item in data.get("applied_conditions", [])],
+        )
 
 
 @dataclass
@@ -173,6 +254,7 @@ class WorkflowSession:
     task: Dict[str, Any]
     contracts: Dict[str, Any] = field(default_factory=dict)
     current_stage: Optional[str] = None
+    route_plan: RoutePlan = field(default_factory=lambda: RoutePlan("create", [WorkflowStage.ROUTE.value]))
     status: str = "ready"
     artifacts: Dict[str, Dict[str, Any]] = field(default_factory=dict)
     history: List[Dict[str, Any]] = field(default_factory=list)
@@ -213,13 +295,25 @@ class WorkflowSession:
         telemetry.setdefault("input_hash", _canonical_hash(task))
         telemetry.setdefault("renderer_version", str(task.get("metadata", {}).get("renderer_version", "")))
         telemetry.setdefault("output_hash", "")
-        if "active_rule_sets" not in telemetry or "active_rule_ids" not in telemetry:
+        if "active_rule_sets" not in telemetry or "active_rule_ids" not in telemetry or "policy_packet" not in telemetry:
             telemetry.update(_active_rule_context(task))
+        route_plan_data = data.get("route_plan")
+        if isinstance(route_plan_data, Mapping):
+            route_plan = RoutePlan.from_dict(route_plan_data)
+        elif data.get("current_stage"):
+            route_plan = RoutePlan("legacy_resume", [stage.value for stage in WorkflowStage])
+            try:
+                route_plan.cursor = route_plan.stages.index(str(data["current_stage"]))
+            except ValueError as exc:
+                raise ValueError(f"Cannot resume legacy session from unknown stage {data['current_stage']!r}") from exc
+        else:
+            route_plan = _route_plan_for(task)
         return cls(
             session_id=str(data["session_id"]),
             task=task,
             contracts=dict(data.get("contracts", {})),
             current_stage=data.get("current_stage"),
+            route_plan=route_plan,
             status=str(data.get("status", "ready")),
             artifacts=dict(data.get("artifacts", {})),
             history=list(data.get("history", [])),
@@ -232,7 +326,7 @@ class WorkflowSession:
         return cls.from_dict(json.loads(Path(path).read_text(encoding="utf-8")))
 
     def is_complete(self) -> bool:
-        return self.current_stage == WorkflowStage.EXPORT.value and self.status == "complete"
+        return self.status == "complete"
 
 
 Handler = Callable[[StageContext], Any]
@@ -240,7 +334,7 @@ Gate = Callable[[Any], Union[GateResult, bool]]
 
 
 class Orchestrator:
-    """Run the fixed workflow while enforcing gates at every transition."""
+    """Run the task's persisted route plan while enforcing stage gates."""
 
     def __init__(
         self,
@@ -288,6 +382,7 @@ class Orchestrator:
             session_id=task.task_id or uuid.uuid4().hex,
             task=task.to_dict(),
             contracts=contract_map,
+            route_plan=_route_plan_for(task.to_dict()),
             telemetry=telemetry,
         )
 
@@ -299,13 +394,13 @@ class Orchestrator:
         return WorkflowSession.from_dict(session)
 
     def next_stage(self, session: WorkflowSession) -> Optional[WorkflowStage]:
-        if session.current_stage is None:
-            return STAGE_ORDER[0]
+        index = session.route_plan.cursor + 1
+        if index >= len(session.route_plan.stages):
+            return None
         try:
-            index = [stage.value for stage in STAGE_ORDER].index(session.current_stage)
+            return WorkflowStage(session.route_plan.stages[index])
         except ValueError as exc:
-            raise ValueError(f"Unknown current stage {session.current_stage!r}") from exc
-        return STAGE_ORDER[index + 1] if index + 1 < len(STAGE_ORDER) else None
+            raise ValueError(f"Unknown route-plan stage {session.route_plan.stages[index]!r}") from exc
 
     def advance(self, session: WorkflowSession) -> WorkflowSession:
         if session.status in {"blocked", "error"}:
@@ -315,6 +410,7 @@ class Orchestrator:
             session.status = "complete"
             return session
         key = stage.value
+        stage_index = session.route_plan.cursor + 1
         previous = session.artifacts.get(session.current_stage or "")
         context = StageContext(
             session_id=session.session_id,
@@ -353,20 +449,43 @@ class Orchestrator:
             session.history[-1]["finished_at"] = _now()
             if not gate.passed:
                 session.history[-1]["status"] = "gate_failed"
+                session.current_stage = key
                 failed = session.telemetry.setdefault("failed_gates", [])
                 failed.append({"stage": key, "reason": gate.reason})
+                qa_condition = _conditions().get("qa_failed") or {}
+                if (
+                    key == WorkflowStage.QA.value
+                    and session.route_plan.mode in qa_condition.get("modes", [])
+                    and "qa_failed" not in session.route_plan.applied_conditions
+                ):
+                    inserted = [str(value) for value in qa_condition.get("insert_once", [])]
+                    if inserted:
+                        session.route_plan.stages[stage_index + 1:stage_index + 1] = inserted
+                        session.route_plan.cursor = stage_index
+                        session.route_plan.applied_conditions.append("qa_failed")
+                        session.current_stage = key
+                        session.artifacts[key] = StageArtifact(stage=key, payload=payload).to_dict()
+                        packet = session.telemetry.get("policy_packet")
+                        if isinstance(packet, dict):
+                            details = gate.details if isinstance(gate.details, Mapping) else {}
+                            feedback = details.get("errors") or details.get("issues")
+                            packet["qa_feedback"] = list(feedback) if isinstance(feedback, list) else [gate.reason]
+                        session.status = "ready"
+                        return session
                 session.status = "blocked"
                 return session
         except Exception as exc:
             session.history[-1]["status"] = "error"
             session.history[-1]["error"] = str(exc)
             session.history[-1]["finished_at"] = _now()
+            session.current_stage = key
             session.status = "error"
             return session
         artifact = StageArtifact(stage=key, payload=payload)
         session.artifacts[key] = artifact.to_dict()
         session.current_stage = key
-        session.status = "complete" if key == WorkflowStage.EXPORT.value else "ready"
+        session.route_plan.cursor = stage_index
+        session.status = "complete" if stage_index == len(session.route_plan.stages) - 1 else "ready"
         self._update_best(session, artifact)
         if isinstance(payload, Mapping):
             if key == WorkflowStage.REFERENCE_RETRIEVAL.value:
@@ -413,15 +532,19 @@ class Orchestrator:
 
     def rollback(self, session: WorkflowSession, target: Union[WorkflowStage, str]) -> WorkflowSession:
         target_key = self._stage_key(target)
-        keys = [stage.value for stage in STAGE_ORDER]
+        keys = session.route_plan.stages
         if target_key not in keys:
             raise ValueError(f"Unknown rollback stage {target_key!r}")
-        target_index = keys.index(target_key)
+        completed = keys[:session.route_plan.cursor + 1]
+        if target_key not in completed:
+            raise ValueError(f"Cannot roll back to a stage that has not run: {target_key}")
+        target_index = max(index for index, key in enumerate(completed) if key == target_key)
         previous_stage = session.current_stage
         previous_key = keys[target_index - 1] if target_index else None
         for key in keys[target_index:]:
             session.artifacts.pop(key, None)
         session.current_stage = previous_key
+        session.route_plan.cursor = target_index - 1
         session.status = "ready"
         session.history.append({
             "stage": target_key,

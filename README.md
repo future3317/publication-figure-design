@@ -1,244 +1,63 @@
 # Publication Figure Design
 
-Reference-first scientific figure design for publication workflows. This repository
-contains the current implementation of the `publication-figure-design` Codex Skill:
-an orchestrated compiler that turns a scientific contract and visual evidence into a
-reproducible, QA-gated figure package.
+跨研究领域、跨发表 venue 的 reference-first 科研绘图 Skill 与设计编译器。仓库把科学任务、参考图的视觉证据、版式/风格规格、渲染结果和分层 QA 连接为可恢复的工作流。
 
-The project is not a template gallery. A reference supplies visual grammar only; it
-never changes the data meaning, statistical transform, uncertainty semantics, labels,
-or variable roles of the target figure.
+参考图只提供视觉语法，不能改变源数据、统计变换、不确定性语义、变量角色或科学结论。
 
-## What is here
+## 项目组成
 
-- A thin agent entrypoint in [`SKILL.md`](SKILL.md) and the routing manifest in
-  [`manifest.yaml`](manifest.yaml).
-- The production runtime in
-  [`src/publication_figure_design/`](src/publication_figure_design/): contracts,
-  reference intelligence, style compilation, layout, renderers, orchestration, and
-  layered QA.
-- Reference assets under [`assets/`](assets/), with source-specific analysis,
-  `ReferenceDNA`, reproduction material, previews, provenance, and lifecycle state.
-  `ReferenceDNA` now carries a scientific-semantics layer: claim type, encoding
-  rationale, pedagogical notes, caption requirements, and accessibility evidence,
-  so retrieval is driven by *why* a reference works, not only by how it looks.
-- Journal profiles, reusable style capsules, and **domain profiles** in
-  [`profiles/`](profiles/). Domain profiles change the semantic contract for a field
-  (`ml-ai`, `biomedical`, `genomics`, `microscopy`, `chemistry-materials`,
-  `systematic-review`); they are not skin swaps.
-- Deterministic hybrid indexes in [`indexes/`](indexes/).
-- Executable evaluation and release gates in [`scripts/`](scripts/) and [`evals/`](evals/).
-  The output eval suite now includes adversarial mutations, semantic correctness,
-  statistical integrity, visual clarity, accessibility, publication compliance,
-  export integrity, and reference-selection tests.
-- Machine-readable rule hierarchy in [`rules/`](rules/) with source provenance in
-  [`sources/registry.yaml`](sources/registry.yaml). Each rule records an
-  `authority` level (`scientific_integrity`, `publisher_requirement`,
-  `accessibility`, `evidence_based_guidance`, `house_style`, `heuristic`) and a
-  rationale, so conflicts resolve by authority. Global scientific/accessibility
-  rules are distinct from house defaults, family constraints, journal profiles, and
-  backend details.
-- An **anti-pattern atlas** in [`assets/anti-pattern-atlas/`](assets/anti-pattern-atlas/)
-  that pairs bad figures with diagnosis and corrected figures.
+- [`SKILL.md`](SKILL.md)：精简的 agent 工作入口。
+- [`manifest.yaml`](manifest.yaml)：唯一的 workflow stage、条件插入、规则源和适配器 runtime 清单。
+- [`src/publication_figure_design/`](src/publication_figure_design/)：合同、reference intelligence、风格编译、布局、渲染、orchestrator 和 QA。
+- [`rules/`](rules/) 与 [`sources/registry.yaml`](sources/registry.yaml)：机器规则、权威层级和来源。
+- [`profiles/`](profiles/) 与 [`indexes/`](indexes/)：journal/domain profiles、StyleCapsule 和检索索引。
+- [`assets/`](assets/)：参考图库、ReferenceDNA、复现素材和 anti-pattern atlas。
+- [`evals/`](evals/) 与 [`scripts/`](scripts/)：独立的 benchmark、维护和发布门禁。
 
-## Runtime lifecycle
+## 工作流
 
-Every create, revise, review, export, optimization, and reference-intake task follows
-the same persisted route:
+每个 `WorkflowSession` 持久化自己的 `RoutePlan`、阶段游标、参考选择、规则策略、QA 结果和导出信息。路由由任务类型决定：create/revise 只运行所需阶段；review 与 export 使用短路径；有参考时才加入检索、像素检查和比较；create/revise 的 QA 失败时最多插入一次 critique → repair → render → QA。Critique 会带着具体失败项暂停，等待 Agent 提交 `DesignPatch` 后再用 `--resume` 继续；review/export 的 QA 失败只报告并阻断，不强制进入重画流程。
 
 ```text
-Route → Intake → Reference Retrieval → Reference Inspection
-      → Design Spec → Binding → Render → Compare → Critique
-      → Repair → QA → Export
+TaskSpec → RoutePlan → PolicyPacket → stage handlers → QA feedback → Export
 ```
 
-The runtime records the selected reference ids, concrete index version, renderer and
-style versions, iteration history, QA artifacts, and output manifest. Resuming a
-session reuses its recorded selection; it does not silently re-rank references.
+`manifest.yaml` 是执行图的单一来源。Runtime 将当前任务适用的 global、house、family、route 与 journal 约束编译为紧凑 `PolicyPacket`。验证器执行硬约束，并把具体失败项提供给修复阶段；Agent 无需在每次任务中加载整套规则 YAML。
 
-Reference retrieval is role-separated (`structure`, `style`, `palette`, `component`,
-and `annotation`). The selected pixels are inspected before implementation material is
-chosen and compiled into `ReferenceDNA → StyleCapsule + JournalProfile → DesignPacket`.
-Publication mode renders structure-first, style-first, and balanced candidates before
-the final repair and export decision.
+参考按 `structure`、`style`、`palette`、`component` 和 `annotation` 等角色分开选择。检查像素后，将视觉证据编译为 `ReferenceDNA → StyleCapsule + JournalProfile → DesignPacket`。生产默认生成一个候选；评测工作流可显式请求结构优先、风格优先和平衡三个候选。
+
+全局视觉语言强调柔和分区、短标题层级、结构化留白、低饱和语义色，以及克制的图例和注释；可访问性对比度和科学语义优先。
 
 ## TeX 后端
 
-TeX/TikZ/PGFPlots 是一等后端，适用于需要原生矢量几何、论文字体一致性或可编辑
-PDF 的图。选择 TeX 后先读 [`references/tex-rendering.md`](references/tex-rendering.md)，
-声明 `lualatex`/`xelatex`/`pdflatex`、PGFPlots 兼容版本和最终 assembler；编译日志、
-字体嵌入、overfull box、页面尺寸与最终大小 PNG 都必须进入 QA。缺少 TeX 能力时
-停止该路径，不静默改用 Python/R。
+TeX/TikZ/PGFPlots 是一等后端。选用后阅读 [`references/tex-rendering.md`](references/tex-rendering.md)，声明编译引擎和包版本，并将编译日志、字体嵌入、overfull box、页面尺寸与目标物理尺寸 PNG 纳入 QA。TeX 能力缺失时应明确阻断该后端，不静默替换。
 
-### 阅读材料契约
+## 快速开始
 
-`manifest.yaml` 将材料分成三层：`always_load` 是所有任务必读，路由下的
-`required_load` 是进入该路由时必读，普通 `load` 是按任务需要查阅的补充材料；
-`always_rulesets` 和 `required_rulesets` 是必须编译的机器规则，不等同于普通阅读材料。
-路由的强制材料没有读完或文件缺失时，不得进入 Render、QA 或 Export；
-[`scripts/check_skill_contract.py`](scripts/check_skill_contract.py) 会检查这份合同。
-规则与来源可单独验证：
-
-```powershell
-& "D:\Anaconda\envs\piepaper\python.exe" scripts/check_rule_contract.py
-& "D:\Anaconda\envs\piepaper\python.exe" scripts/check_journal_profiles.py
-```
-
-## Quick start
-
-Use the repository's dedicated `piepaper` environment. On the maintainer workstation,
-call its interpreter directly:
+在本机使用专用 `piepaper` 环境：
 
 ```powershell
 & "D:\Anaconda\envs\piepaper\python.exe" -m pip install -e .
 & "D:\Anaconda\envs\piepaper\python.exe" -m publication_figure_design.cli run <task-spec.json>
 ```
 
-Useful commands:
+常用维护入口：
 
 ```powershell
-& "D:\Anaconda\envs\piepaper\python.exe" -m publication_figure_design.cli reference ingest <image>
-& "D:\Anaconda\envs\piepaper\python.exe" -m publication_figure_design.cli reference analyze <reference-id>
+& "D:\Anaconda\envs\piepaper\python.exe" -m publication_figure_design.cli reference ingest <image> <figure-type>
 & "D:\Anaconda\envs\piepaper\python.exe" -m publication_figure_design.cli index build
 & "D:\Anaconda\envs\piepaper\python.exe" -m publication_figure_design.cli eval quick
-& "D:\Anaconda\envs\piepaper\python.exe" scripts/champion_board.py --output tmp/champion-board.json
 & "D:\Anaconda\envs\piepaper\python.exe" scripts/ci_gate.py
 ```
 
-Do not use Conda `base`, a bare system `python`, or an unrelated environment for
-repository commands. Optional renderer and reference-analysis dependencies are listed
-in [`pyproject.toml`](pyproject.toml); install them into `piepaper` only for the route
-that needs them.
+不要使用 Conda `base`、裸系统 Python 或无关环境。只在目标 route 需要时，将可选依赖安装到 `piepaper`。
 
-## Reference library contract
+## 参考与质量门
 
-An image added to the library advances through:
+新参考按 `raw → analyzed → reviewed → benchmarked → production` 晋级。正式参考应具有元数据、适用的分析和复现材料、预览、来源记录，并通过相关 canary。入库不会执行参考目录里的 `code.py`。
 
-```text
-raw → analyzed → reviewed → benchmarked → production
-```
+QA 分层记录技术/导出、科学正确性、结构视觉对齐和感知质量。视觉相似不能覆盖科学或导出失败。参考驱动的 renderer 必须消费 `TypographySpec`、`PaletteSpec`、`LayoutSpec` 和 `ComponentSpec`。
 
-Each production reference is expected to have a machine-readable metadata record,
-source-appropriate analysis, a reproducible reconstruction or reproduction artifact,
-a preview, provenance, and passing retrieval/generation canaries. Reference-local
-`code.py` is not executed during intake; an explicitly requested private audit uses
-the constrained [`scripts/reference_code_sandbox.py`](scripts/reference_code_sandbox.py).
+CI、visual sprint、holdout、自动盲评、champion 晋级与 baseline 维护仅供项目维护者使用，集中记录在 [`docs/maintenance/runtime-and-evaluation.md`](docs/maintenance/runtime-and-evaluation.md)。
 
-The reference index is transparent and versioned. `current` is only an alias; the
-underlying index record retains the corpus, schema, model, and build identity needed
-to reproduce a past selection.
-
-## Quality gates
-
-The release gate is [`scripts/ci_gate.py`](scripts/ci_gate.py). It runs unit and
-package tests, reference validation and reconstruction/fidelity checks, DNA/index
-checks, benchmark/holdout/adversarial/scale evaluation, generation regression,
-champion floors, quarantine, adapter canaries, and the orchestrator lifecycle canary.
-
-The figure QA layers remain separate:
-
-- **L0** technical/export contract;
-- **L1** scientific correctness and provenance;
-- **L2** structural visual alignment;
-- **L3** perceptual quality, typography, contrast, density, and finish.
-
-Reference-led renderers must explicitly consume `TypographySpec`, `PaletteSpec`,
-`LayoutSpec`, and `ComponentSpec`. A high visual similarity score cannot override a
-scientific or export failure.
-
-After the architecture is frozen, the quality sprint is deliberately limited to five
-focus families: `statistical_discovery`, `mechanism_architecture`, `matrix_array`,
-`multi_axis_comparison`, and `image_quantitative_composite`. Each real task produces
-exactly three publication candidates (structure-first, style-first, balanced). The
-Codex/Luna visual judge compares the candidates with the display order swapped and
-accepts only consistent structured output; [`scripts/auto_visual_judge.py`](scripts/auto_visual_judge.py)
-also scores known original/degraded calibration pairs. A focus family becomes `ready`
-only after five real tasks, five accepted three-candidate records, ten swapped pairwise
-judgments, order consistency/degradation detection ≥0.90, challenger win rate ≥0.60,
-scientific/L0/L1 pass, and `auto_ready=true`. The loop hard-stops at three candidates,
-one repair, and two judge rounds; an uncertain result keeps the current champion. L2/L3
-and coverage × quality × diversity remain diagnostics. Do not create placeholder tasks
-or synthetic preference evidence.
-
-Run the current real-paper sprint with:
-
-```powershell
-$env:PYTHONPATH = "E:\CODE\publication-figure-design\src;E:\CODE\publication-figure-design\scripts"
-& "D:\Anaconda\envs\piepaper\python.exe" scripts/run_visual_sprint.py
-& "D:\Anaconda\envs\piepaper\python.exe" scripts/champion_board.py --enforce --summary
-```
-
-The checked-in task manifest is
-[`assets/reference-benchmarks/real_generation_tasks.json`](assets/reference-benchmarks/real_generation_tasks.json).
-The run writes 75 candidate PNGs, swapped-judge records, calibration evidence, and
-family contact sheets under `tmp/visual_sprint/` (kept out of Git). These candidates
-are marked `source_render_variant`: the real paper render remains the semantic source,
-so the run measures visual preference and calibration but does not claim a production
-champion until a longitudinal challenger beats an existing champion.
-
-The current 25-task output is frozen as `visual-baseline-v1`. To compare a later real
-render against it:
-
-```powershell
-& "D:\Anaconda\envs\piepaper\python.exe" scripts/visual_regression.py `
-  --current-report tmp/visual_sprint/sprint_report.json `
-  --output tmp/visual_sprint/visual-regression.json
-```
-
-The report contains only unchanged/win/loss/uncertain counts, family win rates,
-reason-code deltas, and hard-QA regressions. Changed renders require forward and
-reverse blind-judge payloads; uncertain review blocks promotion. The baseline is a
-regression checkpoint, not a Champion Board entry.
-
-Do not overwrite a frozen baseline during ordinary development. A new baseline is
-created only after the regression report satisfies the promotion rule, for example:
-
-```powershell
-& "D:\Anaconda\envs\piepaper\python.exe" scripts/freeze_visual_baseline.py `
-  --report tmp/visual_sprint/sprint_report.json `
-  --output assets/reference-benchmarks/visual-baseline-v2.json
-```
-
-The freezer derives the image directory and baseline id from the output name and
-refuses to replace an existing checkpoint unless `--replace` is explicitly supplied.
-
-For a focused check:
-
-```powershell
-& "D:\Anaconda\envs\piepaper\python.exe" scripts/check_skill_contract.py
-& "D:\Anaconda\envs\piepaper\python.exe" scripts/check_references.py --require-previews
-& "D:\Anaconda\envs\piepaper\python.exe" scripts/check_reference_dna.py
-& "D:\Anaconda\envs\piepaper\python.exe" scripts/check_source_reconstruction_library.py
-```
-
-## Layout
-
-```text
-SKILL.md                         agent-facing entrypoint
-manifest.yaml                    routes and validation commands
-src/publication_figure_design/   current production runtime
-scripts/                         CLI wrappers, maintenance, and gates
-references/                      workflow and visual-grammar contracts
-assets/figures/                  maintained figure-family scripts and previews
-assets/visual-references/        reference corpus and per-image artifacts
-assets/anti-pattern-atlas/       bad → diagnosis → corrected examples
-profiles/journals/               journal/venue constraints
-profiles/style-capsules/         reusable visual-grammar packages
-profiles/domains/                field-specific semantic contracts
-indexes/                         deterministic retrieval indexes
-rules/                           machine-readable scientific and house rules
-evals/                           activation, output eval, benchmark, and regression data
-sources/registry.yaml            external evidence provenance
-```
-
-## Contributing
-
-Read [`AGENTS.md`](AGENTS.md) and [`CONTRIBUTING.md`](CONTRIBUTING.md) first. Keep one
-current production path, do not revive deleted legacy runners, and do not add numbered
-`v1`/`v2`/`final2` copies. New visual material needs provenance, a reproducible
-companion, a preview, and the relevant reference/reconstruction checks.
-
-## License
-
-The project is distributed under the [Apache License 2.0](LICENSE). Third-party
-material remains subject to its own recorded provenance and reuse scope.
+维护前阅读 [`AGENTS.md`](AGENTS.md) 与 [`CONTRIBUTING.md`](CONTRIBUTING.md)。保持一条当前生产实现，不恢复已删除旧 runner，也不新增普通 `v1/v2/final2` 副本。

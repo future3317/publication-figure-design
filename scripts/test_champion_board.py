@@ -38,6 +38,17 @@ class ChampionBoardTests(unittest.TestCase):
         self.assertEqual(len(focus_rows), 5)
         self.assertTrue(all(row["status"] == "needs_evidence" for row in focus_rows))
 
+    def test_source_render_variants_do_not_supply_preference_or_champion_evidence(self):
+        board = json.loads((ROOT / "assets/reference-benchmarks/champion_board.json").read_text(encoding="utf-8"))
+        preferences = (ROOT / "assets/reference-benchmarks/preference_pairs.jsonl").read_text(encoding="utf-8").splitlines()
+        focus = board["focus"]["active_families"]
+
+        self.assertFalse(any("source_render_variant" in row for row in preferences))
+        for family in focus:
+            self.assertIsNone(board["families"][family]["champion"])
+            self.assertIsNone(board["families"][family]["challenger"])
+            self.assertEqual(board["families"][family]["evidence"], {})
+
 
 if __name__ == "__main__":
     unittest.main()

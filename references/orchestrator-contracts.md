@@ -8,17 +8,25 @@ The shipped `pfd` CLI uses `orchestrator.runtime.build_runtime_orchestrator()`;
 it invokes the image analyzer and reference comparator when task metadata supplies
 paths, and records `not_provided` rather than claiming an absent source/render exists.
 
-## State sequence
+## Route plan
 
-`Route → Intake → Reference Retrieval → Reference Inspection → Design Spec → Binding → Render → Compare → Critique → Repair → QA → Export`
+`manifest.yaml` defines workflow stages and conditional insertions. Create/revise use the
+stages their task needs; review and export use shorter routes. References conditionally
+insert retrieval, inspection, and comparison. Failed create/revise QA inserts one
+`Critique → Repair → Render → QA` cycle before export; review/export failures report and
+block without forcing a render. `WorkflowSession` persists the
+route, cursor, and applied conditions so repeated stages resume at the correct position.
+Critique stops with concrete QA failures when no `DesignPatch` is present; after the agent
+adds the patch, `pfd run --resume <session.json>` retries Critique and continues the cycle.
 
 The state machine records an input, output, gate result, attempt, and timestamps for every
-stage. A failed gate sets the run to `blocked`; `retry` reruns the failed stage after repair,
-`rollback` removes downstream artifacts, `resume` reloads the JSON session, and
-`best_so_far` preserves the highest scored candidate across repair iterations.
+stage. A non-recoverable failed gate sets the run to `blocked`; `retry` reruns the failed
+stage after repair, `rollback` removes downstream artifacts, `resume` reloads the JSON
+session, and `best_so_far` preserves the highest scored candidate across iterations.
 
-Session telemetry is part of the persisted contract: `input_hash`, `reference_index_version`,
-`selected_reference_ids`, `renderer_version`, `iterations`, `QA`, and `output_hash`. Resume
+Session telemetry is part of the persisted contract: `RoutePlan`, `PolicyPacket`,
+`input_hash`, `reference_index_version`, `selected_reference_ids`, `renderer_version`,
+`iterations`, `QA`, and `output_hash`. Resume
 must reuse `selected_reference_ids` and the recorded index version; a changed corpus starts
 a new session instead of silently changing the reference choice.
 
@@ -43,12 +51,12 @@ They are emitted by the existing stages rather than by a second workflow. `QARep
 contains separate `hard`/`soft` sections for L0 technical, L1 scientific, L2 structural,
 and L3 perceptual evidence.
 
-When publication mode produces three candidates, `PreferencePair` is accepted only
-after the Codex/Luna visual judge has compared the same pair in both display orders.
+Production defaults to one candidate. Evaluation may explicitly produce three. A
+`PreferencePair` is accepted only after the Codex/Luna visual judge has compared the same pair in both display orders.
 `scripts/auto_visual_judge.py` maps local A/B labels to candidate ids and marks an
 order-disagreement as `uncertain`; uncertain comparisons cannot update a champion.
-The production runtime reads the sprint stop rule from the Champion Board: three
-candidates, one repair retry, and two judge rounds (forward plus reverse).
+The production retry limit is one repair cycle; evaluation judge rounds and candidate
+counts are evaluation policy and do not configure the production runtime.
 
 Do not promote a prose note, an agent declaration, or a reference-local script into a
 stage artifact. A stage is complete only when its machine-readable output passes its gate.

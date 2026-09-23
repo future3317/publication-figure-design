@@ -29,12 +29,24 @@ class VisualRegressionTests(unittest.TestCase):
             self.current["tasks"].append({
                 "id": row["task_id"],
                 "figure_family": family,
+                "source_sha256": row.get("source_sha256", "a" * 64),
                 "candidate_paths": {f"{family}__balanced": str(ROOT / row["image"])},
                 "qa": {f"{family}__balanced": {"L0": {"passed": True}, "L1": {"passed": True}}},
             })
 
     def test_baseline_contract(self) -> None:
         self.assertEqual(validate_baseline(self.baseline, ROOT), [])
+
+    def test_baseline_requires_source_image_identity(self) -> None:
+        baseline = json.loads(json.dumps(self.baseline))
+        baseline["tasks"][0].pop("source_sha256", None)
+
+        failures = validate_baseline(baseline, ROOT)
+
+        self.assertIn(
+            f"baseline source image identity missing or invalid: {baseline['tasks'][0]['task_id']}",
+            failures,
+        )
 
     def test_same_render_is_unchanged(self) -> None:
         report = compare(self.baseline, self.current, {}, ROOT)
@@ -43,6 +55,37 @@ class VisualRegressionTests(unittest.TestCase):
         self.assertEqual(report["overall"]["win"], 0)
         self.assertEqual(report["overall"]["loss"], 0)
         self.assertEqual(report["overall"]["uncertain"], 0)
+
+    def test_source_image_change_is_not_scored_as_visual_challenger(self) -> None:
+        baseline = json.loads(json.dumps(self.baseline))
+        current = json.loads(json.dumps(self.current))
+        task_id = baseline["tasks"][0]["task_id"]
+        baseline["tasks"][0]["source_sha256"] = "a" * 64
+        current["tasks"][0]["source_sha256"] = "b" * 64
+
+        report = compare(baseline, current, {}, ROOT)
+
+        self.assertFalse(report["passed"])
+        self.assertIn(f"source image changed since baseline: {task_id}", report["failures"])
+
+    def test_source_render_variant_cannot_win_longitudinal_comparison(self) -> None:
+        first = self.baseline["tasks"][0]
+        family = first["figure_family"]
+        baseline = json.loads(json.dumps(self.baseline))
+        baseline["tasks"][0]["source_sha256"] = "a" * 64
+        with tempfile.TemporaryDirectory() as temp:
+            changed = Path(temp) / "changed.png"
+            shutil.copy2(ROOT / first["image"], changed)
+            changed.write_bytes(changed.read_bytes() + b"changed")
+            current = json.loads(json.dumps(self.current))
+            current["tasks"][0]["source_sha256"] = "a" * 64
+            current["tasks"][0]["candidate_paths"][f"{family}__balanced"] = str(changed)
+            current["tasks"][0]["generation_method"] = "source_render_variant"
+
+            report = compare(baseline, current, {}, ROOT)
+
+        self.assertFalse(report["passed"])
+        self.assertIn(f"source-render variant is not a skill visual regression: {first['task_id']}", report["failures"])
 
     def test_changed_render_requires_and_accepts_swapped_judge(self) -> None:
         first = self.baseline["tasks"][0]
@@ -74,6 +117,7 @@ class VisualRegressionTests(unittest.TestCase):
                 "figure_family": family,
                 "figure_type": "scatter",
                 "source_image": str(image_path),
+                "source_sha256": "a" * 64,
                 "source_code": "",
                 "candidate_ids": [
                     f"{family}__structure-first",
@@ -98,9 +142,6 @@ class VisualRegressionTests(unittest.TestCase):
             "schema_version": "1.0",
             "task_count": len(tasks),
             "candidate_count": len(tasks) * 3,
-            "swapped_pair_count": len(tasks) * 2,
-            "accepted_pair_count": len(tasks) * 2,
-            "calibration": {"case_count": len(tasks), "degradation_detection_rate": 1.0},
             "families": {},
             "tasks": tasks,
         }

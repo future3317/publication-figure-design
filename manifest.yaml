@@ -1,396 +1,190 @@
 name: publication-figure-design
-# Compatibility identifier for packaged adapters; this repository has one current implementation.
 version: "4.0.0"
-entrypoint: "SKILL.md"
-
-# The root manifest is the only release/version source. Adapters are generated
-# from this file and must not carry independent workflow rules.
+entrypoint: SKILL.md
 schema_version: "1.0"
-runtime:
-  - "SKILL.md"
-  - "manifest.yaml"
-  - "references/"
-  - "scripts/"
-  - "src/"
-  - "assets/visual-references/"
-  - "assets/visual-references/**/reference_dna.json"
-  - "assets/reference-benchmarks/"
-  - "assets/anti-pattern-atlas/"
-  - "assets/registry.jsonl"
-  - "schemas/"
-  - "indexes/"
-  - "profiles/"
-  - "evals/"
-  - "rules/"
-  - "sources/registry.yaml"
 
-# Rules are compiled separately from explanatory references.  Global invariants and
-# house defaults are always active; route sets add only the family/backend/journal
-# rules needed for that operation.
+runtime:
+  - SKILL.md
+  - manifest.yaml
+  - references/
+  - scripts/
+  - src/
+  - assets/visual-references/
+  - assets/visual-references/**/reference_dna.json
+  - assets/reference-benchmarks/
+  - assets/anti-pattern-atlas/
+  - assets/registry.jsonl
+  - schemas/
+  - indexes/
+  - profiles/
+  - evals/
+  - rules/
+  - sources/registry.yaml
+  - docs/maintenance/runtime-and-evaluation.md
+
+# The production runner compiles these rule sources into the task PolicyPacket.
 always_rulesets:
-  - "rules/global/scientific-integrity.yaml"
-  - "rules/global/accessibility.yaml"
-  - "rules/global/provenance-reproducibility.yaml"
-  - "rules/global/annotation-legend.yaml"
-  - "rules/global/layout-legibility.yaml"
-  - "rules/house/visual-language.yaml"
-  - "rules/house/typography.yaml"
-  - "rules/house/palette.yaml"
-  - "rules/house/whitespace-layout.yaml"
-  - "rules/house/annotation-style.yaml"
+  - rules/global/scientific-integrity.yaml
+  - rules/global/accessibility.yaml
+  - rules/global/provenance-reproducibility.yaml
+  - rules/global/annotation-legend.yaml
+  - rules/global/layout-legibility.yaml
+  - rules/house/visual-language.yaml
+  - rules/house/typography.yaml
+  - rules/house/palette.yaml
+  - rules/house/whitespace-layout.yaml
+  - rules/house/annotation-style.yaml
+
+route_rulesets:
+  create:
+    - rules/global/statistical-integrity.yaml
+    - rules/global/semantic-encoding.yaml
+    - rules/global/comparison-integrity.yaml
+  concrete_reference:
+    - rules/global/semantic-encoding.yaml
+    - rules/global/comparison-integrity.yaml
+  visual_optimization:
+    - rules/global/semantic-encoding.yaml
+    - rules/global/statistical-integrity.yaml
+  qa:
+    - rules/global/statistical-integrity.yaml
+    - rules/global/semantic-encoding.yaml
+    - rules/global/image-integrity.yaml
+  source_reconstruction:
+    - rules/global/reference-use.yaml
+  reference_intake:
+    - rules/global/image-integrity.yaml
+    - rules/global/provenance-reproducibility.yaml
+  figure_family_coverage:
+    - rules/global/semantic-encoding.yaml
+  champion_quality:
+    - rules/global/accessibility.yaml
+    - rules/global/provenance-reproducibility.yaml
+  tex_backend:
+    - rules/backend/tex.yaml
 
 family_rulesets:
-  heatmap: ["rules/families/heatmap-matrix.yaml"]
-  matrix_array: ["rules/families/heatmap-matrix.yaml"]
-  scatter: ["rules/families/scatter-correlation.yaml"]
-  correlation: ["rules/families/scatter-correlation.yaml"]
+  heatmap: [rules/families/heatmap-matrix.yaml]
+  matrix_array: [rules/families/heatmap-matrix.yaml]
+  scatter: [rules/families/scatter-correlation.yaml]
+  correlation: [rules/families/scatter-correlation.yaml]
   statistical_discovery:
-    - "rules/families/scatter-correlation.yaml"
-    - "rules/families/curve-comparison.yaml"
-  curve_comparison:
-    - "rules/families/curve-comparison.yaml"
-  multi_axis_comparison:
-    - "rules/families/curve-comparison.yaml"
-  multi_panel_statistical:
-    - "rules/families/multi-panel-composite.yaml"
+    - rules/families/scatter-correlation.yaml
+    - rules/families/curve-comparison.yaml
+  curve_comparison: [rules/families/curve-comparison.yaml]
+  multi_axis_comparison: [rules/families/curve-comparison.yaml]
+  multi_panel_statistical: [rules/families/multi-panel-composite.yaml]
   image_quantitative_composite:
-    - "rules/families/image-quant-composite.yaml"
-    - "rules/families/microscopy.yaml"
-    - "rules/families/multi-panel-composite.yaml"
+    - rules/families/image-quant-composite.yaml
+    - rules/families/microscopy.yaml
+    - rules/families/multi-panel-composite.yaml
   mechanism_architecture:
-    - "rules/families/schematic-mechanism.yaml"
-    - "rules/families/multi-panel-composite.yaml"
-  inset_comparison:
-    - "rules/families/multi-panel-composite.yaml"
-  bars_and_intervals:
-    - "rules/families/bars-and-intervals.yaml"
+    - rules/families/schematic-mechanism.yaml
+    - rules/families/multi-panel-composite.yaml
+  inset_comparison: [rules/families/multi-panel-composite.yaml]
+  bars_and_intervals: [rules/families/bars-and-intervals.yaml]
   time_series:
-    - "rules/families/time-series.yaml"
-    - "rules/families/curve-comparison.yaml"
+    - rules/families/time-series.yaml
+    - rules/families/curve-comparison.yaml
   roc:
-    - "rules/families/roc-pr-calibration.yaml"
-    - "rules/families/curve-comparison.yaml"
+    - rules/families/roc-pr-calibration.yaml
+    - rules/families/curve-comparison.yaml
   pr_curve:
-    - "rules/families/roc-pr-calibration.yaml"
-    - "rules/families/curve-comparison.yaml"
+    - rules/families/roc-pr-calibration.yaml
+    - rules/families/curve-comparison.yaml
   calibration:
-    - "rules/families/roc-pr-calibration.yaml"
-    - "rules/families/curve-comparison.yaml"
-  paired_operating_point:
-    - "rules/families/paired-operating-point.yaml"
+    - rules/families/roc-pr-calibration.yaml
+    - rules/families/curve-comparison.yaml
+  paired_operating_point: [rules/families/paired-operating-point.yaml]
   classification_diagnostics:
-    - "rules/families/classification-diagnostics.yaml"
-    - "rules/families/roc-pr-calibration.yaml"
-    - "rules/families/curve-comparison.yaml"
-  microscopy: ["rules/families/microscopy.yaml"]
-  network: ["rules/families/network-graph.yaml"]
-  graph: ["rules/families/network-graph.yaml"]
-  schematic: ["rules/families/schematic-mechanism.yaml"]
+    - rules/families/classification-diagnostics.yaml
+    - rules/families/roc-pr-calibration.yaml
+    - rules/families/curve-comparison.yaml
+  microscopy: [rules/families/microscopy.yaml]
+  network: [rules/families/network-graph.yaml]
+  graph: [rules/families/network-graph.yaml]
+  schematic: [rules/families/schematic-mechanism.yaml]
 
-always_load:
-  - "references/figure-contract.md"
-  - "references/orchestrator-contracts.md"
-  - "references/runtime-environment.md"
-  - "references/global-visual-language.md"
-  - "rules/README.md"
-  - "rules/global/scientific-integrity.yaml"
-  - "rules/global/accessibility.yaml"
-  - "rules/global/provenance-reproducibility.yaml"
-  - "rules/global/annotation-legend.yaml"
-  - "rules/global/layout-legibility.yaml"
-  - "rules/house/visual-language.yaml"
-  - "rules/house/typography.yaml"
-  - "rules/house/palette.yaml"
-  - "rules/house/whitespace-layout.yaml"
-  - "rules/house/annotation-style.yaml"
-
-routes:
+# Workflow stage graphs are consumed by the persisted orchestrator.
+workflows:
   create:
-    when: "new manuscript figure or major revision"
-    load:
-      - "references/workflow-create.md"
-      - "references/encoding-and-uncertainty.md"
-      - "references/figure-family-coverage.md"
-      - "references/journal-specs.md"
-      - "references/style-spec.md"
-    required_load:
-      - "references/workflow-create.md"
-      - "references/encoding-and-uncertainty.md"
-      - "references/figure-family-coverage.md"
-      - "references/journal-specs.md"
-      - "references/style-spec.md"
-    required_rulesets:
-      - "rules/global/statistical-integrity.yaml"
-      - "rules/global/semantic-encoding.yaml"
-      - "rules/global/comparison-integrity.yaml"
-  concrete_reference:
-    when: "a concrete reference image is supplied or selected"
-    load:
-      - "references/art-direction.md"
-      - "references/figure-family-coverage.md"
-      - "references/visual-grammar.md"
-      - "references/reference-driven-reconstruction.md"
-      - "references/asset-adaptation.md"
-      - "references/style-spec.md"
-    required_load:
-      - "references/art-direction.md"
-      - "references/figure-family-coverage.md"
-      - "references/visual-grammar.md"
-      - "references/reference-driven-reconstruction.md"
-      - "references/asset-adaptation.md"
-      - "references/style-spec.md"
-    required_rulesets:
-      - "rules/global/semantic-encoding.yaml"
-      - "rules/global/comparison-integrity.yaml"
-    run:
-      - "scripts/check_reference_fidelity.py"
-      - "scripts/reference_image_analysis.py analyze"
-      - "scripts/style_compiler.py"
-  visual_optimization:
-    when: "an existing figure is optimized, polished, beautified, improved, or redesigned"
-    load:
-      - "references/art-direction.md"
-      - "references/visual-grammar.md"
-      - "references/reference-driven-reconstruction.md"
-      - "references/visual-reference-library.md"
-      - "references/checklist.md"
-      - "references/encoding-and-uncertainty.md"
-      - "references/journal-specs.md"
-      - "references/figure-family-coverage.md"
-      - "references/style-spec.md"
-      - "references/color-palettes.md"
-    required_load:
-      - "references/art-direction.md"
-      - "references/visual-grammar.md"
-      - "references/reference-driven-reconstruction.md"
-      - "references/visual-reference-library.md"
-      - "references/checklist.md"
-      - "references/encoding-and-uncertainty.md"
-      - "references/journal-specs.md"
-      - "references/figure-family-coverage.md"
-      - "references/style-spec.md"
-      - "references/color-palettes.md"
-    required_rulesets:
-      - "rules/global/semantic-encoding.yaml"
-      - "rules/global/statistical-integrity.yaml"
-    run:
-      - "scripts/prepare_visual_optimization.py"
-      - "scripts/compare_output_to_reference.py"
-      - "scripts/palette_manager.py"
-      - "scripts/rendered_contrast.py"
-      - "scripts/check_visual_optimization.py"
-  asset_adaptation:
-    when: "production assets, examples, or prior plotting code are considered"
-    load:
-      - "references/asset-adaptation.md"
-      - "references/directory-map.md"
-      - "references/production-asset-metadata.md"
-    required_load:
-      - "references/asset-adaptation.md"
-      - "references/directory-map.md"
-      - "references/production-asset-metadata.md"
-  backend:
-    when: "a plotting backend must be selected or mixed panels are required"
-    load:
-      - "references/backend-selection.md"
-    required_load:
-      - "references/backend-selection.md"
-    use:
-      - "scripts/backend_preference.py"
-  tex_backend:
-    when: "TeX, TikZ, or PGFPlots is selected for any panel or final assembly"
-    load:
-      - "references/backend-selection.md"
-      - "references/tex-rendering.md"
-      - "references/typography.md"
-      - "references/export-specs.md"
-    required_load:
-      - "references/backend-selection.md"
-      - "references/tex-rendering.md"
-      - "references/typography.md"
-      - "references/export-specs.md"
-    required_rulesets:
-      - "rules/backend/tex.yaml"
-    run:
-      - "scripts/check_tex_source.py"
-      - "scripts/audit_pdf_text.py"
-      - "scripts/rendered_contrast.py"
-  qa:
-    when: "a figure is reviewed or prepared for delivery"
-    load:
-      - "references/checklist.md"
-      - "references/delivery-contract.md"
-      - "references/figure-legend-contract.md"
-      - "references/privacy-provenance.md"
-      - "references/encoding-and-uncertainty.md"
-      - "references/export-specs.md"
-    required_load:
-      - "references/checklist.md"
-      - "references/delivery-contract.md"
-      - "references/figure-legend-contract.md"
-      - "references/privacy-provenance.md"
-      - "references/encoding-and-uncertainty.md"
-      - "references/export-specs.md"
-    required_rulesets:
-      - "rules/global/statistical-integrity.yaml"
-      - "rules/global/semantic-encoding.yaml"
-      - "rules/global/image-integrity.yaml"
-    run:
-      - "scripts/qa_validator.py"
-      - "scripts/audit_pdf_text.py"
-      - "scripts/rendered_contrast.py"
-      - "scripts/check_visual_optimization.py"
+    stages: [Route, Intake, Design Spec, Binding, Render, QA, Export]
+  revise:
+    stages: [Route, Intake, Design Spec, Binding, Render, QA, Export]
+  review:
+    stages: [Route, Intake, QA]
+  export:
+    stages: [Route, QA, Export]
+  reference:
+    stages: [Route, Intake, Reference Retrieval, Reference Inspection, QA, Export]
   maintain_skill:
-    when: "the skill itself changes"
-    run:
-      - "scripts/check_skill_contract.py"
-      - "scripts/check_source_reconstruction_library.py"
-      - "scripts/check_source_reference_catalog.py"
-      - "scripts/figure_family_coverage.py"
-      - "scripts/check_references.py"
-      - "scripts/champion_board.py"
-  source_reconstruction:
-    when: "source-by-source visual grammar examples are audited, rebuilt, or validated"
-    load:
-      - "references/source-reconstruction-library.md"
-    required_load:
-      - "references/source-reconstruction-library.md"
-    required_rulesets:
-      - "rules/global/reference-use.yaml"
-    run:
-      - "scripts/check_source_reconstruction_library.py"
-      - "scripts/review_source_reconstructions.py"
-      - "scripts/audit_generated_reproductions.py"
-      - "scripts/make_generated_reproduction_contact_sheet.py"
-      - "scripts/source_reference_catalog.py"
-      - "scripts/check_source_reference_catalog.py"
+    stages: [Route, Intake, QA, Export]
+
+workflow_aliases:
+  visual_optimization: revise
+  optimize: revise
+  concrete_reference: reference
+  reference_intake: reference
+  maintain: maintain_skill
+  tex_backend: create
+
+rule_route_aliases:
+  revise: visual_optimization
+  review: qa
+  export: qa
+  reference: concrete_reference
+  reference_intake: concrete_reference
+
+conditions:
+  reference_present:
+    modes: [create, revise]
+    after: Intake
+    stages: [Reference Retrieval, Reference Inspection, Compare]
+    predicate: reference_ids_or_image
+  qa_failed:
+    modes: [create, revise]
+    after: QA
+    insert_once: [Critique, Repair, Render, QA]
+
+# Non-generation entrypoints stay outside the agent's mandatory figure context.
+operations:
   reference_intake:
-    when: "a user supplies one or more images to store in the visual reference library"
-    load:
-      - "references/visual-reference-library.md"
-      - "references/figure-family-coverage.md"
-      - "references/privacy-provenance.md"
-    required_load:
-      - "references/visual-reference-library.md"
-      - "references/figure-family-coverage.md"
-      - "references/privacy-provenance.md"
-    required_rulesets:
-      - "rules/global/image-integrity.yaml"
-      - "rules/global/provenance-reproducibility.yaml"
-    run:
-      - "scripts/reference_library.py ingest"
-      - "scripts/reference_image_analysis.py analyze"
-      - "scripts/reference_image_analysis.py compare"
-      - "scripts/check_reference_reproductions.py"
-      - "scripts/check_reference_reproduction_fidelity.py"
-      - "scripts/reference_library.py validate"
-      - "scripts/reference_library.py rebuild"
-      - "scripts/visual_evidence.py (comparison helper used by fidelity gates)"
-      - "scripts/reference_code_sandbox.py (explicit audit-only sandbox for legacy code.py)"
-      - "scripts/check_reference_quarantine.py"
-      - "scripts/migrate_reference_quarantine.py"
-      - "scripts/build_reference_dna.py"
-  reference_benchmark:
-    when: "the optional ChartMimic benchmark catalog is refreshed or queried"
-    load:
-      - "assets/reference-benchmarks/chartmimic/README.md"
-      - "assets/reference-benchmarks/champion_references.json"
-    required_load:
-      - "assets/reference-benchmarks/chartmimic/README.md"
-      - "assets/reference-benchmarks/champion_references.json"
-    run:
-      - "scripts/chartmimic_catalog.py"
-  index_build:
-    when: "reference retrieval indexes are rebuilt or refreshed"
-    run:
-      - "scripts/build_reference_indexes.py"
-      - "scripts/build_reference_dna.py"
-  eval:
-    when: "retrieval or generation benchmark metrics need to be measured"
-    load:
-      - "assets/reference-benchmarks/golden_tasks.json"
-      - "evals/eval_schema.json"
-    required_load:
-      - "assets/reference-benchmarks/golden_tasks.json"
-      - "evals/eval_schema.json"
-    run:
-      - "scripts/evaluate_benchmark.py"
-      - "scripts/trigger_benchmark.py"
-      - "scripts/regression_benchmark.py"
-      - "scripts/adversarial_retrieval.py"
-      - "scripts/evaluate_generation_regression.py"
-      - "scripts/check_champion_floors.py"
-      - "scripts/champion_board.py"
-      - "scripts/evaluate_activation.py"
-      - "scripts/record_preference.py"
-      - "scripts/run_output_eval.py"
-  figure_family_coverage:
-    when: "the figure family or reference-library coverage needs to be selected or audited"
-    load:
-      - "references/figure-family-coverage.md"
-    required_load:
-      - "references/figure-family-coverage.md"
-    required_rulesets:
-      - "rules/global/semantic-encoding.yaml"
-    run:
-      - "scripts/figure_family_coverage.py"
-      - "scripts/champion_board.py"
+    - scripts/reference_library.py ingest
+    - scripts/reference_image_analysis.py analyze
+    - scripts/reference_image_analysis.py compare
+    - scripts/check_reference_reproductions.py
+    - scripts/check_reference_reproduction_fidelity.py
+    - scripts/reference_library.py validate
+    - scripts/reference_library.py rebuild
+    - scripts/check_reference_quarantine.py
+    - scripts/migrate_reference_quarantine.py
+    - scripts/build_reference_dna.py
+  reference_benchmark: [scripts/chartmimic_catalog.py]
+  source_reconstruction:
+    - scripts/check_source_reconstruction_library.py
+    - scripts/review_source_reconstructions.py
+    - scripts/audit_generated_reproductions.py
+    - scripts/make_generated_reproduction_contact_sheet.py
+  evaluation:
+    - scripts/evaluate_benchmark.py
+    - scripts/evaluate_holdout.py
+    - scripts/adversarial_retrieval.py
+    - scripts/evaluate_generation_regression.py
+    - scripts/check_champion_floors.py
+    - scripts/run_output_eval.py
   champion_quality:
-    when: "publication candidates, blind auto pairwise choices, calibration, or figure-family champions are reviewed"
-    load:
-      - "references/champion-board.md"
-      - "assets/reference-benchmarks/champion_board.json"
-      - "assets/reference-benchmarks/real_generation_tasks.json"
-      - "assets/reference-benchmarks/visual-baseline-v1.json"
-    required_load:
-      - "references/champion-board.md"
-      - "assets/reference-benchmarks/champion_board.json"
-      - "assets/reference-benchmarks/real_generation_tasks.json"
-      - "assets/reference-benchmarks/visual-baseline-v1.json"
-    required_rulesets:
-      - "rules/global/accessibility.yaml"
-      - "rules/global/provenance-reproducibility.yaml"
-    run:
-      - "scripts/champion_board.py"
-      - "scripts/run_visual_sprint.py"
-      - "scripts/freeze_visual_baseline.py"
-      - "scripts/visual_regression.py"
-      - "scripts/record_preference.py"
-      - "scripts/auto_visual_judge.py"
-      - "scripts/check_champion_floors.py"
-  source_review_batch:
-    when: "a maintained source reconstruction or source catalog needs batch review"
-    load:
-      - "references/source-reconstruction-library.md"
-    required_load:
-      - "references/source-reconstruction-library.md"
-    run:
-      - "scripts/audit_source_reconstruction_batch.py"
-      - "scripts/audit_source_catalog_batch.py"
+    - scripts/run_visual_sprint.py
+    - scripts/visual_regression.py
+    - scripts/auto_visual_judge.py
 
 backend_policy:
-  precedence:
-    - "explicit_request"
-    - "workflow_requirement"
-    - "saved_preference"
-    - "python_default"
-  mixed_mode: "explicit_or_required_with_one_final_assembler"
+  precedence: [explicit_request, workflow_requirement, saved_preference, python_default]
+  mixed_mode: explicit_or_required_with_one_final_assembler
   silent_substitution: false
 
 validation:
-  ci_gate: "python scripts/ci_gate.py"
-  rule_contract: "python scripts/check_rule_contract.py"
-  journal_profile_contract: "python scripts/check_journal_profiles.py"
-  reference_assets: "python scripts/check_references.py --require-previews"
-  champion_board: "python scripts/champion_board.py --enforce"
-  visual_regression: "python scripts/visual_regression.py --contract-only"
-  skill_contract: "python scripts/check_skill_contract.py"
-  source_reconstruction_library: "python scripts/check_source_reconstruction_library.py"
-  source_reference_catalog: "python scripts/check_source_reference_catalog.py"
-  tex_source: "python scripts/check_tex_source.py"
-  tests: "python -m unittest discover -s scripts -p test_*.py -v"
-  eval_modes:
-    quick: "pfd eval quick"
-    full: "pfd eval full"
-    visual: "pfd eval visual"
-    release: "pfd eval release"
+  ci_gate: scripts/ci_gate.py
+  skill_contract: scripts/check_skill_contract.py
+  rule_contract: scripts/check_rule_contract.py
+  tex_source: scripts/check_tex_source.py
+  tests: python -m unittest discover -s scripts -p test_*.py -v

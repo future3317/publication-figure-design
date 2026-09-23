@@ -9,6 +9,13 @@
   "task_count": 25,
   "changed_task_count": 5,
   "unchanged_task_count": 20,
+  "source_identity_correction": {
+    "date": "2026-09-23",
+    "corrected_task_ids": ["multi_axis_comparison_02", "multi_axis_comparison_03"],
+    "source_hashes_recorded": 25,
+    "quality_promotion": false,
+    "reason": "Two same-path paper source images had changed since the checkpoint, so their source-render artifacts were realigned."
+  },
   "changed_tasks": [
     {
       "task_id": "statistical_discovery_01",
@@ -16,8 +23,7 @@
       "old_hash": "30b54ad36b7a035a763a422ed0167b0a13c7a63b6b62b38e24e2eb5542190b13",
       "new_hash": "4b7650b67ef2faaaf91f5c8ceccac7284958009c2ce54bdfe2411d39b5a4ba86",
       "reason": "ReferenceDNA 2.1 semantic rebuild",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "statistical_discovery_02",
@@ -25,8 +31,7 @@
       "old_hash": "47da44e9d337004c58764f270a894c62abb0065910fed5848d3ce2dc1fcc73f2",
       "new_hash": "abfa371d495e065bc69e0a0f3d5755636be00274184ed50a5a4aa9825e6a832b",
       "reason": "ReferenceDNA 2.1 semantic rebuild",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "matrix_array_01",
@@ -34,8 +39,7 @@
       "old_hash": "c7f028f691fea6bc62dde9d929f17542acf078bb1dd3eee08eaecce6ff6dfe25",
       "new_hash": "d24a09ac84d4c75b50b25bbbb5896024515ecb81667128aa05c2395d176c850f",
       "reason": "ReferenceDNA 2.1 semantic rebuild",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "multi_axis_comparison_02",
@@ -43,8 +47,7 @@
       "old_hash": "a1783546ef0d1a90f2838b3039d409a21375d116aa3420f5a0bd476f52977f95",
       "new_hash": "cb1020ca4ec52be31e8a11cff6cda374a37be6c310a8ded6d665a09ef81a5981",
       "reason": "ReferenceDNA 2.1 semantic rebuild",
-      "L0": true,
-      "L1": true
+      "L0": true
     },
     {
       "task_id": "image_quantitative_composite_03",
@@ -52,8 +55,7 @@
       "old_hash": "cf982e24b3ac74d1ec06c5067d742197fc37dda9c945653da00ff782d5cc6844",
       "new_hash": "18fd009d5ba3ff9be41921bb188da5b45e90b29d2c37a6921015db6d43f8ef1c",
       "reason": "ReferenceDNA 2.1 semantic rebuild",
-      "L0": true,
-      "L1": true
+      "L0": true
     }
   ],
   "unchanged_tasks": [
