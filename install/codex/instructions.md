@@ -1,8 +1,8 @@
 # Publication Figure Design adapter — OpenAI Codex
 
 This is a thin loader for `publication-figure-design` manifest version `4.0.0`.
-The canonical instructions and route contracts live in the bundled skill; this
-file is not a replacement or a second source of design rules.
+The canonical agent workflow lives in `SKILL.md`; `manifest.yaml` also describes
+the optional resumable session runner. This file is not a second source of design rules.
 
 Runtime bundle:
 - `SKILL.md`
@@ -23,8 +23,8 @@ Runtime bundle:
 - `sources/registry.yaml`
 - `docs/maintenance/runtime-and-evaluation.md`
 
-Generated: 2026-09-23 14:07 UTC
+Generated: 2026-10-19 16:14 UTC
 
 Load `SKILL.md` as the instruction entrypoint. When a route names a script,
-schema, index, or reference asset, use the bundled relative path; do not
-substitute an adapter-local copy.
+open only the referenced guide or asset needed for the current task. `pfd run`
+is optional session tooling and is not required to draw a figure.

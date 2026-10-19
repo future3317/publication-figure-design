@@ -1,8 +1,8 @@
 # Publication Figure Design adapter — GitHub Copilot
 
 This is a thin loader for `publication-figure-design` manifest version `4.0.0`.
-The canonical instructions and route contracts live in the bundled skill; this
-file is not a replacement or a second source of design rules.
+The canonical agent workflow lives in `SKILL.md`; `manifest.yaml` also describes
+the optional resumable session runner. This file is not a second source of design rules.
 
 Runtime bundle:
 - `SKILL.md`
@@ -23,7 +23,7 @@ Runtime bundle:
 - `sources/registry.yaml`
 - `docs/maintenance/runtime-and-evaluation.md`
 
-Generated: 2026-09-23 14:07 UTC
+Generated: 2026-10-19 16:14 UTC
 
-For publication-figure tasks, use the canonical `SKILL.md`, manifest route, and
-bundled runtime files. These instructions only provide loading context.
+For publication-figure tasks, follow the canonical `SKILL.md` and open only the
+bundled resources needed for the current task. The CLI session runner is optional.

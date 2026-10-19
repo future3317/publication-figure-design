@@ -52,7 +52,7 @@ def main() -> int:
     run_step("activation eval", ["scripts/evaluate_activation.py", "evals/activation/validation.jsonl"])
     run_step("output eval", ["scripts/run_output_eval.py", "--all"])
     run_step("adapter generation", ["scripts/generate_adapters.py"])
-    run_step("adapter canary", ["scripts/adapter_canary.py"])
+    run_step("adapter loader contract", ["scripts/adapter_canary.py"])
     with tempfile.TemporaryDirectory(prefix="pfd-ci-") as temp:
         session = Path(temp) / "session.json"
         run_step("pfd lifecycle canary", ["-m", "publication_figure_design.cli", "run", "tests/fixtures/task_spec_canary.json", "--output", str(session)])

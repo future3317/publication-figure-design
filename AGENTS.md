@@ -6,14 +6,13 @@ This repository is the current implementation of the `publication-figure-design`
 Scientific Figure Design Compiler. `SKILL.md` is the thin agent-facing entry point;
 the production runtime lives in `src/publication_figure_design/`.
 
-## Required workflow
+## Figure workflow
 
-Create, revise, review, export, and reference tasks use the persisted `RoutePlan` from
-`manifest.yaml`. Reference stages are conditional on reference evidence; failed
-create/revise QA can insert one critique/repair/render/QA cycle. Review/export failures
-report and block without forcing a render. `WorkflowSession` stores the plan and cursor so
-repeated stages resume deterministically. Critique pauses for a concrete `DesignPatch`;
-resume the saved session after supplying the patch.
+For ordinary figure work, follow `SKILL.md` directly: inspect the task and relevant
+visual evidence, edit or build the figure source, render it, inspect the actual output,
+and repair visible problems. Do not require a TaskSpec, PolicyPacket, RoutePlan, or
+session file for routine drawing. The `pfd run` CLI is an optional session/QA helper; it
+does not render figures and its stage output never substitutes for the actual figure.
 
 The scientific contract is authoritative. References provide visual grammar only and
 must not change data meaning, statistical transforms, uncertainty semantics, labels, or
@@ -21,27 +20,28 @@ variable roles. Inspect selected pixels and retrieve structure, style, palette,
 component, and annotation roles independently when useful. Compile the evidence into
 `ReferenceDNA → StyleCapsule + JournalProfile → DesignPacket`.
 
-The runtime compiles applicable rules into a compact `PolicyPacket`; use that packet and
-the validator's concrete QA feedback instead of loading every rules YAML file into an
-agent prompt. Production defaults to one candidate; three candidates are reserved for
-explicit evaluation runs.
+The runtime can compile applicable rules into a `PolicyPacket` for callers that use the
+optional session runner. For ordinary work, apply the concise global requirements in
+`SKILL.md`; load a specialized reference only when the task needs it. Production drawing
+does not need evaluation candidates.
 
 ## Current sources of truth
 
 - Contracts and runtime: `src/publication_figure_design/`
-- Agent entrypoint and workflow graph: `SKILL.md`, `manifest.yaml`
+- Agent workflow: `SKILL.md`; optional session-runner graph: `manifest.yaml`
 - Rule hierarchy and provenance: `rules/`, `sources/registry.yaml`,
   `scripts/check_rule_contract.py`
-- Runtime policy: `manifest.yaml` owns workflow stages, conditional insertion, and rule
-  selection. `docs/maintenance/runtime-and-evaluation.md` owns maintainer-only benchmark
-  and release procedures; it is not ordinary agent context.
+- Runtime policy: `manifest.yaml` owns workflow stages and rule selection for the
+  optional `pfd run` session runner. `docs/maintenance/runtime-and-evaluation.md` owns
+  maintainer-only benchmark and release procedures.
 - Reference intelligence: `reference_dna.json`, `indexes/hybrid.json`
 - Style: `profiles/style-capsules/`, `profiles/journals/`
 - Reference lifecycle: `raw → analyzed → reviewed → benchmarked → production`
 - Evaluation: `evals/`, `assets/reference-benchmarks/`, `scripts/ci_gate.py`
 
-Ordinary figure-generation tasks must not inherit benchmark thresholds, sprint families,
-visual-judge policy, or baseline-promotion details from maintainer documentation.
+Ordinary figure-generation tasks must not invoke the session runner by default or inherit
+benchmark thresholds, sprint families, visual-judge policy, or baseline-promotion
+details from maintainer documentation.
 
 Rules are categorized as G0 scientific invariants, G1 accessibility/legibility, J
 journal/stage requirements, F figure-family constraints, H house defaults, and B

@@ -105,7 +105,7 @@ family_rulesets:
   graph: [rules/families/network-graph.yaml]
   schematic: [rules/families/schematic-mechanism.yaml]
 
-# Workflow stage graphs are consumed by the persisted orchestrator.
+# These stage graphs are for the optional pfd session runner, not a required drawing ritual.
 workflows:
   create:
     stages: [Route, Intake, Design Spec, Binding, Render, QA, Export]

@@ -1,49 +1,33 @@
 ---
 name: publication-figure-design
-description: "Use when creating, reconstructing, revising, reviewing, or exporting publication-grade scientific figures across research fields and venues, especially with references, multi-panel layouts, uncertainty, or final-size QA."
+description: "Design, reconstruct, revise, review, or export publication-grade scientific figures across research fields and venues."
 ---
 
 # Publication Figure Design
 
-Use this skill for publication figures in any research domain. The orchestrator supplies the task route and compiled policy; this file gives the agent the short working contract.
+Create the requested figure, not a paperwork trail. Work directly on the figure source and render unless the user specifically needs a resumable PFD session. The `pfd` CLI manages task/session metadata and QA; it does not draw the figure, so running it is not a substitute for editing, rendering, or inspecting the output.
 
-## Non-negotiable contract
+## The working loop
 
-- The scientific brief and complete source data control meaning, labels, variable roles, statistics, and uncertainty. A reference controls visual grammar only.
-- Run the task through `pfd run <task-spec>` and follow the persisted `RoutePlan` in its output. Do not manually expand the workflow or skip a gated stage.
-- Use the returned `PolicyPacket` and concrete QA feedback. Validators enforce hard constraints; do not load all `rules/*.yaml` into the prompt.
-- Production starts with one candidate. The explicit evaluation route may request three. Failed create/revise QA inserts at most one critique -> repair -> render -> QA cycle; Critique pauses for an agent `DesignPatch`, then resume. Review/export QA failures report and block without forcing rendering.
-- Inspect selected reference pixels before implementation. Select structure, style, palette, and component evidence independently when each is needed; never copy a reference's scientific content.
-- Final QA must cover scientific meaning, readability, visual clarity, accessibility, the requested export contract, and a final-size visual inspection before delivery.
+1. Identify the scientific message, data, labels, uncertainty, target size, and requested deliverable from the user's files and brief. Ask only for information that is truly missing; do not make up data or turn a clear task into a form-filling exercise.
+2. Decide the visual structure before touching style: what is the focal evidence, what are the panels, and what marks/relationships express the data truthfully? Preserve scientific meaning. For revisions, inspect the current render and source, but do not preserve their layout, palette, or code pattern unless they still serve the task.
+3. Use references when they add evidence. Always inspect a user-supplied reference. If none is supplied, retrieve a small, relevant set only when the task needs visual direction; inspect the actual images and select by structural fit before style. For a requested match, identify a few visible targets (panel topology, mark/arrow grammar, palette roles, labels/legend, and spacing) and verify them in the render. A reference controls visual grammar, never scientific content; never copy its scientific content.
+4. Implement or restructure the source, render the requested figure, and inspect the actual output at intended publication size. Before delivery, confirm scientific meaning and labels are intact, text and encodings are legible and accessible, and the requested export format and dimensions are met. Fix visible problems (especially wrong structure, overlap/clipping, unreadable text, weak contrast, confusing encodings, and cramped spacing), then render again. Do not claim completion from source code or a QA JSON alone.
+5. Deliver the figure and reproducible source when available, with a brief note of any genuine limitation. Do not emit internal checklists or reports unless requested.
 
-## House visual language
+## Global visual rules — apply on every figure
 
-Apply these defaults unless scientific meaning, an explicit user request, journal requirements, or inspected evidence requires a reasoned exception:
+- Prefer soft segmentation, short evidence-led titles, clear text hierarchy, generous but purposeful whitespace, and restrained legends/annotations.
+- Use low-saturation semantic colors with sparse accents, but keep text and critical marks strongly contrasted. Never place pale text on a pale fill; choose text color against the actual local background.
+- Choose marks and connections that state the real relationship: connect only genuinely paired/ordered data; distinguish observations, estimates, uncertainty, and reference lines; arrows must have clear direction, weight, path, and endpoints.
+- Make every panel and annotation earn its space. Preserve scientific semantics and complete data; never alter values, uncertainty, scales, or labels to make the design look cleaner.
+- When a reference or user preference conflicts with scientific truth, accessibility, or explicit requirements, preserve the higher-priority constraint and explain the visible deviation briefly.
 
-- Use soft segmentation: separate regions with alignment, whitespace, subtle tonal shifts, or thin rules; avoid heavy boxes and dashboard grids.
-- Use short, evidence-led titles with a clear title, label, tick, and annotation hierarchy.
-- Treat margins, gutters, and label clearance as part of the layout. Do not fill open space without a communication reason.
-- Use low-saturation role-based colors with sparse accents. Maintain strong contrast for text and important marks.
-- Keep legends compact; use direct labels when they reduce decoding effort. Annotate only meaningful events, thresholds, uncertainty, or exceptions.
-- Make every panel, arrow, mark, interval, and annotation serve a readable scientific story; preserve correct geometry and avoid collisions, clipping, and decorative noise.
+## Load only what this task needs
 
-## Route-specific behavior
+- Concrete image matching or reference reconstruction: [reference-driven-reconstruction.md](references/reference-driven-reconstruction.md).
+- Choosing a chart for paired, continuous, independent, or operating-point data: [encoding-and-uncertainty.md](references/encoding-and-uncertainty.md).
+- TeX/TikZ/PGFPlots output: [tex-rendering.md](references/tex-rendering.md).
+- Reference intake, benchmark, or champion maintenance: follow [runtime-and-evaluation.md](docs/maintenance/runtime-and-evaluation.md).
 
-- **Create:** establish the scientific contract, choose a suitable figure family and backend, then render and QA.
-- **Revise:** inspect the existing output, diagnose its highest-impact structural problems, then repair and QA only affected parts.
-- **Review:** inspect the supplied figure and run applicable QA without forcing design or render stages.
-- **Export:** run delivery and export checks for the existing artifact.
-- **Reference intake:** analyze and validate supplied reference assets through the reference lifecycle; reference-local code is not run during intake.
-- A supplied reference conditionally adds retrieval, pixel inspection, and comparison stages to create/revise. Failed create/revise QA conditionally inserts the single repair cycle; review/export failures report and block without forcing rendering.
-
-When a concrete reference is supplied, compare layout, visual grammar, palette, typography, and annotation/component choices at final display size. Record what to match, restructure, rewrite, omit, or add before editing source. Cosmetic-only adjustments do not count as a structural repair when layout, encoding, or legend behavior is defective.
-
-For an existing-figure optimization, run `scripts/prepare_visual_optimization.py` and inspect its evidence packet before editing plotting source; run `scripts/check_visual_optimization.py` on the result.
-
-Choose a backend by explicit request, workflow need, saved preference, then the Python default. Mixed backends require a concrete capability reason and one final assembler; never substitute silently.
-
-When the `tex_backend` route selects TeX/TikZ/PGFPlots, read `references/tex-rendering.md`, declare the engine and package versions, inspect compiler output and PDF fonts, check overfull boxes and final page dimensions, and review a PNG rendered at the intended physical size. Missing TeX support blocks that backend; it does not silently switch backends.
-
-## Runtime and maintenance
-
-Use the repository's `piepaper` interpreter from `references/runtime-environment.md`; never use Conda `base` or unrelated system Python. For reference intake, source reconstruction, benchmark, and champion maintenance, use the dedicated commands and validation gates listed in `docs/maintenance/runtime-and-evaluation.md`. Those development/evaluation policies are not part of ordinary figure generation.
+Use the project's `piepaper` interpreter when running its Python scripts; see [runtime-environment.md](references/runtime-environment.md). Do not run reference-local code during intake.

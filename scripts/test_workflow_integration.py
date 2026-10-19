@@ -18,7 +18,7 @@ from reference_library import ReferenceLibrary, _resolve_skill_root
 
 
 class TestSkillMdWorkflowHooks(unittest.TestCase):
-    """Verify the thin entrypoint and manifest-owned runtime contract."""
+    """Verify the direct agent workflow and optional session-runner contract."""
 
     @classmethod
     def setUpClass(cls):
@@ -27,24 +27,25 @@ class TestSkillMdWorkflowHooks(unittest.TestCase):
         cls.skill_md = (root / "SKILL.md").read_text(encoding="utf-8")
         cls.manifest = yaml.safe_load((root / "manifest.yaml").read_text(encoding="utf-8"))
 
-    def test_entrypoint_routes_to_persisted_orchestrator(self):
-        self.assertIn("pfd run <task-spec>", self.skill_md)
-        self.assertIn("RoutePlan", self.skill_md)
-        self.assertIn("PolicyPacket", self.skill_md)
+    def test_entrypoint_does_not_require_the_session_runner_for_drawing(self):
+        self.assertIn("does not draw the figure", self.skill_md)
+        self.assertIn("running it is not a substitute for editing, rendering, or inspecting", self.skill_md)
+        self.assertNotIn("follow the persisted `RoutePlan`", self.skill_md)
 
     def test_scientific_semantics_and_final_qa_are_mandatory(self):
-        self.assertIn("scientific brief", self.skill_md)
-        self.assertIn("A reference controls visual grammar only", self.skill_md)
-        self.assertIn("never copy a reference's scientific content", self.skill_md)
-        self.assertIn("Final QA must cover", self.skill_md)
+        self.assertIn("scientific message", self.skill_md)
+        self.assertIn("A reference controls visual grammar", self.skill_md)
+        self.assertIn("never copy its scientific content", self.skill_md)
+        self.assertIn("inspect the actual output at intended publication size", self.skill_md)
+        self.assertIn("Never place pale text on a pale fill", self.skill_md)
 
     def test_global_visual_language_and_tex_route_remain_available(self):
-        for phrase in ("soft segmentation", "short, evidence-led titles", "low-saturation", "compact"):
+        for phrase in ("soft segmentation", "short evidence-led titles", "low-saturation", "legends/annotations"):
             self.assertIn(phrase, self.skill_md)
-        self.assertIn("references/tex-rendering.md", self.skill_md)
-        self.assertIn("intended physical size", self.skill_md)
+        self.assertIn("tex-rendering.md", self.skill_md)
+        self.assertIn("intended publication size", self.skill_md)
 
-    def test_routes_are_manifest_owned_and_route_specific(self):
+    def test_optional_session_runner_has_manifest_owned_routes(self):
         workflows = self.manifest["workflows"]
         self.assertIn("create", workflows)
         self.assertIn("revise", workflows)
@@ -65,9 +66,9 @@ class TestSkillMdWorkflowHooks(unittest.TestCase):
         for term in ("Recall@1", "blind judge", "focus_ready_family_count", "75 candidates"):
             self.assertNotIn(term, self.skill_md)
 
-    def test_existing_figure_optimization_has_required_evidence_tools(self):
-        self.assertIn("scripts/prepare_visual_optimization.py", self.skill_md)
-        self.assertIn("scripts/check_visual_optimization.py", self.skill_md)
+    def test_figure_workflow_requires_a_rendered_deliverable_not_a_plan(self):
+        self.assertIn("Create the requested figure", self.skill_md)
+        self.assertIn("Do not claim completion from source code or a QA JSON alone", self.skill_md)
 
 
 class TestWorkflowReferenceQueries(unittest.TestCase):

@@ -24,18 +24,24 @@ class SkillArchitectureTests(unittest.TestCase):
     def test_entrypoint_keeps_scientific_semantics_and_final_qa_mandatory(self):
         lowered = self.skill.lower()
         self.assertIn("scientific meaning", lowered)
-        self.assertIn("final qa", lowered)
-        self.assertIn("pfd run", lowered)
+        self.assertIn("inspect the actual output", lowered)
+        self.assertIn("does not draw the figure", lowered)
+        self.assertIn("not a substitute for editing, rendering, or inspecting", lowered)
 
     def test_global_visual_language_remains_mandatory(self):
         lowered = self.skill.lower()
-        for phrase in ("soft segmentation", "whitespace", "low-saturation", "legends"):
+        for phrase in ("soft segmentation", "whitespace", "low-saturation", "legends", "pale text on a pale fill"):
             self.assertIn(phrase, lowered)
 
-    def test_reference_inspection_precedes_design_and_render(self):
-        self.assertLess(self.skill.find("inspect the selected pixels"), self.skill.find("render"))
+    def test_reference_inspection_is_conditional_but_user_references_are_always_inspected(self):
+        self.assertIn("Always inspect a user-supplied reference", self.skill)
+        self.assertIn("retrieve a small, relevant set only when", self.skill)
         self.assertIn("structure", self.skill)
         self.assertIn("style", self.skill)
+
+    def test_normal_drawing_does_not_require_cli_session_or_internal_reports(self):
+        self.assertIn("Create the requested figure, not a paperwork trail", self.skill)
+        self.assertIn("Do not emit internal checklists or reports unless requested", self.skill)
 
     def test_manifest_defines_workflow_stages_without_reading_lists(self):
         self.assertNotIn("always_load", self.manifest)
@@ -55,7 +61,7 @@ class SkillArchitectureTests(unittest.TestCase):
         self.assertIn("evaluation", self.manifest["operations"])
 
     def test_tex_reference_remains_routed_only_for_tex_work(self):
-        self.assertIn("tex_backend", self.skill)
+        self.assertIn("tex/tikz/pgfplots", self.skill.lower())
         self.assertIn("references/tex-rendering.md", self.skill)
         self.assertIn("rules/backend/tex.yaml", self.manifest["route_rulesets"]["tex_backend"])
 

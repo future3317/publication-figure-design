@@ -1,12 +1,13 @@
 # Runtime and Evaluation Maintenance
 
-This document is for repository maintainers. Ordinary figure tasks use the compact
-`SKILL.md` router and persisted `RoutePlan`; they do not need benchmark policy or CI
-thresholds in their working context.
+This document is for repository maintainers and callers of the optional `pfd` session
+runner. Ordinary figure tasks follow `SKILL.md` directly; they do not need TaskSpec,
+RoutePlan, benchmark policy, or CI thresholds in their working context.
 
 ## Runtime contract
 
-`manifest.yaml` is the only source for workflow stage lists and conditional insertions.
+For the optional `pfd run` session runner, `manifest.yaml` is the only source for
+workflow stage lists and conditional insertions.
 The `WorkflowSession` persists its plan, cursor, and applied conditions so a resumed
 task follows the same route, including repeated render/QA stages after a failed gate.
 `RoutePlan` selects the base workflow from `TaskSpec.mode`. A supplied reference adds

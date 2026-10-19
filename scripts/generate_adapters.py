@@ -61,8 +61,8 @@ def _loader_header(host: str) -> str:
     return f"""# Publication Figure Design adapter — {host}
 
 This is a thin loader for `publication-figure-design` manifest version `{version}`.
-The canonical instructions and route contracts live in the bundled skill; this
-file is not a replacement or a second source of design rules.
+The canonical agent workflow lives in `SKILL.md`; `manifest.yaml` also describes
+the optional resumable session runner. This file is not a second source of design rules.
 
 Runtime bundle:
 {files}
@@ -74,7 +74,7 @@ Generated: {_now()}
 def generate_claude_code() -> str:
     return _loader_header("Claude Code") + """
 Install this directory at `~/.claude/skills/publication-figure-design/`.
-Load `SKILL.md` and resolve all relative scripts/resources from that directory.
+Load `SKILL.md`; open only the relative guide, script, or asset needed for the task.
 """
 
 
@@ -91,23 +91,23 @@ runtime:
 """
     instructions = _loader_header("OpenAI Codex") + """
 Load `SKILL.md` as the instruction entrypoint. When a route names a script,
-schema, index, or reference asset, use the bundled relative path; do not
-substitute an adapter-local copy.
+open only the referenced guide or asset needed for the current task. `pfd run`
+is optional session tooling and is not required to draw a figure.
 """
     return manifest, instructions
 
 
 def generate_cursor_rules() -> str:
     return _loader_header("Cursor") + """
-For publication-figure tasks, load and follow the canonical `SKILL.md` and its
-selected manifest route. Do not invent a local mini-version or bypass gates.
+For publication-figure tasks, follow the canonical `SKILL.md`. Read only the
+specialized resources needed for the current task; `pfd run` is optional session tooling.
 """
 
 
 def generate_copilot_instructions() -> str:
     return _loader_header("GitHub Copilot") + """
-For publication-figure tasks, use the canonical `SKILL.md`, manifest route, and
-bundled runtime files. These instructions only provide loading context.
+For publication-figure tasks, follow the canonical `SKILL.md` and open only the
+bundled resources needed for the current task. The CLI session runner is optional.
 """
 
 

@@ -1,92 +1,37 @@
 # Publication Figure Design
 
-A reference-first scientific figure design skill and compiler for research fields and
-publication venues. It connects the scientific task, visual evidence, layout/style
-specifications, rendered output, and layered QA in a resumable workflow.
+A scientific-figure design skill for research fields and publication venues. It helps Codex start from the scientific question and data, choose a truthful visual structure, use relevant visual references, edit or create reproducible source, and inspect the rendered figure.
 
-References provide visual grammar only. They never change source data, statistical
-transforms, uncertainty semantics, variable roles, or scientific conclusions.
+References provide visual language only; they must not change data, statistical transforms, uncertainty, labels, or scientific conclusions.
 
-## Project map
+## Use
 
-- [`SKILL.md`](SKILL.md): compact agent entrypoint.
-- [`manifest.yaml`](manifest.yaml): single source for workflow stages, conditional
-  insertions, rule sources, and adapter runtime bundle.
-- [`src/publication_figure_design/`](src/publication_figure_design/): contracts,
-  reference intelligence, style compilation, layout, renderers, orchestration, and QA.
-- [`rules/`](rules/) and [`sources/registry.yaml`](sources/registry.yaml): machine rules,
-  authority hierarchy, and provenance.
-- [`profiles/`](profiles/) and [`indexes/`](indexes/): journal/domain profiles,
-  StyleCapsules, and retrieval indexes.
-- [`assets/`](assets/): reference corpus, ReferenceDNA, reproduction material, and the
-  anti-pattern atlas.
-- [`evals/`](evals/) and [`scripts/`](scripts/): separate benchmark, maintenance, and
-  release tooling.
+Invoke the `publication-figure-design` Skill in Codex and describe the figure, data/source files, desired deliverables, and any references. For ordinary figure work, the agent directly inspects, edits, renders, and repairs the figure; no TaskSpec or `pfd run` session is required. The CLI manages resumable task sessions and QA metadata; it does not draw figures.
 
-## Workflow
+House style: soft segmentation, short titles, clear text hierarchy, structured whitespace, low-saturation semantic colors, and restrained legends/annotations. Text and critical marks must remain high-contrast. Scientific truth and explicit user requirements take precedence over style preferences.
 
-Every `WorkflowSession` persists its `RoutePlan`, stage cursor, reference selections,
-compiled policy, QA results, and export information. Create/revise run only the stages
-needed for the task. Review and export use shorter paths. References add retrieval,
-pixel inspection, and comparison only when present. Failed create/revise QA inserts
-at most one critique → repair → render → QA cycle. Critique pauses with concrete
-failures until the agent supplies a `DesignPatch` and resumes with `--resume`;
-review/export failures report and block without forcing a render.
+## Repository
 
-```text
-TaskSpec → RoutePlan → PolicyPacket → stage handlers → QA feedback → Export
-```
+- [`SKILL.md`](SKILL.md): concise agent contract.
+- [`references/`](references/): task-specific guides for reconstruction, encoding, uncertainty, and TeX.
+- [`assets/visual-references/`](assets/visual-references/): references, analysis, and reproduction material.
+- [`rules/`](rules/): machine-readable rules for programmatic QA.
+- [`src/publication_figure_design/`](src/publication_figure_design/): contracts, design packets, optional session runner, and QA components.
+- [`scripts/`](scripts/) and [`evals/`](evals/): reference maintenance, tests, evaluation, and release checks.
 
-`manifest.yaml` is the sole source for the execution graph. The runtime compiles the
-applicable global, house, family, route, and journal constraints into a compact
-`PolicyPacket`. Validators enforce hard constraints and provide concrete failures to
-the repair step; agents do not load the full rule YAML corpus for every task.
+## Optional commands
 
-References are selected by roles such as `structure`, `style`, `palette`, `component`,
-and `annotation`. After pixel inspection, evidence is compiled into
-`ReferenceDNA → StyleCapsule + JournalProfile → DesignPacket`. Production defaults to
-one candidate; evaluation may explicitly request structure-first, style-first, and
-balanced candidates.
-
-The house visual language uses soft segmentation, short title hierarchy, structured
-whitespace, low-saturation semantic colors, and restrained legends and annotations.
-Accessibility contrast and scientific meaning remain authoritative.
-
-## TeX backend
-
-TeX/TikZ/PGFPlots is a first-class backend. When selected, read
-[`references/tex-rendering.md`](references/tex-rendering.md), declare the engine and
-package versions, and include compiler logs, font embedding, overfull boxes, page
-dimensions, and a target-size PNG in QA. Missing TeX support blocks the backend instead
-of silently switching renderers.
-
-## Quick start
-
-Use the dedicated `piepaper` environment:
+Use the dedicated `piepaper` environment only when a resumable session or repository-maintenance feature is needed:
 
 ```powershell
-& "D:\Anaconda\envs\piepaper\python.exe" -m pip install -e .
 & "D:\Anaconda\envs\piepaper\python.exe" -m publication_figure_design.cli run <task-spec.json>
+& "D:\Anaconda\envs\piepaper\python.exe" -m publication_figure_design.cli reference ingest <image> <figure-type>
+& "D:\Anaconda\envs\piepaper\python.exe" -m publication_figure_design.cli index build
+& "D:\Anaconda\envs\piepaper\python.exe" scripts/ci_gate.py
 ```
 
-Do not use Conda `base`, bare system Python, or an unrelated environment. Install
-optional dependencies into `piepaper` only when the selected route needs them.
+`pfd run` does not render a figure and cannot replace inspection of the actual PNG/PDF. For TeX/TikZ/PGFPlots, read [`references/tex-rendering.md`](references/tex-rendering.md). Reference-library and evaluation procedures are in [`docs/maintenance/runtime-and-evaluation.md`](docs/maintenance/runtime-and-evaluation.md).
 
-## References and quality gates
+## Maintenance
 
-New references advance through `raw → analyzed → reviewed → benchmarked → production`.
-Production references need metadata, applicable analysis and reproduction material, a
-preview, provenance, and passing canaries. Intake never executes reference-local
-`code.py`.
-
-QA separately records technical/export integrity, scientific correctness, structural
-visual alignment, and perceptual quality. Visual similarity cannot override scientific
-or export failures. Reference-led renderers must consume `TypographySpec`,
-`PaletteSpec`, `LayoutSpec`, and `ComponentSpec`.
-
-CI, visual sprint, holdout, blind judging, champion promotion, and baseline maintenance
-are maintainer workflows documented in
-[`docs/maintenance/runtime-and-evaluation.md`](docs/maintenance/runtime-and-evaluation.md).
-Read [`AGENTS.md`](AGENTS.md) and [`CONTRIBUTING.md`](CONTRIBUTING.md) before making
-repository changes. Keep one current production implementation; do not restore deleted
-runners or add ordinary `v1/v2/final2` copies.
+Environment conventions are in [`references/runtime-environment.md`](references/runtime-environment.md). Never execute reference-local `code.py` during intake. Read [`AGENTS.md`](AGENTS.md) and [`CONTRIBUTING.md`](CONTRIBUTING.md) before changing the repository.
